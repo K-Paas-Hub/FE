@@ -381,3 +381,8 @@ FairWork Team © 2025
 - perf: 성능 최적화
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 49% 완료
+
+## 🔄 Update - 2024-01-02
+- chore: 빌드 설정 업데이트
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 21% 완료
