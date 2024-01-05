@@ -391,3 +391,8 @@ FairWork Team © 2025
 - style: 코드 스타일 개선
 - 파일: src/services/api.ts
 - 프로젝트 진행 상황: 71% 완료
+
+## 🔄 Update - 2024-01-05
+- assets: 이미지 및 리소스 추가
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 11% 완료
