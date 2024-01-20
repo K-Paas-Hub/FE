@@ -436,3 +436,8 @@ FairWork Team © 2025
 - style: 코드 스타일 개선
 - 파일: src/constants/index.ts
 - 프로젝트 진행 상황: 33% 완료
+
+## 🔄 Update - 2024-01-20
+- security: 보안 취약점 수정
+- 파일: src/components/Header/Header.tsx
+- 프로젝트 진행 상황: 8% 완료
