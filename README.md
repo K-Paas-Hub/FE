@@ -441,3 +441,8 @@ FairWork Team © 2025
 - security: 보안 취약점 수정
 - 파일: src/components/Header/Header.tsx
 - 프로젝트 진행 상황: 8% 완료
+
+## 🔄 Update - 2024-01-21
+- security: 보안 취약점 수정
+- 파일: src/constants/index.ts
+- 프로젝트 진행 상황: 96% 완료
