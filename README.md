@@ -461,3 +461,8 @@ FairWork Team © 2025
 - security: 보안 취약점 수정
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 91% 완료
+
+## 🔄 Update - 2024-01-30
+- build: 빌드 스크립트 수정
+- 파일: src/components/index.ts
+- 프로젝트 진행 상황: 79% 완료
