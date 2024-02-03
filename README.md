@@ -471,3 +471,8 @@ FairWork Team © 2025
 - build: 빌드 스크립트 수정
 - 파일: src/App.tsx
 - 프로젝트 진행 상황: 36% 완료
+
+## 🔄 Update - 2024-02-03
+- config: 설정 파일 수정
+- 파일: src/config/index.ts
+- 프로젝트 진행 상황: 50% 완료
