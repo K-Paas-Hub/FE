@@ -516,3 +516,8 @@ FairWork Team © 2025
 - chore: 빌드 설정 업데이트
 - 파일: src/index.tsx
 - 프로젝트 진행 상황: 23% 완료
+
+## 🔄 Update - 2024-02-14
+- design: UI/UX 디자인 개선
+- 파일: src/components/Footer/Footer.tsx
+- 프로젝트 진행 상황: 56% 완료
