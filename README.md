@@ -526,3 +526,8 @@ FairWork Team © 2025
 - feat: 새로운 기능 구현
 - 파일: src/App.tsx
 - 프로젝트 진행 상황: 30% 완료
+
+## 🔄 Update - 2024-02-16
+- fix: 버그 수정
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 1% 완료
