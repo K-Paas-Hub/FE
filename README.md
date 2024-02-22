@@ -546,3 +546,8 @@ FairWork Team © 2025
 - fix: 버그 수정
 - 파일: src/components/Header/Header.tsx
 - 프로젝트 진행 상황: 19% 완료
+
+## 🔄 Update - 2024-02-22
+- deps: 의존성 업데이트
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 28% 완료
