@@ -576,3 +576,8 @@ FairWork Team © 2025
 - perf: 성능 최적화
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 98% 완료
+
+## 🔄 Update - 2024-03-01
+- ci: CI/CD 파이프라인 개선
+- 파일: src/components/Header/Header.tsx
+- 프로젝트 진행 상황: 65% 완료
