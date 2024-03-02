@@ -581,3 +581,8 @@ FairWork Team © 2025
 - ci: CI/CD 파이프라인 개선
 - 파일: src/components/Header/Header.tsx
 - 프로젝트 진행 상황: 65% 완료
+
+## 🔄 Update - 2024-03-02
+- refactor: 코드 리팩토링
+- 파일: src/styles/App.css
+- 프로젝트 진행 상황: 87% 완료
