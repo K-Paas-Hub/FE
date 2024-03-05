@@ -591,3 +591,8 @@ FairWork Team © 2025
 - perf: 성능 최적화
 - 파일: tsconfig.json
 - 프로젝트 진행 상황: 76% 완료
+
+## 🔄 Update - 2024-03-05
+- chore: 빌드 설정 업데이트
+- 파일: src/constants/index.ts
+- 프로젝트 진행 상황: 52% 완료
