@@ -661,3 +661,8 @@ FairWork Team © 2025
 - docs: 문서 업데이트
 - 파일: package.json
 - 프로젝트 진행 상황: 53% 완료
+
+## 🔄 Update - 2024-03-25
+- test: 테스트 코드 추가
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 8% 완료
