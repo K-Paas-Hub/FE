@@ -666,3 +666,8 @@ FairWork Team © 2025
 - test: 테스트 코드 추가
 - 파일: src/services/api.ts
 - 프로젝트 진행 상황: 8% 완료
+
+## 🔄 Update - 2024-03-28
+- refactor: 코드 리팩토링
+- 파일: tsconfig.json
+- 프로젝트 진행 상황: 9% 완료
