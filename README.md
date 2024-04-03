@@ -696,3 +696,8 @@ FairWork Team © 2025
 - test: 테스트 코드 추가
 - 파일: src/components/index.ts
 - 프로젝트 진행 상황: 10% 완료
+
+## 🔄 Update - 2024-04-03
+- config: 설정 파일 수정
+- 파일: src/App.tsx
+- 프로젝트 진행 상황: 49% 완료
