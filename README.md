@@ -701,3 +701,8 @@ FairWork Team © 2025
 - config: 설정 파일 수정
 - 파일: src/App.tsx
 - 프로젝트 진행 상황: 49% 완료
+
+## 🔄 Update - 2024-04-04
+- security: 보안 취약점 수정
+- 파일: src/index.tsx
+- 프로젝트 진행 상황: 95% 완료
