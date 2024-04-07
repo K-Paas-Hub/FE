@@ -706,3 +706,8 @@ FairWork Team © 2025
 - security: 보안 취약점 수정
 - 파일: src/index.tsx
 - 프로젝트 진행 상황: 95% 완료
+
+## 🔄 Update - 2024-04-07
+- security: 보안 취약점 수정
+- 파일: tsconfig.json
+- 프로젝트 진행 상황: 73% 완료
