@@ -716,3 +716,8 @@ FairWork Team © 2025
 - feat: 새로운 기능 구현
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 45% 완료
+
+## 🔄 Update - 2024-04-09
+- design: UI/UX 디자인 개선
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 15% 완료
