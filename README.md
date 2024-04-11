@@ -726,3 +726,8 @@ FairWork Team © 2025
 - design: UI/UX 디자인 개선
 - 파일: tsconfig.json
 - 프로젝트 진행 상황: 69% 완료
+
+## 🔄 Update - 2024-04-11
+- refactor: 코드 리팩토링
+- 파일: README.md
+- 프로젝트 진행 상황: 43% 완료
