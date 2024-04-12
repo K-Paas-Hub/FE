@@ -731,3 +731,8 @@ FairWork Team © 2025
 - refactor: 코드 리팩토링
 - 파일: README.md
 - 프로젝트 진행 상황: 43% 완료
+
+## 🔄 Update - 2024-04-12
+- assets: 이미지 및 리소스 추가
+- 파일: public/index.html
+- 프로젝트 진행 상황: 42% 완료
