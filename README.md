@@ -751,3 +751,8 @@ FairWork Team © 2025
 - refactor: 코드 리팩토링
 - 파일: src/components/Header/Header.tsx
 - 프로젝트 진행 상황: 48% 완료
+
+## 🔄 Update - 2024-04-18
+- security: 보안 취약점 수정
+- 파일: src/styles/App.css
+- 프로젝트 진행 상황: 14% 완료
