@@ -776,3 +776,8 @@ FairWork Team © 2025
 - assets: 이미지 및 리소스 추가
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 41% 완료
+
+## 🔄 Update - 2024-04-23
+- security: 보안 취약점 수정
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 7% 완료
