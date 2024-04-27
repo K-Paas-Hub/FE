@@ -796,3 +796,8 @@ FairWork Team © 2025
 - style: 코드 스타일 개선
 - 파일: tsconfig.json
 - 프로젝트 진행 상황: 23% 완료
+
+## 🔄 Update - 2024-04-27
+- feat: 새로운 기능 구현
+- 파일: src/config/index.ts
+- 프로젝트 진행 상황: 46% 완료
