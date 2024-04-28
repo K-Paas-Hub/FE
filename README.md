@@ -801,3 +801,8 @@ FairWork Team © 2025
 - feat: 새로운 기능 구현
 - 파일: src/config/index.ts
 - 프로젝트 진행 상황: 46% 완료
+
+## 🔄 Update - 2024-04-28
+- feat: 새로운 기능 구현
+- 파일: README.md
+- 프로젝트 진행 상황: 23% 완료
