@@ -816,3 +816,8 @@ FairWork Team © 2025
 - chore: 빌드 설정 업데이트
 - 파일: public/index.html
 - 프로젝트 진행 상황: 36% 완료
+
+## 🔄 Update - 2024-05-01
+- design: UI/UX 디자인 개선
+- 파일: tsconfig.json
+- 프로젝트 진행 상황: 20% 완료
