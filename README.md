@@ -836,3 +836,8 @@ FairWork Team © 2025
 - config: 설정 파일 수정
 - 파일: src/config/index.ts
 - 프로젝트 진행 상황: 94% 완료
+
+## 🔄 Update - 2024-05-06
+- docs: 문서 업데이트
+- 파일: public/index.html
+- 프로젝트 진행 상황: 47% 완료
