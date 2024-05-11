@@ -851,3 +851,8 @@ FairWork Team © 2025
 - style: 코드 스타일 개선
 - 파일: README.md
 - 프로젝트 진행 상황: 13% 완료
+
+## 🔄 Update - 2024-05-11
+- assets: 이미지 및 리소스 추가
+- 파일: src/App.tsx
+- 프로젝트 진행 상황: 36% 완료
