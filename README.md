@@ -896,3 +896,8 @@ FairWork Team © 2025
 - fix: 버그 수정
 - 파일: src/hooks/useScrollSpy.ts
 - 프로젝트 진행 상황: 34% 완료
+
+## 🔄 Update - 2024-05-23
+- assets: 이미지 및 리소스 추가
+- 파일: package.json
+- 프로젝트 진행 상황: 68% 완료
