@@ -921,3 +921,8 @@ FairWork Team © 2025
 - style: 코드 스타일 개선
 - 파일: src/config/index.ts
 - 프로젝트 진행 상황: 93% 완료
+
+## 🔄 Update - 2024-05-29
+- build: 빌드 스크립트 수정
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 14% 완료
