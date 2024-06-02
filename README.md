@@ -936,3 +936,8 @@ FairWork Team © 2025
 - build: 빌드 스크립트 수정
 - 파일: src/styles/App.css
 - 프로젝트 진행 상황: 28% 완료
+
+## 🔄 Update - 2024-06-02
+- style: 코드 스타일 개선
+- 파일: package.json
+- 프로젝트 진행 상황: 10% 완료
