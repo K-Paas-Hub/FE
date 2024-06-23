@@ -1016,3 +1016,8 @@ FairWork Team © 2025
 - deps: 의존성 업데이트
 - 파일: src/config/index.ts
 - 프로젝트 진행 상황: 23% 완료
+
+## 🔄 Update - 2024-06-23
+- security: 보안 취약점 수정
+- 파일: package.json
+- 프로젝트 진행 상황: 8% 완료
