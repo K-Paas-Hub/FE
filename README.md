@@ -1021,3 +1021,8 @@ FairWork Team © 2025
 - security: 보안 취약점 수정
 - 파일: package.json
 - 프로젝트 진행 상황: 8% 완료
+
+## 🔄 Update - 2024-06-24
+- assets: 이미지 및 리소스 추가
+- 파일: tsconfig.json
+- 프로젝트 진행 상황: 82% 완료
