@@ -1101,3 +1101,8 @@ FairWork Team © 2025
 - build: 빌드 스크립트 수정
 - 파일: README.md
 - 프로젝트 진행 상황: 42% 완료
+
+## 🔄 Update - 2024-07-17
+- refactor: 코드 리팩토링
+- 파일: tsconfig.json
+- 프로젝트 진행 상황: 90% 완료
