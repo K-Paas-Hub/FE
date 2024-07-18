@@ -1106,3 +1106,8 @@ FairWork Team © 2025
 - refactor: 코드 리팩토링
 - 파일: tsconfig.json
 - 프로젝트 진행 상황: 90% 완료
+
+## 🔄 Update - 2024-07-18
+- style: 코드 스타일 개선
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 87% 완료
