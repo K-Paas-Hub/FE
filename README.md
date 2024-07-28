@@ -1141,3 +1141,8 @@ FairWork Team © 2025
 - test: 테스트 코드 추가
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 53% 완료
+
+## 🔄 Update - 2024-07-28
+- security: 보안 취약점 수정
+- 파일: src/constants/index.ts
+- 프로젝트 진행 상황: 32% 완료
