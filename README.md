@@ -1151,3 +1151,8 @@ FairWork Team © 2025
 - fix: 버그 수정
 - 파일: package.json
 - 프로젝트 진행 상황: 7% 완료
+
+## 🔄 2025 Update - 2025-01-01
+- design: UI/UX 디자인 개선
+- 파일: src/components/Footer/Footer.tsx
+- 프로젝트 진행 상황: 62% 완료
