@@ -1221,3 +1221,8 @@ FairWork Team © 2025
 - feat: 새로운 기능 구현
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 98% 완료
+
+## 🔄 2025 Update - 2025-01-16
+- design: UI/UX 디자인 개선
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 20% 완료
