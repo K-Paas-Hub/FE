@@ -1251,3 +1251,8 @@ FairWork Team © 2025
 - design: UI/UX 디자인 개선
 - 파일: src/services/api.ts
 - 프로젝트 진행 상황: 86% 완료
+
+## 🔄 2025 Update - 2025-01-22
+- build: 빌드 스크립트 수정
+- 파일: tsconfig.json
+- 프로젝트 진행 상황: 51% 완료
