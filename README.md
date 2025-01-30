@@ -1281,3 +1281,8 @@ FairWork Team © 2025
 - perf: 성능 최적화
 - 파일: src/App.tsx
 - 프로젝트 진행 상황: 20% 완료
+
+## 🔄 2025 Update - 2025-01-30
+- test: 테스트 코드 추가
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 46% 완료
