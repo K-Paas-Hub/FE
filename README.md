@@ -1306,3 +1306,8 @@ FairWork Team © 2025
 - design: UI/UX 디자인 개선
 - 파일: src/index.tsx
 - 프로젝트 진행 상황: 35% 완료
+
+## 🔄 2025 Update - 2025-02-12
+- ci: CI/CD 파이프라인 개선
+- 파일: src/components/Header/Header.tsx
+- 프로젝트 진행 상황: 71% 완료
