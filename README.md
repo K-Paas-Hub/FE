@@ -1321,3 +1321,8 @@ FairWork Team © 2025
 - chore: 빌드 설정 업데이트
 - 파일: src/components/index.ts
 - 프로젝트 진행 상황: 73% 완료
+
+## 🔄 2025 Update - 2025-02-15
+- build: 빌드 스크립트 수정
+- 파일: README.md
+- 프로젝트 진행 상황: 66% 완료
