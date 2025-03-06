@@ -1386,3 +1386,8 @@ FairWork Team © 2025
 - docs: 문서 업데이트
 - 파일: src/services/api.ts
 - 프로젝트 진행 상황: 79% 완료
+
+## 🔄 2025 Update - 2025-03-06
+- chore: 빌드 설정 업데이트
+- 파일: src/utils/index.ts
+- 프로젝트 진행 상황: 76% 완료
