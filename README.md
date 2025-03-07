@@ -1391,3 +1391,8 @@ FairWork Team © 2025
 - chore: 빌드 설정 업데이트
 - 파일: src/utils/index.ts
 - 프로젝트 진행 상황: 76% 완료
+
+## 🔄 2025 Update - 2025-03-07
+- fix: 버그 수정
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 76% 완료
