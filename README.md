@@ -1421,3 +1421,8 @@ FairWork Team © 2025
 - deps: 의존성 업데이트
 - 파일: src/components/index.ts
 - 프로젝트 진행 상황: 38% 완료
+
+## 🔄 2025 Update - 2025-03-18
+- fix: 버그 수정
+- 파일: README.md
+- 프로젝트 진행 상황: 82% 완료
