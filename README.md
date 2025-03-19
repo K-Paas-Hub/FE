@@ -1426,3 +1426,8 @@ FairWork Team © 2025
 - fix: 버그 수정
 - 파일: README.md
 - 프로젝트 진행 상황: 82% 완료
+
+## 🔄 2025 Update - 2025-03-19
+- build: 빌드 스크립트 수정
+- 파일: package.json
+- 프로젝트 진행 상황: 45% 완료
