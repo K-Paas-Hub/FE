@@ -1431,3 +1431,8 @@ FairWork Team © 2025
 - build: 빌드 스크립트 수정
 - 파일: package.json
 - 프로젝트 진행 상황: 45% 완료
+
+## 🔄 2025 Update - 2025-03-20
+- fix: 버그 수정
+- 파일: src/config/index.ts
+- 프로젝트 진행 상황: 42% 완료
