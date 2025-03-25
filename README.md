@@ -1451,3 +1451,8 @@ FairWork Team © 2025
 - refactor: 코드 리팩토링
 - 파일: src/styles/App.css
 - 프로젝트 진행 상황: 13% 완료
+
+## 🔄 2025 Update - 2025-03-25
+- config: 설정 파일 수정
+- 파일: src/config/index.ts
+- 프로젝트 진행 상황: 63% 완료
