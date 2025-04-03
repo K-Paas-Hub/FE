@@ -1486,3 +1486,8 @@ FairWork Team © 2025
 - chore: 빌드 설정 업데이트
 - 파일: src/styles/App.css
 - 프로젝트 진행 상황: 11% 완료
+
+## 🔄 2025 Update - 2025-04-03
+- perf: 성능 최적화
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 84% 완료
