@@ -1496,3 +1496,8 @@ FairWork Team © 2025
 - build: 빌드 스크립트 수정
 - 파일: src/components/Header/Header.tsx
 - 프로젝트 진행 상황: 35% 완료
+
+## 🔄 2025 Update - 2025-04-05
+- test: 테스트 코드 추가
+- 파일: src/components/Header/Header.tsx
+- 프로젝트 진행 상황: 91% 완료
