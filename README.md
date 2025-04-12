@@ -1531,3 +1531,8 @@ FairWork Team © 2025
 - assets: 이미지 및 리소스 추가
 - 파일: README.md
 - 프로젝트 진행 상황: 90% 완료
+
+## 🔄 2025 Update - 2025-04-12
+- design: UI/UX 디자인 개선
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 57% 완료
