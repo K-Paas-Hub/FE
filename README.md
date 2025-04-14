@@ -1541,3 +1541,8 @@ FairWork Team © 2025
 - ci: CI/CD 파이프라인 개선
 - 파일: README.md
 - 프로젝트 진행 상황: 32% 완료
+
+## 🔄 2025 Update - 2025-04-14
+- fix: 버그 수정
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 55% 완료
