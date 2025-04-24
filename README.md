@@ -1581,3 +1581,8 @@ FairWork Team © 2025
 - deps: 의존성 업데이트
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 32% 완료
+
+## 🔄 2025 Update - 2025-04-24
+- test: 테스트 코드 추가
+- 파일: src/components/Footer/Footer.tsx
+- 프로젝트 진행 상황: 86% 완료
