@@ -1601,3 +1601,8 @@ FairWork Team © 2025
 - style: 코드 스타일 개선
 - 파일: public/index.html
 - 프로젝트 진행 상황: 83% 완료
+
+## 🔄 2025 Update - 2025-04-29
+- chore: 빌드 설정 업데이트
+- 파일: src/config/index.ts
+- 프로젝트 진행 상황: 43% 완료
