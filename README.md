@@ -1616,3 +1616,8 @@ FairWork Team © 2025
 - security: 보안 취약점 수정
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 92% 완료
+
+## 🔄 2025 Update - 2025-05-05
+- refactor: 코드 리팩토링
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 12% 완료
