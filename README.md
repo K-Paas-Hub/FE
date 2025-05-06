@@ -1621,3 +1621,8 @@ FairWork Team © 2025
 - refactor: 코드 리팩토링
 - 파일: src/hooks/useScrollSpy.ts
 - 프로젝트 진행 상황: 12% 완료
+
+## 🔄 2025 Update - 2025-05-06
+- fix: 버그 수정
+- 파일: src/styles/App.css
+- 프로젝트 진행 상황: 28% 완료
