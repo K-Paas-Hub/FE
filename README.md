@@ -1676,3 +1676,8 @@ FairWork Team © 2025
 - deps: 의존성 업데이트
 - 파일: src/styles/App.css
 - 프로젝트 진행 상황: 85% 완료
+
+## 🔄 2025 Update - 2025-05-27
+- design: UI/UX 디자인 개선
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 87% 완료
