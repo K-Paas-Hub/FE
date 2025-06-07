@@ -1716,3 +1716,8 @@ FairWork Team © 2025
 - config: 설정 파일 수정
 - 파일: README.md
 - 프로젝트 진행 상황: 18% 완료
+
+## 🔄 2025 Update - 2025-06-07
+- deps: 의존성 업데이트
+- 파일: src/services/api.ts
+- 프로젝트 진행 상황: 15% 완료
