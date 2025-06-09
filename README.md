@@ -1726,3 +1726,8 @@ FairWork Team © 2025
 - docs: 문서 업데이트
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 64% 완료
+
+## 🔄 2025 Update - 2025-06-09
+- config: 설정 파일 수정
+- 파일: src/components/Header/Header.tsx
+- 프로젝트 진행 상황: 6% 완료
