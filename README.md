@@ -1751,3 +1751,8 @@ FairWork Team © 2025
 - design: UI/UX 디자인 개선
 - 파일: src/components/Footer/Footer.tsx
 - 프로젝트 진행 상황: 36% 완료
+
+## 🔄 2025 Update - 2025-06-19
+- fix: 버그 수정
+- 파일: package.json
+- 프로젝트 진행 상황: 87% 완료
