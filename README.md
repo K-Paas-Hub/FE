@@ -1766,3 +1766,8 @@ FairWork Team © 2025
 - design: UI/UX 디자인 개선
 - 파일: src/App.tsx
 - 프로젝트 진행 상황: 33% 완료
+
+## 🔄 2025 Update - 2025-06-22
+- feat: 새로운 기능 구현
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 78% 완료
