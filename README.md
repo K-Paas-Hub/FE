@@ -1801,3 +1801,8 @@ FairWork Team © 2025
 - chore: 빌드 설정 업데이트
 - 파일: src/styles/App.css
 - 프로젝트 진행 상황: 65% 완료
+
+## 🔄 2025 Update - 2025-07-04
+- build: 빌드 스크립트 수정
+- 파일: README.md
+- 프로젝트 진행 상황: 17% 완료
