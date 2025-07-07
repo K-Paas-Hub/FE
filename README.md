@@ -1816,3 +1816,8 @@ FairWork Team © 2025
 - ci: CI/CD 파이프라인 개선
 - 파일: src/styles/App.css
 - 프로젝트 진행 상황: 88% 완료
+
+## 🔄 2025 Update - 2025-07-07
+- docs: 문서 업데이트
+- 파일: src/config/index.ts
+- 프로젝트 진행 상황: 27% 완료
