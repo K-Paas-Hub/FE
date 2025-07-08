@@ -1821,3 +1821,8 @@ FairWork Team © 2025
 - docs: 문서 업데이트
 - 파일: src/config/index.ts
 - 프로젝트 진행 상황: 27% 완료
+
+## 🔄 2025 Update - 2025-07-08
+- refactor: 코드 리팩토링
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 45% 완료
