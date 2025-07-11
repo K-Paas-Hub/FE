@@ -1831,3 +1831,8 @@ FairWork Team © 2025
 - design: UI/UX 디자인 개선
 - 파일: README.md
 - 프로젝트 진행 상황: 74% 완료
+
+## 🔄 2025 Update - 2025-07-11
+- config: 설정 파일 수정
+- 파일: README.md
+- 프로젝트 진행 상황: 47% 완료
