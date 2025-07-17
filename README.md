@@ -1856,3 +1856,8 @@ FairWork Team © 2025
 - fix: 버그 수정
 - 파일: README.md
 - 프로젝트 진행 상황: 62% 완료
+
+## 🔄 2025 Update - 2025-07-17
+- design: UI/UX 디자인 개선
+- 파일: README.md
+- 프로젝트 진행 상황: 34% 완료
