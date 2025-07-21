@@ -1876,3 +1876,8 @@ FairWork Team © 2025
 - assets: 이미지 및 리소스 추가
 - 파일: src/config/index.ts
 - 프로젝트 진행 상황: 46% 완료
+
+## 🔄 2025 Update - 2025-07-21
+- build: 빌드 스크립트 수정
+- 파일: src/hooks/useScrollSpy.ts
+- 프로젝트 진행 상황: 26% 완료
