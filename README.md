@@ -1881,3 +1881,8 @@ FairWork Team © 2025
 - build: 빌드 스크립트 수정
 - 파일: src/hooks/useScrollSpy.ts
 - 프로젝트 진행 상황: 26% 완료
+
+## 🔄 2025 Update - 2025-07-22
+- docs: 문서 업데이트
+- 파일: src/styles/App.css
+- 프로젝트 진행 상황: 49% 완료
