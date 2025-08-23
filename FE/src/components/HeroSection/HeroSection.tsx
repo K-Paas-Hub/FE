@@ -50,9 +50,10 @@ const HeroSubtitle = styled(motion.p)`
 
 const CTAButton = styled(motion.button)`
   background: ${COLORS.primary};
+  margin-top: 2rem;
   color: #1a1a1a;
   border: none;
-  padding: 1rem 2rem;
+  padding: 1rem 2.3rem;
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 8px;

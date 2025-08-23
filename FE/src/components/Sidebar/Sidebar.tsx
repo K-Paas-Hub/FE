@@ -46,9 +46,9 @@ interface SidebarItem {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { id: 'activity', label: 'activity', href: '#activity' },
-  { id: 'project', label: 'project', href: '#project' },
-  { id: 'blog', label: 'blog', href: '#blog' },
+  { id: 'introduce', label: 'introduce', href: '#introduce' },
+  { id: 'result', label: 'result', href: '#result' },
+  { id: 'features', label: 'feautres', href: '#features' },
   { id: 'sponsor', label: 'sponsor', href: '#sponsor' }
 ];
 

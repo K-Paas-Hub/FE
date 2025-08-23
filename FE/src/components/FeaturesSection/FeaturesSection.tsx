@@ -125,7 +125,7 @@ const FeaturesSection: React.FC = () => {
         transition={{ duration: ANIMATIONS.duration.slow }}
         viewport={{ once: true }}
       >
-        우리의 <span className="highlight">특별한 기능</span>
+        Fair Work의 <span className="highlight">특별한 기능</span>
       </SectionTitle>
       <FeaturesGrid>
         {features.map((feature, index) => (
