@@ -40,8 +40,9 @@ const PartnerLogo = styled.div`
   justify-content: center;
   
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: white;
     transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -50,7 +51,7 @@ const LogoImage = styled.img`
   max-height: 80px;
   object-fit: contain;
   filter: brightness(0) invert(1); // 로고를 흰색으로 변환
-  transition: filter 0.3s ease;
+  transition: all 0.3s ease;
   
   ${PartnerLogo}:hover & {
     filter: brightness(1) invert(0); // 호버 시 원래 색상으로
@@ -81,7 +82,7 @@ const PartnersSection: React.FC = () => {
         transition={{ duration: ANIMATIONS.duration.slow }}
         viewport={{ once: true }}
       >
-        신뢰받는 <span className="highlight">후원사</span>
+        함께 성장하는 <span className="highlight">파트너십</span>
       </SectionTitle>
       <PartnersGrid>
         {partners.map((partner, index) => (
