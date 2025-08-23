@@ -2,17 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS, ANIMATIONS } from '../../constants';
+import { useCountUp } from '../../hooks';
 
 const StatsContainer = styled.section`
   background: rgba(74, 222, 128, 0.1);
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const SectionTitle = styled(motion.h2)`
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   
   .highlight {
     color: ${COLORS.primary};
@@ -21,42 +26,62 @@ const SectionTitle = styled(motion.h2)`
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 `;
 
 const StatItem = styled(motion.div)`
   text-align: center;
+  padding: 1.5rem 1rem;
 `;
 
 const StatNumber = styled.div`
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 900;
   color: ${COLORS.primary};
   margin-bottom: 0.5rem;
+  line-height: 1.1;
 `;
 
 const StatLabel = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #cccccc;
   font-weight: 500;
 `;
 
 interface Stat {
-  number: string;
+  number: number;
   label: string;
+  suffix?: string;
 }
 
 const stats: Stat[] = [
-  { number: '10,000+', label: '등록된 기업' },
-  { number: '50,000+', label: '채용 성공' },
-  { number: '95%', label: '만족도' },
-  { number: '24/7', label: '고객 지원' }
+  { number: 10000, label: '등록된 기업', suffix: '+' },
+  { number: 50000, label: '채용 성공', suffix: '+' },
+  { number: 95, label: '만족도', suffix: '%' },
+  { number: 24, label: '고객 지원', suffix: '/7' }
 ];
 
 const StatsSection: React.FC = () => {
+  const count1 = useCountUp(10000, 2500, 0);
+  const count2 = useCountUp(50000, 2500, 500);
+  const count3 = useCountUp(95, 2000, 1000);
+  const count4 = useCountUp(24, 1500, 1500);
+
+  const counts = [count1, count2, count3, count4];
+
   return (
     <StatsContainer id="project">
       <SectionTitle
@@ -65,7 +90,8 @@ const StatsSection: React.FC = () => {
         transition={{ duration: ANIMATIONS.duration.slow }}
         viewport={{ once: true }}
       >
-        우리의 <span className="highlight">성과</span>
+        함께 만들어가는<br />
+        <span className="highlight">성공 스토리</span>
       </SectionTitle>
       <StatsGrid>
         {stats.map((stat, index) => (
@@ -76,7 +102,9 @@ const StatsSection: React.FC = () => {
             transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 * (index + 1) }}
             viewport={{ once: true }}
           >
-            <StatNumber>{stat.number}</StatNumber>
+            <StatNumber>
+              {counts[index].toLocaleString()}{stat.suffix}
+            </StatNumber>
             <StatLabel>{stat.label}</StatLabel>
           </StatItem>
         ))}
