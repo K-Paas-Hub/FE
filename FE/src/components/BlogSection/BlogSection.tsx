@@ -7,6 +7,10 @@ const BlogContainer = styled.section`
   padding: 5rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -17,6 +21,16 @@ const SectionTitle = styled(motion.h2)`
   
   .highlight {
     color: ${COLORS.primary};
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -56,6 +70,14 @@ const BlogCard = styled(motion.article)`
       rgba(0, 0, 0, 0.6) 50%,
       rgba(0, 0, 0, 0.9) 100%
     );
+  }
+  
+  @media (max-width: 768px) {
+    height: 250px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 200px;
   }
 `;
 
@@ -101,6 +123,14 @@ const BlogContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const BlogHeader = styled.div`
@@ -131,6 +161,16 @@ const BlogTitle = styled.h3`
   line-height: 1.3;
   margin-bottom: 0.8rem;
   white-space: pre-line;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const BlogExcerpt = styled.p`
@@ -138,6 +178,16 @@ const BlogExcerpt = styled.p`
   line-height: 1.5;
   margin-bottom: 1rem;
   font-size: 0.95rem;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
 `;
 
 interface BlogPost {

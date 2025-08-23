@@ -13,6 +13,20 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  
+  @media (max-width: 768px) {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    gap: 0.5rem;
+  }
 `;
 
 const SidebarButton = styled(motion.button)<{ $isActive?: boolean }>`
@@ -36,6 +50,22 @@ const SidebarButton = styled(motion.button)<{ $isActive?: boolean }>`
     color: ${props => props.$isActive ? COLORS.primary : '#1a1a1a'};
     transform: translateX(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    border-radius: 20px;
+    min-width: auto;
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.7rem;
   }
 `;
 

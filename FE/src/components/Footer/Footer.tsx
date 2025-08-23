@@ -7,6 +7,10 @@ const FooterContainer = styled.footer`
   padding: 4rem 2rem;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 `;
 
 const SocialIcons = styled.div`
@@ -14,6 +18,16 @@ const SocialIcons = styled.div`
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const SocialIcon = styled.a`
@@ -38,11 +52,39 @@ const SocialIcon = styled.a`
     height: 30px;
     fill: white;
   }
+  
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    width: 45px;
+    height: 45px;
+    
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
 `;
 
 const Copyright = styled.p`
   color: #cccccc;
   font-size: 1.1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 // GitHub 아이콘

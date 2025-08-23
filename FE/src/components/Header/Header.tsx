@@ -15,6 +15,10 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Logo = styled.div`
@@ -25,6 +29,14 @@ const Logo = styled.div`
   }
   span:last-child {
     color: white;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
   }
 `;
 
@@ -40,6 +52,22 @@ const Nav = styled.nav`
     
     &:hover {
       color: ${COLORS.primary};
+    }
+  }
+  
+  @media (max-width: 768px) {
+    gap: 1rem;
+    
+    a {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+    
+    a {
+      font-size: 0.8rem;
     }
   }
 `;
