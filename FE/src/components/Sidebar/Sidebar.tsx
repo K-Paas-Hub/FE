@@ -6,21 +6,21 @@ import { useScrollSpy } from '../../hooks';
 
 const SidebarContainer = styled.div`
   position: fixed;
-  right: 2rem;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 const SidebarButton = styled(motion.button)<{ $isActive?: boolean }>`
-  background: ${props => props.$isActive ? COLORS.primary : 'rgba(255, 255, 255, 0.1)'};
-  color: white;
+  background: ${props => props.$isActive ? COLORS.primary : '#444444'};
+  color: ${props => props.$isActive ? 'white' : '#666666'};
   border: none;
   padding: 1rem 1.5rem;
-  border-radius: 12px;
+  border-radius: 20px 0 0 20px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -28,10 +28,14 @@ const SidebarButton = styled(motion.button)<{ $isActive?: boolean }>`
   white-space: nowrap;
   min-width: 120px;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   
   &:hover {
-    background: ${props => props.$isActive ? COLORS.primaryHover : 'rgba(255, 255, 255, 0.2)'};
+    background: white;
+    color: ${props => props.$isActive ? COLORS.primary : '#1a1a1a'};
     transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -76,8 +80,8 @@ const Sidebar: React.FC = () => {
             duration: ANIMATIONS.duration.normal, 
             delay: index * 0.1 
           }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
           {item.label}
         </SidebarButton>

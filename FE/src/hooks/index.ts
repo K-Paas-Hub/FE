@@ -1,1 +1,1 @@
-export { useScrollSpy } from './useScrollSpy';
+export { useScrollSpy, useCountUp } from './useScrollSpy';

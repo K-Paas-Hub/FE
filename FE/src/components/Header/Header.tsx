@@ -48,8 +48,8 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo>
-        <span>RECRUIT</span>
-        <span>PLATFORM</span>
+        <span>Fair </span>
+        <span>Work</span>
       </Logo>
       <Nav>
         <a href="#about">ABOUT US</a>
