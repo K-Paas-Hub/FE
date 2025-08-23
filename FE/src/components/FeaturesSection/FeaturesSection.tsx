@@ -36,8 +36,9 @@ const FeatureCard = styled(motion.div)`
   transition: all 0.3s ease;
   
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: white;
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -50,7 +51,19 @@ const FeatureIcon = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
-  font-size: 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+  }
+  
+  ${FeatureCard}:hover & {
+    background: ${COLORS.primary};
+  }
 `;
 
 const FeatureTitle = styled.h3`
@@ -58,34 +71,48 @@ const FeatureTitle = styled.h3`
   font-weight: 700;
   margin-bottom: 1rem;
   color: ${COLORS.primary};
+  transition: color 0.3s ease;
+  
+  ${FeatureCard}:hover & {
+    color: ${COLORS.primary};
+  }
 `;
 
 const FeatureDescription = styled.p`
   color: #cccccc;
   line-height: 1.6;
+  transition: color 0.3s ease;
+  
+  ${FeatureCard}:hover & {
+    color: #1a1a1a;
+  }
 `;
 
 interface Feature {
   icon: string;
   title: string;
   description: string;
+  image: string;
 }
 
 const features: Feature[] = [
   {
-    icon: '🎯',
-    title: '정확한 매칭',
-    description: 'AI 기반 알고리즘으로 기업과 인재의 최적 매칭을 제공합니다'
+    icon: '🌍',
+    title: '다국어 지원',
+    description: '다양한 언어로 지원하여 외국인 노동자들이 쉽게 이용할 수 있습니다',
+    image: '/images/earth.png'
   },
   {
-    icon: '⚡',
-    title: '빠른 프로세스',
-    description: '간편한 지원부터 합격까지, 모든 과정을 빠르고 효율적으로'
+    icon: '⚖️',
+    title: '공정한 채용',
+    description: '차별 없는 공정한 채용 프로세스로 모든 노동자의 권리를 보호합니다',
+    image: '/images/fair.png'
   },
   {
-    icon: '🔒',
-    title: '안전한 보안',
-    description: '개인정보 보호와 데이터 보안을 최우선으로 하는 안전한 플랫폼'
+    icon: '🤝',
+    title: '법적 지원',
+    description: '노동법과 비자 관련 법적 지원으로 안전한 근무 환경을 제공합니다',
+    image: '/images/legal.png'
   }
 ];
 
@@ -109,7 +136,9 @@ const FeaturesSection: React.FC = () => {
             transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 * (index + 1) }}
             viewport={{ once: true }}
           >
-            <FeatureIcon>{feature.icon}</FeatureIcon>
+            <FeatureIcon>
+              <img src={feature.image} alt={feature.title} />
+            </FeatureIcon>
             <FeatureTitle>{feature.title}</FeatureTitle>
             <FeatureDescription>{feature.description}</FeatureDescription>
           </FeatureCard>
