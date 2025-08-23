@@ -18,6 +18,12 @@
 .env.test.local
 .env.production.local
 
+# IDE
+.cursor/
+
+# Git hooks
+hooks/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
