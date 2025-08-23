@@ -105,7 +105,7 @@ const BlogContent = styled.div`
 
 const BlogHeader = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 `;
 
@@ -118,12 +118,6 @@ const BlogCategory = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-`;
-
-const BlogDate = styled.div`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-  font-weight: 500;
 `;
 
 const BlogFooter = styled.div`
@@ -148,7 +142,6 @@ const BlogExcerpt = styled.p`
 
 interface BlogPost {
   id: number;
-  date: string;
   title: string;
   excerpt: string;
   image: string;
@@ -158,7 +151,6 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: 1,
-    date: '2024.01.15',
     title: '당신의 권리를 지키는\n첫 번째 걸음',
     excerpt: '한국에서 일할 때 꼭 알아야 할 근로계약서의 핵심 내용과 주의사항을 상세히 안내합니다.',
     image: '/images/employment_contract.png',
@@ -166,7 +158,6 @@ const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
-    date: '2024.01.10',
     title: '꿈을 현실로 만드는\n서류 준비 가이드',
     excerpt: '취업 과정에서 필요한 모든 서류들을 정리하고, 비자 신청부터 취업 허가까지 단계별로 안내합니다.',
     image: '/images/visa.png',
@@ -174,7 +165,6 @@ const blogPosts: BlogPost[] = [
   },
   {
     id: 3,
-    date: '2024.01.05',
     title: 'AI와 함께하는\n스마트 면접 준비',
     excerpt: '최신 AI 기술을 활용한 면접 대비 방법과 LLM 기반 면접 시뮬레이션을 통해 실전 감각을 키워보세요.',
     image: '/images/llm.png',
@@ -182,7 +172,6 @@ const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
-    date: '2024.01.01',
     title: '당신을 기다리는\n최고의 기회들',
     excerpt: '외국인 노동자를 위한 최신 채용공고와 기업 정보를 실시간으로 업데이트하여 제공합니다.',
     image: '/images/employeer.png',
@@ -218,7 +207,6 @@ const BlogSection: React.FC = () => {
             <BlogContent>
               <BlogHeader>
                 <BlogCategory>{post.category}</BlogCategory>
-                <BlogDate>{post.date}</BlogDate>
               </BlogHeader>
               <BlogFooter>
                 <BlogTitle>{post.title}</BlogTitle>
