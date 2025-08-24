@@ -22,7 +22,7 @@
 .cursor/
 
 # Git hooks
-hooks/
+git-hooks/
 
 npm-debug.log*
 yarn-debug.log*
