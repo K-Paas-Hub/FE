@@ -144,8 +144,6 @@ const VisaGrid = styled.div`
   }
 `;
 
-
-
 const VisaCenter: React.FC = () => {
   const navigate = useNavigate();
   const [showBanner, setShowBanner] = useState(true);
@@ -170,16 +168,16 @@ const VisaCenter: React.FC = () => {
 
   return (
     <VisaContainer>
-      <MainHeader />
-      
       {showBanner && (
         <TopBanner>
           <BannerText>
-            📋 비자 신청 전 필수 확인사항을 안내해드립니다
+            Community Open! 💬 한국 취업을 준비하는 모든 외국인을 위한 공간이 생겼어요 →
           </BannerText>
           <BannerClose onClick={() => setShowBanner(false)}>×</BannerClose>
         </TopBanner>
       )}
+      
+      <MainHeader />
       
       <VisaContent>
         <VisaHeader>
