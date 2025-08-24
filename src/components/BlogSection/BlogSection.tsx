@@ -231,7 +231,7 @@ const blogPosts: BlogPost[] = [
 
 const BlogSection: React.FC = () => {
   return (
-    <BlogContainer id="blog">
+    <BlogContainer id="page">
       <SectionTitle
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
