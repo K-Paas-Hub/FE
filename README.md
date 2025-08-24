@@ -4,7 +4,7 @@
 
 K-PaaS 활용 디지털 사회혁신 서비스 개발 공모전 - FairWork 프로젝트
 
-🤼 팀원 소개
+## 🤼 팀원 소개
 
 |PM 최홍석|FE 김미르|BE 임성혁|BE 홍윤기|BE 허완|
 |:---:|:---:|:---:|:---:|:---:|
@@ -13,7 +13,7 @@ K-PaaS 활용 디지털 사회혁신 서비스 개발 공모전 - FairWork 프�
 | - 팀 총괄/PM <br> - 백엔드 개발 <br> - 인프라/클라우드 운영 <br> | - 프론트엔드 개발 <br> - UI/UX 구현 <br> - 반응형 화면 구성 <br> - 클라우드 연동 지원 | - 백엔드 개발 <br> - API 서버 구축 <br> - 실시간 통신(WebSocket) <br> - 클라우드 배포 관리 | - 백엔드 개발 <br> - 데이터베이스 설계 <br> - API 최적화 <br> - 서버 모니터링 | - 백엔드 개발 <br> - CI/CD 파이프라인 구축 <br> - Docker/K8s 환경 세팅 <br> - 서비스 안정화 |
 | <img alt="팀 리더" src="https://img.shields.io/badge/Team%20Leader-yellow"><br /><img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br /> <img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">| <img alt="프론트엔드" src="https://img.shields.io/badge/Frontend-brightgreen"><br /> <img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|<img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br /> <img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|<img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br /><img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|<img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br><img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|
 
-⚙️ 개발 환경 및 기술 스택
+## ⚙️ 개발 환경 및 기술 스택
 
 
 기술 스택
