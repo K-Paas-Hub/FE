@@ -24,9 +24,14 @@ const SidebarContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     background: rgba(0, 0, 0, 0.95);
-    padding: 1rem;
-    gap: 0.8rem;
+    padding: 1rem 0.5rem;
+    gap: 0.6rem;
     backdrop-filter: blur(10px);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.8rem 0.3rem;
+    gap: 0.4rem;
   }
 `;
 
@@ -55,10 +60,13 @@ const SidebarButton = styled(motion.button)<{ $isActive?: boolean }>`
   
   @media (max-width: 768px) {
     border-radius: 20px;
-    min-width: 80px;
+    min-width: 90px;
     min-height: 44px;
-    padding: 0.8rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.8rem 0.6rem;
+    font-size: 0.75rem;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
     
     &:hover {
       transform: translateY(-3px);
@@ -66,10 +74,13 @@ const SidebarButton = styled(motion.button)<{ $isActive?: boolean }>`
   }
   
   @media (max-width: 480px) {
-    min-width: 70px;
+    min-width: 80px;
     min-height: 40px;
-    padding: 0.6rem 0.8rem;
+    padding: 0.6rem 0.4rem;
     font-size: 0.7rem;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.1;
   }
 `;
 
@@ -80,10 +91,10 @@ interface SidebarItem {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { id: 'hero', label: 'introduce', href: '#hero' },
+  { id: 'hero', label: 'intro', href: '#hero' },
   { id: 'activity', label: 'features', href: '#activity' },
   { id: 'project', label: 'result', href: '#project' },
-  { id: 'page', label: 'page', href: '#page' },
+  { id: 'blog', label: 'blog', href: '#blog' },
   { id: 'sponsor', label: 'sponsor', href: '#sponsor' }
 ];
 

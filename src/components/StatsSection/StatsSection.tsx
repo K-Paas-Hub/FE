@@ -41,18 +41,6 @@ const SectionTitle = styled(motion.h2)`
   .highlight {
     color: ${COLORS.primary};
   }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, ${COLORS.primary}, transparent);
-    border-radius: 2px;
-  }
 `;
 
 const StatsGrid = styled.div`
