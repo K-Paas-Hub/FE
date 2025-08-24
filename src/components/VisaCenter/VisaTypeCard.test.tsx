@@ -1,50 +1,27 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import VisaTypeCard from './VisaTypeCard';
 import { VISA_TYPES } from '../../constants/visa';
 
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: 'div',
   },
 }));
 
 // Mock styled-components
-jest.mock('styled-components', () => ({
-  default: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    h3: ({ children, ...props }: any) => <h3 {...props}>{children}</h3>,
-    p: ({ children, ...props }: any) => <p {...props}>{children}</p>,
-    span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
-  },
-}));
-
-// Mock the actual VisaTypeCard component
-const VisaTypeCard = ({ visaType, onClick }: any) => {
-  const getVisaIcon = (visaId: string) => {
-    switch (visaId) {
-      case 'e9': return '🏭';
-      case 'h2': return '👥';
-      case 'd2': return '🎓';
-      case 'e7': return '💼';
-      default: return '📋';
-    }
+jest.mock('styled-components', () => {
+  const styled = (component: any) => (...args: any[]) => component;
+  styled.div = (...args: any[]) => 'div';
+  styled.h3 = (...args: any[]) => 'h3';
+  styled.p = (...args: any[]) => 'p';
+  styled.span = (...args: any[]) => 'span';
+  return {
+    __esModule: true,
+    default: styled,
   };
-
-  return (
-    <div onClick={onClick} data-testid={`visa-card-${visaType.id}`}>
-      <div>{getVisaIcon(visaType.id)}</div>
-      <h3>{visaType.name}</h3>
-      <p>{visaType.fullName}</p>
-      <p>{visaType.description}</p>
-      <div>📄 필요 서류: {visaType.documents.length}개</div>
-      <div>
-        <span>체류기간: {visaType.duration}</span>
-        {visaType.extension && <span>연장 가능</span>}
-      </div>
-    </div>
-  );
-};
+});
 
 describe('VisaTypeCard', () => {
   const mockOnClick = jest.fn();
@@ -91,8 +68,8 @@ describe('VisaTypeCard', () => {
   test('calls onClick when card is clicked', () => {
     render(<VisaTypeCard visaType={mockVisaType} onClick={mockOnClick} />);
 
-    const card = screen.getByTestId('visa-card-e9');
-    fireEvent.click(card);
+    const card = screen.getByText('E-9 비자').closest('div');
+    fireEvent.click(card!);
 
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
