@@ -14,3 +14,4 @@ export { default as PartnersSection } from './PartnersSection';
 
 // Page Components
 export { default as MainPage } from './MainPage';
+export { default as VisaCenter } from './VisaCenter';

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
 import { COLORS } from '../../constants';
 
 const Header = styled.header`
@@ -48,7 +49,7 @@ const Nav = styled.nav`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: #374151;
   text-decoration: none;
   font-weight: 600;
@@ -61,6 +62,11 @@ const NavLink = styled.a`
     background: #ecfdf5;
     color: #059669;
     transform: translateY(-1px);
+  }
+  
+  &.active {
+    background: ${COLORS.primary};
+    color: white;
   }
   
   &::after {
@@ -210,6 +216,7 @@ const AuthButton = styled.button`
 `;
 
 const MainHeader: React.FC = () => {
+  const location = useLocation();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('KO');
 
@@ -264,11 +271,21 @@ const MainHeader: React.FC = () => {
           <LogoImage src="/images/fairwork.png" alt="FairWork" />
         </Logo>
         <Nav>
-          <NavLink href="#jobs">채용 공고</NavLink>
-          <NavLink href="#resume">내 이력서</NavLink>
-          <NavLink href="#qa">Q&A</NavLink>
-          <NavLink href="#visa">비자 센터</NavLink>
-          <NavLink href="#insights">인사이트</NavLink>
+          <NavLink 
+            to="/main" 
+            className={location.pathname === '/main' ? 'active' : ''}
+          >
+            채용 공고
+          </NavLink>
+          <NavLink to="/main#resume">내 이력서</NavLink>
+          <NavLink to="/main#qa">Q&A</NavLink>
+          <NavLink 
+            to="/visa" 
+            className={location.pathname === '/visa' ? 'active' : ''}
+          >
+            비자 센터
+          </NavLink>
+          <NavLink to="/main#insights">인사이트</NavLink>
         </Nav>
         <RightSection>
           <LanguageButton onClick={handleLanguageClick} className="language-dropdown">

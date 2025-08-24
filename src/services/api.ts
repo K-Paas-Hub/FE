@@ -152,3 +152,23 @@ export const companyService = {
   updateCompany: (id: string, companyData: any) =>
     apiClient.put(API_ENDPOINTS.companies + '/' + id, companyData),
 };
+
+export const visaService = {
+  getVisaTypes: () =>
+    apiClient.get(API_ENDPOINTS.visa + '/types'),
+  
+  getVisaType: (type: string) =>
+    apiClient.get(API_ENDPOINTS.visa + '/types/' + type),
+  
+  getVisaDocuments: (type: string) =>
+    apiClient.get(API_ENDPOINTS.visa + '/types/' + type + '/documents'),
+  
+  getVisaFAQ: () =>
+    apiClient.get(API_ENDPOINTS.visa + '/faq'),
+  
+  submitVisaApplication: (data: any) =>
+    apiClient.post(API_ENDPOINTS.visa + '/apply', data),
+  
+  checkVisaStatus: (applicationId: string) =>
+    apiClient.get(API_ENDPOINTS.visa + '/status/' + applicationId),
+};

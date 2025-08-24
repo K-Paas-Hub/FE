@@ -13,8 +13,10 @@ import {
   PartnersSection,
   Footer,
   Sidebar,
-  MainPage
+  MainPage,
+  VisaCenter
 } from './components';
+import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);
@@ -42,6 +44,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/main" element={<MainPage />} />
+        <Route path="/visa" element={<VisaCenter />} />
+        <Route path="/visa/:type" element={<VisaDetailPage />} />
       </Routes>
     </Router>
   );
