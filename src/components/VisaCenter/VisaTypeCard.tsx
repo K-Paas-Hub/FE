@@ -44,30 +44,17 @@ const Card = styled(motion.div)`
   }
 `;
 
-const VisaIcon = styled.div`
+const VisaIcon = styled.img`
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, ${COLORS.primary}, #4ade80);
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
+  object-fit: cover;
+  background: linear-gradient(135deg, ${COLORS.primary}, #4ade80);
+  padding: 8px;
   box-shadow: 0 4px 12px rgba(74, 222, 128, 0.2);
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-    border-radius: 12px;
-  }
 `;
 
 const VisaName = styled.h3`
@@ -141,15 +128,15 @@ interface VisaTypeCardProps {
 const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
   const getVisaIcon = (visaId: string) => {
     switch (visaId) {
-      case 'e9': return '🏭';
-      case 'h2': return '👥';
-      case 'd2': return '🎓';
-      case 'e7': return '💼';
-      case 'e8': return '🔧';
-      case 'e6': return '🎭';
-      case 'c4': return '⏰';
-      case 'f4': return '🌏';
-      default: return '📋';
+      case 'e9': return '/images/visa/conveyor.png';
+      case 'h2': return '/images/visa/labourer.png';
+      case 'd2': return '/images/visa/graduation-hat.png';
+      case 'e7': return '/images/visa/portfolio.png';
+      case 'e8': return '/images/visa/settings.png';
+      case 'e6': return '/images/visa/paint-palette.png';
+      case 'c4': return '/images/visa/alarm-clock.png';
+      case 'f4': return '/images/earth.png';
+      default: return '/images/visa/portfolio.png';
     }
   };
 
@@ -169,9 +156,10 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
       }}
 
     >
-      <VisaIcon>
-        {getVisaIcon(visaType.id)}
-      </VisaIcon>
+      <VisaIcon 
+        src={getVisaIcon(visaType.id)} 
+        alt={`${visaType.name} 아이콘`}
+      />
       
       <VisaName>{visaType.name}</VisaName>
       <VisaFullName>{visaType.fullName}</VisaFullName>
