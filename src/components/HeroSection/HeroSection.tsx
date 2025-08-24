@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS, ANIMATIONS } from '../../constants';
@@ -109,6 +110,12 @@ const CTAButton = styled(motion.button)`
 `;
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleCTAClick = () => {
+    navigate('/main');
+  };
+
   return (
     <HeroContainer id="hero">
       <BackgroundText>RECRUIT</BackgroundText>
@@ -134,6 +141,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: ANIMATIONS.duration.slow, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={handleCTAClick}
         >
           채용 사이트 바로가기 →
         </CTAButton>

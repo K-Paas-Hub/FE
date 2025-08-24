@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import './styles/App.css';
 
@@ -11,7 +12,8 @@ import {
   BlogSection,
   PartnersSection,
   Footer,
-  Sidebar
+  Sidebar,
+  MainPage
 } from './components';
 
 const AppContainer = styled.div`
@@ -21,18 +23,27 @@ const AppContainer = styled.div`
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 `;
 
+const LandingPage = () => (
+  <AppContainer>
+    <Header />
+    <Sidebar />
+    <HeroSection />
+    <FeaturesSection />
+    <StatsSection />
+    <BlogSection />
+    <PartnersSection />
+    <Footer />
+  </AppContainer>
+);
+
 function App() {
   return (
-    <AppContainer>
-      <Header />
-      <Sidebar />
-      <HeroSection />
-      <FeaturesSection />
-      <StatsSection />
-      <BlogSection />
-      <PartnersSection />
-      <Footer />
-    </AppContainer>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/main" element={<MainPage />} />
+      </Routes>
+    </Router>
   );
 }
 
