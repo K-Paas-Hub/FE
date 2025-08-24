@@ -49,25 +49,35 @@ const Nav = styled.nav`
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     
     &:hover {
       color: ${COLORS.primary};
+      background: rgba(255, 255, 255, 0.1);
     }
   }
   
   @media (max-width: 768px) {
-    gap: 1rem;
+    gap: 0.8rem;
     
     a {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      min-height: 40px;
     }
   }
   
   @media (max-width: 480px) {
-    gap: 0.5rem;
+    gap: 0.4rem;
     
     a {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      min-height: 36px;
     }
   }
 `;
