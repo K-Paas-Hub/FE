@@ -6,11 +6,28 @@ import { useCountUp } from '../../hooks';
 
 const StatsContainer = styled.section`
   background: rgba(74, 222, 128, 0.1);
+  background-image: url('/images/foregin_worker.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  position: relative;
   padding: 6rem 2rem;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.7);
+    z-index: 1;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -18,9 +35,23 @@ const SectionTitle = styled(motion.h2)`
   font-weight: 800;
   text-align: center;
   margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
   
   .highlight {
     color: ${COLORS.primary};
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, ${COLORS.primary}, transparent);
+    border-radius: 2px;
   }
 `;
 
@@ -30,6 +61,8 @@ const StatsGrid = styled.div`
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
   
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
