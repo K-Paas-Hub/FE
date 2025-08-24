@@ -116,7 +116,7 @@ const CompanyButton = styled.button`
   }
 `;
 
-const LanguageButton = styled.button`
+const LanguageButton = styled.div`
   background: none;
   border: 1px solid #e5e5e5;
   padding: 0.5rem 1rem;
