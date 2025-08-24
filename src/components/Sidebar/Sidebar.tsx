@@ -12,7 +12,7 @@ const SidebarContainer = styled.div`
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.2rem;
   
   @media (max-width: 768px) {
     position: fixed;
@@ -76,23 +76,27 @@ interface SidebarItem {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { id: 'introduce', label: 'introduce', href: '#introduce' },
-  { id: 'result', label: 'result', href: '#result' },
-  { id: 'features', label: 'feautres', href: '#features' },
+  { id: 'hero', label: 'introduce', href: '#hero' },
+  { id: 'activity', label: 'features', href: '#activity' },
+  { id: 'project', label: 'result', href: '#project' },
+  { id: 'page', label: 'page', href: '#page' },
   { id: 'sponsor', label: 'sponsor', href: '#sponsor' }
 ];
 
 const Sidebar: React.FC = () => {
   const sectionIds = sidebarItems.map(item => item.id);
-  const activeSection = useScrollSpy(sectionIds, 100); // 헤더 높이만큼 오프셋
+  const activeSection = useScrollSpy(sectionIds, 160); // 헤더 높이 + 여유 공간
 
   const handleButtonClick = (itemId: string, href: string) => {
     // 스크롤 애니메이션
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      const headerHeight = 80; // 헤더 높이 추정값
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
       });
     }
   };

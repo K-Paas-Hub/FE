@@ -16,18 +16,27 @@ export const useScrollSpy = (sectionIds: string[], offset: number = 0) => {
         return;
       }
 
-      for (const sectionId of sectionIds) {
+      // 각 섹션의 위치를 확인하여 현재 활성 섹션 찾기
+      let currentSection = '';
+      
+      for (let i = 0; i < sectionIds.length; i++) {
+        const sectionId = sectionIds[i];
         const element = document.getElementById(sectionId);
+        
         if (element) {
           const { offsetTop, offsetHeight } = element;
           const sectionBottom = offsetTop + offsetHeight;
           
           // 현재 스크롤 위치가 섹션 내부에 있는지 확인
           if (scrollPosition >= offsetTop - 200 && scrollPosition < sectionBottom - 100) {
-            setActiveSection(sectionId);
+            currentSection = sectionId;
             break;
           }
         }
+      }
+      
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
       }
     };
 
