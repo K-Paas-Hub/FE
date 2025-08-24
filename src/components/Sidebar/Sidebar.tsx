@@ -94,7 +94,7 @@ const sidebarItems: SidebarItem[] = [
   { id: 'hero', label: 'intro', href: '#hero' },
   { id: 'activity', label: 'features', href: '#activity' },
   { id: 'project', label: 'result', href: '#project' },
-  { id: 'blog', label: 'blog', href: '#blog' },
+  { id: 'page', label: 'page', href: '#page' },
   { id: 'sponsor', label: 'sponsor', href: '#sponsor' }
 ];
 
