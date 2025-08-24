@@ -68,7 +68,7 @@ const CTAButton = styled(motion.button)`
 
 const HeroSection: React.FC = () => {
   return (
-    <HeroContainer>
+    <HeroContainer id="hero">
       <BackgroundText>RECRUIT</BackgroundText>
       <HeroContent>
         <HeroTitle
