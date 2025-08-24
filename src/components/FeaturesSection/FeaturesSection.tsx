@@ -36,7 +36,7 @@ const Section = styled.section`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 800;
   text-align: center;
   margin-bottom: 5rem;
