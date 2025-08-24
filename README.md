@@ -4,6 +4,109 @@
 
 K-PaaS 활용 디지털 사회혁신 서비스 개발 공모전 - FairWork 프로젝트
 
+🤼 팀원 소개
+
+|PM 최홍석|FE 김미르|BE 임성혁|BE 홍윤기|BE 허완|
+|:---:|:---:|:---:|:---:|:---:|
+|<img alt="홍석 프로필" src="https://avatars.githubusercontent.com/u/129854575?v=4" width="200" height="200">|<img width="200" height="200" alt="미르 프로필" src="https://avatars.githubusercontent.com/u/67996276?v=4">|<img width="200" height="200" alt="성혁 프로필" src="https://avatars.githubusercontent.com/u/76648806?v=4">|<img width="200" height="200" alt="윤기 프로필" src="https://avatars.githubusercontent.com/u/81303136?v=4">|<img width="200" height="200" alt="완 프로필" src="https://avatars.githubusercontent.com/u/69331491?v=4">|
+|[🔗GitHub](https://github.com/ChatHongPT)|[🔗GitHub](https://github.com/kimmireu0220)|[🔗GitHub](https://github.com/highcastle01)|[🔗GitHub](https://github.com/yunkihong-dev)|[🔗GitHub](https://github.com/hodu26)|
+| - 팀 총괄/PM <br> - 백엔드 개발 <br> - 인프라/클라우드 운영 <br> | - 프론트엔드 개발 <br> - UI/UX 구현 <br> - 반응형 화면 구성 <br> - 클라우드 연동 지원 | - 백엔드 개발 <br> - API 서버 구축 <br> - 실시간 통신(WebSocket) <br> - 클라우드 배포 관리 | - 백엔드 개발 <br> - 데이터베이스 설계 <br> - API 최적화 <br> - 서버 모니터링 | - 백엔드 개발 <br> - CI/CD 파이프라인 구축 <br> - Docker/K8s 환경 세팅 <br> - 서비스 안정화 |
+| <img alt="팀 리더" src="https://img.shields.io/badge/Team%20Leader-yellow"><br /><img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br /> <img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">| <img alt="프론트엔드" src="https://img.shields.io/badge/Frontend-brightgreen"><br /> <img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|<img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br /> <img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|<img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br /><img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|<img alt="백엔드" src="https://img.shields.io/badge/Backend-blue"><br><img alt="클라우드" src="https://img.shields.io/badge/Cloud%20Engineer-brightorange">|
+
+⚙️ 개발 환경 및 기술 스택
+
+
+기술 스택
+
+<table>
+<tr>
+ <td align="center">Frontend</td>
+ <td>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"/>&nbsp 
+  <img src="https://img.shields.io/badge/Axios-white?style=for-the-badge&logo=Axios&logoColor=black"/>&nbsp 
+ </td>
+</tr>
+  
+<tr>
+  <td align="center">Backend</td>
+  <td>
+    <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Spring_data_jpa-6DB33F?style=for-the-badge&logo=SpringSecurity&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Spring_cloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Spring_cloud_Gateway-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Spring_webflux-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/>&nbsp 
+  </td>
+</tr>
+
+<tr>
+  <td align="center">Cloud</td>
+  <td>
+    <img src="https://img.shields.io/badge/docker-257bd6?style=for-the-badge&logo=docker&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white"/>&nbsp 
+    <img alt="NHN Cloud" src="https://img.shields.io/badge/NHN%20Cloud-0052CC?style=for-the-badge&logo=redis&logoColor=white"">&nbsp 
+  </td>
+</tr>
+
+<tr>
+  <td align="center">DataBase</td>
+  <td>
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/-MongoDB-13aa52?style=for-the-badge&logo=mongodb&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>&nbsp 
+  </td>
+</tr>
+
+<tr>
+  <td align="center">Storage</td>
+  <td>
+    <img alt="NHN Object Storage" src="https://img.shields.io/badge/NHN%20Cloud%20Object%20Stroage-0052CC?style=for-the-badge&logo=redis&logoColor=white"">
+&nbsp 
+  </td>
+</tr>
+
+<tr>
+  <td align="center">Monitoring</td>
+  <td>
+    <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=Grafana&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Elastic-005571?style=for-the-badge&logo=Elastic&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Logstash-005571?style=for-the-badge&logo=Logstash&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Kibana-E8478B?style=for-the-badge&logo=Kibana&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white"/>&nbsp 
+
+  </td>
+</tr>
+
+<tr>
+  <td align="center">CI/CD</td>
+  <td>
+    <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=Jenkins&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/GitLab-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white"/>&nbsp
+  </td>
+</tr>
+  
+<tr>
+ <td align="center">Cooperation</td>
+ <td>
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>&nbsp
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>&nbsp 
+    <img src="https://img.shields.io/badge/Notion-5a5d69?style=for-the-badge&logo=Notion&logoColor=white"/>&nbsp
+    <img src="https://img.shields.io/badge/Discord-4263f5?style=for-the-badge&logo=Discord&logoColor=white"/>&nbsp 
+ </td>
+</tr>
+
+<tr>
+ <td align="center">IDE</td>
+ <td>
+    <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white"/>&nbsp
+    <img src="https://img.shields.io/badge/Intellij%20Idea-000?logo=intellij-idea&style=for-the-badge"/>
+</tr>
+
+</table>
+
+
+
 ## 📋 문서 정보
 
 | 항목 | 내용 |
@@ -94,15 +197,6 @@ FE/
 - [🚀 구현 계획](./docs/04_Implementation_Plan.md) - 개발 단계별 계획
 - [💻 개발 가이드라인](./.cursor/rules/fe-development-guidelines.mdc) - 코드 작성 규칙
 
-## 👥 팀원
-
-| 역할 | 이름 | GitHub |
-|------|------|--------|
-| PM | 최홍석 | [@SMJ426](https://github.com/SMJ426) |
-| FE | 김미르 | [@kimmireu0220](https://github.com/kimmireu0220) |
-| BE | 임성혁 | [@highcastle01](https://github.com/highcastle01) |
-| BE | 홍윤기 | [@yunkihong-dev](https://github.com/yunkihong-dev) |
-| BE | 허완 | [@hodu26](https://github.com/hodu26) |
 
 ## 🚀 개발 시작하기
 
