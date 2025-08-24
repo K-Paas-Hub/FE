@@ -13,6 +13,9 @@ const Card = styled(motion.div)`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   
   &::before {
     content: '';
@@ -91,6 +94,7 @@ const VisaDescription = styled.p`
   margin-bottom: 1.5rem;
   position: relative;
   z-index: 1;
+  flex: 1;
 `;
 
 const VisaDetails = styled.div`
@@ -108,14 +112,14 @@ const Duration = styled.span`
   color: #6b7280;
 `;
 
-const ExtensionBadge = styled.span`
-  background: ${COLORS.primary};
+const ExtensionBadge = styled.span<{ $extension: boolean }>`
+  background: ${props => props.$extension ? COLORS.primary : '#ef4444'};
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.2);
+  box-shadow: 0 2px 4px ${props => props.$extension ? 'rgba(74, 222, 128, 0.2)' : 'rgba(239, 68, 68, 0.2)'};
 `;
 
 const DocumentCount = styled.div`
@@ -141,6 +145,10 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
       case 'h2': return '👥';
       case 'd2': return '🎓';
       case 'e7': return '💼';
+      case 'e8': return '🔧';
+      case 'e6': return '🎭';
+      case 'c4': return '⏰';
+      case 'f4': return '🌏';
       default: return '📋';
     }
   };
@@ -175,9 +183,9 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
       
       <VisaDetails>
         <Duration>체류기간: {visaType.duration}</Duration>
-        {visaType.extension && (
-          <ExtensionBadge>연장 가능</ExtensionBadge>
-        )}
+        <ExtensionBadge $extension={visaType.extension}>
+          {visaType.extension ? '연장 가능' : '연장 불가'}
+        </ExtensionBadge>
       </VisaDetails>
     </Card>
   );

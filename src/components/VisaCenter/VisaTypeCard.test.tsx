@@ -89,6 +89,18 @@ describe('VisaTypeCard', () => {
 
     rerender(<VisaTypeCard visaType={VISA_TYPES.E7} onClick={mockOnClick} />);
     expect(screen.getByText('💼')).toBeInTheDocument();
+
+    rerender(<VisaTypeCard visaType={VISA_TYPES.E8} onClick={mockOnClick} />);
+    expect(screen.getByText('🔧')).toBeInTheDocument();
+
+    rerender(<VisaTypeCard visaType={VISA_TYPES.E6} onClick={mockOnClick} />);
+    expect(screen.getByText('🎭')).toBeInTheDocument();
+
+    rerender(<VisaTypeCard visaType={VISA_TYPES.C4} onClick={mockOnClick} />);
+    expect(screen.getByText('⏰')).toBeInTheDocument();
+
+    rerender(<VisaTypeCard visaType={VISA_TYPES.F4} onClick={mockOnClick} />);
+    expect(screen.getByText('🌏')).toBeInTheDocument();
   });
 
   test('displays default icon for unknown visa type', () => {
@@ -113,6 +125,16 @@ describe('VisaTypeCard', () => {
     expect(screen.getByText(/필요 서류: 0개/)).toBeInTheDocument();
   });
 
+  test('C4 visa does not show extension badge', () => {
+    render(<VisaTypeCard visaType={VISA_TYPES.C4} onClick={mockOnClick} />);
+    expect(screen.queryByText('연장 가능')).not.toBeInTheDocument();
+  });
+
+  test('E8 visa shows correct document count', () => {
+    render(<VisaTypeCard visaType={VISA_TYPES.E8} onClick={mockOnClick} />);
+    expect(screen.getByText(/필요 서류: 9개/)).toBeInTheDocument();
+  });
+
   // ✅ 접근성 테스트 추가
   describe('Accessibility', () => {
     test('has proper ARIA attributes', () => {
@@ -130,7 +152,7 @@ describe('VisaTypeCard', () => {
       expect(card).toHaveAttribute('tabIndex', '0');
       
       card.focus();
-      expect(document.activeElement).toBe(card);
+      expect(card).toHaveFocus();
     });
 
     test('supports mouse click interaction', () => {
