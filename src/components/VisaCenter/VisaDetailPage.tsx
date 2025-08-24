@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -178,7 +178,7 @@ const StepDescription = styled.p`
 const VisaDetailPage: React.FC = () => {
   const { type } = useParams<{ type: string }>();
   const navigate = useNavigate();
-  const [selectedTab, setSelectedTab] = useState<'documents' | 'steps'>('documents');
+
 
   // URL 파라미터를 대문자로 변환하여 VISA_TYPES 키와 매칭
   const visaTypeKey = type?.toUpperCase() as keyof typeof VISA_TYPES;

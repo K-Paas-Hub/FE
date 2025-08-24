@@ -97,24 +97,7 @@ const RightSection = styled.div`
   gap: 1rem;
 `;
 
-const CompanyButton = styled.button`
-  background: linear-gradient(135deg, #059669, #10b981);
-  color: white;
-  border: none;
-  padding: 0.7rem 1.2rem;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
-  
-  &:hover {
-    background: linear-gradient(135deg, #047857, #059669);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-  }
-`;
+
 
 const LanguageButton = styled.div`
   background: none;
@@ -136,10 +119,7 @@ const LanguageButton = styled.div`
   }
 `;
 
-const WorldIcon = styled.img`
-  width: 16px;
-  height: 16px;
-`;
+
 
 const FlagIcon = styled.img`
   width: 20px;

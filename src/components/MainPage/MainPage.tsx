@@ -667,36 +667,7 @@ const HeartButton = styled.button`
   }
 `;
 
-const FloatingButton = styled.button`
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 56px;
-  height: 56px;
-  background: ${COLORS.primary};
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    background: #4ade80;
-    transform: scale(1.1);
-  }
-  
-  @media (max-width: 768px) {
-    bottom: 1rem;
-    right: 1rem;
-    width: 48px;
-    height: 48px;
-  }
-`;
+
 
 const ChatButton = styled.button`
   position: fixed;
@@ -1087,18 +1058,7 @@ const MainPage: React.FC = () => {
     }
   };
 
-  const getFilterTitle = () => {
-    switch (activeFilter) {
-      case 'region':
-        return '지역';
-      case 'type':
-        return '고용 형태';
-      case 'category':
-        return '직종';
-      default:
-        return '';
-    }
-  };
+
 
   const handleSortClick = () => {
     setIsSortOpen(!isSortOpen);

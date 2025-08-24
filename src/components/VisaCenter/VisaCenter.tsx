@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { ANIMATIONS } from '../../constants';
 import { VISA_TYPES } from '../../constants/visa';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';

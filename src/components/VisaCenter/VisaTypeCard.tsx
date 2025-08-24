@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { COLORS } from '../../constants';
 import { VisaType } from '../../types/visa';
 
 const Card = styled(motion.div)`
@@ -150,6 +150,16 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
       onClick={onClick}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      role="button"
+      tabIndex={0}
+      aria-label={`${visaType.name} 정보 보기`}
+      onKeyPress={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+
     >
       <VisaIcon>
         {getVisaIcon(visaType.id)}

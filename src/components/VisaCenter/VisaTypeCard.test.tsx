@@ -68,8 +68,8 @@ describe('VisaTypeCard', () => {
   test('calls onClick when card is clicked', () => {
     render(<VisaTypeCard visaType={mockVisaType} onClick={mockOnClick} />);
 
-    const card = screen.getByText('E-9 비자').closest('div');
-    fireEvent.click(card!);
+    const card = screen.getByRole('button', { name: /E-9 비자 정보 보기/i });
+    fireEvent.click(card);
 
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });

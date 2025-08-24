@@ -44,7 +44,7 @@ export const useScrollSpy = (sectionIds: string[], offset: number = 0) => {
     handleScroll(); // 초기 상태 설정
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sectionIds, offset]);
+  }, [sectionIds, offset, activeSection]);
 
   return activeSection;
 };
