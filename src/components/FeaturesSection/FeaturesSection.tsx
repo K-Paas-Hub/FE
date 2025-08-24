@@ -27,7 +27,11 @@ const Section = styled.section`
   }
   
   @media (max-width: 768px) {
-    padding: 6rem 2rem;
+    padding: 4rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
   }
 `;
 
@@ -60,8 +64,13 @@ const SectionTitle = styled(motion.h2)`
   }
   
   @media (max-width: 768px) {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -73,7 +82,11 @@ const FeaturesGrid = styled.div`
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
   }
 `;
 
@@ -132,6 +145,24 @@ const FeatureCard = styled(motion.div)`
       opacity: 1;
     }
   }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    
+    &:hover {
+      transform: translateY(-8px) scale(1.01);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    
+    &:hover {
+      transform: translateY(-5px) scale(1.005);
+    }
+  }
 `;
 
 const FeatureIcon = styled.div`
@@ -178,6 +209,28 @@ const FeatureIcon = styled.div`
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     }
   }
+  
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.2rem;
+    
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+    
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
 `;
 
 const FeatureTitle = styled.h3`
@@ -193,6 +246,16 @@ const FeatureTitle = styled.h3`
     color: ${COLORS.primary};
     transform: scale(1.05);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const FeatureDescription = styled.p`
@@ -206,6 +269,16 @@ const FeatureDescription = styled.p`
   ${FeatureCard}:hover & {
     color: #1a1a1a;
     transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 `;
 
