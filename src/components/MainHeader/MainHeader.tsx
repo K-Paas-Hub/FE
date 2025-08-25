@@ -8,15 +8,10 @@ import { useLanguage } from '../../contexts/LanguageContext';
 const Header = styled.header`
   background: white;
   border-bottom: 1px solid #e5e5e5;
-  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
 `;
 
 const HeaderContent = styled.div`
@@ -25,12 +20,24 @@ const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    order: 1;
+    justify-content: center;
+  }
 `;
 
 const LogoImage = styled.img`
@@ -41,13 +48,29 @@ const LogoImage = styled.img`
   }
 `;
 
+const NavWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  
+  @media (max-width: 768px) {
+    padding: 0;
+    flex: none;
+    order: 2;
+  }
+`;
+
 const Nav = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
   
   @media (max-width: 768px) {
-    gap: 1rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
@@ -176,6 +199,13 @@ const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: auto;
+  
+  @media (max-width: 768px) {
+    order: 3;
+    margin-left: 0;
+    justify-content: center;
+  }
 `;
 
 const LanguageButton = styled.div`
@@ -202,6 +232,10 @@ const LanguageButton = styled.div`
   @media (max-width: 768px) {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
+    
+    span {
+      display: inline;
+    }
   }
 `;
 
@@ -280,8 +314,8 @@ const AuthButton = styled.button`
   }
   
   @media (max-width: 768px) {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -360,67 +394,69 @@ const MainHeader: React.FC = () => {
         <Logo>
           <LogoImage src="/images/fairwork.png" alt="FairWork" />
         </Logo>
-        <Nav>
-          <NavLink 
-            to="/main" 
-            className={location.pathname === '/main' ? 'active' : ''}
-          >
-            {t('header.jobPostings')}
-          </NavLink>
-          
-          {/* 이력서 드롭다운 메뉴 */}
-          <DropdownContainer
-            onMouseEnter={handleResumeDropdownMouseEnter}
-            onMouseLeave={handleResumeDropdownMouseLeave}
-          >
-            <DropdownTrigger 
-              $isOpen={isResumeDropdownOpen}
-              className={isResumePage() ? 'active' : ''}
+        <NavWrapper>
+          <Nav>
+            <NavLink 
+              to="/main" 
+              className={location.pathname === '/main' ? 'active' : ''}
             >
-              {t('header.myResume')}
-            </DropdownTrigger>
-            <DropdownMenu $isOpen={isResumeDropdownOpen}>
-              <DropdownItem to="/resume">
-                {t('header.resumeWriting')}
-              </DropdownItem>
-              <DropdownItem to="/spell-check">
-                {t('header.spellCheck')}
-              </DropdownItem>
-            </DropdownMenu>
-          </DropdownContainer>
-          
-          <NavLink 
-            to="/visa" 
-            className={location.pathname === '/visa' ? 'active' : ''}
-          >
-            {t('header.visaCenter')}
-          </NavLink>
-          
-          {/* 근로계약서 드롭다운 메뉴 */}
-          <DropdownContainer
-            onMouseEnter={handleContractDropdownMouseEnter}
-            onMouseLeave={handleContractDropdownMouseLeave}
-          >
-            <DropdownTrigger 
-              $isOpen={isContractDropdownOpen}
-              className={isContractPage() ? 'active' : ''}
+              {t('header.jobPostings')}
+            </NavLink>
+            
+            {/* 이력서 드롭다운 메뉴 */}
+            <DropdownContainer
+              onMouseEnter={handleResumeDropdownMouseEnter}
+              onMouseLeave={handleResumeDropdownMouseLeave}
             >
-              {t('header.employmentContract')}
-            </DropdownTrigger>
-            <DropdownMenu $isOpen={isContractDropdownOpen}>
-              <DropdownItem to="/contract-tutorial">
-                {t('header.writingGuide')}
-              </DropdownItem>
-              <DropdownItem to="/contract-analysis">
-                {t('header.contractAnalysis')}
-              </DropdownItem>
-            </DropdownMenu>
-          </DropdownContainer>
-        </Nav>
+              <DropdownTrigger 
+                $isOpen={isResumeDropdownOpen}
+                className={isResumePage() ? 'active' : ''}
+              >
+                {t('header.myResume')}
+              </DropdownTrigger>
+              <DropdownMenu $isOpen={isResumeDropdownOpen}>
+                <DropdownItem to="/resume">
+                  {t('header.resumeWriting')}
+                </DropdownItem>
+                <DropdownItem to="/spell-check">
+                  {t('header.spellCheck')}
+                </DropdownItem>
+              </DropdownMenu>
+            </DropdownContainer>
+            
+            <NavLink 
+              to="/visa" 
+              className={location.pathname === '/visa' ? 'active' : ''}
+            >
+              {t('header.visaCenter')}
+            </NavLink>
+            
+            {/* 근로계약서 드롭다운 메뉴 */}
+            <DropdownContainer
+              onMouseEnter={handleContractDropdownMouseEnter}
+              onMouseLeave={handleContractDropdownMouseLeave}
+            >
+              <DropdownTrigger 
+                $isOpen={isContractDropdownOpen}
+                className={isContractPage() ? 'active' : ''}
+              >
+                {t('header.employmentContract')}
+              </DropdownTrigger>
+              <DropdownMenu $isOpen={isContractDropdownOpen}>
+                <DropdownItem to="/contract-tutorial">
+                  {t('header.writingGuide')}
+                </DropdownItem>
+                <DropdownItem to="/contract-analysis">
+                  {t('header.contractAnalysis')}
+                </DropdownItem>
+              </DropdownMenu>
+            </DropdownContainer>
+          </Nav>
+        </NavWrapper>
         <RightSection>
           <LanguageButton onClick={handleLanguageClick} className="language-dropdown">
             <FlagIcon src={getCurrentLanguage().flag} alt={getCurrentLanguageName()} />
-            {getCurrentLanguageName()}
+            <span>{getCurrentLanguageName()}</span>
             <LanguageDropdown $isOpen={isLanguageOpen}>
               {languages.map((language) => (
                 <LanguageOption 
