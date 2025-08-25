@@ -181,7 +181,8 @@ const TextSection: React.FC<TextSectionProps> = ({
           <TextItem key={section.key}>
             <SectionInfo>
               <TextLabel>{section.label}</TextLabel>
-              {hasContent && (
+              {/* 자기소개서 관련 항목에만 단어 수 표시 */}
+              {hasContent && !isPersonalInfo && (
                 <WordCount>{wordCount}단어</WordCount>
               )}
             </SectionInfo>
