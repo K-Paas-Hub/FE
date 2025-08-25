@@ -15,7 +15,6 @@ interface SpellCheckState {
   lastChecked: Date | null;
   sectionResults: Record<string, SpellCheckResult | undefined>;
   sectionLoading: Record<string, boolean>;
-  isAdvancedMode: boolean; // 네이버 맞춤법 검사 모드
 }
 
 export const useSpellCheck = () => {
@@ -25,8 +24,7 @@ export const useSpellCheck = () => {
     result: null,
     lastChecked: null,
     sectionResults: {},
-    sectionLoading: {},
-    isAdvancedMode: false
+    sectionLoading: {}
   });
 
   // 기본 맞춤법 검사 (기존 로직 + 네이버)
@@ -63,48 +61,7 @@ export const useSpellCheck = () => {
     }
   }, []);
 
-  // 네이버 맞춤법 검사 (고급 검사)
-  const checkTextWithNaver = useCallback(async (text: string, section: keyof ResumeFormData) => {
-    try {
-      setState(prev => ({
-        ...prev,
-        error: null,
-        sectionLoading: { ...prev.sectionLoading, [section]: true }
-      }));
 
-      const response = await spellCheckService.checkWithNaver(text, section);
-      
-      if (response.success && response.data) {
-        // 네이버 검사 결과에 섹션 정보 추가
-        const resultWithSection: SpellCheckResult = {
-          ...response.data,
-          errors: response.data.errors.map(error => ({
-            ...error,
-            section
-          }))
-        };
-
-        setState(prev => ({
-          ...prev,
-          sectionResults: {
-            ...prev.sectionResults,
-            [section]: resultWithSection
-          },
-          sectionLoading: { ...prev.sectionLoading, [section]: false }
-        }));
-        return resultWithSection;
-      } else {
-        throw new Error(response.error || '네이버 맞춤법 검사에 실패했습니다.');
-      }
-    } catch (error) {
-      setState(prev => ({
-        ...prev,
-        error: error instanceof Error ? error.message : '네이버 맞춤법 검사 중 오류가 발생했습니다.',
-        sectionLoading: { ...prev.sectionLoading, [section]: false }
-      }));
-      return null;
-    }
-  }, []);
 
   // 전체 이력서 검사
   const checkResume = useCallback(async (resumeData: ResumeFormData) => {
@@ -138,22 +95,10 @@ export const useSpellCheck = () => {
     }
   }, []);
 
-  // 특정 섹션 검사 (모드에 따라 선택)
+  // 특정 섹션 검사 (네이버 맞춤법 검사만 사용)
   const checkSection = useCallback(async (section: keyof ResumeFormData, text: string) => {
-    if (state.isAdvancedMode) {
-      return checkTextWithNaver(text, section);
-    } else {
-      return checkText(text, section);
-    }
-  }, [state.isAdvancedMode, checkText, checkTextWithNaver]);
-
-  // 고급 모드 토글
-  const toggleAdvancedMode = useCallback(() => {
-    setState(prev => ({
-      ...prev,
-      isAdvancedMode: !prev.isAdvancedMode
-    }));
-  }, []);
+    return checkText(text, section);
+  }, [checkText]);
 
   // 결과 초기화
   const clearResult = useCallback(() => {
@@ -205,14 +150,11 @@ export const useSpellCheck = () => {
     lastChecked: state.lastChecked,
     sectionResults: state.sectionResults,
     sectionLoading: state.sectionLoading,
-    isAdvancedMode: state.isAdvancedMode,
     
     // 함수
     checkText,
-    checkTextWithNaver,
     checkResume,
     checkSection,
-    toggleAdvancedMode,
     clearResult,
     clearError,
     applyCorrection,

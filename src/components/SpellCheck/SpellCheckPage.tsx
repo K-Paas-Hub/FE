@@ -84,52 +84,7 @@ const SectionIcon = styled.span`
   font-size: 1.2rem;
 `;
 
-const ModeToggle = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
 
-const ToggleButton = styled(motion.button)<{ isActive: boolean }>`
-  padding: 0.75rem 1.5rem;
-  border: 2px solid ${props => props.isActive ? COLORS.primary : '#e5e7eb'};
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: ${props => props.isActive ? COLORS.primary : 'white'};
-  color: ${props => props.isActive ? 'white' : '#374151'};
-  min-height: 44px;
-  min-width: 44px;
-  
-  &:hover {
-    background: ${props => props.isActive ? COLORS.primaryHover : '#f9fafb'};
-    border-color: ${props => props.isActive ? COLORS.primaryHover : COLORS.primary};
-  }
-  
-  @media (max-width: 768px) {
-    width: 100%;
-    max-width: 200px;
-  }
-`;
-
-const ModeDescription = styled.p`
-  color: #6b7280;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-top: 1rem;
-  line-height: 1.5;
-`;
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -280,10 +235,8 @@ const SpellCheckPage: React.FC = () => {
     result,
     sectionResults,
     sectionLoading,
-    isAdvancedMode,
     checkResume,
     checkSection,
-    toggleAdvancedMode,
     clearResult,
     clearError,
     hasResumeData,
@@ -364,38 +317,7 @@ const SpellCheckPage: React.FC = () => {
           </NoDataMessage>
         ) : (
           <>
-            <SpellCheckSection>
-              <SectionTitle>
-                <SectionIcon>🔧</SectionIcon>
-                검사 모드 설정
-              </SectionTitle>
-              
-              <ModeToggle>
-                <ToggleButton
-                  isActive={!isAdvancedMode}
-                  onClick={toggleAdvancedMode}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  기본 검사
-                </ToggleButton>
-                <ToggleButton
-                  isActive={isAdvancedMode}
-                  onClick={toggleAdvancedMode}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  네이버 맞춤법 검사
-                </ToggleButton>
-              </ModeToggle>
-              
-              <ModeDescription>
-                {isAdvancedMode 
-                  ? "네이버 맞춤법 검사기를 사용하여 더 정확한 검사를 진행합니다."
-                  : "기본 형식 검사와 네이버 맞춤법 검사를 함께 진행합니다."
-                }
-              </ModeDescription>
-            </SpellCheckSection>
+
 
             <SpellCheckSection>
               <SectionTitle>

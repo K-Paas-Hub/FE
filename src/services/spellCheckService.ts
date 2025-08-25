@@ -131,17 +131,10 @@ const performBasicSpellCheck = async (
   return errors;
 };
 
-// 통합 맞춤법 검사 함수 (기본 + 네이버)
-const performIntegratedSpellCheck = async (
+// 네이버 맞춤법 검사 함수 (네이버만 사용)
+const performNaverSpellCheck = async (
   text: string,
-  section: keyof ResumeFormData,
-  config: SpellCheckConfig = {
-    checkSpelling: true,
-    checkGrammar: true,
-    checkPunctuation: true,
-    language: 'ko',
-    severity: 'medium'
-  }
+  section: keyof ResumeFormData
 ): Promise<SpellCheckError[]> => {
   const errors: SpellCheckError[] = [];
   
@@ -150,11 +143,7 @@ const performIntegratedSpellCheck = async (
   }
 
   try {
-    // 1. 기본 형식 검사 (빠른 검사)
-    const basicErrors = await performBasicSpellCheck(text, section, config);
-    errors.push(...basicErrors);
-
-    // 2. 네이버 맞춤법 검사 (실제 맞춤법 검사)
+    // 네이버 맞춤법 검사만 사용
     const naverResult = await naverSpellCheckService.checkText(text, section);
     
     if (naverResult.success && naverResult.data) {
@@ -169,8 +158,7 @@ const performIntegratedSpellCheck = async (
     }
 
   } catch (error) {
-    console.error('통합 맞춤법 검사 오류:', error);
-    // 네이버 검사 실패 시 기본 검사 결과만 반환
+    console.error('네이버 맞춤법 검사 오류:', error);
   }
 
   return errors;
@@ -180,7 +168,7 @@ const performIntegratedSpellCheck = async (
 export const spellCheckService = {
   checkText: async (request: SpellCheckRequest): Promise<ApiResponse<SpellCheckResult>> => {
     try {
-      const errors = await performIntegratedSpellCheck(request.text, request.section);
+      const errors = await performNaverSpellCheck(request.text, request.section);
       const wordCount = request.text.split(/\s+/).filter(word => word.length > 0).length;
       
       const result: SpellCheckResult = {
@@ -224,7 +212,7 @@ export const spellCheckService = {
       for (const section of sectionsToCheck) {
         const text = resumeData[section] || '';
         if (text.trim()) {
-          const errors = await performIntegratedSpellCheck(text, section);
+          const errors = await performNaverSpellCheck(text, section);
           const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
           
           sections.push({
@@ -264,8 +252,5 @@ export const spellCheckService = {
     return spellCheckService.checkText({ text, section });
   },
 
-  // 네이버 맞춤법 검사기만 사용 (고급 검사)
-  checkWithNaver: async (text: string, section: keyof ResumeFormData): Promise<ApiResponse<SpellCheckResult>> => {
-    return naverSpellCheckService.checkText(text, section);
-  }
+
 };
