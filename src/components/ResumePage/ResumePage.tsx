@@ -794,9 +794,6 @@ const ResumePage: React.FC = () => {
         </ResumeSection>
 
         <ButtonGroup>
-          <SecondaryButton type="button" onClick={handleSave} disabled={loading}>
-            임시 저장
-          </SecondaryButton>
           <PreviewButton 
             type="button" 
             onClick={handleOpenPreview}
@@ -805,9 +802,9 @@ const ResumePage: React.FC = () => {
           >
             👁️ 미리보기
           </PreviewButton>
-          <PrimaryButton type="submit" onClick={handleSubmit} disabled={loading}>
-            이력서 제출
-          </PrimaryButton>
+          <SecondaryButton type="button" onClick={handleSave} disabled={loading}>
+            임시 저장
+          </SecondaryButton>
         </ButtonGroup>
       </ResumeContent>
       
