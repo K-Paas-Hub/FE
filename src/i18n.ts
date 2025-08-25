@@ -6,6 +6,11 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import ko from './locales/ko.json';
 import en from './locales/en.json';
 import vi from './locales/vi.json';
+import km from './locales/km.json';
+import ne from './locales/ne.json';
+import id from './locales/id.json';
+import zh from './locales/zh.json';
+import th from './locales/th.json';
 
 const resources = {
   ko: {
@@ -16,6 +21,21 @@ const resources = {
   },
   vi: {
     translation: vi
+  },
+  km: {
+    translation: km
+  },
+  ne: {
+    translation: ne
+  },
+  id: {
+    translation: id
+  },
+  zh: {
+    translation: zh
+  },
+  th: {
+    translation: th
   }
 };
 

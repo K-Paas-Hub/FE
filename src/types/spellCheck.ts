@@ -43,7 +43,7 @@ export interface SpellCheckOptions {
   checkGrammar: boolean;
   checkPunctuation: boolean;
   checkSpacing: boolean;
-  language: 'ko' | 'en' | 'auto';
+  language: 'ko' | 'en' | 'vi' | 'km' | 'ne' | 'id' | 'zh' | 'th' | 'auto';
   severity: 'low' | 'medium' | 'high';
   includeSuggestions: boolean;
 }
@@ -73,7 +73,7 @@ export interface SpellCheckConfig {
   checkGrammar: boolean;
   checkPunctuation: boolean;
   checkSpacing: boolean;
-  language: 'ko' | 'en' | 'auto';
+  language: 'ko' | 'en' | 'vi' | 'km' | 'ne' | 'id' | 'zh' | 'th' | 'auto';
   severity: 'low' | 'medium' | 'high';
   includeSuggestions: boolean;
 }

@@ -32,7 +32,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const languages = [
     { code: 'ko', name: '한국어', flag: '/images/flags/south-korea.png' },
     { code: 'en', name: 'English', flag: '/images/flags/usa.png' },
-    { code: 'vi', name: 'Tiếng Việt', flag: '/images/flags/vietnam.png' }
+    { code: 'vi', name: 'Tiếng Việt', flag: '/images/flags/vietnam.png' },
+    { code: 'km', name: 'ភាសាខ្មែរ', flag: '/images/flags/cambodia.png' },
+    { code: 'ne', name: 'नेपाली', flag: '/images/flags/nepal.png' },
+    { code: 'id', name: 'Bahasa Indonesia', flag: '/images/flags/indonesia.png' },
+    { code: 'zh', name: '中文', flag: '/images/flags/china.png' },
+    { code: 'th', name: 'ไทย', flag: '/images/flags/thailand.png' }
   ];
 
   const changeLanguage = (language: string) => {
