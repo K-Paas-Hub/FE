@@ -172,3 +172,120 @@ export const visaService = {
   checkVisaStatus: (applicationId: string) =>
     apiClient.get(API_ENDPOINTS.visa + '/status/' + applicationId),
 };
+
+// 이력서 서비스 추가
+export const resumeService = {
+  saveResume: async (data: any): Promise<ApiResponse<any>> => {
+    try {
+      const serialized = JSON.stringify(data);
+      if (serialized.length > 5 * 1024 * 1024) { // 5MB 제한
+        return {
+          success: false,
+          error: '데이터가 너무 큽니다. 일부 내용을 줄여주세요.'
+        };
+      }
+      
+      localStorage.setItem('resume_draft', serialized);
+      return {
+        success: true,
+        data: { 
+          id: 'draft_' + Date.now(), 
+          ...data,
+          status: 'draft',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        },
+        message: '이력서가 임시저장되었습니다.'
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: '저장에 실패했습니다.'
+      };
+    }
+  },
+
+  submitResume: async (data: any): Promise<ApiResponse<any>> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          success: true,
+          data: { 
+            id: 'resume_' + Date.now(), 
+            ...data, 
+            status: 'submitted',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          message: '이력서가 성공적으로 제출되었습니다!'
+        });
+      }, 1000);
+    });
+  },
+
+  getResume: async (id: string): Promise<ApiResponse<any>> => {
+    try {
+      const saved = localStorage.getItem('resume_draft');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          success: true,
+          data: parsed
+        };
+      } else {
+        return {
+          success: false,
+          error: '저장된 이력서가 없습니다.'
+        };
+      }
+    } catch (error) {
+      return {
+        success: false,
+        error: '이력서를 불러오는데 실패했습니다.'
+      };
+    }
+  },
+
+  uploadFile: async (file: File, onProgress?: (progress: number) => void): Promise<ApiResponse<any>> => {
+    return new Promise((resolve) => {
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        progress += Math.random() * 20;
+        if (progress >= 90) {
+          clearInterval(progressInterval);
+          progress = 90;
+        }
+        onProgress?.(progress);
+      }, 200);
+
+      setTimeout(() => {
+        clearInterval(progressInterval);
+        onProgress?.(100);
+        
+        const objectUrl = URL.createObjectURL(file);
+        resolve({
+          success: true,
+          data: {
+            id: 'file_' + Date.now(),
+            name: file.name,
+            size: file.size,
+            url: objectUrl,
+            type: file.type
+          },
+          message: '파일이 업로드되었습니다.'
+        });
+      }, 1500);
+    });
+  },
+
+  deleteFile: async (fileId: string): Promise<ApiResponse<void>> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          success: true,
+          message: '파일이 삭제되었습니다.'
+        });
+      }, 500);
+    });
+  }
+};

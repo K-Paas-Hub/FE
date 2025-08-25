@@ -40,4 +40,20 @@ export const API_ENDPOINTS = {
   jobs: '/jobs',
   companies: '/companies',
   visa: '/visa',
+  resume: '/resume', // 추가
+} as const;
+
+// 이력서 관련 상수
+export const RESUME_CONSTANTS = {
+  maxFileSize: 10 * 1024 * 1024, // 10MB
+  allowedFileTypes: ['pdf', 'doc', 'docx'],
+  autoSaveInterval: 30000, // 30초
+  maxLocalStorageSize: 5 * 1024 * 1024, // 5MB
+} as const;
+
+// 파일 업로드 관련 상수
+export const FILE_CONSTANTS = {
+  maxSize: 10 * 1024 * 1024, // 10MB
+  allowedTypes: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+  extensions: ['.pdf', '.doc', '.docx'],
 } as const;

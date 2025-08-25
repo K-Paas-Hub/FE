@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import { useResumeForm } from '../../hooks/useResumeForm';
+import { useAutoSave } from '../../hooks/useAutoSave';
+import { ResumeFormData } from '../../types/resume';
 
 const ResumeContainer = styled.div`
   min-height: 100vh;
@@ -97,22 +100,22 @@ const FormLabel = styled.label`
   font-size: 1rem;
 `;
 
-const FormInput = styled.input`
+const FormInput = styled.input<{ $hasError?: boolean }>`
   padding: 0.8rem 1rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid ${props => props.$hasError ? '#ef4444' : '#e5e7eb'};
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
   
   &:focus {
     outline: none;
-    border-color: ${COLORS.primary};
+    border-color: ${props => props.$hasError ? '#ef4444' : COLORS.primary};
   }
 `;
 
-const FormTextarea = styled.textarea`
+const FormTextarea = styled.textarea<{ $hasError?: boolean }>`
   padding: 0.8rem 1rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid ${props => props.$hasError ? '#ef4444' : '#e5e7eb'};
   border-radius: 8px;
   font-size: 1rem;
   min-height: 120px;
@@ -122,13 +125,13 @@ const FormTextarea = styled.textarea`
   
   &:focus {
     outline: none;
-    border-color: ${COLORS.primary};
+    border-color: ${props => props.$hasError ? '#ef4444' : COLORS.primary};
   }
 `;
 
-const FormSelect = styled.select`
+const FormSelect = styled.select<{ $hasError?: boolean }>`
   padding: 0.8rem 1rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid ${props => props.$hasError ? '#ef4444' : '#e5e7eb'};
   border-radius: 8px;
   font-size: 1rem;
   background: white;
@@ -137,7 +140,7 @@ const FormSelect = styled.select`
   
   &:focus {
     outline: none;
-    border-color: ${COLORS.primary};
+    border-color: ${props => props.$hasError ? '#ef4444' : COLORS.primary};
   }
 `;
 
@@ -207,17 +210,124 @@ const PreviewContent = styled.div`
   color: #374151;
 `;
 
-const FileUpload = styled.div`
-  border: 2px dashed #d1d5db;
-  border-radius: 8px;
+const LoadingSpinner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
+  
+  &::after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid ${COLORS.primary};
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+
+const ErrorMessage = styled.div`
+  background: #fef2f2;
+  border: 1px solid #ef4444;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+`;
+
+const FieldError = styled.div`
+  color: #dc2626;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  
+  &::before {
+    content: '⚠';
+    font-size: 0.9rem;
+  }
+`;
+
+const SuccessMessage = styled.div`
+  background: #f0fdf4;
+  border: 1px solid #10b981;
+  color: #059669;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+`;
+
+const FileUpload = styled.div<{ $dragActive: boolean }>`
+  border: 3px dashed ${props => props.$dragActive ? COLORS.primary : '#d1d5db'};
+  border-radius: 12px;
+  padding: 3rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  background: ${props => props.$dragActive ? '#f0fdf4' : '#f9fafb'};
   
   &:hover {
     border-color: ${COLORS.primary};
     background: #f0fdf4;
+  }
+`;
+
+const UploadProgress = styled.div`
+  margin-top: 1rem;
+`;
+
+const ProgressBar = styled.div`
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+`;
+
+const ProgressFill = styled.div<{ $progress: number }>`
+  height: 100%;
+  background: ${COLORS.primary};
+  width: ${props => props.$progress}%;
+  transition: width 0.3s ease;
+`;
+
+const FileList = styled.div`
+  margin-top: 1rem;
+`;
+
+const FileItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e5e7eb;
+`;
+
+const DeleteButton = styled.button`
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #dc2626;
   }
 `;
 
@@ -232,36 +342,107 @@ const UploadSubtext = styled.p`
 `;
 
 const ResumePage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    nationality: '',
-    visaType: '',
-    education: '',
-    experience: '',
-    skills: '',
-    languages: '',
-    introduction: ''
-  });
+  const {
+    formData,
+    setFormData,
+    loading,
+    error,
+    files,
+    uploadProgress,
+    validationErrors,
+    handleInputChange,
+    saveResume,
+    saveResumeWithValidation,
+    submitResume,
+    uploadFile,
+    deleteFile
+  } = useResumeForm();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const [dragActive, setDragActive] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // 자동 저장 활성화
+  useAutoSave(formData, async () => {
+    const result = await saveResume();
+    if (result.success) {
+      console.log('자동 저장 완료');
+    }
+  }, true);
+
+  // 드래그 앤 드롭 핸들러
+  const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
-    console.log('이력서 제출:', formData);
-    alert('이력서가 성공적으로 제출되었습니다!');
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
   };
 
-  const handleSave = () => {
-    console.log('이력서 저장:', formData);
-    alert('이력서가 저장되었습니다!');
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFileUpload(e.dataTransfer.files[0]);
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      handleFileUpload(e.target.files[0]);
+      e.target.value = ''; // input 초기화
+    }
+  };
+
+  const handleFileUpload = async (file: File) => {
+    const result = await uploadFile(file);
+    if (result.success) {
+      setSuccessMessage('파일이 업로드되었습니다.');
+      setTimeout(() => setSuccessMessage(null), 3000);
+    } else {
+      setSuccessMessage(result.error || '파일 업로드에 실패했습니다.');
+      setTimeout(() => setSuccessMessage(null), 3000);
+    }
+  };
+
+  const handleSave = async () => {
+    const result = await saveResumeWithValidation();
+    if (result.success) {
+      setSuccessMessage(result.message || '저장되었습니다.');
+      setTimeout(() => setSuccessMessage(null), 3000);
+    }
+  };
+
+  const handleSubmit = async () => {
+    const result = await submitResume();
+    if (result.success) {
+      setSuccessMessage(result.message || '제출되었습니다.');
+      setTimeout(() => setSuccessMessage(null), 3000);
+      // 제출 후 폼 초기화 (파일은 유지)
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        nationality: '',
+        visaType: '',
+        education: '',
+        experience: '',
+        skills: '',
+        languages: '',
+        introduction: ''
+      });
+    }
+  };
+
+  const handleFileDelete = async (fileId: string) => {
+    const result = await deleteFile(fileId);
+    if (result.success) {
+      setSuccessMessage(result.message || '파일이 삭제되었습니다.');
+      setTimeout(() => setSuccessMessage(null), 3000);
+    }
   };
 
   return (
@@ -275,6 +456,9 @@ const ResumePage: React.FC = () => {
             한국 취업을 위한 이력서를 작성하고 관리하세요
           </ResumeSubtitle>
         </ResumeHeader>
+
+        {loading && <LoadingSpinner />}
+        {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
 
         <ResumeSection>
           <SectionTitle>
@@ -291,7 +475,9 @@ const ResumePage: React.FC = () => {
                 onChange={handleInputChange}
                 placeholder="홍길동"
                 required
+                $hasError={!!validationErrors.name}
               />
+              {validationErrors.name && <FieldError>{validationErrors.name}</FieldError>}
             </FormGroup>
 
             <FormGroup>
@@ -303,7 +489,9 @@ const ResumePage: React.FC = () => {
                 onChange={handleInputChange}
                 placeholder="example@email.com"
                 required
+                $hasError={!!validationErrors.email}
               />
+              {validationErrors.email && <FieldError>{validationErrors.email}</FieldError>}
             </FormGroup>
 
             <FormGroup>
@@ -315,7 +503,9 @@ const ResumePage: React.FC = () => {
                 onChange={handleInputChange}
                 placeholder="010-1234-5678"
                 required
+                $hasError={!!validationErrors.phone}
               />
+              {validationErrors.phone && <FieldError>{validationErrors.phone}</FieldError>}
             </FormGroup>
 
             <FormGroup>
@@ -325,6 +515,7 @@ const ResumePage: React.FC = () => {
                 value={formData.nationality}
                 onChange={handleInputChange}
                 required
+                $hasError={!!validationErrors.nationality}
               >
                 <option value="">국적을 선택하세요</option>
                 <option value="vietnam">베트남</option>
@@ -336,6 +527,7 @@ const ResumePage: React.FC = () => {
                 <option value="mongolia">몽골</option>
                 <option value="other">기타</option>
               </FormSelect>
+              {validationErrors.nationality && <FieldError>{validationErrors.nationality}</FieldError>}
             </FormGroup>
 
             <FormGroup>
@@ -345,6 +537,7 @@ const ResumePage: React.FC = () => {
                 value={formData.visaType}
                 onChange={handleInputChange}
                 required
+                $hasError={!!validationErrors.visaType}
               >
                 <option value="">비자 유형을 선택하세요</option>
                 <option value="e9">E-9 (제조업)</option>
@@ -356,6 +549,7 @@ const ResumePage: React.FC = () => {
                 <option value="c4">C-4 (단기취업)</option>
                 <option value="f4">F-4 (재외동포)</option>
               </FormSelect>
+              {validationErrors.visaType && <FieldError>{validationErrors.visaType}</FieldError>}
             </FormGroup>
           </ResumeForm>
         </ResumeSection>
@@ -430,17 +624,68 @@ const ResumePage: React.FC = () => {
             <SectionIcon>📎</SectionIcon>
             첨부 파일
           </SectionTitle>
-          <FileUpload>
-            <UploadText>이력서 파일을 업로드하세요</UploadText>
-            <UploadSubtext>PDF, DOC, DOCX 파일 (최대 10MB)</UploadSubtext>
+          
+          <FileUpload
+            $dragActive={dragActive}
+            onDragEnter={handleDrag}
+            onDragLeave={handleDrag}
+            onDragOver={handleDrag}
+            onDrop={handleDrop}
+            onClick={() => document.getElementById('file-upload')?.click()}
+          >
+            <input
+              type="file"
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileSelect}
+              style={{ display: 'none' }}
+              id="file-upload"
+            />
+            <div>
+              <UploadText>파일을 드래그하거나 클릭하여 업로드</UploadText>
+              <UploadSubtext>PDF, DOC, DOCX 파일 (최대 10MB)</UploadSubtext>
+            </div>
           </FileUpload>
+
+          {/* 업로드 진행률 표시 */}
+          {Object.keys(uploadProgress).length > 0 && (
+            <UploadProgress>
+              {Object.entries(uploadProgress).map(([fileName, progress]) => (
+                <div key={fileName}>
+                  <div>{fileName} - {progress}%</div>
+                  <ProgressBar>
+                    <ProgressFill $progress={progress} />
+                  </ProgressBar>
+                </div>
+              ))}
+            </UploadProgress>
+          )}
+
+          {/* 파일 목록 */}
+          {files.length > 0 && (
+            <FileList>
+              {files.map(file => (
+                <FileItem key={file.id}>
+                  <div>
+                    <div style={{ fontWeight: '600', marginBottom: '0.2rem', color: '#1f2937' }}>{file.name}</div>
+                    <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
+                      {file.size > 1024 * 1024 
+                        ? `${(file.size / 1024 / 1024).toFixed(2)} MB`
+                        : `${(file.size / 1024).toFixed(1)} KB`
+                      }
+                    </div>
+                  </div>
+                  <DeleteButton onClick={() => handleFileDelete(file.id)}>삭제</DeleteButton>
+                </FileItem>
+              ))}
+            </FileList>
+          )}
         </ResumeSection>
 
         <ButtonGroup>
-          <SecondaryButton type="button" onClick={handleSave}>
+          <SecondaryButton type="button" onClick={handleSave} disabled={loading}>
             임시 저장
           </SecondaryButton>
-          <PrimaryButton type="submit" onClick={handleSubmit}>
+          <PrimaryButton type="submit" onClick={handleSubmit} disabled={loading}>
             이력서 제출
           </PrimaryButton>
         </ButtonGroup>

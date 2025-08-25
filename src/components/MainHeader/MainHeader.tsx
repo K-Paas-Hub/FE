@@ -263,7 +263,6 @@ const MainHeader: React.FC = () => {
           >
             내 이력서
           </NavLink>
-          <NavLink to="/main#qa">Q&A</NavLink>
           <NavLink 
             to="/visa" 
             className={location.pathname === '/visa' ? 'active' : ''}
@@ -276,7 +275,6 @@ const MainHeader: React.FC = () => {
           >
             근로계약서
           </NavLink>
-          <NavLink to="/main#insights">인사이트</NavLink>
         </Nav>
         <RightSection>
           <LanguageButton onClick={handleLanguageClick} className="language-dropdown">

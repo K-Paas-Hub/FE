@@ -90,3 +90,6 @@ export const storage = {
     }
   },
 };
+
+// 파일 관련 유틸리티 export
+export * from './fileUtils';
