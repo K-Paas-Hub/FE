@@ -279,6 +279,7 @@ const MainHeader: React.FC = () => {
   const location = useLocation();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
+  const [isContractDropdownOpen, setIsContractDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('KO');
 
   const languages = [
@@ -307,6 +308,14 @@ const MainHeader: React.FC = () => {
     setIsResumeDropdownOpen(false);
   };
 
+  const handleContractDropdownMouseEnter = () => {
+    setIsContractDropdownOpen(true);
+  };
+
+  const handleContractDropdownMouseLeave = () => {
+    setIsContractDropdownOpen(false);
+  };
+
   const getCurrentLanguage = () => {
     return languages.find(lang => lang.code === selectedLanguage) || languages[0];
   };
@@ -319,6 +328,11 @@ const MainHeader: React.FC = () => {
   // 이력서 관련 페이지인지 확인
   const isResumePage = () => {
     return location.pathname === '/resume' || location.pathname === '/spell-check';
+  };
+
+  // 근로계약서 관련 페이지인지 확인
+  const isContractPage = () => {
+    return location.pathname === '/contract-tutorial' || location.pathname === '/contract-analysis';
   };
 
   useEffect(() => {
@@ -385,12 +399,33 @@ const MainHeader: React.FC = () => {
           >
             비자 센터
           </NavLink>
-          <NavLink 
-            to="/contract-tutorial" 
-            className={location.pathname === '/contract-tutorial' ? 'active' : ''}
+          
+          {/* 근로계약서 드롭다운 메뉴 */}
+          <DropdownContainer
+            onMouseEnter={handleContractDropdownMouseEnter}
+            onMouseLeave={handleContractDropdownMouseLeave}
           >
-            근로계약서
-          </NavLink>
+            <DropdownTrigger 
+              $isOpen={isContractDropdownOpen}
+              className={isContractPage() ? 'active' : ''}
+            >
+              근로계약서
+            </DropdownTrigger>
+            <DropdownMenu $isOpen={isContractDropdownOpen}>
+              <DropdownItem 
+                to="/contract-tutorial"
+                className={location.pathname === '/contract-tutorial' ? 'active' : ''}
+              >
+                📝 작성 가이드
+              </DropdownItem>
+              <DropdownItem 
+                to="/contract-analysis"
+                className={location.pathname === '/contract-analysis' ? 'active' : ''}
+              >
+                🔍 계약서 분석
+              </DropdownItem>
+            </DropdownMenu>
+          </DropdownContainer>
         </Nav>
         <RightSection>
           <LanguageButton onClick={handleLanguageClick} className="language-dropdown">

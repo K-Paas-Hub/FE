@@ -434,66 +434,7 @@ const ContractTutorial: React.FC = () => {
           </SectionContent>
         </TutorialSection>
 
-        <TutorialSection>
-          <SectionTitle>
-            <SectionNumber>6</SectionNumber>
-            근로계약서 분석 도구
-          </SectionTitle>
-          <SectionContent>
-            <p>
-              작성한 근로계약서를 업로드하여 분석하고 개선점을 확인해보세요.
-              AI가 근로계약서를 분석하여 법적 요건 준수 여부와 개선 사항을 제안합니다.
-            </p>
-            
-            <ImportantBox>
-              <ImportantTitle>
-                🔍 분석 가능한 항목
-              </ImportantTitle>
-              <Checklist>
-                <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
-                  <div>근로시간 및 휴게시간 명시 여부</div>
-                </ChecklistItem>
-                <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
-                  <div>임금 구성 및 지급 조건</div>
-                </ChecklistItem>
-                <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
-                  <div>계약 기간 및 갱신 조건</div>
-                </ChecklistItem>
-                <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
-                  <div>연차 유급휴가 관리 기준</div>
-                </ChecklistItem>
-                <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
-                  <div>법적 요건 준수 여부</div>
-                </ChecklistItem>
-              </Checklist>
-            </ImportantBox>
 
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <PrimaryButton 
-                onClick={() => window.location.href = '/contract-analysis'}
-                style={{ 
-                  background: COLORS.primary, 
-                  color: 'white', 
-                  border: 'none', 
-                  padding: '1rem 2rem', 
-                  borderRadius: '8px', 
-                  fontSize: '1rem', 
-                  fontWeight: '600', 
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  display: 'inline-block'
-                }}
-              >
-                근로계약서 분석하기 →
-              </PrimaryButton>
-            </div>
-          </SectionContent>
-        </TutorialSection>
       </TutorialContent>
       
       <MainFooter />
