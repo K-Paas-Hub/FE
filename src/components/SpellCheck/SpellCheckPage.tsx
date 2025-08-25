@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
 import MainHeader from '../MainHeader';

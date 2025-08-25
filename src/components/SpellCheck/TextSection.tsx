@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { COLORS } from '../../constants';
 import { ResumeFormData } from '../../types/resume';
 import { SpellCheckOptions, SpellCheckError } from '../../types/spellCheck';
 import { useSpellCheck } from '../../hooks/useSpellCheck';

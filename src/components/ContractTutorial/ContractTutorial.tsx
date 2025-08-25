@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
@@ -133,22 +132,7 @@ const CodeBlock = styled.pre`
   margin: 1rem 0;
 `;
 
-const WarningBox = styled.div`
-  background: linear-gradient(135deg, #fef2f2, #fee2e2);
-  border: 1px solid #ef4444;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-`;
 
-const WarningTitle = styled.h4`
-  color: #dc2626;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
 
 const FAQSection = styled.div`
   margin-top: 2rem;

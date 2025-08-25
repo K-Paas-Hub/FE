@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
