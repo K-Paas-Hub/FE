@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { COLORS } from '../../constants';
 import { useLanguage } from '../../contexts/LanguageContext';
+import GoogleLoginButton from '../GoogleLoginButton';
+import { useAuth } from '../../hooks/useAuth';
 
 const Header = styled.header`
   background: white;
@@ -327,13 +329,79 @@ const AuthButton = styled.button`
   }
 `;
 
+const UserButton = styled.button<{ $isOpen: boolean }>`
+  background: ${props => props.$isOpen ? '#10b981' : COLORS.primary};
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+  
+  &:hover {
+    background: #10b981;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+`;
+
+const UserDropdownMenu = styled.div<{ $isOpen: boolean }>`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  opacity: ${props => props.$isOpen ? 1 : 0};
+  visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+  transform: ${props => props.$isOpen ? 'translateY(0)' : 'translateY(-10px)'};
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 0.5rem;
+`;
+
+const UserDropdownItem = styled.button`
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  color: #374151;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background: #f3f4f6;
+  }
+  
+  &:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  &:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+`;
+
 const MainHeader: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { currentLanguage, changeLanguage, languages } = useLanguage();
+  const { user, signOut, isAuthenticated } = useAuth();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
   const [isContractDropdownOpen, setIsContractDropdownOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
   const handleLanguageClick = () => {
     setIsLanguageOpen(!isLanguageOpen);
@@ -477,7 +545,25 @@ const MainHeader: React.FC = () => {
               ))}
             </LanguageDropdown>
           </LanguageButton>
-          <AuthButton>{t('common.login')}</AuthButton>
+          {isAuthenticated ? (
+            <DropdownContainer
+              onMouseEnter={() => setIsUserDropdownOpen(true)}
+              onMouseLeave={() => setIsUserDropdownOpen(false)}
+            >
+              <UserButton $isOpen={isUserDropdownOpen}>
+                {user?.user_metadata?.full_name || user?.email || '사용자'}
+              </UserButton>
+              <UserDropdownMenu $isOpen={isUserDropdownOpen}>
+                <UserDropdownItem onClick={signOut}>
+                  로그아웃
+                </UserDropdownItem>
+              </UserDropdownMenu>
+            </DropdownContainer>
+          ) : (
+            <AuthButton onClick={() => navigate('/login')}>
+              로그인
+            </AuthButton>
+          )}
         </RightSection>
       </HeaderContent>
     </Header>

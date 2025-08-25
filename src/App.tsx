@@ -23,6 +23,8 @@ import {
   ContractAnalysis
 } from './components';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
+import AuthCallback from './components/AuthCallback';
+import LoginPage from './components/LoginPage';
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);
@@ -57,6 +59,8 @@ function App() {
           <Route path="/resume" element={<ResumePage />} />
           <Route path="/spell-check" element={<SpellCheckPage />} />
           <Route path="/contract-analysis" element={<ContractAnalysis />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </Router>
     </LanguageProvider>
