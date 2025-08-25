@@ -184,14 +184,9 @@ export const useSpellCheck = () => {
     return Object.values(resumeData).some(value => value && value.trim().length > 0);
   }, []);
 
-  // 검사 가능한 섹션 목록
+  // 검사 가능한 섹션 목록 (개인정보 제외)
   const getCheckableSections = useCallback((resumeData: ResumeFormData) => {
     const sections: Array<{ key: keyof ResumeFormData; name: string; hasData: boolean }> = [
-      { key: 'name', name: '이름', hasData: !!resumeData.name?.trim() },
-      { key: 'email', name: '이메일', hasData: !!resumeData.email?.trim() },
-      { key: 'phone', name: '전화번호', hasData: !!resumeData.phone?.trim() },
-      { key: 'nationality', name: '국적', hasData: !!resumeData.nationality?.trim() },
-      { key: 'visaType', name: '비자 타입', hasData: !!resumeData.visaType?.trim() },
       { key: 'education', name: '학력', hasData: !!resumeData.education?.trim() },
       { key: 'experience', name: '경력', hasData: !!resumeData.experience?.trim() },
       { key: 'skills', name: '기술', hasData: !!resumeData.skills?.trim() },

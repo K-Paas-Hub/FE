@@ -100,27 +100,15 @@ const performBasicSpellCheck = async (
     }
   });
 
-  // 추가적인 맞춤법 검사 규칙들
-  const additionalRules = [
-    // 이메일 형식 검사
-    {
-      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      description: '올바른 이메일 형식인지 확인',
-      suggestion: '올바른 이메일 형식으로 입력해주세요',
-      type: 'spelling' as const,
-      severity: 'high' as const,
-      section: 'email' as keyof ResumeFormData
-    },
-    // 전화번호 형식 검사
-    {
-      pattern: /^[0-9-+\s()]+$/,
-      description: '올바른 전화번호 형식인지 확인',
-      suggestion: '올바른 전화번호 형식으로 입력해주세요',
-      type: 'spelling' as const,
-      severity: 'medium' as const,
-      section: 'phone' as keyof ResumeFormData
-    }
-  ];
+  // 추가적인 맞춤법 검사 규칙들 (개인정보 제외)
+  const additionalRules: Array<{
+    pattern: RegExp;
+    description: string;
+    suggestion: string;
+    type: 'spelling';
+    severity: 'high' | 'medium';
+    section: keyof ResumeFormData;
+  }> = [];
 
   // 섹션별 특별 검사 규칙 적용
   additionalRules.forEach((rule, index) => {
@@ -228,9 +216,8 @@ export const spellCheckService = {
       let totalWords = 0;
       let totalErrors = 0;
       
-      // 각 섹션별로 검사
+      // 각 섹션별로 검사 (개인정보 제외)
       const sectionsToCheck: (keyof ResumeFormData)[] = [
-        'name', 'email', 'phone', 'nationality', 'visaType',
         'education', 'experience', 'skills', 'languages', 'introduction'
       ];
       
