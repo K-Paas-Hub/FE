@@ -168,11 +168,6 @@ const DropdownItem = styled(Link)`
   &:last-child {
     border-bottom: none;
   }
-  
-  &.active {
-    background: ${COLORS.primary};
-    color: white;
-  }
 `;
 
 const RightSection = styled.div`
@@ -378,17 +373,11 @@ const MainHeader: React.FC = () => {
               내 이력서
             </DropdownTrigger>
             <DropdownMenu $isOpen={isResumeDropdownOpen}>
-              <DropdownItem 
-                to="/resume"
-                className={location.pathname === '/resume' ? 'active' : ''}
-              >
-                이력서 작성
+              <DropdownItem to="/resume">
+                📄 이력서 작성
               </DropdownItem>
-              <DropdownItem 
-                to="/spell-check"
-                className={location.pathname === '/spell-check' ? 'active' : ''}
-              >
-                맞춤법 검사
+              <DropdownItem to="/spell-check">
+                ✏️ 맞춤법 검사
               </DropdownItem>
             </DropdownMenu>
           </DropdownContainer>
@@ -412,16 +401,10 @@ const MainHeader: React.FC = () => {
               근로계약서
             </DropdownTrigger>
             <DropdownMenu $isOpen={isContractDropdownOpen}>
-              <DropdownItem 
-                to="/contract-tutorial"
-                className={location.pathname === '/contract-tutorial' ? 'active' : ''}
-              >
+              <DropdownItem to="/contract-tutorial">
                 📝 작성 가이드
               </DropdownItem>
-              <DropdownItem 
-                to="/contract-analysis"
-                className={location.pathname === '/contract-analysis' ? 'active' : ''}
-              >
+              <DropdownItem to="/contract-analysis">
                 🔍 계약서 분석
               </DropdownItem>
             </DropdownMenu>

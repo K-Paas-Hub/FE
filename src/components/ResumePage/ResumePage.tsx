@@ -569,13 +569,6 @@ const ResumePage: React.FC = () => {
       <MainHeader />
       
       <ResumeContent>
-        <ResumeHeader>
-          <ResumeTitle>내 이력서</ResumeTitle>
-          <ResumeSubtitle>
-            한국 취업을 위한 이력서를 작성하고 관리하세요
-          </ResumeSubtitle>
-        </ResumeHeader>
-
         {loading && <LoadingSpinner />}
         {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
 

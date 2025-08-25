@@ -257,13 +257,6 @@ const ContractTutorial: React.FC = () => {
       <MainHeader />
       
       <TutorialContent>
-        <TutorialHeader>
-          <TutorialTitle>근로계약서 작성 가이드</TutorialTitle>
-          <TutorialSubtitle>
-            고용노동부 표준근로계약서를 기준으로, 외국인 노동자를 위한 근로계약서 작성 방법을 안내합니다
-          </TutorialSubtitle>
-        </TutorialHeader>
-
         <TutorialSection>
           <SectionTitle>
             <SectionNumber>1</SectionNumber>

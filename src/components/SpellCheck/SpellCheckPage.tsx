@@ -115,13 +115,6 @@ const SpellCheckPage: React.FC = () => {
       <MainHeader />
       
       <SpellCheckContent>
-        <SpellCheckHeader>
-          <SpellCheckTitle>맞춤법 검사</SpellCheckTitle>
-          <SpellCheckSubtitle>
-            작성한 이력서의 맞춤법을 검사하고 수정 제안을 받아보세요
-          </SpellCheckSubtitle>
-        </SpellCheckHeader>
-
         {!hasResumeData(formData) ? (
           <NoDataMessage>
             <NoDataTitle>이력서 데이터가 없습니다</NoDataTitle>

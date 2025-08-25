@@ -387,13 +387,6 @@ const ContractAnalysis: React.FC = () => {
       <MainHeader />
       
       <AnalysisContent>
-        <AnalysisHeader>
-          <AnalysisTitle>근로계약서 분석</AnalysisTitle>
-          <AnalysisSubtitle>
-            업로드한 근로계약서를 분석하여 개선점을 확인하세요
-          </AnalysisSubtitle>
-        </AnalysisHeader>
-
         <AnalysisSection>
           <SectionTitle>
             <SectionIcon>📄</SectionIcon>

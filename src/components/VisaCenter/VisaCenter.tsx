@@ -134,19 +134,6 @@ const VisaCenter: React.FC = () => {
       <MainHeader />
       
       <VisaContent>
-        <VisaHeader>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: ANIMATIONS.duration.normal }}
-          >
-            <VisaTitle>비자 센터</VisaTitle>
-            <VisaSubtitle>
-              한국에서 일하고 공부하기 위한 비자 정보를 확인하세요
-            </VisaSubtitle>
-          </motion.div>
-        </VisaHeader>
-
         {/* 필터링 UI */}
         <FilterSection>
           <CategoryFilter>
