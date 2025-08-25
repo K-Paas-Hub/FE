@@ -387,7 +387,7 @@ const SectionTitle = styled.h2`
   }
 `;
 
-const SortButton = styled.button`
+const SortButton = styled.div`
   background: none;
   border: none;
   color: #666;
@@ -398,6 +398,7 @@ const SortButton = styled.button`
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  user-select: none;
   
   &:hover {
     color: ${COLORS.primary};
@@ -1171,7 +1172,21 @@ const MainPage: React.FC = () => {
         <JobListSection>
           <SectionHeader>
             <SectionTitle>채용 공고</SectionTitle>
-            <SortButton onClick={handleSortClick} className="sort-dropdown">
+            <SortButton 
+              onClick={handleSortClick} 
+              className="sort-dropdown"
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleSortClick();
+                }
+              }}
+              aria-expanded={isSortOpen}
+              aria-haspopup="listbox"
+              aria-label="정렬 옵션 선택"
+            >
               {selectedSort}
               <DownArrowIcon 
                 src="/images/down-arrow.png" 

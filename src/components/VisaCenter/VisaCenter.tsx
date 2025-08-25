@@ -107,10 +107,10 @@ const CategoryFilter = styled.div`
   }
 `;
 
-const CategoryButton = styled.button<{ active: boolean }>`
-  background: ${props => props.active ? COLORS.primary : 'white'};
-  color: ${props => props.active ? 'white' : '#6b7280'};
-  border: 2px solid ${props => props.active ? COLORS.primary : '#e5e5e5'};
+const CategoryButton = styled.button<{ $active: boolean }>`
+  background: ${props => props.$active ? COLORS.primary : 'white'};
+  color: ${props => props.$active ? 'white' : '#6b7280'};
+  border: 2px solid ${props => props.$active ? COLORS.primary : '#e5e5e5'};
   padding: 0.5rem 1rem;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -121,8 +121,8 @@ const CategoryButton = styled.button<{ active: boolean }>`
   min-width: 44px;
   
   &:hover {
-    background: ${props => props.active ? COLORS.primaryHover : '#f9fafb'};
-    border-color: ${props => props.active ? COLORS.primaryHover : COLORS.primary};
+    background: ${props => props.$active ? COLORS.primaryHover : '#f9fafb'};
+    border-color: ${props => props.$active ? COLORS.primaryHover : COLORS.primary};
   }
   
   @media (max-width: 768px) {
@@ -199,7 +199,7 @@ const VisaCenter: React.FC = () => {
             {Object.entries(VISA_CATEGORY_LABELS).map(([key, label]) => (
               <CategoryButton
                 key={key}
-                active={selectedCategory === key}
+                $active={selectedCategory === key}
                 onClick={() => setSelectedCategory(key as keyof typeof VISA_CATEGORY_LABELS)}
               >
                 {label}
