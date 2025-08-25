@@ -19,6 +19,7 @@ import {
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
 import ContractTutorial from './components/ContractTutorial';
 import ResumePage from './components/ResumePage';
+import SpellCheckPage from './components/SpellCheck';
 import ContractAnalysis from './components/ContractAnalysis';
 import ContractQuiz from './components/ContractQuiz';
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/visa/:type" element={<VisaDetailPage />} />
         <Route path="/contract-tutorial" element={<ContractTutorial />} />
         <Route path="/resume" element={<ResumePage />} />
+        <Route path="/spell-check" element={<SpellCheckPage />} />
         <Route path="/contract-analysis" element={<ContractAnalysis />} />
         <Route path="/contract-quiz" element={<ContractQuiz />} />
       </Routes>

@@ -91,13 +91,95 @@ const NavLink = styled(Link)`
   }
 `;
 
+// 드롭다운 관련 스타일 컴포넌트 추가
+const DropdownContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const DropdownTrigger = styled.div<{ $isOpen: boolean }>`
+  color: #374151;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  
+  &:hover {
+    background: #ecfdf5;
+    color: #059669;
+    transform: translateY(-1px);
+  }
+  
+  &.active {
+    background: ${COLORS.primary};
+    color: white;
+  }
+  
+  &::after {
+    content: '▼';
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    transform: ${props => props.$isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+`;
+
+const DropdownMenu = styled.div<{ $isOpen: boolean }>`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 180px;
+  opacity: ${props => props.$isOpen ? '1' : '0'};
+  visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+  transform: ${props => props.$isOpen ? 'translateY(0)' : 'translateY(-10px)'};
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+`;
+
+const DropdownItem = styled(Link)`
+  display: block;
+  padding: 0.8rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f3f4f6;
+  
+  &:hover {
+    background: #f8f9fa;
+    color: ${COLORS.primary};
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &.active {
+    background: ${COLORS.primary};
+    color: white;
+  }
+`;
+
 const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
 `;
-
-
 
 const LanguageButton = styled.div`
   background: none;
@@ -118,8 +200,6 @@ const LanguageButton = styled.div`
     color: ${COLORS.primary};
   }
 `;
-
-
 
 const FlagIcon = styled.img`
   width: 20px;
@@ -198,6 +278,7 @@ const AuthButton = styled.button`
 const MainHeader: React.FC = () => {
   const location = useLocation();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('KO');
 
   const languages = [
@@ -218,6 +299,14 @@ const MainHeader: React.FC = () => {
     setIsLanguageOpen(false);
   };
 
+  const handleResumeDropdownMouseEnter = () => {
+    setIsResumeDropdownOpen(true);
+  };
+
+  const handleResumeDropdownMouseLeave = () => {
+    setIsResumeDropdownOpen(false);
+  };
+
   const getCurrentLanguage = () => {
     return languages.find(lang => lang.code === selectedLanguage) || languages[0];
   };
@@ -225,6 +314,11 @@ const MainHeader: React.FC = () => {
   const getCurrentLanguageName = () => {
     const currentLang = getCurrentLanguage();
     return currentLang ? currentLang.name : '한국어';
+  };
+
+  // 이력서 관련 페이지인지 확인
+  const isResumePage = () => {
+    return location.pathname === '/resume' || location.pathname === '/spell-check';
   };
 
   useEffect(() => {
@@ -257,12 +351,34 @@ const MainHeader: React.FC = () => {
           >
             채용 공고
           </NavLink>
-          <NavLink 
-            to="/resume" 
-            className={location.pathname === '/resume' ? 'active' : ''}
+          
+          {/* 이력서 드롭다운 메뉴 */}
+          <DropdownContainer
+            onMouseEnter={handleResumeDropdownMouseEnter}
+            onMouseLeave={handleResumeDropdownMouseLeave}
           >
-            내 이력서
-          </NavLink>
+            <DropdownTrigger 
+              $isOpen={isResumeDropdownOpen}
+              className={isResumePage() ? 'active' : ''}
+            >
+              내 이력서
+            </DropdownTrigger>
+            <DropdownMenu $isOpen={isResumeDropdownOpen}>
+              <DropdownItem 
+                to="/resume"
+                className={location.pathname === '/resume' ? 'active' : ''}
+              >
+                이력서 작성
+              </DropdownItem>
+              <DropdownItem 
+                to="/spell-check"
+                className={location.pathname === '/spell-check' ? 'active' : ''}
+              >
+                맞춤법 검사
+              </DropdownItem>
+            </DropdownMenu>
+          </DropdownContainer>
+          
           <NavLink 
             to="/visa" 
             className={location.pathname === '/visa' ? 'active' : ''}
