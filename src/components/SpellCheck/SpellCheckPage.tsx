@@ -83,75 +83,7 @@ const SectionIcon = styled.span`
   font-size: 1.2rem;
 `;
 
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem 0;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
 
-const PrimaryButton = styled(motion.button)`
-  background: ${COLORS.primary};
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 44px;
-  min-width: 44px;
-  
-  &:hover {
-    background: ${COLORS.primaryHover};
-  }
-  
-  &:disabled {
-    background: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
-  }
-`;
-
-const SecondaryButton = styled(motion.button)`
-  background: white;
-  color: ${COLORS.primary};
-  border: 2px solid ${COLORS.primary};
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 44px;
-  min-width: 44px;
-  
-  &:hover {
-    background: ${COLORS.primary};
-    color: white;
-  }
-  
-  &:disabled {
-    border-color: #9ca3af;
-    color: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
-  }
-`;
 
 const NoDataMessage = styled.div`
   background: #f3f4f6;
@@ -220,20 +152,7 @@ const SpellCheckPage: React.FC = () => {
               <TextSection formData={formData} />
             </SpellCheckSection>
 
-            <ButtonGroup>
-              <SecondaryButton
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                결과 초기화
-              </SecondaryButton>
-              <PrimaryButton
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                전체 검사
-              </PrimaryButton>
-            </ButtonGroup>
+
           </>
         )}
       </SpellCheckContent>
