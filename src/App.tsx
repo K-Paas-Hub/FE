@@ -18,8 +18,7 @@ import {
   ContractTutorial,
   ResumePage,
   SpellCheckPage,
-  ContractAnalysis,
-  ContractQuiz
+  ContractAnalysis
 } from './components';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
 
@@ -55,7 +54,6 @@ function App() {
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/spell-check" element={<SpellCheckPage />} />
         <Route path="/contract-analysis" element={<ContractAnalysis />} />
-        <Route path="/contract-quiz" element={<ContractQuiz />} />
       </Routes>
     </Router>
   );

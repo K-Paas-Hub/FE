@@ -19,5 +19,4 @@ export { default as VisaCenter } from './VisaCenter';
 export { default as ContractTutorial } from './ContractTutorial';
 export { default as ResumePage } from './ResumePage';
 export { default as ContractAnalysis } from './ContractAnalysis';
-export { default as ContractQuiz } from './ContractQuiz';
 export { default as SpellCheckPage } from './SpellCheck';

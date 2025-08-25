@@ -473,7 +473,7 @@ const ContractTutorial: React.FC = () => {
               </Checklist>
             </ImportantBox>
 
-            <div style={{ textAlign: 'center', marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               <PrimaryButton 
                 onClick={() => window.location.href = '/contract-analysis'}
                 style={{ 
@@ -490,23 +490,6 @@ const ContractTutorial: React.FC = () => {
                 }}
               >
                 근로계약서 분석하기 →
-              </PrimaryButton>
-              <PrimaryButton 
-                onClick={() => window.location.href = '/contract-quiz'}
-                style={{ 
-                  background: '#3b82f6', 
-                  color: 'white', 
-                  border: 'none', 
-                  padding: '1rem 2rem', 
-                  borderRadius: '8px', 
-                  fontSize: '1rem', 
-                  fontWeight: '600', 
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  display: 'inline-block'
-                }}
-              >
-                퀴즈 풀기 →
               </PrimaryButton>
             </div>
           </SectionContent>
