@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useAutoSave } from '../../hooks/useAutoSave';
-import { ResumeFormData } from '../../types/resume';
+
 
 const ResumeContainer = styled.div`
   min-height: 100vh;
@@ -189,25 +189,38 @@ const SecondaryButton = styled.button`
   }
 `;
 
-const ResumePreview = styled.div`
-  background: white;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-top: 2rem;
-`;
 
-const PreviewTitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 1rem;
-  text-align: center;
-`;
 
 const PreviewContent = styled.div`
   line-height: 1.6;
-  color: #374151;
+  
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 1.5rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid ${COLORS.primary};
+  }
+  
+  h4:first-child {
+    margin-top: 0;
+  }
+  
+  p {
+    margin: 0.5rem 0;
+    color: #374151;
+  }
+  
+  strong {
+    color: #1f2937;
+    font-weight: 600;
+  }
+  
+  .empty-field {
+    color: #9ca3af;
+    font-style: italic;
+  }
 `;
 
 const LoadingSpinner = styled.div`
@@ -232,15 +245,7 @@ const LoadingSpinner = styled.div`
   }
 `;
 
-const ErrorMessage = styled.div`
-  background: #fef2f2;
-  border: 1px solid #ef4444;
-  color: #dc2626;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-`;
+
 
 const FieldError = styled.div`
   color: #dc2626;
@@ -341,6 +346,109 @@ const UploadSubtext = styled.p`
   color: #9ca3af;
 `;
 
+// 미리보기 모달 스타일
+const ModalOverlay = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+`;
+
+const ModalContent = styled(motion.div)`
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+`;
+
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+`;
+
+const ModalTitle = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
+  min-height: 44px;
+  min-width: 44px;
+  
+  &:hover {
+    background: #f3f4f6;
+    color: #374151;
+  }
+`;
+
+// 미리보기 버튼 스타일
+const PreviewButton = styled(motion.button)`
+  background: white;
+  color: #6b7280;
+  border: 2px solid #d1d5db;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #6b7280;
+    color: white;
+    border-color: #6b7280;
+    transform: translateY(-2px);
+  }
+  
+  &:disabled {
+    background: #f3f4f6;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+`;
+
 const ResumePage: React.FC = () => {
   const {
     formData,
@@ -360,6 +468,7 @@ const ResumePage: React.FC = () => {
 
   const [dragActive, setDragActive] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showPreview, setShowPreview] = useState(false); // 미리보기 모달 상태
 
   // 자동 저장 활성화
   useAutoSave(formData, async () => {
@@ -443,6 +552,16 @@ const ResumePage: React.FC = () => {
       setSuccessMessage(result.message || '파일이 삭제되었습니다.');
       setTimeout(() => setSuccessMessage(null), 3000);
     }
+  };
+
+  // 미리보기 모달 닫기
+  const handleClosePreview = () => {
+    setShowPreview(false);
+  };
+
+  // 미리보기 열기
+  const handleOpenPreview = () => {
+    setShowPreview(true);
   };
 
   return (
@@ -685,32 +804,77 @@ const ResumePage: React.FC = () => {
           <SecondaryButton type="button" onClick={handleSave} disabled={loading}>
             임시 저장
           </SecondaryButton>
+          <PreviewButton 
+            type="button" 
+            onClick={handleOpenPreview}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            👁️ 미리보기
+          </PreviewButton>
           <PrimaryButton type="submit" onClick={handleSubmit} disabled={loading}>
             이력서 제출
           </PrimaryButton>
         </ButtonGroup>
-
-        <ResumePreview>
-          <PreviewTitle>이력서 미리보기</PreviewTitle>
-          <PreviewContent>
-            <h4>기본 정보</h4>
-            <p><strong>이름:</strong> {formData.name || '입력해주세요'}</p>
-            <p><strong>이메일:</strong> {formData.email || '입력해주세요'}</p>
-            <p><strong>전화번호:</strong> {formData.phone || '입력해주세요'}</p>
-            <p><strong>국적:</strong> {formData.nationality || '입력해주세요'}</p>
-            <p><strong>비자 유형:</strong> {formData.visaType || '입력해주세요'}</p>
-            
-            <h4>학력 및 경력</h4>
-            <p><strong>학력:</strong> {formData.education || '입력해주세요'}</p>
-            <p><strong>경력:</strong> {formData.experience || '입력해주세요'}</p>
-            <p><strong>기술:</strong> {formData.skills || '입력해주세요'}</p>
-            <p><strong>언어:</strong> {formData.languages || '입력해주세요'}</p>
-            
-            <h4>자기소개</h4>
-            <p>{formData.introduction || '입력해주세요'}</p>
-          </PreviewContent>
-        </ResumePreview>
       </ResumeContent>
+      
+      {/* 미리보기 모달 */}
+      <AnimatePresence>
+        {showPreview && (
+          <ModalOverlay
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleClosePreview}
+          >
+            <ModalContent
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ModalHeader>
+                <ModalTitle>이력서 미리보기</ModalTitle>
+                <CloseButton onClick={handleClosePreview}>✕</CloseButton>
+              </ModalHeader>
+              
+              <PreviewContent>
+                <h4>기본 정보</h4>
+                <p><strong>이름:</strong> {formData.name || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>이메일:</strong> {formData.email || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>전화번호:</strong> {formData.phone || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>국적:</strong> {formData.nationality || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>비자 유형:</strong> {formData.visaType || <span className="empty-field">입력해주세요</span>}</p>
+                
+                <h4>학력 및 경력</h4>
+                <p><strong>학력:</strong> {formData.education || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>경력:</strong> {formData.experience || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>기술:</strong> {formData.skills || <span className="empty-field">입력해주세요</span>}</p>
+                <p><strong>언어:</strong> {formData.languages || <span className="empty-field">입력해주세요</span>}</p>
+                
+                <h4>자기소개</h4>
+                <p>{formData.introduction || <span className="empty-field">입력해주세요</span>}</p>
+                
+                {files.length > 0 && (
+                  <>
+                    <h4>첨부 파일</h4>
+                    <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
+                      {files.map(file => (
+                        <li key={file.id} style={{ margin: '0.5rem 0' }}>
+                          {file.name} ({file.size > 1024 * 1024 
+                            ? `${(file.size / 1024 / 1024).toFixed(2)} MB`
+                            : `${(file.size / 1024).toFixed(1)} KB`
+                          })
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </PreviewContent>
+            </ModalContent>
+          </ModalOverlay>
+        )}
+      </AnimatePresence>
       
       <MainFooter />
     </ResumeContainer>
