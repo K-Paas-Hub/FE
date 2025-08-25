@@ -257,13 +257,24 @@ const MainHeader: React.FC = () => {
           >
             채용 공고
           </NavLink>
-          <NavLink to="/main#resume">내 이력서</NavLink>
+          <NavLink 
+            to="/resume" 
+            className={location.pathname === '/resume' ? 'active' : ''}
+          >
+            내 이력서
+          </NavLink>
           <NavLink to="/main#qa">Q&A</NavLink>
           <NavLink 
             to="/visa" 
             className={location.pathname === '/visa' ? 'active' : ''}
           >
             비자 센터
+          </NavLink>
+          <NavLink 
+            to="/contract-tutorial" 
+            className={location.pathname === '/contract-tutorial' ? 'active' : ''}
+          >
+            근로계약서
           </NavLink>
           <NavLink to="/main#insights">인사이트</NavLink>
         </Nav>

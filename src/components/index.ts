@@ -15,3 +15,7 @@ export { default as PartnersSection } from './PartnersSection';
 // Page Components
 export { default as MainPage } from './MainPage';
 export { default as VisaCenter } from './VisaCenter';
+export { default as ContractTutorial } from './ContractTutorial';
+export { default as ResumePage } from './ResumePage';
+export { default as ContractAnalysis } from './ContractAnalysis';
+export { default as ContractQuiz } from './ContractQuiz';

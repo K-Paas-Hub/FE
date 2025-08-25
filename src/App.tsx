@@ -17,6 +17,10 @@ import {
   VisaCenter
 } from './components';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
+import ContractTutorial from './components/ContractTutorial';
+import ResumePage from './components/ResumePage';
+import ContractAnalysis from './components/ContractAnalysis';
+import ContractQuiz from './components/ContractQuiz';
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);
@@ -46,6 +50,10 @@ function App() {
         <Route path="/main" element={<MainPage />} />
         <Route path="/visa" element={<VisaCenter />} />
         <Route path="/visa/:type" element={<VisaDetailPage />} />
+        <Route path="/contract-tutorial" element={<ContractTutorial />} />
+        <Route path="/resume" element={<ResumePage />} />
+        <Route path="/contract-analysis" element={<ContractAnalysis />} />
+        <Route path="/contract-quiz" element={<ContractQuiz />} />
       </Routes>
     </Router>
   );
