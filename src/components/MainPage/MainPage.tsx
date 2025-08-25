@@ -1050,6 +1050,7 @@ const MainPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [visaFilter, setVisaFilter] = useState<boolean>(false);
 
   const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({});
   const [isSortOpen, setIsSortOpen] = useState(false);
@@ -1060,31 +1061,6 @@ const MainPage: React.FC = () => {
     setImageErrors(prev => ({ ...prev, [imageName]: true }));
   };
 
-  // 검색 함수
-  const performSearch = (query: string) => {
-    if (!query.trim()) {
-      setFilteredJobs(jobs);
-      return;
-    }
-    
-    const keywords = query.toLowerCase().split(' ').filter(k => k.trim());
-    
-    const results = jobs.filter(job => {
-      const searchableText = [
-        job.company,
-        job.title,
-        job.location,
-        job.industry
-      ].join(' ').toLowerCase();
-      
-      return keywords.every(keyword => 
-        searchableText.includes(keyword)
-      );
-    });
-    
-    setFilteredJobs(results);
-  };
-
   // 검색 입력 핸들러
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
@@ -1093,7 +1069,7 @@ const MainPage: React.FC = () => {
     
     // 디바운스된 검색 (300ms 지연)
     setTimeout(() => {
-      performSearch(query);
+      applyAllFilters();
       setIsSearching(false);
     }, 300);
   };
@@ -1101,7 +1077,162 @@ const MainPage: React.FC = () => {
   // 검색 초기화
   const handleClearSearch = () => {
     setSearchQuery('');
-    setFilteredJobs(jobs);
+    applyAllFilters();
+  };
+
+  // 필터링 함수
+  const applyFilters = (jobsToFilter: any[]) => {
+    let filteredJobs = jobsToFilter;
+
+    // E-7 비자지원 필터 적용
+    if (visaFilter) {
+      filteredJobs = filteredJobs.filter(job => job.hasVisa);
+    }
+
+    // 선택된 필터가 없으면 비자 필터만 적용된 결과 반환
+    if (selectedFilters.length === 0) {
+      return filteredJobs;
+    }
+
+    return filteredJobs.filter(job => {
+      // 지역 필터
+      const regionFilters = selectedFilters.filter(filter => 
+        ['서울특별시', '경기도', '인천광역시', '부산광역시', '대전광역시', '대구광역시', '울산광역시', '광주광역시', '강원특별자치도', '세종특별자치시', '충청북도', '충청남도', '경상북도', '경상남도', '제주특별자치도', '전라북도', '전라남도'].includes(filter)
+      );
+      
+      // 고용 형태 필터
+      const typeFilters = selectedFilters.filter(filter => 
+        ['정규직', '계약직', '인턴', '아르바이트', '프리랜서'].includes(filter)
+      );
+      
+      // 직종 필터
+      const categoryFilters = selectedFilters.filter(filter => 
+        ['디자인', '생산/제조', 'IT', '경영/사무', '마케팅/광고', '교육', '무역/물류', '영업/CS', '서비스', '건설', '엔터테인먼트', '번역', 'R&D', '기타'].includes(filter)
+      );
+
+      // 지역 필터 적용
+      if (regionFilters.length > 0) {
+        const jobRegion = getJobRegion(job.location);
+        if (!regionFilters.some(filter => jobRegion.includes(filter))) {
+          return false;
+        }
+      }
+
+      // 고용 형태 필터 적용 (현재 데이터에 고용 형태 정보가 없으므로 임시로 true 반환)
+      if (typeFilters.length > 0) {
+        // 실제로는 job.employmentType과 비교해야 함
+        return true;
+      }
+
+      // 직종 필터 적용
+      if (categoryFilters.length > 0) {
+        const jobCategory = getJobCategory(job.industry);
+        if (!categoryFilters.some(filter => jobCategory.includes(filter))) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  };
+
+  // 지역 매핑 함수
+  const getJobRegion = (location: string) => {
+    if (location.includes('서울')) return '서울특별시';
+    if (location.includes('경기')) return '경기도';
+    if (location.includes('인천')) return '인천광역시';
+    if (location.includes('부산')) return '부산광역시';
+    if (location.includes('대전')) return '대전광역시';
+    if (location.includes('대구')) return '대구광역시';
+    if (location.includes('울산')) return '울산광역시';
+    if (location.includes('광주')) return '광주광역시';
+    if (location.includes('강원')) return '강원특별자치도';
+    if (location.includes('세종')) return '세종특별자치시';
+    if (location.includes('충북')) return '충청북도';
+    if (location.includes('충남')) return '충청남도';
+    if (location.includes('경북')) return '경상북도';
+    if (location.includes('경남')) return '경상남도';
+    if (location.includes('제주')) return '제주특별자치도';
+    if (location.includes('전북')) return '전라북도';
+    if (location.includes('전남')) return '전라남도';
+    return location;
+  };
+
+  // 직종 매핑 함수
+  const getJobCategory = (industry: string) => {
+    if (industry.includes('디자인')) return '디자인';
+    if (industry.includes('IT') || industry.includes('개발')) return 'IT';
+    if (industry.includes('마케팅') || industry.includes('광고')) return '마케팅/광고';
+    if (industry.includes('경영') || industry.includes('사무')) return '경영/사무';
+    if (industry.includes('교육')) return '교육';
+    if (industry.includes('무역') || industry.includes('물류')) return '무역/물류';
+    if (industry.includes('영업') || industry.includes('CS')) return '영업/CS';
+    if (industry.includes('서비스')) return '서비스';
+    if (industry.includes('건설')) return '건설';
+    if (industry.includes('엔터테인먼트')) return '엔터테인먼트';
+    if (industry.includes('번역')) return '번역';
+    if (industry.includes('R&D')) return 'R&D';
+    return '기타';
+  };
+
+  // 정렬 함수
+  const applySorting = (jobsToSort: any[]) => {
+    const sortedJobs = [...jobsToSort];
+    
+    switch (selectedSort) {
+      case '최신순':
+        // ID 기준 내림차순 (높은 ID가 최신)
+        return sortedJobs.sort((a, b) => b.id - a.id);
+        
+      case '인기순':
+        // 좋아요 수 기준 내림차순 (현재는 임시로 ID 기준)
+        return sortedJobs.sort((a, b) => {
+          const aScore = a.isLiked ? 1 : 0;
+          const bScore = b.isLiked ? 1 : 0;
+          return bScore - aScore;
+        });
+        
+      case '급여순':
+        // 급여 기준 내림차순 (현재 데이터에 급여 정보가 없으므로 임시로 ID 기준)
+        return sortedJobs.sort((a, b) => b.id - a.id);
+        
+      case '마감임박순':
+        // 마감일 기준 오름차순 (현재 데이터에 마감일 정보가 없으므로 임시로 ID 기준)
+        return sortedJobs.sort((a, b) => a.id - b.id);
+        
+      default:
+        return sortedJobs;
+    }
+  };
+
+  // 통합 필터링 및 정렬 함수
+  const applyAllFilters = () => {
+    let results = [...jobs];
+    
+    // 1. 검색 적용
+    if (searchQuery.trim()) {
+      const keywords = searchQuery.toLowerCase().split(' ').filter(k => k.trim());
+      results = results.filter(job => {
+        const searchableText = [
+          job.company,
+          job.title,
+          job.location,
+          job.industry
+        ].join(' ').toLowerCase();
+        
+        return keywords.every(keyword => 
+          searchableText.includes(keyword)
+        );
+      });
+    }
+    
+    // 2. 필터 적용
+    results = applyFilters(results);
+    
+    // 3. 정렬 적용
+    results = applySorting(results);
+    
+    setFilteredJobs(results);
   };
 
   const handleLike = (jobId: number) => {
@@ -1110,12 +1241,8 @@ const MainPage: React.FC = () => {
     );
     setJobs(updatedJobs);
     
-    // 검색 결과도 업데이트
-    if (searchQuery.trim()) {
-      performSearch(searchQuery);
-    } else {
-      setFilteredJobs(updatedJobs);
-    }
+    // 통합 필터링 적용
+    applyAllFilters();
   };
 
   const handleFilterClick = (filterType: string) => {
@@ -1133,11 +1260,13 @@ const MainPage: React.FC = () => {
 
   const handleResetFilters = () => {
     setSelectedFilters([]);
+    setVisaFilter(false);
   };
 
   const handleViewResults = () => {
     setIsFilterOpen(false);
     setActiveFilter(null);
+    applyAllFilters(); // 필터 적용 후 결과 업데이트
   };
 
   const removeFilter = (filter: string) => {
@@ -1166,6 +1295,7 @@ const MainPage: React.FC = () => {
   const handleSortSelect = (sortOption: string) => {
     setSelectedSort(sortOption);
     setIsSortOpen(false);
+    applyAllFilters(); // 정렬 변경 후 결과 업데이트
   };
 
   useEffect(() => {
@@ -1184,6 +1314,11 @@ const MainPage: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isSortOpen]);
+
+  // 컴포넌트 마운트 시 초기 필터링 적용
+  useEffect(() => {
+    applyAllFilters();
+  }, []);
 
   const handleChatClick = () => {
     setIsChatOpen(!isChatOpen);
@@ -1252,16 +1387,66 @@ const MainPage: React.FC = () => {
               />
               <DownArrowFallback className={imageErrors['down-arrow'] ? 'show' : ''}>↓</DownArrowFallback>
             </FilterButton>
-            <VisaButton>
-              E-7 비자지원
+            <VisaButton 
+              onClick={() => {
+                setVisaFilter(!visaFilter);
+                setTimeout(() => applyAllFilters(), 0);
+              }}
+              style={{ 
+                background: visaFilter ? '#059669' : '#f3f4f6',
+                color: visaFilter ? 'white' : '#374151',
+                border: visaFilter ? '2px solid #059669' : '2px solid #d1d5db',
+                transform: visaFilter ? 'scale(1.05)' : 'scale(1)',
+                boxShadow: visaFilter ? '0 4px 12px rgba(5, 150, 105, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.1)',
+                fontWeight: visaFilter ? '600' : '500'
+              }}
+            >
+              {visaFilter ? '✓ E-7 비자지원' : 'E-7 비자지원'}
             </VisaButton>
-            <RefreshButton>
+            <RefreshButton
+              onClick={() => {
+                // 모든 필터 초기화
+                setSearchQuery('');
+                setSelectedFilters([]);
+                setVisaFilter(false);
+                setSelectedSort('최신순');
+                
+                // 애니메이션 효과를 위한 회전 상태
+                const refreshIcon = document.querySelector('.refresh-icon') as HTMLElement;
+                if (refreshIcon) {
+                  refreshIcon.style.transform = 'rotate(360deg)';
+                  setTimeout(() => {
+                    if (refreshIcon) {
+                      refreshIcon.style.transform = 'rotate(0deg)';
+                    }
+                  }, 500);
+                }
+                
+                // 필터링 적용
+                setTimeout(() => applyAllFilters(), 100);
+              }}
+              style={{ cursor: 'pointer' }}
+              title="모든 필터 초기화"
+            >
               <RefreshIcon 
                 src="/images/refresh.png" 
                 alt="refresh"
+                className="refresh-icon"
+                style={{ 
+                  transition: 'transform 0.5s ease-in-out',
+                  transform: 'rotate(0deg)'
+                }}
                 onError={() => handleImageError('refresh')}
               />
-              <RefreshFallback className={imageErrors['refresh'] ? 'show' : ''}>🔄</RefreshFallback>
+              <RefreshFallback 
+                className={`refresh-icon ${imageErrors['refresh'] ? 'show' : ''}`}
+                style={{ 
+                  transition: 'transform 0.5s ease-in-out',
+                  transform: 'rotate(0deg)'
+                }}
+              >
+                🔄
+              </RefreshFallback>
             </RefreshButton>
           </FilterContainer>
         </SearchSection>
