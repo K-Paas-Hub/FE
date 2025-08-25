@@ -193,10 +193,43 @@ const FilterModal = styled.div`
   max-width: 600px;
   max-height: 80vh;
   overflow-y: auto;
+  position: relative;
   
   @media (max-width: 768px) {
     padding: 1.5rem;
     width: 95%;
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background: #f8f9fa;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
   }
 `;
 
@@ -933,111 +966,262 @@ const SearchLoadingSpinner = styled.div`
   }
 `;
 
-// Sample job data
+// Sample job data - 외국인 노동자용 15개
 const sampleJobs = [
   {
     id: 1,
-    company: '포스타입',
-    logo: 'P',
-    logoClass: 'purple',
-    title: '백엔드 엔지니어',
-    location: '서울 강남구',
-    experience: '신입-경력 5년',
-    industry: 'IT/개발',
+    company: '삼성전자 반도체',
+    logo: 'S',
+    logoClass: 'blue',
+    title: '반도체 조립공',
+    location: '경기 용인시',
+    experience: '신입-경력 3년',
+    industry: '생산/제조',
     isLiked: false,
     hasVisa: true,
-    imageContent: '📱'
+    imageContent: '🔧',
+    salary: 28000000,
+    deadline: '2024-12-31',
+    likeCount: 45,
+    createdAt: '2024-12-01'
   },
   {
     id: 2,
-    company: '두나무(업비트)',
-    logo: 'D',
+    company: '현대자동차',
+    logo: 'H',
     logoClass: 'blue',
-    title: 'Product Designer_스테이킹 서비스 및 블록체인 기반 신규 서비스 디자인',
-    location: '서울 서초구',
-    experience: '경력 3-7년',
-    industry: '디자인',
+    title: '자동차 조립공',
+    location: '울산 남구',
+    experience: '신입-경력 5년',
+    industry: '생산/제조',
     isLiked: false,
-    hasVisa: false,
-    imageContent: '📈'
+    hasVisa: true,
+    imageContent: '🚗',
+    salary: 32000000,
+    deadline: '2024-12-25',
+    likeCount: 78,
+    createdAt: '2024-12-05'
   },
   {
     id: 3,
-    company: '놀유니버스',
-    logo: 'N',
-    logoClass: 'green',
-    title: 'Software Engineer, Frontend - 엔터FE',
-    location: '경기 성남시',
-    experience: '경력 2년 이상',
-    industry: 'IT/개발',
+    company: 'LG디스플레이',
+    logo: 'L',
+    logoClass: 'red',
+    title: 'LCD 조립공',
+    location: '경기 파주시',
+    experience: '신입-경력 3년',
+    industry: '생산/제조',
     isLiked: false,
-    hasVisa: false,
-    imageContent: '🏢'
+    hasVisa: true,
+    imageContent: '📺',
+    salary: 26000000,
+    deadline: '2024-12-20',
+    likeCount: 32,
+    createdAt: '2024-12-10'
   },
   {
     id: 4,
-    company: '더블유컨셉코리아',
-    logo: 'W',
-    logoClass: 'red',
-    title: 'UI/UX 디자이너',
-    location: '서울 영등포구',
-    experience: '경력 3-7년',
-    industry: '디자인',
+    company: '포스코',
+    logo: 'P',
+    logoClass: 'orange',
+    title: '철강 생산직',
+    location: '경북 포항시',
+    experience: '신입-경력 5년',
+    industry: '생산/제조',
     isLiked: false,
-    hasVisa: false,
-    imageContent: '🛍️'
+    hasVisa: true,
+    imageContent: '🏭',
+    salary: 35000000,
+    deadline: '2024-12-15',
+    likeCount: 95,
+    createdAt: '2024-11-25'
   },
   {
     id: 5,
-    company: '타다(VCNC)',
-    logo: 'T',
-    logoClass: 'green',
-    title: '콘텐츠 디자이너',
-    location: '서울 성동구',
-    experience: '경력 2-7년',
-    industry: '디자인',
+    company: '대우건설',
+    logo: 'D',
+    logoClass: 'blue',
+    title: '건설 현장 노무자',
+    location: '서울 강남구',
+    experience: '신입-경력 3년',
+    industry: '건설',
     isLiked: false,
-    hasVisa: false,
-    imageContent: '🚗'
+    hasVisa: true,
+    imageContent: '🏗️',
+    salary: 30000000,
+    deadline: '2024-12-28',
+    likeCount: 28,
+    createdAt: '2024-12-08'
   },
   {
     id: 6,
-    company: '쿠팡',
-    logo: 'C',
-    logoClass: 'red',
-    title: '[쿠팡] 컨텐츠 에디터',
-    location: '서울 송파구',
-    experience: '경력 3-10년',
-    industry: '마케팅/광고',
+    company: 'GS건설',
+    logo: 'G',
+    logoClass: 'green',
+    title: '건설 현장 보조원',
+    location: '경기 성남시',
+    experience: '신입-경력 2년',
+    industry: '건설',
     isLiked: false,
-    hasVisa: false,
-    imageContent: '🛒'
+    hasVisa: true,
+    imageContent: '🔨',
+    salary: 28000000,
+    deadline: '2024-12-10',
+    likeCount: 120,
+    createdAt: '2024-11-20'
   },
   {
     id: 7,
-    company: '카카오픽코마',
-    logo: 'K',
-    logoClass: 'yellow',
-    title: '프론트엔드 개발자',
-    location: '경기 성남시',
-    experience: '경력 3년 이상',
-    industry: 'IT/개발',
+    company: '농협중앙회',
+    logo: 'N',
+    logoClass: 'green',
+    title: '농작물 수확원',
+    location: '충남 논산시',
+    experience: '신입-경력 2년',
+    industry: '농업/어업',
     isLiked: false,
-    hasVisa: false,
-    imageContent: '📚'
+    hasVisa: true,
+    imageContent: '🌾',
+    salary: 22000000,
+    deadline: '2024-12-22',
+    likeCount: 56,
+    createdAt: '2024-12-03'
   },
   {
     id: 8,
-    company: '뤼튼테크놀로지스',
-    logo: 'R',
-    logoClass: 'blue',
-    title: 'UX/UI Designer (3년 이상)',
-    location: '서울 서초구',
-    experience: '경력 3년 이상',
-    industry: '디자인',
+    company: '롯데마트',
+    logo: 'L',
+    logoClass: 'red',
+    title: '상품 진열원',
+    location: '서울 강남구',
+    experience: '신입-경력 1년',
+    industry: '서비스',
     isLiked: false,
     hasVisa: false,
-    imageContent: '💻'
+    imageContent: '🛒',
+    salary: 24000000,
+    deadline: '2024-12-18',
+    likeCount: 89,
+    createdAt: '2024-11-28'
+  },
+  {
+    id: 9,
+    company: '부산항만공사',
+    logo: 'P',
+    logoClass: 'blue',
+    title: '화물 하역원',
+    location: '부산 중구',
+    experience: '신입-경력 2년',
+    industry: '무역/물류',
+    isLiked: false,
+    hasVisa: true,
+    imageContent: '🚢',
+    salary: 26000000,
+    deadline: '2024-12-12',
+    likeCount: 15,
+    createdAt: '2024-12-12'
+  },
+  {
+    id: 10,
+    company: '이마트',
+    logo: 'E',
+    logoClass: 'green',
+    title: '상품 정리원',
+    location: '대구 중구',
+    experience: '신입-경력 1년',
+    industry: '서비스',
+    isLiked: false,
+    hasVisa: false,
+    imageContent: '🛍️',
+    salary: 22000000,
+    deadline: '2024-12-30',
+    likeCount: 22,
+    createdAt: '2024-12-15'
+  },
+  {
+    id: 11,
+    company: '인천국제공항공사',
+    logo: 'I',
+    logoClass: 'blue',
+    title: '공항 청소원',
+    location: '인천 중구',
+    experience: '신입-경력 1년',
+    industry: '서비스',
+    isLiked: false,
+    hasVisa: false,
+    imageContent: '🧹',
+    salary: 20000000,
+    deadline: '2024-12-08',
+    likeCount: 18,
+    createdAt: '2024-12-18'
+  },
+  {
+    id: 12,
+    company: '대전과학기술원',
+    logo: 'K',
+    logoClass: 'purple',
+    title: '연구소 청소원',
+    location: '대전 유성구',
+    experience: '신입-경력 1년',
+    industry: '서비스',
+    isLiked: false,
+    hasVisa: false,
+    imageContent: '🧹',
+    salary: 18000000,
+    deadline: '2024-12-05',
+    likeCount: 67,
+    createdAt: '2024-11-15'
+  },
+  {
+    id: 13,
+    company: '광주과학기술원',
+    logo: 'G',
+    logoClass: 'green',
+    title: '연구소 보안원',
+    location: '광주 북구',
+    experience: '신입-경력 2년',
+    industry: '서비스',
+    isLiked: false,
+    hasVisa: false,
+    imageContent: '👮',
+    salary: 24000000,
+    deadline: '2024-12-03',
+    likeCount: 35,
+    createdAt: '2024-12-20'
+  },
+  {
+    id: 14,
+    company: '포스코',
+    logo: 'P',
+    logoClass: 'orange',
+    title: '철강 생산직',
+    location: '경북 포항시',
+    experience: '신입-경력 5년',
+    industry: '생산/제조',
+    isLiked: false,
+    hasVisa: true,
+    imageContent: '🏭',
+    salary: 35000000,
+    deadline: '2024-12-01',
+    likeCount: 42,
+    createdAt: '2024-11-10'
+  },
+  {
+    id: 15,
+    company: '제주항공',
+    logo: 'J',
+    logoClass: 'blue',
+    title: '항공기 청소원',
+    location: '제주 제주시',
+    experience: '신입-경력 1년',
+    industry: '서비스',
+    isLiked: false,
+    hasVisa: false,
+    imageContent: '✈️',
+    salary: 20000000,
+    deadline: '2024-12-27',
+    likeCount: 12,
+    createdAt: '2024-12-22'
   }
 ];
 
@@ -1050,7 +1234,6 @@ const MainPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [visaFilter, setVisaFilter] = useState<boolean>(false);
 
   const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({});
   const [isSortOpen, setIsSortOpen] = useState(false);
@@ -1084,12 +1267,7 @@ const MainPage: React.FC = () => {
   const applyFilters = (jobsToFilter: any[]) => {
     let filteredJobs = jobsToFilter;
 
-    // E-7 비자지원 필터 적용
-    if (visaFilter) {
-      filteredJobs = filteredJobs.filter(job => job.hasVisa);
-    }
-
-    // 선택된 필터가 없으면 비자 필터만 적용된 결과 반환
+    // 선택된 필터가 없으면 모든 결과 반환
     if (selectedFilters.length === 0) {
       return filteredJobs;
     }
@@ -1181,24 +1359,20 @@ const MainPage: React.FC = () => {
     
     switch (selectedSort) {
       case '최신순':
-        // ID 기준 내림차순 (높은 ID가 최신)
-        return sortedJobs.sort((a, b) => b.id - a.id);
+        // 등록일 기준 내림차순 (최신 등록이 위로)
+        return sortedJobs.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         
       case '인기순':
-        // 좋아요 수 기준 내림차순 (현재는 임시로 ID 기준)
-        return sortedJobs.sort((a, b) => {
-          const aScore = a.isLiked ? 1 : 0;
-          const bScore = b.isLiked ? 1 : 0;
-          return bScore - aScore;
-        });
+        // 좋아요 수 기준 내림차순
+        return sortedJobs.sort((a, b) => b.likeCount - a.likeCount);
         
       case '급여순':
-        // 급여 기준 내림차순 (현재 데이터에 급여 정보가 없으므로 임시로 ID 기준)
-        return sortedJobs.sort((a, b) => b.id - a.id);
+        // 급여 기준 내림차순 (높은 급여가 위로)
+        return sortedJobs.sort((a, b) => b.salary - a.salary);
         
       case '마감임박순':
-        // 마감일 기준 오름차순 (현재 데이터에 마감일 정보가 없으므로 임시로 ID 기준)
-        return sortedJobs.sort((a, b) => a.id - b.id);
+        // 마감일 기준 오름차순 (빠른 마감일이 위로)
+        return sortedJobs.sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
         
       default:
         return sortedJobs;
@@ -1260,13 +1434,16 @@ const MainPage: React.FC = () => {
 
   const handleResetFilters = () => {
     setSelectedFilters([]);
-    setVisaFilter(false);
   };
 
   const handleViewResults = () => {
     setIsFilterOpen(false);
     setActiveFilter(null);
-    applyAllFilters(); // 필터 적용 후 결과 업데이트
+  };
+
+  const handleCloseModal = () => {
+    setIsFilterOpen(false);
+    setActiveFilter(null);
   };
 
   const removeFilter = (filter: string) => {
@@ -1295,7 +1472,6 @@ const MainPage: React.FC = () => {
   const handleSortSelect = (sortOption: string) => {
     setSelectedSort(sortOption);
     setIsSortOpen(false);
-    applyAllFilters(); // 정렬 변경 후 결과 업데이트
   };
 
   useEffect(() => {
@@ -1315,10 +1491,10 @@ const MainPage: React.FC = () => {
     };
   }, [isSortOpen]);
 
-  // 컴포넌트 마운트 시 초기 필터링 적용
+  // 상태 변경 시 자동으로 필터링 적용
   useEffect(() => {
     applyAllFilters();
-  }, []);
+  }, [searchQuery, selectedFilters, selectedSort]);
 
   const handleChatClick = () => {
     setIsChatOpen(!isChatOpen);
@@ -1387,31 +1563,15 @@ const MainPage: React.FC = () => {
               />
               <DownArrowFallback className={imageErrors['down-arrow'] ? 'show' : ''}>↓</DownArrowFallback>
             </FilterButton>
-            <VisaButton 
-              onClick={() => {
-                setVisaFilter(!visaFilter);
-                setTimeout(() => applyAllFilters(), 0);
-              }}
-              style={{ 
-                background: visaFilter ? '#059669' : '#f3f4f6',
-                color: visaFilter ? 'white' : '#374151',
-                border: visaFilter ? '2px solid #059669' : '2px solid #d1d5db',
-                transform: visaFilter ? 'scale(1.05)' : 'scale(1)',
-                boxShadow: visaFilter ? '0 4px 12px rgba(5, 150, 105, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.1)',
-                fontWeight: visaFilter ? '600' : '500'
-              }}
-            >
-              {visaFilter ? '✓ E-7 비자지원' : 'E-7 비자지원'}
-            </VisaButton>
+
             <RefreshButton
               onClick={() => {
-                // 모든 필터 초기화
+                // 모든 필터 초기화 (useEffect가 자동으로 필터링 적용)
                 setSearchQuery('');
                 setSelectedFilters([]);
-                setVisaFilter(false);
                 setSelectedSort('최신순');
                 
-                // 애니메이션 효과를 위한 회전 상태
+                // CSS 애니메이션으로 아이콘 회전
                 const refreshIcon = document.querySelector('.refresh-icon') as HTMLElement;
                 if (refreshIcon) {
                   refreshIcon.style.transform = 'rotate(360deg)';
@@ -1419,11 +1579,8 @@ const MainPage: React.FC = () => {
                     if (refreshIcon) {
                       refreshIcon.style.transform = 'rotate(0deg)';
                     }
-                  }, 500);
+                  }, 300);
                 }
-                
-                // 필터링 적용
-                setTimeout(() => applyAllFilters(), 100);
               }}
               style={{ cursor: 'pointer' }}
               title="모든 필터 초기화"
@@ -1675,8 +1832,11 @@ const MainPage: React.FC = () => {
         </ChatFooter>
       </ChatOverlay>
       
-      <FilterOverlay $isOpen={isFilterOpen}>
-        <FilterModal>
+      <FilterOverlay $isOpen={isFilterOpen} onClick={handleCloseModal}>
+        <FilterModal onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={handleCloseModal} aria-label="필터 모달 닫기">
+            ×
+          </CloseButton>
           <FilterTabs>
             <FilterTab 
               $isActive={activeFilter === 'region'}
