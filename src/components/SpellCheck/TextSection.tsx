@@ -42,14 +42,14 @@ const EmptyText = styled.div`
   font-style: italic;
 `;
 
-const CheckButton = styled(motion.button)<{ $isLoading?: boolean }>`
-  background: ${props => props.$isLoading ? '#9ca3af' : COLORS.primary};
+const CheckButton = styled(motion.button)`
+  background: ${COLORS.primary};
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 0.8rem;
-  cursor: ${props => props.$isLoading ? 'not-allowed' : 'pointer'};
+  cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 0.8rem;
   min-height: 44px;
@@ -60,26 +60,7 @@ const CheckButton = styled(motion.button)<{ $isLoading?: boolean }>`
   gap: 0.5rem;
   
   &:hover {
-    background: ${props => props.$isLoading ? '#9ca3af' : '#10b981'};
-  }
-  
-  &:disabled {
-    background: #9ca3af;
-    cursor: not-allowed;
-  }
-`;
-
-const LoadingSpinner = styled.div`
-  width: 16px;
-  height: 16px;
-  border: 2px solid #ffffff;
-  border-top: 2px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    background: #10b981;
   }
 `;
 
@@ -95,34 +76,11 @@ const WordCount = styled.span`
   color: #6b7280;
 `;
 
-const SectionResult = styled.div<{ $hasResult: boolean }>`
-  margin-top: 0.8rem;
-  padding: 0.8rem;
-  border-radius: 6px;
-  background: ${props => props.$hasResult ? '#f0fdf4' : 'transparent'};
-  border: 1px solid ${props => props.$hasResult ? '#bbf7d0' : 'transparent'};
-  display: ${props => props.$hasResult ? 'block' : 'none'};
-`;
-
-const ResultText = styled.div`
-  font-size: 0.9rem;
-  color: #059669;
-  font-weight: 500;
-`;
-
 interface TextSectionProps {
   formData: ResumeFormData;
-  onCheckSection: (section: keyof ResumeFormData) => void;
-  sectionLoading: Record<string, boolean>;
-  sectionResults: Record<string, any>;
 }
 
-const TextSection: React.FC<TextSectionProps> = ({ 
-  formData, 
-  onCheckSection,
-  sectionLoading,
-  sectionResults
-}) => {
+const TextSection: React.FC<TextSectionProps> = ({ formData }) => {
   // 개인정보 항목 (검사 버튼 없음)
   const personalInfoSections = [
     { key: 'name' as keyof ResumeFormData, label: '이름' },
@@ -148,31 +106,12 @@ const TextSection: React.FC<TextSectionProps> = ({
     return text.split(/\s+/).filter(word => word.length > 0).length;
   };
 
-  const getSectionResult = (sectionKey: string) => {
-    const result = sectionResults[sectionKey];
-    if (!result) return null;
-    
-    const errorCount = result.errors?.length || 0;
-    const accuracy = result.statistics?.accuracy || 100;
-    
-    if (errorCount === 0) {
-      return { text: '✅ 오류 없음', color: '#059669' };
-    } else {
-      return { 
-        text: `⚠️ ${errorCount}개 오류 발견 (정확도: ${accuracy.toFixed(1)}%)`, 
-        color: '#dc2626' 
-      };
-    }
-  };
-
   return (
     <SectionContainer>
       {sections.map((section) => {
         const content = formData[section.key];
         const hasContent = content && content.trim();
         const wordCount = getWordCount(content || '');
-        const isLoading = sectionLoading[section.key] || false;
-        const sectionResult = getSectionResult(section.key);
         
         // 개인정보 항목인지 확인
         const isPersonalInfo = personalInfoSections.some(info => info.key === section.key);
@@ -193,26 +132,12 @@ const TextSection: React.FC<TextSectionProps> = ({
             </TextContent>
             {/* 자기소개서 관련 항목에만 검사 버튼 표시 */}
             {hasContent && !isPersonalInfo && (
-              <>
-                <CheckButton
-                  onClick={() => onCheckSection(section.key)}
-                  disabled={isLoading}
-                  $isLoading={isLoading}
-                  whileHover={{ scale: isLoading ? 1 : 1.02 }}
-                  whileTap={{ scale: isLoading ? 1 : 0.98 }}
-                >
-                  {isLoading && <LoadingSpinner />}
-                  {isLoading ? '검사 중...' : '이 섹션 검사'}
-                </CheckButton>
-                
-                {sectionResult && (
-                  <SectionResult $hasResult={true}>
-                    <ResultText style={{ color: sectionResult.color }}>
-                      {sectionResult.text}
-                    </ResultText>
-                  </SectionResult>
-                )}
-              </>
+              <CheckButton
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                이 섹션 검사
+              </CheckButton>
             )}
           </TextItem>
         );

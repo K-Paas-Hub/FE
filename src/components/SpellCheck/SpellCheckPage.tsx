@@ -1,13 +1,12 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import SpellCheckResult from './SpellCheckResult';
 import TextSection from './TextSection';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { COLORS } from '../../constants';
 
 const SpellCheckContainer = styled.div`
   min-height: 100vh;
@@ -84,8 +83,6 @@ const SectionIcon = styled.span`
   font-size: 1.2rem;
 `;
 
-
-
 const ButtonGroup = styled.div`
   display: flex;
   gap: 1rem;
@@ -156,55 +153,6 @@ const SecondaryButton = styled(motion.button)`
   }
 `;
 
-const LoadingSpinner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  
-  &::after {
-    content: '';
-    width: 32px;
-    height: 32px;
-    border: 4px solid #e5e7eb;
-    border-top: 4px solid ${COLORS.primary};
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-
-const ErrorMessage = styled.div`
-  background: #fef2f2;
-  border: 1px solid #ef4444;
-  color: #dc2626;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const ErrorCloseButton = styled.button`
-  background: none;
-  border: none;
-  color: #dc2626;
-  cursor: pointer;
-  font-size: 1.2rem;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const NoDataMessage = styled.div`
   background: #f3f4f6;
   border: 1px solid #d1d5db;
@@ -229,52 +177,7 @@ const NoDataText = styled.p`
 
 const SpellCheckPage: React.FC = () => {
   const { formData } = useResumeForm();
-  const {
-    loading,
-    error,
-    result,
-    sectionResults,
-    sectionLoading,
-    checkResume,
-    checkSection,
-    clearResult,
-    clearError,
-    hasResumeData,
-    getCheckableSections
-  } = useSpellCheck();
-
-  const handleCheckAll = useCallback(async () => {
-    if (hasResumeData(formData)) {
-      await checkResume(formData);
-    }
-  }, [checkResume, formData, hasResumeData]);
-
-  const handleCheckSection = useCallback(async (section: keyof typeof formData) => {
-    const text = formData[section] || '';
-    if (text.trim()) {
-      await checkSection(section, text);
-    }
-  }, [checkSection, formData]);
-
-  const handleClearResult = useCallback(() => {
-    clearResult();
-  }, [clearResult]);
-
-  const handleClearError = useCallback(() => {
-    clearError();
-  }, [clearError]);
-
-  if (loading) {
-    return (
-      <SpellCheckContainer>
-        <MainHeader />
-        <SpellCheckContent>
-          <LoadingSpinner />
-        </SpellCheckContent>
-        <MainFooter />
-      </SpellCheckContainer>
-    );
-  }
+  const { hasResumeData } = useSpellCheck();
 
   return (
     <SpellCheckContainer>
@@ -287,15 +190,6 @@ const SpellCheckPage: React.FC = () => {
             작성한 이력서의 맞춤법을 검사하고 수정 제안을 받아보세요
           </SpellCheckSubtitle>
         </SpellCheckHeader>
-
-        {error && (
-          <ErrorMessage>
-            {error}
-            <ErrorCloseButton onClick={handleClearError}>
-              ✕
-            </ErrorCloseButton>
-          </ErrorMessage>
-        )}
 
         {!hasResumeData(formData) ? (
           <NoDataMessage>
@@ -317,48 +211,23 @@ const SpellCheckPage: React.FC = () => {
           </NoDataMessage>
         ) : (
           <>
-
-
             <SpellCheckSection>
               <SectionTitle>
                 <SectionIcon>📝</SectionIcon>
                 이력서 내용
               </SectionTitle>
               
-              <TextSection
-                formData={formData}
-                onCheckSection={handleCheckSection}
-                sectionResults={sectionResults}
-                sectionLoading={sectionLoading}
-              />
+              <TextSection formData={formData} />
             </SpellCheckSection>
-
-            {result && (
-              <SpellCheckSection>
-                <SectionTitle>
-                  <SectionIcon>🔍</SectionIcon>
-                  검사 결과
-                </SectionTitle>
-                
-                <SpellCheckResult
-                  result={result}
-                  onApplyCorrection={() => {}}
-                />
-              </SpellCheckSection>
-            )}
 
             <ButtonGroup>
               <SecondaryButton
-                onClick={handleClearResult}
-                disabled={loading || !result}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 결과 초기화
               </SecondaryButton>
               <PrimaryButton
-                onClick={handleCheckAll}
-                disabled={loading || !hasResumeData(formData)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
