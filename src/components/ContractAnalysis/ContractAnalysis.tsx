@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import CommunityBanner from '../CommunityBanner';
 
 const AnalysisContainer = styled.div`
   min-height: 100vh;
@@ -382,6 +383,7 @@ const ContractAnalysis: React.FC = () => {
 
   return (
     <AnalysisContainer>
+      <CommunityBanner />
       <MainHeader />
       
       <AnalysisContent>

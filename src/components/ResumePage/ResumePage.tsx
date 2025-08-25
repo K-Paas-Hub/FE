@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import CommunityBanner from '../CommunityBanner';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useAutoSave } from '../../hooks/useAutoSave';
 
@@ -566,6 +567,7 @@ const ResumePage: React.FC = () => {
 
   return (
     <ResumeContainer>
+      <CommunityBanner />
       <MainHeader />
       
       <ResumeContent>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import CommunityBanner from '../CommunityBanner';
 
 const QuizContainer = styled.div`
   min-height: 100vh;
@@ -383,6 +384,7 @@ const ContractQuiz: React.FC = () => {
 
   return (
     <QuizContainer>
+      <CommunityBanner />
       <MainHeader />
       
       <QuizContent>

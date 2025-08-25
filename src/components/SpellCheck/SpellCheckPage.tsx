@@ -4,6 +4,7 @@ import { useResumeForm } from '../../hooks/useResumeForm';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import CommunityBanner from '../CommunityBanner';
 import TextSection from './TextSection';
 import { COLORS } from '../../constants';
 
@@ -112,6 +113,7 @@ const SpellCheckPage: React.FC = () => {
 
   return (
     <SpellCheckContainer>
+      <CommunityBanner />
       <MainHeader />
       
       <SpellCheckContent>

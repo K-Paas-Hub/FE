@@ -4,51 +4,14 @@ import { motion } from 'framer-motion';
 import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import CommunityBanner from '../CommunityBanner';
 
 const MainContainer = styled.div`
   min-height: 100vh;
   background: white;
 `;
 
-const TopBanner = styled.div`
-  background: #1e293b;
-  color: white;
-  padding: 0.8rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  
-  @media (max-width: 768px) {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-`;
 
-const BannerText = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const BannerClose = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 const MainContent = styled.main`
   max-width: 1200px;
@@ -1004,7 +967,7 @@ const MainPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [showBanner, setShowBanner] = useState(true);
+
   const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({});
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState('최신순');
@@ -1093,15 +1056,7 @@ const MainPage: React.FC = () => {
 
   return (
     <MainContainer>
-      {showBanner && (
-        <TopBanner>
-          <BannerText>
-            Community Open! 💬 한국 취업을 준비하는 모든 외국인을 위한 공간이 생겼어요 →
-          </BannerText>
-          <BannerClose onClick={() => setShowBanner(false)}>×</BannerClose>
-        </TopBanner>
-      )}
-      
+      <CommunityBanner />
       <MainHeader />
       
       <MainContent>

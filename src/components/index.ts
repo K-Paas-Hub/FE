@@ -11,6 +11,7 @@ export { default as FeaturesSection } from './FeaturesSection';
 export { default as StatsSection } from './StatsSection';
 export { default as BlogSection } from './BlogSection';
 export { default as PartnersSection } from './PartnersSection';
+export { default as CommunityBanner } from './CommunityBanner';
 
 // Page Components
 export { default as MainPage } from './MainPage';

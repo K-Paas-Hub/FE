@@ -6,6 +6,7 @@ import { ANIMATIONS, COLORS } from '../../constants';
 import { VISA_TYPES, VISA_CATEGORIES, VISA_CATEGORY_LABELS } from '../../constants/visa';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
+import CommunityBanner from '../CommunityBanner';
 import VisaTypeCard from './VisaTypeCard';
 
 const VisaContainer = styled.div`
@@ -13,45 +14,7 @@ const VisaContainer = styled.div`
   background: white;
 `;
 
-const TopBanner = styled.div`
-  background: #1e293b;
-  color: white;
-  padding: 0.8rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  
-  @media (max-width: 768px) {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-`;
 
-const BannerText = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const BannerClose = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 const VisaContent = styled.main`
   max-width: 1200px;
@@ -146,7 +109,6 @@ const VisaGrid = styled.div`
 
 const VisaCenter: React.FC = () => {
   const navigate = useNavigate();
-  const [showBanner, setShowBanner] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<keyof typeof VISA_CATEGORY_LABELS>('ALL');
 
   const handleVisaTypeClick = (visaTypeId: string) => {
@@ -168,15 +130,7 @@ const VisaCenter: React.FC = () => {
 
   return (
     <VisaContainer>
-      {showBanner && (
-        <TopBanner>
-          <BannerText>
-            Community Open! 💬 한국 취업을 준비하는 모든 외국인을 위한 공간이 생겼어요 →
-          </BannerText>
-          <BannerClose onClick={() => setShowBanner(false)}>×</BannerClose>
-        </TopBanner>
-      )}
-      
+      <CommunityBanner />
       <MainHeader />
       
       <VisaContent>
