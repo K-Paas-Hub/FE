@@ -854,6 +854,85 @@ const ChatFooter = styled.div`
   border-top: 1px solid #e5e5e5;
 `;
 
+// 검색 관련 스타일 컴포넌트
+const SearchResultsInfo = styled.div`
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const SearchCount = styled.span`
+  font-weight: 500;
+  color: ${COLORS.primary};
+`;
+
+const ClearSearchButton = styled.button`
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #f5f5f5;
+    color: #666;
+  }
+`;
+
+const NoResultsMessage = styled.div`
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+`;
+
+const NoResultsIcon = styled.div`
+  font-size: 3rem;
+  margin-bottom: 1rem;
+`;
+
+const NoResultsTitle = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+`;
+
+const NoResultsText = styled.p`
+  font-size: 0.9rem;
+  color: #999;
+`;
+
+const SearchLoadingSpinner = styled.div`
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid ${COLORS.primary};
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 0.5rem;
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+
 // Sample job data
 const sampleJobs = [
   {
@@ -964,6 +1043,10 @@ const sampleJobs = [
 
 const MainPage: React.FC = () => {
   const [jobs, setJobs] = useState(sampleJobs);
+  const [filteredJobs, setFilteredJobs] = useState(sampleJobs);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -977,10 +1060,62 @@ const MainPage: React.FC = () => {
     setImageErrors(prev => ({ ...prev, [imageName]: true }));
   };
 
+  // 검색 함수
+  const performSearch = (query: string) => {
+    if (!query.trim()) {
+      setFilteredJobs(jobs);
+      return;
+    }
+    
+    const keywords = query.toLowerCase().split(' ').filter(k => k.trim());
+    
+    const results = jobs.filter(job => {
+      const searchableText = [
+        job.company,
+        job.title,
+        job.location,
+        job.industry
+      ].join(' ').toLowerCase();
+      
+      return keywords.every(keyword => 
+        searchableText.includes(keyword)
+      );
+    });
+    
+    setFilteredJobs(results);
+  };
+
+  // 검색 입력 핸들러
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setIsSearching(true);
+    
+    // 디바운스된 검색 (300ms 지연)
+    setTimeout(() => {
+      performSearch(query);
+      setIsSearching(false);
+    }, 300);
+  };
+
+  // 검색 초기화
+  const handleClearSearch = () => {
+    setSearchQuery('');
+    setFilteredJobs(jobs);
+  };
+
   const handleLike = (jobId: number) => {
-    setJobs(jobs.map(job => 
+    const updatedJobs = jobs.map(job => 
       job.id === jobId ? { ...job, isLiked: !job.isLiked } : job
-    ));
+    );
+    setJobs(updatedJobs);
+    
+    // 검색 결과도 업데이트
+    if (searchQuery.trim()) {
+      performSearch(searchQuery);
+    } else {
+      setFilteredJobs(updatedJobs);
+    }
   };
 
   const handleFilterClick = (filterType: string) => {
@@ -1070,7 +1205,14 @@ const MainPage: React.FC = () => {
             <SearchInput 
               placeholder="직무명, 직무 관련 키워드를 검색해 보세요."
               type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
             />
+            {searchQuery && (
+              <ClearSearchButton onClick={handleClearSearch}>
+                ✕
+              </ClearSearchButton>
+            )}
           </SearchBar>
           
           <FilterContainer>
@@ -1123,6 +1265,20 @@ const MainPage: React.FC = () => {
             </RefreshButton>
           </FilterContainer>
         </SearchSection>
+
+        {/* 검색 결과 정보 */}
+        {searchQuery && (
+          <SearchResultsInfo>
+            <div>
+              <span>"</span>
+              <SearchCount>{searchQuery}</SearchCount>
+              <span>" 검색 결과 </span>
+              <SearchCount>{filteredJobs.length}</SearchCount>
+              <span>건</span>
+              {isSearching && <SearchLoadingSpinner />}
+            </div>
+          </SearchResultsInfo>
+        )}
 
         <JobListSection>
           <SectionHeader>
@@ -1178,46 +1334,97 @@ const MainPage: React.FC = () => {
             </SortButton>
           </SectionHeader>
           
-          <JobGrid>
-            {jobs.map((job, index) => (
-              <JobCard
-                key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <JobImage>
-                  <JobImageContent>{job.imageContent}</JobImageContent>
-                  <BonusBadge>합격보상금 100만원</BonusBadge>
-                </JobImage>
-                
-                <JobContent>
-                  <JobHeader>
-                    <CompanyInfo>
-                      <CompanyLogo className={job.logoClass}>{job.logo}</CompanyLogo>
-                      <CompanyDetails>
-                        <CompanyName>{job.company}</CompanyName>
-                        <JobTitle>{job.title}</JobTitle>
-                      </CompanyDetails>
-                    </CompanyInfo>
-                    <HeartButton 
-                      className={job.isLiked ? 'liked' : ''}
-                      onClick={() => handleLike(job.id)}
-                    >
-                      ♥
-                    </HeartButton>
-                  </JobHeader>
+                    {filteredJobs.length > 0 ? (
+            <JobGrid>
+              {filteredJobs.map((job, index) => (
+                <JobCard
+                  key={job.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <JobImage>
+                    <JobImageContent>{job.imageContent}</JobImageContent>
+                    <BonusBadge>합격보상금 100만원</BonusBadge>
+                  </JobImage>
                   
-                  <JobTags>
-                    {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
-                    <Tag className="location">{job.location}</Tag>
-                    <Tag className="experience">{job.experience}</Tag>
-                    <Tag>{job.industry}</Tag>
-                  </JobTags>
-                </JobContent>
-              </JobCard>
-            ))}
-          </JobGrid>
+                  <JobContent>
+                    <JobHeader>
+                      <CompanyInfo>
+                        <CompanyLogo className={job.logoClass}>{job.logo}</CompanyLogo>
+                        <CompanyDetails>
+                          <CompanyName>{job.company}</CompanyName>
+                          <JobTitle>{job.title}</JobTitle>
+                        </CompanyDetails>
+                      </CompanyInfo>
+                      <HeartButton 
+                        className={job.isLiked ? 'liked' : ''}
+                        onClick={() => handleLike(job.id)}
+                      >
+                        ♥
+                      </HeartButton>
+                    </JobHeader>
+                    
+                    <JobTags>
+                      {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
+                      <Tag className="location">{job.location}</Tag>
+                      <Tag className="experience">{job.experience}</Tag>
+                      <Tag>{job.industry}</Tag>
+                    </JobTags>
+                  </JobContent>
+                </JobCard>
+              ))}
+            </JobGrid>
+          ) : searchQuery ? (
+            <NoResultsMessage>
+              <NoResultsIcon>🔍</NoResultsIcon>
+              <NoResultsTitle>검색 결과가 없습니다</NoResultsTitle>
+              <NoResultsText>
+                다른 키워드로 검색해보세요
+              </NoResultsText>
+            </NoResultsMessage>
+          ) : (
+            <JobGrid>
+              {jobs.map((job, index) => (
+                <JobCard
+                  key={job.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <JobImage>
+                    <JobImageContent>{job.imageContent}</JobImageContent>
+                    <BonusBadge>합격보상금 100만원</BonusBadge>
+                  </JobImage>
+                  
+                  <JobContent>
+                    <JobHeader>
+                      <CompanyInfo>
+                        <CompanyLogo className={job.logoClass}>{job.logo}</CompanyLogo>
+                        <CompanyDetails>
+                          <CompanyName>{job.company}</CompanyName>
+                          <JobTitle>{job.title}</JobTitle>
+                        </CompanyDetails>
+                      </CompanyInfo>
+                      <HeartButton 
+                        className={job.isLiked ? 'liked' : ''}
+                        onClick={() => handleLike(job.id)}
+                      >
+                        ♥
+                      </HeartButton>
+                    </JobHeader>
+                    
+                    <JobTags>
+                      {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
+                      <Tag className="location">{job.location}</Tag>
+                      <Tag className="experience">{job.experience}</Tag>
+                      <Tag>{job.industry}</Tag>
+                    </JobTags>
+                  </JobContent>
+                </JobCard>
+              ))}
+            </JobGrid>
+          )}
         </JobListSection>
       </MainContent>
       
