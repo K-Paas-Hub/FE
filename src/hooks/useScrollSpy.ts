@@ -49,7 +49,7 @@ export const useScrollSpy = (sectionIds: string[], offset: number = 0) => {
   return activeSection;
 };
 
-export const useCountUp = (end: number, duration: number = 2000, delay: number = 0) => {
+export const useCountUp = (end: number, targetId: string = 'project', duration: number = 2000, delay: number = 0) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -63,13 +63,13 @@ export const useCountUp = (end: number, duration: number = 2000, delay: number =
       { threshold: 0.5 }
     );
 
-    const element = document.getElementById('project');
+    const element = document.getElementById(targetId);
     if (element) {
       observer.observe(element);
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [targetId]);
 
   useEffect(() => {
     if (!isVisible) return;

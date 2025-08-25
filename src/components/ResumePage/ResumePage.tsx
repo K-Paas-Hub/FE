@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { COLORS } from '../../constants';
-import MainHeader from '../MainHeader';
-import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+import { MainHeader, MainFooter, CommunityBanner } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useAutoSave } from '../../hooks/useAutoSave';
 
@@ -475,7 +473,7 @@ const ResumePage: React.FC = () => {
   useAutoSave(formData, async () => {
     const result = await saveResume();
     if (result.success) {
-      console.log('자동 저장 완료');
+      // 자동 저장 완료
     }
   }, true);
 

@@ -190,9 +190,6 @@ const VisaDetailPage: React.FC = () => {
     return <div>비자 유형을 찾을 수 없습니다.</div>;
   }
 
-  // 디버깅용 로그
-  console.log('visaType:', visaType);
-  console.log('visaType.documents:', visaType.documents);
 
   return (
     <DetailContainer>

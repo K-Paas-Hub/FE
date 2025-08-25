@@ -14,14 +14,14 @@ import {
   Footer,
   Sidebar,
   MainPage,
-  VisaCenter
+  VisaCenter,
+  ContractTutorial,
+  ResumePage,
+  SpellCheckPage,
+  ContractAnalysis,
+  ContractQuiz
 } from './components';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
-import ContractTutorial from './components/ContractTutorial';
-import ResumePage from './components/ResumePage';
-import SpellCheckPage from './components/SpellCheck';
-import ContractAnalysis from './components/ContractAnalysis';
-import ContractQuiz from './components/ContractQuiz';
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);

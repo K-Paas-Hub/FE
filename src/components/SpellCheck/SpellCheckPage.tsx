@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
-import MainHeader from '../MainHeader';
-import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+import { MainHeader, MainFooter, CommunityBanner } from '../';
 import TextSection from './TextSection';
 import { COLORS } from '../../constants';
 

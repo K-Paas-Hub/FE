@@ -243,19 +243,15 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
 
   const handleSectionCheck = async (section: keyof ResumeFormData, text: string) => {
     try {
-      console.log('검사 시작:', section, text);
       const response = await checkSection(section, text, checkOptions);
-      console.log('검사 결과:', response);
       
       if (response.success && response.data) {
-        console.log('감지된 오류:', response.data.errors);
         setSectionErrors(prev => ({
           ...prev,
           [section]: response.data!.errors
         }));
         onSectionCheck?.(section, response.data!.errors);
       } else {
-        console.log('검사 실패:', response.error);
       }
     } catch (err) {
       console.error('섹션 검사 중 오류:', err);
@@ -269,9 +265,9 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
     }));
   };
 
-  const applySuggestion = (section: keyof ResumeFormData, error: SpellCheckError) => {
+  const applySuggestion = (_section: keyof ResumeFormData, _error: SpellCheckError) => {
     // 실제 텍스트 수정 로직은 부모 컴포넌트에서 처리
-    console.log('수정 제안 적용:', section, error);
+    // 수정 제안 적용
   };
 
   return (

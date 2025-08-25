@@ -96,10 +96,10 @@ const stats: Stat[] = [
 ];
 
 const StatsSection: React.FC = () => {
-  const count1 = useCountUp(10000, 2500, 0);
-  const count2 = useCountUp(50000, 2500, 500);
-  const count3 = useCountUp(95, 2000, 1000);
-  const count4 = useCountUp(24, 1500, 1500);
+  const count1 = useCountUp(10000, 'project', 2500, 0);
+  const count2 = useCountUp(50000, 'project', 2500, 500);
+  const count3 = useCountUp(95, 'project', 2000, 1000);
+  const count4 = useCountUp(24, 'project', 1500, 1500);
 
   const counts = [count1, count2, count3, count4];
 
