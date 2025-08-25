@@ -9,12 +9,12 @@ import SpellCheckResult from './SpellCheckResult';
 import TextSection from './TextSection';
 import { COLORS, ANIMATIONS } from '../../constants';
 
-const Container = styled.div`
+const SpellCheckContainer = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f8f9fa;
 `;
 
-const Content = styled(motion.div)`
+const SpellCheckContent = styled.main`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -24,71 +24,75 @@ const Content = styled(motion.div)`
   }
 `;
 
-const Title = styled.h1`
-  color: white;
+const SpellCheckHeader = styled.div`
+  text-align: center;
+  margin-bottom: 3rem;
+`;
+
+const SpellCheckTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 2rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
   
   @media (max-width: 768px) {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
   }
 `;
 
-const Subtitle = styled.p`
-  color: rgba(255, 255, 255, 0.9);
+const SpellCheckSubtitle = styled.p`
   font-size: 1.1rem;
-  text-align: center;
-  margin-bottom: 3rem;
+  color: #6b7280;
+  line-height: 1.6;
+`;
+
+const SpellCheckSection = styled.section`
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   
   @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    padding: 1.5rem;
   }
 `;
 
-const ModeToggle = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-`;
-
-const ToggleButton = styled(motion.button)<{ isActive: boolean }>`
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
+const SectionTitle = styled.h2`
+  font-size: 1.8rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: ${props => props.isActive ? COLORS.primary : 'rgba(255, 255, 255, 0.2)'};
-  color: ${props => props.isActive ? 'white' : 'rgba(255, 255, 255, 0.8)'};
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   
-  &:hover {
-    background: ${props => props.isActive ? COLORS.primaryHover : 'rgba(255, 255, 255, 0.3)'};
-    transform: translateY(-2px);
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
 
-const ModeDescription = styled.p`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-  text-align: center;
-  margin-top: 0.5rem;
+const SectionIcon = styled.span`
+  background: ${COLORS.primary};
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
 `;
 
-const ActionButtons = styled.div`
+const ModeToggle = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -96,26 +100,69 @@ const ActionButtons = styled.div`
   }
 `;
 
-const Button = styled(motion.button)`
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 12px;
+const ToggleButton = styled(motion.button)<{ isActive: boolean }>`
+  padding: 0.75rem 1.5rem;
+  border: 2px solid ${props => props.isActive ? COLORS.primary : '#e5e7eb'};
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  background: ${props => props.isActive ? COLORS.primary : 'white'};
+  color: ${props => props.isActive ? 'white' : '#374151'};
+  min-height: 44px;
+  min-width: 44px;
+  
+  &:hover {
+    background: ${props => props.isActive ? COLORS.primaryHover : '#f9fafb'};
+    border-color: ${props => props.isActive ? COLORS.primaryHover : COLORS.primary};
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 200px;
+  }
+`;
+
+const ModeDescription = styled.p`
+  color: #6b7280;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.5;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const PrimaryButton = styled(motion.button)`
   background: ${COLORS.primary};
   color: white;
-  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
     background: ${COLORS.primaryHover};
-    transform: translateY(-2px);
   }
   
   &:disabled {
-    background: ${COLORS.textSecondary};
+    background: #9ca3af;
     cursor: not-allowed;
-    transform: none;
   }
   
   @media (max-width: 768px) {
@@ -124,23 +171,105 @@ const Button = styled(motion.button)`
   }
 `;
 
-const ClearButton = styled(Button)`
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+const SecondaryButton = styled(motion.button)`
+  background: white;
+  color: ${COLORS.primary};
+  border: 2px solid ${COLORS.primary};
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: ${COLORS.primary};
+    color: white;
+  }
+  
+  &:disabled {
+    border-color: #9ca3af;
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 `;
 
+const LoadingSpinner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  
+  &::after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid ${COLORS.primary};
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+
+const ErrorMessage = styled.div`
+  background: #fef2f2;
+  border: 1px solid #ef4444;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ErrorCloseButton = styled.button`
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const NoDataMessage = styled.div`
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  padding: 2rem;
+  border-radius: 8px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.1rem;
-  padding: 3rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+  margin: 2rem 0;
+`;
+
+const NoDataTitle = styled.h3`
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+`;
+
+const NoDataText = styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
 `;
 
 const SpellCheckPage: React.FC = () => {
@@ -184,144 +313,142 @@ const SpellCheckPage: React.FC = () => {
 
   if (loading) {
     return (
-      <Container>
+      <SpellCheckContainer>
         <MainHeader />
-        <Content>
-          <div style={{ textAlign: 'center', padding: '2rem', color: 'white' }}>
-            검사 중...
-          </div>
-        </Content>
+        <SpellCheckContent>
+          <LoadingSpinner />
+        </SpellCheckContent>
         <MainFooter />
-      </Container>
-    );
-  }
-
-  if (error) {
-    return (
-      <Container>
-        <MainHeader />
-        <Content>
-          <div style={{ 
-            background: 'rgba(239, 68, 68, 0.1)', 
-            border: '1px solid rgba(239, 68, 68, 0.3)', 
-            color: 'white', 
-            padding: '1rem', 
-            borderRadius: '8px',
-            textAlign: 'center'
-          }}>
-            {error}
-            <button 
-              onClick={handleClearError}
-              style={{ 
-                marginLeft: '1rem', 
-                background: 'none', 
-                border: 'none', 
-                color: 'white', 
-                cursor: 'pointer',
-                textDecoration: 'underline'
-              }}
-            >
-              닫기
-            </button>
-          </div>
-        </Content>
-        <MainFooter />
-      </Container>
-    );
-  }
-
-  if (!hasResumeData(formData)) {
-    return (
-      <Container>
-        <MainHeader />
-        <Content>
-          <NoDataMessage>
-            <h3>이력서 데이터가 없습니다</h3>
-            <p>맞춤법 검사를 하려면 먼저 이력서를 작성해주세요.</p>
-          </NoDataMessage>
-        </Content>
-        <MainFooter />
-      </Container>
+      </SpellCheckContainer>
     );
   }
 
   return (
-    <Container>
+    <SpellCheckContainer>
       <MainHeader />
-      <Content
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: ANIMATIONS.duration.normal }}
-      >
-        <Title>맞춤법 검사</Title>
-        <Subtitle>
-          이력서의 맞춤법과 문법을 검사하여 완성도를 높여보세요
-        </Subtitle>
+      
+      <SpellCheckContent>
+        <SpellCheckHeader>
+          <SpellCheckTitle>맞춤법 검사</SpellCheckTitle>
+          <SpellCheckSubtitle>
+            작성한 이력서의 맞춤법을 검사하고 수정 제안을 받아보세요
+          </SpellCheckSubtitle>
+        </SpellCheckHeader>
 
-        {/* 검사 모드 토글 */}
-        <ModeToggle>
-          <ToggleButton
-            isActive={!isAdvancedMode}
-            onClick={toggleAdvancedMode}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            기본 검사
-          </ToggleButton>
-          <ToggleButton
-            isActive={isAdvancedMode}
-            onClick={toggleAdvancedMode}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            네이버 맞춤법 검사
-          </ToggleButton>
-        </ModeToggle>
-        
-        <ModeDescription>
-          {isAdvancedMode 
-            ? "네이버 맞춤법 검사기를 사용하여 더 정확한 검사를 진행합니다."
-            : "기본 형식 검사와 네이버 맞춤법 검사를 함께 진행합니다."
-          }
-        </ModeDescription>
-
-        {/* 액션 버튼들 */}
-        <ActionButtons>
-          <Button
-            onClick={handleCheckAll}
-            disabled={loading}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            전체 검사
-          </Button>
-          <ClearButton
-            onClick={handleClearResult}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            결과 초기화
-          </ClearButton>
-        </ActionButtons>
-
-        {/* 이력서 섹션들 */}
-        <TextSection
-          formData={formData}
-          onCheckSection={handleCheckSection}
-          sectionResults={sectionResults}
-          sectionLoading={sectionLoading}
-        />
-
-        {/* 검사 결과 */}
-        {result && (
-          <SpellCheckResult
-            result={result}
-            onApplyCorrection={() => {}}
-          />
+        {error && (
+          <ErrorMessage>
+            {error}
+            <ErrorCloseButton onClick={handleClearError}>
+              ✕
+            </ErrorCloseButton>
+          </ErrorMessage>
         )}
-      </Content>
+
+        {!hasResumeData(formData) ? (
+          <NoDataMessage>
+            <NoDataTitle>이력서 데이터가 없습니다</NoDataTitle>
+            <NoDataText>
+              맞춤법 검사를 하려면 먼저 이력서를 작성해주세요.
+              <br />
+              <a 
+                href="/resume" 
+                style={{ 
+                  color: COLORS.primary, 
+                  textDecoration: 'underline',
+                  fontWeight: '600'
+                }}
+              >
+                이력서 작성하기 →
+              </a>
+            </NoDataText>
+          </NoDataMessage>
+        ) : (
+          <>
+            <SpellCheckSection>
+              <SectionTitle>
+                <SectionIcon>🔧</SectionIcon>
+                검사 모드 설정
+              </SectionTitle>
+              
+              <ModeToggle>
+                <ToggleButton
+                  isActive={!isAdvancedMode}
+                  onClick={toggleAdvancedMode}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  기본 검사
+                </ToggleButton>
+                <ToggleButton
+                  isActive={isAdvancedMode}
+                  onClick={toggleAdvancedMode}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  네이버 맞춤법 검사
+                </ToggleButton>
+              </ModeToggle>
+              
+              <ModeDescription>
+                {isAdvancedMode 
+                  ? "네이버 맞춤법 검사기를 사용하여 더 정확한 검사를 진행합니다."
+                  : "기본 형식 검사와 네이버 맞춤법 검사를 함께 진행합니다."
+                }
+              </ModeDescription>
+            </SpellCheckSection>
+
+            <SpellCheckSection>
+              <SectionTitle>
+                <SectionIcon>📝</SectionIcon>
+                이력서 내용
+              </SectionTitle>
+              
+              <TextSection
+                formData={formData}
+                onCheckSection={handleCheckSection}
+                sectionResults={sectionResults}
+                sectionLoading={sectionLoading}
+              />
+            </SpellCheckSection>
+
+            {result && (
+              <SpellCheckSection>
+                <SectionTitle>
+                  <SectionIcon>🔍</SectionIcon>
+                  검사 결과
+                </SectionTitle>
+                
+                <SpellCheckResult
+                  result={result}
+                  onApplyCorrection={() => {}}
+                />
+              </SpellCheckSection>
+            )}
+
+            <ButtonGroup>
+              <SecondaryButton
+                onClick={handleClearResult}
+                disabled={loading || !result}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                결과 초기화
+              </SecondaryButton>
+              <PrimaryButton
+                onClick={handleCheckAll}
+                disabled={loading || !hasResumeData(formData)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                전체 검사
+              </PrimaryButton>
+            </ButtonGroup>
+          </>
+        )}
+      </SpellCheckContent>
+      
       <MainFooter />
-    </Container>
+    </SpellCheckContainer>
   );
 };
 
