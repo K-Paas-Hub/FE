@@ -510,23 +510,7 @@ const JobImageContent = styled.div`
   font-weight: 700;
 `;
 
-const BonusBadge = styled.div`
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: linear-gradient(135deg, #059669, #10b981);
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
-  
-  @media (max-width: 768px) {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.7rem;
-  }
-`;
+
 
 const JobContent = styled.div`
   padding: 1.2rem;
@@ -1687,7 +1671,6 @@ const MainPage: React.FC = () => {
                 >
                   <JobImage>
                     <JobImageContent>{job.imageContent}</JobImageContent>
-                    <BonusBadge>합격보상금 100만원</BonusBadge>
                   </JobImage>
                   
                   <JobContent>
@@ -1736,7 +1719,6 @@ const MainPage: React.FC = () => {
                 >
                   <JobImage>
                     <JobImageContent>{job.imageContent}</JobImageContent>
-                    <BonusBadge>합격보상금 100만원</BonusBadge>
                   </JobImage>
                   
                   <JobContent>

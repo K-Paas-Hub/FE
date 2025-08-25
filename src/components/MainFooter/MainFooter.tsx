@@ -213,7 +213,7 @@ const MainFooter: React.FC = () => {
               FairWork 고객센터 02-1234-5678 (평일 09:00~19:00, 주말·공휴일 휴무)
             </CustomerService>
             <ContactInfo>
-              이메일 : help@fairwork.co.kr, Fax : 02-1234-5679(대표), 02-1234-5680(세금계산서)
+              이메일 : contact@fairwork.co.kr, Fax : 02-1234-5679(대표), 02-1234-5680(세금계산서)
             </ContactInfo>
           </LeftSection>
           
@@ -227,7 +227,7 @@ const MainFooter: React.FC = () => {
         </MainSection>
         
         <CompanyInfo>
-          (주)FairWork, 우: 07800, 서울특별시 강남구 테헤란로 123, FairWork빌딩 10층, 대표 : 김철수
+          (주)FairWork, 우: 07800, 서울특별시 강남구 테헤란로 123, FairWork빌딩 10층, 대표 : 홍길동
         </CompanyInfo>
         
         <BusinessInfo>

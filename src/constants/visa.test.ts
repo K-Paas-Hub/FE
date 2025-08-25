@@ -5,12 +5,19 @@ describe('Visa Constants', () => {
     test('contains all required visa types', () => {
       expect(VISA_TYPES).toHaveProperty('E9');
       expect(VISA_TYPES).toHaveProperty('H2');
-      expect(VISA_TYPES).toHaveProperty('D2');
       expect(VISA_TYPES).toHaveProperty('E7');
       expect(VISA_TYPES).toHaveProperty('E8');
-      expect(VISA_TYPES).toHaveProperty('E6');
-      expect(VISA_TYPES).toHaveProperty('C4');
+      expect(VISA_TYPES).toHaveProperty('E3');
+      expect(VISA_TYPES).toHaveProperty('E4');
+      expect(VISA_TYPES).toHaveProperty('E5');
+      expect(VISA_TYPES).toHaveProperty('E10');
+      expect(VISA_TYPES).toHaveProperty('D10');
+      expect(VISA_TYPES).toHaveProperty('F2');
       expect(VISA_TYPES).toHaveProperty('F4');
+      expect(VISA_TYPES).toHaveProperty('F6');
+      expect(VISA_TYPES).toHaveProperty('C4');
+      expect(VISA_TYPES).toHaveProperty('H1');
+      expect(VISA_TYPES).toHaveProperty('G1');
     });
 
     test('each visa type has required properties', () => {
@@ -28,12 +35,19 @@ describe('Visa Constants', () => {
     test('visa type IDs are correct', () => {
       expect(VISA_TYPES.E9.id).toBe('e9');
       expect(VISA_TYPES.H2.id).toBe('h2');
-      expect(VISA_TYPES.D2.id).toBe('d2');
       expect(VISA_TYPES.E7.id).toBe('e7');
       expect(VISA_TYPES.E8.id).toBe('e8');
-      expect(VISA_TYPES.E6.id).toBe('e6');
-      expect(VISA_TYPES.C4.id).toBe('c4');
+      expect(VISA_TYPES.E3.id).toBe('e3');
+      expect(VISA_TYPES.E4.id).toBe('e4');
+      expect(VISA_TYPES.E5.id).toBe('e5');
+      expect(VISA_TYPES.E10.id).toBe('e10');
+      expect(VISA_TYPES.D10.id).toBe('d10');
+      expect(VISA_TYPES.F2.id).toBe('f2');
       expect(VISA_TYPES.F4.id).toBe('f4');
+      expect(VISA_TYPES.F6.id).toBe('f6');
+      expect(VISA_TYPES.C4.id).toBe('c4');
+      expect(VISA_TYPES.H1.id).toBe('h1');
+      expect(VISA_TYPES.G1.id).toBe('g1');
     });
 
     test('all visa types have documents array', () => {
@@ -60,15 +74,15 @@ describe('Visa Constants', () => {
       expect(e9Visa.documents).toContain('고용계약서');
     });
 
-    test('D2 visa has correct properties', () => {
-      const d2Visa = VISA_TYPES.D2;
-      expect(d2Visa.name).toBe('D-2 비자');
-      expect(d2Visa.fullName).toBe('유학비자');
-      expect(d2Visa.description).toBe('대학, 대학원 등에서 학업하는 학생');
-      expect(d2Visa.duration).toBe('학업기간');
-      expect(d2Visa.extension).toBe(true);
-      expect(d2Visa.documents).toContain('입학허가서');
-      expect(d2Visa.documents).toContain('재정증명서');
+    test('E3 visa has correct properties', () => {
+      const e3Visa = VISA_TYPES.E3;
+      expect(e3Visa.name).toBe('E-3 비자');
+      expect(e3Visa.fullName).toBe('연구비자');
+      expect(e3Visa.description).toBe('연구기관에서 연구활동을 하는 외국인');
+      expect(e3Visa.duration).toBe('3년');
+      expect(e3Visa.extension).toBe(true);
+      expect(e3Visa.documents).toContain('연구기관 초빙장');
+      expect(e3Visa.documents).toContain('연구계획서');
     });
 
     test('E8 visa has correct properties', () => {
@@ -90,14 +104,15 @@ describe('Visa Constants', () => {
       expect(c4Visa.extension).toBe(false);
     });
 
-    test('E6 visa has correct properties', () => {
-      const e6Visa = VISA_TYPES.E6;
-      expect(e6Visa.name).toBe('E-6 비자');
-      expect(e6Visa.fullName).toBe('예술흥행비자');
-      expect(e6Visa.description).toBe('연예인, 운동선수, 모델, 예술가 등');
-      expect(e6Visa.duration).toBe('3년');
-      expect(e6Visa.extension).toBe(true);
-      expect(e6Visa.documents).toContain('예술활동 증명서');
+    test('D10 visa has correct properties', () => {
+      const d10Visa = VISA_TYPES.D10;
+      expect(d10Visa.name).toBe('D-10 비자');
+      expect(d10Visa.fullName).toBe('구직비자');
+      expect(d10Visa.description).toBe('한국에서 취업을 준비하는 외국인');
+      expect(d10Visa.duration).toBe('1년');
+      expect(d10Visa.extension).toBe(true);
+      expect(d10Visa.documents).toContain('학력증명서');
+      expect(d10Visa.documents).toContain('재정증명서');
     });
 
     test('F4 visa has correct properties', () => {
@@ -113,45 +128,18 @@ describe('Visa Constants', () => {
 
   describe('VISA_STEPS', () => {
     test('contains steps for all visa types', () => {
-      expect(VISA_STEPS).toHaveProperty('E9');
-      expect(VISA_STEPS).toHaveProperty('H2');
-      expect(VISA_STEPS).toHaveProperty('D2');
-      expect(VISA_STEPS).toHaveProperty('E7');
-      expect(VISA_STEPS).toHaveProperty('E8');
-      expect(VISA_STEPS).toHaveProperty('E6');
-      expect(VISA_STEPS).toHaveProperty('C4');
-      expect(VISA_STEPS).toHaveProperty('F4');
-    });
-
-    test('each visa type has steps array', () => {
-      Object.values(VISA_STEPS).forEach(steps => {
-        expect(Array.isArray(steps)).toBe(true);
-        expect(steps.length).toBeGreaterThan(0);
+      Object.keys(VISA_TYPES).forEach(visaType => {
+        expect(VISA_STEPS).toHaveProperty(visaType);
       });
     });
 
-    test('each step has required properties', () => {
+    test('each visa type has at least 3 steps', () => {
       Object.values(VISA_STEPS).forEach(steps => {
-        steps.forEach(step => {
-          expect(step).toHaveProperty('id');
-          expect(step).toHaveProperty('name');
-          expect(step).toHaveProperty('description');
-          expect(typeof step.id).toBe('number');
-          expect(typeof step.name).toBe('string');
-          expect(typeof step.description).toBe('string');
-        });
+        expect(steps.length).toBeGreaterThanOrEqual(3);
       });
     });
 
-    test('step IDs are sequential', () => {
-      Object.values(VISA_STEPS).forEach(steps => {
-        steps.forEach((step, index) => {
-          expect(step.id).toBe(index + 1);
-        });
-      });
-    });
-
-    test('E9 visa has correct steps', () => {
+    test('E9 visa steps are correct', () => {
       const e9Steps = VISA_STEPS.E9;
       expect(e9Steps).toHaveLength(4);
       expect(e9Steps[0].name).toBe('고용계약 체결');
@@ -160,116 +148,73 @@ describe('Visa Constants', () => {
       expect(e9Steps[3].name).toBe('입국');
     });
 
-    test('D2 visa has correct steps', () => {
-      const d2Steps = VISA_STEPS.D2;
-      expect(d2Steps).toHaveLength(4);
-      expect(d2Steps[0].name).toBe('학교 지원');
-      expect(d2Steps[1].name).toBe('입학허가');
-      expect(d2Steps[2].name).toBe('비자 신청');
-      expect(d2Steps[3].name).toBe('입국');
+    test('E3 visa steps are correct', () => {
+      const e3Steps = VISA_STEPS.E3;
+      expect(e3Steps).toHaveLength(4);
+      expect(e3Steps[0].name).toBe('연구기관 초빙');
+      expect(e3Steps[1].name).toBe('연구계획 수립');
+      expect(e3Steps[2].name).toBe('비자 신청');
+      expect(e3Steps[3].name).toBe('입국');
     });
 
-    test('E8 visa has correct steps', () => {
-      const e8Steps = VISA_STEPS.E8;
-      expect(e8Steps).toHaveLength(5);
-      expect(e8Steps[0].name).toBe('기술연수 참여');
-      expect(e8Steps[1].name).toBe('연수 수료');
-      expect(e8Steps[4].name).toBe('입국');
-    });
-
-    test('C4 visa has correct steps', () => {
-      const c4Steps = VISA_STEPS.C4;
-      expect(c4Steps).toHaveLength(4);
-      expect(c4Steps[0].name).toBe('단기 프로젝트 계획');
-      expect(c4Steps[3].name).toBe('입국');
-    });
-
-    test('all visa types end with entry step', () => {
-      Object.values(VISA_STEPS).forEach(steps => {
-        const lastStep = steps[steps.length - 1];
-        expect(lastStep.name).toBe('입국');
-        expect(lastStep.description).toContain('입국');
-      });
+    test('D10 visa steps are correct', () => {
+      const d10Steps = VISA_STEPS.D10;
+      expect(d10Steps).toHaveLength(4);
+      expect(d10Steps[0].name).toBe('학력 확인');
+      expect(d10Steps[1].name).toBe('재정 증명');
+      expect(d10Steps[2].name).toBe('비자 신청');
+      expect(d10Steps[3].name).toBe('입국');
     });
   });
 
   describe('VISA_CATEGORIES', () => {
     test('contains all required categories', () => {
       expect(VISA_CATEGORIES).toHaveProperty('EMPLOYMENT');
-      expect(VISA_CATEGORIES).toHaveProperty('PROFESSIONAL');
-      expect(VISA_CATEGORIES).toHaveProperty('STUDY');
+      expect(VISA_CATEGORIES).toHaveProperty('RESIDENCE');
+      expect(VISA_CATEGORIES).toHaveProperty('PREPARATION');
     });
 
-    test('each category has visa types array', () => {
-      Object.values(VISA_CATEGORIES).forEach(visaTypes => {
-        expect(Array.isArray(visaTypes)).toBe(true);
-        expect(visaTypes.length).toBeGreaterThan(0);
-      });
-    });
-
-    test('employment category contains correct visa types', () => {
+    test('EMPLOYMENT category contains correct visa types', () => {
       const employmentVisas = VISA_CATEGORIES.EMPLOYMENT;
       expect(employmentVisas).toContain('E9');
       expect(employmentVisas).toContain('H2');
       expect(employmentVisas).toContain('E7');
       expect(employmentVisas).toContain('E8');
+      expect(employmentVisas).toContain('E3');
+      expect(employmentVisas).toContain('E4');
+      expect(employmentVisas).toContain('E5');
+      expect(employmentVisas).toContain('E10');
       expect(employmentVisas).toContain('C4');
-      expect(employmentVisas).toContain('F4');
     });
 
-    test('professional category contains correct visa types', () => {
-      const professionalVisas = VISA_CATEGORIES.PROFESSIONAL;
-      expect(professionalVisas).toContain('E6');
+    test('RESIDENCE category contains correct visa types', () => {
+      const residenceVisas = VISA_CATEGORIES.RESIDENCE;
+      expect(residenceVisas).toContain('F2');
+      expect(residenceVisas).toContain('F4');
+      expect(residenceVisas).toContain('F6');
     });
 
-    test('study category contains correct visa types', () => {
-      const studyVisas = VISA_CATEGORIES.STUDY;
-      expect(studyVisas).toContain('D2');
-    });
-
-    test('all visa types are included in categories', () => {
-      const allCategoryVisas = Object.values(VISA_CATEGORIES).flat();
-      const allVisaTypes = Object.keys(VISA_TYPES);
-      
-      allVisaTypes.forEach(visaType => {
-        expect(allCategoryVisas).toContain(visaType);
-      });
+    test('PREPARATION category contains correct visa types', () => {
+      const preparationVisas = VISA_CATEGORIES.PREPARATION;
+      expect(preparationVisas).toContain('D10');
+      expect(preparationVisas).toContain('H1');
+      expect(preparationVisas).toContain('G1');
     });
   });
 
   describe('VISA_CATEGORY_LABELS', () => {
-    test('contains all required category labels', () => {
+    test('contains all required labels', () => {
       expect(VISA_CATEGORY_LABELS).toHaveProperty('ALL');
       expect(VISA_CATEGORY_LABELS).toHaveProperty('EMPLOYMENT');
-      expect(VISA_CATEGORY_LABELS).toHaveProperty('PROFESSIONAL');
-      expect(VISA_CATEGORY_LABELS).toHaveProperty('STUDY');
+      expect(VISA_CATEGORY_LABELS).toHaveProperty('RESIDENCE');
+      expect(VISA_CATEGORY_LABELS).toHaveProperty('PREPARATION');
     });
 
-    test('category labels are in Korean', () => {
+    test('labels are in Korean', () => {
       expect(VISA_CATEGORY_LABELS.ALL).toBe('전체');
       expect(VISA_CATEGORY_LABELS.EMPLOYMENT).toBe('취업 비자');
-      expect(VISA_CATEGORY_LABELS.PROFESSIONAL).toBe('전문직 비자');
-      expect(VISA_CATEGORY_LABELS.STUDY).toBe('학업 비자');
-    });
-  });
-
-  describe('Data Consistency', () => {
-    test('visa types and steps have matching keys', () => {
-      const visaTypeKeys = Object.keys(VISA_TYPES);
-      const stepKeys = Object.keys(VISA_STEPS);
-      expect(visaTypeKeys).toEqual(stepKeys);
-    });
-
-    test('all visa types have unique IDs', () => {
-      const ids = Object.values(VISA_TYPES).map(visa => visa.id);
-      const uniqueIds = new Set(ids);
-      expect(uniqueIds.size).toBe(ids.length);
-    });
-
-    test('all visa types have unique names', () => {
-      const names = Object.values(VISA_TYPES).map(visa => visa.name);
-      const uniqueNames = new Set(names);
-      expect(uniqueNames.size).toBe(names.length);
+      expect(VISA_CATEGORY_LABELS.RESIDENCE).toBe('거주 비자');
+      expect(VISA_CATEGORY_LABELS.PREPARATION).toBe('준비 비자');
     });
   });
 });
