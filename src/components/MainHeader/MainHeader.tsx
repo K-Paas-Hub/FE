@@ -211,18 +211,20 @@ const RightSection = styled.div`
 const LanguageButton = styled.div`
   background: none;
   border: 1px solid #e5e5e5;
-  padding: 0.5rem 1rem;
+  height: 44px; /* 고정 높이 */
+  padding: 0 12px;
   border-radius: 6px;
   color: #666;
-  font-size: 0.9rem;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   position: relative;
   white-space: nowrap;
-  min-width: fit-content;
+  min-width: 140px; /* 최소 너비 설정 */
+  max-width: 180px; /* 최대 너비 제한 */
   
   &:hover {
     border-color: ${COLORS.primary};
@@ -230,8 +232,11 @@ const LanguageButton = styled.div`
   }
   
   @media (max-width: 768px) {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 13px;
+    height: 40px;
+    padding: 0 10px;
+    min-width: 120px;
+    max-width: 160px;
     
     span {
       display: inline;
@@ -240,10 +245,11 @@ const LanguageButton = styled.div`
 `;
 
 const FlagIcon = styled.img`
-  width: 20px;
-  height: 15px;
+  width: 24px;
+  height: 16px;
   border-radius: 2px;
-  margin-right: 0.5rem;
+  flex-shrink: 0; /* 아이콘 크기 고정 */
+  object-fit: cover; /* 이미지 비율 유지 */
 `;
 
 const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
@@ -255,24 +261,25 @@ const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  min-width: 180px;
+  width: 220px; /* 고정 너비로 설정 */
   display: ${props => props.$isOpen ? 'block' : 'none'};
   margin-top: 0.5rem;
 `;
 
 const LanguageOption = styled.button`
   width: 100%;
-  padding: 0.8rem 1rem;
+  height: 44px; /* 고정 높이 설정 */
+  padding: 0 12px;
   background: none;
   border: none;
   text-align: left;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #333;
   transition: background 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -291,8 +298,9 @@ const LanguageOption = styled.button`
   }
   
   @media (max-width: 768px) {
-    font-size: 0.8rem;
-    padding: 0.6rem 0.8rem;
+    font-size: 13px;
+    height: 40px;
+    padding: 0 10px;
   }
 `;
 
