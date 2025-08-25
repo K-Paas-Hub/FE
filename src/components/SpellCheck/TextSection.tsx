@@ -210,9 +210,3 @@ const TextSection: React.FC<TextSectionProps> = ({
 };
 
 export default TextSection;
-
-// Type declaration for better TypeScript support
-declare module './TextSection' {
-  const TextSection: React.FC<TextSectionProps>;
-  export default TextSection;
-}
