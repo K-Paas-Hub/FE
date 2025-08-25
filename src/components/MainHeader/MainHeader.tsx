@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { COLORS } from '../../constants';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const Header = styled.header`
   background: white;
@@ -189,10 +191,17 @@ const LanguageButton = styled.div`
   align-items: center;
   gap: 0.5rem;
   position: relative;
+  white-space: nowrap;
+  min-width: fit-content;
   
   &:hover {
     border-color: ${COLORS.primary};
     color: ${COLORS.primary};
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
 `;
 
@@ -212,7 +221,7 @@ const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  min-width: 160px;
+  min-width: 180px;
   display: ${props => props.$isOpen ? 'block' : 'none'};
   margin-top: 0.5rem;
 `;
@@ -233,6 +242,7 @@ const LanguageOption = styled.button`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
   
   &:hover {
     background: #f8f9fa;
@@ -244,6 +254,11 @@ const LanguageOption = styled.button`
   
   &:last-child {
     border-radius: 0 0 8px 8px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.8rem;
   }
 `;
 
@@ -272,26 +287,18 @@ const AuthButton = styled.button`
 
 const MainHeader: React.FC = () => {
   const location = useLocation();
+  const { t } = useTranslation();
+  const { currentLanguage, changeLanguage, languages } = useLanguage();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
   const [isContractDropdownOpen, setIsContractDropdownOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('KO');
-
-  const languages = [
-    { code: 'KO', name: '한국어', flag: '/images/flags/south-korea.png' },
-    { code: 'EN', name: 'English', flag: '/images/flags/usa.png' },
-    { code: '中文', name: '中文', flag: '/images/flags/china.png' },
-    { code: '日本語', name: '日本語', flag: '/images/flags/japan.png' },
-    { code: 'Tiếng Việt', name: 'Tiếng Việt', flag: '/images/flags/vietnam.png' },
-    { code: 'ไทย', name: 'ไทย', flag: '/images/flags/thailand.png' }
-  ];
 
   const handleLanguageClick = () => {
     setIsLanguageOpen(!isLanguageOpen);
   };
 
   const handleLanguageSelect = (language: string) => {
-    setSelectedLanguage(language);
+    changeLanguage(language);
     setIsLanguageOpen(false);
   };
 
@@ -312,7 +319,7 @@ const MainHeader: React.FC = () => {
   };
 
   const getCurrentLanguage = () => {
-    return languages.find(lang => lang.code === selectedLanguage) || languages[0];
+    return languages.find(lang => lang.code === currentLanguage) || languages[0];
   };
 
   const getCurrentLanguageName = () => {
@@ -358,7 +365,7 @@ const MainHeader: React.FC = () => {
             to="/main" 
             className={location.pathname === '/main' ? 'active' : ''}
           >
-            채용 공고
+            {t('header.jobPostings')}
           </NavLink>
           
           {/* 이력서 드롭다운 메뉴 */}
@@ -370,14 +377,14 @@ const MainHeader: React.FC = () => {
               $isOpen={isResumeDropdownOpen}
               className={isResumePage() ? 'active' : ''}
             >
-              내 이력서
+              {t('header.myResume')}
             </DropdownTrigger>
             <DropdownMenu $isOpen={isResumeDropdownOpen}>
               <DropdownItem to="/resume">
-                📄 이력서 작성
+                {t('header.resumeWriting')}
               </DropdownItem>
               <DropdownItem to="/spell-check">
-                ✏️ 맞춤법 검사
+                {t('header.spellCheck')}
               </DropdownItem>
             </DropdownMenu>
           </DropdownContainer>
@@ -386,7 +393,7 @@ const MainHeader: React.FC = () => {
             to="/visa" 
             className={location.pathname === '/visa' ? 'active' : ''}
           >
-            비자 센터
+            {t('header.visaCenter')}
           </NavLink>
           
           {/* 근로계약서 드롭다운 메뉴 */}
@@ -398,14 +405,14 @@ const MainHeader: React.FC = () => {
               $isOpen={isContractDropdownOpen}
               className={isContractPage() ? 'active' : ''}
             >
-              근로계약서
+              {t('header.employmentContract')}
             </DropdownTrigger>
             <DropdownMenu $isOpen={isContractDropdownOpen}>
               <DropdownItem to="/contract-tutorial">
-                📝 작성 가이드
+                {t('header.writingGuide')}
               </DropdownItem>
               <DropdownItem to="/contract-analysis">
-                🔍 계약서 분석
+                {t('header.contractAnalysis')}
               </DropdownItem>
             </DropdownMenu>
           </DropdownContainer>
@@ -426,7 +433,7 @@ const MainHeader: React.FC = () => {
               ))}
             </LanguageDropdown>
           </LanguageButton>
-          <AuthButton>로그인/회원가입</AuthButton>
+          <AuthButton>{t('common.login')}</AuthButton>
         </RightSection>
       </HeaderContent>
     </Header>

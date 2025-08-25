@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import './styles/App.css';
+import './i18n';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 // 컴포넌트 imports
 import {
@@ -44,18 +46,20 @@ const LandingPage = () => (
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/main" element={<MainPage />} />
-        <Route path="/visa" element={<VisaCenter />} />
-        <Route path="/visa/:type" element={<VisaDetailPage />} />
-        <Route path="/contract-tutorial" element={<ContractTutorial />} />
-        <Route path="/resume" element={<ResumePage />} />
-        <Route path="/spell-check" element={<SpellCheckPage />} />
-        <Route path="/contract-analysis" element={<ContractAnalysis />} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/visa" element={<VisaCenter />} />
+          <Route path="/visa/:type" element={<VisaDetailPage />} />
+          <Route path="/contract-tutorial" element={<ContractTutorial />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/spell-check" element={<SpellCheckPage />} />
+          <Route path="/contract-analysis" element={<ContractAnalysis />} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 
