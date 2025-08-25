@@ -1,6 +1,7 @@
 {
   "common": {
     "login": "ចូល/ចុះឈ្មោះ",
+    "logout": "ចាកចេញ",
     "loading": "កំពុងផ្ទុក...",
     "error": "មានបញ្ហាកើតឡើង។",
     "success": "បានដំណើរការដោយជោគជ័យ។",
@@ -9,9 +10,22 @@
     "save": "រក្សាទុក",
     "submit": "ដាក់ស្នើ",
     "preview": "មើលជាមុន",
-    "edit": "កែប្រែ",
+    "edit": "កែសម្រួល",
     "delete": "លុប",
-    "close": "បិទ"
+    "close": "បិទ",
+    "user": "អ្នកប្រើប្រាស់"
+  },
+  "auth": {
+    "welcome": "សូមស្វាគមន៍មក FairWork",
+    "loginSubtitle": "ចូលដោយងាយស្រួលជាមួយគណនី Google របស់អ្នក",
+    "googleLogin": "ចូលជាមួយ Google",
+    "googleContinue": "បន្តជាមួយ Google",
+    "loginLoading": "កំពុងចូល...",
+    "microsoftContinue": "បន្តជាមួយ Microsoft (នឹងមកដល់)",
+    "appleContinue": "បន្តជាមួយ Apple (នឹងមកដល់)",
+    "phoneContinue": "បន្តជាមួយទូរស័ព្ទ (នឹងមកដល់)",
+    "termsOfService": "លក្ខខណ្ឌសេវាកម្ម",
+    "privacyPolicy": "គោលការណ៍ភាពឯកជន"
   },
   "header": {
     "jobPostings": "ការផ្សព្វផ្សាយការងារ",

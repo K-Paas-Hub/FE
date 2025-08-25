@@ -1,6 +1,7 @@
 {
   "common": {
     "login": "Đăng nhập/Đăng ký",
+    "logout": "Đăng xuất",
     "loading": "Đang tải...",
     "error": "Đã xảy ra lỗi.",
     "success": "Xử lý thành công.",
@@ -11,7 +12,20 @@
     "preview": "Xem trước",
     "edit": "Chỉnh sửa",
     "delete": "Xóa",
-    "close": "Đóng"
+    "close": "Đóng",
+    "user": "Người dùng"
+  },
+  "auth": {
+    "welcome": "Chào mừng đến với FairWork",
+    "loginSubtitle": "Đăng nhập dễ dàng bằng tài khoản Google của bạn",
+    "googleLogin": "Đăng nhập bằng Google",
+    "googleContinue": "Tiếp tục với Google",
+    "loginLoading": "Đang đăng nhập...",
+    "microsoftContinue": "Tiếp tục với Microsoft (Sắp ra mắt)",
+    "appleContinue": "Tiếp tục với Apple (Sắp ra mắt)",
+    "phoneContinue": "Tiếp tục với Điện thoại (Sắp ra mắt)",
+    "termsOfService": "Điều khoản dịch vụ",
+    "privacyPolicy": "Chính sách bảo mật"
   },
   "header": {
     "jobPostings": "Tin tuyển dụng",

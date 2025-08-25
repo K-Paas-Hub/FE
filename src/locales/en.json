@@ -1,6 +1,7 @@
 {
   "common": {
     "login": "Login/Sign Up",
+    "logout": "Logout",
     "loading": "Loading...",
     "error": "An error occurred.",
     "success": "Successfully processed.",
@@ -11,7 +12,20 @@
     "preview": "Preview",
     "edit": "Edit",
     "delete": "Delete",
-    "close": "Close"
+    "close": "Close",
+    "user": "User"
+  },
+  "auth": {
+    "welcome": "Welcome to FairWork",
+    "loginSubtitle": "Sign in easily with your Google account",
+    "googleLogin": "Sign in with Google",
+    "googleContinue": "Continue with Google",
+    "loginLoading": "Signing in...",
+    "microsoftContinue": "Continue with Microsoft (Coming Soon)",
+    "appleContinue": "Continue with Apple (Coming Soon)",
+    "phoneContinue": "Continue with Phone (Coming Soon)",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
   },
   "header": {
     "jobPostings": "Job Postings",

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { COLORS, ANIMATIONS } from '../../constants';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -67,6 +68,7 @@ interface GoogleLoginButtonProps {
 
 const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({ className }) => {
   const { signInWithGoogle, loading, error } = useAuth();
+  const { t } = useTranslation();
 
   const handleGoogleLogin = async () => {
     const result = await signInWithGoogle();
@@ -91,7 +93,7 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({ className }) => {
       ) : (
         <GoogleIcon />
       )}
-      {loading ? '로그인 중...' : 'Google로 로그인'}
+      {loading ? t('auth.loginLoading') : t('auth.googleLogin')}
     </GoogleButton>
   );
 };

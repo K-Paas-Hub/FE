@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { COLORS, ANIMATIONS } from '../../constants';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -274,6 +275,7 @@ const FooterLink = styled.a`
 
 const LoginPage: React.FC = () => {
   const { signInWithGoogle } = useAuth();
+  const { t } = useTranslation();
 
   const handleGoogleLogin = async () => {
     try {
@@ -306,7 +308,7 @@ const LoginPage: React.FC = () => {
               ease: "easeOut"
             }}
           >
-            FairWork에 오신 걸 환영합니다
+            {t('auth.welcome')}
           </Title>
           <Subtitle
             initial={{ opacity: 0, y: 20 }}
@@ -317,7 +319,7 @@ const LoginPage: React.FC = () => {
               ease: "easeOut"
             }}
           >
-            Google 계정으로 간편하게 로그인하세요
+            {t('auth.loginSubtitle')}
           </Subtitle>
         </LogoSection>
 
@@ -336,22 +338,22 @@ const LoginPage: React.FC = () => {
             whileTap={{ scale: 0.98 }}
           >
             <GoogleIcon />
-            Google로 계속하기
+            {t('auth.googleContinue')}
           </GoogleButton>
 
           <MicrosoftButton disabled>
             <MicrosoftIcon />
-            Microsoft 계정으로 계속하기 (준비 중)
+            {t('auth.microsoftContinue')}
           </MicrosoftButton>
 
           <AppleButton disabled>
             <AppleIcon />
-            Apple로 계속하기 (준비 중)
+            {t('auth.appleContinue')}
           </AppleButton>
 
           <PhoneButton disabled>
             <PhoneIcon />
-            폰으로 계속하기 (준비 중)
+            {t('auth.phoneContinue')}
           </PhoneButton>
         </motion.div>
 
@@ -365,9 +367,9 @@ const LoginPage: React.FC = () => {
           }}
         >
           <FooterLinks>
-            <FooterLink href="#">이용약관</FooterLink>
+            <FooterLink href="#">{t('auth.termsOfService')}</FooterLink>
             <span style={{ color: '#6b7280' }}>|</span>
-            <FooterLink href="#">개인정보 보호 정책</FooterLink>
+            <FooterLink href="#">{t('auth.privacyPolicy')}</FooterLink>
           </FooterLinks>
         </motion.div>
       </LoginCard>

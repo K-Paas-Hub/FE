@@ -1,6 +1,7 @@
 {
   "common": {
     "login": "เข้าสู่ระบบ/สมัครสมาชิก",
+    "logout": "ออกจากระบบ",
     "loading": "กำลังโหลด...",
     "error": "เกิดข้อผิดพลาด",
     "success": "ดำเนินการสำเร็จ",
@@ -11,7 +12,20 @@
     "preview": "ดูตัวอย่าง",
     "edit": "แก้ไข",
     "delete": "ลบ",
-    "close": "ปิด"
+    "close": "ปิด",
+    "user": "ผู้ใช้"
+  },
+  "auth": {
+    "welcome": "ยินดีต้อนรับสู่ FairWork",
+    "loginSubtitle": "เข้าสู่ระบบได้ง่ายด้วยบัญชี Google ของคุณ",
+    "googleLogin": "เข้าสู่ระบบด้วย Google",
+    "googleContinue": "ดำเนินการต่อด้วย Google",
+    "loginLoading": "กำลังเข้าสู่ระบบ...",
+    "microsoftContinue": "ดำเนินการต่อด้วย Microsoft (เร็วๆ นี้)",
+    "appleContinue": "ดำเนินการต่อด้วย Apple (เร็วๆ นี้)",
+    "phoneContinue": "ดำเนินการต่อด้วยโทรศัพท์ (เร็วๆ นี้)",
+    "termsOfService": "เงื่อนไขการให้บริการ",
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว"
   },
   "header": {
     "jobPostings": "ประกาศรับสมัครงาน",

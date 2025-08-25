@@ -1,9 +1,10 @@
 {
   "common": {
     "login": "लगइन/साइन अप",
+    "logout": "लगआउट",
     "loading": "लोड हुँदै...",
     "error": "एउटा त्रुटि भयो।",
-    "success": "सफलतापूर्वक प्रक्रिया गरियो।",
+    "success": "सफलतापूर्वक प्रशोधन गरियो।",
     "cancel": "रद्द गर्नुहोस्",
     "confirm": "पुष्टि गर्नुहोस्",
     "save": "सुरक्षित गर्नुहोस्",
@@ -11,7 +12,20 @@
     "preview": "पूर्वावलोकन",
     "edit": "सम्पादन गर्नुहोस्",
     "delete": "मेटाउनुहोस्",
-    "close": "बन्द गर्नुहोस्"
+    "close": "बन्द गर्नुहोस्",
+    "user": "प्रयोगकर्ता"
+  },
+  "auth": {
+    "welcome": "FairWork मा स्वागत छ",
+    "loginSubtitle": "आफ्नो Google खाता सँग सजिलै लगइन गर्नुहोस्",
+    "googleLogin": "Google सँग लगइन गर्नुहोस्",
+    "googleContinue": "Google सँग जारी राख्नुहोस्",
+    "loginLoading": "लगइन हुँदै...",
+    "microsoftContinue": "Microsoft सँग जारी राख्नुहोस् (आउँदैछ)",
+    "appleContinue": "Apple सँग जारी राख्नुहोस् (आउँदैछ)",
+    "phoneContinue": "फोन सँग जारी राख्नुहोस् (आउँदैछ)",
+    "termsOfService": "सेवा सर्तहरू",
+    "privacyPolicy": "गोपनीयता नीति"
   },
   "header": {
     "jobPostings": "जागिरको सूचना",

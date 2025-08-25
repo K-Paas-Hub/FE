@@ -1,6 +1,7 @@
 {
   "common": {
     "login": "登录/注册",
+    "logout": "退出登录",
     "loading": "加载中...",
     "error": "发生错误。",
     "success": "处理成功。",
@@ -11,7 +12,20 @@
     "preview": "预览",
     "edit": "编辑",
     "delete": "删除",
-    "close": "关闭"
+    "close": "关闭",
+    "user": "用户"
+  },
+  "auth": {
+    "welcome": "欢迎来到 FairWork",
+    "loginSubtitle": "使用您的 Google 账户轻松登录",
+    "googleLogin": "使用 Google 登录",
+    "googleContinue": "继续使用 Google",
+    "loginLoading": "正在登录...",
+    "microsoftContinue": "继续使用 Microsoft (即将推出)",
+    "appleContinue": "继续使用 Apple (即将推出)",
+    "phoneContinue": "继续使用手机 (即将推出)",
+    "termsOfService": "服务条款",
+    "privacyPolicy": "隐私政策"
   },
   "header": {
     "jobPostings": "招聘信息",

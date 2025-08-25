@@ -1,6 +1,7 @@
 {
   "common": {
     "login": "Masuk/Daftar",
+    "logout": "Keluar",
     "loading": "Memuat...",
     "error": "Terjadi kesalahan.",
     "success": "Berhasil diproses.",
@@ -11,7 +12,20 @@
     "preview": "Pratinjau",
     "edit": "Edit",
     "delete": "Hapus",
-    "close": "Tutup"
+    "close": "Tutup",
+    "user": "Pengguna"
+  },
+  "auth": {
+    "welcome": "Selamat datang di FairWork",
+    "loginSubtitle": "Masuk dengan mudah menggunakan akun Google Anda",
+    "googleLogin": "Masuk dengan Google",
+    "googleContinue": "Lanjutkan dengan Google",
+    "loginLoading": "Sedang masuk...",
+    "microsoftContinue": "Lanjutkan dengan Microsoft (Segera Hadir)",
+    "appleContinue": "Lanjutkan dengan Apple (Segera Hadir)",
+    "phoneContinue": "Lanjutkan dengan Telepon (Segera Hadir)",
+    "termsOfService": "Ketentuan Layanan",
+    "privacyPolicy": "Kebijakan Privasi"
   },
   "header": {
     "jobPostings": "Lowongan Kerja",

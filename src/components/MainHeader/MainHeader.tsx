@@ -551,17 +551,17 @@ const MainHeader: React.FC = () => {
               onMouseLeave={() => setIsUserDropdownOpen(false)}
             >
               <UserButton $isOpen={isUserDropdownOpen}>
-                {user?.user_metadata?.full_name || user?.email || '사용자'}
+                {user?.user_metadata?.full_name || user?.email || t('common.user')}
               </UserButton>
               <UserDropdownMenu $isOpen={isUserDropdownOpen}>
                 <UserDropdownItem onClick={signOut}>
-                  로그아웃
+                  {t('common.logout')}
                 </UserDropdownItem>
               </UserDropdownMenu>
             </DropdownContainer>
           ) : (
             <AuthButton onClick={() => navigate('/login')}>
-              로그인
+              {t('common.login')}
             </AuthButton>
           )}
         </RightSection>
