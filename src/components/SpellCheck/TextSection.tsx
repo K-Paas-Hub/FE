@@ -123,18 +123,25 @@ const TextSection: React.FC<TextSectionProps> = ({
   sectionLoading,
   sectionResults
 }) => {
-  const sections = [
+  // 개인정보 항목 (검사 버튼 없음)
+  const personalInfoSections = [
     { key: 'name' as keyof ResumeFormData, label: '이름' },
     { key: 'email' as keyof ResumeFormData, label: '이메일' },
     { key: 'phone' as keyof ResumeFormData, label: '전화번호' },
     { key: 'nationality' as keyof ResumeFormData, label: '국적' },
-    { key: 'visaType' as keyof ResumeFormData, label: '비자 유형' },
+    { key: 'visaType' as keyof ResumeFormData, label: '비자 유형' }
+  ];
+
+  // 자기소개서 관련 항목 (검사 버튼 있음)
+  const resumeSections = [
     { key: 'education' as keyof ResumeFormData, label: '학력' },
     { key: 'experience' as keyof ResumeFormData, label: '경력' },
     { key: 'skills' as keyof ResumeFormData, label: '기술 및 자격증' },
     { key: 'languages' as keyof ResumeFormData, label: '언어 능력' },
     { key: 'introduction' as keyof ResumeFormData, label: '자기소개' }
   ];
+
+  const sections = [...personalInfoSections, ...resumeSections];
 
   const getWordCount = (text: string): number => {
     if (!text.trim()) return 0;
@@ -167,6 +174,9 @@ const TextSection: React.FC<TextSectionProps> = ({
         const isLoading = sectionLoading[section.key] || false;
         const sectionResult = getSectionResult(section.key);
         
+        // 개인정보 항목인지 확인
+        const isPersonalInfo = personalInfoSections.some(info => info.key === section.key);
+        
         return (
           <TextItem key={section.key}>
             <SectionInfo>
@@ -180,7 +190,8 @@ const TextSection: React.FC<TextSectionProps> = ({
                 <EmptyText>입력된 내용이 없습니다.</EmptyText>
               )}
             </TextContent>
-            {hasContent && (
+            {/* 자기소개서 관련 항목에만 검사 버튼 표시 */}
+            {hasContent && !isPersonalInfo && (
               <>
                 <CheckButton
                   onClick={() => onCheckSection(section.key)}
