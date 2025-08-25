@@ -8,6 +8,7 @@ import {
   SpellCheckConfig
 } from '../types/spellCheck';
 import { ResumeFormData } from '../types/resume';
+import { naverSpellCheckService } from './naverSpellCheckService';
 
 // 기본 맞춤법 검사 규칙 (한국어)
 const koreanSpellCheckRules = [
@@ -55,8 +56,8 @@ const koreanSpellCheckRules = [
   }
 ];
 
-// 기본 맞춤법 검사 함수
-const performSpellCheck = async (
+// 기본 맞춤법 검사 함수 (기존 로직)
+const performBasicSpellCheck = async (
   text: string, 
   section: keyof ResumeFormData,
   config: SpellCheckConfig = {
@@ -81,7 +82,7 @@ const performSpellCheck = async (
     while ((match = regex.exec(text)) !== null) {
       if (match.index !== undefined) {
         const error: SpellCheckError = {
-          id: `${section}-${index}-${match.index}`,
+          id: `${section}-basic-${index}-${match.index}`,
           word: match[0],
           position: {
             start: match.index,
@@ -142,11 +143,56 @@ const performSpellCheck = async (
   return errors;
 };
 
+// 통합 맞춤법 검사 함수 (기본 + 네이버)
+const performIntegratedSpellCheck = async (
+  text: string,
+  section: keyof ResumeFormData,
+  config: SpellCheckConfig = {
+    checkSpelling: true,
+    checkGrammar: true,
+    checkPunctuation: true,
+    language: 'ko',
+    severity: 'medium'
+  }
+): Promise<SpellCheckError[]> => {
+  const errors: SpellCheckError[] = [];
+  
+  if (!text.trim()) {
+    return errors;
+  }
+
+  try {
+    // 1. 기본 형식 검사 (빠른 검사)
+    const basicErrors = await performBasicSpellCheck(text, section, config);
+    errors.push(...basicErrors);
+
+    // 2. 네이버 맞춤법 검사 (실제 맞춤법 검사)
+    const naverResult = await naverSpellCheckService.checkText(text, section);
+    
+    if (naverResult.success && naverResult.data) {
+      // 네이버 검사 결과를 섹션 정보와 함께 변환
+      const naverErrors: SpellCheckError[] = naverResult.data.errors.map(error => ({
+        ...error,
+        section,
+        id: `${section}-naver-${error.id}`
+      }));
+      
+      errors.push(...naverErrors);
+    }
+
+  } catch (error) {
+    console.error('통합 맞춤법 검사 오류:', error);
+    // 네이버 검사 실패 시 기본 검사 결과만 반환
+  }
+
+  return errors;
+};
+
 // 단일 텍스트 검사
 export const spellCheckService = {
   checkText: async (request: SpellCheckRequest): Promise<ApiResponse<SpellCheckResult>> => {
     try {
-      const errors = await performSpellCheck(request.text, request.section);
+      const errors = await performIntegratedSpellCheck(request.text, request.section);
       const wordCount = request.text.split(/\s+/).filter(word => word.length > 0).length;
       
       const result: SpellCheckResult = {
@@ -191,7 +237,7 @@ export const spellCheckService = {
       for (const section of sectionsToCheck) {
         const text = resumeData[section] || '';
         if (text.trim()) {
-          const errors = await performSpellCheck(text, section);
+          const errors = await performIntegratedSpellCheck(text, section);
           const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
           
           sections.push({
@@ -229,5 +275,10 @@ export const spellCheckService = {
   // 특정 섹션 검사
   checkSection: async (section: keyof ResumeFormData, text: string): Promise<ApiResponse<SpellCheckResult>> => {
     return spellCheckService.checkText({ text, section });
+  },
+
+  // 네이버 맞춤법 검사기만 사용 (고급 검사)
+  checkWithNaver: async (text: string, section: keyof ResumeFormData): Promise<ApiResponse<SpellCheckResult>> => {
+    return naverSpellCheckService.checkText(text, section);
   }
 };

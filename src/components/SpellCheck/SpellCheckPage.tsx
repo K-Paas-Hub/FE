@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS } from '../../constants';
+import { useResumeForm } from '../../hooks/useResumeForm';
+import { useSpellCheck } from '../../hooks/useSpellCheck';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import { useSpellCheck } from '../../hooks/useSpellCheck';
-import { useResumeForm } from '../../hooks/useResumeForm';
-import { ResumeFormData } from '../../types/resume';
 import SpellCheckResult from './SpellCheckResult';
 import TextSection from './TextSection';
+import { COLORS, ANIMATIONS } from '../../constants';
 
-const SpellCheckContainer = styled.div`
+const Container = styled.div`
   min-height: 100vh;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 `;
 
-const SpellCheckContent = styled.main`
+const Content = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -25,236 +24,191 @@ const SpellCheckContent = styled.main`
   }
 `;
 
-const SpellCheckHeader = styled.div`
-  text-align: center;
-  margin-bottom: 3rem;
-`;
-
-const SpellCheckTitle = styled.h1`
+const Title = styled.h1`
+  color: white;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
   
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
-const SpellCheckSubtitle = styled.p`
+const Subtitle = styled.p`
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.1rem;
-  color: #6b7280;
-  line-height: 1.6;
-`;
-
-const SpellCheckSection = styled.section`
-  background: white;
-  border-radius: 16px;
-  padding: 2.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin-bottom: 3rem;
   
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
+const ModeToggle = styled(motion.div)`
   display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
-const SectionIcon = styled.span`
-  background: ${COLORS.primary};
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
+  align-items: center;
   gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+`;
+
+const ToggleButton = styled(motion.button)<{ isActive: boolean }>`
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: ${props => props.isActive ? COLORS.primary : 'rgba(255, 255, 255, 0.2)'};
+  color: ${props => props.isActive ? 'white' : 'rgba(255, 255, 255, 0.8)'};
+  
+  &:hover {
+    background: ${props => props.isActive ? COLORS.primaryHover : 'rgba(255, 255, 255, 0.3)'};
+    transform: translateY(-2px);
+  }
+`;
+
+const ModeDescription = styled.p`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
+`;
+
+const ActionButtons = styled.div`
+  display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  gap: 1rem;
+  margin-bottom: 2rem;
   
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
-const PrimaryButton = styled(motion.button)`
+const Button = styled(motion.button)`
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
   background: ${COLORS.primary};
   color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 44px;
-  min-width: 44px;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
   
   &:hover {
-    background: #10b981;
+    background: ${COLORS.primaryHover};
+    transform: translateY(-2px);
   }
   
   &:disabled {
-    background: #9ca3af;
+    background: ${COLORS.textSecondary};
     cursor: not-allowed;
+    transform: none;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 `;
 
-const SecondaryButton = styled(motion.button)`
-  background: white;
-  color: ${COLORS.primary};
-  border: 2px solid ${COLORS.primary};
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 44px;
-  min-width: 44px;
+const ClearButton = styled(Button)`
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
   
   &:hover {
-    background: ${COLORS.primary};
-    color: white;
+    background: rgba(255, 255, 255, 0.3);
   }
-  
-  &:disabled {
-    border-color: #9ca3af;
-    color: #9ca3af;
-    cursor: not-allowed;
-  }
-`;
-
-const LoadingSpinner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  
-  &::after {
-    content: '';
-    width: 32px;
-    height: 32px;
-    border: 4px solid #e5e7eb;
-    border-top: 4px solid ${COLORS.primary};
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-
-const ErrorMessage = styled.div`
-  background: #fef2f2;
-  border: 1px solid #ef4444;
-  color: #dc2626;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
 `;
 
 const NoDataMessage = styled.div`
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
-  color: #6b7280;
-  padding: 2rem;
-  border-radius: 8px;
   text-align: center;
-  margin: 2rem 0;
-`;
-
-const NoDataTitle = styled.h3`
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #374151;
-`;
-
-const NoDataText = styled.p`
-  font-size: 1rem;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 `;
 
 const SpellCheckPage: React.FC = () => {
   const { formData } = useResumeForm();
-  const { 
-    loading, 
-    error, 
-    result, 
-    checkResume, 
-    checkSection, 
-    clearResult,
-    hasResumeData,
-    clearError,
+  const {
+    loading,
+    error,
+    result,
+    sectionResults,
     sectionLoading,
-    sectionResults
+    isAdvancedMode,
+    checkResume,
+    checkSection,
+    toggleAdvancedMode,
+    clearResult,
+    clearError,
+    hasResumeData,
+    getCheckableSections
   } = useSpellCheck();
 
-  // 페이지 로드 시 이력서 데이터 확인
-  useEffect(() => {
-    if (!hasResumeData()) {
-      // 이력서 데이터가 없으면 안내 메시지 표시
+  const handleCheckAll = useCallback(async () => {
+    if (hasResumeData(formData)) {
+      await checkResume(formData);
     }
-  }, [hasResumeData]);
+  }, [checkResume, formData, hasResumeData]);
 
-  const handleCheckAll = async () => {
-    if (!hasResumeData()) {
-      return;
+  const handleCheckSection = useCallback(async (section: keyof typeof formData) => {
+    const text = formData[section] || '';
+    if (text.trim()) {
+      await checkSection(section, text);
     }
-    await checkResume();
-  };
+  }, [checkSection, formData]);
 
-  const handleCheckSection = async (section: keyof ResumeFormData) => {
-    await checkSection(section);
-  };
-
-  const handleClearResult = () => {
+  const handleClearResult = useCallback(() => {
     clearResult();
-  };
+  }, [clearResult]);
 
-  const handleClearError = () => {
+  const handleClearError = useCallback(() => {
     clearError();
-  };
+  }, [clearError]);
 
-  return (
-    <SpellCheckContainer>
-      <MainHeader />
-      
-      <SpellCheckContent>
-        <SpellCheckHeader>
-          <SpellCheckTitle>맞춤법 검사</SpellCheckTitle>
-          <SpellCheckSubtitle>
-            작성한 이력서의 맞춤법을 검사하고 수정 제안을 받아보세요
-          </SpellCheckSubtitle>
-        </SpellCheckHeader>
+  if (loading) {
+    return (
+      <Container>
+        <MainHeader />
+        <Content>
+          <div style={{ textAlign: 'center', padding: '2rem', color: 'white' }}>
+            검사 중...
+          </div>
+        </Content>
+        <MainFooter />
+      </Container>
+    );
+  }
 
-        {loading && <LoadingSpinner />}
-        
-        {error && (
-          <ErrorMessage>
+  if (error) {
+    return (
+      <Container>
+        <MainHeader />
+        <Content>
+          <div style={{ 
+            background: 'rgba(239, 68, 68, 0.1)', 
+            border: '1px solid rgba(239, 68, 68, 0.3)', 
+            color: 'white', 
+            padding: '1rem', 
+            borderRadius: '8px',
+            textAlign: 'center'
+          }}>
             {error}
             <button 
               onClick={handleClearError}
@@ -262,91 +216,112 @@ const SpellCheckPage: React.FC = () => {
                 marginLeft: '1rem', 
                 background: 'none', 
                 border: 'none', 
-                color: '#dc2626', 
+                color: 'white', 
                 cursor: 'pointer',
                 textDecoration: 'underline'
               }}
             >
               닫기
             </button>
-          </ErrorMessage>
-        )}
+          </div>
+        </Content>
+        <MainFooter />
+      </Container>
+    );
+  }
 
-        {!hasResumeData() ? (
+  if (!hasResumeData(formData)) {
+    return (
+      <Container>
+        <MainHeader />
+        <Content>
           <NoDataMessage>
-            <NoDataTitle>이력서 데이터가 없습니다</NoDataTitle>
-            <NoDataText>
-              맞춤법 검사를 하려면 먼저 이력서를 작성해주세요.
-              <br />
-              <a 
-                href="/resume" 
-                style={{ 
-                  color: COLORS.primary, 
-                  textDecoration: 'underline',
-                  fontWeight: '600'
-                }}
-              >
-                이력서 작성하기 →
-              </a>
-            </NoDataText>
+            <h3>이력서 데이터가 없습니다</h3>
+            <p>맞춤법 검사를 하려면 먼저 이력서를 작성해주세요.</p>
           </NoDataMessage>
-        ) : (
-          <>
-            <SpellCheckSection>
-              <SectionTitle>
-                <SectionIcon>📝</SectionIcon>
-                이력서 내용
-              </SectionTitle>
-              
-              <TextSection 
-                formData={formData}
-                onCheckSection={handleCheckSection}
-                sectionLoading={sectionLoading}
-                sectionResults={sectionResults}
-              />
-            </SpellCheckSection>
+        </Content>
+        <MainFooter />
+      </Container>
+    );
+  }
 
-            {result && (
-              <SpellCheckSection>
-                <SectionTitle>
-                  <SectionIcon>🔍</SectionIcon>
-                  검사 결과
-                </SectionTitle>
-                
-                <SpellCheckResult 
-                  result={result}
-                  onApplyCorrection={(section, corrections) => {
-                    // 수정 사항을 이력서에 반영하는 로직
-                    console.log('Apply corrections:', section, corrections);
-                  }}
-                />
-              </SpellCheckSection>
-            )}
+  return (
+    <Container>
+      <MainHeader />
+      <Content
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: ANIMATIONS.duration.normal }}
+      >
+        <Title>맞춤법 검사</Title>
+        <Subtitle>
+          이력서의 맞춤법과 문법을 검사하여 완성도를 높여보세요
+        </Subtitle>
 
-            <ButtonGroup>
-              <SecondaryButton
-                onClick={handleClearResult}
-                disabled={loading || !result}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                결과 초기화
-              </SecondaryButton>
-              <PrimaryButton
-                onClick={handleCheckAll}
-                disabled={loading || !hasResumeData()}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                전체 검사
-              </PrimaryButton>
-            </ButtonGroup>
-          </>
+        {/* 검사 모드 토글 */}
+        <ModeToggle>
+          <ToggleButton
+            isActive={!isAdvancedMode}
+            onClick={toggleAdvancedMode}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            기본 검사
+          </ToggleButton>
+          <ToggleButton
+            isActive={isAdvancedMode}
+            onClick={toggleAdvancedMode}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            네이버 맞춤법 검사
+          </ToggleButton>
+        </ModeToggle>
+        
+        <ModeDescription>
+          {isAdvancedMode 
+            ? "네이버 맞춤법 검사기를 사용하여 더 정확한 검사를 진행합니다."
+            : "기본 형식 검사와 네이버 맞춤법 검사를 함께 진행합니다."
+          }
+        </ModeDescription>
+
+        {/* 액션 버튼들 */}
+        <ActionButtons>
+          <Button
+            onClick={handleCheckAll}
+            disabled={loading}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            전체 검사
+          </Button>
+          <ClearButton
+            onClick={handleClearResult}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            결과 초기화
+          </ClearButton>
+        </ActionButtons>
+
+        {/* 이력서 섹션들 */}
+        <TextSection
+          formData={formData}
+          onCheckSection={handleCheckSection}
+          sectionResults={sectionResults}
+          sectionLoading={sectionLoading}
+        />
+
+        {/* 검사 결과 */}
+        {result && (
+          <SpellCheckResult
+            result={result}
+            onApplyCorrection={() => {}}
+          />
         )}
-      </SpellCheckContent>
-      
+      </Content>
       <MainFooter />
-    </SpellCheckContainer>
+    </Container>
   );
 };
 
