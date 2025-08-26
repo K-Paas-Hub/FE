@@ -47,17 +47,11 @@ const VisaCenter: React.FC = () => {
           transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 }}
         >
           <div className="category-filter">
-            <button
-              className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
-              onClick={() => setSelectedCategory('all')}
-            >
-              전체
-            </button>
             {Object.entries(VISA_CATEGORY_LABELS).map(([category, label]) => (
               <button
                 key={category}
-                className={`category-button ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category)}
+                className={`category-button ${selectedCategory === (category === 'ALL' ? 'all' : category.toLowerCase()) ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category === 'ALL' ? 'all' : category.toLowerCase())}
               >
                 {label}
               </button>

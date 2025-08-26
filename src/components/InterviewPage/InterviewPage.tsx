@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 import InterviewChat from './InterviewChat';
@@ -23,6 +23,60 @@ const InterviewPage: React.FC = () => {
   });
   const [showSettings, setShowSettings] = useState(false);
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
+
+  // 페이지 로드 시 스크롤을 맨 위로 올림
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // 복사 기능
+  const handleCopy = () => {
+    // 채팅 내용을 클립보드에 복사
+    const chatContent = document.querySelector('.chat-messages')?.textContent || '';
+    navigator.clipboard.writeText(chatContent).then(() => {
+      alert('채팅 내용이 클립보드에 복사되었습니다.');
+    }).catch(() => {
+      alert('복사에 실패했습니다.');
+    });
+  };
+
+  // 내보내기 기능
+  const handleExport = () => {
+    // 채팅 메시지만 정확히 추출하여 내보내기
+    const messageElements = document.querySelectorAll('.chat-message');
+    let chatContent = '';
+    
+    messageElements.forEach((element) => {
+      const messageText = element.textContent || '';
+      if (messageText.trim()) {
+        chatContent += messageText + '\n\n';
+      }
+    });
+    
+    if (!chatContent.trim()) {
+      alert('내보낼 채팅 내용이 없습니다.');
+      return;
+    }
+    
+    const blob = new Blob([chatContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `면접_대화_${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  // 채팅 닫기 기능
+  const handleCloseChat = () => {
+    if (window.confirm('정말로 채팅을 닫으시겠습니까? 현재 진행 중인 면접이 종료됩니다.')) {
+      setIsInterviewStarted(false);
+      // 채팅 내용 초기화
+      window.location.reload();
+    }
+  };
 
   const handleStartInterview = () => {
     if (!settings.difficulty) {
@@ -116,15 +170,15 @@ const InterviewPage: React.FC = () => {
               <p>실제 면접과 유사한 환경에서 연습해보세요</p>
             </div>
             <div className="header-actions">
-              <button className="header-button">
+              <button className="header-button" onClick={handleCopy}>
                 <img src="/images/copy.png" alt="Copy" className="header-icon" />
                 복사
               </button>
-              <button className="header-button">
+              <button className="header-button" onClick={handleExport}>
                 <img src="/images/upload.png" alt="Export" className="header-icon" />
                 내보내기
               </button>
-              <button className="header-button close">
+              <button className="header-button close" onClick={handleCloseChat}>
                 <span className="header-icon">×</span>
                 채팅 닫기
               </button>

@@ -198,6 +198,8 @@ export const AnalysisButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1rem;
+  margin-left: auto;
+  display: block;
   min-height: 44px;
   min-width: 44px;
   

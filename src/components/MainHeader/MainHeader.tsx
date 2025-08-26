@@ -209,6 +209,7 @@ const MainHeaderComponent: React.FC = () => {
               <NavLink 
                 to="/interview" 
                 className={location.pathname === '/interview' ? 'active' : ''}
+                preventScrollReset={true}
               >
                 {t('header.aiInterview')}
               </NavLink>

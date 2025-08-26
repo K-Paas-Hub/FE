@@ -181,7 +181,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
                     검사 중...
                   </>
                 ) : (
-                  '이 섹션 검사'
+                  '검사'
                 )}
               </CheckButton>
             )}

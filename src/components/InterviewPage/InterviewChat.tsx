@@ -42,13 +42,44 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (shouldAutoScroll && !isInitialLoad) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // 사용자가 스크롤을 올렸을 때 자동 스크롤 비활성화
+  const handleScroll = () => {
+    const chatMessages = document.querySelector('.chat-messages');
+    if (chatMessages) {
+      const { scrollTop, scrollHeight, clientHeight } = chatMessages;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight - 10;
+      setShouldAutoScroll(isAtBottom);
+    }
   };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    const chatMessages = document.querySelector('.chat-messages');
+    if (chatMessages) {
+      chatMessages.addEventListener('scroll', handleScroll);
+      return () => chatMessages.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  useEffect(() => {
+    // 초기 로딩 시에는 스크롤하지 않음
+    if (isInitialLoad) {
+      setIsInitialLoad(false);
+      return;
+    }
+    // 면접이 시작된 후에만 스크롤
+    if (isInterviewStarted) {
+      scrollToBottom();
+    }
+  }, [messages, shouldAutoScroll, isInitialLoad, isInterviewStarted]);
 
   useEffect(() => {
     if (isInterviewStarted && currentQuestionIndex === 0) {
