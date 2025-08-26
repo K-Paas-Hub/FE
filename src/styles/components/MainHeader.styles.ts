@@ -281,7 +281,7 @@ export const LanguageButton = styled.div`
   transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   position: relative;
   white-space: nowrap;
   min-width: 140px;
@@ -316,6 +316,7 @@ export const LanguageText = styled.span`
   white-space: nowrap;
   flex: 1;
   min-width: 0;
+  text-align: center;
 `;
 
 export const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
@@ -345,7 +346,7 @@ export const LanguageOption = styled.button`
   transition: background ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

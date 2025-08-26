@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
@@ -853,14 +854,23 @@ const MainPage: React.FC = () => {
               </NoResultsText>
             </NoResultsMessage>
           ) : (
-            <JobGrid>
-              {jobs.map((job, index) => (
-                <JobCard
-                  key={job.id}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.3,
+                staggerChildren: 0.1
+              }}
+            >
+              <JobGrid>
+                {jobs.map((job, index) => (
+                  <JobCard
+                    key={job.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
                   <JobImage>
                     <JobImageContent>{job.imageContent}</JobImageContent>
                   </JobImage>
@@ -892,6 +902,7 @@ const MainPage: React.FC = () => {
                 </JobCard>
               ))}
             </JobGrid>
+            </motion.div>
           )}
         </JobListSection>
               </MainPageContent>
