@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ANIMATIONS } from '../../constants';
 import { useScrollSpy } from '../../hooks';
 import {

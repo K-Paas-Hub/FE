@@ -52,28 +52,30 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
 
   useEffect(() => {
     if (isInterviewStarted && currentQuestionIndex === 0) {
+      const startInterview = () => {
+        const difficultyText = settings.difficulty === 'easy' ? '초급' : 
+                              settings.difficulty === 'medium' ? '중급' : '고급';
+        
+        const startMessage: Message = {
+          id: Date.now().toString(),
+          type: 'system',
+          content: `면접을 시작하겠습니다!\n\n• 난이도: ${difficultyText}\n• 총 질문 수: ${settings.questionCount}개\n• 예상 소요 시간: ${settings.estimatedTime}분\n\n첫 번째 질문입니다:\n\n"자신의 강점과 약점에 대해 말씀해 주세요."`,
+          timestamp: new Date().toLocaleTimeString('ko-KR', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+          }),
+          recommendedTime: '2분'
+        };
+        
+        setMessages(prev => [...prev, startMessage]);
+        setCurrentQuestionIndex(1);
+      };
+      
       startInterview();
     }
-  }, [isInterviewStarted]);
+  }, [isInterviewStarted, currentQuestionIndex, settings.difficulty, settings.questionCount, settings.estimatedTime]);
 
-  const startInterview = () => {
-    const difficultyText = settings.difficulty === 'easy' ? '초급' : 
-                          settings.difficulty === 'medium' ? '중급' : '고급';
-    
-    const startMessage: Message = {
-      id: Date.now().toString(),
-      type: 'system',
-      content: `면접을 시작하겠습니다!\n\n• 난이도: ${difficultyText}\n• 총 질문 수: ${settings.questionCount}개\n• 예상 소요 시간: ${settings.estimatedTime}분\n\n첫 번째 질문입니다:\n\n"자신의 강점과 약점에 대해 말씀해 주세요."`,
-      timestamp: new Date().toLocaleTimeString('ko-KR', { 
-        hour: '2-digit', 
-        minute: '2-digit' 
-      }),
-      recommendedTime: '2분'
-    };
-    
-    setMessages(prev => [...prev, startMessage]);
-    setCurrentQuestionIndex(1);
-  };
+
 
   const handleSendMessage = (content: string) => {
     if (!content.trim()) return;

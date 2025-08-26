@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import LoginForm from './LoginForm';
 import Footer from '../MainFooter';
 import '../../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
-  const { t } = useTranslation();
+
   const [isFormLoading, setIsFormLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 

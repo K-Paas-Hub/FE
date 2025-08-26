@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { resumeService } from '../services/api';
-import { ResumeFormData, ResumeData, FileData } from '../types/resume';
+import { ResumeFormData, FileData } from '../types/resume';
 import { RESUME_CONSTANTS } from '../constants';
 
 const initialFormData: ResumeFormData = {
@@ -109,7 +109,7 @@ export const useResumeForm = () => {
     }
 
     return await saveResume();
-  }, [formData, validateForm, saveResume]);
+  }, [validateForm, saveResume]);
 
   // 이력서 제출
   const submitResume = useCallback(async () => {

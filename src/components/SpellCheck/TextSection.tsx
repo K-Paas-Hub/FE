@@ -32,7 +32,7 @@ interface TextSectionProps {
 }
 
 const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) => {
-  const { checkSection, isChecking, error } = useSpellCheck();
+  const { checkSection, isChecking } = useSpellCheck();
   const [sectionErrors, setSectionErrors] = useState<Record<string, SpellCheckError[]>>({});
   const [checkOptions, setCheckOptions] = useState<SpellCheckOptions>({
     checkSpelling: true,

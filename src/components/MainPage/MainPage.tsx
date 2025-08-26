@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
@@ -13,7 +13,6 @@ import {
   FilterButton,
   FilterDownArrowIcon,
   DownArrowFallback,
-  VisaButton,
   RefreshButton,
   RefreshIcon,
   RefreshFallback,
@@ -500,7 +499,7 @@ const MainPage: React.FC = () => {
   };
 
   // 통합 필터링 및 정렬 함수
-  const applyAllFilters = () => {
+  const applyAllFilters = useCallback(() => {
     let results = [...jobs];
     
     // 1. 검색 적용
@@ -527,7 +526,7 @@ const MainPage: React.FC = () => {
     results = applySorting(results);
     
     setFilteredJobs(results);
-  };
+  }, [jobs, searchQuery, selectedFilters, selectedSort, applyFilters, applySorting]);
 
   const handleLike = (jobId: number) => {
     const updatedJobs = jobs.map(job => 
@@ -614,7 +613,7 @@ const MainPage: React.FC = () => {
   // 상태 변경 시 자동으로 필터링 적용
   useEffect(() => {
     applyAllFilters();
-  }, [searchQuery, selectedFilters, selectedSort]);
+  }, [searchQuery, selectedFilters, selectedSort, applyAllFilters]);
 
   const handleChatClick = () => {
     setIsChatOpen(!isChatOpen);

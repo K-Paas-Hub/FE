@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { MainHeader, MainFooter } from '../';
-import { useResumeForm } from '../../hooks/useResumeForm';
-import { useAutoSave } from '../../hooks/useAutoSave';
 import {
   ResumeContainer,
   ResumeContent,
@@ -16,27 +13,9 @@ import {
   FormGroup,
   FormLabel,
   FormInput,
-  FormTextarea,
-  FormSelect,
   ButtonGroup,
   PrimaryButton,
   SecondaryButton,
-  PreviewContent,
-  LoadingSpinner,
-  FieldError,
-  SuccessMessage,
-  FileUpload,
-  UploadProgress,
-  ProgressBar,
-  ProgressFill,
-  FileList,
-  FileItem,
-  DeleteButton,
-  UploadText,
-  UploadSubtext,
-  ModalHeader,
-  ModalTitle,
-  CloseButton,
 } from '../../styles/components/ResumePage.styles';
 
 const ResumePage: React.FC = () => {

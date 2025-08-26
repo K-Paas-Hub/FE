@@ -4,8 +4,7 @@ import {
   SpellCheckResult, 
   SpellCheckRequest,
   SpellCheckOptions,
-  SpellCheckStatus,
-  FileUploadResult
+  SpellCheckStatus
 } from '../types/spellCheck';
 // ResumeFormData는 현재 사용되지 않지만 향후 확장을 위해 유지
 
@@ -215,13 +214,13 @@ export const spellCheckApi = {
     try {
       const content = await file.text();
       // 파일 정보는 현재 사용되지 않지만 향후 확장을 위해 유지
-      const _fileInfo: FileUploadResult = {
-        filename: file.name,
-        content,
-        fileType: file.name.endsWith('.txt') ? 'txt' : 'docx',
-        size: file.size,
-        encoding: 'utf-8'
-      };
+      // const _fileInfo: FileUploadResult = {
+      //   filename: file.name,
+      //   content,
+      //   fileType: file.name.endsWith('.txt') ? 'txt' : 'docx',
+      //   size: file.size,
+      //   encoding: 'utf-8'
+      // };
 
       return await spellCheckApi.checkText({
         text: content,
