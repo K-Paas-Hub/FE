@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
 import { MainHeader, MainFooter } from '../';
@@ -18,6 +19,7 @@ import {
 
 
 const SpellCheckPage: React.FC = () => {
+  const { t } = useTranslation();
   const { formData } = useResumeForm();
   const { hasResumeData } = useSpellCheck();
 
@@ -28,9 +30,9 @@ const SpellCheckPage: React.FC = () => {
       <SpellCheckContent>
         {!hasResumeData(formData) ? (
           <NoDataMessage>
-            <NoDataTitle>이력서 데이터가 없습니다</NoDataTitle>
+            <NoDataTitle>{t('spellCheck.noDataTitle')}</NoDataTitle>
             <NoDataText>
-              맞춤법 검사를 하려면 먼저 이력서를 작성해주세요.
+              {t('spellCheck.noDataText')}
               <br />
               <a 
                 href="/resume" 
@@ -40,7 +42,7 @@ const SpellCheckPage: React.FC = () => {
                   fontWeight: '600'
                 }}
               >
-                이력서 작성하기 →
+                {t('spellCheck.createResumeLink')}
               </a>
             </NoDataText>
           </NoDataMessage>
@@ -49,7 +51,7 @@ const SpellCheckPage: React.FC = () => {
             <SpellCheckSection>
               <SectionTitle>
                 <SectionIcon>📝</SectionIcon>
-                이력서 내용
+                {t('spellCheck.resumeContent')}
               </SectionTitle>
               
               <TextSection formData={formData} />

@@ -207,5 +207,41 @@
         "description": "Dukungan sistematis untuk aplikasi dan perpanjangan visa untuk memastikan tempat tinggal yang stabil"
       }
     }
+  },
+  "spellCheck": {
+    "title": "Pemeriksaan Ejaan",
+    "noDataTitle": "Tidak Ada Data Resume",
+    "noDataText": "Silakan buat resume terlebih dahulu untuk melakukan pemeriksaan ejaan.",
+    "createResumeLink": "Buat Resume →",
+    "resumeContent": "Konten Resume",
+    "checkOptions": {
+      "spelling": "Ejaan",
+      "grammar": "Tata Bahasa",
+      "punctuation": "Tanda Baca",
+      "spacing": "Spasi"
+    },
+    "sections": {
+      "name": "Nama",
+      "email": "Email",
+      "phone": "Telepon",
+      "nationality": "Kebangsaan",
+      "visaType": "Jenis Visa",
+      "education": "Pendidikan",
+      "experience": "Pengalaman",
+      "skills": "Keterampilan & Sertifikasi",
+      "languages": "Kemampuan Bahasa",
+      "introduction": "Perkenalan Diri"
+    },
+    "actions": {
+      "check": "Periksa",
+      "checking": "Memeriksa...",
+      "apply": "Terapkan"
+    },
+    "messages": {
+      "noContent": "Tidak ada konten yang dimasukkan.",
+      "wordCount": "kata",
+      "noErrors": "Tidak ada kesalahan",
+      "errorCount": "kesalahan"
+    }
   }
 }

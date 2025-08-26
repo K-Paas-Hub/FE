@@ -92,6 +92,42 @@
       "exportFileName": "Interview_Conversation_"
     }
   },
+  "spellCheck": {
+    "title": "Spell Check",
+    "noDataTitle": "No Resume Data",
+    "noDataText": "Please create a resume first to perform spell check.",
+    "createResumeLink": "Create Resume →",
+    "resumeContent": "Resume Content",
+    "checkOptions": {
+      "spelling": "Spelling",
+      "grammar": "Grammar",
+      "punctuation": "Punctuation",
+      "spacing": "Spacing"
+    },
+    "sections": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "nationality": "Nationality",
+      "visaType": "Visa Type",
+      "education": "Education",
+      "experience": "Experience",
+      "skills": "Skills & Certifications",
+      "languages": "Language Skills",
+      "introduction": "Self Introduction"
+    },
+    "actions": {
+      "check": "Check",
+      "checking": "Checking...",
+      "apply": "Apply"
+    },
+    "messages": {
+      "noContent": "No content entered.",
+      "wordCount": "words",
+      "noErrors": "No errors",
+      "errorCount": "errors"
+    }
+  },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",

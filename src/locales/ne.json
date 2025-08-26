@@ -207,5 +207,41 @@
       "closeConfirm": "के तपाईं च्याट बन्द गर्न निश्चित हुनुहुन्छ? वर्तमान इन्टरभ्यू समाप्त हुनेछ।",
       "exportFileName": "इन्टरभ्यू_कुराकानी_"
     }
+  },
+  "spellCheck": {
+    "title": "हिज्जे जाँच",
+    "noDataTitle": "रेज्युमे डाटा छैन",
+    "noDataText": "हिज्जे जाँच गर्न कृपया पहिले रेज्युमे सिर्जना गर्नुहोस्।",
+    "createResumeLink": "रेज्युमे सिर्जना गर्नुहोस् →",
+    "resumeContent": "रेज्युमे सामग्री",
+    "checkOptions": {
+      "spelling": "हिज्जे",
+      "grammar": "व्याकरण",
+      "punctuation": "विराम चिह्न",
+      "spacing": "खाली ठाउँ"
+    },
+    "sections": {
+      "name": "नाम",
+      "email": "इमेल",
+      "phone": "फोन",
+      "nationality": "राष्ट्रियता",
+      "visaType": "भिसा प्रकार",
+      "education": "शिक्षा",
+      "experience": "अनुभव",
+      "skills": "सीप र प्रमाणपत्र",
+      "languages": "भाषा सीप",
+      "introduction": "आफैको परिचय"
+    },
+    "actions": {
+      "check": "जाँच गर्नुहोस्",
+      "checking": "जाँच गर्दै...",
+      "apply": "लागू गर्नुहोस्"
+    },
+    "messages": {
+      "noContent": "कुनै सामग्री प्रविष्ट गरिएको छैन।",
+      "wordCount": "शब्द",
+      "noErrors": "कुनै त्रुटि छैन",
+      "errorCount": "त्रुटि"
+    }
   }
 }

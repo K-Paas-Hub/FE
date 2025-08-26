@@ -111,6 +111,42 @@
     "previewTitle": "Xem trước sơ yếu lý lịch",
     "emptyField": "Vui lòng nhập"
   },
+  "spellCheck": {
+    "title": "Kiểm tra chính tả",
+    "noDataTitle": "Không có dữ liệu sơ yếu lý lịch",
+    "noDataText": "Vui lòng tạo sơ yếu lý lịch trước để thực hiện kiểm tra chính tả.",
+    "createResumeLink": "Tạo sơ yếu lý lịch →",
+    "resumeContent": "Nội dung sơ yếu lý lịch",
+    "checkOptions": {
+      "spelling": "Chính tả",
+      "grammar": "Ngữ pháp",
+      "punctuation": "Dấu câu",
+      "spacing": "Khoảng cách"
+    },
+    "sections": {
+      "name": "Tên",
+      "email": "Email",
+      "phone": "Điện thoại",
+      "nationality": "Quốc tịch",
+      "visaType": "Loại visa",
+      "education": "Học vấn",
+      "experience": "Kinh nghiệm",
+      "skills": "Kỹ năng & Chứng chỉ",
+      "languages": "Kỹ năng ngôn ngữ",
+      "introduction": "Tự giới thiệu"
+    },
+    "actions": {
+      "check": "Kiểm tra",
+      "checking": "Đang kiểm tra...",
+      "apply": "Áp dụng"
+    },
+    "messages": {
+      "noContent": "Không có nội dung được nhập.",
+      "wordCount": "từ",
+      "noErrors": "Không có lỗi",
+      "errorCount": "lỗi"
+    }
+  },
   "visaCenter": {
     "title": "Trung tâm Visa",
     "subtitle": "Kiểm tra thông tin visa cho lao động nước ngoài",

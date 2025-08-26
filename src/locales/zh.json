@@ -182,6 +182,42 @@
       "exportFileName": "面试对话_"
     }
   },
+  "spellCheck": {
+    "title": "拼写检查",
+    "noDataTitle": "没有简历数据",
+    "noDataText": "请先创建简历以进行拼写检查。",
+    "createResumeLink": "创建简历 →",
+    "resumeContent": "简历内容",
+    "checkOptions": {
+      "spelling": "拼写",
+      "grammar": "语法",
+      "punctuation": "标点符号",
+      "spacing": "间距"
+    },
+    "sections": {
+      "name": "姓名",
+      "email": "邮箱",
+      "phone": "电话",
+      "nationality": "国籍",
+      "visaType": "签证类型",
+      "education": "教育",
+      "experience": "经验",
+      "skills": "技能和证书",
+      "languages": "语言能力",
+      "introduction": "自我介绍"
+    },
+    "actions": {
+      "check": "检查",
+      "checking": "检查中...",
+      "apply": "应用"
+    },
+    "messages": {
+      "noContent": "未输入内容。",
+      "wordCount": "词",
+      "noErrors": "无错误",
+      "errorCount": "个错误"
+    }
+  },
   "landing": {
     "hero": {
       "title": "WE ARE INNOVATION",

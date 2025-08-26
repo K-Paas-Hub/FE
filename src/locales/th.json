@@ -207,5 +207,41 @@
       "closeConfirm": "คุณแน่ใจหรือไม่ที่จะปิดแชท? การสัมภาษณ์ปัจจุบันจะสิ้นสุด",
       "exportFileName": "การสนทนาการสัมภาษณ์_"
     }
+  },
+  "spellCheck": {
+    "title": "ตรวจสอบการสะกด",
+    "noDataTitle": "ไม่มีข้อมูลเรซูเม่",
+    "noDataText": "กรุณาสร้างเรซูเม่ก่อนเพื่อทำการตรวจสอบการสะกด",
+    "createResumeLink": "สร้างเรซูเม่ →",
+    "resumeContent": "เนื้อหาเรซูเม่",
+    "checkOptions": {
+      "spelling": "การสะกด",
+      "grammar": "ไวยากรณ์",
+      "punctuation": "เครื่องหมายวรรคตอน",
+      "spacing": "การเว้นวรรค"
+    },
+    "sections": {
+      "name": "ชื่อ",
+      "email": "อีเมล",
+      "phone": "โทรศัพท์",
+      "nationality": "สัญชาติ",
+      "visaType": "ประเภทวีซ่า",
+      "education": "การศึกษา",
+      "experience": "ประสบการณ์",
+      "skills": "ทักษะและใบรับรอง",
+      "languages": "ทักษะภาษา",
+      "introduction": "แนะนำตัวเอง"
+    },
+    "actions": {
+      "check": "ตรวจสอบ",
+      "checking": "กำลังตรวจสอบ...",
+      "apply": "ใช้"
+    },
+    "messages": {
+      "noContent": "ไม่มีเนื้อหาที่ป้อน",
+      "wordCount": "คำ",
+      "noErrors": "ไม่มีข้อผิดพลาด",
+      "errorCount": "ข้อผิดพลาด"
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ResumeFormData } from '../../types/resume';
 import { SpellCheckOptions, SpellCheckError } from '../../types/spellCheck';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
@@ -32,6 +33,7 @@ interface TextSectionProps {
 }
 
 const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) => {
+  const { t } = useTranslation();
   const { checkSection, isChecking } = useSpellCheck();
   const [sectionErrors, setSectionErrors] = useState<Record<string, SpellCheckError[]>>({});
   const [checkOptions, setCheckOptions] = useState<SpellCheckOptions>({
@@ -46,20 +48,20 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
 
   // 개인정보 항목 (검사 버튼 없음)
   const personalInfoSections = [
-    { key: 'name' as keyof ResumeFormData, label: '이름' },
-    { key: 'email' as keyof ResumeFormData, label: '이메일' },
-    { key: 'phone' as keyof ResumeFormData, label: '전화번호' },
-    { key: 'nationality' as keyof ResumeFormData, label: '국적' },
-    { key: 'visaType' as keyof ResumeFormData, label: '비자 유형' }
+    { key: 'name' as keyof ResumeFormData, label: t('spellCheck.sections.name') },
+    { key: 'email' as keyof ResumeFormData, label: t('spellCheck.sections.email') },
+    { key: 'phone' as keyof ResumeFormData, label: t('spellCheck.sections.phone') },
+    { key: 'nationality' as keyof ResumeFormData, label: t('spellCheck.sections.nationality') },
+    { key: 'visaType' as keyof ResumeFormData, label: t('spellCheck.sections.visaType') }
   ];
 
   // 자기소개서 관련 항목 (검사 버튼 있음)
   const resumeSections = [
-    { key: 'education' as keyof ResumeFormData, label: '학력' },
-    { key: 'experience' as keyof ResumeFormData, label: '경력' },
-    { key: 'skills' as keyof ResumeFormData, label: '기술 및 자격증' },
-    { key: 'languages' as keyof ResumeFormData, label: '언어 능력' },
-    { key: 'introduction' as keyof ResumeFormData, label: '자기소개' }
+    { key: 'education' as keyof ResumeFormData, label: t('spellCheck.sections.education') },
+    { key: 'experience' as keyof ResumeFormData, label: t('spellCheck.sections.experience') },
+    { key: 'skills' as keyof ResumeFormData, label: t('spellCheck.sections.skills') },
+    { key: 'languages' as keyof ResumeFormData, label: t('spellCheck.sections.languages') },
+    { key: 'introduction' as keyof ResumeFormData, label: t('spellCheck.sections.introduction') }
   ];
 
   const sections = [...personalInfoSections, ...resumeSections];
@@ -108,7 +110,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
             checked={checkOptions.checkSpelling}
             onChange={() => handleOptionChange('checkSpelling')}
           />
-          맞춤법
+          {t('spellCheck.checkOptions.spelling')}
         </OptionLabel>
         <OptionLabel>
           <input
@@ -116,7 +118,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
             checked={checkOptions.checkGrammar}
             onChange={() => handleOptionChange('checkGrammar')}
           />
-          문법
+          {t('spellCheck.checkOptions.grammar')}
         </OptionLabel>
         <OptionLabel>
           <input
@@ -124,7 +126,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
             checked={checkOptions.checkPunctuation}
             onChange={() => handleOptionChange('checkPunctuation')}
           />
-          문장부호
+          {t('spellCheck.checkOptions.punctuation')}
         </OptionLabel>
         <OptionLabel>
           <input
@@ -132,7 +134,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
             checked={checkOptions.checkSpacing}
             onChange={() => handleOptionChange('checkSpacing')}
           />
-          띄어쓰기
+          {t('spellCheck.checkOptions.spacing')}
         </OptionLabel>
       </CheckOptions>
 
@@ -153,16 +155,16 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
               {/* 자기소개서 관련 항목에만 단어 수와 오류 수 표시 */}
               {hasContent && !isPersonalInfo && (
                 <div style={{ display: 'flex', gap: '1rem' }}>
-                  <WordCount>{wordCount}단어</WordCount>
+                  <WordCount>{wordCount}{t('spellCheck.messages.wordCount')}</WordCount>
                   <ErrorCount $hasErrors={hasErrors}>
-                    {hasErrors ? `${errors.length}개 오류` : '오류 없음'}
+                    {hasErrors ? `${errors.length}${t('spellCheck.messages.errorCount')}` : t('spellCheck.messages.noErrors')}
                   </ErrorCount>
                 </div>
               )}
             </SectionInfo>
             <TextContent $hasErrors={hasErrors}>
               {hasContent ? content : (
-                <EmptyText>입력된 내용이 없습니다.</EmptyText>
+                <EmptyText>{t('spellCheck.messages.noContent')}</EmptyText>
               )}
             </TextContent>
             
@@ -178,10 +180,10 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
                 {isChecking ? (
                   <>
                     <SmallLoadingSpinner />
-                    검사 중...
+                    {t('spellCheck.actions.checking')}
                   </>
                 ) : (
-                  '검사'
+                  t('spellCheck.actions.check')
                 )}
               </CheckButton>
             )}
@@ -202,7 +204,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
                         whileTap={{ scale: 0.95 }}
                         onClick={() => applySuggestion(section.key, error)}
                       >
-                        적용
+                        {t('spellCheck.actions.apply')}
                       </ApplyButton>
                     </div>
                   </ErrorItem>

@@ -92,6 +92,42 @@
       "exportFileName": "면접_대화_"
     }
   },
+  "spellCheck": {
+    "title": "맞춤법 검사",
+    "noDataTitle": "이력서 데이터가 없습니다",
+    "noDataText": "맞춤법 검사를 하려면 먼저 이력서를 작성해주세요.",
+    "createResumeLink": "이력서 작성하기 →",
+    "resumeContent": "이력서 내용",
+    "checkOptions": {
+      "spelling": "맞춤법",
+      "grammar": "문법",
+      "punctuation": "문장부호",
+      "spacing": "띄어쓰기"
+    },
+    "sections": {
+      "name": "이름",
+      "email": "이메일",
+      "phone": "전화번호",
+      "nationality": "국적",
+      "visaType": "비자 유형",
+      "education": "학력",
+      "experience": "경력",
+      "skills": "기술 및 자격증",
+      "languages": "언어 능력",
+      "introduction": "자기소개"
+    },
+    "actions": {
+      "check": "검사",
+      "checking": "검사 중...",
+      "apply": "적용"
+    },
+    "messages": {
+      "noContent": "입력된 내용이 없습니다.",
+      "wordCount": "단어",
+      "noErrors": "오류 없음",
+      "errorCount": "개 오류"
+    }
+  },
   "header": {
     "jobPostings": "채용 공고",
     "myResume": "내 이력서",
