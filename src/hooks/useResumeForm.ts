@@ -90,7 +90,9 @@ export const useResumeForm = () => {
       if (response.success) {
         return { success: true, message: response.message };
       } else {
-        setError(response.error || '저장에 실패했습니다.');
+        const errorMessage = response.error || '저장에 실패했습니다.';
+        setError(errorMessage);
+        setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
         return { success: false, error: response.error };
       }
     } catch (err) {
@@ -117,8 +119,10 @@ export const useResumeForm = () => {
   const submitResume = useCallback(async () => {
     // 폼 검증
     if (!validateForm()) {
-      setError('입력 정보를 확인해주세요.');
-      return { success: false, error: '입력 정보를 확인해주세요.' };
+      const errorMessage = '입력 정보를 확인해주세요.';
+      setError(errorMessage);
+      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
+      return { success: false, error: errorMessage };
     }
 
     setLoading(true);
@@ -128,12 +132,15 @@ export const useResumeForm = () => {
       if (response.success) {
         return { success: true, message: response.message };
       } else {
-        setError(response.error || '제출에 실패했습니다.');
+        const errorMessage = response.error || '제출에 실패했습니다.';
+        setError(errorMessage);
+        setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
         return { success: false, error: response.error };
       }
     } catch (err) {
       const errorMessage = '네트워크 오류가 발생했습니다.';
       setError(errorMessage);
+      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
       return { success: false, error: errorMessage };
     } finally {
       setLoading(false);
@@ -146,6 +153,7 @@ export const useResumeForm = () => {
     if (file.size > RESUME_CONSTANTS.maxFileSize) {
       const errorMessage = '파일 크기가 10MB를 초과합니다.';
       setError(errorMessage);
+      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
       return { success: false, error: errorMessage };
     }
 
@@ -153,6 +161,7 @@ export const useResumeForm = () => {
     if (!fileExtension || !RESUME_CONSTANTS.allowedFileTypes.includes(fileExtension as any)) {
       const errorMessage = '지원하지 않는 파일 형식입니다. (PDF, DOC, DOCX만 가능)';
       setError(errorMessage);
+      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
       return { success: false, error: errorMessage };
     }
 
@@ -173,12 +182,15 @@ export const useResumeForm = () => {
         });
         return { success: true, data: response.data };
       } else {
-        setError(response.error || '파일 업로드에 실패했습니다.');
+        const errorMessage = response.error || '파일 업로드에 실패했습니다.';
+        setError(errorMessage);
+        setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
         return { success: false, error: response.error };
       }
     } catch (err) {
       const errorMessage = '파일 업로드 중 오류가 발생했습니다.';
       setError(errorMessage);
+      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
       return { success: false, error: errorMessage };
     } finally {
       setLoading(false);
