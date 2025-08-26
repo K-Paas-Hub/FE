@@ -13,7 +13,6 @@ import {
   ResumeForm,
   FormGroup,
   FormLabel,
-  FormInput,
   PrimaryButton,
 } from '../../styles/components/ResumePage.styles';
 import styled from 'styled-components';

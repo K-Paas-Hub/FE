@@ -41,7 +41,9 @@ class PerformanceMonitor {
         performance.clearMarks(`search-start-${searchId}`);
         performance.clearMeasures(measureName);
       } catch (error) {
-        console.warn('Performance measurement failed:', error);
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('Performance measurement failed:', error);
+        }
       }
     }
 
@@ -225,7 +227,9 @@ class PerformanceMonitor {
       const recentMetrics = this.metrics.slice(-50);
       localStorage.setItem('address_search_metrics', JSON.stringify(recentMetrics));
     } catch (error) {
-      console.warn('Failed to save metrics to storage:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to save metrics to storage:', error);
+      }
     }
   }
 
@@ -241,7 +245,9 @@ class PerformanceMonitor {
         );
       }
     } catch (error) {
-      console.warn('Failed to load metrics from storage:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to load metrics from storage:', error);
+      }
     }
   }
 

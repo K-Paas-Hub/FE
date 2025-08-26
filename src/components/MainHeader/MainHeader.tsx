@@ -46,12 +46,16 @@ const MainHeaderComponent: React.FC = () => {
   const languageDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLanguageClick = () => {
-    console.log('Language button clicked, current state:', isLanguageOpen);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Language button clicked, current state:', isLanguageOpen);
+    }
     setIsLanguageOpen(!isLanguageOpen);
   };
 
   const handleLanguageSelect = (language: string) => {
-    console.log('Language selected:', language);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Language selected:', language);
+    }
     changeLanguage(language);
     setIsLanguageOpen(false);
   };

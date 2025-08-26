@@ -21,7 +21,9 @@ class StorageManager {
       const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
       return history.filter(item => item.timestamp > thirtyDaysAgo);
     } catch (error) {
-      console.warn('Failed to load search history:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to load search history:', error);
+      }
       return [];
     }
   }
@@ -56,7 +58,9 @@ class StorageManager {
 
       localStorage.setItem(STORAGE_KEYS.SEARCH_HISTORY, JSON.stringify(updatedHistory));
     } catch (error) {
-      console.warn('Failed to save search history:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to save search history:', error);
+      }
     }
   }
 
@@ -66,7 +70,9 @@ class StorageManager {
       const updatedHistory = history.filter(item => item.id !== id);
       localStorage.setItem(STORAGE_KEYS.SEARCH_HISTORY, JSON.stringify(updatedHistory));
     } catch (error) {
-      console.warn('Failed to remove from search history:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to remove from search history:', error);
+      }
     }
   }
 
@@ -74,7 +80,9 @@ class StorageManager {
     try {
       localStorage.removeItem(STORAGE_KEYS.SEARCH_HISTORY);
     } catch (error) {
-      console.warn('Failed to clear search history:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to clear search history:', error);
+      }
     }
   }
 
@@ -86,7 +94,9 @@ class StorageManager {
       
       return JSON.parse(stored) as FavoriteAddress[];
     } catch (error) {
-      console.warn('Failed to load favorites:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to load favorites:', error);
+      }
       return [];
     }
   }
@@ -117,7 +127,9 @@ class StorageManager {
       
       return true;
     } catch (error) {
-      console.warn('Failed to add to favorites:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to add to favorites:', error);
+      }
       return false;
     }
   }
@@ -128,7 +140,9 @@ class StorageManager {
       const updatedFavorites = favorites.filter(fav => fav.id !== id);
       localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(updatedFavorites));
     } catch (error) {
-      console.warn('Failed to remove from favorites:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to remove from favorites:', error);
+      }
     }
   }
 
@@ -140,7 +154,9 @@ class StorageManager {
       );
       localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(updatedFavorites));
     } catch (error) {
-      console.warn('Failed to update favorite:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to update favorite:', error);
+      }
     }
   }
 
@@ -152,7 +168,9 @@ class StorageManager {
       );
       localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(updatedFavorites));
     } catch (error) {
-      console.warn('Failed to increment favorite use count:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to increment favorite use count:', error);
+      }
     }
   }
 
@@ -172,7 +190,9 @@ class StorageManager {
       const settings = JSON.parse(stored) as Partial<SearchSettings>;
       return { ...DEFAULT_SEARCH_SETTINGS, ...settings };
     } catch (error) {
-      console.warn('Failed to load settings:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to load settings:', error);
+      }
       return DEFAULT_SEARCH_SETTINGS;
     }
   }
@@ -183,7 +203,9 @@ class StorageManager {
       const newSettings = { ...currentSettings, ...updates };
       localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(newSettings));
     } catch (error) {
-      console.warn('Failed to update settings:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to update settings:', error);
+      }
     }
   }
 
@@ -292,7 +314,9 @@ class StorageManager {
       localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(activeFavorites));
       
     } catch (error) {
-      console.warn('Storage cleanup failed:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Storage cleanup failed:', error);
+      }
     }
   }
 
@@ -330,7 +354,9 @@ class StorageManager {
         localStorage.removeItem(testKey);
       }
     } catch (error) {
-      console.warn('Failed to calculate storage usage:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to calculate storage usage:', error);
+      }
     }
 
     return {

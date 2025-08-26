@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { AddressData } from '../../services/kakaoAddressService';
-import { useAdvancedAddressSearch, useSearchSuggestions, useFavorites } from '../../hooks/useAdvancedAddressSearch';
+import { useAdvancedAddressSearch, useFavorites } from '../../hooks/useAdvancedAddressSearch';
 import { formatErrorMessage, getErrorIcon } from '../../utils/errorHandling';
 import { storageManager } from '../../utils/storageManager';
 import {

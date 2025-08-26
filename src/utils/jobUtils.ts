@@ -38,7 +38,9 @@ export const copyToClipboard = async (text: string): Promise<boolean> => {
       return result;
     }
   } catch (err) {
-    console.error('Failed to copy to clipboard:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Failed to copy to clipboard:', err);
+    }
     return false;
   }
 };
@@ -70,7 +72,9 @@ export const shareJob = async (jobData: {
       return success;
     }
   } catch (err) {
-    console.error('Failed to share job:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Failed to share job:', err);
+    }
     return false;
   }
 };
@@ -126,7 +130,9 @@ export const toggleScrapStatus = async (jobId: number, currentStatus: boolean): 
     await new Promise(resolve => setTimeout(resolve, 500));
     return !currentStatus;
   } catch (err) {
-    console.error('Failed to toggle scrap status:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Failed to toggle scrap status:', err);
+    }
     return currentStatus;
   }
 };
@@ -144,7 +150,9 @@ export const applyToJob = async (jobId: number): Promise<boolean> => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     return true;
   } catch (err) {
-    console.error('Failed to apply to job:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Failed to apply to job:', err);
+    }
     return false;
   }
 };

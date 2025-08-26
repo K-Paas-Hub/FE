@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useDebounce } from 'use-debounce';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { kakaoAddressService } from '../services/kakaoAddressService';
@@ -33,12 +33,8 @@ export const useAdvancedAddressSearch = (
   query: string,
   options: AddressSearchOptions = {}
 ): AddressSearchResult => {
-  const queryClient = useQueryClient();
   const [searchId, setSearchId] = useState<string | null>(null);
   const [searchMetrics, setSearchMetrics] = useState<SearchMetrics | null>(null);
-
-  // 설정 로드
-  const settings = storageManager.getSettings();
   
   // 스마트 디바운싱 (검색어 길이에 따라 지연 시간 조정)
   const debounceDelay = useMemo(() => {
@@ -89,9 +85,11 @@ export const useAdvancedAddressSearch = (
 
         // 실시간 성능 알림 확인
         const alerts = performanceMonitor.checkPerformanceAlerts(metrics);
-        alerts.forEach(alert => {
-          console.warn(`Performance Alert: ${alert.message}`);
-        });
+        if (process.env.NODE_ENV === 'development') {
+          alerts.forEach(alert => {
+            console.warn(`Performance Alert: ${alert.message}`);
+          });
+        }
 
         // 성공 콜백 호출
         if (options.onSuccess) {
@@ -158,14 +156,6 @@ export const useAdvancedAddressSearch = (
     queryResult.refetch();
   }, [queryResult]);
 
-  // 캐시 관리 함수들 (필요시 사용)
-  // const invalidateCache = useCallback(() => {
-  //   queryClient.invalidateQueries({ queryKey: ['address-search'] });
-  // }, [queryClient]);
-
-  // const removeCacheEntry = useCallback((searchQuery: string) => {
-  //   queryClient.removeQueries({ queryKey: ['address-search', searchQuery] });
-  // }, [queryClient]);
 
   return {
     data: queryResult.data as AddressData[] | undefined,

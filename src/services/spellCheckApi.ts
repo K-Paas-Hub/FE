@@ -6,7 +6,6 @@ import {
   SpellCheckOptions,
   SpellCheckStatus
 } from '../types/spellCheck';
-// ResumeFormData는 현재 사용되지 않지만 향후 확장을 위해 유지
 
 // 맞춤법 검사 규칙 (향후 확장 예정)
 const SPELLING_RULES = {
@@ -213,14 +212,6 @@ export const spellCheckApi = {
   uploadAndCheck: async (file: File, options: SpellCheckOptions): Promise<ApiResponse<SpellCheckResult>> => {
     try {
       const content = await file.text();
-      // 파일 정보는 현재 사용되지 않지만 향후 확장을 위해 유지
-      // const _fileInfo: FileUploadResult = {
-      //   filename: file.name,
-      //   content,
-      //   fileType: file.name.endsWith('.txt') ? 'txt' : 'docx',
-      //   size: file.size,
-      //   encoding: 'utf-8'
-      // };
 
       return await spellCheckApi.checkText({
         text: content,
