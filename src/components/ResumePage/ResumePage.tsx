@@ -205,143 +205,100 @@ const certificationData = [
 
 // 어학 능력 데이터
 const languageData = [
-  // 영어 관련
-  { id: '1', name: 'TOEIC', category: '영어', description: '영어 능력 평가 시험', levels: ['300-400', '400-500', '500-600', '600-700', '700-800', '800-900', '900-990'] },
-  { id: '2', name: 'TOEFL', category: '영어', description: '영어 능력 평가 시험', levels: ['iBT 60-80', 'iBT 80-100', 'iBT 100-120'] },
-  { id: '3', name: 'IELTS', category: '영어', description: '영어 능력 평가 시험', levels: ['4.0-5.0', '5.0-6.0', '6.0-7.0', '7.0-8.0', '8.0-9.0'] },
-  { id: '4', name: 'OPIc', category: '영어', description: '영어 말하기 능력 평가', levels: ['AL', 'AM', 'AH', 'IL', 'IM', 'IH', 'AL'] },
-  { id: '5', name: 'TEPS', category: '영어', description: '영어 능력 평가 시험', levels: ['300-400', '400-500', '500-600', '600-700', '700-800', '800-900'] },
+  // 영어
+  { id: '1', name: '영어', category: '영어', type: '영어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '2', name: 'TOEIC', category: '영어', type: '영어', level: '', levels: ['300-400', '400-500', '500-600', '600-700', '700-800', '800-900', '900-990'] },
+  { id: '3', name: 'TOEFL', category: '영어', type: '영어', level: '', levels: ['iBT 60-80', 'iBT 80-100', 'iBT 100-120'] },
+  { id: '4', name: 'IELTS', category: '영어', type: '영어', level: '', levels: ['4.0-5.0', '5.0-6.0', '6.0-7.0', '7.0-8.0', '8.0-9.0'] },
+  { id: '5', name: 'OPIc', category: '영어', type: '영어', level: '', levels: ['AL', 'AM', 'AH', 'IL', 'IM', 'IH', 'AL'] },
   
-  // 한국어 관련
-  { id: '6', name: 'TOPIK', category: '한국어', description: '한국어 능력 평가 시험', levels: ['1급', '2급', '3급', '4급', '5급', '6급'] },
-  { id: '7', name: 'KLT', category: '한국어', description: '한국어 학습자 평가', levels: ['초급', '중급', '고급'] },
+  // 한국어
+  { id: '6', name: '한국어', category: '한국어', type: '한국어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '7', name: 'TOPIK', category: '한국어', type: '한국어', level: '', levels: ['1급', '2급', '3급', '4급', '5급', '6급'] },
+  { id: '8', name: 'KLT', category: '한국어', type: '한국어', level: '', levels: ['초급', '중급', '고급'] },
   
-  // 일본어 관련
-  { id: '8', name: 'JLPT', category: '일본어', description: '일본어 능력 평가 시험', levels: ['N5', 'N4', 'N3', 'N2', 'N1'] },
-  { id: '9', name: 'JPT', category: '일본어', description: '일본어 능력 평가 시험', levels: ['200-300', '300-400', '400-500', '500-600', '600-700', '700-800'] },
+  // 중국어
+  { id: '9', name: '중국어', category: '중국어', type: '중국어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '10', name: 'HSK', category: '중국어', type: '중국어', level: '', levels: ['1급', '2급', '3급', '4급', '5급', '6급'] },
+  { id: '11', name: 'HSKK', category: '중국어', type: '중국어', level: '', levels: ['초급', '중급', '고급'] },
   
-  // 중국어 관련
-  { id: '10', name: 'HSK', category: '중국어', description: '중국어 능력 평가 시험', levels: ['1급', '2급', '3급', '4급', '5급', '6급'] },
-  { id: '11', name: 'TSC', category: '중국어', description: '중국어 말하기 능력 평가', levels: ['초급', '중급', '고급'] },
+  // 일본어
+  { id: '12', name: '일본어', category: '일본어', type: '일본어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '13', name: 'JLPT', category: '일본어', type: '일본어', level: '', levels: ['N5', 'N4', 'N3', 'N2', 'N1'] },
+  { id: '14', name: 'JPT', category: '일본어', type: '일본어', level: '', levels: ['200-300', '300-400', '400-500', '500-600', '600-700', '700-800'] },
   
-  // 기타 언어
-  { id: '12', name: 'DELE', category: '스페인어', description: '스페인어 능력 평가 시험', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
-  { id: '13', name: 'DELF', category: '프랑스어', description: '프랑스어 능력 평가 시험', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
-  { id: '14', name: 'TestDaF', category: '독일어', description: '독일어 능력 평가 시험', levels: ['TDN 3', 'TDN 4', 'TDN 5'] },
-  { id: '15', name: 'CELI', category: '이탈리아어', description: '이탈리아어 능력 평가 시험', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
-  { id: '16', name: 'CELPE-Bras', category: '포르투갈어', description: '포르투갈어 능력 평가 시험', levels: ['중급', '고급'] },
-  { id: '17', name: 'TOPIK II', category: '한국어', description: '한국어 능력 평가 시험 (고급)', levels: ['3급', '4급', '5급', '6급'] },
-  { id: '18', name: 'OPIc 한국어', category: '한국어', description: '한국어 말하기 능력 평가', levels: ['AL', 'AM', 'AH', 'IL', 'IM', 'IH', 'AL'] },
+  // 베트남어
+  { id: '15', name: '베트남어', category: '베트남어', type: '베트남어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '16', name: 'VLT', category: '베트남어', type: '베트남어', level: '', levels: ['초급', '중급', '고급'] },
   
-  // 기타
-  { id: '19', name: '기타 어학시험', category: '기타', description: '기타 어학 능력 평가', levels: ['초급', '중급', '고급'] }
+  // 태국어
+  { id: '17', name: '태국어', category: '태국어', type: '태국어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '18', name: 'TLT', category: '태국어', type: '태국어', level: '', levels: ['초급', '중급', '고급'] },
+  
+  // 러시아어
+  { id: '19', name: '러시아어', category: '러시아어', type: '러시아어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '20', name: 'TORFL', category: '러시아어', type: '러시아어', level: '', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
+  
+  // 독일어
+  { id: '21', name: '독일어', category: '독일어', type: '독일어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '22', name: 'TestDaF', category: '독일어', type: '독일어', level: '', levels: ['TDN 3', 'TDN 4', 'TDN 5'] },
+  { id: '23', name: 'Goethe-Zertifikat', category: '독일어', type: '독일어', level: '', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
+  
+  // 프랑스어
+  { id: '24', name: '프랑스어', category: '프랑스어', type: '프랑스어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '25', name: 'DELF', category: '프랑스어', type: '프랑스어', level: '', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
+  { id: '26', name: 'DALF', category: '프랑스어', type: '프랑스어', level: '', levels: ['C1', 'C2'] },
+  
+  // 스페인어
+  { id: '27', name: '스페인어', category: '스페인어', type: '스페인어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '28', name: 'DELE', category: '스페인어', type: '스페인어', level: '', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
+  
+  // 이탈리아어
+  { id: '29', name: '이탈리아어', category: '이탈리아어', type: '이탈리아어', level: '', levels: ['초급', '중급', '고급', '원어민'] },
+  { id: '30', name: 'CELI', category: '이탈리아어', type: '이탈리아어', level: '', levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] }
 ];
 
 // 학교 데이터
 const schoolData = [
-  // 초등학교
-  { id: '1', name: '서울초등학교', category: '초등학교', type: '초등학교' },
-  { id: '2', name: '부산초등학교', category: '초등학교', type: '초등학교' },
-  { id: '3', name: '대구초등학교', category: '초등학교', type: '초등학교' },
-  { id: '4', name: '인천초등학교', category: '초등학교', type: '초등학교' },
-  { id: '5', name: '광주초등학교', category: '초등학교', type: '초등학교' },
-  { id: '6', name: '대전초등학교', category: '초등학교', type: '초등학교' },
-  { id: '7', name: '울산초등학교', category: '초등학교', type: '초등학교' },
-  { id: '8', name: '세종초등학교', category: '초등학교', type: '초등학교' },
-  
-  // 중학교
-  { id: '9', name: '서울중학교', category: '중학교', type: '중학교' },
-  { id: '10', name: '부산중학교', category: '중학교', type: '중학교' },
-  { id: '11', name: '대구중학교', category: '중학교', type: '중학교' },
-  { id: '12', name: '인천중학교', category: '중학교', type: '중학교' },
-  { id: '13', name: '광주중학교', category: '중학교', type: '중학교' },
-  { id: '14', name: '대전중학교', category: '중학교', type: '중학교' },
-  { id: '15', name: '울산중학교', category: '중학교', type: '중학교' },
-  { id: '16', name: '세종중학교', category: '중학교', type: '중학교' },
-  
-  // 고등학교
-  { id: '17', name: '서울고등학교', category: '고등학교', type: '고등학교' },
-  { id: '18', name: '부산고등학교', category: '고등학교', type: '고등학교' },
-  { id: '19', name: '대구고등학교', category: '고등학교', type: '고등학교' },
-  { id: '20', name: '인천고등학교', category: '고등학교', type: '고등학교' },
-  { id: '21', name: '광주고등학교', category: '고등학교', type: '고등학교' },
-  { id: '22', name: '대전고등학교', category: '고등학교', type: '고등학교' },
-  { id: '23', name: '울산고등학교', category: '고등학교', type: '고등학교' },
-  { id: '24', name: '세종고등학교', category: '고등학교', type: '고등학교' },
-  { id: '25', name: '서울과학고등학교', category: '고등학교', type: '고등학교' },
-  { id: '26', name: '서울외국어고등학교', category: '고등학교', type: '고등학교' },
-  { id: '27', name: '서울예술고등학교', category: '고등학교', type: '고등학교' },
-  { id: '28', name: '서울체육고등학교', category: '고등학교', type: '고등학교' },
-  { id: '29', name: '서울산업정보고등학교', category: '고등학교', type: '고등학교' },
-  { id: '30', name: '서울공업고등학교', category: '고등학교', type: '고등학교' },
+  // 대학교
+  { id: '1', name: '서울대학교', category: '대학교', type: '대학교' },
+  { id: '2', name: '연세대학교', category: '대학교', type: '대학교' },
+  { id: '3', name: '고려대학교', category: '대학교', type: '대학교' },
+  { id: '4', name: '성균관대학교', category: '대학교', type: '대학교' },
+  { id: '5', name: '한양대학교', category: '대학교', type: '대학교' },
+  { id: '6', name: '중앙대학교', category: '대학교', type: '대학교' },
+  { id: '7', name: '경희대학교', category: '대학교', type: '대학교' },
+  { id: '8', name: '서강대학교', category: '대학교', type: '대학교' },
+  { id: '9', name: '동국대학교', category: '대학교', type: '대학교' },
+  { id: '10', name: '건국대학교', category: '대학교', type: '대학교' },
   
   // 전문대학
-  { id: '31', name: '서울전문대학', category: '전문대학', type: '전문대학' },
-  { id: '32', name: '부산전문대학', category: '전문대학', type: '전문대학' },
-  { id: '33', name: '대구전문대학', category: '전문대학', type: '전문대학' },
-  { id: '34', name: '인천전문대학', category: '전문대학', type: '전문대학' },
-  { id: '35', name: '광주전문대학', category: '전문대학', type: '전문대학' },
-  { id: '36', name: '대전전문대학', category: '전문대학', type: '전문대학' },
-  { id: '37', name: '울산전문대학', category: '전문대학', type: '전문대학' },
-  { id: '38', name: '세종전문대학', category: '전문대학', type: '전문대학' },
+  { id: '11', name: '서울과학기술대학교', category: '전문대학', type: '전문대학' },
+  { id: '12', name: '한국기술교육대학교', category: '전문대학', type: '전문대학' },
+  { id: '13', name: '한국교통대학교', category: '전문대학', type: '전문대학' },
+  { id: '14', name: '한국해양대학교', category: '전문대학', type: '전문대학' },
+  { id: '15', name: '한국체육대학교', category: '전문대학', type: '전문대학' },
   
-  // 대학교
-  { id: '39', name: '서울대학교', category: '대학교', type: '대학교' },
-  { id: '40', name: '연세대학교', category: '대학교', type: '대학교' },
-  { id: '41', name: '고려대학교', category: '대학교', type: '대학교' },
-  { id: '42', name: '성균관대학교', category: '대학교', type: '대학교' },
-  { id: '43', name: '한양대학교', category: '대학교', type: '대학교' },
-  { id: '44', name: '중앙대학교', category: '대학교', type: '대학교' },
-  { id: '45', name: '경희대학교', category: '대학교', type: '대학교' },
-  { id: '46', name: '부산대학교', category: '대학교', type: '대학교' },
-  { id: '47', name: '대구대학교', category: '대학교', type: '대학교' },
-  { id: '48', name: '인천대학교', category: '대학교', type: '대학교' },
-  { id: '49', name: '광주대학교', category: '대학교', type: '대학교' },
-  { id: '50', name: '대전대학교', category: '대학교', type: '대학교' },
-  { id: '51', name: '울산대학교', category: '대학교', type: '대학교' },
-  { id: '52', name: '세종대학교', category: '대학교', type: '대학교' },
-  { id: '53', name: '서강대학교', category: '대학교', type: '대학교' },
-  { id: '54', name: '동국대학교', category: '대학교', type: '대학교' },
-  { id: '55', name: '건국대학교', category: '대학교', type: '대학교' },
-  { id: '56', name: '홍익대학교', category: '대학교', type: '대학교' },
-  { id: '57', name: '숙명여자대학교', category: '대학교', type: '대학교' },
-  { id: '58', name: '이화여자대학교', category: '대학교', type: '대학교' },
-  { id: '59', name: '서울여자대학교', category: '대학교', type: '대학교' },
-  { id: '60', name: '단국대학교', category: '대학교', type: '대학교' },
-  { id: '61', name: '아주대학교', category: '대학교', type: '대학교' },
-  { id: '62', name: '인하대학교', category: '대학교', type: '대학교' },
-  { id: '63', name: '숭실대학교', category: '대학교', type: '대학교' },
-  { id: '64', name: '명지대학교', category: '대학교', type: '대학교' },
-  { id: '65', name: '상명대학교', category: '대학교', type: '대학교' },
-  { id: '66', name: '국민대학교', category: '대학교', type: '대학교' },
-  { id: '67', name: '동덕여자대학교', category: '대학교', type: '대학교' },
-  { id: '68', name: '덕성여자대학교', category: '대학교', type: '대학교' },
-  { id: '69', name: '가톨릭대학교', category: '대학교', type: '대학교' },
-  { id: '70', name: '한국외국어대학교', category: '대학교', type: '대학교' },
-  { id: '71', name: '한국교원대학교', category: '대학교', type: '대학교' },
-  { id: '72', name: '한국체육대학교', category: '대학교', type: '대학교' },
-  { id: '73', name: '한국예술종합학교', category: '대학교', type: '대학교' },
-  { id: '74', name: '한국기술교육대학교', category: '대학교', type: '대학교' },
-  { id: '75', name: '한국산업기술대학교', category: '대학교', type: '대학교' },
+  // 고등학교
+  { id: '16', name: '서울고등학교', category: '고등학교', type: '고등학교' },
+  { id: '17', name: '경기고등학교', category: '고등학교', type: '고등학교' },
+  { id: '18', name: '대성고등학교', category: '고등학교', type: '고등학교' },
+  { id: '19', name: '휘문고등학교', category: '고등학교', type: '고등학교' },
+  { id: '20', name: '중앙고등학교', category: '고등학교', type: '고등학교' },
   
-  // 대학원
-  { id: '76', name: '서울대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '77', name: '연세대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '78', name: '고려대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '79', name: '성균관대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '80', name: '한양대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '81', name: '중앙대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '82', name: '경희대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '83', name: '부산대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '84', name: '대구대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '85', name: '인천대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '86', name: '광주대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '87', name: '대전대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '88', name: '울산대학교 대학원', category: '대학원', type: '대학원' },
-  { id: '89', name: '세종대학교 대학원', category: '대학원', type: '대학원' },
+  // 중학교
+  { id: '21', name: '서울중학교', category: '중학교', type: '중학교' },
+  { id: '22', name: '경기중학교', category: '중학교', type: '중학교' },
+  { id: '23', name: '대성중학교', category: '중학교', type: '중학교' },
+  { id: '24', name: '휘문중학교', category: '중학교', type: '중학교' },
+  { id: '25', name: '중앙중학교', category: '중학교', type: '중학교' },
   
-  // 기타
-  { id: '90', name: '기타 학교', category: '기타', type: '기타' }
+  // 초등학교
+  { id: '26', name: '서울초등학교', category: '초등학교', type: '초등학교' },
+  { id: '27', name: '경기초등학교', category: '초등학교', type: '초등학교' },
+  { id: '28', name: '대성초등학교', category: '초등학교', type: '초등학교' },
+  { id: '29', name: '휘문초등학교', category: '초등학교', type: '초등학교' },
+  { id: '30', name: '중앙초등학교', category: '초등학교', type: '초등학교' }
 ];
 
 // 졸업 상태 옵션
@@ -915,29 +872,7 @@ const LanguageLevelSelect = styled.select`
   }
 `;
 
-const SelectedLanguageTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
 
-const SelectedEducationTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #8b5cf6;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
 
 const SelectedExperienceTag = styled.div`
   display: inline-flex;
@@ -962,6 +897,382 @@ const SelectedAddressTag = styled.div`
   font-size: 0.875rem;
   font-weight: 500;
 `;
+
+// 학력 정보 관련 스타일드 컴포넌트
+const SchoolTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const SchoolTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const SmartSearchContainer = styled.div`
+  position: relative;
+  margin-bottom: 1rem;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #374151;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+  }
+`;
+
+const SearchIcon = styled.span`
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 1rem;
+`;
+
+const SchoolCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const SchoolCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const SchoolCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const SchoolIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const SchoolName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const SchoolCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+const SchoolCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const NoResultsCard = styled.div`
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-style: italic;
+`;
+
+const EducationTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineTitle = styled.h4`
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+`;
+
+const TimelineContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const TimelineItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 2.5rem;
+    bottom: -1rem;
+    width: 2px;
+    background: #e5e7eb;
+  }
+  
+  &:last-child::before {
+    display: none;
+  }
+`;
+
+const TimelineDot = styled.div`
+  width: 12px;
+  height: 12px;
+  background: #4ade80;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+`;
+
+const TimelineContent = styled.div`
+  flex: 1;
+`;
+
+const TimelineSchoolCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineSchoolHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineSchoolIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineSchoolInfo = styled.div`
+  flex: 1;
+`;
+
+const TimelineSchoolName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineSchoolCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineRemoveButton = styled.button`
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  
+  &:hover {
+    background: #dc2626;
+  }
+`;
+
+const TimelineSchoolBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const StatusSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+// 어학 능력 관련 스타일드 컴포넌트
+const LanguageTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const LanguageTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const LanguageCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const LanguageCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const LanguageCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const LanguageIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const LanguageName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const LanguageCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const LanguageCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+`;
+
+const LanguageDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const LanguageCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+const LanguageTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineLanguageCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineLanguageHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineLanguageIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineLanguageInfo = styled.div`
+  flex: 1;
+`;
+
+const TimelineLanguageName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineLanguageCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineLanguageBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+
 
 const ResumePage: React.FC = () => {
   const {
@@ -996,6 +1307,10 @@ const ResumePage: React.FC = () => {
   
   // 주소 정보 상태
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
+
+  // 학력 정보와 어학 능력 필터 상태
+  const [schoolTypeFilter, setSchoolTypeFilter] = useState<string>('전체');
+  const [languageTypeFilter, setLanguageTypeFilter] = useState<string>('전체');
 
   // 저장된 자격증 데이터를 selectedCertifications로 변환
   React.useEffect(() => {
@@ -1160,19 +1475,21 @@ const ResumePage: React.FC = () => {
   };
 
   // 어학 능력 검색 필터링
-  const filteredLanguages = languageData.filter(lang =>
-    lang.name.toLowerCase().includes(languageSearch.toLowerCase()) ||
-    lang.category.toLowerCase().includes(languageSearch.toLowerCase())
-  );
+  const filteredLanguages = languageData.filter(lang => {
+    const matchesSearch = lang.name.toLowerCase().includes(languageSearch.toLowerCase()) ||
+                         lang.category.toLowerCase().includes(languageSearch.toLowerCase());
+    const matchesType = languageTypeFilter === '전체' || lang.category === languageTypeFilter;
+    return matchesSearch && matchesType;
+  });
 
   // 어학 능력 선택
-  const handleLanguageSelect = (language: {id: string, name: string, category: string, levels: string[]}) => {
-    if (!selectedLanguages.find(lang => lang.id === language.id)) {
-      const newSelectedLanguages = [...selectedLanguages, { ...language, level: '' }];
+  const handleLanguageSelect = (language: {id: string, name: string, category: string, type: string, level: string, levels: string[]}) => {
+    if (!selectedLanguages.find(l => l.id === language.id)) {
+      const newSelectedLanguages = [...selectedLanguages, language];
       setSelectedLanguages(newSelectedLanguages);
       
       // formData에 어학 능력 문자열로 저장
-      const languageNames = newSelectedLanguages.map(lang => lang.level ? `${lang.name} ${lang.level}` : lang.name).join(', ');
+      const languageNames = newSelectedLanguages.map(l => l.level ? `${l.name} ${l.level}` : l.name).join(', ');
       handleInputChange({
         target: { name: 'languages', value: languageNames }
       } as React.ChangeEvent<HTMLInputElement>);
@@ -1183,11 +1500,11 @@ const ResumePage: React.FC = () => {
 
   // 어학 능력 제거
   const handleLanguageRemove = (languageId: string) => {
-    const newSelectedLanguages = selectedLanguages.filter(lang => lang.id !== languageId);
+    const newSelectedLanguages = selectedLanguages.filter(language => language.id !== languageId);
     setSelectedLanguages(newSelectedLanguages);
     
     // formData에 어학 능력 문자열로 업데이트
-    const languageNames = newSelectedLanguages.map(lang => lang.level ? `${lang.name} ${lang.level}` : lang.name).join(', ');
+    const languageNames = newSelectedLanguages.map(l => l.level ? `${l.name} ${l.level}` : l.name).join(', ');
     handleInputChange({
       target: { name: 'languages', value: languageNames }
     } as React.ChangeEvent<HTMLInputElement>);
@@ -1195,13 +1512,13 @@ const ResumePage: React.FC = () => {
 
   // 어학 능력 레벨 변경
   const handleLanguageLevelChange = (languageId: string, level: string) => {
-    const newSelectedLanguages = selectedLanguages.map(lang => 
-      lang.id === languageId ? { ...lang, level } : lang
+    const newSelectedLanguages = selectedLanguages.map(language => 
+      language.id === languageId ? { ...language, level } : language
     );
     setSelectedLanguages(newSelectedLanguages);
     
     // formData에 어학 능력 문자열로 업데이트
-    const languageNames = newSelectedLanguages.map(lang => lang.level ? `${lang.name} ${lang.level}` : lang.name).join(', ');
+    const languageNames = newSelectedLanguages.map(l => l.level ? `${l.name} ${l.level}` : l.name).join(', ');
     handleInputChange({
       target: { name: 'languages', value: languageNames }
     } as React.ChangeEvent<HTMLInputElement>);
@@ -1225,24 +1542,23 @@ const ResumePage: React.FC = () => {
   };
 
   // 학교 검색 필터링
-  const filteredSchools = schoolData.filter(school =>
-    school.name.toLowerCase().includes(schoolSearch.toLowerCase()) ||
-    school.category.toLowerCase().includes(schoolSearch.toLowerCase())
-  );
+  const filteredSchools = schoolData.filter(school => {
+    const matchesSearch = school.name.toLowerCase().includes(schoolSearch.toLowerCase()) ||
+                         school.category.toLowerCase().includes(schoolSearch.toLowerCase());
+    const matchesType = schoolTypeFilter === '전체' || school.category === schoolTypeFilter;
+    return matchesSearch && matchesType;
+  });
 
   // 학교 선택
   const handleSchoolSelect = (school: {id: string, name: string, category: string, type: string}) => {
-    // 이미 선택된 학교인지 확인
     if (!selectedSchools.find(s => s.id === school.id)) {
-      // 졸업 상태 선택을 위해 임시로 추가 (실제로는 드롭다운에서 선택)
-      const schoolWithStatus = { ...school, status: '졸업' };
-      const newSelectedSchools = [...selectedSchools, schoolWithStatus];
+      const newSelectedSchools = [...selectedSchools, { ...school, status: '졸업' }];
       setSelectedSchools(newSelectedSchools);
       
-      // formData에 학력 정보 저장 (학교명 + 졸업상태)
-      const educationText = newSelectedSchools.map(s => `${s.name} ${s.status}`).join(', ');
+      // formData에 학력 정보 문자열로 저장
+      const schoolNames = newSelectedSchools.map(s => `${s.name} ${s.status}`).join(', ');
       handleInputChange({
-        target: { name: 'education', value: educationText }
+        target: { name: 'education', value: schoolNames }
       } as React.ChangeEvent<HTMLInputElement>);
     }
     setSchoolSearch('');
@@ -1256,10 +1572,10 @@ const ResumePage: React.FC = () => {
     );
     setSelectedSchools(newSelectedSchools);
     
-    // formData 업데이트
-    const educationText = newSelectedSchools.map(s => `${s.name} ${s.status}`).join(', ');
+    // formData에 학력 정보 문자열로 업데이트
+    const schoolNames = newSelectedSchools.map(s => `${s.name} ${s.status}`).join(', ');
     handleInputChange({
-      target: { name: 'education', value: educationText }
+      target: { name: 'education', value: schoolNames }
     } as React.ChangeEvent<HTMLInputElement>);
   };
 
@@ -1268,10 +1584,10 @@ const ResumePage: React.FC = () => {
     const newSelectedSchools = selectedSchools.filter(school => school.id !== schoolId);
     setSelectedSchools(newSelectedSchools);
     
-    // formData 업데이트
-    const educationText = newSelectedSchools.map(s => `${s.name} ${s.status}`).join(', ');
+    // formData에 학력 정보 문자열로 업데이트
+    const schoolNames = newSelectedSchools.map(s => `${s.name} ${s.status}`).join(', ');
     handleInputChange({
-      target: { name: 'education', value: educationText }
+      target: { name: 'education', value: schoolNames }
     } as React.ChangeEvent<HTMLInputElement>);
   };
 
@@ -1611,68 +1927,105 @@ const ResumePage: React.FC = () => {
           <ResumeForm>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>학력</FormLabel>
-              <CertificationSearchContainer>
-                <FormInput 
-                  type="text" 
+              
+              {/* 학력 유형 필터 */}
+              <SchoolTypeFilter>
+                {['전체', '대학교', '전문대학', '고등학교', '중학교', '초등학교'].map((type) => (
+                  <SchoolTypeButton
+                    key={type}
+                    $active={schoolTypeFilter === type}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSchoolTypeFilter(type);
+                    }}
+                  >
+                    {type}
+                  </SchoolTypeButton>
+                ))}
+              </SchoolTypeFilter>
+
+              {/* 스마트 검색 */}
+              <SmartSearchContainer>
+                <SearchIcon>🔍</SearchIcon>
+                <SearchInput
+                  type="text"
                   value={schoolSearch}
                   onChange={handleSchoolSearchChange}
                   onFocus={handleSchoolSearchFocus}
                   onBlur={handleSchoolSearchBlur}
-                  placeholder="학교를 검색하세요 (예: 서울고등학교, 연세대학교)" 
-                  aria-label="학교 검색"
-                  style={{ width: '100%', minWidth: '100%' }}
+                  placeholder="학교명을 검색하세요 (예: 서울대학교, 연세대학교)"
                 />
-                {showSchoolDropdown && (
-                  <CertificationDropdown>
-                    {filteredSchools.length > 0 ? (
-                      filteredSchools.map((school) => (
-                        <CertificationOption
-                          key={school.id}
-                          onClick={() => handleSchoolSelect(school)}
-                          onMouseDown={(e) => e.preventDefault()}
-                        >
-                          <CertificationName>{school.name}</CertificationName>
-                          <CertificationCategory>{school.category}</CertificationCategory>
-                        </CertificationOption>
-                      ))
-                    ) : (
-                      <NoResultsText>검색 결과가 없습니다.</NoResultsText>
-                    )}
-                  </CertificationDropdown>
-                )}
-              </CertificationSearchContainer>
-              {selectedSchools.length > 0 && (
-                <SelectedCertificationsContainer>
-                  {selectedSchools.map((school) => (
-                    <SelectedEducationTag key={school.id}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span>{school.name}</span>
-                        <FormSelect
-                          value={school.status}
-                          onChange={(e) => handleGraduationStatusChange(school.id, e.target.value)}
-                          style={{ 
-                            fontSize: '0.75rem', 
-                            padding: '0.25rem 0.5rem',
-                            minWidth: 'auto',
-                            width: 'auto'
-                          }}
-                        >
-                          {graduationStatusOptions.map(option => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </FormSelect>
-                      </div>
-                      <RemoveButton
-                        onClick={() => handleSchoolRemove(school.id)}
-                        aria-label={`${school.name} 제거`}
+              </SmartSearchContainer>
+
+              {/* 학교 카드 그리드 */}
+              {showSchoolDropdown && (
+                <SchoolCardGrid>
+                  {filteredSchools.length > 0 ? (
+                    filteredSchools.map((school) => (
+                      <SchoolCard
+                        key={school.id}
+                        onClick={() => handleSchoolSelect(school)}
                       >
-                        ×
-                      </RemoveButton>
-                    </SelectedEducationTag>
-                  ))}
-                </SelectedCertificationsContainer>
+                        <SchoolCardHeader>
+                          <SchoolIcon>{school.category === '대학교' ? '🎓' : '🏫'}</SchoolIcon>
+                          <div>
+                            <SchoolName>{school.name}</SchoolName>
+                            <SchoolCategory>{school.category}</SchoolCategory>
+                          </div>
+                        </SchoolCardHeader>
+                        <SchoolCardBody>
+                          {school.category === '대학교' ? '종합대학교' : school.category}
+                        </SchoolCardBody>
+                      </SchoolCard>
+                    ))
+                  ) : (
+                    <NoResultsCard>검색 결과가 없습니다.</NoResultsCard>
+                  )}
+                </SchoolCardGrid>
+              )}
+
+              {/* 선택된 학력 타임라인 */}
+              {selectedSchools.length > 0 && (
+                <EducationTimeline>
+                  <TimelineTitle>📚 학력 이력</TimelineTitle>
+                  <TimelineContainer>
+                    {selectedSchools.map((school, index) => (
+                      <TimelineItem key={school.id}>
+                        <TimelineDot />
+                        <TimelineContent>
+                          <TimelineSchoolCard>
+                            <TimelineSchoolHeader>
+                              <TimelineSchoolIcon>{school.category === '대학교' ? '🎓' : '🏫'}</TimelineSchoolIcon>
+                              <TimelineSchoolInfo>
+                                <TimelineSchoolName>{school.name}</TimelineSchoolName>
+                                <TimelineSchoolCategory>{school.category}</TimelineSchoolCategory>
+                              </TimelineSchoolInfo>
+                              <TimelineRemoveButton
+                                onClick={() => handleSchoolRemove(school.id)}
+                                aria-label={`${school.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineSchoolHeader>
+                            <TimelineSchoolBody>
+                              <span>졸업 상태:</span>
+                              <StatusSelect
+                                value={school.status}
+                                onChange={(e) => handleGraduationStatusChange(school.id, e.target.value)}
+                              >
+                                {graduationStatusOptions.map(option => (
+                                  <option key={option.value} value={option.value}>
+                                    {option.label}
+                                  </option>
+                                ))}
+                              </StatusSelect>
+                            </TimelineSchoolBody>
+                          </TimelineSchoolCard>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </TimelineContainer>
+                </EducationTimeline>
               )}
             </FormGroup>
           </ResumeForm>
@@ -1803,64 +2156,139 @@ const ResumePage: React.FC = () => {
             </FormGroup>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>어학 능력</FormLabel>
-              <CertificationSearchContainer>
-                <FormInput 
-                  type="text" 
+              
+              {/* 어학 유형 필터 */}
+              <LanguageTypeFilter>
+                {['전체', '영어', '한국어', '중국어', '일본어', '베트남어', '태국어', '러시아어', '독일어', '프랑스어', '스페인어', '이탈리아어'].map((type) => (
+                  <LanguageTypeButton
+                    key={type}
+                    $active={languageTypeFilter === type}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setLanguageTypeFilter(type);
+                    }}
+                  >
+                    {type}
+                  </LanguageTypeButton>
+                ))}
+              </LanguageTypeFilter>
+
+              {/* 스마트 검색 */}
+              <SmartSearchContainer>
+                <SearchIcon>🔍</SearchIcon>
+                <SearchInput
+                  type="text"
                   value={languageSearch}
                   onChange={handleLanguageSearchChange}
                   onFocus={handleLanguageSearchFocus}
                   onBlur={handleLanguageSearchBlur}
-                  placeholder="어학 능력을 검색하세요 (예: TOEIC, TOPIK, JLPT)" 
-                  aria-label="어학 능력 검색"
-                  style={{ width: '100%', minWidth: '100%' }}
+                  placeholder="어학 능력을 검색하세요 (예: TOEIC, TOPIK, JLPT)"
                 />
-                {showLanguageDropdown && (
-                  <CertificationDropdown>
-                    {filteredLanguages.length > 0 ? (
-                      filteredLanguages.map((language) => (
-                        <CertificationOption
-                          key={language.id}
-                          onClick={() => handleLanguageSelect(language)}
-                          onMouseDown={(e) => e.preventDefault()}
-                        >
-                          <CertificationName>{language.name}</CertificationName>
-                          <CertificationCategory>{language.category}</CertificationCategory>
-                        </CertificationOption>
-                      ))
-                    ) : (
-                      <NoResultsText>검색 결과가 없습니다.</NoResultsText>
-                    )}
-                  </CertificationDropdown>
-                )}
-              </CertificationSearchContainer>
-              {selectedLanguages.length > 0 && (
-                <SelectedCertificationsContainer>
-                  {selectedLanguages.map((language) => (
-                    <SelectedLanguageTag key={language.id}>
-                      {language.name}
-                      {language.levels && language.levels.length > 0 && (
-                        <LanguageLevelSelect
-                          value={language.level}
-                          onChange={(e) => handleLanguageLevelChange(language.id, e.target.value)}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <option value="">레벨 선택</option>
-                          {language.levels.map((level) => (
-                            <option key={level} value={level}>
-                              {level}
-                            </option>
-                          ))}
-                        </LanguageLevelSelect>
-                      )}
-                      <RemoveButton
-                        onClick={() => handleLanguageRemove(language.id)}
-                        aria-label={`${language.name} 제거`}
+              </SmartSearchContainer>
+
+              {/* 어학 카드 그리드 */}
+              {showLanguageDropdown && (
+                <LanguageCardGrid>
+                  {filteredLanguages.length > 0 ? (
+                    filteredLanguages.map((language) => (
+                      <LanguageCard
+                        key={language.id}
+                        onClick={() => handleLanguageSelect(language)}
                       >
-                        ×
-                      </RemoveButton>
-                    </SelectedLanguageTag>
-                  ))}
-                </SelectedCertificationsContainer>
+                        <LanguageCardHeader>
+                          <LanguageIcon>{language.category === '영어' ? '🇺🇸' : 
+                                           language.category === '한국어' ? '🇰🇷' :
+                                           language.category === '중국어' ? '🇨🇳' :
+                                           language.category === '일본어' ? '🇯🇵' :
+                                           language.category === '베트남어' ? '🇻🇳' :
+                                           language.category === '태국어' ? '🇹🇭' :
+                                           language.category === '러시아어' ? '🇷🇺' :
+                                           language.category === '독일어' ? '🇩🇪' :
+                                           language.category === '프랑스어' ? '🇫🇷' :
+                                           language.category === '스페인어' ? '🇪🇸' :
+                                           language.category === '이탈리아어' ? '🇮🇹' : '🌐'}</LanguageIcon>
+                          <div>
+                            <LanguageName>{language.name}</LanguageName>
+                            <LanguageCategory>{language.category}</LanguageCategory>
+                          </div>
+                        </LanguageCardHeader>
+                        <LanguageCardBody>
+                          <LanguageDescription>
+                            {language.name === 'TOEIC' ? '영어 능력 평가 시험' :
+                             language.name === 'TOPIK' ? '한국어 능력 평가 시험' :
+                             language.name === 'JLPT' ? '일본어 능력 평가 시험' :
+                             language.name === 'HSK' ? '중국어 능력 평가 시험' :
+                             language.name} 시험
+                          </LanguageDescription>
+                          <LanguageCardFooter>
+                            {language.levels.length}개 레벨 지원
+                          </LanguageCardFooter>
+                        </LanguageCardBody>
+                      </LanguageCard>
+                    ))
+                  ) : (
+                    <NoResultsCard>검색 결과가 없습니다.</NoResultsCard>
+                  )}
+                </LanguageCardGrid>
+              )}
+
+              {/* 선택된 어학 타임라인 */}
+              {selectedLanguages.length > 0 && (
+                <LanguageTimeline>
+                  <TimelineTitle>🌍 어학 능력</TimelineTitle>
+                  <TimelineContainer>
+                    {selectedLanguages.map((language, index) => (
+                      <TimelineItem key={language.id}>
+                        <TimelineDot />
+                        <TimelineContent>
+                          <TimelineLanguageCard>
+                            <TimelineLanguageHeader>
+                              <TimelineLanguageIcon>{language.category === '영어' ? '🇺🇸' : 
+                                                   language.category === '한국어' ? '🇰🇷' :
+                                                   language.category === '중국어' ? '🇨🇳' :
+                                                   language.category === '일본어' ? '🇯🇵' :
+                                                   language.category === '베트남어' ? '🇻🇳' :
+                                                   language.category === '태국어' ? '🇹🇭' :
+                                                   language.category === '러시아어' ? '🇷🇺' :
+                                                   language.category === '독일어' ? '🇩🇪' :
+                                                   language.category === '프랑스어' ? '🇫🇷' :
+                                                   language.category === '스페인어' ? '🇪🇸' :
+                                                   language.category === '이탈리아어' ? '🇮🇹' : '🌐'}</TimelineLanguageIcon>
+                              <TimelineLanguageInfo>
+                                <TimelineLanguageName>{language.name}</TimelineLanguageName>
+                                <TimelineLanguageCategory>{language.category}</TimelineLanguageCategory>
+                              </TimelineLanguageInfo>
+                              <TimelineRemoveButton
+                                onClick={() => handleLanguageRemove(language.id)}
+                                aria-label={`${language.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineLanguageHeader>
+                            <TimelineLanguageBody>
+                              {language.levels && language.levels.length > 0 && (
+                                <>
+                                  <span>레벨:</span>
+                                  <LanguageLevelSelect
+                                    value={language.level}
+                                    onChange={(e) => handleLanguageLevelChange(language.id, e.target.value)}
+                                  >
+                                    <option value="">레벨 선택</option>
+                                    {language.levels.map((level) => (
+                                      <option key={level} value={level}>
+                                        {level}
+                                      </option>
+                                    ))}
+                                  </LanguageLevelSelect>
+                                </>
+                              )}
+                            </TimelineLanguageBody>
+                          </TimelineLanguageCard>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </TimelineContainer>
+                </LanguageTimeline>
               )}
             </FormGroup>
           </ResumeForm>
