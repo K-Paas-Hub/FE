@@ -22,8 +22,8 @@ const HeaderContent = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem 2rem;
-  gap: 2rem;
+  padding: 1rem 0.2rem;
+  gap: 1rem;
   
   @media (max-width: 768px) {
     padding: 1rem;
@@ -37,6 +37,7 @@ const Logo = styled.div`
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
+  margin-left: -0.5rem;
   
   @media (max-width: 768px) {
     order: 1;
@@ -68,7 +69,7 @@ const NavWrapper = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
   
   @media (max-width: 768px) {
@@ -208,13 +209,11 @@ const DropdownItem = styled(Link)`
 const RightSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-left: auto;
+  gap: 0.4rem;
   flex-shrink: 0;
   
   @media (max-width: 768px) {
     order: 3;
-    margin-left: 0;
     justify-content: center;
   }
 `;
@@ -222,7 +221,7 @@ const RightSection = styled.div`
 const LanguageButton = styled.div`
   background: none;
   border: 1px solid #e5e5e5;
-  height: 44px; /* 고정 높이 */
+  height: 44px;
   padding: 0 12px;
   border-radius: 6px;
   color: #666;
@@ -234,8 +233,9 @@ const LanguageButton = styled.div`
   gap: 8px;
   position: relative;
   white-space: nowrap;
-  min-width: 140px; /* 최소 너비 설정 */
-  max-width: 180px; /* 최대 너비 제한 */
+  min-width: 160px;
+  max-width: 200px;
+  overflow: hidden;
   
   &:hover {
     border-color: ${COLORS.primary};
@@ -246,12 +246,8 @@ const LanguageButton = styled.div`
     font-size: 13px;
     height: 40px;
     padding: 0 10px;
-    min-width: 120px;
-    max-width: 160px;
-    
-    span {
-      display: inline;
-    }
+    min-width: 140px;
+    max-width: 180px;
   }
 `;
 
@@ -259,8 +255,16 @@ const FlagIcon = styled.img`
   width: 24px;
   height: 16px;
   border-radius: 2px;
-  flex-shrink: 0; /* 아이콘 크기 고정 */
-  object-fit: cover; /* 이미지 비율 유지 */
+  flex-shrink: 0;
+  object-fit: cover;
+`;
+
+const LanguageText = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 `;
 
 const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
@@ -272,14 +276,14 @@ const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  width: 220px; /* 고정 너비로 설정 */
+  width: 220px;
   display: ${props => props.$isOpen ? 'block' : 'none'};
   margin-top: 0.5rem;
 `;
 
 const LanguageOption = styled.button`
   width: 100%;
-  height: 44px; /* 고정 높이 설정 */
+  height: 44px;
   padding: 0 12px;
   background: none;
   border: none;
@@ -419,10 +423,12 @@ const MainHeader: React.FC = () => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
   const handleLanguageClick = () => {
+    console.log('Language button clicked, current state:', isLanguageOpen);
     setIsLanguageOpen(!isLanguageOpen);
   };
 
   const handleLanguageSelect = (language: string) => {
+    console.log('Language selected:', language);
     changeLanguage(language);
     setIsLanguageOpen(false);
   };
@@ -462,22 +468,7 @@ const MainHeader: React.FC = () => {
     return location.pathname === '/contract-tutorial' || location.pathname === '/contract-analysis';
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      if (!target.closest('.language-dropdown')) {
-        setIsLanguageOpen(false);
-      }
-    };
 
-    if (isLanguageOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isLanguageOpen]);
 
   return (
     <Header>
@@ -554,7 +545,7 @@ const MainHeader: React.FC = () => {
         <RightSection>
           <LanguageButton onClick={handleLanguageClick} className="language-dropdown">
             <FlagIcon src={getCurrentLanguage().flag} alt={getCurrentLanguageName()} />
-            <span>{getCurrentLanguageName()}</span>
+            <LanguageText>{getCurrentLanguageName()}</LanguageText>
             <LanguageDropdown $isOpen={isLanguageOpen}>
               {languages.map((language) => (
                 <LanguageOption 
@@ -562,7 +553,9 @@ const MainHeader: React.FC = () => {
                   onClick={() => handleLanguageSelect(language.code)}
                 >
                   <FlagIcon src={language.flag} alt={language.name} />
-                  {language.name}
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
+                    {language.name}
+                  </span>
                 </LanguageOption>
               ))}
             </LanguageDropdown>
