@@ -24,14 +24,10 @@ export const PageContent = styled.main`
   }
 `;
 
-// Page Header Section
-export const PageHeader = styled.div`
+// Enhanced Page Header with Background
+export const PageHeaderWithBg = styled.div`
   text-align: center;
   margin-bottom: ${theme.spacing.xl};
-`;
-
-// Enhanced Page Header with Background
-export const PageHeaderWithBg = styled(PageHeader)`
   padding: ${theme.spacing.xl} 0;
   background: ${theme.colors.primary};
   border-radius: ${theme.radius.lg};
@@ -102,8 +98,8 @@ export const PageSection = styled.section`
   }
 `;
 
-// Section Title
-export const SectionTitle = styled.h2`
+// Page Section Title
+export const PageSectionTitle = styled.h2`
   font-size: ${theme.typography.fontSize.xl};
   font-weight: ${theme.typography.fontWeight.semibold};
   color: ${theme.colors.textPrimary};
@@ -123,8 +119,8 @@ export const SectionSubtitle = styled.p`
   margin-bottom: ${theme.spacing.md};
 `;
 
-// Form Section - 특화된 섹션
-export const FormSection = styled(PageSection)`
+// Page Form Section - 특화된 섹션
+export const PageFormSection = styled(PageSection)`
   border-left: 4px solid ${theme.colors.primary};
 `;
 
@@ -154,16 +150,16 @@ export const ProgressSection = styled.div`
 export const AlertSection = styled.div<{ $variant?: 'info' | 'warning' | 'error' | 'success' }>`
   background: ${props => {
     switch (props.$variant) {
-      case 'warning': return theme.colors.warningLight;
-      case 'error': return theme.colors.dangerLight;
-      case 'success': return theme.colors.successLight;
+      case 'warning': return theme.colors.warning;
+      case 'error': return theme.colors.error;
+      case 'success': return theme.colors.success;
       default: return theme.colors.primaryLight;
     }
   }};
   border: 1px solid ${props => {
     switch (props.$variant) {
       case 'warning': return theme.colors.warning;
-      case 'error': return theme.colors.danger;
+      case 'error': return theme.colors.error;
       case 'success': return theme.colors.success;
       default: return theme.colors.primary;
     }

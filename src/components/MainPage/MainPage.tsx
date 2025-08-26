@@ -4,7 +4,7 @@ import MainFooter from '../MainFooter';
 import CommunityBanner from '../CommunityBanner';
 import {
   MainContainer,
-  PageContent,
+  MainPageContent,
   SearchSection,
   SearchBar,
   MainSearchIcon,
@@ -625,7 +625,7 @@ const MainPage: React.FC = () => {
       <CommunityBanner />
       <MainHeader />
       
-      <PageContent>
+      <MainPageContent>
         <SearchSection>
           <SearchBar>
             <MainSearchIcon 
@@ -886,7 +886,7 @@ const MainPage: React.FC = () => {
             </JobGrid>
           )}
         </JobListSection>
-      </PageContent>
+              </MainPageContent>
       
       <ChatButton onClick={handleChatClick}>
         <ChatIcon 

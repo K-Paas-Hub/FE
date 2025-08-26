@@ -8,7 +8,7 @@ export const MainContainer = styled.div`
   background: white;
 `;
 
-export const PageContent = styled.main`
+export const MainPageContent = styled.main`
   max-width: ${theme.containers.wide};
   margin: 0 auto;
   padding: ${theme.spacing.xl};

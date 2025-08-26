@@ -32,6 +32,7 @@ export const colors = {
   success: '#10b981',
   warning: '#f59e0b',
   error: '#ef4444',
+  errorHover: '#dc2626',
   info: '#3b82f6',
   
   // Utility Colors
