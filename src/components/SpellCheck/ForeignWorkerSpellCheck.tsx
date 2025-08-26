@@ -35,8 +35,9 @@ const ForeignWorkerSpellCheck: React.FC = () => {
         setCorrectedText(resumeData.introduction);
         setHasResumeData(true);
       } else {
-        setText('');
-        setCorrectedText('');
+        // 이력서가 없으면 기본 텍스트 설정
+        setText('안녕하세요. 저는 외국인 근로자입니다. 한국에서 일하고 싶습니다.');
+        setCorrectedText('안녕하세요. 저는 외국인 근로자입니다. 한국에서 일하고 싶습니다.');
         setHasResumeData(false);
       }
     } catch (error) {
@@ -55,6 +56,8 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     setErrors([]);
     setIsComplete(false);
   };
+
+
 
   // 맞춤법 검사 실행
   const handleCheck = async () => {
@@ -113,71 +116,50 @@ const ForeignWorkerSpellCheck: React.FC = () => {
 
   return (
     <Container>
-      {/* 왼쪽: 내용 입력 */}
-      <InputSection>
-        <InputTitle>
-          자기소개서 내용
-          {hasResumeData && (
-            <DataStatus>
-              <StatusDot />
-              저장된 이력서에서 불러옴
-            </DataStatus>
-          )}
-        </InputTitle>
-        <TextArea
-          value={text}
-          onChange={handleTextChange}
-          placeholder={
-            hasResumeData 
-              ? "저장된 자기소개서 내용입니다. 수정 후 검사하세요."
-              : "저장된 이력서가 없습니다. 직접 입력하거나 이력서를 먼저 작성해주세요."
-          }
-          disabled={!hasResumeData && !text.trim()}
-        />
-        <ButtonContainer>
-          <SecondaryButton
-            as={motion.button}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleReload}
-          >
-            <Icon>↻</Icon>
-            다시 불러오기
-          </SecondaryButton>
-          <SecondaryButton
-            as={motion.button}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleCopyAll}
-            disabled={!correctedText.trim()}
-          >
-            <Icon>📄</Icon>
-            전체 복사
-          </SecondaryButton>
-          <PrimaryButton
-            as={motion.button}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleCheck}
-            disabled={isChecking || !text.trim()}
-          >
-            {isChecking ? (
-              <>
-                <LoadingSpinner />
-                검사 중...
-              </>
-            ) : (
-              '맞춤법 검사'
-            )}
-          </PrimaryButton>
-        </ButtonContainer>
-      </InputSection>
+      <TopBar>
+        <TopBarTitle>내용 입력</TopBarTitle>
+        <TopBarTitle>맞춤법 검사</TopBarTitle>
+      </TopBar>
+      
+      <ContentArea>
+        {/* 왼쪽: 내용 입력 */}
+        <InputSection>
+          <TextArea
+            value={text}
+            onChange={handleTextChange}
+            placeholder={
+              hasResumeData 
+                ? "저장된 자기소개서 내용입니다. 수정 후 검사하세요."
+                : "자기소개서 내용을 입력하거나 수정하세요."
+            }
+          />
+          <ButtonContainer>
+            <SecondaryButton
+              as={motion.button}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleReload}
+            >
+              <Icon>↻</Icon>
+              다시쓰기
+            </SecondaryButton>
+            <SecondaryButton
+              as={motion.button}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleCopyAll}
+              disabled={!correctedText.trim()}
+            >
+              <Icon>📄</Icon>
+              전체 복사
+            </SecondaryButton>
+          </ButtonContainer>
+        </InputSection>
 
-      {/* 오른쪽: 맞춤법 검사 */}
-      <ResultSection>
-        <ResultHeader>
-          <ResultTitle>맞춤법 검사</ResultTitle>
-          {errors.length > 0 && (
+        {/* 오른쪽: 맞춤법 검사 */}
+        <ResultSection>
+        {errors.length > 0 && (
+          <ResultHeader>
             <ApplyAllButton
               as={motion.button}
               whileHover={{ scale: 1.02 }}
@@ -186,8 +168,8 @@ const ForeignWorkerSpellCheck: React.FC = () => {
             >
               모두 수정
             </ApplyAllButton>
-          )}
-        </ResultHeader>
+          </ResultHeader>
+        )}
         
         <ResultContent>
           {errors.length > 0 ? (
@@ -241,22 +223,49 @@ const ForeignWorkerSpellCheck: React.FC = () => {
           맞춤법
         </Legend>
       </ResultSection>
+      </ContentArea>
     </Container>
   );
 };
 
 const Container = styled.div`
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   min-height: 600px;
+  background: white;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+`;
+
+const TopBar = styled.div`
+  display: flex;
+  background: ${COLORS.background};
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+`;
+
+const TopBarTitle = styled.div`
+  flex: 1;
+  padding: 1rem;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+`;
+
+const ContentArea = styled.div`
+  display: flex;
+  gap: 2rem;
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem;
   }
 `;
 
@@ -278,46 +287,30 @@ const InputSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border: 1px solid ${COLORS.border};
+  border-radius: 0 0 0 12px;
+  position: relative;
 `;
 
-const InputTitle = styled.h2`
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: ${COLORS.text};
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
 
-const DataStatus = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  color: ${COLORS.primary};
-  font-weight: 400;
-`;
 
-const StatusDot = styled.div`
-  width: 8px;
-  height: 8px;
-  background: ${COLORS.primary};
-  border-radius: 50%;
-`;
+
 
 const TextArea = styled.textarea`
   flex: 1;
   min-height: 400px;
-  padding: 1rem;
+  padding: 1.5rem;
   border: 1px solid ${COLORS.border};
   border-radius: 8px;
   font-size: 1rem;
   line-height: 1.6;
   resize: vertical;
   background: white;
-  color: ${COLORS.background};
+  color: #333333;
+  transition: all 0.2s ease;
   
   &:focus {
     outline: none;
@@ -332,7 +325,7 @@ const TextArea = styled.textarea`
   }
   
   &::placeholder {
-    color: ${COLORS.textSecondary};
+    color: #999999;
   }
   
   @media (max-width: 768px) {
@@ -377,22 +370,9 @@ const buttonBase = `
   }
 `;
 
-const PrimaryButton = styled.button`
-  ${buttonBase}
-  background: ${COLORS.primary};
-  color: white;
-  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.2);
-  
-  &:hover:not(:disabled) {
-    background: ${COLORS.primaryHover};
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(74, 222, 128, 0.3);
-  }
-  
-  &:active {
-    transform: translateY(0);
-  }
-`;
+
+
+
 
 const SecondaryButton = styled.button`
   ${buttonBase}
@@ -429,19 +409,21 @@ const ResultSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid ${COLORS.border};
-  border-radius: 8px;
   overflow: hidden;
   background: white;
+  border: 1px solid ${COLORS.border};
+  border-radius: 0 0 12px 0;
+  position: relative;
 `;
 
 const ResultHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: ${COLORS.background};
+  padding: 1.25rem;
+  background: ${COLORS.primary};
   color: white;
+  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.1);
 `;
 
 const ResultTitle = styled.h3`
@@ -558,6 +540,7 @@ const CompleteButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+  transition: all 0.2s ease;
   
   &:hover {
     background: ${COLORS.primaryHover};
