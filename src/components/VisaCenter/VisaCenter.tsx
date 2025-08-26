@@ -88,7 +88,11 @@ const VisaCenter: React.FC = () => {
           className="visa-grid"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: ANIMATIONS.duration.normal, delay: 0.3 }}
+          transition={{ 
+            duration: ANIMATIONS.duration.normal, 
+            delay: 0.3,
+            staggerChildren: 0.1
+          }}
         >
           {filteredVisaTypes.map((visaType, index) => (
             <motion.div
@@ -96,8 +100,7 @@ const VisaCenter: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: ANIMATIONS.duration.normal, 
-                delay: 0.4 + (index * 0.1) 
+                duration: ANIMATIONS.duration.normal
               }}
             >
               <VisaTypeCard

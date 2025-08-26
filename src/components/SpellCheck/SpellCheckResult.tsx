@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ResumeCheckResult, SpellCheckError } from '../../types/spellCheck';
 import {
   ResultContainer,

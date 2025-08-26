@@ -383,7 +383,7 @@ const MainPage: React.FC = () => {
   };
 
   // 필터링 함수
-  const applyFilters = (jobsToFilter: any[]) => {
+  const applyFilters = useCallback((jobsToFilter: any[]) => {
     let filteredJobs = jobsToFilter;
 
     // 선택된 필터가 없으면 모든 결과 반환
@@ -431,7 +431,7 @@ const MainPage: React.FC = () => {
 
       return true;
     });
-  };
+  }, [selectedFilters]);
 
   // 지역 매핑 함수
   const getJobRegion = (location: string) => {
@@ -473,7 +473,7 @@ const MainPage: React.FC = () => {
   };
 
   // 정렬 함수
-  const applySorting = (jobsToSort: any[]) => {
+  const applySorting = useCallback((jobsToSort: any[]) => {
     const sortedJobs = [...jobsToSort];
     
     switch (selectedSort) {
@@ -496,7 +496,7 @@ const MainPage: React.FC = () => {
       default:
         return sortedJobs;
     }
-  };
+  }, [selectedSort]);
 
   // 통합 필터링 및 정렬 함수
   const applyAllFilters = useCallback(() => {
@@ -526,7 +526,7 @@ const MainPage: React.FC = () => {
     results = applySorting(results);
     
     setFilteredJobs(results);
-  }, [jobs, searchQuery, selectedFilters, selectedSort, applyFilters, applySorting]);
+  }, [jobs, searchQuery, applyFilters, applySorting]);
 
   const handleLike = (jobId: number) => {
     const updatedJobs = jobs.map(job => 
@@ -795,45 +795,55 @@ const MainPage: React.FC = () => {
           </SectionHeader>
           
                     {filteredJobs.length > 0 ? (
-            <JobGrid>
-              {filteredJobs.map((job, index) => (
-                <JobCard
-                  key={job.id}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <JobImage>
-                    <JobImageContent>{job.imageContent}</JobImageContent>
-                  </JobImage>
-                  
-                  <JobContent>
-                    <JobHeader>
-                      <CompanyInfo>
-                        <CompanyLogo className={job.logoClass}>{job.logo}</CompanyLogo>
-                        <CompanyDetails>
-                          <CompanyName>{job.company}</CompanyName>
-                          <JobTitle>{job.title}</JobTitle>
-                        </CompanyDetails>
-                      </CompanyInfo>
-                      <HeartButton 
-                        className={job.isLiked ? 'liked' : ''}
-                        onClick={() => handleLike(job.id)}
-                      >
-                        ♥
-                      </HeartButton>
-                    </JobHeader>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.3,
+                staggerChildren: 0.1
+              }}
+            >
+              <JobGrid>
+                {filteredJobs.map((job, index) => (
+                  <JobCard
+                    key={job.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <JobImage>
+                      <JobImageContent>{job.imageContent}</JobImageContent>
+                    </JobImage>
                     
-                    <JobTags>
-                      {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
-                      <Tag className="location">{job.location}</Tag>
-                      <Tag className="experience">{job.experience}</Tag>
-                      <Tag>{job.industry}</Tag>
-                    </JobTags>
-                  </JobContent>
-                </JobCard>
-              ))}
-            </JobGrid>
+                    <JobContent>
+                      <JobHeader>
+                        <CompanyInfo>
+                          <CompanyLogo className={job.logoClass}>{job.logo}</CompanyLogo>
+                          <CompanyDetails>
+                            <CompanyName>{job.company}</CompanyName>
+                            <JobTitle>{job.title}</JobTitle>
+                          </CompanyDetails>
+                        </CompanyInfo>
+                        <HeartButton 
+                          className={job.isLiked ? 'liked' : ''}
+                          onClick={() => handleLike(job.id)}
+                        >
+                          ♥
+                        </HeartButton>
+                      </JobHeader>
+                      
+                      <JobTags>
+                        {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
+                        <Tag className="location">{job.location}</Tag>
+                        <Tag className="experience">{job.experience}</Tag>
+                        <Tag>{job.industry}</Tag>
+                      </JobTags>
+                    </JobContent>
+                  </JobCard>
+                ))}
+              </JobGrid>
+            </motion.div>
           ) : searchQuery ? (
             <NoResultsMessage>
               <NoResultsIcon>🔍</NoResultsIcon>
