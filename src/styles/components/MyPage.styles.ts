@@ -398,3 +398,95 @@ export const Switch = styled.label`
     transform: translateX(26px);
   }
 `;
+
+export const TabContainer = styled.div`
+  display: flex;
+  background: ${theme.colors.backgroundGray};
+  border-radius: ${theme.radius.lg};
+  padding: 0.25rem;
+  margin-bottom: 1.5rem;
+  gap: 0.25rem;
+  
+  ${theme.media.tablet} {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+`;
+
+export const TabButton = styled.button<{ $isActive: boolean }>`
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: ${theme.radius.md};
+  background: ${props => props.$isActive ? 'white' : 'transparent'};
+  color: ${props => props.$isActive ? theme.colors.primary : theme.colors.textSecondary};
+  font-weight: ${props => props.$isActive ? theme.typography.fontWeight.semibold : theme.typography.fontWeight.medium};
+  cursor: pointer;
+  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  box-shadow: ${props => props.$isActive ? theme.shadows.sm : 'none'};
+  min-height: 44px;
+  
+  &:hover {
+    background: ${props => props.$isActive ? 'white' : 'rgba(255, 255, 255, 0.5)'};
+    color: ${props => props.$isActive ? theme.colors.primary : theme.colors.textPrimary};
+  }
+  
+  ${theme.media.tablet} {
+    flex: none;
+    min-width: 80px;
+    font-size: ${theme.typography.fontSize.sm};
+  }
+`;
+
+export const SettingCard = styled(Card)`
+  border: 1px solid ${theme.colors.borderLight};
+  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  
+  &:hover {
+    box-shadow: ${theme.shadows.md};
+    transform: translateY(-1px);
+  }
+`;
+
+export const SettingGroup = styled.div`
+  margin-bottom: 1.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const SettingRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid ${theme.colors.borderLight};
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  ${theme.media.tablet} {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+`;
+
+export const SettingLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+`;
+
+export const SettingTitle = styled.span`
+  font-weight: ${theme.typography.fontWeight.semibold};
+  color: ${theme.colors.textPrimary};
+  font-size: ${theme.typography.fontSize.base};
+`;
+
+export const SettingDescription = styled.span`
+  font-size: ${theme.typography.fontSize.sm};
+  color: ${theme.colors.textSecondary};
+`;
