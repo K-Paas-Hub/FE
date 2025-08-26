@@ -1646,7 +1646,7 @@ const ResumePage: React.FC = () => {
     saveResumeWithValidation,
   } = useResumeForm();
 
-  const [saveMessage, setSaveMessage] = useState<string | null>(null);
+
   const [showPreview, setShowPreview] = useState(false);
   const [certificationSearch, setCertificationSearch] = useState('');
   const [showCertificationDropdown, setShowCertificationDropdown] = useState(false);
@@ -1802,8 +1802,7 @@ const ResumePage: React.FC = () => {
   const handleSave = async () => {
     const result = await saveResumeWithValidation();
     if (result.success) {
-      setSaveMessage('이력서가 성공적으로 저장되었습니다!');
-      setTimeout(() => setSaveMessage(null), 3000);
+      alert('이력서가 성공적으로 저장되었습니다!');
     }
   };
 
@@ -3006,19 +3005,7 @@ const ResumePage: React.FC = () => {
           </div>
         )}
 
-        {/* 성공 메시지 */}
-        {saveMessage && (
-          <div role="status" style={{ 
-            color: 'green', 
-            backgroundColor: '#f0fdf4', 
-            border: '1px solid #bbf7d0', 
-            borderRadius: '8px', 
-            padding: '1rem', 
-            marginBottom: '1rem' 
-          }}>
-            {saveMessage}
-          </div>
-        )}
+
 
         {/* 하단 버튼 */}
         <ButtonGroup>

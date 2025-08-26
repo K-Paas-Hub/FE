@@ -1,4 +1,4 @@
-// 카카오 주소 검색 API 목업 서비스
+// 카카오 주소 검색 API 서비스
 export interface AddressData {
   id: string;
   address_name: string;
@@ -22,171 +22,114 @@ export interface KakaoAddressResponse {
   };
 }
 
-// 목업 주소 데이터
-const mockAddressData: AddressData[] = [
-  {
-    id: '1',
-    address_name: '서울특별시 강남구 테헤란로 152',
-    address_type: 'ROAD_ADDR',
-    x: '127.0286',
-    y: '37.4979',
-    address: {
-      address_name: '서울특별시 강남구 역삼동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '강남구',
-      region_3depth_name: '역삼동'
-    }
-  },
-  {
-    id: '2',
-    address_name: '서울특별시 강남구 강남대로 456',
-    address_type: 'ROAD_ADDR',
-    x: '127.0278',
-    y: '37.4975',
-    address: {
-      address_name: '서울특별시 강남구 역삼동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '강남구',
-      region_3depth_name: '역삼동'
-    }
-  },
-  {
-    id: '3',
-    address_name: '서울특별시 강남구 삼성로 86길 20',
-    address_type: 'ROAD_ADDR',
-    x: '127.0265',
-    y: '37.4982',
-    address: {
-      address_name: '서울특별시 강남구 역삼동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '강남구',
-      region_3depth_name: '역삼동'
-    }
-  },
-  {
-    id: '4',
-    address_name: '서울특별시 강남구 봉은사로 179',
-    address_type: 'ROAD_ADDR',
-    x: '127.0291',
-    y: '37.4968',
-    address: {
-      address_name: '서울특별시 강남구 역삼동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '강남구',
-      region_3depth_name: '역삼동'
-    }
-  },
-  {
-    id: '5',
-    address_name: '서울특별시 강남구 논현로 508',
-    address_type: 'ROAD_ADDR',
-    x: '127.0302',
-    y: '37.4955',
-    address: {
-      address_name: '서울특별시 강남구 역삼동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '강남구',
-      region_3depth_name: '역삼동'
-    }
-  },
-  {
-    id: '6',
-    address_name: '서울특별시 서초구 서초대로 396',
-    address_type: 'ROAD_ADDR',
-    x: '127.0256',
-    y: '37.5012',
-    address: {
-      address_name: '서울특별시 서초구 서초동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '서초구',
-      region_3depth_name: '서초동'
-    }
-  },
-  {
-    id: '7',
-    address_name: '서울특별시 서초구 강남대로 373',
-    address_type: 'ROAD_ADDR',
-    x: '127.0248',
-    y: '37.5025',
-    address: {
-      address_name: '서울특별시 서초구 서초동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '서초구',
-      region_3depth_name: '서초동'
-    }
-  },
-  {
-    id: '8',
-    address_name: '서울특별시 마포구 와우산로 94',
-    address_type: 'ROAD_ADDR',
-    x: '126.9234',
-    y: '37.5567',
-    address: {
-      address_name: '서울특별시 마포구 상암동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '마포구',
-      region_3depth_name: '상암동'
-    }
-  },
-  {
-    id: '9',
-    address_name: '서울특별시 마포구 월드컵북로 396',
-    address_type: 'ROAD_ADDR',
-    x: '126.9245',
-    y: '37.5578',
-    address: {
-      address_name: '서울특별시 마포구 상암동',
-      region_1depth_name: '서울특별시',
-      region_2depth_name: '마포구',
-      region_3depth_name: '상암동'
-    }
-  },
-  {
-    id: '10',
-    address_name: '경기도 성남시 분당구 정자로 178-1',
-    address_type: 'ROAD_ADDR',
-    x: '127.1089',
-    y: '37.3595',
-    address: {
-      address_name: '경기도 성남시 분당구 정자동',
-      region_1depth_name: '경기도',
-      region_2depth_name: '성남시 분당구',
-      region_3depth_name: '정자동'
-    }
+// 카카오 API 설정
+const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_API_KEY;
+const KAKAO_ADDRESS_API_URL = 'https://dapi.kakao.com/v2/local/search/address.json';
+
+// 카카오 API 호출 함수
+const callKakaoAPI = async (query: string): Promise<KakaoAddressResponse> => {
+  console.log('🔍 카카오 API 호출 시작');
+  console.log('📝 검색어:', query);
+  console.log('🔑 API 키:', KAKAO_API_KEY ? `${KAKAO_API_KEY.substring(0, 8)}...` : '없음');
+  console.log('🌐 API URL:', KAKAO_ADDRESS_API_URL);
+
+  if (!KAKAO_API_KEY) {
+    throw new Error('카카오 API 키가 설정되지 않았습니다.');
   }
-];
+
+  const requestUrl = `${KAKAO_ADDRESS_API_URL}?query=${encodeURIComponent(query)}&size=5`;
+  console.log('📡 요청 URL:', requestUrl);
+
+  try {
+    console.log('🚀 API 요청 전송 중...');
+    const response = await fetch(requestUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `KakaoAK ${KAKAO_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    console.log('📊 응답 상태:', response.status, response.statusText);
+    console.log('📋 응답 헤더:', Object.fromEntries(response.headers.entries()));
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('❌ API 오류 응답:', errorText);
+      throw new Error(`카카오 API 호출 실패: ${response.status} - ${errorText}`);
+    }
+
+    const data = await response.json();
+    console.log('✅ API 응답 성공:', data);
+    return data;
+  } catch (error) {
+    console.error('💥 API 호출 중 오류:', error);
+    throw error;
+  }
+};
+
+// 카카오 응답을 내부 형식으로 변환
+const transformKakaoResponse = (kakaoResponse: KakaoAddressResponse): AddressData[] => {
+  console.log('🔄 응답 변환 시작:', kakaoResponse);
+  
+  const transformedData = kakaoResponse.documents.map((doc, index) => ({
+    id: `kakao_${index}`,
+    address_name: doc.address_name,
+    address_type: doc.address_type,
+    x: doc.x,
+    y: doc.y,
+    address: {
+      address_name: doc.address.address_name,
+      region_1depth_name: doc.address.region_1depth_name,
+      region_2depth_name: doc.address.region_2depth_name,
+      region_3depth_name: doc.address.region_3depth_name,
+    },
+  }));
+
+  console.log('✅ 변환된 데이터:', transformedData);
+  return transformedData;
+};
 
 export const kakaoAddressService = {
-  // 주소 검색 (목업 데이터)
+  // 주소 검색 (실제 카카오 API 사용)
   searchAddress: async (query: string): Promise<AddressData[]> => {
-    // 실제 API 호출을 시뮬레이션하기 위한 지연
-    await new Promise(resolve => setTimeout(resolve, 300));
+    console.log('🎯 주소 검색 시작:', query);
     
-    if (!query.trim()) {
-      return [];
+    try {
+      // 실제 API 호출을 시뮬레이션하기 위한 지연
+      await new Promise(resolve => setTimeout(resolve, 300));
+      
+      if (!query.trim()) {
+        console.log('⚠️ 빈 검색어, 빈 결과 반환');
+        return [];
+      }
+
+      console.log('🌐 카카오 API 호출 시도...');
+      // 카카오 API 호출
+      const kakaoResponse = await callKakaoAPI(query);
+      
+      console.log('🔄 응답 변환 중...');
+      // 응답 변환
+      const transformedData = transformKakaoResponse(kakaoResponse);
+      
+      console.log('🎉 검색 완료, 결과:', transformedData.length, '개');
+      return transformedData;
+    } catch (error) {
+      console.error('❌ 카카오 주소 검색 API 오류:', error);
+      
+      // API 오류 시 목업 데이터로 폴백
+      console.warn('🔄 목업 데이터로 폴백합니다.');
+      const mockData = getMockAddressData(query);
+      console.log('📋 목업 데이터 반환:', mockData);
+      return mockData;
     }
-    
-    // 검색어에 따른 필터링 (대소문자 구분 없이)
-    const filteredAddresses = mockAddressData.filter(address => 
-      address.address_name.toLowerCase().includes(query.toLowerCase()) ||
-      address.address.address_name.toLowerCase().includes(query.toLowerCase()) ||
-      address.address.region_2depth_name.toLowerCase().includes(query.toLowerCase())
-    );
-    
-    // 검색 결과가 없을 경우
-    if (filteredAddresses.length === 0) {
-      return [];
-    }
-    
-    // 최대 5개 결과 반환
-    return filteredAddresses.slice(0, 5);
   },
 
   // 주소 상세 정보 조회 (목업 데이터)
   getAddressDetail: async (addressId: string): Promise<AddressData | null> => {
     await new Promise(resolve => setTimeout(resolve, 200));
     
-    const address = mockAddressData.find(addr => addr.id === addressId);
+    const address = getMockAddressData('').find(addr => addr.id === addressId);
     return address || null;
   },
 
@@ -199,7 +142,8 @@ export const kakaoAddressService = {
     let closestAddress: AddressData | null = null;
     let minDistance = Infinity;
     
-    mockAddressData.forEach(address => {
+    const mockData = getMockAddressData('');
+    mockData.forEach(address => {
       const addrX = parseFloat(address.x);
       const addrY = parseFloat(address.y);
       const distance = Math.sqrt(
@@ -214,4 +158,88 @@ export const kakaoAddressService = {
     
     return closestAddress;
   }
+};
+
+// 목업 주소 데이터 (API 오류 시 폴백용)
+const getMockAddressData = (query: string): AddressData[] => {
+  const mockAddressData: AddressData[] = [
+    {
+      id: '1',
+      address_name: '서울특별시 강남구 테헤란로 152',
+      address_type: 'ROAD_ADDR',
+      x: '127.0286',
+      y: '37.4979',
+      address: {
+        address_name: '서울특별시 강남구 역삼동',
+        region_1depth_name: '서울특별시',
+        region_2depth_name: '강남구',
+        region_3depth_name: '역삼동'
+      }
+    },
+    {
+      id: '2',
+      address_name: '서울특별시 강남구 강남대로 456',
+      address_type: 'ROAD_ADDR',
+      x: '127.0278',
+      y: '37.4975',
+      address: {
+        address_name: '서울특별시 강남구 역삼동',
+        region_1depth_name: '서울특별시',
+        region_2depth_name: '강남구',
+        region_3depth_name: '역삼동'
+      }
+    },
+    {
+      id: '3',
+      address_name: '서울특별시 강남구 삼성로 86길 20',
+      address_type: 'ROAD_ADDR',
+      x: '127.0265',
+      y: '37.4982',
+      address: {
+        address_name: '서울특별시 강남구 역삼동',
+        region_1depth_name: '서울특별시',
+        region_2depth_name: '강남구',
+        region_3depth_name: '역삼동'
+      }
+    },
+    {
+      id: '4',
+      address_name: '서울특별시 강남구 봉은사로 179',
+      address_type: 'ROAD_ADDR',
+      x: '127.0291',
+      y: '37.4968',
+      address: {
+        address_name: '서울특별시 강남구 역삼동',
+        region_1depth_name: '서울특별시',
+        region_2depth_name: '강남구',
+        region_3depth_name: '역삼동'
+      }
+    },
+    {
+      id: '5',
+      address_name: '서울특별시 강남구 논현로 508',
+      address_type: 'ROAD_ADDR',
+      x: '127.0302',
+      y: '37.4955',
+      address: {
+        address_name: '서울특별시 강남구 역삼동',
+        region_1depth_name: '서울특별시',
+        region_2depth_name: '강남구',
+        region_3depth_name: '역삼동'
+      }
+    }
+  ];
+
+  // 검색어에 따른 필터링 (대소문자 구분 없이)
+  if (!query.trim()) {
+    return mockAddressData;
+  }
+
+  const filteredAddresses = mockAddressData.filter(address => 
+    address.address_name.toLowerCase().includes(query.toLowerCase()) ||
+    address.address.address_name.toLowerCase().includes(query.toLowerCase()) ||
+    address.address.region_2depth_name.toLowerCase().includes(query.toLowerCase())
+  );
+  
+  return filteredAddresses.slice(0, 5);
 };
