@@ -1141,7 +1141,7 @@ const TimelineSchoolIcon = styled.span`
 `;
 
 const TimelineSchoolInfo = styled.div`
-  flex: 1;
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
 `;
 
 const TimelineSchoolName = styled.div`
@@ -1183,6 +1183,10 @@ const StatusSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
   
   &:focus {
     outline: none;
@@ -2475,15 +2479,6 @@ const ResumePage: React.FC = () => {
                                 <TimelineSchoolName>{school.name}</TimelineSchoolName>
                                 <TimelineSchoolCategory>{school.category}</TimelineSchoolCategory>
                               </TimelineSchoolInfo>
-                              <TimelineRemoveButton
-                                onClick={() => handleSchoolRemove(school.id)}
-                                aria-label={`${school.name} 제거`}
-                              >
-                                ×
-                              </TimelineRemoveButton>
-                            </TimelineSchoolHeader>
-                            <TimelineSchoolBody>
-                              <span>{school.category === '대학교' ? '종합대학교' : school.category}</span>
                               <StatusSelect
                                 value={school.status}
                                 onChange={(e) => handleGraduationStatusChange(school.id, e.target.value)}
@@ -2494,6 +2489,16 @@ const ResumePage: React.FC = () => {
                                   </option>
                                 ))}
                               </StatusSelect>
+                              <div style={{ flex: 1 }}></div>
+                              <TimelineRemoveButton
+                                onClick={() => handleSchoolRemove(school.id)}
+                                aria-label={`${school.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineSchoolHeader>
+                            <TimelineSchoolBody>
+                              <span>{school.category === '대학교' ? '종합대학교' : school.category}</span>
                             </TimelineSchoolBody>
                           </TimelineSchoolCard>
                         </TimelineContent>
