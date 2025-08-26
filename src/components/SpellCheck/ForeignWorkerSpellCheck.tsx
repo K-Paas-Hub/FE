@@ -299,8 +299,7 @@ const Container = styled.div`
 const TopBar = styled.div`
   display: flex;
   background: white;
-  border: 1px solid ${COLORS.border};
-  border-bottom: none;
+  border: 2px solid #d1d5db;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
   margin-bottom: 0;
@@ -309,7 +308,7 @@ const TopBar = styled.div`
 const TopBarTitle = styled.div`
   flex: 1;
   padding: 1rem;
-  color: white;
+  color: #1f2937;
   font-weight: 600;
   text-align: center;
   font-size: 1.1rem;
