@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import styled from 'styled-components';
 import './styles/App.css';
 import './i18n';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -30,15 +29,8 @@ import TermsPage from './components/TermsPage';
 import PrivacyPage from './components/PrivacyPage';
 import InterviewPage from './components/InterviewPage';
 
-const AppContainer = styled.div`
-  background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);
-  min-height: 100vh;
-  color: white;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-`;
-
 const LandingPage = () => (
-  <AppContainer>
+  <div className="app-container">
     <Header />
     <Sidebar />
     <HeroSection />
@@ -47,7 +39,7 @@ const LandingPage = () => (
     <BlogSection />
     <PartnersSection />
     <Footer />
-  </AppContainer>
+  </div>
 );
 
 function App() {

@@ -1,86 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { ANIMATIONS } from '../../constants';
 import { useCountUp } from '../../hooks';
-
-const StatsContainer = styled.section`
-  background: rgba(74, 222, 128, 0.1);
-  background-image: url('/images/foregin_worker.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  position: relative;
-  padding: 6rem 2rem;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(26, 26, 26, 0.7);
-    z-index: 1;
-  }
-`;
-
-const SectionTitle = styled(motion.h2)`
-  font-size: 3rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 4rem;
-  position: relative;
-  z-index: 2;
-  
-  .highlight {
-    color: ${COLORS.primary};
-  }
-`;
-
-const StatsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-`;
-
-const StatItem = styled(motion.div)`
-  text-align: center;
-  padding: 1.5rem 1rem;
-`;
-
-const StatNumber = styled.div`
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: ${COLORS.primary};
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-`;
-
-const StatLabel = styled.div`
-  font-size: 1rem;
-  color: #cccccc;
-  font-weight: 500;
-`;
+import {
+  StatsContainer,
+  SectionTitle,
+  StatsGrid,
+  StatItem,
+  StatNumber,
+  StatLabel
+} from '../../styles/components/StatsSection.styles';
 
 interface Stat {
   number: number;

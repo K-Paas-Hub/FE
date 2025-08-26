@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { theme } from '../theme/theme';
 
-// Main Header Container
+// Main Header Container (첫 번째 줄)
 export const Header = styled.header`
   background: white;
   border-bottom: 1px solid ${theme.colors.borderLight};
@@ -12,20 +12,42 @@ export const Header = styled.header`
   box-shadow: ${theme.shadows.sm};
 `;
 
-export const HeaderContent = styled.div`
+// Main Header (첫 번째 줄) - 로고, 언어, 인증
+export const MainHeader = styled.div`
+  background: white;
+  border-bottom: 1px solid ${theme.colors.borderLight};
+`;
+
+export const MainHeaderContent = styled.div`
   max-width: ${theme.containers.wide};
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 0 1rem 0;
-  gap: 1rem;
-  position: relative;
+  padding: 0.75rem 1rem;
   
   ${theme.media.tablet} {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+  }
+`;
+
+// Sub Header (두 번째 줄) - 네비게이션
+export const SubHeader = styled.div`
+  background: white;
+`;
+
+export const SubHeaderContent = styled.div`
+  max-width: ${theme.containers.wide};
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  
+  ${theme.media.tablet} {
+    padding: 0.5rem 1rem;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 `;
 
@@ -35,27 +57,53 @@ export const Logo = styled.div`
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
-  margin-left: -3rem;
-  position: absolute;
-  left: 0;
+  gap: 0.5rem;
   
   ${theme.media.tablet} {
-    order: 1;
     justify-content: center;
-    margin-left: 0;
-    position: relative;
+  }
+  
+  ${theme.media.mobile} {
+    gap: 0.25rem;
   }
 `;
 
 export const LogoImage = styled.img`
-  height: 50px;
+  height: 40px;
   
   ${theme.media.tablet} {
-    height: 40px;
+    height: 35px;
   }
 `;
 
-// Navigation Section
+export const LogoText = styled.span`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${theme.colors.primary};
+  font-family: 'Arial, sans-serif';
+  
+  ${theme.media.tablet} {
+    font-size: 1.25rem;
+  }
+  
+  ${theme.media.mobile} {
+    font-size: 1.1rem;
+  }
+`;
+
+// Main Header Right Section (언어 + 인증)
+export const MainHeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  
+  ${theme.media.tablet} {
+    gap: 0.5rem;
+  }
+`;
+
+// Navigation Section (SubHeader)
 export const NavWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -65,8 +113,8 @@ export const NavWrapper = styled.div`
   ${theme.media.tablet} {
     padding: 0;
     flex: none;
-    order: 2;
     justify-content: center;
+    width: 100%;
   }
 `;
 
@@ -218,16 +266,35 @@ export const DropdownItem = styled(Link)`
   }
 `;
 
-// Right Section (Language & Auth)
-export const RightSection = styled.div`
+// SubHeader Right Section (프로모션 요소)
+export const SubHeaderRight = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 1rem;
   flex-shrink: 0;
   
   ${theme.media.tablet} {
-    order: 3;
-    justify-content: center;
+    display: none;
+  }
+`;
+
+// 프로모션 배지
+export const PromotionBadge = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: ${theme.colors.secondary};
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: ${theme.radius.lg};
+  font-size: ${theme.typography.fontSize.sm};
+  font-weight: ${theme.typography.fontWeight.semibold};
+  cursor: pointer;
+  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: ${theme.shadows.md};
   }
 `;
 
@@ -235,7 +302,7 @@ export const RightSection = styled.div`
 export const LanguageButton = styled.div`
   background: none;
   border: 1px solid ${theme.colors.borderLight};
-  height: 44px;
+  height: 40px;
   padding: 0 12px;
   border-radius: ${theme.radius.sm};
   color: ${theme.colors.textSecondary};
@@ -247,8 +314,8 @@ export const LanguageButton = styled.div`
   gap: 8px;
   position: relative;
   white-space: nowrap;
-  min-width: 160px;
-  max-width: 200px;
+  min-width: 140px;
+  max-width: 180px;
   overflow: visible;
   
   &:hover {
@@ -258,16 +325,16 @@ export const LanguageButton = styled.div`
   
   ${theme.media.tablet} {
     font-size: ${theme.typography.fontSize.xs};
-    height: 40px;
+    height: 36px;
     padding: 0 10px;
-    min-width: 140px;
-    max-width: 180px;
+    min-width: 120px;
+    max-width: 160px;
   }
 `;
 
 export const FlagIcon = styled.img`
-  width: 24px;
-  height: 16px;
+  width: 20px;
+  height: 14px;
   border-radius: 2px;
   flex-shrink: 0;
   object-fit: cover;
@@ -290,14 +357,14 @@ export const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
   border-radius: ${theme.radius.md};
   box-shadow: ${theme.shadows.lg};
   z-index: ${theme.zIndex.dropdown};
-  width: 220px;
+  width: 200px;
   display: ${props => props.$isOpen ? 'block' : 'none'};
   margin-top: 0.5rem;
 `;
 
 export const LanguageOption = styled.button`
   width: 100%;
-  height: 44px;
+  height: 40px;
   padding: 0 12px;
   background: none;
   border: none;
@@ -328,7 +395,7 @@ export const LanguageOption = styled.button`
   
   ${theme.media.tablet} {
     font-size: ${theme.typography.fontSize.xs};
-    height: 40px;
+    height: 36px;
     padding: 0 10px;
   }
 `;
@@ -338,14 +405,14 @@ export const AuthButton = styled.button`
   background: ${theme.colors.primary};
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: ${theme.radius.lg};
   font-weight: ${theme.typography.fontWeight.semibold};
   cursor: pointer;
   transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   box-shadow: ${theme.shadows.sm};
   white-space: nowrap;
-  min-width: 120px;
+  min-width: 100px;
   
   &:hover {
     background: ${theme.colors.primaryHover};
@@ -354,9 +421,9 @@ export const AuthButton = styled.button`
   }
   
   ${theme.media.tablet} {
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: ${theme.typography.fontSize.sm};
-    min-width: 100px;
+    min-width: 80px;
   }
 `;
 
@@ -364,14 +431,14 @@ export const UserButton = styled.button<{ $isOpen: boolean }>`
   background: ${props => props.$isOpen ? theme.colors.primaryHover : theme.colors.primary};
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: ${theme.radius.lg};
   font-weight: ${theme.typography.fontWeight.semibold};
   cursor: pointer;
   transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   box-shadow: ${theme.shadows.sm};
   white-space: nowrap;
-  min-width: 120px;
+  min-width: 100px;
   
   &:hover {
     background: ${theme.colors.primaryHover};
@@ -380,9 +447,9 @@ export const UserButton = styled.button<{ $isOpen: boolean }>`
   }
   
   ${theme.media.tablet} {
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: ${theme.typography.fontSize.sm};
-    min-width: 100px;
+    min-width: 80px;
   }
 `;
 
@@ -423,5 +490,19 @@ export const UserDropdownItem = styled.button`
   
   &:last-child {
     border-radius: 0 0 ${theme.radius.md} ${theme.radius.md};
+  }
+`;
+
+// 모바일 햄버거 메뉴
+export const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: ${theme.colors.textPrimary};
+  
+  ${theme.media.tablet} {
+    display: block;
   }
 `;
