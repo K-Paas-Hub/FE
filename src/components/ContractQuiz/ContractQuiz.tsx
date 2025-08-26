@@ -282,9 +282,7 @@ const ContractQuiz: React.FC = () => {
     <QuizContainer>
       <MainHeader />
       <QuizContent>
-        <QuizHeader>
-          <QuizTitle>{t('contractQuiz.title')}</QuizTitle>
-        </QuizHeader>
+
 
         <QuizSection>
           <QuizProgress>
