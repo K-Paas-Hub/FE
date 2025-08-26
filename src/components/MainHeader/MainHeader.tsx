@@ -84,6 +84,11 @@ const NavLink = styled(Link)`
   border-radius: 12px;
   transition: all 0.3s ease;
   position: relative;
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
   
   &:hover {
     background: #ecfdf5;
@@ -467,7 +472,7 @@ const MainHeader: React.FC = () => {
   return (
     <Header>
       <HeaderContent>
-        <Logo>
+        <Logo onClick={() => navigate('/main')}>
           <LogoImage src="/images/fairwork.png" alt="FairWork" />
         </Logo>
         <NavWrapper>

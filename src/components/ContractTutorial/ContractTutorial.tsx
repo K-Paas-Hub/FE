@@ -40,6 +40,10 @@ const TutorialSubtitle = styled.p`
   font-size: 1.1rem;
   color: #6b7280;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
 `;
 
 const TutorialSection = styled.section`
@@ -85,6 +89,10 @@ const SectionContent = styled.div`
   font-size: 1rem;
   line-height: 1.7;
   color: #374151;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
 `;
 
 const ImportantBox = styled.div`
@@ -93,6 +101,10 @@ const ImportantBox = styled.div`
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
 `;
 
 const ImportantTitle = styled.h4`
@@ -110,6 +122,10 @@ const ExampleBox = styled.div`
   padding: 1.5rem;
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
 `;
 
 const ExampleTitle = styled.h5`
@@ -181,6 +197,10 @@ const FAQAnswer = styled.div<{ $isOpen: boolean }>`
   transition: all 0.3s ease;
   line-height: 1.6;
   color: #374151;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
 `;
 
 const Checklist = styled.ul`
@@ -198,6 +218,10 @@ const ChecklistItem = styled.li`
   background: #f8f9fa;
   border-radius: 8px;
   border-left: 4px solid ${COLORS.primary};
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
 `;
 
 const CheckIcon = styled.span`

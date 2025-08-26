@@ -42,6 +42,10 @@ const SectionTitle = styled(motion.h2)`
   margin-bottom: 5rem;
   position: relative;
   z-index: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
   
   .highlight {
     color: ${COLORS.primary};
@@ -241,6 +245,10 @@ const FeatureTitle = styled.h3`
   transition: all 0.4s ease;
   position: relative;
   z-index: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
   
   ${FeatureCard}:hover & {
     color: ${COLORS.primary};
@@ -265,6 +273,10 @@ const FeatureDescription = styled.p`
   transition: all 0.4s ease;
   position: relative;
   z-index: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
   
   ${FeatureCard}:hover & {
     color: #1a1a1a;

@@ -25,6 +25,10 @@ import {
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
 import AuthCallback from './components/AuthCallback';
 import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
+import PasswordResetPage from './components/PasswordResetPage';
+import TermsPage from './components/TermsPage';
+import PrivacyPage from './components/PrivacyPage';
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);
@@ -61,6 +65,10 @@ function App() {
           <Route path="/contract-analysis" element={<ContractAnalysis />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/find-password" element={<PasswordResetPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </Router>
     </LanguageProvider>

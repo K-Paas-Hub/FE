@@ -44,6 +44,10 @@ const HeroTitle = styled(motion.h1)`
   font-size: 4rem;
   font-weight: 900;
   margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
   
   .highlight {
     color: ${COLORS.primary};
@@ -65,6 +69,10 @@ const HeroSubtitle = styled(motion.p)`
   color: #cccccc;
   margin-bottom: 2rem;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-break: keep-all;
   
   @media (max-width: 768px) {
     font-size: 1.2rem;
