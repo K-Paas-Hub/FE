@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -42,6 +42,7 @@ const MainHeaderComponent: React.FC = () => {
   const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
   const [isContractDropdownOpen, setIsContractDropdownOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLanguageClick = () => {
     console.log('Language button clicked, current state:', isLanguageOpen);
@@ -53,6 +54,23 @@ const MainHeaderComponent: React.FC = () => {
     changeLanguage(language);
     setIsLanguageOpen(false);
   };
+
+  // 외부 클릭 감지
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+        setIsLanguageOpen(false);
+      }
+    };
+
+    if (isLanguageOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLanguageOpen]);
 
   const handleResumeDropdownMouseEnter = () => {
     setIsResumeDropdownOpen(true);
@@ -100,7 +118,11 @@ const MainHeaderComponent: React.FC = () => {
           </Logo>
           
           <MainHeaderRight>
-            <LanguageButton onClick={handleLanguageClick} className="language-dropdown">
+            <LanguageButton 
+              ref={languageDropdownRef}
+              onClick={handleLanguageClick} 
+              className="language-dropdown"
+            >
               <FlagIcon 
                 src={getCurrentLanguage().flag} 
                 alt={getCurrentLanguageName()} 
