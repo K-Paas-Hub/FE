@@ -213,6 +213,43 @@
       }
     }
   },
+  "blogSection": {
+    "title": {
+      "weAre": "CHÚNG TÔI LÀ",
+      "dreamReality": "Đối Tác Biến",
+      "partner": "Ước Mơ Thành Hiện Thực"
+    },
+    "posts": [
+      {
+        "id": 1,
+        "title": "Bước Đầu Tiên\nĐể Bảo Vệ Quyền Lợi Của Bạn",
+        "excerpt": "Hướng dẫn chi tiết về nội dung cần thiết và lưu ý của hợp đồng lao động mà bạn phải biết khi làm việc tại Hàn Quốc.",
+        "image": "/images/employment_contract.png",
+        "category": "GUIDE"
+      },
+      {
+        "id": 2,
+        "title": "Hướng Dẫn Chuẩn Bị Giấy Tờ\nĐể Biến Ước Mơ Thành Hiện Thực",
+        "excerpt": "Tổ chức tất cả giấy tờ cần thiết trong quá trình tìm việc và cung cấp hướng dẫn từng bước từ đơn xin visa đến giấy phép lao động.",
+        "image": "/images/visa.png",
+        "category": "DOCUMENT"
+      },
+      {
+        "id": 3,
+        "title": "Chuẩn Bị Phỏng Vấn Thông Minh\nVới AI",
+        "excerpt": "Học phương pháp chuẩn bị phỏng vấn sử dụng công nghệ AI mới nhất và phát triển kỹ năng thực tế thông qua mô phỏng phỏng vấn dựa trên LLM.",
+        "image": "/images/llm.png",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": 4,
+        "title": "Những Cơ Hội Tốt Nhất\nĐang Chờ Đợi Bạn",
+        "excerpt": "Cung cấp cập nhật thời gian thực về các tin tuyển dụng mới nhất và thông tin công ty cho lao động nước ngoài.",
+        "image": "/images/employeer.png",
+        "category": "JOB"
+      }
+    ]
+  },
   "contractTutorial": {
     "sections": {
       "workConditions": {

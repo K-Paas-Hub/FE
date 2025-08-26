@@ -557,6 +557,43 @@
       }
     }
   },
+  "blogSection": {
+    "title": {
+      "weAre": "WE ARE",
+      "dreamReality": "Your Dream",
+      "partner": "Reality Partner"
+    },
+    "posts": [
+      {
+        "id": 1,
+        "title": "Your First Step\nTo Protect Your Rights",
+        "excerpt": "Detailed guide on the essential content and precautions of employment contracts you must know when working in Korea.",
+        "image": "/images/employment_contract.png",
+        "category": "GUIDE"
+      },
+      {
+        "id": 2,
+        "title": "Document Preparation Guide\nTo Make Dreams Reality",
+        "excerpt": "Organize all documents needed in the employment process and provide step-by-step guidance from visa application to employment permit.",
+        "image": "/images/visa.png",
+        "category": "DOCUMENT"
+      },
+      {
+        "id": 3,
+        "title": "Smart Interview Preparation\nWith AI",
+        "excerpt": "Learn interview preparation methods using the latest AI technology and develop practical skills through LLM-based interview simulation.",
+        "image": "/images/llm.png",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": 4,
+        "title": "The Best Opportunities\nWaiting for You",
+        "excerpt": "Provide real-time updates of the latest job postings and company information for foreign workers.",
+        "image": "/images/employeer.png",
+        "category": "JOB"
+      }
+    ]
+  },
   "jobDetail": {
     "backButton": "← Back",
     "applyButton": "Apply",
