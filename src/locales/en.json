@@ -150,6 +150,41 @@
       "naverCloud": "Naver Cloud"
     }
   },
+  "footer": {
+    "copyright": "© FairWork 2024. All rights reserved."
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "sections": {
+      "purpose": "Article 1 (Purpose)",
+      "definitions": "Article 2 (Definitions)",
+      "effectiveness": "Article 3 (Effectiveness and Changes)",
+      "service": "Article 4 (Service Provision)",
+      "suspension": "Article 5 (Service Suspension)",
+      "registration": "Article 6 (Member Registration)",
+      "withdrawal": "Article 7 (Member Withdrawal and Qualification Loss)",
+      "memberObligations": "Article 8 (Member Obligations)",
+      "companyObligations": "Article 9 (Company Obligations)",
+      "privacy": "Article 10 (Privacy Protection)",
+      "supplementary": "Supplementary Provisions"
+    },
+    "content": {
+      "purpose": "These terms are established to regulate the rights, obligations, and responsibilities between the company and members regarding the use of services provided by FairWork (hereinafter referred to as the \"Company\"), and other necessary matters.",
+      "definitions": "1. \"Service\" means all services provided by the Company.\n2. \"Member\" means a customer who accesses the Company's service and enters into a usage agreement with the Company in accordance with these terms and uses the services provided by the Company.\n3. \"Account\" means a combination of characters, numbers, or special characters selected by the member and approved by the Company for member identification and service use.",
+      "effectiveness": "1. These terms take effect for all members who wish to use the service.\n2. The Company may change these terms within the scope not violating relevant laws and regulations when necessary.\n3. When the Company changes the terms, it will notify the current terms along with the application date and reason for change on the service initial screen 7 days before the application date.",
+      "service": "1. The Company provides the following services:\n- Foreign worker related information provision\n- Visa application and management services\n- Contract analysis and review services\n- Other services determined by the Company\n2. Services are provided 24 hours a day, 365 days a year as a principle.",
+      "suspension": "1. The Company may temporarily suspend service provision when there are reasons such as maintenance, replacement, and failure of information and communication equipment such as computers, and communication interruption.\n2. The Company compensates for damages suffered by members or third parties due to temporary suspension of service provision due to the reasons in paragraph 1. However, this does not apply when the Company proves that there was no intention or negligence.",
+      "registration": "1. Members apply for membership by filling out member information according to the registration form set by the Company and expressing their intention to agree to these terms.\n2. The Company registers as a member among users who have applied for membership as described in paragraph 1, unless they fall under any of the following items.",
+      "withdrawal": "1. Members may request withdrawal from the Company at any time, and the Company processes member withdrawal immediately.\n2. When a member falls under any of the following reasons, the Company may restrict and suspend member qualifications.",
+      "memberObligations": "1. Members must comply with relevant laws and regulations, the provisions of these terms, usage guidelines and precautions announced on the service, matters notified by the Company, etc., and must not engage in acts that interfere with the Company's business.\n2. Members must not engage in the following acts related to service use.",
+      "companyObligations": "1. The Company does not engage in acts prohibited by relevant laws and regulations and these terms or contrary to public order and morals, and strives to provide services continuously and stably in accordance with these terms.\n2. The Company builds a security system for protecting members' personal information (including credit information) so that members can safely use internet services.",
+      "privacy": "1. The Company protects members' personal information in accordance with relevant laws and regulations, and the protection and use of personal information follows relevant laws and regulations and the privacy policy set by the Company.\n2. However, the Company is not responsible for any information exposed due to the member's fault.",
+      "supplementary": "These terms take effect from January 1, 2025."
+    },
+    "actions": {
+      "backToLogin": "Back to Login"
+    }
+  },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",

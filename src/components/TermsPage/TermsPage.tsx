@@ -1,107 +1,75 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import MainFooter from '../MainFooter';
 import '../../styles/TermsPage.css';
 
 const TermsPage: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="terms-container">
       <div className="terms-content">
-        <h1 className="terms-title">이용약관</h1>
+        <h1 className="terms-title">{t('terms.title')}</h1>
         
         <div className="terms-section">
-          <h2>제1조 (목적)</h2>
-          <p>
-            이 약관은 FairWork(이하 "회사")가 제공하는 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
-          </p>
+          <h2>{t('terms.sections.purpose')}</h2>
+          <p>{t('terms.content.purpose')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제2조 (정의)</h2>
-          <p>
-            1. "서비스"라 함은 회사가 제공하는 모든 서비스를 의미합니다.<br/>
-            2. "회원"이라 함은 회사의 서비스에 접속하여 이 약관에 따라 회사와 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 고객을 말합니다.<br/>
-            3. "계정"이라 함은 회원의 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 회사가 승인하는 문자, 숫자 또는 특수문자의 조합을 말합니다.
-          </p>
+          <h2>{t('terms.sections.definitions')}</h2>
+          <p>{t('terms.content.definitions')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제3조 (약관의 효력 및 변경)</h2>
-          <p>
-            1. 이 약관은 서비스를 이용하고자 하는 모든 회원에 대하여 그 효력을 발생합니다.<br/>
-            2. 회사는 필요한 경우 관련법령을 위배하지 않는 범위에서 이 약관을 변경할 수 있습니다.<br/>
-            3. 회사가 약관을 변경할 경우에는 적용일자 및 변경사유를 명시하여 현행약관과 함께 서비스 초기화면에 그 적용일자 7일 이전부터 공지합니다.
-          </p>
+          <h2>{t('terms.sections.effectiveness')}</h2>
+          <p>{t('terms.content.effectiveness')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제4조 (서비스의 제공)</h2>
-          <p>
-            1. 회사는 다음과 같은 서비스를 제공합니다:<br/>
-            - 외국인 근로자 관련 정보 제공<br/>
-            - 비자 신청 및 관리 서비스<br/>
-            - 계약서 분석 및 검토 서비스<br/>
-            - 기타 회사가 정하는 서비스<br/>
-            2. 서비스는 연중무휴, 1일 24시간 제공함을 원칙으로 합니다.
-          </p>
+          <h2>{t('terms.sections.service')}</h2>
+          <p>{t('terms.content.service')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제5조 (서비스의 중단)</h2>
-          <p>
-            1. 회사는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.<br/>
-            2. 회사는 제1항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여 회원 또는 제3자가 입은 손해에 대하여 배상합니다. 단, 회사가 고의 또는 과실이 없음을 입증하는 경우에는 그러하지 아니합니다.
-          </p>
+          <h2>{t('terms.sections.suspension')}</h2>
+          <p>{t('terms.content.suspension')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제6조 (회원가입)</h2>
-          <p>
-            1. 회원은 회사가 정한 가입 양식에 따라 회원정보를 기입한 후 이 약관에 동의한다는 의사표시를 함으로서 회원가입을 신청합니다.<br/>
-            2. 회사는 제1항과 같이 회원으로 가입할 것을 신청한 이용자 중 다음 각호에 해당하지 않는 한 회원으로 등록합니다.
-          </p>
+          <h2>{t('terms.sections.registration')}</h2>
+          <p>{t('terms.content.registration')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제7조 (회원탈퇴 및 자격 상실)</h2>
-          <p>
-            1. 회원은 회사에 언제든지 탈퇴를 요청할 수 있으며 회사는 즉시 회원탈퇴를 처리합니다.<br/>
-            2. 회원이 다음 각호의 사유에 해당하는 경우, 회사는 회원자격을 제한 및 정지시킬 수 있습니다.
-          </p>
+          <h2>{t('terms.sections.withdrawal')}</h2>
+          <p>{t('terms.content.withdrawal')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제8조 (회원의 의무)</h2>
-          <p>
-            1. 회원은 관계법령, 이 약관의 규정, 이용안내 및 서비스상에 공지한 주의사항, 회사가 통지하는 사항 등을 준수하여야 하며, 기타 회사의 업무에 방해되는 행위를 하여서는 안됩니다.<br/>
-            2. 회원은 서비스 이용과 관련하여 다음 각호의 행위를 하여서는 안됩니다.
-          </p>
+          <h2>{t('terms.sections.memberObligations')}</h2>
+          <p>{t('terms.content.memberObligations')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제9조 (회사의 의무)</h2>
-          <p>
-            1. 회사는 관련법령과 이 약관이 금지하거나 공서양속에 반하는 행위를 하지 않으며 이 약관이 정하는 바에 따라 지속적이고, 안정적으로 서비스를 제공하기 위하여 노력합니다.<br/>
-            2. 회사는 회원이 안전하게 인터넷 서비스를 이용할 수 있도록 회원의 개인정보(신용정보 포함) 보호를 위한 보안 시스템을 구축합니다.
-          </p>
+          <h2>{t('terms.sections.companyObligations')}</h2>
+          <p>{t('terms.content.companyObligations')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>제10조 (개인정보보호)</h2>
-          <p>
-            1. 회사는 관계법령이 정하는 바에 따라 회원의 개인정보를 보호하며, 개인정보의 보호 및 사용에 대해서는 관련법령 및 회사가 정하는 개인정보처리방침이 정하는 바에 따릅니다.<br/>
-            2. 단, 회원의 귀책사유로 인해 노출된 정보에 대해 회사는 일체의 책임을 지지 않습니다.
-          </p>
+          <h2>{t('terms.sections.privacy')}</h2>
+          <p>{t('terms.content.privacy')}</p>
         </div>
 
         <div className="terms-section">
-          <h2>부칙</h2>
-          <p>이 약관은 2025년 1월 1일부터 시행합니다.</p>
+          <h2>{t('terms.sections.supplementary')}</h2>
+          <p>{t('terms.content.supplementary')}</p>
         </div>
         
         <div className="login-button-section">
           <Link to="/login" className="login-button">
-            로그인으로 돌아가기
+            {t('terms.actions.backToLogin')}
           </Link>
         </div>
       </div>

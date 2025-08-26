@@ -265,5 +265,8 @@
       "nhnCloud": "NHN Cloud",
       "naverCloud": "Naver Cloud"
     }
+  },
+  "footer": {
+    "copyright": "© FairWork 2024. सर्वाधिकार सुरक्षित।"
   }
 }

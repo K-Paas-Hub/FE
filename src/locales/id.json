@@ -265,5 +265,8 @@
       "noErrors": "Tidak ada kesalahan",
       "errorCount": "kesalahan"
     }
+  },
+  "footer": {
+    "copyright": "© FairWork 2024. Semua hak dilindungi."
   }
 }

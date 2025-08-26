@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   FooterContainer,
   SocialIcons,
@@ -42,6 +43,8 @@ const EmailIcon = () => (
 );
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <FooterContainer>
       <SocialIcons>
@@ -61,7 +64,7 @@ const Footer: React.FC = () => {
           <EmailIcon />
         </SocialIcon>
       </SocialIcons>
-      <Copyright>© FairWork 2024. All rights reserved.</Copyright>
+      <Copyright>{t('footer.copyright')}</Copyright>
     </FooterContainer>
   );
 };
