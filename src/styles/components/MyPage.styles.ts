@@ -4,8 +4,8 @@ import { theme } from '../theme/theme';
 
 // 기존 MainHeader.styles.ts 패턴과 동일한 구조
 export const MyPageContainer = styled.div`
-  max-width: ${theme.containers.wide};
-  margin: 0 auto;
+  min-height: 100vh;
+  background: ${theme.colors.backgroundGray};
   padding: 2rem 1rem;
   
   ${theme.media.tablet} {
@@ -14,6 +14,8 @@ export const MyPageContainer = styled.div`
 `;
 
 export const MyPageContent = styled.div`
+  max-width: ${theme.containers.wide};
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 2rem;
