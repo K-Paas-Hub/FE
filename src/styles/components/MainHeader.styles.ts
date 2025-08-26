@@ -284,8 +284,7 @@ export const LanguageButton = styled.div`
   gap: 8px;
   position: relative;
   white-space: nowrap;
-  min-width: 140px;
-  max-width: 180px;
+  width: fit-content;
   overflow: visible;
   
   &:hover {
@@ -297,8 +296,7 @@ export const LanguageButton = styled.div`
     font-size: ${theme.typography.fontSize.xs};
     height: 44px;
     padding: 0 10px;
-    min-width: 120px;
-    max-width: 160px;
+    width: fit-content;
   }
 `;
 
