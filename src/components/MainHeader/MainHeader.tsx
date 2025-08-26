@@ -141,6 +141,7 @@ const DropdownTrigger = styled.div<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  white-space: nowrap;
   
   &:hover {
     background: #ecfdf5;
@@ -321,6 +322,8 @@ const AuthButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+  white-space: nowrap;
+  min-width: 120px;
   
   &:hover {
     background: #10b981;
@@ -331,6 +334,7 @@ const AuthButton = styled.button`
   @media (max-width: 768px) {
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
+    min-width: 100px;
   }
 `;
 
@@ -344,6 +348,8 @@ const UserButton = styled.button<{ $isOpen: boolean }>`
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+  white-space: nowrap;
+  min-width: 120px;
   
   &:hover {
     background: #10b981;
@@ -354,6 +360,7 @@ const UserButton = styled.button<{ $isOpen: boolean }>`
   @media (max-width: 768px) {
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
+    min-width: 100px;
   }
 `;
 
@@ -532,6 +539,13 @@ const MainHeader: React.FC = () => {
                 </DropdownItem>
               </DropdownMenu>
             </DropdownContainer>
+            
+            <NavLink 
+              to="/interview" 
+              className={location.pathname === '/interview' ? 'active' : ''}
+            >
+              AI 모의 면접
+            </NavLink>
           </Nav>
         </NavWrapper>
         <RightSection>

@@ -22,3 +22,4 @@ export { default as ContractAnalysis } from './ContractAnalysis';
 export { default as SpellCheckPage } from './SpellCheck';
 export { default as GoogleLoginButton } from './GoogleLoginButton';
 export { default as LoginPage } from './LoginPage';
+export { default as InterviewPage } from './InterviewPage';

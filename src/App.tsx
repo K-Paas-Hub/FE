@@ -29,6 +29,7 @@ import SignupPage from './components/SignupPage';
 import PasswordResetPage from './components/PasswordResetPage';
 import TermsPage from './components/TermsPage';
 import PrivacyPage from './components/PrivacyPage';
+import InterviewPage from './components/InterviewPage';
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a1a 0%, #1b2d1a 50%, #1a1a1a 100%);
@@ -69,6 +70,7 @@ function App() {
           <Route path="/find-password" element={<PasswordResetPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/interview" element={<InterviewPage />} />
         </Routes>
       </Router>
     </LanguageProvider>
