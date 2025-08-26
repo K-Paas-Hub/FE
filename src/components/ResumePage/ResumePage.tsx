@@ -2483,7 +2483,7 @@ const ResumePage: React.FC = () => {
                               </TimelineRemoveButton>
                             </TimelineSchoolHeader>
                             <TimelineSchoolBody>
-                              <span>졸업 상태:</span>
+                              <span>{school.category === '대학교' ? '종합대학교' : school.category}</span>
                               <StatusSelect
                                 value={school.status}
                                 onChange={(e) => handleGraduationStatusChange(school.id, e.target.value)}
@@ -2930,21 +2930,23 @@ const ResumePage: React.FC = () => {
                               </TimelineRemoveButton>
                             </TimelineLanguageHeader>
                             <TimelineLanguageBody>
+                              <span>{language.name === 'TOEIC' ? '영어 능력 평가 시험' :
+                                     language.name === 'TOPIK' ? '한국어 능력 평가 시험' :
+                                     language.name === 'JLPT' ? '일본어 능력 평가 시험' :
+                                     language.name === 'HSK' ? '중국어 능력 평가 시험' :
+                                     language.name} 시험</span>
                               {language.levels && language.levels.length > 0 && (
-                                <>
-                                  <span>레벨:</span>
-                                  <LanguageLevelSelect
-                                    value={language.level}
-                                    onChange={(e) => handleLanguageLevelChange(language.id, e.target.value)}
-                                  >
-                                    <option value="">레벨 선택</option>
-                                    {language.levels.map((level) => (
-                                      <option key={level} value={level}>
-                                        {level}
-                                      </option>
-                                    ))}
-                                  </LanguageLevelSelect>
-                                </>
+                                <LanguageLevelSelect
+                                  value={language.level}
+                                  onChange={(e) => handleLanguageLevelChange(language.id, e.target.value)}
+                                >
+                                  <option value="">레벨 선택</option>
+                                  {language.levels.map((level) => (
+                                    <option key={level} value={level}>
+                                      {level}
+                                    </option>
+                                  ))}
+                                </LanguageLevelSelect>
                               )}
                             </TimelineLanguageBody>
                           </TimelineLanguageCard>
