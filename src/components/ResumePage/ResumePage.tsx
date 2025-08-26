@@ -914,19 +914,20 @@ const NoResultsText = styled.div`
 
 // 어학 능력 레벨 선택 스타일
 const LanguageLevelSelect = styled.select`
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border: 1px solid #d1d5db;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   background: white;
   color: #374151;
-  min-height: 36px;
-  margin-left: 0.5rem;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
   
   &:focus {
     outline: none;
     border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
   }
 `;
 
@@ -1310,7 +1311,7 @@ const TimelineLanguageIcon = styled.span`
 `;
 
 const TimelineLanguageInfo = styled.div`
-  flex: 1;
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
 `;
 
 const TimelineLanguageName = styled.div`
@@ -1444,7 +1445,7 @@ const TimelineCertificationIcon = styled.span`
 `;
 
 const TimelineCertificationInfo = styled.div`
-  flex: 1;
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
 `;
 
 const TimelineCertificationName = styled.div`
@@ -1465,19 +1466,20 @@ const TimelineCertificationBody = styled.div`
 
 // 자격증 급수 선택 스타일
 const CertificationGradeSelect = styled.select`
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border: 1px solid #d1d5db;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   background: white;
   color: #374151;
-  min-height: 36px;
-  margin-left: 0.5rem;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
   
   &:focus {
     outline: none;
     border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
   }
 `;
 
@@ -1596,7 +1598,7 @@ const TimelineSkillIcon = styled.span`
 `;
 
 const TimelineSkillInfo = styled.div`
-  flex: 1;
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
 `;
 
 const TimelineSkillName = styled.div`
@@ -1617,19 +1619,20 @@ const TimelineSkillBody = styled.div`
 
 // 기술 레벨 선택 스타일
 const SkillLevelSelect = styled.select`
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border: 1px solid #d1d5db;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   background: white;
   color: #374151;
-  min-height: 36px;
-  margin-left: 0.5rem;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
   
   &:focus {
     outline: none;
     border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
   }
 `;
 
@@ -2666,15 +2669,6 @@ const ResumePage: React.FC = () => {
                                 </TimelineSkillName>
                                 <TimelineSkillCategory>{skill.category}</TimelineSkillCategory>
                               </TimelineSkillInfo>
-                              <TimelineRemoveButton
-                                onClick={() => handleSkillRemove(skill.id)}
-                                aria-label={`${skill.name} 제거`}
-                              >
-                                ×
-                              </TimelineRemoveButton>
-                            </TimelineSkillHeader>
-                            <TimelineSkillBody>
-                              <span>{skill.description}</span>
                               {skill.levels.length > 0 && (
                                 <SkillLevelSelect
                                   value={skill.level}
@@ -2688,6 +2682,16 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </SkillLevelSelect>
                               )}
+                              <div style={{ flex: 1 }}></div>
+                              <TimelineRemoveButton
+                                onClick={() => handleSkillRemove(skill.id)}
+                                aria-label={`${skill.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineSkillHeader>
+                            <TimelineSkillBody>
+                              <span>{skill.description}</span>
                             </TimelineSkillBody>
                           </TimelineSkillCard>
                         </TimelineContent>
@@ -2793,15 +2797,6 @@ const ResumePage: React.FC = () => {
                                 </TimelineCertificationName>
                                 <TimelineCertificationCategory>{certification.category}</TimelineCertificationCategory>
                               </TimelineCertificationInfo>
-                              <TimelineRemoveButton
-                                onClick={() => handleCertificationRemove(certification.id)}
-                                aria-label={`${certification.name} 제거`}
-                              >
-                                ×
-                              </TimelineRemoveButton>
-                            </TimelineCertificationHeader>
-                            <TimelineCertificationBody>
-                              <span>{certification.description}</span>
                               {certification.grades.length > 0 && (
                                 <CertificationGradeSelect
                                   value={certification.grade}
@@ -2815,6 +2810,16 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </CertificationGradeSelect>
                               )}
+                              <div style={{ flex: 1 }}></div>
+                              <TimelineRemoveButton
+                                onClick={() => handleCertificationRemove(certification.id)}
+                                aria-label={`${certification.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineCertificationHeader>
+                            <TimelineCertificationBody>
+                              <span>{certification.description}</span>
                             </TimelineCertificationBody>
                           </TimelineCertificationCard>
                         </TimelineContent>
@@ -2927,19 +2932,6 @@ const ResumePage: React.FC = () => {
                                 <TimelineLanguageName>{language.name}</TimelineLanguageName>
                                 <TimelineLanguageCategory>{language.category}</TimelineLanguageCategory>
                               </TimelineLanguageInfo>
-                              <TimelineRemoveButton
-                                onClick={() => handleLanguageRemove(language.id)}
-                                aria-label={`${language.name} 제거`}
-                              >
-                                ×
-                              </TimelineRemoveButton>
-                            </TimelineLanguageHeader>
-                            <TimelineLanguageBody>
-                              <span>{language.name === 'TOEIC' ? '영어 능력 평가 시험' :
-                                     language.name === 'TOPIK' ? '한국어 능력 평가 시험' :
-                                     language.name === 'JLPT' ? '일본어 능력 평가 시험' :
-                                     language.name === 'HSK' ? '중국어 능력 평가 시험' :
-                                     language.name} 시험</span>
                               {language.levels && language.levels.length > 0 && (
                                 <LanguageLevelSelect
                                   value={language.level}
@@ -2953,6 +2945,20 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </LanguageLevelSelect>
                               )}
+                              <div style={{ flex: 1 }}></div>
+                              <TimelineRemoveButton
+                                onClick={() => handleLanguageRemove(language.id)}
+                                aria-label={`${language.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineLanguageHeader>
+                            <TimelineLanguageBody>
+                              <span>{language.name === 'TOEIC' ? '영어 능력 평가 시험' :
+                                     language.name === 'TOPIK' ? '한국어 능력 평가 시험' :
+                                     language.name === 'JLPT' ? '일본어 능력 평가 시험' :
+                                     language.name === 'HSK' ? '중국어 능력 평가 시험' :
+                                     language.name} 시험</span>
                             </TimelineLanguageBody>
                           </TimelineLanguageCard>
                         </TimelineContent>
