@@ -11,7 +11,6 @@ import {
   JobHeader,
   DeadlineBadge,
   JobTitleSection,
-
   TabNavigation,
   TabButton,
   TabContent,
@@ -24,7 +23,6 @@ import {
   ActionButtons,
   PrimaryActionButton,
   SecondaryActionButton,
-  BackButton,
   LoadingSpinner,
   ErrorMessage
 } from '../../styles/components/JobDetailPage.styles';
@@ -46,7 +44,6 @@ const JobDetailPage: React.FC = () => {
   } = useJobDetail(id);
 
   const {
-    handleBackClick,
     handleScrapToggle: handleScrapAction,
     handleShareClick,
     handleCopyAddress,
@@ -72,13 +69,6 @@ const JobDetailPage: React.FC = () => {
           <ErrorMessage>
             <h2>{t('common.error')}</h2>
             <p>{error || t('jobDetail.jobNotFound')}</p>
-            <BackButton
-              onClick={handleBackClick}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {t('jobDetail.backButton')}
-            </BackButton>
           </ErrorMessage>
         </JobDetailContainer>
       </div>
@@ -194,15 +184,6 @@ const JobDetailPage: React.FC = () => {
 
         {/* 우측 사이드바 */}
         <Sidebar>
-          {/* 뒤로가기 버튼 */}
-          <BackButton
-            onClick={handleBackClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            ← 뒤로 가기
-          </BackButton>
-
           {/* 요약 정보 카드 */}
           <SummaryCard>
             <SummaryItem>

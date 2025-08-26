@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Job } from '../types/job';
 import { 
   copyToClipboard, 
@@ -9,12 +8,6 @@ import {
 } from '../utils/jobUtils';
 
 export const useJobActions = (job: Job | null) => {
-  const navigate = useNavigate();
-
-  // 뒤로가기
-  const handleBackClick = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
 
   // 지원하기
   const handleApplyClick = useCallback(async () => {
@@ -100,7 +93,6 @@ export const useJobActions = (job: Job | null) => {
   }, [job]);
 
   return {
-    handleBackClick,
     handleApplyClick,
     handleScrapToggle,
     handleShareClick,
