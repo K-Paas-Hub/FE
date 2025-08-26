@@ -92,7 +92,7 @@ export const useResumeForm = () => {
       } else {
         const errorMessage = response.error || '저장에 실패했습니다.';
         setError(errorMessage);
-        setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
+        setTimeout(() => setError(null), 3000); // 3초 후 자동 사라짐
         return { success: false, error: response.error };
       }
     } catch (err) {
@@ -121,7 +121,7 @@ export const useResumeForm = () => {
     if (!validateForm()) {
       const errorMessage = '입력 정보를 확인해주세요.';
       setError(errorMessage);
-      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
+      setTimeout(() => setError(null), 3000); // 3초 후 자동 사라짐
       return { success: false, error: errorMessage };
     }
 
@@ -134,13 +134,13 @@ export const useResumeForm = () => {
       } else {
         const errorMessage = response.error || '제출에 실패했습니다.';
         setError(errorMessage);
-        setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
+        setTimeout(() => setError(null), 3000); // 3초 후 자동 사라짐
         return { success: false, error: response.error };
       }
     } catch (err) {
       const errorMessage = '네트워크 오류가 발생했습니다.';
       setError(errorMessage);
-      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
+      setTimeout(() => setError(null), 3000); // 3초 후 자동 사라짐
       return { success: false, error: errorMessage };
     } finally {
       setLoading(false);
@@ -153,7 +153,7 @@ export const useResumeForm = () => {
     if (file.size > RESUME_CONSTANTS.maxFileSize) {
       const errorMessage = '파일 크기가 10MB를 초과합니다.';
       setError(errorMessage);
-      setTimeout(() => setError(null), 5000); // 5초 후 자동 사라짐
+      setTimeout(() => setError(null), 3000); // 3초 후 자동 사라짐
       return { success: false, error: errorMessage };
     }
 

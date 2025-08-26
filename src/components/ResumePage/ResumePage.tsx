@@ -114,93 +114,93 @@ const visaTypeOptions = [
 // 자격증 데이터
 const certificationData = [
   // IT/개발 관련
-  { id: '1', name: '정보처리기사', category: 'IT/개발', description: '정보처리 관련 국가기술자격증' },
-  { id: '2', name: '컴퓨터활용능력', category: 'IT/개발', description: '컴퓨터 활용 능력 평가 자격증' },
-  { id: '3', name: 'SQLD', category: 'IT/개발', description: 'SQL 개발자 자격증' },
-  { id: '4', name: 'SQLP', category: 'IT/개발', description: 'SQL 전문가 자격증' },
-  { id: '5', name: 'ADsP', category: 'IT/개발', description: '데이터분석 준전문가' },
-  { id: '6', name: 'ADP', category: 'IT/개발', description: '데이터분석 전문가' },
-  { id: '7', name: 'ADsP', category: 'IT/개발', description: '데이터분석 준전문가' },
-  { id: '8', name: '빅데이터분석기사', category: 'IT/개발', description: '빅데이터 분석 국가기술자격증' },
-  { id: '9', name: 'AWS Solutions Architect', category: 'IT/개발', description: 'AWS 솔루션스 아키텍트 자격증' },
-  { id: '10', name: 'AWS Developer', category: 'IT/개발', description: 'AWS 개발자 자격증' },
-  { id: '11', name: 'AWS SysOps Administrator', category: 'IT/개발', description: 'AWS 시스템 운영 관리자 자격증' },
-  { id: '12', name: 'Microsoft Azure Administrator', category: 'IT/개발', description: 'Microsoft Azure 관리자 자격증' },
-  { id: '13', name: 'Microsoft Azure Developer', category: 'IT/개발', description: 'Microsoft Azure 개발자 자격증' },
-  { id: '14', name: 'Google Cloud Professional', category: 'IT/개발', description: 'Google Cloud 전문가 자격증' },
-  { id: '15', name: 'PMP', category: 'IT/개발', description: '프로젝트 관리 전문가 자격증' },
-  { id: '16', name: 'PRINCE2', category: 'IT/개발', description: '프로젝트 관리 방법론 자격증' },
-  { id: '17', name: 'ITIL', category: 'IT/개발', description: 'IT 서비스 관리 자격증' },
-  { id: '18', name: 'CISSP', category: 'IT/개발', description: '정보보안 전문가 자격증' },
-  { id: '19', name: 'CEH', category: 'IT/개발', description: '윤리적 해커 자격증' },
-  { id: '20', name: 'CompTIA Security+', category: 'IT/개발', description: '정보보안 기초 자격증' },
+  { id: '1', name: '정보처리기사', category: 'IT/개발', description: '정보처리 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '2', name: '컴퓨터활용능력', category: 'IT/개발', description: '컴퓨터 활용 능력 평가 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '3', name: 'SQLD', category: 'IT/개발', description: 'SQL 개발자 자격증', grades: ['합격', '불합격'] },
+  { id: '4', name: 'SQLP', category: 'IT/개발', description: 'SQL 전문가 자격증', grades: ['합격', '불합격'] },
+  { id: '5', name: 'ADsP', category: 'IT/개발', description: '데이터분석 준전문가', grades: ['합격', '불합격'] },
+  { id: '6', name: 'ADP', category: 'IT/개발', description: '데이터분석 전문가', grades: ['합격', '불합격'] },
+  { id: '7', name: 'ADsP', category: 'IT/개발', description: '데이터분석 준전문가', grades: ['합격', '불합격'] },
+  { id: '8', name: '빅데이터분석기사', category: 'IT/개발', description: '빅데이터 분석 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '9', name: 'AWS Solutions Architect', category: 'IT/개발', description: 'AWS 솔루션스 아키텍트 자격증', grades: ['Associate', 'Professional'] },
+  { id: '10', name: 'AWS Developer', category: 'IT/개발', description: 'AWS 개발자 자격증', grades: ['Associate', 'Professional'] },
+  { id: '11', name: 'AWS SysOps Administrator', category: 'IT/개발', description: 'AWS 시스템 운영 관리자 자격증', grades: ['Associate', 'Professional'] },
+  { id: '12', name: 'Microsoft Azure Administrator', category: 'IT/개발', description: 'Microsoft Azure 관리자 자격증', grades: ['AZ-104', 'AZ-303', 'AZ-304'] },
+  { id: '13', name: 'Microsoft Azure Developer', category: 'IT/개발', description: 'Microsoft Azure 개발자 자격증', grades: ['AZ-204', 'AZ-400'] },
+  { id: '14', name: 'Google Cloud Professional', category: 'IT/개발', description: 'Google Cloud 전문가 자격증', grades: ['Associate', 'Professional'] },
+  { id: '15', name: 'PMP', category: 'IT/개발', description: '프로젝트 관리 전문가 자격증', grades: ['합격', '불합격'] },
+  { id: '16', name: 'PRINCE2', category: 'IT/개발', description: '프로젝트 관리 방법론 자격증', grades: ['Foundation', 'Practitioner'] },
+  { id: '17', name: 'ITIL', category: 'IT/개발', description: 'IT 서비스 관리 자격증', grades: ['Foundation', 'Intermediate', 'Expert'] },
+  { id: '18', name: 'CISSP', category: 'IT/개발', description: '정보보안 전문가 자격증', grades: ['합격', '불합격'] },
+  { id: '19', name: 'CEH', category: 'IT/개발', description: '윤리적 해커 자격증', grades: ['합격', '불합격'] },
+  { id: '20', name: 'CompTIA Security+', category: 'IT/개발', description: '정보보안 기초 자격증', grades: ['합격', '불합격'] },
   
   // 언어 관련
-  { id: '21', name: 'TOEIC', category: '언어', description: '영어 능력 평가 시험' },
-  { id: '22', name: 'TOEFL', category: '언어', description: '영어 능력 평가 시험' },
-  { id: '23', name: 'IELTS', category: '언어', description: '영어 능력 평가 시험' },
-  { id: '24', name: 'TOPIK', category: '언어', description: '한국어 능력 평가 시험' },
-  { id: '25', name: 'JLPT', category: '언어', description: '일본어 능력 평가 시험' },
-  { id: '26', name: 'HSK', category: '언어', description: '중국어 능력 평가 시험' },
-  { id: '27', name: 'DELE', category: '언어', description: '스페인어 능력 평가 시험' },
-  { id: '28', name: 'DELF', category: '언어', description: '프랑스어 능력 평가 시험' },
-  { id: '29', name: 'TestDaF', category: '언어', description: '독일어 능력 평가 시험' },
-  { id: '30', name: 'CELI', category: '언어', description: '이탈리아어 능력 평가 시험' },
+  { id: '21', name: 'TOEIC', category: '언어', description: '영어 능력 평가 시험', grades: ['300-400', '400-500', '500-600', '600-700', '700-800', '800-900', '900-990'] },
+  { id: '22', name: 'TOEFL', category: '언어', description: '영어 능력 평가 시험', grades: ['iBT 60-80', 'iBT 80-100', 'iBT 100-120'] },
+  { id: '23', name: 'IELTS', category: '언어', description: '영어 능력 평가 시험', grades: ['4.0-5.0', '5.0-6.0', '6.0-7.0', '7.0-8.0', '8.0-9.0'] },
+  { id: '24', name: 'TOPIK', category: '언어', description: '한국어 능력 평가 시험', grades: ['1급', '2급', '3급', '4급', '5급', '6급'] },
+  { id: '25', name: 'JLPT', category: '언어', description: '일본어 능력 평가 시험', grades: ['N5', 'N4', 'N3', 'N2', 'N1'] },
+  { id: '26', name: 'HSK', category: '언어', description: '중국어 능력 평가 시험', grades: ['1급', '2급', '3급', '4급', '5급', '6급'] },
+  { id: '27', name: 'DELE', category: '언어', description: '스페인어 능력 평가 시험', grades: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
+  { id: '28', name: 'DELF', category: '언어', description: '프랑스어 능력 평가 시험', grades: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
+  { id: '29', name: 'TestDaF', category: '언어', description: '독일어 능력 평가 시험', grades: ['TDN 3', 'TDN 4', 'TDN 5'] },
+  { id: '30', name: 'CELI', category: '언어', description: '이탈리아어 능력 평가 시험', grades: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
   
   // 경영/사무 관련
-  { id: '31', name: '사무자동화산업기사', category: '경영/사무', description: '사무 자동화 관련 국가기술자격증' },
-  { id: '32', name: '컴퓨터활용능력', category: '경영/사무', description: '컴퓨터 활용 능력 평가 자격증' },
-  { id: '33', name: '워드프로세서', category: '경영/사무', description: '워드프로세서 자격증' },
-  { id: '34', name: '컴퓨터활용능력', category: '경영/사무', description: '컴퓨터 활용 능력 평가 자격증' },
-  { id: '35', name: '한글속기', category: '경영/사무', description: '한글 속기 자격증' },
-  { id: '36', name: '비서', category: '경영/사무', description: '비서 자격증' },
-  { id: '37', name: '사무관리', category: '경영/사무', description: '사무 관리 자격증' },
-  { id: '38', name: '경영지도사', category: '경영/사무', description: '경영 지도 자격증' },
-  { id: '39', name: '세무사', category: '경영/사무', description: '세무 관련 전문 자격증' },
-  { id: '40', name: '관세사', category: '경영/사무', description: '관세 관련 전문 자격증' },
+  { id: '31', name: '사무자동화산업기사', category: '경영/사무', description: '사무 자동화 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '32', name: '컴퓨터활용능력', category: '경영/사무', description: '컴퓨터 활용 능력 평가 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '33', name: '워드프로세서', category: '경영/사무', description: '워드프로세서 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '34', name: '컴퓨터활용능력', category: '경영/사무', description: '컴퓨터 활용 능력 평가 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '35', name: '한글속기', category: '경영/사무', description: '한글 속기 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '36', name: '비서', category: '경영/사무', description: '비서 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '37', name: '사무관리', category: '경영/사무', description: '사무 관리 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '38', name: '경영지도사', category: '경영/사무', description: '경영 지도 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '39', name: '세무사', category: '경영/사무', description: '세무 관련 전문 자격증', grades: ['합격', '불합격'] },
+  { id: '40', name: '관세사', category: '경영/사무', description: '관세 관련 전문 자격증', grades: ['합격', '불합격'] },
   
   // 건설/기술 관련
-  { id: '41', name: '건축기사', category: '건설/기술', description: '건축 관련 국가기술자격증' },
-  { id: '42', name: '토목기사', category: '건설/기술', description: '토목 관련 국가기술자격증' },
-  { id: '43', name: '전기기사', category: '건설/기술', description: '전기 관련 국가기술자격증' },
-  { id: '44', name: '기계기사', category: '건설/기술', description: '기계 관련 국가기술자격증' },
-  { id: '45', name: '화공기사', category: '건설/기술', description: '화학공학 관련 국가기술자격증' },
-  { id: '46', name: '산업안전기사', category: '건설/기술', description: '산업안전 관련 국가기술자격증' },
-  { id: '47', name: '건설안전기사', category: '건설/기술', description: '건설안전 관련 국가기술자격증' },
-  { id: '48', name: '소방설비기사', category: '건설/기술', description: '소방설비 관련 국가기술자격증' },
-  { id: '49', name: '조경기사', category: '건설/기술', description: '조경 관련 국가기술자격증' },
-  { id: '50', name: '측량및지형공간정보기사', category: '건설/기술', description: '측량 관련 국가기술자격증' },
+  { id: '41', name: '건축기사', category: '건설/기술', description: '건축 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '42', name: '토목기사', category: '건설/기술', description: '토목 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '43', name: '전기기사', category: '건설/기술', description: '전기 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '44', name: '기계기사', category: '건설/기술', description: '기계 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '45', name: '화공기사', category: '건설/기술', description: '화학공학 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '46', name: '산업안전기사', category: '건설/기술', description: '산업안전 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '47', name: '건설안전기사', category: '건설/기술', description: '건설안전 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '48', name: '소방설비기사', category: '건설/기술', description: '소방설비 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '49', name: '조경기사', category: '건설/기술', description: '조경 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '50', name: '측량및지형공간정보기사', category: '건설/기술', description: '측량 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
   
   // 제조/생산 관련
-  { id: '51', name: '용접기사', category: '제조/생산', description: '용접 관련 국가기술자격증' },
-  { id: '52', name: '금형기사', category: '제조/생산', description: '금형 관련 국가기술자격증' },
-  { id: '53', name: '사출금형기사', category: '제조/생산', description: '사출금형 관련 국가기술자격증' },
-  { id: '54', name: '프레스금형기사', category: '제조/생산', description: '프레스금형 관련 국가기술자격증' },
-  { id: '55', name: '절삭기사', category: '제조/생산', description: '절삭 관련 국가기술자격증' },
-  { id: '56', name: '기계조립기사', category: '제조/생산', description: '기계조립 관련 국가기술자격증' },
-  { id: '57', name: '정밀측정기사', category: '제조/생산', description: '정밀측정 관련 국가기술자격증' },
-  { id: '58', name: '품질경영기사', category: '제조/생산', description: '품질경영 관련 국가기술자격증' },
-  { id: '59', name: '생산관리기사', category: '제조/생산', description: '생산관리 관련 국가기술자격증' },
-  { id: '60', name: '자동화기사', category: '제조/생산', description: '자동화 관련 국가기술자격증' },
+  { id: '51', name: '용접기사', category: '제조/생산', description: '용접 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '52', name: '금형기사', category: '제조/생산', description: '금형 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '53', name: '사출금형기사', category: '제조/생산', description: '사출금형 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '54', name: '프레스금형기사', category: '제조/생산', description: '프레스금형 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '55', name: '절삭기사', category: '제조/생산', description: '절삭 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '56', name: '기계조립기사', category: '제조/생산', description: '기계조립 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '57', name: '정밀측정기사', category: '제조/생산', description: '정밀측정 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '58', name: '품질경영기사', category: '제조/생산', description: '품질경영 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '59', name: '생산관리기사', category: '제조/생산', description: '생산관리 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
+  { id: '60', name: '자동화기사', category: '제조/생산', description: '자동화 관련 국가기술자격증', grades: ['1급', '2급', '3급'] },
   
   // 서비스/영업 관련
-  { id: '61', name: '여행상품개발', category: '서비스/영업', description: '여행상품개발 자격증' },
-  { id: '62', name: '관광통역안내사', category: '서비스/영업', description: '관광통역안내사 자격증' },
-  { id: '63', name: '호텔경영사', category: '서비스/영업', description: '호텔경영사 자격증' },
-  { id: '64', name: '외식경영사', category: '서비스/영업', description: '외식경영사 자격증' },
-  { id: '65', name: '미용사', category: '서비스/영업', description: '미용사 자격증' },
-  { id: '66', name: '이미용사', category: '서비스/영업', description: '이미용사 자격증' },
-  { id: '67', name: '네일아트', category: '서비스/영업', description: '네일아트 자격증' },
-  { id: '68', name: '피부관리사', category: '서비스/영업', description: '피부관리사 자격증' },
-  { id: '69', name: '스포츠마사지', category: '서비스/영업', description: '스포츠마사지 자격증' },
-  { id: '70', name: '요양보호사', category: '서비스/영업', description: '요양보호사 자격증' },
+  { id: '61', name: '여행상품개발', category: '서비스/영업', description: '여행상품개발 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '62', name: '관광통역안내사', category: '서비스/영업', description: '관광통역안내사 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '63', name: '호텔경영사', category: '서비스/영업', description: '호텔경영사 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '64', name: '외식경영사', category: '서비스/영업', description: '외식경영사 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '65', name: '미용사', category: '서비스/영업', description: '미용사 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '66', name: '이미용사', category: '서비스/영업', description: '이미용사 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '67', name: '네일아트', category: '서비스/영업', description: '네일아트 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '68', name: '피부관리사', category: '서비스/영업', description: '피부관리사 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '69', name: '스포츠마사지', category: '서비스/영업', description: '스포츠마사지 자격증', grades: ['1급', '2급', '3급'] },
+  { id: '70', name: '요양보호사', category: '서비스/영업', description: '요양보호사 자격증', grades: ['1급', '2급', '3급'] },
   
   // 기타
-  { id: '71', name: '운전면허', category: '기타', description: '운전면허증' },
-  { id: '72', name: '포크레인운전기능사', category: '기타', description: '포크레인운전기능사 자격증' },
-  { id: '73', name: '지게차운전기능사', category: '기타', description: '지게차운전기능사 자격증' },
-  { id: '74', name: '굴삭기운전기능사', category: '기타', description: '굴삭기운전기능사 자격증' },
-  { id: '75', name: '기중기운전기능사', category: '기타', description: '기중기운전기능사 자격증' }
+  { id: '71', name: '운전면허', category: '기타', description: '운전면허증', grades: ['1종 대형', '1종 보통', '2종 보통', '2종 소형'] },
+  { id: '72', name: '포크레인운전기능사', category: '기타', description: '포크레인운전기능사 자격증', grades: ['합격', '불합격'] },
+  { id: '73', name: '지게차운전기능사', category: '기타', description: '지게차운전기능사 자격증', grades: ['합격', '불합격'] },
+  { id: '74', name: '굴삭기운전기능사', category: '기타', description: '굴삭기운전기능사 자격증', grades: ['합격', '불합격'] },
+  { id: '75', name: '기중기운전기능사', category: '기타', description: '기중기운전기능사 자격증', grades: ['합격', '불합격'] }
 ];
 
 // 어학 능력 데이터
@@ -1398,6 +1398,24 @@ const TimelineCertificationBody = styled.div`
   gap: 0.5rem;
 `;
 
+// 자격증 급수 선택 스타일
+const CertificationGradeSelect = styled.select`
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: white;
+  color: #374151;
+  min-height: 36px;
+  margin-left: 0.5rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+  }
+`;
+
 const ResumePage: React.FC = () => {
   const {
     formData,
@@ -1412,7 +1430,7 @@ const ResumePage: React.FC = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [certificationSearch, setCertificationSearch] = useState('');
   const [showCertificationDropdown, setShowCertificationDropdown] = useState(false);
-  const [selectedCertifications, setSelectedCertifications] = useState<Array<{id: string, name: string, category: string, description: string}>>([]);
+  const [selectedCertifications, setSelectedCertifications] = useState<Array<{id: string, name: string, category: string, description: string, grade: string, grades: string[]}>>([]);
   
   // 어학 능력 상태
   const [languageSearch, setLanguageSearch] = useState('');
@@ -1440,10 +1458,19 @@ const ResumePage: React.FC = () => {
   // 저장된 자격증 데이터를 selectedCertifications로 변환
   React.useEffect(() => {
     if (formData.certifications) {
-      const certificationNames = formData.certifications.split(', ').filter(name => name.trim());
-      const certifications = certificationNames.map(name => {
-        const foundCert = certificationData.find(cert => cert.name === name.trim());
-        return foundCert || { id: `custom-${name}`, name: name.trim(), category: '기타', description: '기타 자격증' };
+      const certificationEntries = formData.certifications.split(', ').filter(entry => entry.trim());
+      const certifications = certificationEntries.map(entry => {
+        // "자격증명 급수" 형태에서 분리
+        const parts = entry.trim().split(' ');
+        const certificationName = parts[0];
+        const grade = parts.slice(1).join(' ');
+        
+        const foundCert = certificationData.find(cert => cert.name === certificationName);
+        if (foundCert) {
+          return { ...foundCert, grade: grade || '' };
+        } else {
+          return { id: `custom-${certificationName}`, name: certificationName, category: '기타', description: '기타 자격증', grade: grade || '', grades: [] };
+        }
       });
       setSelectedCertifications(certifications);
     }
@@ -1557,13 +1584,13 @@ const ResumePage: React.FC = () => {
   });
 
   // 자격증 선택
-  const handleCertificationSelect = (certification: {id: string, name: string, category: string, description: string}) => {
+  const handleCertificationSelect = (certification: {id: string, name: string, category: string, description: string, grades: string[]}) => {
     if (!selectedCertifications.find(cert => cert.id === certification.id)) {
-      const newSelectedCertifications = [...selectedCertifications, certification];
+      const newSelectedCertifications = [...selectedCertifications, { ...certification, grade: '' }];
       setSelectedCertifications(newSelectedCertifications);
       
       // formData에 자격증 문자열로 저장
-      const certificationNames = newSelectedCertifications.map(cert => cert.name).join(', ');
+      const certificationNames = newSelectedCertifications.map(cert => cert.grade ? `${cert.name} ${cert.grade}` : cert.name).join(', ');
       handleInputChange({
         target: { name: 'certifications', value: certificationNames }
       } as React.ChangeEvent<HTMLInputElement>);
@@ -1578,7 +1605,21 @@ const ResumePage: React.FC = () => {
     setSelectedCertifications(newSelectedCertifications);
     
     // formData에 자격증 문자열로 업데이트
-    const certificationNames = newSelectedCertifications.map(cert => cert.name).join(', ');
+    const certificationNames = newSelectedCertifications.map(cert => cert.grade ? `${cert.name} ${cert.grade}` : cert.name).join(', ');
+    handleInputChange({
+      target: { name: 'certifications', value: certificationNames }
+    } as React.ChangeEvent<HTMLInputElement>);
+  };
+
+  // 자격증 급수 변경
+  const handleCertificationGradeChange = (certificationId: string, grade: string) => {
+    const newSelectedCertifications = selectedCertifications.map(certification => 
+      certification.id === certificationId ? { ...certification, grade } : certification
+    );
+    setSelectedCertifications(newSelectedCertifications);
+    
+    // formData에 자격증 문자열로 업데이트
+    const certificationNames = newSelectedCertifications.map(cert => cert.grade ? `${cert.name} ${cert.grade}` : cert.name).join(', ');
     handleInputChange({
       target: { name: 'certifications', value: certificationNames }
     } as React.ChangeEvent<HTMLInputElement>);
@@ -2294,7 +2335,7 @@ const ResumePage: React.FC = () => {
                             {certification.description}
                           </CertificationDescription>
                           <CertificationCardFooter>
-                            전문 자격증
+                            {certification.grades.length > 0 ? `${certification.grades.length}개 급수 지원` : '전문 자격증'}
                           </CertificationCardFooter>
                         </CertificationCardBody>
                       </CertificationCard>
@@ -2325,7 +2366,10 @@ const ResumePage: React.FC = () => {
                                  certification.category === '서비스/영업' ? '🎯' : '🔧'}
                               </TimelineCertificationIcon>
                               <TimelineCertificationInfo>
-                                <TimelineCertificationName>{certification.name}</TimelineCertificationName>
+                                <TimelineCertificationName>
+                                  {certification.name}
+                                  {certification.grade && <span style={{ color: '#4ade80', fontWeight: '600' }}> {certification.grade}</span>}
+                                </TimelineCertificationName>
                                 <TimelineCertificationCategory>{certification.category}</TimelineCertificationCategory>
                               </TimelineCertificationInfo>
                               <TimelineRemoveButton
@@ -2337,6 +2381,19 @@ const ResumePage: React.FC = () => {
                             </TimelineCertificationHeader>
                             <TimelineCertificationBody>
                               <span>{certification.description}</span>
+                              {certification.grades.length > 0 && (
+                                <CertificationGradeSelect
+                                  value={certification.grade}
+                                  onChange={(e) => handleCertificationGradeChange(certification.id, e.target.value)}
+                                >
+                                  <option value="">급수 선택</option>
+                                  {certification.grades.map((grade) => (
+                                    <option key={grade} value={grade}>
+                                      {grade}
+                                    </option>
+                                  ))}
+                                </CertificationGradeSelect>
+                              )}
                             </TimelineCertificationBody>
                           </TimelineCertificationCard>
                         </TimelineContent>
