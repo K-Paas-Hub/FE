@@ -227,10 +227,12 @@ export const ButtonGroup = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
+  justify-content: flex-end;
   
   ${theme.media.tablet} {
     flex-direction: column;
     gap: 0.5rem;
+    justify-content: flex-start;
   }
 `;
 
