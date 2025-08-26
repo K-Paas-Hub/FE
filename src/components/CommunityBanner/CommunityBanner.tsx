@@ -1,47 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import {
+  TopBanner,
+  BannerText,
+  BannerClose
+} from '../../styles/components/CommunityBanner.styles';
 
-const TopBanner = styled.div`
-  background: #1e293b;
-  color: white;
-  padding: 0.8rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  
-  @media (max-width: 768px) {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-`;
 
-const BannerText = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const BannerClose = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  min-width: 44px;
-`;
 
 interface CommunityBannerProps {
   onClose?: () => void;

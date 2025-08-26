@@ -1,68 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { ANIMATIONS } from '../../constants';
 import { authService, supabase } from '../../services/authService';
+import {
+  CallbackContainer,
+  CallbackCard,
+  LoadingSpinner,
+  Title,
+  Message,
+  ErrorMessage,
+  SuccessMessage
+} from '../../styles/components/AuthCallback.styles';
 
-const CallbackContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #f8f9fa;
-  padding: 2rem;
-`;
 
-const CallbackCard = styled(motion.div)`
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 400px;
-  width: 100%;
-`;
-
-const LoadingSpinner = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid ${COLORS.primary};
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-
-const Title = styled.h2`
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-`;
-
-const Message = styled.p`
-  color: #666;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-`;
-
-const ErrorMessage = styled.p`
-  color: #ef4444;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-`;
-
-const SuccessMessage = styled.p`
-  color: ${COLORS.primary};
-  margin-bottom: 1rem;
-  line-height: 1.5;
-`;
 
 const AuthCallback: React.FC = () => {
   const navigate = useNavigate();
