@@ -213,6 +213,17 @@
       }
     }
   },
+  "header": {
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "Về chúng tôi",
+      "features": "Tính năng",
+      "partners": "Đối tác"
+    }
+  },
   "sidebar": {
     "items": {
       "hero": "Giới thiệu",

@@ -557,6 +557,17 @@
       }
     }
   },
+  "header": {
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "About Us",
+      "features": "Features",
+      "partners": "Partners"
+    }
+  },
   "sidebar": {
     "items": {
       "hero": "Intro",

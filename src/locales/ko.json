@@ -573,6 +573,17 @@
       }
     }
   },
+  "header": {
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "소개",
+      "features": "기능",
+      "partners": "파트너"
+    }
+  },
   "sidebar": {
     "items": {
       "hero": "소개",
