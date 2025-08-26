@@ -104,7 +104,7 @@ const MainHeaderComponent: React.FC = () => {
 
   // 근로계약서 관련 페이지인지 확인
   const isContractPage = () => {
-    return location.pathname === '/contract-tutorial' || location.pathname === '/contract-analysis';
+    return location.pathname === '/contract-tutorial' || location.pathname === '/contract-analysis' || location.pathname === '/contract-quiz';
   };
 
   return (
@@ -232,6 +232,9 @@ const MainHeaderComponent: React.FC = () => {
                   </DropdownItem>
                   <DropdownItem to="/contract-analysis">
                     {t('header.contractAnalysis')}
+                  </DropdownItem>
+                  <DropdownItem to="/contract-quiz">
+                    {t('header.contractQuiz')}
                   </DropdownItem>
                 </DropdownMenu>
               </DropdownContainer>

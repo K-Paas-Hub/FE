@@ -284,6 +284,7 @@
     "employmentContract": "Employment Contract",
     "writingGuide": "📝 Writing Guide",
     "contractAnalysis": "🔍 Contract Analysis",
+    "contractQuiz": "📝 Contract Quiz",
     "aiInterview": "AI Mock Interview",
     "logo": {
       "fair": "Fair",
@@ -484,6 +485,102 @@
       "contractPeriod": {
         "title": "✅ Contract Period Specified",
         "content": "The contract period is clearly specified."
+      }
+    }
+  },
+  "contractQuiz": {
+    "title": "Employment Contract Quiz",
+    "description": "Test your understanding of employment contracts. Check important content related to employment contract writing through 7 questions.",
+    "instructions": "Choose the most appropriate answer for each question. After solving all questions, you can check your score and detailed results.",
+    "totalQuestions": "Total {{count}} questions",
+    "startButton": "Start Quiz",
+    "progress": "{{current}} / {{total}}",
+    "questionNumber": "Question {{number}}",
+    "previousButton": "Previous",
+    "nextButton": "Next",
+    "finishButton": "Finish Quiz",
+    "results": {
+      "title": "Quiz Results",
+      "score": "Final Score",
+      "excellent": "Excellent! You have a very high understanding of employment contracts.",
+      "good": "Good! You have a basic understanding of employment contracts.",
+      "fair": "Fair. Build more knowledge about employment contracts.",
+      "needsImprovement": "Needs improvement. Please review the employment contract guide again.",
+      "correctAnswers": "Correct Answers",
+      "timeSpent": "Time Spent",
+      "accuracy": "Accuracy",
+      "restartButton": "Start Over"
+    },
+    "questions": {
+      "q1": {
+        "question": "What is the most appropriate expression when specifying work hours in an employment contract?",
+        "options": [
+          "Work hours are from 9:00 AM to 6:00 PM, with 40 hours per week",
+          "Work hours follow company regulations",
+          "Work hours may be adjusted according to work situation",
+          "Work hours may include overtime when necessary"
+        ],
+        "explanation": "Work hours must be written specifically and clearly. Vague expressions like 'follow company regulations' can cause disputes."
+      },
+      "q2": {
+        "question": "What is the base salary for a worker with an annual salary of 30 million won?",
+        "options": [
+          "2,000,000 won",
+          "2,300,000 won",
+          "2,500,000 won",
+          "3,000,000 won"
+        ],
+        "explanation": "One-twelfth of 30 million won is 2.5 million won. This should be paid as base salary, and additional allowances should be specified separately."
+      },
+      "q3": {
+        "question": "How many hours is the legal work time per day?",
+        "options": [
+          "6 hours",
+          "8 hours",
+          "10 hours",
+          "12 hours"
+        ],
+        "explanation": "According to the Labor Standards Act, legal work time is 8 hours per day and 40 hours per week. Hours exceeding this are considered overtime."
+      },
+      "q4": {
+        "question": "What penalty is imposed for not writing an employment contract?",
+        "options": [
+          "Warning",
+          "Fine of 1 million won",
+          "Fine of 3 million won",
+          "Fine of up to 5 million won"
+        ],
+        "explanation": "A fine of up to 5 million won is imposed for not concluding an employment contract in writing or not providing a copy to the worker."
+      },
+      "q5": {
+        "question": "What is the maximum contract period for fixed-term workers?",
+        "options": [
+          "1 year",
+          "2 years",
+          "3 years",
+          "No limit"
+        ],
+        "explanation": "The contract period for fixed-term workers can be up to 2 years. If it exceeds 2 years, they must be converted to regular workers."
+      },
+      "q6": {
+        "question": "What percentage of attendance is required to receive annual paid leave?",
+        "options": [
+          "80%",
+          "85%",
+          "90%",
+          "95%"
+        ],
+        "explanation": "Workers can receive 15 days of annual paid leave if they attend 80% or more for one year."
+      },
+      "q7": {
+        "question": "What is the maximum weekly overtime limit?",
+        "options": [
+          "8 hours",
+          "10 hours",
+          "12 hours",
+          "No limit"
+        ],
+        "explanation": "According to Article 53 of the Labor Standards Act, weekly overtime is limited to a maximum of 12 hours. Exceeding this constitutes a legal violation."
       }
     }
   },

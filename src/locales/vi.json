@@ -73,6 +73,7 @@
     "employmentContract": "Hợp đồng",
     "writingGuide": "📝 Hướng dẫn",
     "contractAnalysis": "🔍 Phân tích",
+    "contractQuiz": "📝 Bài kiểm tra",
     "aiInterview": "Phỏng vấn AI",
     "logo": {
       "fair": "Fair",
@@ -269,6 +270,102 @@
         "category": "JOB"
       }
     ]
+  },
+  "contractQuiz": {
+    "title": "Bài Kiểm Tra Hợp Đồng Lao Động",
+    "description": "Kiểm tra hiểu biết của bạn về hợp đồng lao động. Kiểm tra nội dung quan trọng liên quan đến việc viết hợp đồng lao động thông qua 7 câu hỏi.",
+    "instructions": "Chọn câu trả lời phù hợp nhất cho mỗi câu hỏi. Sau khi trả lời tất cả câu hỏi, bạn có thể xem điểm số và kết quả chi tiết.",
+    "totalQuestions": "Tổng cộng {{count}} câu hỏi",
+    "startButton": "Bắt Đầu Kiểm Tra",
+    "progress": "{{current}} / {{total}}",
+    "questionNumber": "Câu hỏi {{number}}",
+    "previousButton": "Trước",
+    "nextButton": "Tiếp",
+    "finishButton": "Hoàn Thành Kiểm Tra",
+    "results": {
+      "title": "Kết Quả Kiểm Tra",
+      "score": "Điểm Cuối Cùng",
+      "excellent": "Xuất sắc! Bạn có hiểu biết rất cao về hợp đồng lao động.",
+      "good": "Tốt! Bạn có hiểu biết cơ bản về hợp đồng lao động.",
+      "fair": "Trung bình. Hãy tích lũy thêm kiến thức về hợp đồng lao động.",
+      "needsImprovement": "Cần cải thiện. Vui lòng xem lại hướng dẫn hợp đồng lao động.",
+      "correctAnswers": "Câu Trả Lời Đúng",
+      "timeSpent": "Thời Gian Sử Dụng",
+      "accuracy": "Độ Chính Xác",
+      "restartButton": "Bắt Đầu Lại"
+    },
+    "questions": {
+      "q1": {
+        "question": "Cách diễn đạt phù hợp nhất khi quy định giờ làm việc trong hợp đồng lao động là gì?",
+        "options": [
+          "Giờ làm việc từ 9:00 sáng đến 6:00 chiều, 40 giờ mỗi tuần",
+          "Giờ làm việc theo quy định của công ty",
+          "Giờ làm việc có thể điều chỉnh theo tình hình công việc",
+          "Giờ làm việc có thể bao gồm làm thêm giờ khi cần thiết"
+        ],
+        "explanation": "Giờ làm việc phải được ghi cụ thể và rõ ràng. Cách diễn đạt mơ hồ như 'theo quy định của công ty' có thể gây tranh chấp."
+      },
+      "q2": {
+        "question": "Lương cơ bản của người lao động có lương năm 30 triệu won là bao nhiêu?",
+        "options": [
+          "2,000,000 won",
+          "2,300,000 won",
+          "2,500,000 won",
+          "3,000,000 won"
+        ],
+        "explanation": "Một phần mười hai của 30 triệu won là 2.5 triệu won. Đây nên được trả làm lương cơ bản, và các khoản phụ cấp bổ sung nên được quy định riêng."
+      },
+      "q3": {
+        "question": "Thời gian làm việc hợp pháp mỗi ngày là bao nhiêu giờ?",
+        "options": [
+          "6 giờ",
+          "8 giờ",
+          "10 giờ",
+          "12 giờ"
+        ],
+        "explanation": "Theo Luật Tiêu Chuẩn Lao Động, thời gian làm việc hợp pháp là 8 giờ mỗi ngày và 40 giờ mỗi tuần. Thời gian vượt quá được coi là làm thêm giờ."
+      },
+      "q4": {
+        "question": "Hình phạt nào được áp dụng khi không viết hợp đồng lao động?",
+        "options": [
+          "Cảnh cáo",
+          "Phạt tiền 1 triệu won",
+          "Phạt tiền 3 triệu won",
+          "Phạt tiền tối đa 5 triệu won"
+        ],
+        "explanation": "Phạt tiền tối đa 5 triệu won được áp dụng khi không ký kết hợp đồng lao động bằng văn bản hoặc không cung cấp bản sao cho người lao động."
+      },
+      "q5": {
+        "question": "Thời hạn hợp đồng tối đa cho người lao động có thời hạn là bao nhiêu năm?",
+        "options": [
+          "1 năm",
+          "2 năm",
+          "3 năm",
+          "Không giới hạn"
+        ],
+        "explanation": "Thời hạn hợp đồng cho người lao động có thời hạn có thể lên đến 2 năm. Nếu vượt quá 2 năm, họ phải được chuyển đổi thành nhân viên chính thức."
+      },
+      "q6": {
+        "question": "Tỷ lệ đi làm bao nhiêu phần trăm để được nhận nghỉ phép có lương hàng năm?",
+        "options": [
+          "80%",
+          "85%",
+          "90%",
+          "95%"
+        ],
+        "explanation": "Người lao động có thể nhận 15 ngày nghỉ phép có lương hàng năm nếu đi làm 80% trở lên trong một năm."
+      },
+      "q7": {
+        "question": "Giới hạn làm thêm giờ tối đa mỗi tuần là bao nhiêu giờ?",
+        "options": [
+          "8 giờ",
+          "10 giờ",
+          "12 giờ",
+          "Không giới hạn"
+        ],
+        "explanation": "Theo Điều 53 của Luật Tiêu Chuẩn Lao Động, làm thêm giờ hàng tuần bị giới hạn tối đa 12 giờ. Vượt quá điều này cấu thành vi phạm pháp luật."
+      }
+    }
   },
   "contractTutorial": {
     "sections": {

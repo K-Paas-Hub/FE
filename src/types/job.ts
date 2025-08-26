@@ -32,10 +32,18 @@ export interface Job {
     founded: string;
     website: string;
   };
+  
+  // 새로운 2컬럼 레이아웃용 필드들
+  contractType?: '정규직' | '계약직' | '인턴';
+  workType?: '전사근무' | '재택근무' | '혼합근무';
+  workDays?: string[]; // ['월', '화', '수', '목', '금']
+  workHours?: string; // '09:00 ~ 18:00'
+  salaryType?: '면접 후 결정' | '연봉' | '시급';
+  address?: string;
+  isScrapped?: boolean;
 }
 
 // API 응답 타입
-export type JobResponse = ApiResponse<Job>;
 export type JobsResponse = ApiResponse<Job[]>;
 
 // 컴포넌트 Props 타입
@@ -46,11 +54,12 @@ export interface JobDetailPageProps {
 // 필터링 관련 타입
 export interface JobFilters {
   region?: string;
-  employmentType?: string;
-  jobCategory?: string;
-  salary?: string;
+  experience?: string;
+  industry?: string;
   hasVisa?: boolean;
 }
 
-// 정렬 타입
-export type JobSortType = 'latest' | 'popular' | 'salary' | 'deadline';
+// 탭 타입
+export type JobDetailTab = 'detail' | 'company';
+
+
