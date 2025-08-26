@@ -1,126 +1,158 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS, BREAKPOINTS } from '../../constants';
+import { theme } from '../theme/theme';
 
-// 메인 컨테이너
 export const JobDetailContainer = styled.div`
-  max-width: 1200px;
+  max-width: ${theme.containers.wide};
   margin: 0 auto;
-  padding: 2rem;
+  padding: ${theme.spacing.xl};
   min-height: 100vh;
-  background: ${COLORS.background};
-  color: ${COLORS.text};
+  background: ${theme.colors.white} !important;
+  color: ${theme.colors.textPrimary};
   
-  @media (max-width: ${BREAKPOINTS.tablet}) {
-    padding: 1rem;
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.lg};
   }
   
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 0.5rem;
+  ${theme.media.mobile} {
+    padding: ${theme.spacing.md};
   }
 `;
 
-// 헤더 섹션
 export const JobHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid ${COLORS.border};
+  margin-bottom: ${theme.spacing.xl};
+  padding-bottom: ${theme.spacing.lg};
+  border-bottom: 1px solid ${theme.colors.borderLight};
   
-  @media (max-width: ${BREAKPOINTS.mobile}) {
+  ${theme.media.tablet} {
     flex-direction: column;
-    gap: 1rem;
+    gap: ${theme.spacing.md};
     align-items: stretch;
   }
 `;
 
-// 뒤로가기 버튼
 export const BackButton = styled(motion.button)`
-  background: transparent;
-  border: 1px solid ${COLORS.border};
-  color: ${COLORS.text};
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  background: ${theme.colors.backgroundGray};
+  color: ${theme.colors.textPrimary};
+  border: 1px solid ${theme.colors.borderLight};
+  padding: ${theme.spacing.md} ${theme.spacing.lg};
+  border-radius: ${theme.radius.lg};
+  font-weight: ${theme.typography.fontWeight.medium};
   cursor: pointer;
-  font-size: 1rem;
-  transition: all ${ANIMATIONS.duration.fast} ${ANIMATIONS.easing.ease};
-  min-height: 44px;
-  min-width: 44px;
-  
-  &:hover {
-    background: ${COLORS.border};
-  }
-  
-  &:focus {
-    outline: 2px solid ${COLORS.primary};
-    outline-offset: 2px;
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-`;
-
-// 지원하기 버튼
-export const ApplyButton = styled(motion.button)`
-  background: ${COLORS.primary};
-  border: none;
-  color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: all ${ANIMATIONS.duration.fast} ${ANIMATIONS.easing.ease};
-  min-height: 44px;
-  min-width: 44px;
-  
-  &:hover {
-    background: ${COLORS.primaryHover};
-  }
-  
-  &:focus {
-    outline: 2px solid white;
-    outline-offset: 2px;
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 0.5rem 1.5rem;
-    font-size: 0.9rem;
-  }
-`;
-
-// 회사 정보 섹션
-export const CompanySection = styled.div`
+  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   display: flex;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  align-items: center;
+  gap: ${theme.spacing.sm};
+  font-size: ${theme.typography.fontSize.base};
+  
+  &:hover {
+    background: ${theme.colors.primaryLight};
+    border-color: ${theme.colors.primary};
+    color: ${theme.colors.primaryDark};
+  }
+  
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.sm} ${theme.spacing.md};
+    font-size: ${theme.typography.fontSize.sm};
+  }
+`;
+
+export const ApplyButton = styled(motion.button)`
+  background: ${theme.colors.primary};
+  color: ${theme.colors.white};
+  border: none;
+  padding: ${theme.spacing.md} ${theme.spacing.xl};
+  border-radius: ${theme.radius.lg};
+  font-weight: ${theme.typography.fontWeight.semibold};
+  cursor: pointer;
+  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  font-size: ${theme.typography.fontSize.base};
+  min-height: 44px;
+  min-width: 120px;
+  
+  &:hover {
+    background: ${theme.colors.primaryHover};
+    transform: translateY(-2px);
+    box-shadow: ${theme.shadows.md};
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.sm} ${theme.spacing.lg};
+    font-size: ${theme.typography.fontSize.sm};
+    min-width: 100px;
+  }
+`;
+
+export const CompanySection = styled.section`
+  display: flex;
+  gap: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.xl};
+  padding: ${theme.spacing.xl};
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.borderLight};
+  border-radius: ${theme.radius.xl};
+  box-shadow: ${theme.shadows.sm};
+  
+  ${theme.media.tablet} {
+    flex-direction: column;
+    gap: ${theme.spacing.lg};
+    padding: ${theme.spacing.lg};
+  }
+  
+  ${theme.media.mobile} {
+    padding: ${theme.spacing.md};
+  }
   
   .company-logo {
     flex-shrink: 0;
     
     .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: ${theme.radius.lg};
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      font-size: 2rem;
-      font-weight: bold;
-      color: white;
+      font-size: ${theme.typography.fontSize['2xl']};
+      font-weight: ${theme.typography.fontWeight.bold};
       
-      &.blue { background: #3b82f6; }
-      &.red { background: #ef4444; }
-      &.green { background: #10b981; }
-      &.orange { background: #f97316; }
-      &.purple { background: #8b5cf6; }
+      &.red {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+      
+      &.blue {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      
+      &.green {
+        background: #dcfce7;
+        color: ${theme.colors.primaryDark};
+      }
+      
+      &.orange {
+        background: #fed7aa;
+        color: #ea580c;
+      }
+      
+      &.purple {
+        background: #f3e8ff;
+        color: #7c3aed;
+      }
+      
+      ${theme.media.tablet} {
+        width: 60px;
+        height: 60px;
+        font-size: ${theme.typography.fontSize.xl};
+      }
     }
   }
   
@@ -128,289 +160,297 @@ export const CompanySection = styled.div`
     flex: 1;
     
     h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem 0;
-      color: ${COLORS.text};
+      font-size: ${theme.typography.fontSize['3xl']};
+      font-weight: ${theme.typography.fontWeight.bold};
+      color: ${theme.colors.textPrimary};
+      margin: 0 0 ${theme.spacing.sm} 0;
+      line-height: ${theme.typography.lineHeight.tight};
+      
+      ${theme.media.tablet} {
+        font-size: ${theme.typography.fontSize['2xl']};
+      }
+      
+      ${theme.media.mobile} {
+        font-size: ${theme.typography.fontSize.xl};
+      }
     }
     
     h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 0 0 1rem 0;
-      color: ${COLORS.textSecondary};
+      font-size: ${theme.typography.fontSize.xl};
+      font-weight: ${theme.typography.fontWeight.semibold};
+      color: ${theme.colors.textSecondary};
+      margin: 0 0 ${theme.spacing.md} 0;
+      
+      ${theme.media.tablet} {
+        font-size: ${theme.typography.fontSize.lg};
+      }
     }
     
     .job-meta {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
       flex-wrap: wrap;
+      gap: ${theme.spacing.md};
+      margin-bottom: ${theme.spacing.md};
       
       span {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        font-size: 0.9rem;
+        background: ${theme.colors.backgroundGray};
+        color: ${theme.colors.textSecondary};
+        padding: ${theme.spacing.xs} ${theme.spacing.sm};
+        border-radius: ${theme.radius.md};
+        font-size: ${theme.typography.fontSize.sm};
+        font-weight: ${theme.typography.fontWeight.medium};
+      }
+      
+      ${theme.media.mobile} {
+        gap: ${theme.spacing.sm};
+        
+        span {
+          font-size: ${theme.typography.fontSize.xs};
+          padding: ${theme.spacing.xs};
+        }
       }
     }
     
     .visa-badge {
       display: inline-block;
-      background: ${COLORS.primary};
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.tablet}) {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-    
-    .company-logo .logo {
-      width: 60px;
-      height: 60px;
-      font-size: 1.5rem;
-    }
-    
-    .company-info h1 {
-      font-size: 1.5rem;
-    }
-    
-    .company-info h2 {
-      font-size: 1.2rem;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 1rem;
-    
-    .job-meta {
-      flex-direction: column;
-      gap: 0.5rem;
+      background: ${theme.colors.primaryLight};
+      color: ${theme.colors.primaryDark};
+      padding: ${theme.spacing.xs} ${theme.spacing.sm};
+      border-radius: ${theme.radius.md};
+      font-size: ${theme.typography.fontSize.sm};
+      font-weight: ${theme.typography.fontWeight.semibold};
+      border: 1px solid ${theme.colors.primary};
     }
   }
 `;
 
-// 직무 설명 섹션
-export const JobDescription = styled.div`
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+export const JobDescription = styled.section`
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.borderLight};
+  border-radius: ${theme.radius.xl};
+  padding: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.lg};
+  box-shadow: ${theme.shadows.sm};
+  
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.lg};
+  }
+  
+  ${theme.media.mobile} {
+    padding: ${theme.spacing.md};
+  }
   
   h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: ${COLORS.text};
+    font-size: ${theme.typography.fontSize.xl};
+    font-weight: ${theme.typography.fontWeight.semibold};
+    color: ${theme.colors.textPrimary};
+    margin: 0 0 ${theme.spacing.md} 0;
+    
+    ${theme.media.tablet} {
+      font-size: ${theme.typography.fontSize.lg};
+    }
   }
   
   p {
-    line-height: 1.6;
-    color: ${COLORS.textSecondary};
-  }
-  
-  @media (max-width: ${BREAKPOINTS.tablet}) {
-    padding: 1.5rem;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 1rem;
-    
-    h3 {
-      font-size: 1.2rem;
-    }
+    font-size: ${theme.typography.fontSize.base};
+    line-height: ${theme.typography.lineHeight.relaxed};
+    color: ${theme.colors.textSecondary};
+    margin: 0;
   }
 `;
 
-// 요구사항 섹션
-export const RequirementsSection = styled.div`
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+export const RequirementsSection = styled.section`
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.borderLight};
+  border-radius: ${theme.radius.xl};
+  padding: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.lg};
+  box-shadow: ${theme.shadows.sm};
+  
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.lg};
+  }
+  
+  ${theme.media.mobile} {
+    padding: ${theme.spacing.md};
+  }
   
   h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: ${COLORS.text};
+    font-size: ${theme.typography.fontSize.xl};
+    font-weight: ${theme.typography.fontWeight.semibold};
+    color: ${theme.colors.textPrimary};
+    margin: 0 0 ${theme.spacing.md} 0;
+    
+    ${theme.media.tablet} {
+      font-size: ${theme.typography.fontSize.lg};
+    }
   }
   
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  li {
-    padding: 0.5rem 0;
-    color: ${COLORS.textSecondary};
-    position: relative;
-    padding-left: 1.5rem;
     
-    &:before {
-      content: "•";
-      color: ${COLORS.primary};
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.tablet}) {
-    padding: 1.5rem;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 1rem;
-    
-    h3 {
-      font-size: 1.2rem;
+    li {
+      position: relative;
+      padding-left: ${theme.spacing.lg};
+      margin-bottom: ${theme.spacing.sm};
+      font-size: ${theme.typography.fontSize.base};
+      line-height: ${theme.typography.lineHeight.normal};
+      color: ${theme.colors.textSecondary};
+      
+      &:before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: ${theme.colors.primary};
+        font-weight: ${theme.typography.fontWeight.bold};
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 `;
 
-// 혜택 섹션
-export const BenefitsSection = styled.div`
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+export const BenefitsSection = styled.section`
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.borderLight};
+  border-radius: ${theme.radius.xl};
+  padding: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.lg};
+  box-shadow: ${theme.shadows.sm};
+  
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.lg};
+  }
+  
+  ${theme.media.mobile} {
+    padding: ${theme.spacing.md};
+  }
   
   h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: ${COLORS.text};
+    font-size: ${theme.typography.fontSize.xl};
+    font-weight: ${theme.typography.fontWeight.semibold};
+    color: ${theme.colors.textPrimary};
+    margin: 0 0 ${theme.spacing.md} 0;
+    
+    ${theme.media.tablet} {
+      font-size: ${theme.typography.fontSize.lg};
+    }
   }
   
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  li {
-    padding: 0.5rem 0;
-    color: ${COLORS.textSecondary};
-    position: relative;
-    padding-left: 1.5rem;
     
-    &:before {
-      content: "✓";
-      color: ${COLORS.primary};
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.tablet}) {
-    padding: 1.5rem;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 1rem;
-    
-    h3 {
-      font-size: 1.2rem;
+    li {
+      position: relative;
+      padding-left: ${theme.spacing.lg};
+      margin-bottom: ${theme.spacing.sm};
+      font-size: ${theme.typography.fontSize.base};
+      line-height: ${theme.typography.lineHeight.normal};
+      color: ${theme.colors.textSecondary};
+      
+      &:before {
+        content: '🎁';
+        position: absolute;
+        left: 0;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 `;
 
-// 연락처 섹션
-export const ContactSection = styled.div`
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+export const ContactSection = styled.section`
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.borderLight};
+  border-radius: ${theme.radius.xl};
+  padding: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.lg};
+  box-shadow: ${theme.shadows.sm};
+  
+  ${theme.media.tablet} {
+    padding: ${theme.spacing.lg};
+  }
+  
+  ${theme.media.mobile} {
+    padding: ${theme.spacing.md};
+  }
   
   h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: ${COLORS.text};
+    font-size: ${theme.typography.fontSize.xl};
+    font-weight: ${theme.typography.fontWeight.semibold};
+    color: ${theme.colors.textPrimary};
+    margin: 0 0 ${theme.spacing.md} 0;
+    
+    ${theme.media.tablet} {
+      font-size: ${theme.typography.fontSize.lg};
+    }
   }
   
   .contact-info {
     p {
-      padding: 0.5rem 0;
-      color: ${COLORS.textSecondary};
-      margin: 0;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.tablet}) {
-    padding: 1.5rem;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
-  }
-  
-  @media (max-width: ${BREAKPOINTS.mobile}) {
-    padding: 1rem;
-    
-    h3 {
-      font-size: 1.2rem;
+      font-size: ${theme.typography.fontSize.base};
+      line-height: ${theme.typography.lineHeight.normal};
+      color: ${theme.colors.textSecondary};
+      margin: 0 0 ${theme.spacing.sm} 0;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 `;
 
-// 로딩 스피너
 export const LoadingSpinner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  min-height: 400px;
+  font-size: ${theme.typography.fontSize.xl};
+  color: ${theme.colors.textSecondary};
   
-  &:after {
-    content: "";
-    width: 40px;
-    height: 40px;
-    border: 4px solid ${COLORS.border};
-    border-top: 4px solid ${COLORS.primary};
-    border-radius: 50%;
+  &:before {
+    content: '⏳';
     animation: spin 1s linear infinite;
   }
   
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 `;
 
-// 에러 메시지
 export const ErrorMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
   text-align: center;
-  padding: 3rem 1rem;
+  padding: ${theme.spacing.xl};
   
   h2 {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
-    color: ${COLORS.text};
+    font-size: ${theme.typography.fontSize['2xl']};
+    font-weight: ${theme.typography.fontWeight.bold};
+    color: ${theme.colors.error};
+    margin: 0 0 ${theme.spacing.md} 0;
+    
+    ${theme.media.tablet} {
+      font-size: ${theme.typography.fontSize.xl};
+    }
   }
   
   p {
-    color: ${COLORS.textSecondary};
-    margin-bottom: 2rem;
+    font-size: ${theme.typography.fontSize.base};
+    color: ${theme.colors.textSecondary};
+    margin: 0 0 ${theme.spacing.xl} 0;
+    line-height: ${theme.typography.lineHeight.normal};
   }
 `;

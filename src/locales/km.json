@@ -96,5 +96,22 @@
     "favorable": "លក្ខខណ្ឌអំណោយផល",
     "unfavorable": "លក្ខខណ្ឌមិនអំណោយផល",
     "neutral": "លក្ខខណ្ឌអព្យាក្រឹត"
+  },
+  "jobDetail": {
+    "backButton": "← ត្រឡប់",
+    "applyButton": "ដាក់ពាក្យ",
+    "jobDescription": "📋 ការពិពណ៌នាការងារ",
+    "requirements": "📝 តម្រូវការ",
+    "benefits": "🎁 អត្ថប្រយោជន៍",
+    "contactInfo": "📞 ទំនាក់ទំនង",
+    "visaSupport": "ការគាំទ្រ Visa E-7",
+    "location": "📍",
+    "salary": "💰",
+    "deadline": "⏰",
+    "email": "📧",
+    "phone": "📱",
+    "jobNotFound": "រកមិនឃើញការផ្សាយការងារ។",
+    "loading": "កំពុងផ្ទុកការផ្សាយការងារ...",
+    "error": "បរាជ័យក្នុងការផ្ទុកការផ្សាយការងារ។"
   }
 }

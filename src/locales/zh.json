@@ -96,5 +96,22 @@
     "favorable": "有利条款",
     "unfavorable": "不利条款",
     "neutral": "中性条款"
+  },
+  "jobDetail": {
+    "backButton": "← 返回",
+    "applyButton": "申请",
+    "jobDescription": "📋 工作描述",
+    "requirements": "📝 要求",
+    "benefits": "🎁 福利",
+    "contactInfo": "📞 联系方式",
+    "visaSupport": "E-7签证支持",
+    "location": "📍",
+    "salary": "💰",
+    "deadline": "⏰",
+    "email": "📧",
+    "phone": "📱",
+    "jobNotFound": "未找到招聘信息。",
+    "loading": "正在加载招聘信息...",
+    "error": "加载招聘信息失败。"
   }
 }

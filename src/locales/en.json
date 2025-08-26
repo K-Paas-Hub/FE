@@ -93,5 +93,22 @@
     "favorable": "Favorable Terms",
     "unfavorable": "Unfavorable Terms",
     "neutral": "Neutral Terms"
+  },
+  "jobDetail": {
+    "backButton": "← Back",
+    "applyButton": "Apply",
+    "jobDescription": "📋 Job Description",
+    "requirements": "📝 Requirements",
+    "benefits": "🎁 Benefits",
+    "contactInfo": "📞 Contact",
+    "visaSupport": "E-7 Visa Support",
+    "location": "📍",
+    "salary": "💰",
+    "deadline": "⏰",
+    "email": "📧",
+    "phone": "📱",
+    "jobNotFound": "Job posting not found.",
+    "loading": "Loading job posting...",
+    "error": "Failed to load job posting."
   }
 }

@@ -96,5 +96,22 @@
     "favorable": "Ketentuan Menguntungkan",
     "unfavorable": "Ketentuan Tidak Menguntungkan",
     "neutral": "Ketentuan Netral"
+  },
+  "jobDetail": {
+    "backButton": "← Kembali",
+    "applyButton": "Lamar",
+    "jobDescription": "📋 Deskripsi Pekerjaan",
+    "requirements": "📝 Persyaratan",
+    "benefits": "🎁 Manfaat",
+    "contactInfo": "📞 Kontak",
+    "visaSupport": "Dukungan Visa E-7",
+    "location": "📍",
+    "salary": "💰",
+    "deadline": "⏰",
+    "email": "📧",
+    "phone": "📱",
+    "jobNotFound": "Lowongan pekerjaan tidak ditemukan.",
+    "loading": "Memuat lowongan pekerjaan...",
+    "error": "Gagal memuat lowongan pekerjaan."
   }
 }

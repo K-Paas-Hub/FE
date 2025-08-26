@@ -96,5 +96,22 @@
     "favorable": "Điều khoản có lợi",
     "unfavorable": "Điều khoản bất lợi",
     "neutral": "Điều khoản trung lập"
+  },
+  "jobDetail": {
+    "backButton": "← Quay lại",
+    "applyButton": "Ứng tuyển",
+    "jobDescription": "📋 Mô tả công việc",
+    "requirements": "📝 Yêu cầu",
+    "benefits": "🎁 Phúc lợi",
+    "contactInfo": "📞 Liên hệ",
+    "visaSupport": "Hỗ trợ visa E-7",
+    "location": "📍",
+    "salary": "💰",
+    "deadline": "⏰",
+    "email": "📧",
+    "phone": "📱",
+    "jobNotFound": "Không tìm thấy tin tuyển dụng.",
+    "loading": "Đang tải tin tuyển dụng...",
+    "error": "Không thể tải tin tuyển dụng."
   }
 }
