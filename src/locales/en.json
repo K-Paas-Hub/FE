@@ -219,6 +219,24 @@
       "backToLogin": "Back to Login"
     }
   },
+  "passwordReset": {
+    "title": "Reset your FairWork account password.",
+    "description": "Please enter the email account where you will receive the temporary password.",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Please enter your email",
+      "emailRequired": "Please enter your email.",
+      "submitButton": "Next",
+      "loadingButton": "Processing..."
+    },
+    "messages": {
+      "success": "A temporary password has been sent to your email.",
+      "error": "An error occurred while resetting your password."
+    },
+    "actions": {
+      "backToLogin": "Back to Login"
+    }
+  },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",

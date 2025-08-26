@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../../styles/PasswordResetForm.css';
 
@@ -8,6 +9,7 @@ interface PasswordResetFormProps {
 }
 
 const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoading = false }) => {
+  const { t } = useTranslation();
   const [id, setId] = useState('');
   const [idError, setIdError] = useState('');
 
@@ -15,7 +17,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
     const value = e.target.value;
     setId(value);
     if (value === '') {
-      setIdError('아이디를 입력해주세요.');
+      setIdError(t('passwordReset.form.emailRequired'));
     } else {
       setIdError('');
     }
@@ -26,7 +28,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
     let hasError = false;
 
     if (!id) {
-      setIdError('아이디를 입력해주세요.');
+      setIdError(t('passwordReset.form.emailRequired'));
       hasError = true;
     }
 
@@ -38,13 +40,13 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
   return (
     <form onSubmit={handleSubmit} className="password-reset-form">
       <div className="input-group">
-        <p className="input-description">임시 비밀번호를 받을 이메일 계정을 입력해주세요.</p>
+        <p className="input-description">{t('passwordReset.description')}</p>
         <input
           type="text"
           value={id}
           onChange={handleIdChange}
           className={`input-field ${idError ? 'error' : ''}`}
-          placeholder="이메일을 입력해주세요"
+          placeholder={t('passwordReset.form.emailPlaceholder')}
           disabled={isLoading}
         />
         {idError && <div className="error-message">{idError}</div>}
@@ -53,11 +55,11 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
       <div className="form-actions">
         <div className="links">
           <Link to="/login" className="link">
-            로그인으로 돌아가기
+            {t('passwordReset.actions.backToLogin')}
           </Link>
         </div>
         <button type="submit" className="reset-button" disabled={isLoading || !id}>
-          {isLoading ? '처리 중...' : '다음'}
+          {isLoading ? t('passwordReset.form.loadingButton') : t('passwordReset.form.submitButton')}
         </button>
       </div>
     </form>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import PasswordResetForm from './PasswordResetForm';
 import Footer from '../MainFooter';
 import '../../styles/PasswordResetForm.css';
 
 const PasswordResetPage: React.FC = () => {
+  const { t } = useTranslation();
   const [isFormLoading, setIsFormLoading] = useState(false);
 
   const handlePasswordReset = async (email: string) => {
@@ -16,10 +18,10 @@ const PasswordResetPage: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       // 성공 처리
-      alert('임시 비밀번호가 이메일로 전송되었습니다.');
+      alert(t('passwordReset.messages.success'));
     } catch (error) {
       console.error('비밀번호 재설정 오류:', error);
-      alert('비밀번호 재설정 중 오류가 발생했습니다.');
+      alert(t('passwordReset.messages.error'));
     } finally {
       setIsFormLoading(false);
     }
@@ -40,8 +42,7 @@ const PasswordResetPage: React.FC = () => {
         </div>
         
         <div className="password-reset-description">
-          FairWork 계정의<br />
-          비밀번호를 재설정합니다.
+          {t('passwordReset.title')}
         </div>
         
         <PasswordResetForm 
