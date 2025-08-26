@@ -40,30 +40,11 @@ const VisaCenter: React.FC = () => {
     <div className="visa-container">
       <MainHeader />
       <main className="visa-content">
-        <div className="visa-header">
-          <motion.h1 
-            className="visa-title"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: ANIMATIONS.duration.normal }}
-          >
-            비자 종류별 안내
-          </motion.h1>
-          <motion.p 
-            className="visa-subtitle"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 }}
-          >
-            목적에 맞는 비자를 선택하여 상세 정보를 확인하세요
-          </motion.p>
-        </div>
-
         <motion.div 
           className="filter-section"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: ANIMATIONS.duration.normal, delay: 0.2 }}
+          transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 }}
         >
           <div className="category-filter">
             <button

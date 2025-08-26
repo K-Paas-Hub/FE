@@ -110,7 +110,7 @@ const MainHeaderComponent: React.FC = () => {
                     onClick={() => handleLanguageSelect(language.code)}
                   >
                     <FlagIcon src={language.flag} alt={language.name} />
-                    <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
+                    <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: '0 1 auto', minWidth: 0 }}>
                       {language.name}
                     </span>
                   </LanguageOption>
