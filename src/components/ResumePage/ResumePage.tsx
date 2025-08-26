@@ -801,6 +801,8 @@ const CertificationOption = styled.div`
   }
 `;
 
+
+
 const CertificationName = styled.span`
   font-weight: 500;
   color: #374151;
@@ -816,17 +818,7 @@ const SelectedCertificationsContainer = styled.div`
   margin-top: 1rem;
 `;
 
-const SelectedCertificationTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #4ade80;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
+
 
 const RemoveButton = styled.button`
   background: none;
@@ -1272,7 +1264,139 @@ const TimelineLanguageBody = styled.div`
   gap: 0.5rem;
 `;
 
+// 자격증 관련 스타일드 컴포넌트
+const CertificationTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
 
+const CertificationTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const CertificationCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const CertificationCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const CertificationCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const CertificationIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const CertificationCardName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const CertificationCardCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+const CertificationCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const CertificationDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+`;
+
+const CertificationCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+const CertificationTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineCertificationCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineCertificationHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineCertificationIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineCertificationInfo = styled.div`
+  flex: 1;
+`;
+
+const TimelineCertificationName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineCertificationCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineCertificationBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
 
 const ResumePage: React.FC = () => {
   const {
@@ -1288,7 +1412,7 @@ const ResumePage: React.FC = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [certificationSearch, setCertificationSearch] = useState('');
   const [showCertificationDropdown, setShowCertificationDropdown] = useState(false);
-  const [selectedCertifications, setSelectedCertifications] = useState<Array<{id: string, name: string, category: string}>>([]);
+  const [selectedCertifications, setSelectedCertifications] = useState<Array<{id: string, name: string, category: string, description: string}>>([]);
   
   // 어학 능력 상태
   const [languageSearch, setLanguageSearch] = useState('');
@@ -1311,6 +1435,7 @@ const ResumePage: React.FC = () => {
   // 학력 정보와 어학 능력 필터 상태
   const [schoolTypeFilter, setSchoolTypeFilter] = useState<string>('전체');
   const [languageTypeFilter, setLanguageTypeFilter] = useState<string>('전체');
+  const [certificationTypeFilter, setCertificationTypeFilter] = useState<string>('전체');
 
   // 저장된 자격증 데이터를 selectedCertifications로 변환
   React.useEffect(() => {
@@ -1318,7 +1443,7 @@ const ResumePage: React.FC = () => {
       const certificationNames = formData.certifications.split(', ').filter(name => name.trim());
       const certifications = certificationNames.map(name => {
         const foundCert = certificationData.find(cert => cert.name === name.trim());
-        return foundCert || { id: `custom-${name}`, name: name.trim(), category: '기타' };
+        return foundCert || { id: `custom-${name}`, name: name.trim(), category: '기타', description: '기타 자격증' };
       });
       setSelectedCertifications(certifications);
     }
@@ -1423,13 +1548,16 @@ const ResumePage: React.FC = () => {
   };
 
   // 자격증 검색 필터링
-  const filteredCertifications = certificationData.filter(cert =>
-    cert.name.toLowerCase().includes(certificationSearch.toLowerCase()) ||
-    cert.category.toLowerCase().includes(certificationSearch.toLowerCase())
-  );
+  const filteredCertifications = certificationData.filter(cert => {
+    const matchesSearch = cert.name.toLowerCase().includes(certificationSearch.toLowerCase()) ||
+                         cert.category.toLowerCase().includes(certificationSearch.toLowerCase()) ||
+                         cert.description.toLowerCase().includes(certificationSearch.toLowerCase());
+    const matchesType = certificationTypeFilter === '전체' || cert.category === certificationTypeFilter;
+    return matchesSearch && matchesType;
+  });
 
   // 자격증 선택
-  const handleCertificationSelect = (certification: {id: string, name: string, category: string}) => {
+  const handleCertificationSelect = (certification: {id: string, name: string, category: string, description: string}) => {
     if (!selectedCertifications.find(cert => cert.id === certification.id)) {
       const newSelectedCertifications = [...selectedCertifications, certification];
       setSelectedCertifications(newSelectedCertifications);
@@ -2108,50 +2236,114 @@ const ResumePage: React.FC = () => {
             </FormGroup>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>자격증</FormLabel>
-              <CertificationSearchContainer>
-                <FormInput 
-                  type="text" 
+              
+              {/* 자격증 유형 필터 */}
+              <CertificationTypeFilter>
+                {['전체', 'IT/개발', '언어', '경영/사무', '건설/기술', '제조/생산', '서비스/영업', '기타'].map((type) => (
+                  <CertificationTypeButton
+                    key={type}
+                    $active={certificationTypeFilter === type}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setCertificationTypeFilter(type);
+                    }}
+                  >
+                    {type}
+                  </CertificationTypeButton>
+                ))}
+              </CertificationTypeFilter>
+
+              {/* 스마트 검색 */}
+              <SmartSearchContainer>
+                <SearchIcon>🔍</SearchIcon>
+                <SearchInput
+                  type="text"
                   value={certificationSearch}
                   onChange={handleCertificationSearchChange}
                   onFocus={handleCertificationSearchFocus}
                   onBlur={handleCertificationSearchBlur}
-                  placeholder="자격증을 검색하세요 (예: 정보처리기사, TOEIC)" 
-                  aria-label="자격증 검색"
-                  style={{ width: '100%', minWidth: '100%' }}
+                  placeholder="자격증을 검색하세요 (예: 정보처리기사, TOEIC, AWS)"
                 />
-                {showCertificationDropdown && (
-                  <CertificationDropdown>
-                    {filteredCertifications.length > 0 ? (
-                      filteredCertifications.map((certification) => (
-                        <CertificationOption
-                          key={certification.id}
-                          onClick={() => handleCertificationSelect(certification)}
-                          onMouseDown={(e) => e.preventDefault()}
-                        >
-                          <CertificationName>{certification.name}</CertificationName>
-                          <CertificationCategory>{certification.category}</CertificationCategory>
-                        </CertificationOption>
-                      ))
-                    ) : (
-                      <NoResultsText>검색 결과가 없습니다.</NoResultsText>
-                    )}
-                  </CertificationDropdown>
-                )}
-              </CertificationSearchContainer>
-              {selectedCertifications.length > 0 && (
-                <SelectedCertificationsContainer>
-                  {selectedCertifications.map((certification) => (
-                    <SelectedCertificationTag key={certification.id}>
-                      {certification.name}
-                      <RemoveButton
-                        onClick={() => handleCertificationRemove(certification.id)}
-                        aria-label={`${certification.name} 제거`}
+              </SmartSearchContainer>
+
+              {/* 자격증 카드 그리드 */}
+              {showCertificationDropdown && (
+                <CertificationCardGrid>
+                  {filteredCertifications.length > 0 ? (
+                    filteredCertifications.map((certification) => (
+                      <CertificationCard
+                        key={certification.id}
+                        onClick={() => handleCertificationSelect(certification)}
                       >
-                        ×
-                      </RemoveButton>
-                    </SelectedCertificationTag>
-                  ))}
-                </SelectedCertificationsContainer>
+                        <CertificationCardHeader>
+                          <CertificationIcon>
+                            {certification.category === 'IT/개발' ? '💻' :
+                             certification.category === '언어' ? '🌍' :
+                             certification.category === '경영/사무' ? '📊' :
+                             certification.category === '건설/기술' ? '🏗️' :
+                             certification.category === '제조/생산' ? '⚙️' :
+                             certification.category === '서비스/영업' ? '🎯' : '🔧'}
+                          </CertificationIcon>
+                          <div>
+                            <CertificationCardName>{certification.name}</CertificationCardName>
+                            <CertificationCardCategory>{certification.category}</CertificationCardCategory>
+                          </div>
+                        </CertificationCardHeader>
+                        <CertificationCardBody>
+                          <CertificationDescription>
+                            {certification.description}
+                          </CertificationDescription>
+                          <CertificationCardFooter>
+                            전문 자격증
+                          </CertificationCardFooter>
+                        </CertificationCardBody>
+                      </CertificationCard>
+                    ))
+                  ) : (
+                    <NoResultsCard>검색 결과가 없습니다.</NoResultsCard>
+                  )}
+                </CertificationCardGrid>
+              )}
+
+              {/* 선택된 자격증 타임라인 */}
+              {selectedCertifications.length > 0 && (
+                <CertificationTimeline>
+                  <TimelineTitle>🏆 보유 자격증</TimelineTitle>
+                  <TimelineContainer>
+                    {selectedCertifications.map((certification, index) => (
+                      <TimelineItem key={certification.id}>
+                        <TimelineDot />
+                        <TimelineContent>
+                          <TimelineCertificationCard>
+                            <TimelineCertificationHeader>
+                              <TimelineCertificationIcon>
+                                {certification.category === 'IT/개발' ? '💻' :
+                                 certification.category === '언어' ? '🌍' :
+                                 certification.category === '경영/사무' ? '📊' :
+                                 certification.category === '건설/기술' ? '🏗️' :
+                                 certification.category === '제조/생산' ? '⚙️' :
+                                 certification.category === '서비스/영업' ? '🎯' : '🔧'}
+                              </TimelineCertificationIcon>
+                              <TimelineCertificationInfo>
+                                <TimelineCertificationName>{certification.name}</TimelineCertificationName>
+                                <TimelineCertificationCategory>{certification.category}</TimelineCertificationCategory>
+                              </TimelineCertificationInfo>
+                              <TimelineRemoveButton
+                                onClick={() => handleCertificationRemove(certification.id)}
+                                aria-label={`${certification.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineCertificationHeader>
+                            <TimelineCertificationBody>
+                              <span>{certification.description}</span>
+                            </TimelineCertificationBody>
+                          </TimelineCertificationCard>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </TimelineContainer>
+                </CertificationTimeline>
               )}
             </FormGroup>
             <FormGroup style={{ minWidth: '100%' }}>
