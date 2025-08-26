@@ -175,7 +175,7 @@ const ContractTutorial: React.FC = () => {
                 {t('contractTutorial.sections.annualLeave.requirements.title')}
               </ImportantTitle>
               <Checklist>
-                {t('contractTutorial.sections.annualLeave.requirements.items', { returnObjects: true }).map((item: string, index: number) => (
+                {(t('contractTutorial.sections.annualLeave.requirements.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
                   <ChecklistItem key={index}>
                     <CheckIcon src="/images/legal.png" alt="Check" />
                     <div>{item}</div>
