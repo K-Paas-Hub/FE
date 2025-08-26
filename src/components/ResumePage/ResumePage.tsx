@@ -1155,16 +1155,18 @@ const TimelineSchoolCategory = styled.div`
 `;
 
 const TimelineRemoveButton = styled.button`
-  background: #ef4444;
-  color: white;
+  background: none;
+  color: #6b7280;
   border: none;
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   cursor: pointer;
+  font-weight: bold;
   
   &:hover {
-    background: #dc2626;
+    color: #374151;
+    background: #f3f4f6;
   }
 `;
 
