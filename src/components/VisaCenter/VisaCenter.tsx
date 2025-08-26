@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
 import { VISA_TYPES, VISA_CATEGORIES, VISA_CATEGORY_LABELS } from '../../constants/visa';
 import MainHeader from '../MainHeader';
@@ -11,6 +12,7 @@ import '../../styles/VisaCenter.css';
 
 const VisaCenter: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const filteredVisaTypes = useMemo(() => {
@@ -52,15 +54,15 @@ const VisaCenter: React.FC = () => {
               className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
               onClick={() => setSelectedCategory('all')}
             >
-              전체
+              {t('visaCenter.all')}
             </button>
-            {Object.entries(VISA_CATEGORY_LABELS).map(([category, label]) => (
+            {Object.entries(VISA_CATEGORY_LABELS).map(([category, labelKey]) => (
               <button
                 key={category}
                 className={`category-button ${selectedCategory === category.toLowerCase() ? 'active' : ''}`}
                 onClick={() => setSelectedCategory(category.toLowerCase())}
               >
-                {label}
+                {t(labelKey)}
               </button>
             ))}
           </div>

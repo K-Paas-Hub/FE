@@ -408,7 +408,12 @@
     "employment": "Employment",
     "study": "Study",
     "family": "Family",
-    "other": "Other"
+    "other": "Other",
+    "categories": {
+      "employment": "Employment Visa",
+      "residence": "Residence Visa",
+      "preparation": "Preparation Visa"
+    }
   },
   "contractAnalysis": {
     "title": "Employment Contract Analysis",

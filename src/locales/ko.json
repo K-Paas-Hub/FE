@@ -424,7 +424,12 @@
     "employment": "취업",
     "study": "유학",
     "family": "가족",
-    "other": "기타"
+    "other": "기타",
+    "categories": {
+      "employment": "취업 비자",
+      "residence": "거주 비자",
+      "preparation": "준비 비자"
+    }
   },
   "contractAnalysis": {
     "title": "근로계약서 분석",

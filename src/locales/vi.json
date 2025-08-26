@@ -154,7 +154,12 @@
     "employment": "Việc làm",
     "study": "Học tập",
     "family": "Gia đình",
-    "other": "Khác"
+    "other": "Khác",
+    "categories": {
+      "employment": "Visa Việc làm",
+      "residence": "Visa Cư trú",
+      "preparation": "Visa Chuẩn bị"
+    }
   },
   "contractAnalysis": {
     "title": "Phân tích hợp đồng lao động",
