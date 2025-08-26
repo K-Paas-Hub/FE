@@ -149,6 +149,15 @@
     "loading": "Memuat lowongan pekerjaan...",
     "error": "Gagal memuat lowongan pekerjaan."
   },
+  "interviewChat": {
+    "welcomeMessage": "Halo! Saya adalah pewawancara AI. Silakan periksa pengaturan sebelum memulai wawancara.\n\nKlik tombol \"Pengaturan\" di sidebar kiri untuk mengatur tingkat kesulitan dan jumlah pertanyaan, atau klik tombol \"Mulai Wawancara\" untuk mulai segera.",
+    "completionMessage": "Wawancara selesai! Terima kasih atas waktu Anda.\n\nUntuk melihat hasil wawancara Anda, klik tombol \"Lihat Hasil\" di sidebar.",
+    "difficultyLevels": {
+      "easy": "Pemula",
+      "medium": "Menengah",
+      "hard": "Lanjutan"
+    }
+  },
   "interview": {
     "title": "Wawancara AI",
     "subtitle": "Berlatih dalam lingkungan yang mirip dengan wawancara nyata",
@@ -268,5 +277,252 @@
   },
   "footer": {
     "copyright": "© FairWork 2024. Semua hak dilindungi."
+  },
+  "terms": {
+    "title": "Ketentuan Layanan",
+    "sections": {
+      "purpose": "Pasal 1 (Tujuan)",
+      "definitions": "Pasal 2 (Definisi)",
+      "effectiveness": "Pasal 3 (Efektivitas dan Perubahan Ketentuan)",
+      "service": "Pasal 4 (Penyediaan Layanan)",
+      "suspension": "Pasal 5 (Penangguhan Layanan)",
+      "registration": "Pasal 6 (Pendaftaran Anggota)",
+      "withdrawal": "Pasal 7 (Penarikan dan Kehilangan Kualifikasi)",
+      "memberObligations": "Pasal 8 (Kewajiban Anggota)",
+      "companyObligations": "Pasal 9 (Kewajiban Perusahaan)",
+      "privacy": "Pasal 10 (Perlindungan Informasi Pribadi)",
+      "supplementary": "Ketentuan Tambahan"
+    },
+    "content": {
+      "purpose": "Ketentuan ini bertujuan untuk mengatur hak, kewajiban, dan tanggung jawab antara perusahaan dan anggota, serta hal-hal lain yang diperlukan terkait penggunaan layanan yang disediakan oleh FairWork (selanjutnya disebut \"Perusahaan\").",
+      "definitions": "1. \"Layanan\" berarti semua layanan yang disediakan oleh Perusahaan.\n2. \"Anggota\" berarti pelanggan yang mengakses layanan Perusahaan dan membuat kontrak penggunaan sesuai dengan ketentuan ini dan menggunakan layanan yang disediakan oleh Perusahaan.\n3. \"Akun\" berarti kombinasi huruf, angka, atau karakter khusus yang dipilih oleh anggota dan disetujui oleh Perusahaan untuk mengidentifikasi anggota dan penggunaan layanan anggota.",
+      "effectiveness": "1. Ketentuan ini berlaku untuk semua anggota yang ingin menggunakan layanan.\n2. Perusahaan dapat mengubah ketentuan ini sesuai kebutuhan dalam batas yang tidak melanggar hukum yang relevan.\n3. Ketika Perusahaan mengubah ketentuan, Perusahaan akan mengumumkan tanggal efektif dan alasan perubahan bersama dengan ketentuan saat ini di halaman utama layanan setidaknya 7 hari sebelum tanggal efektif.",
+      "service": "1. Perusahaan menyediakan layanan berikut:\n- Penyediaan informasi terkait pekerja asing\n- Layanan aplikasi dan manajemen visa\n- Layanan analisis dan tinjauan kontrak\n- Layanan lain yang ditentukan oleh Perusahaan\n2. Layanan disediakan 24 jam sehari, 7 hari seminggu sebagai prinsip.",
+      "suspension": "1. Perusahaan dapat menangguhkan penyediaan layanan sementara dalam kasus seperti pemeliharaan, penggantian, dan kerusakan komputer dan peralatan teknologi informasi, gangguan komunikasi.\n2. Perusahaan akan mengganti kerugian yang diderita oleh anggota atau pihak ketiga karena layanan ditangguhkan sementara sesuai dengan Pasal 1. Namun, Perusahaan tidak akan mengganti kerugian jika Perusahaan dapat membuktikan tidak ada kesengajaan atau kelalaian.",
+      "registration": "1. Anggota mengajukan pendaftaran dengan mengisi informasi anggota sesuai format yang ditentukan oleh Perusahaan dan menyatakan persetujuan dengan ketentuan ini.\n2. Perusahaan akan mendaftarkan pengguna yang mengajukan pendaftaran sesuai dengan Pasal 1 sebagai anggota kecuali pengguna termasuk dalam salah satu alasan berikut.",
+      "withdrawal": "1. Anggota dapat meminta penarikan dari Perusahaan kapan saja, dan Perusahaan akan memproses penarikan segera.\n2. Jika anggota termasuk dalam salah satu alasan berikut, Perusahaan dapat membatasi atau menangguhkan kualifikasi anggota.",
+      "memberObligations": "1. Anggota harus mematuhi hukum yang relevan, ketentuan ini, panduan penggunaan, dan perhatian yang diumumkan dalam layanan, dan hal-hal lain yang diberitahukan oleh Perusahaan, dan tidak boleh melakukan tindakan lain yang menghambat bisnis Perusahaan.\n2. Anggota tidak boleh melakukan tindakan berikut terkait penggunaan layanan:",
+      "companyObligations": "1. Perusahaan tidak akan melakukan tindakan yang melanggar hukum yang relevan dan ketentuan ini atau bertentangan dengan ketertiban umum dan moral yang baik, dan akan berusaha untuk menyediakan layanan secara berkelanjutan dan stabil sesuai dengan yang ditentukan dalam ketentuan ini.\n2. Perusahaan akan membangun sistem keamanan agar anggota dapat menggunakan layanan internet dengan aman, termasuk perlindungan informasi pribadi anggota (termasuk informasi kredit).",
+      "privacy": "1. Perusahaan akan melindungi informasi pribadi anggota sesuai dengan yang ditentukan oleh hukum, dan perlindungan dan penggunaan informasi pribadi akan dilakukan sesuai dengan hukum yang relevan dan kebijakan perlindungan informasi pribadi yang ditentukan oleh Perusahaan.\n2. Namun, Perusahaan tidak akan bertanggung jawab atas informasi yang diungkapkan karena kesalahan anggota.",
+      "supplementary": "Ketentuan ini berlaku efektif mulai 1 Januari 2025."
+    },
+    "actions": {
+      "backToLogin": "Kembali ke Login"
+    }
+  },
+  "privacy": {
+    "title": "Kebijakan Perlindungan Informasi Pribadi",
+    "sections": {
+      "purpose": "1. Tujuan Pemrosesan Informasi Pribadi",
+      "retention": "2. Periode Pemrosesan dan Penyimpanan Informasi Pribadi",
+      "thirdParty": "3. Penyediaan Informasi Pribadi kepada Pihak Ketiga",
+      "outsourcing": "4. Penugasan Pemrosesan Informasi Pribadi",
+      "rights": "5. Hak, Kewajiban, dan Metode Pelaksanaan Hak Subjek Informasi",
+      "items": "6. Item Informasi Pribadi yang Diproses",
+      "destruction": "7. Penghancuran Informasi Pribadi",
+      "security": "8. Tindakan Keamanan Informasi Pribadi",
+      "officer": "9. Petugas Perlindungan Informasi Pribadi",
+      "changes": "10. Perubahan Kebijakan Perlindungan Informasi Pribadi",
+      "inquiry": "11. Departemen yang Menerima dan Memproses Permintaan Akses Informasi Pribadi",
+      "effectiveDate": "Tanggal Efektif"
+    },
+    "content": {
+      "purpose": "FairWork (selanjutnya disebut \"Perusahaan\") memproses informasi pribadi untuk tujuan berikut dan tidak akan digunakan untuk tujuan lain selain tujuan ini.\n\n• Pendaftaran dan manajemen anggota\n• Penyediaan dan operasi layanan\n• Konsultasi dan respons pertanyaan pelanggan\n• Pemanfaatan pemasaran dan iklan\n• Peningkatan layanan dan pengembangan layanan baru",
+      "retention": "Perusahaan akan memproses dan menyimpan informasi pribadi dalam periode penyimpanan dan penggunaan informasi pribadi sesuai hukum, atau dalam periode penyimpanan dan penggunaan informasi pribadi yang disetujui ketika mengumpulkan informasi pribadi.\n\n• Pendaftaran dan manajemen anggota: hingga penarikan\n• Penyediaan layanan: hingga penggunaan layanan berakhir\n• Konsultasi pelanggan: 3 tahun setelah konsultasi selesai\n• Pemasaran: hingga persetujuan ditarik",
+      "thirdParty": "Perusahaan akan memproses informasi pribadi subjek informasi dalam ruang lingkup yang ditentukan dalam Pasal 1 (Tujuan Pemrosesan Informasi Pribadi) dan hanya akan menyediakan informasi pribadi kepada pihak ketiga dalam kasus di mana persetujuan diperoleh dari subjek informasi, atau ada ketentuan hukum khusus, atau ada alasan sesuai dengan Pasal 17 dan 18 Undang-Undang Perlindungan Informasi Pribadi.\n\nPerusahaan dapat menyediakan informasi pribadi kepada pihak ketiga dalam kasus berikut:\n• Ketika persetujuan terpisah diperoleh dari subjek informasi\n• Ketika diminta oleh lembaga pemerintah sesuai hukum\n• Ketika diperlukan untuk pembuatan statistik dan penelitian akademik",
+      "outsourcing": "Perusahaan menugaskan pekerjaan pemrosesan informasi pribadi berikut untuk pemrosesan informasi pribadi yang lancar.\n\n• Penerima penugasan (penerima): Penyedia layanan cloud\n• Konten pekerjaan yang ditugaskan: Penyimpanan dan manajemen data\n• Periode penugasan: Periode penyediaan layanan",
+      "rights": "Pengguna dapat menggunakan hak berikut sebagai subjek informasi pribadi.\n\n• Permintaan akses informasi pribadi\n• Permintaan koreksi jika ada kesalahan\n• Permintaan penghapusan\n• Permintaan penghentian pemrosesan\n\nPelaksanaan hak sesuai dengan Pasal 1 dapat dilakukan kepada Perusahaan melalui dokumen, telepon, email, faksimili (FAX), dan Perusahaan akan memproses tanpa penundaan.",
+      "items": "Perusahaan memproses item informasi pribadi berikut.\n\n• Item yang diperlukan: Alamat email, kata sandi, nama\n• Item opsional: Nomor telepon, alamat, tanggal lahir\n• Item yang dikumpulkan secara otomatis: Alamat IP, cookie, catatan penggunaan layanan, log akses",
+      "destruction": "Perusahaan akan menghancurkan informasi pribadi segera ketika periode penyimpanan informasi pribadi berakhir, atau tujuan pemrosesan tercapai, atau informasi pribadi tidak diperlukan lagi.\n\n• Informasi dalam bentuk file elektronik akan dihancurkan menggunakan metode teknis yang tidak dapat dipulihkan.\n• Informasi pribadi yang dicetak di atas kertas akan dihancurkan oleh mesin penghancur atau pembakaran.",
+      "security": "Perusahaan mengambil tindakan keamanan berikut sesuai dengan Pasal 29 Undang-Undang Perlindungan Informasi Pribadi.\n\n• Enkripsi informasi pribadi\n• Tindakan teknis terhadap peretasan\n• Pembatasan akses ke informasi pribadi\n• Minimalisasi dan pendidikan staf yang menangani informasi pribadi",
+      "officer": "Perusahaan menunjuk petugas perlindungan informasi pribadi untuk bertanggung jawab atas pekerjaan pemrosesan informasi pribadi secara keseluruhan, dan untuk menangani keluhan subjek informasi dan ganti rugi kerusakan terkait pemrosesan informasi pribadi.\n\n▶ Petugas Perlindungan Informasi Pribadi\n• Nama: [Nama Petugas]\n• Jabatan: [Jabatan]\n• Kontak: [Kontak]\n• Email: [Email]",
+      "changes": "Kebijakan perlindungan informasi pribadi ini berlaku efektif mulai tanggal efektif, dan jika ada penambahan, penghapusan, atau koreksi konten sesuai hukum dan kebijakan, Perusahaan akan memberi tahu 7 hari sebelum tanggal efektif melalui pengumuman.",
+      "inquiry": "Subjek informasi dapat mengajukan permintaan akses informasi pribadi sesuai dengan Pasal 35 Undang-Undang Perlindungan Informasi Pribadi di departemen berikut.\n\n▶ Departemen yang Menerima dan Memproses Permintaan Akses Informasi Pribadi\n• Nama departemen: [Nama Departemen]\n• Petugas: [Nama Petugas]\n• Kontak: [Kontak]\n• Email: [Email]",
+      "effectiveDate": "Kebijakan perlindungan informasi pribadi ini berlaku efektif mulai 1 Januari 2024."
+    },
+    "actions": {
+      "backToLogin": "Kembali ke Login"
+    }
+  },
+  "passwordReset": {
+    "title": "Reset kata sandi untuk akun FairWork Anda",
+    "description": "Silakan masukkan alamat email tempat Anda ingin menerima kata sandi sementara",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Silakan masukkan email",
+      "emailRequired": "Silakan masukkan email",
+      "submitButton": "Selanjutnya",
+      "loadingButton": "Memproses..."
+    },
+    "messages": {
+      "success": "Kata sandi sementara telah dikirim ke email.",
+      "error": "Terjadi kesalahan saat mereset kata sandi."
+    },
+    "actions": {
+      "backToLogin": "Kembali ke Login"
+    }
+  },
+  "mainFooter": {
+    "links": {
+      "company": "Tentang Perusahaan",
+      "recruitment": "Rekrutmen",
+      "terms": "Ketentuan Anggota",
+      "privacy": "Kebijakan Perlindungan Informasi Pribadi",
+      "emailReject": "Penolakan Pengumpulan Email Tanpa Izin",
+      "api": "API Informasi Lowongan",
+      "partnership": "Konsultasi Kemitraan",
+      "customerCenter": "Pusat Pelanggan"
+    },
+    "contact": {
+      "title": "Pusat Pelanggan FairWork",
+      "phone": "02-3354-1256",
+      "hours": "Senin-Jumat 09:00~19:00, Sabtu-Minggu dan hari libur tutup",
+      "email": "contact@fairwork.co.kr",
+      "fax": "02-1234-5679(Perwakilan), 02-1234-5680(Faktur Pajak)"
+    },
+    "actions": {
+      "emailInquiry": "Konsultasi Email"
+    },
+    "company": {
+      "name": "PT FairWork",
+      "address": "Kode Pos: 03921, Lantai 6, Menara IT Sangam, 60-gil, Jalan Piala Dunia Utara, Mapo-gu, Seoul",
+      "ceo": "Perwakilan: Choi Hong-seok, Kim Mir, Lim Seong-hyeok, Hong Yun-ki, Heo Wan"
+    }
+  },
+  "contractTutorial": {
+    "sections": {
+      "workConditions": {
+        "title": "Kondisi kerja harus dicatat secara spesifik dan jelas",
+        "content": "Kontrak kerja harus mencatat secara detail jam kerja, waktu istirahat, gaji dan hari pembayaran, dan hal-hal lain yang terkait dengan hak-hak dasar pekerja. Ekspresi yang ambigu dapat menjadi penyebab perselisihan, jadi item yang relevan harus dijelaskan sespesifik mungkin.",
+        "warning": {
+          "title": "Perhatian",
+          "content": "Ekspresi seperti 'jam kerja sesuai peraturan perusahaan' ambigu dan dapat menjadi penyebab perselisihan, jadi sebaiknya dihindari."
+        },
+        "workHours": {
+          "title": "a. Jam Kerja",
+          "content": "Tentukan berapa jam per hari dalam jam kerja hukum (8 jam per hari, 40 jam per minggu). Waktu istirahat harus ditentukan sebagai 30 menit untuk 4 jam dan 1 jam atau lebih untuk 8 jam dalam jam kerja terjadwal.",
+          "example": {
+            "title": "Contoh penulisan jam kerja",
+            "content": "• Jam kerja dari 9:00 pagi hingga 6:00 sore, dengan 40 jam per minggu.\n• Waktu istirahat dari 12:00 siang hingga 1:00 sore."
+          }
+        },
+        "salary": {
+          "title": "b. Gaji",
+          "content": "Jika bentuk gaji adalah tahunan, tentukan jumlah gaji tahunan bersama dengan gaji pokok, tunjangan kerja lembur, tunjangan makan siang, dan komponen gaji bulanan lainnya.",
+          "example": {
+            "title": "Contoh gaji (jumlah tahunan)",
+            "content": "• Total gaji tahunan pekerja adalah 35.000.000 won.\n• Perusahaan membayar pekerja 1/12 dari gaji tahunan (selanjutnya disebut 'gaji bulanan') setiap bulan, dan gaji bulanan terdiri dari:\n• Gaji pokok: 2.516.667 won / Tunjangan kerja lembur: 300.000 won / Tunjangan makan siang: 100.000 won"
+          }
+        }
+      },
+      "laborLaw": {
+        "title": "Mencerminkan hukum ketenagakerjaan dan sistem terbaru",
+        "content": "Untuk menghindari masalah hukum, manajer SDM harus mencerminkan perubahan dalam Undang-Undang Standar Ketenagakerjaan, upah minimum, jaminan sosial, dan sistem pensiun yang direvisi setiap tahun dalam kontrak kerja.",
+        "overtime": {
+          "title": "a. Kerja Lembur",
+          "content": "Menurut Pasal 53 Undang-Undang Standar Ketenagakerjaan, kerja lembur yang melebihi 12 jam per minggu dilarang, jadi perlu untuk menentukan standar hukum seperti itu dalam kontrak kerja.",
+          "legal": {
+            "title": "Standar Hukum",
+            "content": "Kerja lembur adalah waktu yang melebihi 40 jam kerja hukum per minggu dalam total waktu kerja per minggu, dan jika kerja lembur ini melebihi 12 jam per minggu, itu merupakan pelanggaran hukum."
+          }
+        },
+        "breakTime": {
+          "title": "b. Waktu Istirahat",
+          "content": "Pasal 54 Undang-Undang Standar Ketenagakerjaan menetapkan waktu istirahat 30 menit atau lebih untuk 4 jam kerja dan 1 jam atau lebih untuk 8 jam kerja. Ini juga berlaku untuk kerja lembur yang melebihi 8 jam per hari."
+        }
+      },
+      "contractPeriod": {
+        "title": "Tentukan periode kontrak dan kemungkinan perpanjangan",
+        "content": "Untuk pekerja berdasarkan periode, periode kontrak dan kemungkinan perpanjangan setelah berakhirnya kontrak harus ditentukan secara spesifik untuk mencegah kesalahpahaman yang tidak perlu.",
+        "example": {
+          "title": "Contoh penulisan periode kontrak",
+          "content": "• Periode kontrak kerja: 1 Januari 2024 ~ 31 Desember 2024\n• Kemungkinan perpanjangan setelah berakhirnya kontrak: Tidak ada"
+        }
+      },
+      "annualLeave": {
+        "title": "Sertakan standar manajemen cuti tahunan dan cuti yang tidak digunakan",
+        "content": "Harus menulis konten tentang cuti tahunan berbayar yang merupakan salah satu hak utama pekerja dan manajemen cuti yang tidak digunakan secara jelas.",
+        "example": {
+          "title": "Contoh terkait cuti",
+          "content": "• Pemberian cuti: Pekerja dapat menerima 15 hari cuti tahunan berbayar ketika kehadiran 80% atau lebih dalam 1 tahun.\n• Cuti yang tidak digunakan: Jika pekerja tidak dapat menggunakan cuti, cuti yang tersisa akan diganti dengan kompensasi uang, dan standar kompensasi akan mengikuti standar gaji yang ditentukan saat membuat kontrak."
+        },
+        "requirements": {
+          "title": "Persyaratan yang Harus Dipatuhi",
+          "items": [
+            "Kondisi kontrak dalam kontrak kerja harus ditentukan setelah diskusi yang cukup dengan pekerja (setelah negosiasi perlakuan selesai)",
+            "Salinan kontrak kerja 1 bagian harus disediakan untuk pekerja terlepas dari permintaan pekerja",
+            "Kontrak kerja harus disimpan secara wajib selama 3 tahun dari tanggal pengunduran diri pekerja, dan harus dihancurkan setelah periode penyimpanan berakhir"
+          ]
+        }
+      },
+      "faq": {
+        "title": "FAQ terkait Kontrak Kerja",
+        "content": "Kami akan menjawab pertanyaan tentang kontrak kerja. Kontrak kerja adalah dokumen sensitif yang berisi konten hukum. Tidak heran jika manajer SDM memiliki banyak pertanyaan saat menulis kontrak kerja.",
+        "questions": [
+          {
+            "question": "Apa yang terjadi jika tidak menulis kontrak kerja?",
+            "answer": "Jika pengguna tidak membuat kontrak kerja secara tertulis atau tidak memberikan salinan kepada penulis, akan dikenakan denda tidak lebih dari 5 juta won. Dalam kasus pekerja berdasarkan periode dan pekerja paruh waktu, dapat dikenakan denda tidak lebih dari 5 juta won. Dalam kasus pekerja tetap yang tidak membuat kontrak kerja, tingkat hukuman hukum mungkin lebih tinggi."
+          },
+          {
+            "question": "Jika kontrak kerja dibuat dengan kondisi di bawah hukum, apakah kontrak tidak valid?",
+            "answer": "Kondisi tersebut akan menjadi tidak valid, tetapi kontrak kerja itu sendiri masih valid. Kondisi yang menjadi tidak valid akan secara otomatis diganti sesuai dengan standar yang ditentukan dalam Undang-Undang Standar Ketenagakerjaan."
+          },
+          {
+            "question": "Siapa target kontrak kerja?",
+            "answer": "Pekerja tetap, pekerja magang, pekerja berdasarkan periode (pekerja kontrak), pekerja paruh waktu, pekerja harian, pekerja asing, dan semua jenis lainnya. Bahkan pelajar atau pekerja magang harus menulis kontrak kerja jika mereka dalam status pekerjaan."
+          },
+          {
+            "question": "Kapan harus menulis kontrak kerja?",
+            "answer": "Kontrak kerja harus ditulis sebelum mulai bekerja sebagai prinsip. Waktu terbaik adalah mendiskusikan kondisi kontrak sebelum tanggal mulai dan menulis secara tertulis sebelum tanggal mulai kerja. Jika harus ditulis pada tanggal mulai, konten kontrak harus dijelaskan secara cukup sebelum mulai bekerja dan pekerja harus menandatangani setelah memahami konten."
+          }
+        ]
+      }
+    }
+  },
+  "sidebar": {
+    "items": {
+      "hero": "Pengantar",
+      "activity": "Fitur",
+      "project": "Hasil",
+      "page": "Halaman",
+      "sponsor": "Sponsor"
+    }
+  },
+  "blogSection": {
+    "title": {
+      "weAre": "KAMI ADALAH",
+      "dreamReality": "Mitra yang Mengubah",
+      "partner": "Mimpi Menjadi Kenyataan"
+    },
+    "posts": [
+      {
+        "id": 1,
+        "title": "Langkah Pertama\nUntuk Melindungi Hak Anda",
+        "excerpt": "Panduan detail tentang konten penting dan perhatian kontrak kerja yang harus Anda ketahui saat bekerja di Korea.",
+        "image": "/images/employment_contract.png",
+        "category": "GUIDE"
+      },
+      {
+        "id": 2,
+        "title": "Panduan Persiapan Dokumen\nUntuk Mengubah Mimpi Menjadi Kenyataan",
+        "excerpt": "Mengorganisir semua dokumen yang diperlukan dalam proses pencarian kerja dan memberikan panduan langkah demi langkah dari aplikasi visa hingga izin kerja.",
+        "image": "/images/visa.png",
+        "category": "DOCUMENT"
+      },
+      {
+        "id": 3,
+        "title": "Persiapan Wawancara Cerdas\nDengan AI",
+        "excerpt": "Pelajari metode persiapan wawancara menggunakan teknologi AI terbaru dan kembangkan keterampilan praktis melalui simulasi wawancara berbasis LLM.",
+        "image": "/images/llm.png",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": 4,
+        "title": "Peluang Terbaik\nYang Menunggu Anda",
+        "excerpt": "Memberikan pembaruan real-time dari lowongan pekerjaan terbaru dan informasi perusahaan untuk pekerja asing.",
+        "image": "/images/employeer.png",
+        "category": "JOB"
+      }
+    ]
   }
 }
