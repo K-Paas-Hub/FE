@@ -243,7 +243,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   min-height: 44px;
-  min-width: 44px;
+  min-width: 120px;
+  flex: 1;
 }
 
 .visa-radio-option:hover {
@@ -256,6 +257,13 @@
   height: 18px;
   accent-color: #4ade80;
   cursor: pointer;
+}
+
+.visa-radio-option span {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .visa-radio-option input[type="radio"]:checked + span {
@@ -299,6 +307,8 @@
   
   .visa-radio-option {
     justify-content: flex-start;
+    min-width: auto;
+    width: 100%;
   }
 }
 

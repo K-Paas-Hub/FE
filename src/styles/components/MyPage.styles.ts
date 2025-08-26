@@ -18,20 +18,7 @@ export const MyPageContent = styled.div`
   margin: 0 auto;
 `;
 
-export const Sidebar = styled(motion.div)`
-  background: white;
-  border-radius: ${theme.radius.lg};
-  padding: 1.5rem;
-  box-shadow: ${theme.shadows.sm};
-  height: fit-content;
-  position: sticky;
-  top: 2rem;
-  
-  ${theme.media.tablet} {
-    position: static;
-    order: -1;
-  }
-`;
+
 
 export const MainContent = styled(motion.div)`
   background: white;
