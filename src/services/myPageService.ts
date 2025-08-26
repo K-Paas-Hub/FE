@@ -1,6 +1,5 @@
 import { apiClient, ApiResponse } from './api';
 import { 
-  UserProfile, 
   UserSettings, 
   ProfileResponse, 
   SettingsResponse,

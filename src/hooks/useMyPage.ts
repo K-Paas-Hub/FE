@@ -54,18 +54,28 @@ export const useMyPage = () => {
     setLoading(true);
     setError(null);
     
-    try {
-      const response = await myPageService.getProfile();
-      if (response.success) {
-        setProfile(response.data);
-      } else {
-        setError(response.error || '프로필을 불러오는데 실패했습니다.');
-      }
-    } catch (err) {
-      setError('네트워크 오류가 발생했습니다.');
-    } finally {
+    // 임시 mock 데이터 (백엔드 API가 없으므로)
+    setTimeout(() => {
+      const mockProfile = {
+        id: '1',
+        email: 'user@example.com',
+        user_metadata: {
+          full_name: '홍길동'
+        },
+        app_metadata: {
+          provider: 'email'
+        },
+        userType: 'worker' as const,
+        language: 'ko' as const,
+        phoneNumber: '010-1234-5678',
+        nationality: '베트남',
+        avatarUrl: undefined,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
+      setProfile(mockProfile);
       setLoading(false);
-    }
+    }, 1000);
   }, []);
 
   // 프로필 업데이트
@@ -79,23 +89,23 @@ export const useMyPage = () => {
     setLoading(true);
     setError(null);
     
-    try {
-      const response = await myPageService.updateProfile(data);
-      if (response.success) {
-        setProfile(response.data);
-        setValidationErrors({});
-        return { success: true };
-      } else {
-        setError(response.error || '프로필 업데이트에 실패했습니다.');
-        return { success: false, error: response.error };
-      }
-    } catch (err) {
-      const errorMessage = '네트워크 오류가 발생했습니다.';
-      setError(errorMessage);
-      return { success: false, error: errorMessage };
-    } finally {
+    // 임시 mock 업데이트 (백엔드 API가 없으므로)
+    setTimeout(() => {
+      setProfile(prev => prev ? {
+        ...prev,
+        user_metadata: {
+          ...prev.user_metadata,
+          full_name: data.fullName || prev.user_metadata?.full_name
+        },
+        phoneNumber: data.phoneNumber || prev.phoneNumber,
+        nationality: data.nationality || prev.nationality,
+        language: (data.language as 'ko' | 'vi' | 'km' | 'ne' | 'id' | 'zh' | 'th') || prev.language
+      } : null);
+      setValidationErrors({});
       setLoading(false);
-    }
+    }, 1000);
+    
+    return { success: true, error: undefined };
   }, [validateProfile]);
 
   // 아바타 업로드
@@ -106,7 +116,7 @@ export const useMyPage = () => {
     try {
       const response = await myPageService.uploadAvatar(file);
       if (response.success) {
-        setProfile(prev => prev ? { ...prev, avatarUrl: response.data.avatarUrl } : null);
+        setProfile(prev => prev ? { ...prev, avatarUrl: response.data?.avatarUrl || '' } : null);
         return { success: true };
       } else {
         setError(response.error || '아바타 업로드에 실패했습니다.');
@@ -123,29 +133,29 @@ export const useMyPage = () => {
 
   // 설정 조회
   const fetchSettings = useCallback(async () => {
-    try {
-      const response = await myPageService.getSettings();
-      if (response.success) {
-        setSettings(response.data);
-      }
-    } catch (err) {
-      console.error('설정을 불러오는데 실패했습니다:', err);
-    }
+    // 임시 mock 데이터 (백엔드 API가 없으므로)
+    setTimeout(() => {
+      const mockSettings = {
+        language: 'ko',
+        notifications: {
+          email: true,
+          push: false,
+          sms: true
+        },
+        privacy: {
+          profileVisibility: 'public' as const,
+          dataSharing: false
+        }
+      };
+      setSettings(mockSettings);
+    }, 500);
   }, []);
 
   // 설정 업데이트
   const updateSettings = useCallback(async (newSettings: UserSettings) => {
-    try {
-      const response = await myPageService.updateSettings(newSettings);
-      if (response.success) {
-        setSettings(response.data);
-        return { success: true };
-      } else {
-        return { success: false, error: response.error };
-      }
-    } catch (err) {
-      return { success: false, error: '네트워크 오류가 발생했습니다.' };
-    }
+    // 임시 mock 업데이트 (백엔드 API가 없으므로)
+    setSettings(newSettings);
+    return { success: true, error: undefined };
   }, []);
 
   // 비밀번호 변경

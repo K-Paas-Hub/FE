@@ -23,3 +23,4 @@ export { default as ContractAnalysis } from './ContractAnalysis';
 export { default as SpellCheckPage } from './SpellCheck';
 export { default as LoginPage } from './LoginPage';
 export { default as InterviewPage } from './InterviewPage';
+export { default as MyPage } from './MyPage';
