@@ -37,7 +37,8 @@ const callKakaoAPI = async (query: string): Promise<KakaoAddressResponse> => {
     throw new Error('카카오 API 키가 설정되지 않았습니다.');
   }
 
-  const requestUrl = `${KAKAO_ADDRESS_API_URL}?query=${encodeURIComponent(query)}&size=5`;
+  // 더 많은 결과를 받기 위해 size를 15로 증가
+  const requestUrl = `${KAKAO_ADDRESS_API_URL}?query=${encodeURIComponent(query)}&size=15`;
   console.log('📡 요청 URL:', requestUrl);
 
   try {
@@ -61,10 +62,42 @@ const callKakaoAPI = async (query: string): Promise<KakaoAddressResponse> => {
 
     const data = await response.json();
     console.log('✅ API 응답 성공:', data);
+    console.log('📋 전체 응답 내용:', JSON.stringify(data, null, 2));
+    console.log('📊 documents 개수:', data.documents?.length || 0);
+    console.log('📊 meta 정보:', data.meta);
     return data;
   } catch (error) {
     console.error('💥 API 호출 중 오류:', error);
     throw error;
+  }
+};
+
+// 추가 검색을 위한 함수
+const callKakaoAPIWithSuffix = async (query: string, suffix: string): Promise<KakaoAddressResponse> => {
+  const fullQuery = `${query} ${suffix}`;
+  console.log(`🔍 추가 검색: "${fullQuery}"`);
+  
+  const requestUrl = `${KAKAO_ADDRESS_API_URL}?query=${encodeURIComponent(fullQuery)}&size=10`;
+  
+  try {
+    const response = await fetch(requestUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `KakaoAK ${KAKAO_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      return { documents: [], meta: { total_count: 0, pageable_count: 0, is_end: true } };
+    }
+
+    const data = await response.json();
+    console.log(`✅ 추가 검색 결과 (${suffix}):`, data.documents?.length || 0, '개');
+    return data;
+  } catch (error) {
+    console.error(`❌ 추가 검색 오류 (${suffix}):`, error);
+    return { documents: [], meta: { total_count: 0, pageable_count: 0, is_end: true } };
   }
 };
 
@@ -73,7 +106,7 @@ const transformKakaoResponse = (kakaoResponse: KakaoAddressResponse): AddressDat
   console.log('🔄 응답 변환 시작:', kakaoResponse);
   
   const transformedData = kakaoResponse.documents.map((doc, index) => ({
-    id: `kakao_${index}`,
+    id: `kakao_${Date.now()}_${index}`,
     address_name: doc.address_name,
     address_type: doc.address_type,
     x: doc.x,
@@ -105,15 +138,45 @@ export const kakaoAddressService = {
       }
 
       console.log('🌐 카카오 API 호출 시도...');
-      // 카카오 API 호출
+      // 기본 카카오 API 호출
       const kakaoResponse = await callKakaoAPI(query);
       
       console.log('🔄 응답 변환 중...');
-      // 응답 변환
-      const transformedData = transformKakaoResponse(kakaoResponse);
+      // 기본 응답 변환
+      let allResults = transformKakaoResponse(kakaoResponse);
       
-      console.log('🎉 검색 완료, 결과:', transformedData.length, '개');
-      return transformedData;
+      // 기본 검색 결과가 부족한 경우 추가 검색 수행
+      if (allResults.length < 3 && query.length >= 2) {
+        console.log('🔍 추가 검색 수행 (결과가 부족함)');
+        
+        // 일반적인 지역 접미사들로 추가 검색
+        const suffixes = ['시', '구', '동', '군', '읍', '면'];
+        const additionalResults: AddressData[] = [];
+        
+        for (const suffix of suffixes) {
+          try {
+            const additionalResponse = await callKakaoAPIWithSuffix(query, suffix);
+            const transformed = transformKakaoResponse(additionalResponse);
+            additionalResults.push(...transformed);
+          } catch (error) {
+            console.warn(`추가 검색 실패 (${suffix}):`, error);
+          }
+        }
+        
+        // 중복 제거 및 결과 합치기
+        const seenIds = new Set(allResults.map(item => item.address_name));
+        for (const result of additionalResults) {
+          if (!seenIds.has(result.address_name)) {
+            allResults.push(result);
+            seenIds.add(result.address_name);
+          }
+        }
+        
+        console.log('📊 추가 검색 후 총 결과:', allResults.length, '개');
+      }
+      
+      console.log('🎉 검색 완료, 결과:', allResults.length, '개');
+      return allResults.slice(0, 10); // 최대 10개로 제한
     } catch (error) {
       console.error('❌ 카카오 주소 검색 API 오류:', error);
       
