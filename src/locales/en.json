@@ -467,6 +467,96 @@
       }
     }
   },
+  "contractTutorial": {
+    "sections": {
+      "workConditions": {
+        "title": "Work conditions must be written specifically and clearly",
+        "content": "Employment contracts must detail work hours, break times, wages and payment dates, and other basic rights of workers. Vague expressions can cause disputes, so it's better to describe related items as specifically as possible.",
+        "warning": {
+          "title": "Important Notes",
+          "content": "Expressions like 'work hours follow company regulations' are vague and can cause disputes, so it's recommended to avoid them."
+        },
+        "workHours": {
+          "title": "a. Work Hours",
+          "content": "Specify how many hours per day within legal work hours (8 hours per day, 40 hours per week). Break time should be specified as 30 minutes for 4 hours and 1 hour or more for 8 hours within scheduled work hours.",
+          "example": {
+            "title": "Work Hours Writing Example",
+            "content": "• Work hours are from 9:00 AM to 6:00 PM, with 40 hours per week.\n• Break time is from 12:00 PM to 1:00 PM."
+          }
+        },
+        "salary": {
+          "title": "b. Salary",
+          "content": "If the salary form is annual, specify the annual salary amount along with base salary, overtime allowance, meal allowance, and other monthly salary components.",
+          "example": {
+            "title": "Salary (Annual Amount) Example",
+            "content": "• The worker's total annual salary is 35,000,000 won.\n• The company pays the worker 1/12 of the annual salary (hereinafter 'monthly salary') each month, and the monthly salary is composed as follows.\n• Base salary: 2,516,667 won / Overtime allowance: 300,000 won / Meal allowance: 100,000 won"
+          }
+        }
+      },
+      "laborLaw": {
+        "title": "Reflect the latest labor laws and systems",
+        "content": "To avoid legal issues, HR managers must reflect changes in the Labor Standards Act, minimum wage, social insurance, and retirement pay systems that are revised annually in employment contracts.",
+        "overtime": {
+          "title": "a. Overtime Work",
+          "content": "According to Article 53 of the Labor Standards Act, overtime exceeding 12 hours per week is prohibited, so it's necessary to specify such legal standards in employment contracts.",
+          "legal": {
+            "title": "Legal Standards",
+            "content": "Overtime work is the time exceeding 40 hours of legal work time per week out of total work time per week, and if this overtime exceeds 12 hours per week, it constitutes a legal violation."
+          }
+        },
+        "breakTime": {
+          "title": "b. Break Time",
+          "content": "Article 54 of the Labor Standards Act stipulates that 30 minutes or more of break time for 4 hours of work and 1 hour or more for 8 hours of work must be provided. This also applies to overtime work exceeding 8 hours per day."
+        }
+      },
+      "contractPeriod": {
+        "title": "Specify contract period and renewal terms",
+        "content": "For fixed-term workers, specifying the contract period and renewal possibility after termination in detail can prevent unnecessary misunderstandings.",
+        "example": {
+          "title": "Contract Period Writing Example",
+          "content": "• Employment contract period: January 1, 2024 ~ December 31, 2024\n• Renewal after contract termination: None"
+        }
+      },
+      "annualLeave": {
+        "title": "Include paid annual leave and unused leave management criteria",
+        "content": "You must clearly write about paid annual leave and unused annual leave processing, which are among the main rights of workers.",
+        "example": {
+          "title": "Annual Leave Writing Example",
+          "content": "• Annual leave grant: Workers can receive 15 days of paid annual leave if they attend 80% or more for one year.\n• Unused annual leave: If workers cannot use annual leave, remaining leave is replaced with monetary compensation, and the compensation standard follows the salary standard specified at contract signing."
+        },
+        "requirements": {
+          "title": "Required Compliance Items",
+          "items": [
+            "Contract conditions in employment contracts must be specified after sufficient discussion with workers (after treatment consultation is completed)",
+            "A copy of the employment contract must be provided regardless of the worker's request",
+            "Employment contracts must be kept for 3 years from the worker's resignation date and must be disposed of after the retention period"
+          ]
+        }
+      },
+      "faq": {
+        "title": "Employment Contract FAQ",
+        "content": "We answer questions about employment contracts. Employment contracts are sensitive documents containing legal content. HR managers may have various questions when writing employment contracts.",
+        "questions": [
+          {
+            "question": "What happens if you don't write an employment contract?",
+            "answer": "If the employer does not conclude a written employment contract or does not provide it to the worker, a fine of up to 5 million won is imposed. For fixed-term and part-time workers, they may receive a disposition of up to 5 million won in fines. For regular workers, the legal penalty level may be higher if an employment contract is not concluded."
+          },
+          {
+            "question": "If an employment contract is concluded with conditions below legal standards, is the contract invalid?",
+            "answer": "The relevant conditions become invalid, but the employment contract itself remains valid. Invalid conditions are automatically replaced according to standards set by the Labor Standards Act."
+          },
+          {
+            "question": "Who are the targets of employment contracts?",
+            "answer": "All types of workers including regular workers, probationary employees, fixed-term (contract) workers, part-time workers, daily workers, and foreigners are included. Trainees or probationary workers must also write employment contracts if they are in an employed state."
+          },
+          {
+            "question": "When should employment contracts be written?",
+            "answer": "Employment contracts should be written before work begins as a principle. The optimal time is to discuss contract conditions before the start date and write in writing before the work start date. If it must be written on the start date, contract contents should be sufficiently explained before work begins and workers should sign after understanding the contents."
+          }
+        ]
+      }
+    }
+  },
   "jobDetail": {
     "backButton": "← Back",
     "applyButton": "Apply",

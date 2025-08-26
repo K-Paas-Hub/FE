@@ -213,6 +213,96 @@
       }
     }
   },
+  "contractTutorial": {
+    "sections": {
+      "workConditions": {
+        "title": "Điều kiện lao động phải được ghi cụ thể và rõ ràng",
+        "content": "Hợp đồng lao động phải chi tiết giờ làm việc, thời gian nghỉ, tiền lương và ngày trả lương, và các quyền cơ bản khác của người lao động. Các biểu hiện mơ hồ có thể gây tranh chấp, vì vậy tốt hơn là mô tả các mục liên quan càng cụ thể càng tốt.",
+        "warning": {
+          "title": "Lưu ý quan trọng",
+          "content": "Các biểu hiện như 'giờ làm việc theo quy định của công ty' là mơ hồ và có thể gây tranh chấp, vì vậy nên tránh chúng."
+        },
+        "workHours": {
+          "title": "a. Giờ làm việc",
+          "content": "Chỉ định bao nhiêu giờ mỗi ngày trong giờ làm việc hợp pháp (8 giờ mỗi ngày, 40 giờ mỗi tuần). Thời gian nghỉ nên được chỉ định là 30 phút cho 4 giờ và 1 giờ trở lên cho 8 giờ trong giờ làm việc theo lịch trình.",
+          "example": {
+            "title": "Ví dụ viết giờ làm việc",
+            "content": "• Giờ làm việc từ 9:00 sáng đến 6:00 chiều, với 40 giờ mỗi tuần.\n• Thời gian nghỉ từ 12:00 trưa đến 1:00 chiều."
+          }
+        },
+        "salary": {
+          "title": "b. Lương",
+          "content": "Nếu hình thức lương là hàng năm, chỉ định số tiền lương hàng năm cùng với lương cơ bản, phụ cấp làm thêm giờ, phụ cấp ăn trưa và các thành phần lương hàng tháng khác.",
+          "example": {
+            "title": "Ví dụ lương (số tiền hàng năm)",
+            "content": "• Tổng lương hàng năm của người lao động là 35,000,000 won.\n• Công ty trả cho người lao động 1/12 lương hàng năm (sau đây gọi là 'lương hàng tháng') mỗi tháng, và lương hàng tháng được cấu thành như sau.\n• Lương cơ bản: 2,516,667 won / Phụ cấp làm thêm giờ: 300,000 won / Phụ cấp ăn trưa: 100,000 won"
+          }
+        }
+      },
+      "laborLaw": {
+        "title": "Phản ánh luật lao động và hệ thống mới nhất",
+        "content": "Để tránh các vấn đề pháp lý, các nhà quản lý nhân sự phải phản ánh những thay đổi trong Luật Tiêu chuẩn Lao động, lương tối thiểu, bảo hiểm xã hội và hệ thống lương hưu được sửa đổi hàng năm trong hợp đồng lao động.",
+        "overtime": {
+          "title": "a. Làm thêm giờ",
+          "content": "Theo Điều 53 của Luật Tiêu chuẩn Lao động, làm thêm giờ vượt quá 12 giờ mỗi tuần bị cấm, vì vậy cần thiết phải chỉ định các tiêu chuẩn pháp lý như vậy trong hợp đồng lao động.",
+          "legal": {
+            "title": "Tiêu chuẩn pháp lý",
+            "content": "Làm thêm giờ là thời gian vượt quá 40 giờ làm việc hợp pháp mỗi tuần trong tổng thời gian làm việc mỗi tuần, và nếu làm thêm giờ này vượt quá 12 giờ mỗi tuần, nó cấu thành vi phạm pháp luật."
+          }
+        },
+        "breakTime": {
+          "title": "b. Thời gian nghỉ",
+          "content": "Điều 54 của Luật Tiêu chuẩn Lao động quy định rằng 30 phút trở lên thời gian nghỉ cho 4 giờ làm việc và 1 giờ trở lên cho 8 giờ làm việc phải được cung cấp. Điều này cũng áp dụng cho công việc làm thêm giờ vượt quá 8 giờ mỗi ngày."
+        }
+      },
+      "contractPeriod": {
+        "title": "Chỉ định thời hạn hợp đồng và điều khoản gia hạn",
+        "content": "Đối với người lao động có thời hạn cố định, việc chỉ định thời hạn hợp đồng và khả năng gia hạn sau khi kết thúc một cách chi tiết có thể ngăn chặn những hiểu lầm không cần thiết.",
+        "example": {
+          "title": "Ví dụ viết thời hạn hợp đồng",
+          "content": "• Thời hạn hợp đồng lao động: 1 tháng 1 năm 2024 ~ 31 tháng 12 năm 2024\n• Gia hạn sau khi kết thúc hợp đồng: Không"
+        }
+      },
+      "annualLeave": {
+        "title": "Bao gồm tiêu chí quản lý nghỉ phép hàng năm có lương và nghỉ phép chưa sử dụng",
+        "content": "Bạn phải viết rõ ràng về nghỉ phép hàng năm có lương và xử lý nghỉ phép hàng năm chưa sử dụng, là một trong những quyền chính của người lao động.",
+        "example": {
+          "title": "Ví dụ viết nghỉ phép hàng năm",
+          "content": "• Cấp nghỉ phép hàng năm: Người lao động có thể nhận 15 ngày nghỉ phép hàng năm có lương nếu họ tham dự 80% trở lên trong một năm.\n• Nghỉ phép hàng năm chưa sử dụng: Nếu người lao động không thể sử dụng nghỉ phép hàng năm, nghỉ phép còn lại được thay thế bằng bồi thường tiền tệ, và tiêu chuẩn bồi thường tuân theo tiêu chuẩn lương được chỉ định khi ký hợp đồng."
+        },
+        "requirements": {
+          "title": "Các mục tuân thủ bắt buộc",
+          "items": [
+            "Điều kiện hợp đồng trong hợp đồng lao động phải được chỉ định sau khi thảo luận đầy đủ với người lao động (sau khi hoàn thành tham vấn điều trị)",
+            "Bản sao hợp đồng lao động phải được cung cấp bất kể yêu cầu của người lao động",
+            "Hợp đồng lao động phải được giữ trong 3 năm từ ngày từ chức của người lao động và phải được xử lý sau thời gian lưu trữ"
+          ]
+        }
+      },
+      "faq": {
+        "title": "FAQ về hợp đồng lao động",
+        "content": "Chúng tôi trả lời các câu hỏi về hợp đồng lao động. Hợp đồng lao động là tài liệu nhạy cảm chứa nội dung pháp lý. Các nhà quản lý nhân sự có thể có nhiều câu hỏi khi viết hợp đồng lao động.",
+        "questions": [
+          {
+            "question": "Điều gì xảy ra nếu bạn không viết hợp đồng lao động?",
+            "answer": "Nếu người sử dụng lao động không ký kết hợp đồng lao động bằng văn bản hoặc không cung cấp cho người lao động, sẽ bị phạt tiền lên đến 5 triệu won. Đối với người lao động có thời hạn cố định và bán thời gian, họ có thể nhận được quyết định phạt tiền lên đến 5 triệu won. Đối với người lao động thường xuyên, mức phạt pháp lý có thể cao hơn nếu không ký kết hợp đồng lao động."
+          },
+          {
+            "question": "Nếu hợp đồng lao động được ký kết với điều kiện dưới tiêu chuẩn pháp luật, hợp đồng có vô hiệu không?",
+            "answer": "Các điều kiện liên quan trở nên vô hiệu, nhưng bản thân hợp đồng lao động vẫn có hiệu lực. Các điều kiện vô hiệu được thay thế tự động theo tiêu chuẩn do Luật Tiêu chuẩn Lao động quy định."
+          },
+          {
+            "question": "Ai là đối tượng của hợp đồng lao động?",
+            "answer": "Tất cả các loại người lao động bao gồm người lao động thường xuyên, nhân viên thử việc, người lao động có thời hạn cố định (hợp đồng), người lao động bán thời gian, người lao động hàng ngày và người nước ngoài đều được bao gồm. Thực tập sinh hoặc người lao động thử việc cũng phải viết hợp đồng lao động nếu họ đang trong trạng thái được thuê."
+          },
+          {
+            "question": "Khi nào nên viết hợp đồng lao động?",
+            "answer": "Hợp đồng lao động nên được viết trước khi bắt đầu làm việc như một nguyên tắc. Thời điểm tối ưu là thảo luận điều kiện hợp đồng trước ngày bắt đầu và viết bằng văn bản trước ngày bắt đầu làm việc. Nếu phải viết vào ngày bắt đầu, nội dung hợp đồng phải được giải thích đầy đủ trước khi bắt đầu làm việc và người lao động phải ký sau khi hiểu nội dung."
+          }
+        ]
+      }
+    }
+  },
   "jobDetail": {
     "backButton": "← Quay lại",
     "applyButton": "Ứng tuyển",
