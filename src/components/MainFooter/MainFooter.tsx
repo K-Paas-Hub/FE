@@ -1,19 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../../styles/MainFooter.css';
 
 const MainFooter: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <footer className="main-footer">
       <div className="footer-content">
         <div className="top-nav">
-          <a href="#company" className="top-nav-link">회사소개</a>
-          <a href="#recruitment" className="top-nav-link">인재채용</a>
-          <a href="#terms" className="top-nav-link">회원약관</a>
-          <a href="#privacy" className="top-nav-link">개인정보처리방침</a>
-          <a href="#email-reject" className="top-nav-link">이메일무단수집거부</a>
-          <a href="#api" className="top-nav-link">채용정보 API</a>
-          <a href="#partnership" className="top-nav-link">제휴문의</a>
-          <a href="#customer-center" className="top-nav-link">고객센터</a>
+          <a href="#company" className="top-nav-link">{t('mainFooter.links.company')}</a>
+          <a href="#recruitment" className="top-nav-link">{t('mainFooter.links.recruitment')}</a>
+          <a href="#terms" className="top-nav-link">{t('mainFooter.links.terms')}</a>
+          <a href="#privacy" className="top-nav-link">{t('mainFooter.links.privacy')}</a>
+          <a href="#email-reject" className="top-nav-link">{t('mainFooter.links.emailReject')}</a>
+          <a href="#api" className="top-nav-link">{t('mainFooter.links.api')}</a>
+          <a href="#partnership" className="top-nav-link">{t('mainFooter.links.partnership')}</a>
+          <a href="#customer-center" className="top-nav-link">{t('mainFooter.links.customerCenter')}</a>
         </div>
         
         <div className="main-section">
@@ -21,15 +24,15 @@ const MainFooter: React.FC = () => {
             <div className="footer-logo">FairWork</div>
             <div className="customer-service">
               <br/>
-              FairWork 고객센터 02-3354-1256 (평일 09:00~19:00, 주말·공휴일 휴무)
+              {t('mainFooter.contact.title')} {t('mainFooter.contact.phone')} ({t('mainFooter.contact.hours')})
             </div>
             <div className="contact-info">
-              이메일 : contact@fairwork.co.kr, Fax : 02-1234-5679(대표), 02-1234-5680(세금계산서)
+              이메일 : {t('mainFooter.contact.email')}, Fax : {t('mainFooter.contact.fax')}
             </div>
           </div>
           
           <div className="right-section">
-            <button className="email-button">이메일 문의</button>
+            <button className="email-button">{t('mainFooter.actions.emailInquiry')}</button>
             <div className="social-icons">
               <a href="#blog">B</a>
               <a href="#facebook">f</a>
@@ -38,7 +41,7 @@ const MainFooter: React.FC = () => {
         </div>
         
         <div className="company-info">
-          (주)FairWork, 우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층, 대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완
+          {t('mainFooter.company.name')}, {t('mainFooter.company.address')}, {t('mainFooter.company.ceo')}
         </div>
         
         <div className="business-info">

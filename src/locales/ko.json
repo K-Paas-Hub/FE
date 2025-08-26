@@ -237,6 +237,33 @@
       "backToLogin": "로그인으로 돌아가기"
     }
   },
+  "mainFooter": {
+    "links": {
+      "company": "회사소개",
+      "recruitment": "인재채용",
+      "terms": "회원약관",
+      "privacy": "개인정보처리방침",
+      "emailReject": "이메일무단수집거부",
+      "api": "채용정보 API",
+      "partnership": "제휴문의",
+      "customerCenter": "고객센터"
+    },
+    "contact": {
+      "title": "FairWork 고객센터",
+      "phone": "02-3354-1256",
+      "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
+      "email": "contact@fairwork.co.kr",
+      "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
+    },
+    "actions": {
+      "emailInquiry": "이메일 문의"
+    },
+    "company": {
+      "name": "(주)FairWork",
+      "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
+      "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
+    }
+  },
   "header": {
     "jobPostings": "채용 공고",
     "myResume": "내 이력서",

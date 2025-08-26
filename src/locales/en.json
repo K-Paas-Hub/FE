@@ -237,6 +237,33 @@
       "backToLogin": "Back to Login"
     }
   },
+  "mainFooter": {
+    "links": {
+      "company": "Company",
+      "recruitment": "Recruitment",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "emailReject": "Email Collection Rejection",
+      "api": "Job Information API",
+      "partnership": "Partnership Inquiry",
+      "customerCenter": "Customer Center"
+    },
+    "contact": {
+      "title": "FairWork Customer Center",
+      "phone": "02-3354-1256",
+      "hours": "Weekdays 09:00~19:00, Weekends and Holidays Closed",
+      "email": "contact@fairwork.co.kr",
+      "fax": "02-1234-5679(Main), 02-1234-5680(Tax Invoice)"
+    },
+    "actions": {
+      "emailInquiry": "Email Inquiry"
+    },
+    "company": {
+      "name": "(주)FairWork",
+      "address": "P.O. Box: 03921, 6F, Sangam IT Tower, 17 World Cup Buk-ro 60-gil, Mapo-gu, Seoul",
+      "ceo": "CEO: Choi Hong-seok, Kim Mir, Lim Seong-hyeok, Hong Yun-ki, Heo Wan"
+    }
+  },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",
