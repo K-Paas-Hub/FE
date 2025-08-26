@@ -90,9 +90,7 @@ const MainHeader: React.FC = () => {
   return (
     <Header>
       <HeaderContent>
-        <Logo onClick={() => navigate('/main')}>
-          <LogoImage src="/images/fairwork.png" alt="FairWork" />
-        </Logo>
+
         <NavWrapper>
           <Nav>
             <NavLink 

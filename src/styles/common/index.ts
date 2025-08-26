@@ -12,3 +12,6 @@ export * from './Modal.styles';
 
 // Typography Components Export
 export * from './Typography.styles';
+
+// Page Layout Components Export
+export * from './Page.styles';
