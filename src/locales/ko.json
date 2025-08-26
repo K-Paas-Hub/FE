@@ -35,7 +35,8 @@
     "visaCenter": "비자 센터",
     "employmentContract": "근로계약서",
     "writingGuide": "📝 작성 가이드",
-    "contractAnalysis": "🔍 계약서 분석"
+    "contractAnalysis": "🔍 계약서 분석",
+    "aiInterview": "AI 모의 면접"
   },
   "mainPage": {
     "searchPlaceholder": "직무명, 직무 관련 키워드를 검색해 보세요.",

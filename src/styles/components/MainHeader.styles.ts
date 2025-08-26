@@ -202,9 +202,8 @@ export const DropdownTrigger = styled.div<{ $isOpen: boolean }>`
   align-items: center;
   gap: 0.3rem;
   white-space: nowrap;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: fit-content;
+  overflow: visible;
   
   &:hover {
     background: ${theme.colors.primaryLight};

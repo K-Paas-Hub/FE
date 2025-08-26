@@ -35,7 +35,8 @@
     "visaCenter": "Visa Center",
     "employmentContract": "Employment Contract",
     "writingGuide": "📝 Writing Guide",
-    "contractAnalysis": "🔍 Contract Analysis"
+    "contractAnalysis": "🔍 Contract Analysis",
+    "aiInterview": "AI Mock Interview"
   },
   "mainPage": {
     "searchPlaceholder": "Search for job titles and keywords...",

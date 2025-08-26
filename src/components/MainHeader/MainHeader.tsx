@@ -210,7 +210,7 @@ const MainHeaderComponent: React.FC = () => {
                 to="/interview" 
                 className={location.pathname === '/interview' ? 'active' : ''}
               >
-                AI 모의 면접
+                {t('header.aiInterview')}
               </NavLink>
             </Nav>
           </NavWrapper>

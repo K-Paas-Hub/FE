@@ -35,7 +35,8 @@
     "visaCenter": "签证中心",
     "employmentContract": "劳动合同",
     "writingGuide": "📝 写作指南",
-    "contractAnalysis": "🔍 合同分析"
+    "contractAnalysis": "🔍 合同分析",
+    "aiInterview": "AI模拟面试"
   },
   "mainPage": {
     "searchPlaceholder": "搜索职位名称和关键词...",
