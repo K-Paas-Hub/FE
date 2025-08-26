@@ -13,7 +13,9 @@
     "edit": "Chỉnh sửa",
     "delete": "Xóa",
     "close": "Đóng",
-    "user": "Người dùng"
+    "user": "Người dùng",
+    "minutes": "phút",
+    "count": ""
   },
   "auth": {
     "welcome": "Chào mừng đến với FairWork",
@@ -401,6 +403,15 @@
         "title": "Hỗ trợ visa",
         "description": "Hỗ trợ có hệ thống cho việc đăng ký và gia hạn visa để đảm bảo cư trú ổn định"
       }
+    }
+  },
+  "interviewChat": {
+    "welcomeMessage": "Xin chào! Tôi là phỏng vấn viên AI. Vui lòng kiểm tra cài đặt trước khi bắt đầu phỏng vấn.\n\nNhấp vào nút \"Cài đặt\" trong thanh bên trái để thiết lập độ khó và số lượng câu hỏi, hoặc nhấp vào nút \"Bắt đầu phỏng vấn\" để bắt đầu ngay lập tức.",
+    "completionMessage": "Phỏng vấn đã hoàn thành! Cảm ơn bạn đã dành thời gian.\n\nĐể xem kết quả phỏng vấn, nhấp vào nút \"Xem kết quả\" trong thanh bên.",
+    "difficultyLevels": {
+      "easy": "Sơ cấp",
+      "medium": "Trung cấp",
+      "hard": "Cao cấp"
     }
   },
   "interview": {

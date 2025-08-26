@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import InterviewMessage from './InterviewMessage';
 import InterviewInput from './InterviewInput';
 import '../../styles/InterviewChat.css';
@@ -31,11 +32,13 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
   isInterviewStarted, 
   onStartInterview 
 }) => {
+  const { t } = useTranslation();
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       type: 'system',
-      content: '안녕하세요! AI 면접관입니다. 면접을 시작하기 전에 설정을 확인해 주세요.\n\n왼쪽 사이드바에서 "설정" 버튼을 클릭하여 난이도와 질문 수를 설정하거나, "면접 시작" 버튼을 클릭하여 바로 시작할 수 있습니다.',
+      content: t('interviewChat.welcomeMessage'),
       timestamp: '09:14'
     }
   ]);
@@ -84,8 +87,8 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
   useEffect(() => {
     if (isInterviewStarted && currentQuestionIndex === 0) {
       const startInterview = () => {
-        const difficultyText = settings.difficulty === 'easy' ? '초급' : 
-                              settings.difficulty === 'medium' ? '중급' : '고급';
+        const difficultyText = settings.difficulty === 'easy' ? t('interviewChat.difficultyLevels.easy') : 
+                              settings.difficulty === 'medium' ? t('interviewChat.difficultyLevels.medium') : t('interviewChat.difficultyLevels.hard');
         
         const startMessage: Message = {
           id: Date.now().toString(),
@@ -144,7 +147,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
         const endMessage: Message = {
           id: (Date.now() + 1).toString(),
           type: 'system',
-          content: '면접이 완료되었습니다! 수고하셨습니다.\n\n면접 결과를 확인하려면 사이드바의 "결과 보기" 버튼을 클릭하세요.',
+          content: t('interviewChat.completionMessage'),
           timestamp: new Date().toLocaleTimeString('ko-KR', { 
             hour: '2-digit', 
             minute: '2-digit' 

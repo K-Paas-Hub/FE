@@ -13,7 +13,9 @@
     "edit": "Edit",
     "delete": "Delete",
     "close": "Close",
-    "user": "User"
+    "user": "User",
+    "minutes": "min",
+    "count": ""
   },
   "auth": {
     "welcome": "Welcome to FairWork",
@@ -57,6 +59,15 @@
       "loginButton": "Login",
       "loggingIn": "Logging in...",
       "or": "or"
+    }
+  },
+  "interviewChat": {
+    "welcomeMessage": "Hello! I'm an AI interviewer. Please check the settings before starting the interview.\n\nClick the \"Settings\" button in the left sidebar to set difficulty and number of questions, or click the \"Start Interview\" button to begin immediately.",
+    "completionMessage": "The interview is complete! Thank you for your time.\n\nTo view your interview results, click the \"View Result\" button in the sidebar.",
+    "difficultyLevels": {
+      "easy": "Beginner",
+      "medium": "Intermediate",
+      "hard": "Advanced"
     }
   },
   "interview": {
@@ -281,8 +292,8 @@
       "clearButton": "✕"
     },
     "filters": {
-      "region": "Region",
-      "employmentType": "Employment Type",
+    "region": "Region",
+    "employmentType": "Employment Type",
       "category": "Category",
       "resetAll": "Reset All Filters"
     },
@@ -341,9 +352,9 @@
     "jobList": {
       "title": "Job Postings",
       "sortOptions": {
-        "latest": "Latest",
-        "popular": "Popular",
-        "salary": "Salary",
+    "latest": "Latest",
+    "popular": "Popular",
+    "salary": "Salary",
         "deadline": "Deadline"
       },
       "sortLabel": "Select sort option"
