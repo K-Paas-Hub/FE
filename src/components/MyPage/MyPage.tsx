@@ -10,7 +10,6 @@ import {
 } from '../../styles/components/MyPage.styles';
 import ProfileSection from './ProfileSection';
 import SettingsSection from './SettingsSection';
-import UserTypeSection from './UserTypeSection';
 
 const MyPage: React.FC = () => {
   const { profile, settings, loading, error } = useMyPage();
@@ -51,7 +50,6 @@ const MyPage: React.FC = () => {
           >
             <ProfileSection profile={profile} />
             <SettingsSection settings={settings} />
-            <UserTypeSection profile={profile} />
           </MainContent>
         </MyPageContent>
       </MyPageContainer>
