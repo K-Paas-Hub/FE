@@ -22,6 +22,7 @@ import {
   ContractAnalysis,
   ContractQuiz
 } from './components';
+import MyPage from './components/MyPage';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
 import JobDetailPage from './components/JobDetailPage';
 import LoginPage from './components/LoginPage';
@@ -65,6 +66,7 @@ function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/interview" element={<InterviewPage />} />
+                    <Route path="/my-page" element={<MyPage />} />
         </Routes>
       </Router>
     </LanguageProvider>

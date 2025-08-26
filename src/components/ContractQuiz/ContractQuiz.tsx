@@ -8,10 +8,7 @@ import {
   QuizContent,
   QuizHeader,
   QuizTitle,
-  QuizSubtitle,
   QuizSection,
-  SectionTitle,
-  SectionIcon,
   QuizProgress,
   ProgressBar,
   ProgressFill,
@@ -213,20 +210,17 @@ const ContractQuiz: React.FC = () => {
       <QuizContainer>
         <MainHeader />
         <QuizContent>
-          <QuizHeader>
-            <QuizTitle>{t('contractQuiz.title')}</QuizTitle>
-            <QuizSubtitle>{t('contractQuiz.description')}</QuizSubtitle>
-          </QuizHeader>
-          
           <QuizSection>
             <QuizInfo>
               <InfoText>{t('contractQuiz.instructions')}</InfoText>
               <InfoText>{t('contractQuiz.totalQuestions', { count: quizQuestions.length })}</InfoText>
             </QuizInfo>
 
-            <NavButton onClick={startQuiz}>
-              {t('contractQuiz.startButton')}
-            </NavButton>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <NavButton onClick={startQuiz}>
+                {t('contractQuiz.startButton')}
+              </NavButton>
+            </div>
           </QuizSection>
         </QuizContent>
         <MainFooter />
@@ -240,10 +234,9 @@ const ContractQuiz: React.FC = () => {
       <QuizContainer>
         <MainHeader />
         <QuizContent>
-          <QuizHeader>
-            <QuizTitle>{t('contractQuiz.results.title')}</QuizTitle>
-            <QuizSubtitle>퀴즈 결과를 확인해보세요</QuizSubtitle>
-          </QuizHeader>
+                  <QuizHeader>
+          <QuizTitle>{t('contractQuiz.results.title')}</QuizTitle>
+        </QuizHeader>
 
           <ResultSection>
             <ResultCard>
@@ -291,7 +284,6 @@ const ContractQuiz: React.FC = () => {
       <QuizContent>
         <QuizHeader>
           <QuizTitle>{t('contractQuiz.title')}</QuizTitle>
-          <QuizSubtitle>근로계약서에 대한 이해도를 테스트해보세요</QuizSubtitle>
         </QuizHeader>
 
         <QuizSection>
