@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { MainHeader, MainFooter } from '../';
 import { useMyPage } from '../../hooks/useMyPage';
 import {
@@ -14,7 +13,6 @@ import SettingsSection from './SettingsSection';
 import UserTypeSection from './UserTypeSection';
 
 const MyPage: React.FC = () => {
-  const { t } = useTranslation();
   const { profile, settings, loading, error } = useMyPage();
 
   if (loading) {
