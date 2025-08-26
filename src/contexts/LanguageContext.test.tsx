@@ -3,6 +3,16 @@ import { renderHook, act, waitFor } from '@testing-library/react';
 import { render, screen } from '@testing-library/react';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 
+// Mock console.warn to suppress warnings during tests
+const originalWarn = console.warn;
+beforeAll(() => {
+  console.warn = jest.fn();
+});
+
+afterAll(() => {
+  console.warn = originalWarn;
+});
+
 // Mock localStorage
 const localStorageMock = {
   getItem: jest.fn(),
