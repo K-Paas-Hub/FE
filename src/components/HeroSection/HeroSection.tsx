@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
 import {
   HeroContainer,
@@ -12,6 +13,7 @@ import {
 
 const HeroSection: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleCTAClick = () => {
     navigate('/main');
@@ -26,15 +28,18 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: ANIMATIONS.duration.slow }}
         >
-          WE ARE <span className="highlight">INNOVATION</span>
+          {t('landing.hero.title').split(' ').map((word: string, index: number) => 
+            word === 'INNOVATION' ? 
+              <span key={index} className="highlight">{word}</span> : 
+              <span key={index}>{word}</span>
+          )}
         </HeroTitle>
         <HeroSubtitle
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: ANIMATIONS.duration.slow, delay: 0.2 }}
         >
-          혁신적인 채용 플랫폼으로<br />
-          최고의 인재와 기업을 연결합니다
+          {t('landing.hero.subtitle')}
         </HeroSubtitle>
         <CTAButton
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +49,7 @@ const HeroSection: React.FC = () => {
           whileTap={{ scale: 0.95 }}
           onClick={handleCTAClick}
         >
-          채용 사이트 바로가기 →
+          {t('landing.hero.ctaButton')} →
         </CTAButton>
       </HeroContent>
     </HeroContainer>

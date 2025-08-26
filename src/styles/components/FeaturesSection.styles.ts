@@ -45,6 +45,10 @@ export const SectionTitle = styled(motion.h2)`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
   
   .highlight {
     color: ${COLORS.primary};

@@ -49,6 +49,10 @@ export const HeroTitle = styled(motion.h1)`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
   
   .highlight {
     color: ${theme.colors.primary};

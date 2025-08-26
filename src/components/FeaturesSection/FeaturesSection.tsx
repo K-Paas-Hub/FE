@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
 import {
   Section,
@@ -12,39 +13,41 @@ import {
 
 interface Feature {
   icon: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   image: string;
 }
 
-const features: Feature[] = [
-  {
-    icon: '🌍',
-    title: '다국어 지원',
-    description: '다양한 언어로 지원하여 외국인 노동자들이 쉽게 이용할 수 있습니다',
-    image: '/images/earth.png'
-  },
-  {
-    icon: '⚖️',
-    title: '공정한 채용',
-    description: '차별 없는 공정한 채용 프로세스로 모든 노동자의 권리를 보호합니다',
-    image: '/images/fair.png'
-  },
-  {
-    icon: '🤝',
-    title: '법적 지원',
-    description: '노동법과 비자 관련 법적 지원으로 안전한 근무 환경을 제공합니다',
-    image: '/images/legal.png'
-  },
-  {
-    icon: '📋',
-    title: '비자 지원',
-    description: '체계적인 비자 신청 및 갱신 지원으로 안정적인 체류를 보장합니다',
-    image: '/images/visa_icon.png'
-  }
-];
-
 const FeaturesSection: React.FC = () => {
+  const { t } = useTranslation();
+
+  const features: Feature[] = [
+    {
+      icon: '🌍',
+      titleKey: 'landing.features.multilingual.title',
+      descriptionKey: 'landing.features.multilingual.description',
+      image: '/images/earth.png'
+    },
+    {
+      icon: '⚖️',
+      titleKey: 'landing.features.fairHiring.title',
+      descriptionKey: 'landing.features.fairHiring.description',
+      image: '/images/fair.png'
+    },
+    {
+      icon: '🤝',
+      titleKey: 'landing.features.legalSupport.title',
+      descriptionKey: 'landing.features.legalSupport.description',
+      image: '/images/legal.png'
+    },
+    {
+      icon: '📋',
+      titleKey: 'landing.features.visaSupport.title',
+      descriptionKey: 'landing.features.visaSupport.description',
+      image: '/images/visa_icon.png'
+    }
+  ];
+
   return (
     <Section id="activity">
       <SectionTitle
@@ -53,7 +56,11 @@ const FeaturesSection: React.FC = () => {
         transition={{ duration: ANIMATIONS.duration.slow, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        Fair Work의 <span className="highlight">특별한 기능</span>
+        {t('landing.features.title').split(' ').map((word: string, index: number) => 
+          word === '특별한' ? 
+            <span key={index} className="highlight">{word}</span> : 
+            <span key={index}>{word}</span>
+        )}
       </SectionTitle>
       <FeaturesGrid>
         {features.map((feature, index) => (
@@ -73,10 +80,10 @@ const FeaturesSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <FeatureIcon>
-              <img src={feature.image} alt={feature.title} />
+              <img src={feature.image} alt={t(feature.titleKey)} />
             </FeatureIcon>
-            <FeatureTitle>{feature.title}</FeatureTitle>
-            <FeatureDescription>{feature.description}</FeatureDescription>
+            <FeatureTitle>{t(feature.titleKey)}</FeatureTitle>
+            <FeatureDescription>{t(feature.descriptionKey)}</FeatureDescription>
           </FeatureCard>
         ))}
       </FeaturesGrid>
