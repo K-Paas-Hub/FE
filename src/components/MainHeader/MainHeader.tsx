@@ -20,6 +20,7 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
+  DropdownItemIcon,
   LanguageButton,
   FlagIcon,
   LanguageText,
@@ -202,8 +203,9 @@ const MainHeaderComponent: React.FC = () => {
                   <DropdownItem to="/resume">
                     {t('header.resumeWriting')}
                   </DropdownItem>
-                  <DropdownItem to="/spell-check">
-                    {t('header.spellCheck')}
+                  <DropdownItem to="/foreign-worker-spell-check">
+                    <DropdownItemIcon src="/images/search.png" alt="맞춤법 검사" />
+                    외국인 맞춤법 검사
                   </DropdownItem>
                 </DropdownMenu>
               </DropdownContainer>

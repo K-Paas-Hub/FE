@@ -247,7 +247,9 @@ export const DropdownMenu = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const DropdownItem = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.8rem 1rem;
   color: ${theme.colors.textPrimary};
   text-decoration: none;
@@ -262,6 +264,17 @@ export const DropdownItem = styled(Link)`
   
   &:last-child {
     border-bottom: none;
+  }
+`;
+
+export const DropdownItemIcon = styled.img`
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  
+  ${DropdownItem}:hover & {
+    opacity: 1;
   }
 `;
 
