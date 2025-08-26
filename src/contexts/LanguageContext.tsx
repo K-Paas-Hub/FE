@@ -41,15 +41,27 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   ];
 
   const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language);
-    setCurrentLanguage(language);
-    localStorage.setItem('i18nextLng', language);
+    try {
+      i18n.changeLanguage(language);
+      setCurrentLanguage(language);
+      localStorage.setItem('i18nextLng', language);
+    } catch (error) {
+      // localStorage 에러가 발생해도 언어 변경은 계속 진행
+      console.warn('Failed to save language to localStorage:', error);
+    }
   };
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('i18nextLng') || 'ko';
-    setCurrentLanguage(savedLanguage);
-    i18n.changeLanguage(savedLanguage);
+    try {
+      const savedLanguage = localStorage.getItem('i18nextLng') || 'ko';
+      setCurrentLanguage(savedLanguage);
+      i18n.changeLanguage(savedLanguage);
+    } catch (error) {
+      // localStorage 에러가 발생해도 기본 언어로 설정
+      console.warn('Failed to load language from localStorage:', error);
+      setCurrentLanguage('ko');
+      i18n.changeLanguage('ko');
+    }
   }, [i18n]);
 
   const value = {
