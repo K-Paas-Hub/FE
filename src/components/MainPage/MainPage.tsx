@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
@@ -346,6 +347,8 @@ const sampleJobs = [
 ];
 
 const MainPage: React.FC = () => {
+  const navigate = useNavigate();
+  
   const [jobs, setJobs] = useState(sampleJobs);
   const [filteredJobs, setFilteredJobs] = useState(sampleJobs);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -359,6 +362,11 @@ const MainPage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState('최신순');
   const [isChatOpen, setIsChatOpen] = useState(false);
+
+  // JobCard 클릭 핸들러
+  const handleJobCardClick = (jobId: number) => {
+    navigate(`/job/${jobId}`);
+  };
 
   const handleImageError = (imageName: string) => {
     setImageErrors(prev => ({ ...prev, [imageName]: true }));
@@ -812,6 +820,7 @@ const MainPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    onClick={() => handleJobCardClick(job.id)}
                   >
                     <JobImage>
                       <JobImageContent>{job.imageContent}</JobImageContent>
@@ -870,6 +879,7 @@ const MainPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    onClick={() => handleJobCardClick(job.id)}
                   >
                   <JobImage>
                     <JobImageContent>{job.imageContent}</JobImageContent>

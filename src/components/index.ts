@@ -20,6 +20,5 @@ export { default as ContractTutorial } from './ContractTutorial';
 export { default as ResumePage } from './ResumePage';
 export { default as ContractAnalysis } from './ContractAnalysis';
 export { default as SpellCheckPage } from './SpellCheck';
-export { default as GoogleLoginButton } from './GoogleLoginButton';
 export { default as LoginPage } from './LoginPage';
 export { default as InterviewPage } from './InterviewPage';

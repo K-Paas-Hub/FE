@@ -21,9 +21,6 @@
     "googleLogin": "Sign in with Google",
     "googleContinue": "Continue with Google",
     "loginLoading": "Signing in...",
-    "microsoftContinue": "Continue with Microsoft (Coming Soon)",
-    "appleContinue": "Continue with Apple (Coming Soon)",
-    "phoneContinue": "Continue with Phone (Coming Soon)",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy"
   },

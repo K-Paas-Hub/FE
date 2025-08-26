@@ -22,10 +22,7 @@ export class AuthService {
     return supabase.auth.onAuthStateChange(callback);
   }
   
-  // 코드를 세션으로 교환
-  async exchangeCodeForSession(code: string) {
-    return await supabase.auth.exchangeCodeForSession(code);
-  }
+
 }
 
 export const authService = new AuthService();

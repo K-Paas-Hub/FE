@@ -5,28 +5,15 @@ import Footer from '../MainFooter';
 import '../../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
-
   const [isFormLoading, setIsFormLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const handleGoogleLogin = async () => {
     setIsGoogleLoading(true);
     try {
-      // 백엔드 API 호출
-      const response = await fetch('/api/auth/google', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        // 성공 시 처리 (예: 토큰 저장, 리디렉션 등)
-        console.log('Google login successful:', data);
-      } else {
-        console.error('Google login failed');
-      }
+      // Google 로그인 버튼 클릭 시 처리 (실제 OAuth는 동작하지 않음)
+      console.log('Google login button clicked (OAuth disabled)');
+      alert('Google 로그인 기능은 현재 비활성화되어 있습니다.');
     } catch (error) {
       console.error('Google login error:', error);
     } finally {

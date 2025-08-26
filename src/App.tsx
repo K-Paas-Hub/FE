@@ -22,6 +22,7 @@ import {
   ContractAnalysis
 } from './components';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
+import JobDetailPage from './components/JobDetailPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import PasswordResetPage from './components/PasswordResetPage';
@@ -49,6 +50,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/main" element={<MainPage />} />
+          <Route path="/job/:id" element={<JobDetailPage />} />
           <Route path="/visa" element={<VisaCenter />} />
           <Route path="/visa/:type" element={<VisaDetailPage />} />
           <Route path="/contract-tutorial" element={<ContractTutorial />} />
