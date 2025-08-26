@@ -1117,14 +1117,7 @@ const TimelineItem = styled.div`
   }
 `;
 
-const TimelineDot = styled.div`
-  width: 12px;
-  height: 12px;
-  background: #4ade80;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-`;
+
 
 const TimelineContent = styled.div`
   flex: 1;
@@ -2472,7 +2465,6 @@ const ResumePage: React.FC = () => {
                   <TimelineContainer>
                     {selectedSchools.map((school, index) => (
                       <TimelineItem key={school.id}>
-                        <TimelineDot />
                         <TimelineContent>
                           <TimelineSchoolCard>
                             <TimelineSchoolHeader>
@@ -2652,7 +2644,6 @@ const ResumePage: React.FC = () => {
                   <TimelineContainer>
                     {selectedSkills.map((skill, index) => (
                       <TimelineItem key={skill.id}>
-                        <TimelineDot />
                         <TimelineContent>
                           <TimelineSkillCard>
                             <TimelineSkillHeader>
@@ -2777,7 +2768,6 @@ const ResumePage: React.FC = () => {
                   <TimelineContainer>
                     {selectedCertifications.map((certification, index) => (
                       <TimelineItem key={certification.id}>
-                        <TimelineDot />
                         <TimelineContent>
                           <TimelineCertificationCard>
                             <TimelineCertificationHeader>
@@ -2912,7 +2902,6 @@ const ResumePage: React.FC = () => {
                   <TimelineContainer>
                     {selectedLanguages.map((language, index) => (
                       <TimelineItem key={language.id}>
-                        <TimelineDot />
                         <TimelineContent>
                           <TimelineLanguageCard>
                             <TimelineLanguageHeader>
