@@ -276,20 +276,108 @@
     "aiInterview": "AI Mock Interview"
   },
   "mainPage": {
-    "searchPlaceholder": "Search for job titles and keywords...",
-    "region": "Region",
-    "employmentType": "Employment Type",
-    "jobCategory": "Job Category",
-    "refresh": "Refresh",
-    "jobPostings": "Job Postings",
-    "sortBy": "Sort by",
-    "latest": "Latest",
-    "popular": "Popular",
-    "salary": "Salary",
-    "deadline": "Deadline",
-    "noResults": "No search results found.",
-    "searchResults": "Search Results",
-    "items": "items"
+    "search": {
+      "placeholder": "Search for job titles and keywords...",
+      "clearButton": "✕"
+    },
+    "filters": {
+      "region": "Region",
+      "employmentType": "Employment Type",
+      "category": "Category",
+      "resetAll": "Reset All Filters"
+    },
+    "filterOptions": {
+      "regions": {
+        "seoul": "Seoul",
+        "gyeonggi": "Gyeonggi",
+        "incheon": "Incheon",
+        "busan": "Busan",
+        "daejeon": "Daejeon",
+        "daegu": "Daegu",
+        "ulsan": "Ulsan",
+        "gwangju": "Gwangju",
+        "gangwon": "Gangwon",
+        "sejong": "Sejong",
+        "chungbuk": "Chungbuk",
+        "chungnam": "Chungnam",
+        "gyeongbuk": "Gyeongbuk",
+        "gyeongnam": "Gyeongnam",
+        "jeju": "Jeju",
+        "jeonbuk": "Jeonbuk",
+        "jeonnam": "Jeonnam"
+      },
+      "employmentTypes": {
+        "fulltime": "Full-time",
+        "contract": "Contract",
+        "intern": "Intern",
+        "parttime": "Part-time",
+        "freelance": "Freelance"
+      },
+      "categories": {
+        "design": "Design",
+        "manufacturing": "Manufacturing",
+        "it": "IT",
+        "management": "Management",
+        "marketing": "Marketing",
+        "education": "Education",
+        "trade": "Trade/Logistics",
+        "sales": "Sales/CS",
+        "service": "Service",
+        "construction": "Construction",
+        "entertainment": "Entertainment",
+        "translation": "Translation",
+        "rd": "R&D",
+        "other": "Other"
+      }
+    },
+    "searchResults": {
+      "title": "Search Results",
+      "count": "items",
+      "noResults": {
+        "title": "No search results found",
+        "subtitle": "Try searching with different keywords"
+      }
+    },
+    "jobList": {
+      "title": "Job Postings",
+      "sortOptions": {
+        "latest": "Latest",
+        "popular": "Popular",
+        "salary": "Salary",
+        "deadline": "Deadline"
+      },
+      "sortLabel": "Select sort option"
+    },
+    "jobCard": {
+      "visaSupport": "E-7 Visa Support"
+    },
+    "filterModal": {
+      "close": "Close filter modal",
+      "appliedFilters": "Applied Filters",
+      "actions": {
+        "reset": "Reset",
+        "viewResults": "View Results"
+      }
+    },
+    "chat": {
+      "title": "Chat with FairWork Bot",
+      "subtitle": "Get help through our chatbot!",
+      "close": "Close",
+      "time": "6:14 PM",
+      "botMessage": {
+        "greeting": "Hello. I'm FairWork BOT.",
+        "selectType": "Please select your member type.",
+        "note": "(*This chatbot does not provide real-time chat service with agents.)"
+      },
+      "userTypes": {
+        "individual": "Individual Member",
+        "corporate": "Corporate Member"
+      },
+      "input": {
+        "placeholder": "Enter message"
+      },
+      "footer": "Built with Zendesk"
+    }
   },
   "resumePage": {
     "title": "Resume Writing",

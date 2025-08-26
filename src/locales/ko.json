@@ -264,6 +264,110 @@
       "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
     }
   },
+  "mainPage": {
+    "search": {
+      "placeholder": "직무명, 직무 관련 키워드를 검색해 보세요.",
+      "clearButton": "✕"
+    },
+    "filters": {
+      "region": "지역",
+      "employmentType": "고용 형태",
+      "category": "직종",
+      "resetAll": "모든 필터 초기화"
+    },
+    "filterOptions": {
+      "regions": {
+        "seoul": "서울특별시",
+        "gyeonggi": "경기도",
+        "incheon": "인천광역시",
+        "busan": "부산광역시",
+        "daejeon": "대전광역시",
+        "daegu": "대구광역시",
+        "ulsan": "울산광역시",
+        "gwangju": "광주광역시",
+        "gangwon": "강원특별자치도",
+        "sejong": "세종특별자치시",
+        "chungbuk": "충청북도",
+        "chungnam": "충청남도",
+        "gyeongbuk": "경상북도",
+        "gyeongnam": "경상남도",
+        "jeju": "제주특별자치도",
+        "jeonbuk": "전라북도",
+        "jeonnam": "전라남도"
+      },
+      "employmentTypes": {
+        "fulltime": "정규직",
+        "contract": "계약직",
+        "intern": "인턴",
+        "parttime": "아르바이트",
+        "freelance": "프리랜서"
+      },
+      "categories": {
+        "design": "디자인",
+        "manufacturing": "생산/제조",
+        "it": "IT",
+        "management": "경영/사무",
+        "marketing": "마케팅/광고",
+        "education": "교육",
+        "trade": "무역/물류",
+        "sales": "영업/CS",
+        "service": "서비스",
+        "construction": "건설",
+        "entertainment": "엔터테인먼트",
+        "translation": "번역",
+        "rd": "R&D",
+        "other": "기타"
+      }
+    },
+    "searchResults": {
+      "title": "검색 결과",
+      "count": "건",
+      "noResults": {
+        "title": "검색 결과가 없습니다",
+        "subtitle": "다른 키워드로 검색해보세요"
+      }
+    },
+    "jobList": {
+      "title": "채용 공고",
+      "sortOptions": {
+        "latest": "최신순",
+        "popular": "인기순",
+        "salary": "급여순",
+        "deadline": "마감임박순"
+      },
+      "sortLabel": "정렬 옵션 선택"
+    },
+    "jobCard": {
+      "visaSupport": "E-7 비자지원"
+    },
+    "filterModal": {
+      "close": "필터 모달 닫기",
+      "appliedFilters": "적용 필터",
+      "actions": {
+        "reset": "초기화",
+        "viewResults": "결과 보기"
+      }
+    },
+    "chat": {
+      "title": "FairWork 챗봇과 대화하기",
+      "subtitle": "챗봇을 통해 문의를 해결해보세요!",
+      "close": "닫기",
+      "time": "오후 6:14",
+      "botMessage": {
+        "greeting": "안녕하세요. FairWork BOT 입니다.",
+        "selectType": "회원 유형을 선택해 주세요.",
+        "note": "(*본 챗봇은 상담원과의 실시간 채팅 서비스는 운영하지 않습니다.)"
+      },
+      "userTypes": {
+        "individual": "개인회원",
+        "corporate": "기업회원"
+      },
+      "input": {
+        "placeholder": "메시지 입력"
+      },
+      "footer": "Zendesk 로 구축"
+    }
+  },
   "header": {
     "jobPostings": "채용 공고",
     "myResume": "내 이력서",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
@@ -348,6 +349,7 @@ const sampleJobs = [
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   
   const [jobs, setJobs] = useState(sampleJobs);
   const [filteredJobs, setFilteredJobs] = useState(sampleJobs);
@@ -360,7 +362,7 @@ const MainPage: React.FC = () => {
 
   const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({});
   const [isSortOpen, setIsSortOpen] = useState(false);
-  const [selectedSort, setSelectedSort] = useState('최신순');
+  const [selectedSort, setSelectedSort] = useState(t('mainPage.jobList.sortOptions.latest'));
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   // JobCard 클릭 핸들러
@@ -403,17 +405,56 @@ const MainPage: React.FC = () => {
     return filteredJobs.filter(job => {
       // 지역 필터
       const regionFilters = selectedFilters.filter(filter => 
-        ['서울특별시', '경기도', '인천광역시', '부산광역시', '대전광역시', '대구광역시', '울산광역시', '광주광역시', '강원특별자치도', '세종특별자치시', '충청북도', '충청남도', '경상북도', '경상남도', '제주특별자치도', '전라북도', '전라남도'].includes(filter)
+        [
+          t('mainPage.filterOptions.regions.seoul'),
+          t('mainPage.filterOptions.regions.gyeonggi'),
+          t('mainPage.filterOptions.regions.incheon'),
+          t('mainPage.filterOptions.regions.busan'),
+          t('mainPage.filterOptions.regions.daejeon'),
+          t('mainPage.filterOptions.regions.daegu'),
+          t('mainPage.filterOptions.regions.ulsan'),
+          t('mainPage.filterOptions.regions.gwangju'),
+          t('mainPage.filterOptions.regions.gangwon'),
+          t('mainPage.filterOptions.regions.sejong'),
+          t('mainPage.filterOptions.regions.chungbuk'),
+          t('mainPage.filterOptions.regions.chungnam'),
+          t('mainPage.filterOptions.regions.gyeongbuk'),
+          t('mainPage.filterOptions.regions.gyeongnam'),
+          t('mainPage.filterOptions.regions.jeju'),
+          t('mainPage.filterOptions.regions.jeonbuk'),
+          t('mainPage.filterOptions.regions.jeonnam')
+        ].includes(filter)
       );
       
       // 고용 형태 필터
       const typeFilters = selectedFilters.filter(filter => 
-        ['정규직', '계약직', '인턴', '아르바이트', '프리랜서'].includes(filter)
+        [
+          t('mainPage.filterOptions.employmentTypes.fulltime'),
+          t('mainPage.filterOptions.employmentTypes.contract'),
+          t('mainPage.filterOptions.employmentTypes.intern'),
+          t('mainPage.filterOptions.employmentTypes.parttime'),
+          t('mainPage.filterOptions.employmentTypes.freelance')
+        ].includes(filter)
       );
       
       // 직종 필터
       const categoryFilters = selectedFilters.filter(filter => 
-        ['디자인', '생산/제조', 'IT', '경영/사무', '마케팅/광고', '교육', '무역/물류', '영업/CS', '서비스', '건설', '엔터테인먼트', '번역', 'R&D', '기타'].includes(filter)
+        [
+          t('mainPage.filterOptions.categories.design'),
+          t('mainPage.filterOptions.categories.manufacturing'),
+          t('mainPage.filterOptions.categories.it'),
+          t('mainPage.filterOptions.categories.management'),
+          t('mainPage.filterOptions.categories.marketing'),
+          t('mainPage.filterOptions.categories.education'),
+          t('mainPage.filterOptions.categories.trade'),
+          t('mainPage.filterOptions.categories.sales'),
+          t('mainPage.filterOptions.categories.service'),
+          t('mainPage.filterOptions.categories.construction'),
+          t('mainPage.filterOptions.categories.entertainment'),
+          t('mainPage.filterOptions.categories.translation'),
+          t('mainPage.filterOptions.categories.rd'),
+          t('mainPage.filterOptions.categories.other')
+        ].includes(filter)
       );
 
       // 지역 필터 적용
@@ -440,7 +481,7 @@ const MainPage: React.FC = () => {
 
       return true;
     });
-  }, [selectedFilters]);
+  }, [selectedFilters, t]);
 
   // 지역 매핑 함수
   const getJobRegion = (location: string) => {
@@ -486,26 +527,26 @@ const MainPage: React.FC = () => {
     const sortedJobs = [...jobsToSort];
     
     switch (selectedSort) {
-      case '최신순':
+      case t('mainPage.jobList.sortOptions.latest'):
         // 등록일 기준 내림차순 (최신 등록이 위로)
         return sortedJobs.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         
-      case '인기순':
+      case t('mainPage.jobList.sortOptions.popular'):
         // 좋아요 수 기준 내림차순
         return sortedJobs.sort((a, b) => b.likeCount - a.likeCount);
         
-      case '급여순':
+      case t('mainPage.jobList.sortOptions.salary'):
         // 급여 기준 내림차순 (높은 급여가 위로)
         return sortedJobs.sort((a, b) => b.salary - a.salary);
         
-      case '마감임박순':
+      case t('mainPage.jobList.sortOptions.deadline'):
         // 마감일 기준 오름차순 (빠른 마감일이 위로)
         return sortedJobs.sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
         
       default:
         return sortedJobs;
     }
-  }, [selectedSort]);
+  }, [selectedSort, t]);
 
   // 통합 필터링 및 정렬 함수
   const applyAllFilters = useCallback(() => {
@@ -581,11 +622,50 @@ const MainPage: React.FC = () => {
   const getFilterOptions = () => {
     switch (activeFilter) {
       case 'region':
-        return ['서울특별시', '경기도', '인천광역시', '부산광역시', '대전광역시', '대구광역시', '울산광역시', '광주광역시', '강원특별자치도', '세종특별자치시', '충청북도', '충청남도', '경상북도', '경상남도', '제주특별자치도', '전라북도', '전라남도'];
+        return [
+          t('mainPage.filterOptions.regions.seoul'),
+          t('mainPage.filterOptions.regions.gyeonggi'),
+          t('mainPage.filterOptions.regions.incheon'),
+          t('mainPage.filterOptions.regions.busan'),
+          t('mainPage.filterOptions.regions.daejeon'),
+          t('mainPage.filterOptions.regions.daegu'),
+          t('mainPage.filterOptions.regions.ulsan'),
+          t('mainPage.filterOptions.regions.gwangju'),
+          t('mainPage.filterOptions.regions.gangwon'),
+          t('mainPage.filterOptions.regions.sejong'),
+          t('mainPage.filterOptions.regions.chungbuk'),
+          t('mainPage.filterOptions.regions.chungnam'),
+          t('mainPage.filterOptions.regions.gyeongbuk'),
+          t('mainPage.filterOptions.regions.gyeongnam'),
+          t('mainPage.filterOptions.regions.jeju'),
+          t('mainPage.filterOptions.regions.jeonbuk'),
+          t('mainPage.filterOptions.regions.jeonnam')
+        ];
       case 'type':
-        return ['정규직', '계약직', '인턴', '아르바이트', '프리랜서'];
+        return [
+          t('mainPage.filterOptions.employmentTypes.fulltime'),
+          t('mainPage.filterOptions.employmentTypes.contract'),
+          t('mainPage.filterOptions.employmentTypes.intern'),
+          t('mainPage.filterOptions.employmentTypes.parttime'),
+          t('mainPage.filterOptions.employmentTypes.freelance')
+        ];
       case 'category':
-        return ['디자인', '생산/제조', 'IT', '경영/사무', '마케팅/광고', '교육', '무역/물류', '영업/CS', '서비스', '건설', '엔터테인먼트', '번역', 'R&D', '기타'];
+        return [
+          t('mainPage.filterOptions.categories.design'),
+          t('mainPage.filterOptions.categories.manufacturing'),
+          t('mainPage.filterOptions.categories.it'),
+          t('mainPage.filterOptions.categories.management'),
+          t('mainPage.filterOptions.categories.marketing'),
+          t('mainPage.filterOptions.categories.education'),
+          t('mainPage.filterOptions.categories.trade'),
+          t('mainPage.filterOptions.categories.sales'),
+          t('mainPage.filterOptions.categories.service'),
+          t('mainPage.filterOptions.categories.construction'),
+          t('mainPage.filterOptions.categories.entertainment'),
+          t('mainPage.filterOptions.categories.translation'),
+          t('mainPage.filterOptions.categories.rd'),
+          t('mainPage.filterOptions.categories.other')
+        ];
       default:
         return [];
     }
@@ -641,14 +721,14 @@ const MainPage: React.FC = () => {
               onError={() => handleImageError('search')}
             />
             <MainSearchInput 
-              placeholder="직무명, 직무 관련 키워드를 검색해 보세요."
+              placeholder={t('mainPage.search.placeholder')}
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
             />
             {searchQuery && (
               <ClearSearchButton onClick={handleClearSearch}>
-                ✕
+                {t('mainPage.search.clearButton')}
               </ClearSearchButton>
             )}
           </SearchBar>
@@ -658,7 +738,7 @@ const MainPage: React.FC = () => {
               $isActive={activeFilter === 'region'}
               onClick={() => handleFilterClick('region')}
             >
-              지역
+              {t('mainPage.filters.region')}
               <FilterDownArrowIcon 
                 src="/images/down-arrow.png" 
                 alt="down arrow"
@@ -670,7 +750,7 @@ const MainPage: React.FC = () => {
               $isActive={activeFilter === 'type'}
               onClick={() => handleFilterClick('type')}
             >
-              고용 형태
+              {t('mainPage.filters.employmentType')}
               <FilterDownArrowIcon 
                 src="/images/down-arrow.png" 
                 alt="down arrow"
@@ -682,7 +762,7 @@ const MainPage: React.FC = () => {
               $isActive={activeFilter === 'category'}
               onClick={() => handleFilterClick('category')}
             >
-              직종
+              {t('mainPage.filters.category')}
               <FilterDownArrowIcon 
                 src="/images/down-arrow.png" 
                 alt="down arrow"
@@ -710,7 +790,7 @@ const MainPage: React.FC = () => {
                 }
               }}
               style={{ cursor: 'pointer' }}
-              title="모든 필터 초기화"
+              title={t('mainPage.filters.resetAll')}
             >
               <RefreshIcon 
                 src="/images/refresh.png" 
@@ -741,9 +821,9 @@ const MainPage: React.FC = () => {
             <div>
               <span>"</span>
               <SearchCount>{searchQuery}</SearchCount>
-              <span>" 검색 결과 </span>
+              <span>" {t('mainPage.searchResults.title')} </span>
               <SearchCount>{filteredJobs.length}</SearchCount>
-              <span>건</span>
+              <span>{t('mainPage.searchResults.count')}</span>
               {isSearching && <SearchLoadingSpinner />}
             </div>
           </SearchResultsInfo>
@@ -751,7 +831,7 @@ const MainPage: React.FC = () => {
 
         <JobListSection>
           <SectionHeader>
-            <MainSectionTitle>채용 공고</MainSectionTitle>
+            <MainSectionTitle>{t('mainPage.jobList.title')}</MainSectionTitle>
             <SortButton 
               onClick={handleSortClick} 
               className="sort-dropdown"
@@ -765,7 +845,7 @@ const MainPage: React.FC = () => {
               }}
               aria-expanded={isSortOpen}
               aria-haspopup="listbox"
-              aria-label="정렬 옵션 선택"
+              aria-label={t('mainPage.jobList.sortLabel')}
             >
               {selectedSort}
               <DownArrowIcon 
@@ -776,28 +856,28 @@ const MainPage: React.FC = () => {
               />
               <SortDropdown $isOpen={isSortOpen}>
                 <SortOption 
-                  className={selectedSort === '최신순' ? 'active' : ''}
-                  onClick={() => handleSortSelect('최신순')}
+                  className={selectedSort === t('mainPage.jobList.sortOptions.latest') ? 'active' : ''}
+                  onClick={() => handleSortSelect(t('mainPage.jobList.sortOptions.latest'))}
                 >
-                  최신순
+                  {t('mainPage.jobList.sortOptions.latest')}
                 </SortOption>
                 <SortOption 
-                  className={selectedSort === '인기순' ? 'active' : ''}
-                  onClick={() => handleSortSelect('인기순')}
+                  className={selectedSort === t('mainPage.jobList.sortOptions.popular') ? 'active' : ''}
+                  onClick={() => handleSortSelect(t('mainPage.jobList.sortOptions.popular'))}
                 >
-                  인기순
+                  {t('mainPage.jobList.sortOptions.popular')}
                 </SortOption>
                 <SortOption 
-                  className={selectedSort === '급여순' ? 'active' : ''}
-                  onClick={() => handleSortSelect('급여순')}
+                  className={selectedSort === t('mainPage.jobList.sortOptions.salary') ? 'active' : ''}
+                  onClick={() => handleSortSelect(t('mainPage.jobList.sortOptions.salary'))}
                 >
-                  급여순
+                  {t('mainPage.jobList.sortOptions.salary')}
                 </SortOption>
                 <SortOption 
-                  className={selectedSort === '마감임박순' ? 'active' : ''}
-                  onClick={() => handleSortSelect('마감임박순')}
+                  className={selectedSort === t('mainPage.jobList.sortOptions.deadline') ? 'active' : ''}
+                  onClick={() => handleSortSelect(t('mainPage.jobList.sortOptions.deadline'))}
                 >
-                  마감임박순
+                  {t('mainPage.jobList.sortOptions.deadline')}
                 </SortOption>
               </SortDropdown>
             </SortButton>
@@ -843,12 +923,12 @@ const MainPage: React.FC = () => {
                         </HeartButton>
                       </JobHeader>
                       
-                      <JobTags>
-                        {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
-                        <Tag className="location">{job.location}</Tag>
-                        <Tag className="experience">{job.experience}</Tag>
-                        <Tag>{job.industry}</Tag>
-                      </JobTags>
+                                          <JobTags>
+                      {job.hasVisa && <Tag className="visa">{t('mainPage.jobCard.visaSupport')}</Tag>}
+                      <Tag className="location">{job.location}</Tag>
+                      <Tag className="experience">{job.experience}</Tag>
+                      <Tag>{job.industry}</Tag>
+                    </JobTags>
                     </JobContent>
                   </JobCard>
                 ))}
@@ -857,9 +937,9 @@ const MainPage: React.FC = () => {
           ) : searchQuery ? (
             <NoResultsMessage>
               <NoResultsIcon>🔍</NoResultsIcon>
-              <NoResultsTitle>검색 결과가 없습니다</NoResultsTitle>
+              <NoResultsTitle>{t('mainPage.searchResults.noResults.title')}</NoResultsTitle>
               <NoResultsText>
-                다른 키워드로 검색해보세요
+                {t('mainPage.searchResults.noResults.subtitle')}
               </NoResultsText>
             </NoResultsMessage>
           ) : (
@@ -903,7 +983,7 @@ const MainPage: React.FC = () => {
                     </JobHeader>
                     
                     <JobTags>
-                      {job.hasVisa && <Tag className="visa">E-7 비자지원</Tag>}
+                      {job.hasVisa && <Tag className="visa">{t('mainPage.jobCard.visaSupport')}</Tag>}
                       <Tag className="location">{job.location}</Tag>
                       <Tag className="experience">{job.experience}</Tag>
                       <Tag>{job.industry}</Tag>
@@ -930,8 +1010,8 @@ const MainPage: React.FC = () => {
           <ChatHeaderContent>
             <ChatLogo>F</ChatLogo>
             <ChatTitle>
-              <ChatTitleMain>FairWork 챗봇과 대화하기</ChatTitleMain>
-              <ChatTitleSub>챗봇을 통해 문의를 해결해보세요!</ChatTitleSub>
+              <ChatTitleMain>{t('mainPage.chat.title')}</ChatTitleMain>
+              <ChatTitleSub>{t('mainPage.chat.subtitle')}</ChatTitleSub>
             </ChatTitle>
           </ChatHeaderContent>
           <ChatCloseButton onClick={handleChatClick}>
@@ -945,7 +1025,7 @@ const MainPage: React.FC = () => {
         
         <ChatContent>
           <div style={{ textAlign: 'center', fontSize: '0.8rem', color: '#666', marginBottom: '1rem' }}>
-            오후 6:14
+            {t('mainPage.chat.time')}
           </div>
           
           <ChatMessage>
@@ -953,15 +1033,15 @@ const MainPage: React.FC = () => {
             <div>
               <ChatBubble>
                 <ChatText>
-                  안녕하세요. FairWork BOT 입니다.<br />
-                  회원 유형을 선택해 주세요.<br />
-                  (*본 챗봇은 상담원과의 실시간 채팅 서비스는 운영하지 않습니다.)
+                  {t('mainPage.chat.botMessage.greeting')}<br />
+                  {t('mainPage.chat.botMessage.selectType')}<br />
+                  {t('mainPage.chat.botMessage.note')}
                 </ChatText>
                 <ChatTime>방금</ChatTime>
               </ChatBubble>
               <ChatOptions>
-                <ChatOptionButton>개인회원</ChatOptionButton>
-                <ChatOptionButton>기업회원</ChatOptionButton>
+                <ChatOptionButton>{t('mainPage.chat.userTypes.individual')}</ChatOptionButton>
+                <ChatOptionButton>{t('mainPage.chat.userTypes.corporate')}</ChatOptionButton>
               </ChatOptions>
             </div>
           </ChatMessage>
@@ -969,19 +1049,19 @@ const MainPage: React.FC = () => {
         
         <ChatInput>
           <ChatInputField 
-            placeholder="메시지 입력" 
+            placeholder={t('mainPage.chat.input.placeholder')} 
             type="text"
           />
         </ChatInput>
         
         <ChatFooter>
-          Zendesk 로 구축
+          {t('mainPage.chat.footer')}
         </ChatFooter>
       </ChatOverlay>
       
       <FilterOverlay $isOpen={isFilterOpen} onClick={handleCloseModal}>
         <FilterModal onClick={(e) => e.stopPropagation()}>
-          <CloseButton onClick={handleCloseModal} aria-label="필터 모달 닫기">
+          <CloseButton onClick={handleCloseModal} aria-label={t('mainPage.filterModal.close')}>
             ×
           </CloseButton>
           <FilterTabs>
@@ -989,19 +1069,19 @@ const MainPage: React.FC = () => {
               $isActive={activeFilter === 'region'}
               onClick={() => setActiveFilter('region')}
             >
-              지역
+              {t('mainPage.filters.region')}
             </FilterTab>
             <FilterTab 
               $isActive={activeFilter === 'type'}
               onClick={() => setActiveFilter('type')}
             >
-              고용 형태
+              {t('mainPage.filters.employmentType')}
             </FilterTab>
             <FilterTab 
               $isActive={activeFilter === 'category'}
               onClick={() => setActiveFilter('category')}
             >
-              직종
+              {t('mainPage.filters.category')}
             </FilterTab>
           </FilterTabs>
           
@@ -1019,7 +1099,7 @@ const MainPage: React.FC = () => {
           
           {selectedFilters.length > 0 && (
             <AppliedFilters>
-              <AppliedFiltersTitle>적용 필터</AppliedFiltersTitle>
+              <AppliedFiltersTitle>{t('mainPage.filterModal.appliedFilters')}</AppliedFiltersTitle>
               <AppliedFilterTags>
                 {selectedFilters.map((filter) => (
                   <AppliedFilterTag key={filter}>
@@ -1032,8 +1112,8 @@ const MainPage: React.FC = () => {
           )}
           
           <FilterActions>
-            <ResetButton onClick={handleResetFilters}>초기화</ResetButton>
-            <ViewResultsButton onClick={handleViewResults}>결과 보기</ViewResultsButton>
+            <ResetButton onClick={handleResetFilters}>{t('mainPage.filterModal.actions.reset')}</ResetButton>
+            <ViewResultsButton onClick={handleViewResults}>{t('mainPage.filterModal.actions.viewResults')}</ViewResultsButton>
           </FilterActions>
         </FilterModal>
       </FilterOverlay>

@@ -302,5 +302,136 @@
     "actions": {
       "backToLogin": "Quay lại Đăng nhập"
     }
+  },
+  "mainFooter": {
+    "links": {
+      "company": "Giới thiệu công ty",
+      "recruitment": "Tuyển dụng",
+      "terms": "Điều khoản dịch vụ",
+      "privacy": "Chính sách bảo mật",
+      "emailReject": "Từ chối thu thập email",
+      "api": "API thông tin tuyển dụng",
+      "partnership": "Liên hệ hợp tác",
+      "customerCenter": "Trung tâm khách hàng"
+    },
+    "contact": {
+      "title": "Trung tâm khách hàng FairWork",
+      "phone": "02-3354-1256",
+      "hours": "Thứ 2-6 09:00~19:00, Cuối tuần và ngày lễ nghỉ",
+      "email": "contact@fairwork.co.kr",
+      "fax": "02-1234-5679(Chính), 02-1234-5680(Hóa đơn thuế)"
+    },
+    "actions": {
+      "emailInquiry": "Liên hệ qua email"
+    },
+    "company": {
+      "name": "Công ty TNHH FairWork",
+      "address": "Tầng 6, Tòa nhà IT Sangam, 17 World Cup Buk-ro 60-gil, Mapo-gu, Seoul 03921",
+      "ceo": "CEO: Choi Hong-seok, Kim Mi-reu, Lim Seong-hyeok, Hong Yun-ki, Heo Wan"
+    }
+  },
+  "mainPage": {
+    "search": {
+      "placeholder": "Tìm kiếm theo tên công việc hoặc từ khóa liên quan.",
+      "clearButton": "✕"
+    },
+    "filters": {
+      "region": "Khu vực",
+      "employmentType": "Loại việc làm",
+      "category": "Danh mục",
+      "resetAll": "Đặt lại tất cả bộ lọc"
+    },
+    "filterOptions": {
+      "regions": {
+        "seoul": "Seoul",
+        "gyeonggi": "Gyeonggi",
+        "incheon": "Incheon",
+        "busan": "Busan",
+        "daejeon": "Daejeon",
+        "daegu": "Daegu",
+        "ulsan": "Ulsan",
+        "gwangju": "Gwangju",
+        "gangwon": "Gangwon",
+        "sejong": "Sejong",
+        "chungbuk": "Chungbuk",
+        "chungnam": "Chungnam",
+        "gyeongbuk": "Gyeongbuk",
+        "gyeongnam": "Gyeongnam",
+        "jeju": "Jeju",
+        "jeonbuk": "Jeonbuk",
+        "jeonnam": "Jeonnam"
+      },
+      "employmentTypes": {
+        "fulltime": "Toàn thời gian",
+        "contract": "Hợp đồng",
+        "intern": "Thực tập",
+        "parttime": "Bán thời gian",
+        "freelance": "Tự do"
+      },
+      "categories": {
+        "design": "Thiết kế",
+        "manufacturing": "Sản xuất",
+        "it": "IT",
+        "management": "Quản lý",
+        "marketing": "Marketing",
+        "education": "Giáo dục",
+        "trade": "Thương mại/Vận chuyển",
+        "sales": "Bán hàng/CS",
+        "service": "Dịch vụ",
+        "construction": "Xây dựng",
+        "entertainment": "Giải trí",
+        "translation": "Dịch thuật",
+        "rd": "R&D",
+        "other": "Khác"
+      }
+    },
+    "searchResults": {
+      "title": "Kết quả tìm kiếm",
+      "count": "mục",
+      "noResults": {
+        "title": "Không tìm thấy kết quả",
+        "subtitle": "Thử tìm kiếm với từ khóa khác"
+      }
+    },
+    "jobList": {
+      "title": "Tin tuyển dụng",
+      "sortOptions": {
+        "latest": "Mới nhất",
+        "popular": "Phổ biến",
+        "salary": "Lương",
+        "deadline": "Hạn chót"
+      },
+      "sortLabel": "Chọn tùy chọn sắp xếp"
+    },
+    "jobCard": {
+      "visaSupport": "Hỗ trợ visa E-7"
+    },
+    "filterModal": {
+      "close": "Đóng modal bộ lọc",
+      "appliedFilters": "Bộ lọc đã áp dụng",
+      "actions": {
+        "reset": "Đặt lại",
+        "viewResults": "Xem kết quả"
+      }
+    },
+    "chat": {
+      "title": "Trò chuyện với Bot FairWork",
+      "subtitle": "Nhận trợ giúp thông qua chatbot!",
+      "close": "Đóng",
+      "time": "6:14 PM",
+      "botMessage": {
+        "greeting": "Xin chào. Tôi là FairWork BOT.",
+        "selectType": "Vui lòng chọn loại thành viên.",
+        "note": "(*Chatbot này không cung cấp dịch vụ chat thời gian thực với nhân viên.)"
+      },
+      "userTypes": {
+        "individual": "Thành viên cá nhân",
+        "corporate": "Thành viên doanh nghiệp"
+      },
+      "input": {
+        "placeholder": "Nhập tin nhắn"
+      },
+      "footer": "Được xây dựng với Zendesk"
+    }
   }
 }
