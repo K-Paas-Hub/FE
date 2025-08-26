@@ -213,6 +213,15 @@
       }
     }
   },
+  "sidebar": {
+    "items": {
+      "hero": "Giới thiệu",
+      "activity": "Tính năng",
+      "project": "Kết quả",
+      "page": "Trang",
+      "sponsor": "Nhà tài trợ"
+    }
+  },
   "blogSection": {
     "title": {
       "weAre": "CHÚNG TÔI LÀ",

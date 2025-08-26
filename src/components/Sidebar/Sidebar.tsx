@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
 import { useScrollSpy } from '../../hooks';
 import {
@@ -10,19 +11,20 @@ import {
 
 interface SidebarItem {
   id: string;
-  label: string;
+  labelKey: string;
   href: string;
 }
 
 const sidebarItems: SidebarItem[] = [
-  { id: 'hero', label: 'intro', href: '#hero' },
-  { id: 'activity', label: 'features', href: '#activity' },
-  { id: 'project', label: 'result', href: '#project' },
-  { id: 'page', label: 'page', href: '#page' },
-  { id: 'sponsor', label: 'sponsor', href: '#sponsor' }
+  { id: 'hero', labelKey: 'hero', href: '#hero' },
+  { id: 'activity', labelKey: 'activity', href: '#activity' },
+  { id: 'project', labelKey: 'project', href: '#project' },
+  { id: 'page', labelKey: 'page', href: '#page' },
+  { id: 'sponsor', labelKey: 'sponsor', href: '#sponsor' }
 ];
 
 const Sidebar: React.FC = () => {
+  const { t } = useTranslation();
   const sectionIds = sidebarItems.map(item => item.id);
   const activeSection = useScrollSpy(sectionIds, 160); // 헤더 높이 + 여유 공간
 
@@ -56,7 +58,7 @@ const Sidebar: React.FC = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          {item.label}
+          {t(`sidebar.items.${item.labelKey}`)}
         </SidebarButton>
       ))}
     </SidebarContainer>

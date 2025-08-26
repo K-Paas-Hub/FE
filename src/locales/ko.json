@@ -573,6 +573,15 @@
       }
     }
   },
+  "sidebar": {
+    "items": {
+      "hero": "소개",
+      "activity": "기능",
+      "project": "결과",
+      "page": "페이지",
+      "sponsor": "스폰서"
+    }
+  },
   "blogSection": {
     "title": {
       "weAre": "WE ARE",

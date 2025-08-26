@@ -557,6 +557,15 @@
       }
     }
   },
+  "sidebar": {
+    "items": {
+      "hero": "Intro",
+      "activity": "Features",
+      "project": "Results",
+      "page": "Page",
+      "sponsor": "Sponsor"
+    }
+  },
   "blogSection": {
     "title": {
       "weAre": "WE ARE",
