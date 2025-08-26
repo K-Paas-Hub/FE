@@ -204,14 +204,12 @@ describe('Visa Constants', () => {
 
   describe('VISA_CATEGORY_LABELS', () => {
     test('contains all required labels', () => {
-      expect(VISA_CATEGORY_LABELS).toHaveProperty('ALL');
       expect(VISA_CATEGORY_LABELS).toHaveProperty('EMPLOYMENT');
       expect(VISA_CATEGORY_LABELS).toHaveProperty('RESIDENCE');
       expect(VISA_CATEGORY_LABELS).toHaveProperty('PREPARATION');
     });
 
     test('labels are in Korean', () => {
-      expect(VISA_CATEGORY_LABELS.ALL).toBe('전체');
       expect(VISA_CATEGORY_LABELS.EMPLOYMENT).toBe('취업 비자');
       expect(VISA_CATEGORY_LABELS.RESIDENCE).toBe('거주 비자');
       expect(VISA_CATEGORY_LABELS.PREPARATION).toBe('준비 비자');

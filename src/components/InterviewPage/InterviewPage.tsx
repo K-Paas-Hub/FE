@@ -31,8 +31,22 @@ const InterviewPage: React.FC = () => {
 
   // 복사 기능
   const handleCopy = () => {
-    // 채팅 내용을 클립보드에 복사
-    const chatContent = document.querySelector('.chat-messages')?.textContent || '';
+    // 채팅 메시지만 정확히 추출하여 복사
+    const messageElements = document.querySelectorAll('.message-container');
+    let chatContent = '';
+    
+    messageElements.forEach((element) => {
+      const messageText = element.textContent || '';
+      if (messageText.trim()) {
+        chatContent += messageText + '\n\n';
+      }
+    });
+    
+    if (!chatContent.trim()) {
+      alert('복사할 채팅 내용이 없습니다.');
+      return;
+    }
+    
     navigator.clipboard.writeText(chatContent).then(() => {
       alert('채팅 내용이 클립보드에 복사되었습니다.');
     }).catch(() => {
@@ -43,7 +57,7 @@ const InterviewPage: React.FC = () => {
   // 내보내기 기능
   const handleExport = () => {
     // 채팅 메시지만 정확히 추출하여 내보내기
-    const messageElements = document.querySelectorAll('.chat-message');
+    const messageElements = document.querySelectorAll('.message-container');
     let chatContent = '';
     
     messageElements.forEach((element) => {

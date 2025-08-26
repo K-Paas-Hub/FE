@@ -20,8 +20,9 @@ const VisaCenter: React.FC = () => {
       return visaTypesArray;
     }
     
-    // 타입 안전성을 위해 any로 처리
-    const categoryVisas = (VISA_CATEGORIES as any)[selectedCategory];
+    // selectedCategory를 대문자로 변환하여 VISA_CATEGORIES의 키와 매칭
+    const categoryKey = selectedCategory.toUpperCase();
+    const categoryVisas = (VISA_CATEGORIES as any)[categoryKey];
     
     if (!categoryVisas) {
       return visaTypesArray;
@@ -47,11 +48,17 @@ const VisaCenter: React.FC = () => {
           transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 }}
         >
           <div className="category-filter">
+            <button
+              className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setSelectedCategory('all')}
+            >
+              전체
+            </button>
             {Object.entries(VISA_CATEGORY_LABELS).map(([category, label]) => (
               <button
                 key={category}
-                className={`category-button ${selectedCategory === (category === 'ALL' ? 'all' : category.toLowerCase()) ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category === 'ALL' ? 'all' : category.toLowerCase())}
+                className={`category-button ${selectedCategory === category.toLowerCase() ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category.toLowerCase())}
               >
                 {label}
               </button>

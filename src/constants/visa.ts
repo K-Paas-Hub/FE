@@ -360,7 +360,6 @@ export const VISA_CATEGORIES = {
 } as const;
 
 export const VISA_CATEGORY_LABELS = {
-  ALL: '전체',
   EMPLOYMENT: '취업 비자',
   RESIDENCE: '거주 비자',
   PREPARATION: '준비 비자'
