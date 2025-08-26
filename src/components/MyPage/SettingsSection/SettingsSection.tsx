@@ -21,6 +21,14 @@ import {
   InfoLabel,
   InfoValue,
   Switch,
+  TabContainer,
+  TabButton,
+  SettingCard,
+  SettingGroup,
+  SettingRow,
+  SettingLabel,
+  SettingTitle,
+  SettingDescription,
 } from '../../../styles/components/MyPage.styles';
 
 interface SettingsSectionProps {
@@ -33,8 +41,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
   const [activeTab, setActiveTab] = useState<'general' | 'notifications' | 'security' | 'account'>('general');
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   
-  // 언어 설정
-  const [language, setLanguage] = useState(settings?.language || 'ko');
+
   
   // 알림 설정
   const [notifications, setNotifications] = useState({
@@ -57,30 +64,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
   });
   const [showPasswordForm, setShowPasswordForm] = useState(false);
 
-  const languageOptions = [
-    { value: 'ko', label: '한국어' },
-    { value: 'vi', label: 'Tiếng Việt' },
-    { value: 'km', label: 'ភាសាខ្មែរ' },
-    { value: 'ne', label: 'नेपाली' },
-    { value: 'id', label: 'Bahasa Indonesia' },
-    { value: 'zh', label: '中文' },
-    { value: 'th', label: 'ไทย' },
-  ];
 
-  const handleLanguageChange = async (newLanguage: string) => {
-    setLanguage(newLanguage);
-    if (settings) {
-      const result = await updateSettings({
-        ...settings,
-        language: newLanguage,
-      });
-      if (result.success) {
-        setMessage({ type: 'success', text: '언어 설정이 변경되었습니다.' });
-      } else {
-        setMessage({ type: 'error', text: result.error || '언어 설정 변경에 실패했습니다.' });
-      }
-    }
-  };
 
   const handleNotificationChange = async (type: keyof typeof notifications, value: boolean) => {
     const newNotifications = { ...notifications, [type]: value };
@@ -90,9 +74,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
         ...settings,
         notifications: newNotifications,
       });
-      if (result.success) {
-        setMessage({ type: 'success', text: '알림 설정이 변경되었습니다.' });
-      } else {
+      if (!result.success) {
         setMessage({ type: 'error', text: result.error || '알림 설정 변경에 실패했습니다.' });
       }
     }
@@ -138,39 +120,31 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
   };
 
   const renderGeneralSettings = () => (
-    <Card>
-      <SectionSubtitle>{t('myPage.settings.language', '언어 설정')}</SectionSubtitle>
-      <FormGroup>
-        <FormLabel>{t('myPage.settings.language', '언어')}</FormLabel>
-        <FormSelect
-          value={language}
-          onChange={(e) => handleLanguageChange(e.target.value)}
-        >
-          {languageOptions.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </FormSelect>
-      </FormGroup>
-
+    <SettingCard>
       <SectionSubtitle>{t('myPage.settings.privacy', '개인정보 설정')}</SectionSubtitle>
-      <FormGroup>
-        <InfoRow>
-          <InfoLabel>{t('myPage.settings.profileVisibility', '프로필 공개')}</InfoLabel>
+      <SettingGroup>
+        <SettingRow>
+          <SettingLabel>
+            <SettingTitle>{t('myPage.settings.profileVisibility', '프로필 공개')}</SettingTitle>
+            <SettingDescription>다른 사용자가 내 프로필을 볼 수 있는지 설정합니다</SettingDescription>
+          </SettingLabel>
           <FormSelect
             value={privacy.profileVisibility}
             onChange={(e) => handlePrivacyChange('profileVisibility', e.target.value)}
+            style={{ minWidth: '150px' }}
           >
             <option value="public">{t('myPage.settings.public', '공개')}</option>
             <option value="private">{t('myPage.settings.private', '비공개')}</option>
           </FormSelect>
-        </InfoRow>
-      </FormGroup>
+        </SettingRow>
+      </SettingGroup>
 
-      <FormGroup>
-        <InfoRow>
-          <InfoLabel>{t('myPage.settings.dataSharing', '데이터 공유')}</InfoLabel>
+      <SettingGroup>
+        <SettingRow>
+          <SettingLabel>
+            <SettingTitle>{t('myPage.settings.dataSharing', '데이터 공유')}</SettingTitle>
+            <SettingDescription>서비스 개선을 위한 익명 데이터 공유에 동의합니다</SettingDescription>
+          </SettingLabel>
           <Switch>
             <input
               type="checkbox"
@@ -179,18 +153,21 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
             />
             <span></span>
           </Switch>
-        </InfoRow>
-      </FormGroup>
-    </Card>
+        </SettingRow>
+      </SettingGroup>
+    </SettingCard>
   );
 
   const renderNotificationSettings = () => (
-    <Card>
+    <SettingCard>
       <SectionSubtitle>{t('myPage.settings.notifications', '알림 설정')}</SectionSubtitle>
       
-      <FormGroup>
-        <InfoRow>
-          <InfoLabel>{t('myPage.settings.emailNotifications', '이메일 알림')}</InfoLabel>
+      <SettingGroup>
+        <SettingRow>
+          <SettingLabel>
+            <SettingTitle>{t('myPage.settings.emailNotifications', '이메일 알림')}</SettingTitle>
+            <SettingDescription>중요한 업데이트와 공지사항을 이메일로 받습니다</SettingDescription>
+          </SettingLabel>
           <Switch>
             <input
               type="checkbox"
@@ -199,12 +176,15 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
             />
             <span></span>
           </Switch>
-        </InfoRow>
-      </FormGroup>
+        </SettingRow>
+      </SettingGroup>
 
-      <FormGroup>
-        <InfoRow>
-          <InfoLabel>{t('myPage.settings.pushNotifications', '푸시 알림')}</InfoLabel>
+      <SettingGroup>
+        <SettingRow>
+          <SettingLabel>
+            <SettingTitle>{t('myPage.settings.pushNotifications', '푸시 알림')}</SettingTitle>
+            <SettingDescription>실시간 알림을 브라우저에서 받습니다</SettingDescription>
+          </SettingLabel>
           <Switch>
             <input
               type="checkbox"
@@ -213,12 +193,15 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
             />
             <span></span>
           </Switch>
-        </InfoRow>
-      </FormGroup>
+        </SettingRow>
+      </SettingGroup>
 
-      <FormGroup>
-        <InfoRow>
-          <InfoLabel>{t('myPage.settings.smsNotifications', 'SMS 알림')}</InfoLabel>
+      <SettingGroup>
+        <SettingRow>
+          <SettingLabel>
+            <SettingTitle>{t('myPage.settings.smsNotifications', 'SMS 알림')}</SettingTitle>
+            <SettingDescription>긴급한 알림을 SMS로 받습니다</SettingDescription>
+          </SettingLabel>
           <Switch>
             <input
               type="checkbox"
@@ -227,9 +210,9 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
             />
             <span></span>
           </Switch>
-        </InfoRow>
-      </FormGroup>
-    </Card>
+        </SettingRow>
+      </SettingGroup>
+    </SettingCard>
   );
 
   const renderSecuritySettings = () => (
@@ -352,44 +335,32 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
         )
       )}
 
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
-        <SecondaryButton
+      <TabContainer>
+        <TabButton
+          $isActive={activeTab === 'general'}
           onClick={() => setActiveTab('general')}
-          style={{ 
-            background: activeTab === 'general' ? '#4ade80' : 'white',
-            color: activeTab === 'general' ? 'white' : '#4ade80'
-          }}
         >
           {t('myPage.settings.general', '일반')}
-        </SecondaryButton>
-        <SecondaryButton
+        </TabButton>
+        <TabButton
+          $isActive={activeTab === 'notifications'}
           onClick={() => setActiveTab('notifications')}
-          style={{ 
-            background: activeTab === 'notifications' ? '#4ade80' : 'white',
-            color: activeTab === 'notifications' ? 'white' : '#4ade80'
-          }}
         >
           {t('myPage.settings.notifications', '알림')}
-        </SecondaryButton>
-        <SecondaryButton
+        </TabButton>
+        <TabButton
+          $isActive={activeTab === 'security'}
           onClick={() => setActiveTab('security')}
-          style={{ 
-            background: activeTab === 'security' ? '#4ade80' : 'white',
-            color: activeTab === 'security' ? 'white' : '#4ade80'
-          }}
         >
           {t('myPage.settings.security', '보안')}
-        </SecondaryButton>
-        <SecondaryButton
+        </TabButton>
+        <TabButton
+          $isActive={activeTab === 'account'}
           onClick={() => setActiveTab('account')}
-          style={{ 
-            background: activeTab === 'account' ? '#4ade80' : 'white',
-            color: activeTab === 'account' ? 'white' : '#4ade80'
-          }}
         >
           {t('myPage.settings.account', '계정')}
-        </SecondaryButton>
-      </div>
+        </TabButton>
+      </TabContainer>
 
       {renderTabContent()}
     </Section>
