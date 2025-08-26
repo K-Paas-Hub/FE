@@ -1,17 +1,7 @@
 // 카카오 주소 검색 API 서비스
-export interface AddressData {
-  id: string;
-  address_name: string;
-  address_type: string;
-  x: string;
-  y: string;
-  address: {
-    address_name: string;
-    region_1depth_name: string;
-    region_2depth_name: string;
-    region_3depth_name: string;
-  };
-}
+import type { AddressData } from '../types/addressSearch';
+
+export type { AddressData };
 
 export interface KakaoAddressResponse {
   documents: AddressData[];
