@@ -18,6 +18,10 @@ const TutorialContent = styled.main`
   @media (max-width: 768px) {
     padding: 1rem;
   }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+  }
 `;
 
 const TutorialHeader = styled.div`
@@ -34,6 +38,10 @@ const TutorialTitle = styled.h1`
   @media (max-width: 768px) {
     font-size: 2rem;
   }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const TutorialSubtitle = styled.p`
@@ -44,6 +52,10 @@ const TutorialSubtitle = styled.p`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const TutorialSection = styled.section`
@@ -55,6 +67,13 @@ const TutorialSection = styled.section`
   
   @media (max-width: 768px) {
     padding: 1.5rem;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -69,6 +88,15 @@ const SectionTitle = styled.h2`
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
+    gap: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 `;
 
@@ -83,6 +111,12 @@ const SectionNumber = styled.span`
   justify-content: center;
   font-weight: 600;
   font-size: 0.9rem;
+  
+  @media (max-width: 480px) {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
 `;
 
 const SectionContent = styled.div`
@@ -93,6 +127,24 @@ const SectionContent = styled.div`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1f2937;
+    
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+  }
 `;
 
 const ImportantBox = styled.div`
@@ -105,6 +157,17 @@ const ImportantBox = styled.div`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
 `;
 
 const ImportantTitle = styled.h4`
@@ -114,6 +177,22 @@ const ImportantTitle = styled.h4`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    gap: 0.4rem;
+  }
+`;
+
+const WarningIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  
+  @media (max-width: 480px) {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 const ExampleBox = styled.div`
@@ -126,6 +205,17 @@ const ExampleBox = styled.div`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left-width: 3px;
+  }
 `;
 
 const ExampleTitle = styled.h5`
@@ -135,6 +225,22 @@ const ExampleTitle = styled.h5`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    gap: 0.4rem;
+  }
+`;
+
+const ContractIcon = styled.img`
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  
+  @media (max-width: 480px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 const CodeBlock = styled.pre`
@@ -147,9 +253,18 @@ const CodeBlock = styled.pre`
   line-height: 1.5;
   overflow-x: auto;
   margin: 1rem 0;
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
 `;
-
-
 
 const FAQSection = styled.div`
   margin-top: 2rem;
@@ -160,6 +275,11 @@ const FAQItem = styled.div`
   border-radius: 12px;
   margin-bottom: 1rem;
   overflow: hidden;
+  
+  @media (max-width: 480px) {
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+  }
 `;
 
 const FAQQuestion = styled.button<{ $isOpen: boolean }>`
@@ -187,6 +307,20 @@ const FAQQuestion = styled.button<{ $isOpen: boolean }>`
     color: ${COLORS.primary};
     font-weight: 700;
   }
+  
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    font-size: 0.9rem;
+    
+    &::after {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
 const FAQAnswer = styled.div<{ $isOpen: boolean }>`
@@ -201,6 +335,15 @@ const FAQAnswer = styled.div<{ $isOpen: boolean }>`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  
+  @media (max-width: 768px) {
+    padding: ${props => props.$isOpen ? '1.2rem' : '0 1.2rem'};
+  }
+  
+  @media (max-width: 480px) {
+    padding: ${props => props.$isOpen ? '1rem' : '0 1rem'};
+    font-size: 0.9rem;
+  }
 `;
 
 const Checklist = styled.ul`
@@ -222,14 +365,31 @@ const ChecklistItem = styled.li`
   overflow-wrap: break-word;
   hyphens: auto;
   word-break: keep-all;
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem;
+    gap: 0.5rem;
+    border-left-width: 3px;
+    border-radius: 6px;
+  }
 `;
 
-const CheckIcon = styled.span`
-  color: ${COLORS.primary};
-  font-weight: 700;
-  font-size: 1.2rem;
+const CheckIcon = styled.img`
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.2rem;
+  
+  @media (max-width: 480px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const PrimaryButton = styled.button`
@@ -246,6 +406,11 @@ const PrimaryButton = styled.button`
   &:hover {
     background: #10b981;
     transform: translateY(-2px);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -294,7 +459,8 @@ const ContractTutorial: React.FC = () => {
 
             <ImportantBox>
               <ImportantTitle>
-                ⚠️ 주의사항
+                <WarningIcon src="/images/warning.png" alt="Warning" />
+                주의사항
               </ImportantTitle>
               <p>
                 '근무 시간은 회사 내규에 따름'이라는 식의 표현은 모호하여, 분쟁의 원인이 될 수 있으니 피하는 것을 권장합니다.
@@ -308,7 +474,10 @@ const ContractTutorial: React.FC = () => {
             </p>
 
             <ExampleBox>
-              <ExampleTitle>📝 근로 시간 작성 예시</ExampleTitle>
+              <ExampleTitle>
+                <ContractIcon src="/images/contract.png" alt="Contract" />
+                근로 시간 작성 예시
+              </ExampleTitle>
               <CodeBlock>
 {`• 근로 시간은 9시 00분부터 18시 00분까지이며, 주 40시간 근무로 한다.
 • 휴게 시간은 12시 00분 ~ 13시 00분으로 한다.`}
@@ -321,7 +490,10 @@ const ContractTutorial: React.FC = () => {
             </p>
 
             <ExampleBox>
-              <ExampleTitle>📝 임금(연봉 금액) 예시</ExampleTitle>
+              <ExampleTitle>
+                <ContractIcon src="/images/contract.png" alt="Contract" />
+                임금(연봉 금액) 예시
+              </ExampleTitle>
               <CodeBlock>
 {`• 근로자의 총 연봉 금액은 금 35,000,000원이다.
 • 회사는 매월 근로자에게 연봉의 12분의 1(이하 "월급")을 지급하며, 
@@ -348,7 +520,10 @@ const ContractTutorial: React.FC = () => {
             </p>
 
             <ImportantBox>
-              <ImportantTitle>📋 법적 기준</ImportantTitle>
+              <ImportantTitle>
+                <ContractIcon src="/images/legal.png" alt="Legal" />
+                법적 기준
+              </ImportantTitle>
               <p>
                 1주 간 총 근로 시간 중 1주 법정 근로 시간 40시간을 초과하는 시간이 연장근로이며, 
                 이 연장근로가 1주 12시간을 초과하면 법 위반에 해당합니다.
@@ -374,7 +549,10 @@ const ContractTutorial: React.FC = () => {
             </p>
 
             <ExampleBox>
-              <ExampleTitle>📝 계약 기간 작성 예시</ExampleTitle>
+              <ExampleTitle>
+                <ContractIcon src="/images/contract.png" alt="Contract" />
+                계약 기간 작성 예시
+              </ExampleTitle>
               <CodeBlock>
 {`• 근로 계약 기간: 2024년 1월 1일 ~ 2024년 12월 31일
 • 계약 종료 후 갱신 여부: 없음`}
@@ -394,7 +572,10 @@ const ContractTutorial: React.FC = () => {
             </p>
 
             <ExampleBox>
-              <ExampleTitle>📝 연차 관련 작성 예시</ExampleTitle>
+              <ExampleTitle>
+                <ContractIcon src="/images/contract.png" alt="Contract" />
+                연차 관련 작성 예시
+              </ExampleTitle>
               <CodeBlock>
 {`• 연차 부여: 근로자는 1년간 80% 이상 출근했을 경우 15일의 연차 유급휴가를 받을 수 있습니다.
 • 미사용 연차: 근로자가 연차를 사용하지 못한 경우, 남은 휴가는 금전 보상으로 대체하며, 
@@ -403,18 +584,21 @@ const ContractTutorial: React.FC = () => {
             </ExampleBox>
 
             <ImportantBox>
-              <ImportantTitle>📋 필수 준수사항</ImportantTitle>
+              <ImportantTitle>
+                <ContractIcon src="/images/legal.png" alt="Legal" />
+                필수 준수사항
+              </ImportantTitle>
               <Checklist>
                 <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
+                  <CheckIcon src="/images/legal.png" alt="Check" />
                   <div>근로계약서 내 계약 조건은 근로자와 충분히 논의한 후 명시해야 합니다 (처우 협의 완료 후)</div>
                 </ChecklistItem>
                 <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
+                  <CheckIcon src="/images/legal.png" alt="Check" />
                   <div>근로자의 요청 여부와 관계 없이 근로계약서 사본 1부를 반드시 제공해야 합니다</div>
                 </ChecklistItem>
                 <ChecklistItem>
-                  <CheckIcon>✓</CheckIcon>
+                  <CheckIcon src="/images/legal.png" alt="Check" />
                   <div>근로계약서는 근로자의 퇴사일부터 3년간 의무적으로 보관해야 하며, 보존 기간이 지나면 반드시 폐기해야 합니다</div>
                 </ChecklistItem>
               </Checklist>
@@ -450,7 +634,6 @@ const ContractTutorial: React.FC = () => {
             </FAQSection>
           </SectionContent>
         </TutorialSection>
-
 
       </TutorialContent>
       
