@@ -171,7 +171,47 @@
     "analysisResults": "Kết quả phân tích",
     "favorable": "Điều khoản có lợi",
     "unfavorable": "Điều khoản bất lợi",
-    "neutral": "Điều khoản trung lập"
+    "neutral": "Điều khoản trung lập",
+    "sections": {
+      "fileUpload": "Tải lên tệp",
+      "analysisResults": "Kết quả phân tích"
+    },
+    "upload": {
+      "title": "Tải lên tệp hợp đồng lao động",
+      "text": "Kéo và thả tệp PDF hoặc HWP hoặc nhấp để chọn",
+      "subtext": "Kích thước tệp tối đa: 10MB",
+      "fileTypeError": "Chỉ có thể tải lên tệp PDF hoặc HWP."
+    },
+    "fileInfo": {
+      "remove": "Xóa"
+    },
+    "analysis": {
+      "button": "Phân tích hợp đồng lao động",
+      "analyzing": "Đang phân tích...",
+      "progress": "Tiến độ"
+    },
+    "results": {
+      "formatCheck": {
+        "title": "✅ Kiểm tra định dạng hợp đồng lao động",
+        "content": "Định dạng cơ bản của hợp đồng lao động được viết đúng."
+      },
+      "workHours": {
+        "title": "⚠️ Cần chỉ định giờ làm việc",
+        "content": "Giờ làm việc không được chỉ định cụ thể. Tránh các biểu hiện mơ hồ như \"theo quy định của công ty\" và chỉ định giờ cụ thể."
+      },
+      "salary": {
+        "title": "❌ Thiếu cấu trúc lương",
+        "content": "Cấu trúc chi tiết của lương (lương cơ bản, phụ cấp, v.v.) không được chỉ định. Vui lòng chỉ định cấu trúc cụ thể của lương hàng năm và hàng tháng."
+      },
+      "annualLeave": {
+        "title": "⚠️ Thiếu tiêu chí quản lý nghỉ phép hàng năm",
+        "content": "Nội dung về nghỉ phép hàng năm có lương và xử lý nghỉ phép hàng năm chưa sử dụng không được chỉ định."
+      },
+      "contractPeriod": {
+        "title": "✅ Thời hạn hợp đồng được chỉ định",
+        "content": "Thời hạn hợp đồng được chỉ định rõ ràng."
+      }
+    }
   },
   "jobDetail": {
     "backButton": "← Quay lại",

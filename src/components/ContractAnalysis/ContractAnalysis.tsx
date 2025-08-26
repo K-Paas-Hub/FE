@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
@@ -33,6 +34,7 @@ import { LoadingSpinner } from '../../styles/common/LoadingSpinner.styles';
 
 
 const ContractAnalysis: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisProgress, setAnalysisProgress] = useState(0);
@@ -67,7 +69,7 @@ const ContractAnalysis: React.FC = () => {
         setSelectedFile(file);
         setAnalysisResults([]);
       } else {
-        alert('PDF 또는 HWP 파일만 업로드 가능합니다.');
+        alert(t('contractAnalysis.upload.fileTypeError'));
       }
     }
   };
@@ -95,28 +97,28 @@ const ContractAnalysis: React.FC = () => {
             setAnalysisResults([
               {
                 type: 'success',
-                title: '✅ 근로계약서 형식 확인',
-                content: '근로계약서의 기본 형식이 올바르게 작성되었습니다.'
+                title: t('contractAnalysis.results.formatCheck.title'),
+                content: t('contractAnalysis.results.formatCheck.content')
               },
               {
                 type: 'warning',
-                title: '⚠️ 근로시간 명시 필요',
-                content: '근로시간이 구체적으로 명시되지 않았습니다. "회사 내규에 따름"과 같은 모호한 표현을 피하고 구체적인 시간을 명시해주세요.'
+                title: t('contractAnalysis.results.workHours.title'),
+                content: t('contractAnalysis.results.workHours.content')
               },
               {
                 type: 'error',
-                title: '❌ 임금 구성 누락',
-                content: '임금의 세부 구성(기본급, 수당 등)이 명시되지 않았습니다. 연봉과 월급의 구체적인 구성을 명시해주세요.'
+                title: t('contractAnalysis.results.salary.title'),
+                content: t('contractAnalysis.results.salary.content')
               },
               {
                 type: 'warning',
-                title: '⚠️ 연차 관리 기준 누락',
-                content: '연차 유급휴가 및 미사용 연차 처리에 관한 내용이 명시되지 않았습니다.'
+                title: t('contractAnalysis.results.annualLeave.title'),
+                content: t('contractAnalysis.results.annualLeave.content')
               },
               {
                 type: 'success',
-                title: '✅ 계약 기간 명시',
-                content: '계약 기간이 명확하게 명시되어 있습니다.'
+                title: t('contractAnalysis.results.contractPeriod.title'),
+                content: t('contractAnalysis.results.contractPeriod.content')
               }
             ]);
             return 100;
@@ -147,7 +149,7 @@ const ContractAnalysis: React.FC = () => {
         <AnalysisSection>
           <SectionTitle>
             <SectionIcon>📄</SectionIcon>
-            파일 업로드
+            {t('contractAnalysis.sections.fileUpload')}
           </SectionTitle>
           
           <FileUploadArea
@@ -157,12 +159,12 @@ const ContractAnalysis: React.FC = () => {
             onClick={() => document.getElementById('file-input')?.click()}
           >
             <UploadIcon>📁</UploadIcon>
-            <UploadTitle>근로계약서 파일을 업로드하세요</UploadTitle>
+            <UploadTitle>{t('contractAnalysis.upload.title')}</UploadTitle>
             <UploadText>
-              PDF 또는 HWP 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요
+              {t('contractAnalysis.upload.text')}
             </UploadText>
             <UploadSubtext>
-              최대 파일 크기: 10MB
+              {t('contractAnalysis.upload.subtext')}
             </UploadSubtext>
             
             <FileInput
@@ -180,7 +182,7 @@ const ContractAnalysis: React.FC = () => {
                 <FileName>{selectedFile.name}</FileName>
                 <FileSize>{formatFileSize(selectedFile.size)}</FileSize>
               </FileDetails>
-              <RemoveButton onClick={removeFile}>삭제</RemoveButton>
+              <RemoveButton onClick={removeFile}>{t('contractAnalysis.fileInfo.remove')}</RemoveButton>
             </FileInfo>
           )}
 
@@ -191,10 +193,10 @@ const ContractAnalysis: React.FC = () => {
             {isAnalyzing ? (
               <>
                 <LoadingSpinner />
-                분석 중... ({analysisProgress}%)
+                {t('contractAnalysis.analysis.analyzing')} ({analysisProgress}%)
               </>
             ) : (
-              '근로계약서 분석하기'
+              t('contractAnalysis.analysis.button')
             )}
           </AnalysisButton>
 
@@ -209,7 +211,7 @@ const ContractAnalysis: React.FC = () => {
           <AnalysisSection>
             <SectionTitle>
               <SectionIcon>🔍</SectionIcon>
-              분석 결과
+              {t('contractAnalysis.sections.analysisResults')}
             </SectionTitle>
             
             <AnalysisResults>

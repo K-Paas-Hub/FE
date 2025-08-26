@@ -425,7 +425,47 @@
     "analysisResults": "Analysis Results",
     "favorable": "Favorable Terms",
     "unfavorable": "Unfavorable Terms",
-    "neutral": "Neutral Terms"
+    "neutral": "Neutral Terms",
+    "sections": {
+      "fileUpload": "File Upload",
+      "analysisResults": "Analysis Results"
+    },
+    "upload": {
+      "title": "Upload Employment Contract File",
+      "text": "Drag and drop PDF or HWP files or click to select",
+      "subtext": "Maximum file size: 10MB",
+      "fileTypeError": "Only PDF or HWP files can be uploaded."
+    },
+    "fileInfo": {
+      "remove": "Remove"
+    },
+    "analysis": {
+      "button": "Analyze Employment Contract",
+      "analyzing": "Analyzing...",
+      "progress": "Progress"
+    },
+    "results": {
+      "formatCheck": {
+        "title": "✅ Employment Contract Format Check",
+        "content": "The basic format of the employment contract is correctly written."
+      },
+      "workHours": {
+        "title": "⚠️ Work Hours Specification Required",
+        "content": "Work hours are not specifically stated. Avoid vague expressions like \"according to company regulations\" and specify concrete hours."
+      },
+      "salary": {
+        "title": "❌ Salary Structure Missing",
+        "content": "The detailed structure of salary (base pay, allowances, etc.) is not specified. Please specify the concrete structure of annual and monthly salary."
+      },
+      "annualLeave": {
+        "title": "⚠️ Annual Leave Management Criteria Missing",
+        "content": "Content regarding paid annual leave and unused annual leave processing is not specified."
+      },
+      "contractPeriod": {
+        "title": "✅ Contract Period Specified",
+        "content": "The contract period is clearly specified."
+      }
+    }
   },
   "jobDetail": {
     "backButton": "← Back",
