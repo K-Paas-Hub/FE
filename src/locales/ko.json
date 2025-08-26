@@ -388,23 +388,16 @@
     "employmentContract": "근로계약서",
     "writingGuide": "📝 작성 가이드",
     "contractAnalysis": "🔍 계약서 분석",
-    "aiInterview": "AI 모의 면접"
-  },
-  "mainPage": {
-    "searchPlaceholder": "직무명, 직무 관련 키워드를 검색해 보세요.",
-    "region": "지역",
-    "employmentType": "고용 형태",
-    "jobCategory": "직종",
-    "refresh": "새로고침",
-    "jobPostings": "채용 공고",
-    "sortBy": "정렬",
-    "latest": "최신순",
-    "popular": "인기순",
-    "salary": "급여순",
-    "deadline": "마감임박순",
-    "noResults": "검색 결과가 없습니다.",
-    "searchResults": "검색 결과",
-    "items": "건"
+    "aiInterview": "AI 모의 면접",
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "소개",
+      "features": "기능",
+      "partners": "파트너"
+    }
   },
   "resumePage": {
     "title": "이력서 작성",
@@ -582,17 +575,6 @@
           }
         ]
       }
-    }
-  },
-  "header": {
-    "logo": {
-      "fair": "Fair",
-      "work": "Work"
-    },
-    "navigation": {
-      "aboutUs": "소개",
-      "features": "기능",
-      "partners": "파트너"
     }
   },
   "sidebar": {
