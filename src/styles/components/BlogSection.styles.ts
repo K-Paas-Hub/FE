@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { COLORS } from '../../constants';
 
 export const BlogContainer = styled.section`
   padding: 5rem 2rem;

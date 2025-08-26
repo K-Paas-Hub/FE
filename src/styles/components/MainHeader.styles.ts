@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { theme } from '../theme/theme';
 
@@ -266,37 +266,7 @@ export const DropdownItem = styled(Link)`
   }
 `;
 
-// SubHeader Right Section (프로모션 요소)
-export const SubHeaderRight = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
-  
-  ${theme.media.tablet} {
-    display: none;
-  }
-`;
 
-// 프로모션 배지
-export const PromotionBadge = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: ${theme.colors.secondary};
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: ${theme.radius.lg};
-  font-size: ${theme.typography.fontSize.sm};
-  font-weight: ${theme.typography.fontWeight.semibold};
-  cursor: pointer;
-  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
-  
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: ${theme.shadows.md};
-  }
-`;
 
 // Language Selector
 export const LanguageButton = styled.div`

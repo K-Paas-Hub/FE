@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MainHeader, MainFooter, CommunityBanner } from '../';
+import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useAutoSave } from '../../hooks/useAutoSave';
 import {
@@ -44,7 +44,6 @@ const ResumePage: React.FC = () => {
   return (
     <ResumeContainer>
       <MainHeader />
-      <CommunityBanner />
       <ResumeContent>
         <ResumeHeader>
           <ResumeTitle>이력서 작성</ResumeTitle>

@@ -6,12 +6,12 @@ import { authService, supabase } from '../../services/authService';
 import {
   CallbackContainer,
   CallbackCard,
-  LoadingSpinner,
   Title,
   Message,
   ErrorMessage,
   SuccessMessage
 } from '../../styles/components/AuthCallback.styles';
+import { LoadingSpinner } from '../../styles/common/LoadingSpinner.styles';
 
 
 

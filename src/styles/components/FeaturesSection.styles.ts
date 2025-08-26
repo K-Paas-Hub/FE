@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { COLORS } from '../../constants';
 
 export const Section = styled.section`
   padding: 8rem 4rem;

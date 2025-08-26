@@ -251,22 +251,4 @@ export const ApplyButton = styled(motion.button)`
   }
 `;
 
-export const LoadingSpinner = styled.div`
-  width: 16px;
-  height: 16px;
-  border: 2px solid #ffffff;
-  border-top: 2px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  @media (max-width: 480px) {
-    width: 14px;
-    height: 14px;
-    border-width: 1.5px;
-  }
-`;
+

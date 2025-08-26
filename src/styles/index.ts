@@ -7,5 +7,4 @@ export * from './theme/breakpoints';
 // Common Styles Export
 export * from './common';
 
-// Component Styles Export
-export * from './components';
+// Component Styles Export - 개별 import로 변경

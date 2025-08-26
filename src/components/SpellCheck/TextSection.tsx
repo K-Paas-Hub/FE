@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { COLORS } from '../../constants';
 import { ResumeFormData } from '../../types/resume';
 import { SpellCheckOptions, SpellCheckError } from '../../types/spellCheck';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
@@ -22,9 +20,9 @@ import {
   ErrorWord,
   ErrorDescription,
   ErrorSuggestion,
-  ApplyButton,
-  LoadingSpinner
+  ApplyButton
 } from '../../styles/components/TextSection.styles';
+import { SmallLoadingSpinner } from '../../styles/common/LoadingSpinner.styles';
 
 
 
@@ -179,7 +177,7 @@ const TextSection: React.FC<TextSectionProps> = ({ formData, onSectionCheck }) =
               >
                 {isChecking ? (
                   <>
-                    <LoadingSpinner />
+                    <SmallLoadingSpinner />
                     검사 중...
                   </>
                 ) : (

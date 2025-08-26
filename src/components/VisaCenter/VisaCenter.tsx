@@ -5,7 +5,7 @@ import { ANIMATIONS } from '../../constants';
 import { VISA_TYPES, VISA_CATEGORIES, VISA_CATEGORY_LABELS } from '../../constants/visa';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+
 import VisaTypeCard from './VisaTypeCard';
 import '../../styles/VisaCenter.css';
 
@@ -39,7 +39,6 @@ const VisaCenter: React.FC = () => {
   return (
     <div className="visa-container">
       <MainHeader />
-      <CommunityBanner />
       <main className="visa-content">
         <div className="visa-header">
           <motion.h1 

@@ -1,15 +1,12 @@
 import React from 'react';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
-import { MainHeader, MainFooter, CommunityBanner } from '../';
+import { MainHeader, MainFooter } from '../';
 import TextSection from './TextSection';
 import { COLORS } from '../../constants';
 import {
   SpellCheckContainer,
   SpellCheckContent,
-  SpellCheckHeader,
-  SpellCheckTitle,
-  SpellCheckSubtitle,
   SpellCheckSection,
   SectionTitle,
   SectionIcon,
@@ -26,7 +23,6 @@ const SpellCheckPage: React.FC = () => {
 
   return (
     <SpellCheckContainer>
-      <CommunityBanner />
       <MainHeader />
       
       <SpellCheckContent>

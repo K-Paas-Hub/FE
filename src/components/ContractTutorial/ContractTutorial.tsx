@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+
 import {
   TutorialContainer,
   TutorialContent,
-  TutorialHeader,
-  TutorialTitle,
-  TutorialSubtitle,
   TutorialSection,
   SectionTitle,
   SectionNumber,
@@ -26,8 +22,7 @@ import {
   FAQAnswer,
   Checklist,
   ChecklistItem,
-  CheckIcon,
-  PrimaryButton
+  CheckIcon
 } from '../../styles/components/ContractTutorial.styles';
 
 
@@ -60,7 +55,6 @@ const ContractTutorial: React.FC = () => {
 
   return (
     <TutorialContainer>
-      <CommunityBanner />
       <MainHeader />
       
       <TutorialContent>

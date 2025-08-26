@@ -20,8 +20,6 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  SubHeaderRight,
-  PromotionBadge,
   LanguageButton,
   FlagIcon,
   LanguageText,
@@ -217,11 +215,7 @@ const MainHeaderComponent: React.FC = () => {
             </Nav>
           </NavWrapper>
           
-          <SubHeaderRight>
-            <PromotionBadge onClick={() => navigate('/interview')}>
-              🎯 AI 면접 준비 끝!
-            </PromotionBadge>
-          </SubHeaderRight>
+
         </SubHeaderContent>
       </SubHeader>
     </Header>

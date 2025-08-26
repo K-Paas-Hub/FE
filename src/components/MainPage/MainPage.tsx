@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+
 import {
   MainContainer,
   MainPageContent,
@@ -622,7 +622,6 @@ const MainPage: React.FC = () => {
 
   return (
     <MainContainer>
-      <CommunityBanner />
       <MainHeader />
       
       <MainPageContent>

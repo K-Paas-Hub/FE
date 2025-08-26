@@ -5,7 +5,7 @@ import { ANIMATIONS } from '../../constants';
 import { VISA_TYPES, VISA_STEPS } from '../../constants/visa';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+
 import {
   DetailContainer,
   DetailContent,
@@ -43,7 +43,6 @@ const VisaDetailPage: React.FC = () => {
 
   return (
     <DetailContainer>
-      <CommunityBanner />
       <MainHeader />
       <DetailContent>
         <BackButton onClick={() => navigate('/visa')}>

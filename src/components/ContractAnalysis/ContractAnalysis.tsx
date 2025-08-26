@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-import CommunityBanner from '../CommunityBanner';
+
 import {
   AnalysisContainer,
   AnalysisContent,
-  AnalysisHeader,
-  AnalysisTitle,
-  AnalysisSubtitle,
   AnalysisSection,
   SectionTitle,
   SectionIcon,
@@ -29,9 +26,9 @@ import {
   ResultTitle,
   ResultContent,
   ProgressBar,
-  ProgressFill,
-  LoadingSpinner
+  ProgressFill
 } from '../../styles/components/ContractAnalysis.styles';
+import { LoadingSpinner } from '../../styles/common/LoadingSpinner.styles';
 
 
 
@@ -144,7 +141,6 @@ const ContractAnalysis: React.FC = () => {
 
   return (
     <AnalysisContainer>
-      <CommunityBanner />
       <MainHeader />
       
       <AnalysisContent>
