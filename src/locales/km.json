@@ -16,16 +16,51 @@
     "user": "អ្នកប្រើប្រាស់"
   },
   "auth": {
-    "welcome": "សូមស្វាគមន៍មក FairWork",
-    "loginSubtitle": "ចូលដោយងាយស្រួលជាមួយគណនី Google របស់អ្នក",
-    "googleLogin": "ចូលជាមួយ Google",
+    "welcome": "សូមស្វាគមន៍មកកាន់ FairWork",
+    "loginSubtitle": "ចូលគណនីយ៉ាងងាយស្រួលជាមួយគណនី Google របស់អ្នក",
+    "googleLogin": "ចូលគណនីជាមួយ Google",
     "googleContinue": "បន្តជាមួយ Google",
-    "loginLoading": "កំពុងចូល...",
+    "loginLoading": "កំពុងចូលគណនី...",
     "microsoftContinue": "បន្តជាមួយ Microsoft (នឹងមកដល់)",
     "appleContinue": "បន្តជាមួយ Apple (នឹងមកដល់)",
     "phoneContinue": "បន្តជាមួយទូរស័ព្ទ (នឹងមកដល់)",
     "termsOfService": "លក្ខខណ្ឌសេវាកម្ម",
-    "privacyPolicy": "គោលការណ៍ភាពឯកជន"
+    "privacyPolicy": "គោលការណ៍ភាពឯកជន",
+    "signup": {
+      "idLabel": "លេខសម្គាល់",
+      "idPlaceholder": "សូមបញ្ចូលលេខសម្គាល់របស់អ្នក",
+      "idRequired": "សូមបញ្ចូលលេខសម្គាល់របស់អ្នក។",
+      "passwordLabel": "ពាក្យសម្ងាត់",
+      "passwordPlaceholder": "សូមបញ្ចូលពាក្យសម្ងាត់ថ្មី",
+      "passwordRequired": "សូមបញ្ចូលពាក្យសម្ងាត់ថ្មី។",
+      "passwordConfirmLabel": "បញ្ជាក់ពាក្យសម្ងាត់",
+      "passwordConfirmPlaceholder": "សូមបញ្ចូលពាក្យសម្ងាត់ម្តងទៀត",
+      "passwordMismatch": "ពាក្យសម្ងាត់មិនត្រូវគ្នា។",
+      "nameLabel": "ឈ្មោះ",
+      "namePlaceholder": "សូមបញ្ចូលឈ្មោះរបស់អ្នក",
+      "nameRequired": "សូមបញ្ចូលឈ្មោះរបស់អ្នក។",
+      "phoneLabel": "លេខទូរស័ព្ទ",
+      "phonePlaceholder": "សូមបញ្ចូលលេខទូរស័ព្ទរបស់អ្នក",
+      "phoneRequired": "សូមបញ្ចូលលេខទូរស័ព្ទរបស់អ្នក។",
+      "privacyRequired": "[តម្រូវ] យល់ស្របគោលការណ៍ភាពឯកជន និងលក្ខខណ្ឌសេវាកម្ម",
+      "marketingOptional": "[ជម្រើស] ទទួលការជូនដំណឹងអំពីមុខងារថ្មី។ អ្នកអាចលុបចោលគ្រប់ពេល។ (ការយល់ស្របទីផ្សារ)",
+      "loginLink": "មានគណនីរួចហើយ? ចូលគណនី",
+      "createAccount": "បង្កើតគណនី",
+      "creatingAccount": "កំពុងបង្កើតគណនី..."
+    },
+    "login": {
+      "idLabel": "លេខសម្គាល់",
+      "idPlaceholder": "សូមបញ្ចូលលេខសម្គាល់របស់អ្នក",
+      "idRequired": "សូមបញ្ចូលលេខសម្គាល់របស់អ្នក។",
+      "passwordLabel": "ពាក្យសម្ងាត់",
+      "passwordPlaceholder": "សូមបញ្ចូលពាក្យសម្ងាត់របស់អ្នក",
+      "passwordRequired": "សូមបញ្ចូលពាក្យសម្ងាត់របស់អ្នក។",
+      "signupLink": "ចុះឈ្មោះ",
+      "findPasswordLink": "ស្វែងរកពាក្យសម្ងាត់",
+      "loginButton": "ចូលគណនី",
+      "loggingIn": "កំពុងចូលគណនី...",
+      "or": "ឬ"
+    }
   },
   "header": {
     "jobPostings": "ការផ្សព្វផ្សាយការងារ",
@@ -113,5 +148,64 @@
     "jobNotFound": "រកមិនឃើញការផ្សាយការងារ។",
     "loading": "កំពុងផ្ទុកការផ្សាយការងារ...",
     "error": "បរាជ័យក្នុងការផ្ទុកការផ្សាយការងារ។"
+  },
+  "landing": {
+    "hero": {
+      "title": "WE ARE INNOVATION",
+      "subtitle": "ភ្ជាប់អ្នកជំនាញដ៏ល្អបំផុត និងក្រុមហ៊ុន\nតាមរយៈវេទិកាការងារថ្មី",
+      "ctaButton": "ទៅកាន់គេហទំព័រការងារ"
+    },
+    "features": {
+      "title": "មុខងារពិសេសរបស់ Fair Work",
+      "multilingual": {
+        "title": "ការគាំទ្រពីភាសាច្រើន",
+        "description": "ការគាំទ្រជាភាសាផ្សេងៗគ្នាដើម្បីជួយឱ្យកម្មករបរទេសប្រើប្រាស់វេទិកាបានយ៉ាងងាយស្រួល"
+      },
+      "fairHiring": {
+        "title": "ការជ្រើសរើសដោយយុត្តិធម៌",
+        "description": "ដំណើរការជ្រើសរើសដោយយុត្តិធម៌ដោយគ្មានការរើសអើងដើម្បីការពារសិទ្ធិរបស់កម្មករទាំងអស់"
+      },
+      "legalSupport": {
+        "title": "ការគាំទ្រផ្នែកច្បាប់",
+        "description": "ការគាំទ្រផ្នែកច្បាប់សម្រាប់ច្បាប់ការងារ និងបញ្ហាទាក់ទងនឹងវីសាដើម្បីផ្តល់បរិស្ថានការងារមានសុវត្ថិភាព"
+      },
+      "visaSupport": {
+        "title": "ការគាំទ្រវីសា",
+        "description": "ការគាំទ្រជាប្រព័ន្ធសម្រាប់ការដាក់ពាក្យ និងការបន្តវីសាដើម្បីធានាការរស់នៅមានស្ថិរភាព"
+      }
+    }
+  },
+  "interview": {
+    "title": "ការសម្ភាសន៍ AI",
+    "subtitle": "អនុវត្តន៍ក្នុងបរិស្ថានស្រដៀងគ្នានឹងការសម្ភាសន៍ពិត",
+    "aiInterviewer": "អ្នកសម្ភាសន៍ AI",
+    "online": "អនឡាញ",
+    "interviewInfo": "ព័ត៌មានការសម្ភាសន៍",
+    "difficulty": "កម្រិតស្មុគស្មាញ",
+    "questionCount": "ចំនួនសំណួរ",
+    "estimatedTime": "ពេលវេលាប៉ាន់ស្មាន",
+    "difficultyLevels": {
+      "easy": "ដំបូង",
+      "medium": "កម្រិតមធ្យម",
+      "hard": "កម្រិតខ្ពស់",
+      "selectRequired": "ត្រូវការជ្រើសរើស"
+    },
+    "actions": {
+      "startInterview": "ចាប់ផ្តើមសម្ភាសន៍",
+      "restartInterview": "សម្ភាសន៍ម្តងទៀត",
+      "viewResult": "មើលលទ្ធផល",
+      "settings": "ការកំណត់",
+      "copy": "ចម្លង",
+      "export": "នាំចេញ",
+      "closeChat": "បិទជាម"
+    },
+    "messages": {
+      "noContentToCopy": "គ្មានមាតិកាជាមដើម្បីចម្លង។",
+      "copySuccess": "មាតិកាជាមត្រូវបានចម្លងទៅកាន់ clipboard។",
+      "copyFailed": "ការចម្លងបរាជ័យ។",
+      "noContentToExport": "គ្មានមាតិកាជាមដើម្បីនាំចេញ។",
+      "closeConfirm": "តើអ្នកប្រាកដជាចង់បិទជាម? ការសម្ភាសន៍បច្ចុប្បន្ននឹងបញ្ចប់។",
+      "exportFileName": "ការសន្ទនាសម្ភាសន៍_"
+    }
   }
 }

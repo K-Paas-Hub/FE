@@ -22,7 +22,75 @@
     "googleContinue": "Continue with Google",
     "loginLoading": "Signing in...",
     "termsOfService": "Terms of Service",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "signup": {
+      "idLabel": "ID",
+      "idPlaceholder": "Please enter your ID",
+      "idRequired": "Please enter your ID.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Please enter a new password",
+      "passwordRequired": "Please enter a new password.",
+      "passwordConfirmLabel": "Confirm Password",
+      "passwordConfirmPlaceholder": "Please re-enter your password",
+      "passwordMismatch": "Passwords do not match.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Please enter your name",
+      "nameRequired": "Please enter your name.",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "Please enter your phone number",
+      "phoneRequired": "Please enter your phone number.",
+      "privacyRequired": "[Required] Privacy Policy and Terms of Service Agreement",
+      "marketingOptional": "[Optional] Receive notifications about new features. You can cancel anytime. (Marketing consent)",
+      "loginLink": "Already have an account? Login",
+      "createAccount": "Create Account",
+      "creatingAccount": "Creating account..."
+    },
+    "login": {
+      "idLabel": "ID",
+      "idPlaceholder": "Please enter your ID",
+      "idRequired": "Please enter your ID.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Please enter your password",
+      "passwordRequired": "Please enter your password.",
+      "signupLink": "Sign Up",
+      "findPasswordLink": "Find Password",
+      "loginButton": "Login",
+      "loggingIn": "Logging in...",
+      "or": "or"
+    }
+  },
+  "interview": {
+    "title": "AI Mock Interview",
+    "subtitle": "Practice in an environment similar to real interviews",
+    "aiInterviewer": "AI Interviewer",
+    "online": "Online",
+    "interviewInfo": "Interview Information",
+    "difficulty": "Difficulty",
+    "questionCount": "Question Count",
+    "estimatedTime": "Estimated Time",
+    "difficultyLevels": {
+      "easy": "Beginner",
+      "medium": "Intermediate",
+      "hard": "Advanced",
+      "selectRequired": "Selection Required"
+    },
+    "actions": {
+      "startInterview": "Start Interview",
+      "restartInterview": "Restart Interview",
+      "viewResult": "View Result",
+      "settings": "Settings",
+      "copy": "Copy",
+      "export": "Export",
+      "closeChat": "Close Chat"
+    },
+    "messages": {
+      "noContentToCopy": "No chat content to copy.",
+      "copySuccess": "Chat content has been copied to clipboard.",
+      "copyFailed": "Copy failed.",
+      "noContentToExport": "No chat content to export.",
+      "closeConfirm": "Are you sure you want to close the chat? The current interview will end.",
+      "exportFileName": "Interview_Conversation_"
+    }
   },
   "header": {
     "jobPostings": "Job Postings",
@@ -110,5 +178,31 @@
     "jobNotFound": "Job posting not found.",
     "loading": "Loading job posting...",
     "error": "Failed to load job posting."
+  },
+  "landing": {
+    "hero": {
+      "title": "WE ARE INNOVATION",
+      "subtitle": "Connecting the best talent and companies\nthrough an innovative recruitment platform",
+      "ctaButton": "Go to Job Site"
+    },
+    "features": {
+      "title": "Fair Work's Special Features",
+      "multilingual": {
+        "title": "Multilingual Support",
+        "description": "Support in various languages to help foreign workers use the platform easily"
+      },
+      "fairHiring": {
+        "title": "Fair Hiring",
+        "description": "Fair hiring process without discrimination to protect the rights of all workers"
+      },
+      "legalSupport": {
+        "title": "Legal Support",
+        "description": "Legal support for labor laws and visa-related matters to provide a safe work environment"
+      },
+      "visaSupport": {
+        "title": "Visa Support",
+        "description": "Systematic visa application and renewal support to ensure stable residency"
+      }
+    }
   }
 }

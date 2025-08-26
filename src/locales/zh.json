@@ -25,7 +25,42 @@
     "appleContinue": "继续使用 Apple (即将推出)",
     "phoneContinue": "继续使用手机 (即将推出)",
     "termsOfService": "服务条款",
-    "privacyPolicy": "隐私政策"
+    "privacyPolicy": "隐私政策",
+    "signup": {
+      "idLabel": "用户名",
+      "idPlaceholder": "请输入您的用户名",
+      "idRequired": "请输入您的用户名。",
+      "passwordLabel": "密码",
+      "passwordPlaceholder": "请输入新密码",
+      "passwordRequired": "请输入新密码。",
+      "passwordConfirmLabel": "确认密码",
+      "passwordConfirmPlaceholder": "请重新输入密码",
+      "passwordMismatch": "密码不匹配。",
+      "nameLabel": "姓名",
+      "namePlaceholder": "请输入您的姓名",
+      "nameRequired": "请输入您的姓名。",
+      "phoneLabel": "手机号码",
+      "phonePlaceholder": "请输入您的手机号码",
+      "phoneRequired": "请输入您的手机号码。",
+      "privacyRequired": "[必填] 隐私政策和服务条款同意",
+      "marketingOptional": "[可选] 接收新功能通知。您可以随时取消。（营销同意）",
+      "loginLink": "已有账户？登录",
+      "createAccount": "创建账户",
+      "creatingAccount": "正在创建账户..."
+    },
+    "login": {
+      "idLabel": "用户名",
+      "idPlaceholder": "请输入您的用户名",
+      "idRequired": "请输入您的用户名。",
+      "passwordLabel": "密码",
+      "passwordPlaceholder": "请输入您的密码",
+      "passwordRequired": "请输入您的密码。",
+      "signupLink": "注册",
+      "findPasswordLink": "找回密码",
+      "loginButton": "登录",
+      "loggingIn": "正在登录...",
+      "or": "或"
+    }
   },
   "header": {
     "jobPostings": "招聘信息",
@@ -113,5 +148,64 @@
     "jobNotFound": "未找到招聘信息。",
     "loading": "正在加载招聘信息...",
     "error": "加载招聘信息失败。"
+  },
+  "interview": {
+    "title": "AI 模拟面试",
+    "subtitle": "在类似真实面试的环境中练习",
+    "aiInterviewer": "AI 面试官",
+    "online": "在线",
+    "interviewInfo": "面试信息",
+    "difficulty": "难度",
+    "questionCount": "问题数量",
+    "estimatedTime": "预计时间",
+    "difficultyLevels": {
+      "easy": "初级",
+      "medium": "中级",
+      "hard": "高级",
+      "selectRequired": "需要选择"
+    },
+    "actions": {
+      "startInterview": "开始面试",
+      "restartInterview": "重新开始面试",
+      "viewResult": "查看结果",
+      "settings": "设置",
+      "copy": "复制",
+      "export": "导出",
+      "closeChat": "关闭聊天"
+    },
+    "messages": {
+      "noContentToCopy": "没有聊天内容可复制。",
+      "copySuccess": "聊天内容已复制到剪贴板。",
+      "copyFailed": "复制失败。",
+      "noContentToExport": "没有聊天内容可导出。",
+      "closeConfirm": "您确定要关闭聊天吗？当前面试将结束。",
+      "exportFileName": "面试对话_"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "WE ARE INNOVATION",
+      "subtitle": "通过创新的招聘平台\n连接最优秀的人才和企业",
+      "ctaButton": "前往招聘网站"
+    },
+    "features": {
+      "title": "Fair Work 的特色功能",
+      "multilingual": {
+        "title": "多语言支持",
+        "description": "支持多种语言，帮助外籍劳工轻松使用平台"
+      },
+      "fairHiring": {
+        "title": "公平招聘",
+        "description": "无歧视的公平招聘流程，保护所有劳工的权益"
+      },
+      "legalSupport": {
+        "title": "法律支持",
+        "description": "劳动法和签证相关法律支持，提供安全的工作环境"
+      },
+      "visaSupport": {
+        "title": "签证支持",
+        "description": "系统的签证申请和续签支持，确保稳定居留"
+      }
+    }
   }
 }

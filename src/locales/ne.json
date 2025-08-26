@@ -17,15 +17,50 @@
   },
   "auth": {
     "welcome": "FairWork मा स्वागत छ",
-    "loginSubtitle": "आफ्नो Google खाता सँग सजिलै लगइन गर्नुहोस्",
-    "googleLogin": "Google सँग लगइन गर्नुहोस्",
+    "loginSubtitle": "आफ्नो Google खाता सँग सजिलै साइन इन गर्नुहोस्",
+    "googleLogin": "Google सँग साइन इन गर्नुहोस्",
     "googleContinue": "Google सँग जारी राख्नुहोस्",
-    "loginLoading": "लगइन हुँदै...",
+    "loginLoading": "साइन इन गर्दै...",
     "microsoftContinue": "Microsoft सँग जारी राख्नुहोस् (आउँदैछ)",
     "appleContinue": "Apple सँग जारी राख्नुहोस् (आउँदैछ)",
     "phoneContinue": "फोन सँग जारी राख्नुहोस् (आउँदैछ)",
     "termsOfService": "सेवा सर्तहरू",
-    "privacyPolicy": "गोपनीयता नीति"
+    "privacyPolicy": "गोपनीयता नीति",
+    "signup": {
+      "idLabel": "आईडी",
+      "idPlaceholder": "कृपया आफ्नो आईडी प्रविष्ट गर्नुहोस्",
+      "idRequired": "कृपया आफ्नो आईडी प्रविष्ट गर्नुहोस्।",
+      "passwordLabel": "पासवर्ड",
+      "passwordPlaceholder": "कृपया नयाँ पासवर्ड प्रविष्ट गर्नुहोस्",
+      "passwordRequired": "कृपया नयाँ पासवर्ड प्रविष्ट गर्नुहोस्।",
+      "passwordConfirmLabel": "पासवर्ड पुष्टि गर्नुहोस्",
+      "passwordConfirmPlaceholder": "कृपया आफ्नो पासवर्ड फेरि प्रविष्ट गर्नुहोस्",
+      "passwordMismatch": "पासवर्डहरू मेल खाँदैनन्।",
+      "nameLabel": "नाम",
+      "namePlaceholder": "कृपया आफ्नो नाम प्रविष्ट गर्नुहोस्",
+      "nameRequired": "कृपया आफ्नो नाम प्रविष्ट गर्नुहोस्।",
+      "phoneLabel": "फोन नम्बर",
+      "phonePlaceholder": "कृपया आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्",
+      "phoneRequired": "कृपया आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्।",
+      "privacyRequired": "[आवश्यक] गोपनीयता नीति र सेवा सर्तहरूको सहमति",
+      "marketingOptional": "[वैकल्पिक] नयाँ सुविधाहरूको बारेमा सूचना प्राप्त गर्नुहोस्। तपाईंले कुनै पनि समयमा रद्द गर्न सक्नुहुन्छ। (मार्केटिङ सहमति)",
+      "loginLink": "पहिले नै खाता छ? लगइन गर्नुहोस्",
+      "createAccount": "खाता सिर्जना गर्नुहोस्",
+      "creatingAccount": "खाता सिर्जना गर्दै..."
+    },
+    "login": {
+      "idLabel": "आईडी",
+      "idPlaceholder": "कृपया आफ्नो आईडी प्रविष्ट गर्नुहोस्",
+      "idRequired": "कृपया आफ्नो आईडी प्रविष्ट गर्नुहोस्।",
+      "passwordLabel": "पासवर्ड",
+      "passwordPlaceholder": "कृपया आफ्नो पासवर्ड प्रविष्ट गर्नुहोस्",
+      "passwordRequired": "कृपया आफ्नो पासवर्ड प्रविष्ट गर्नुहोस्।",
+      "signupLink": "साइन अप",
+      "findPasswordLink": "पासवर्ड फेला पार्नुहोस्",
+      "loginButton": "लगइन",
+      "loggingIn": "लगइन गर्दै...",
+      "or": "वा"
+    }
   },
   "header": {
     "jobPostings": "जागिरको सूचना",
@@ -113,5 +148,64 @@
     "jobNotFound": "रोजगारी पोस्टिंग फेला परेन।",
     "loading": "रोजगारी पोस्टिंग लोड गर्दै...",
     "error": "रोजगारी पोस्टिंग लोड गर्न असफल।"
+  },
+  "landing": {
+    "hero": {
+      "title": "WE ARE INNOVATION",
+      "subtitle": "उत्कृष्ट प्रतिभा र कम्पनीहरूलाई जडान गर्ने\nनवीनतम भर्ती मञ्च मार्फत",
+      "ctaButton": "रोजगारी साइटमा जानुहोस्"
+    },
+    "features": {
+      "title": "Fair Work को विशेष सुविधाहरू",
+      "multilingual": {
+        "title": "बहुभाषिक समर्थन",
+        "description": "विभिन्न भाषाहरूमा समर्थन प्रदान गरेर विदेशी श्रमिकहरूलाई मञ्च प्रयोग गर्न सजिलो बनाउनु"
+      },
+      "fairHiring": {
+        "title": "निष्पक्ष भर्ती",
+        "description": "सबै श्रमिकहरूको अधिकार संरक्षण गर्न भेदभाव रहित निष्पक्ष भर्ती प्रक्रिया"
+      },
+      "legalSupport": {
+        "title": "कानूनी समर्थन",
+        "description": "श्रम कानून र भिसा सम्बन्धी कानूनी समर्थनले सुरक्षित कार्य वातावरण प्रदान गर्नु"
+      },
+      "visaSupport": {
+        "title": "भिसा समर्थन",
+        "description": "स्थिर निवास सुनिश्चित गर्न व्यवस्थित भिसा आवेदन र नवीकरण समर्थन"
+      }
+    }
+  },
+  "interview": {
+    "title": "AI मोक इन्टरभ्यू",
+    "subtitle": "वास्तविक इन्टरभ्यू जस्तै वातावरणमा अभ्यास गर्नुहोस्",
+    "aiInterviewer": "AI इन्टरभ्यूअर",
+    "online": "अनलाइन",
+    "interviewInfo": "इन्टरभ्यू जानकारी",
+    "difficulty": "कठिनाई",
+    "questionCount": "प्रश्न संख्या",
+    "estimatedTime": "अनुमानित समय",
+    "difficultyLevels": {
+      "easy": "सुरुवाती",
+      "medium": "मध्यम",
+      "hard": "उन्नत",
+      "selectRequired": "चयन आवश्यक"
+    },
+    "actions": {
+      "startInterview": "इन्टरभ्यू सुरु गर्नुहोस्",
+      "restartInterview": "इन्टरभ्यू पुनः सुरु गर्नुहोस्",
+      "viewResult": "परिणाम हेर्नुहोस्",
+      "settings": "सेटिङहरू",
+      "copy": "कपी गर्नुहोस्",
+      "export": "निर्यात गर्नुहोस्",
+      "closeChat": "च्याट बन्द गर्नुहोस्"
+    },
+    "messages": {
+      "noContentToCopy": "कपी गर्न च्याट सामग्री छैन।",
+      "copySuccess": "च्याट सामग्री क्लिपबोर्डमा कपी भयो।",
+      "copyFailed": "कपी असफल।",
+      "noContentToExport": "निर्यात गर्न च्याट सामग्री छैन।",
+      "closeConfirm": "के तपाईं च्याट बन्द गर्न निश्चित हुनुहुन्छ? वर्तमान इन्टरभ्यू समाप्त हुनेछ।",
+      "exportFileName": "इन्टरभ्यू_कुराकानी_"
+    }
   }
 }

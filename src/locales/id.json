@@ -25,7 +25,42 @@
     "appleContinue": "Lanjutkan dengan Apple (Segera Hadir)",
     "phoneContinue": "Lanjutkan dengan Telepon (Segera Hadir)",
     "termsOfService": "Ketentuan Layanan",
-    "privacyPolicy": "Kebijakan Privasi"
+    "privacyPolicy": "Kebijakan Privasi",
+    "signup": {
+      "idLabel": "ID",
+      "idPlaceholder": "Silakan masukkan ID Anda",
+      "idRequired": "Silakan masukkan ID Anda.",
+      "passwordLabel": "Kata Sandi",
+      "passwordPlaceholder": "Silakan masukkan kata sandi baru",
+      "passwordRequired": "Silakan masukkan kata sandi baru.",
+      "passwordConfirmLabel": "Konfirmasi Kata Sandi",
+      "passwordConfirmPlaceholder": "Silakan masukkan ulang kata sandi Anda",
+      "passwordMismatch": "Kata sandi tidak cocok.",
+      "nameLabel": "Nama",
+      "namePlaceholder": "Silakan masukkan nama Anda",
+      "nameRequired": "Silakan masukkan nama Anda.",
+      "phoneLabel": "Nomor Telepon",
+      "phonePlaceholder": "Silakan masukkan nomor telepon Anda",
+      "phoneRequired": "Silakan masukkan nomor telepon Anda.",
+      "privacyRequired": "[Wajib] Persetujuan Kebijakan Privasi dan Ketentuan Layanan",
+      "marketingOptional": "[Opsional] Terima notifikasi tentang fitur baru. Anda dapat membatalkan kapan saja. (Persetujuan pemasaran)",
+      "loginLink": "Sudah punya akun? Masuk",
+      "createAccount": "Buat Akun",
+      "creatingAccount": "Membuat akun..."
+    },
+    "login": {
+      "idLabel": "ID",
+      "idPlaceholder": "Silakan masukkan ID Anda",
+      "idRequired": "Silakan masukkan ID Anda.",
+      "passwordLabel": "Kata Sandi",
+      "passwordPlaceholder": "Silakan masukkan kata sandi Anda",
+      "passwordRequired": "Silakan masukkan kata sandi Anda.",
+      "signupLink": "Daftar",
+      "findPasswordLink": "Temukan Kata Sandi",
+      "loginButton": "Masuk",
+      "loggingIn": "Sedang masuk...",
+      "or": "atau"
+    }
   },
   "header": {
     "jobPostings": "Lowongan Kerja",
@@ -113,5 +148,64 @@
     "jobNotFound": "Lowongan pekerjaan tidak ditemukan.",
     "loading": "Memuat lowongan pekerjaan...",
     "error": "Gagal memuat lowongan pekerjaan."
+  },
+  "interview": {
+    "title": "Wawancara AI",
+    "subtitle": "Berlatih dalam lingkungan yang mirip dengan wawancara nyata",
+    "aiInterviewer": "Pewawancara AI",
+    "online": "Online",
+    "interviewInfo": "Informasi Wawancara",
+    "difficulty": "Tingkat Kesulitan",
+    "questionCount": "Jumlah Pertanyaan",
+    "estimatedTime": "Perkiraan Waktu",
+    "difficultyLevels": {
+      "easy": "Pemula",
+      "medium": "Menengah",
+      "hard": "Lanjutan",
+      "selectRequired": "Pemilihan Diperlukan"
+    },
+    "actions": {
+      "startInterview": "Mulai Wawancara",
+      "restartInterview": "Mulai Ulang Wawancara",
+      "viewResult": "Lihat Hasil",
+      "settings": "Pengaturan",
+      "copy": "Salin",
+      "export": "Ekspor",
+      "closeChat": "Tutup Chat"
+    },
+    "messages": {
+      "noContentToCopy": "Tidak ada konten chat untuk disalin.",
+      "copySuccess": "Konten chat telah disalin ke clipboard.",
+      "copyFailed": "Salin gagal.",
+      "noContentToExport": "Tidak ada konten chat untuk diekspor.",
+      "closeConfirm": "Apakah Anda yakin ingin menutup chat? Wawancara saat ini akan berakhir.",
+      "exportFileName": "Percakapan_Wawancara_"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "WE ARE INNOVATION",
+      "subtitle": "Menghubungkan bakat terbaik dan perusahaan\nmelalui platform rekrutmen yang inovatif",
+      "ctaButton": "Pergi ke Situs Lowongan"
+    },
+    "features": {
+      "title": "Fitur Khusus Fair Work",
+      "multilingual": {
+        "title": "Dukungan Multibahasa",
+        "description": "Dukungan dalam berbagai bahasa untuk membantu pekerja asing menggunakan platform dengan mudah"
+      },
+      "fairHiring": {
+        "title": "Rekrutmen yang Adil",
+        "description": "Proses rekrutmen yang adil tanpa diskriminasi untuk melindungi hak semua pekerja"
+      },
+      "legalSupport": {
+        "title": "Dukungan Hukum",
+        "description": "Dukungan hukum untuk undang-undang ketenagakerjaan dan masalah terkait visa untuk menyediakan lingkungan kerja yang aman"
+      },
+      "visaSupport": {
+        "title": "Dukungan Visa",
+        "description": "Dukungan sistematis untuk aplikasi dan perpanjangan visa untuk memastikan tempat tinggal yang stabil"
+      }
+    }
   }
 }

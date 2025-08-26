@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../../styles/SignupForm.css';
 
 interface SignupFormProps {
@@ -14,6 +15,7 @@ interface SignupFormProps {
 }
 
 const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) => {
+  const { t } = useTranslation();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -31,7 +33,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     const value = e.target.value;
     setId(value);
     if (value === '') {
-      setIdError('아이디를 입력해주세요.');
+      setIdError(t('auth.signup.idRequired'));
     } else {
       setIdError('');
     }
@@ -41,7 +43,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     const value = e.target.value;
     setPassword(value);
     if (value === '') {
-      setPasswordError('새 비밀번호를 입력해주세요.');
+      setPasswordError(t('auth.signup.passwordRequired'));
     } else {
       setPasswordError('');
     }
@@ -53,7 +55,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     if (value === '') {
       setPasswordConfirmError('');
     } else if (value !== password) {
-      setPasswordConfirmError('비밀번호가 일치하지 않습니다.');
+      setPasswordConfirmError(t('auth.signup.passwordMismatch'));
     } else {
       setPasswordConfirmError('');
     }
@@ -63,7 +65,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     const value = e.target.value;
     setName(value);
     if (value === '') {
-      setNameError('이름을 입력해주세요.');
+      setNameError(t('auth.signup.nameRequired'));
     } else {
       setNameError('');
     }
@@ -73,7 +75,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     const value = e.target.value;
     setPhone(value);
     if (value === '') {
-      setPhoneError('휴대폰 번호를 입력해주세요.');
+      setPhoneError(t('auth.signup.phoneRequired'));
     } else {
       setPhoneError('');
     }
@@ -84,19 +86,19 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     let hasError = false;
 
     if (!id) {
-      setIdError('아이디를 입력해주세요.');
+      setIdError(t('auth.signup.idRequired'));
       hasError = true;
     }
     if (!password) {
-      setPasswordError('새 비밀번호를 입력해주세요.');
+      setPasswordError(t('auth.signup.passwordRequired'));
       hasError = true;
     }
     if (!name) {
-      setNameError('이름을 입력해주세요.');
+      setNameError(t('auth.signup.nameRequired'));
       hasError = true;
     }
     if (!phone) {
-      setPhoneError('휴대폰 번호를 입력해주세요.');
+      setPhoneError(t('auth.signup.phoneRequired'));
       hasError = true;
     }
     if (!agreement1) {
@@ -111,65 +113,65 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
       <div className="input-group">
-        <label className="input-label">아이디</label>
+        <label className="input-label">{t('auth.signup.idLabel')}</label>
         <input
           type="id"
           value={id}
           onChange={handleIdChange}
           className={`input-field ${idError ? 'error' : ''}`}
-          placeholder="아이디를 입력해주세요"
+          placeholder={t('auth.signup.idPlaceholder')}
           disabled={isLoading}
         />
         {idError && <div className="error-message">{idError}</div>}
       </div>
 
       <div className="input-group">
-        <label className="input-label">비밀번호</label>
+        <label className="input-label">{t('auth.signup.passwordLabel')}</label>
         <input
           type="password"
           value={password}
           onChange={handlePasswordChange}
           className={`input-field ${passwordError ? 'error' : ''}`}
-          placeholder="새 비밀번호를 입력해주세요"
+          placeholder={t('auth.signup.passwordPlaceholder')}
           disabled={isLoading}
         />
         {passwordError && <div className="error-message">{passwordError}</div>}
       </div>
 
       <div className="input-group">
-        <label className="input-label">비밀번호 확인</label>
+        <label className="input-label">{t('auth.signup.passwordConfirmLabel')}</label>
         <input
           type="password"
           value={passwordConfirm}
           onChange={handlePasswordConfirmChange}
           className={`input-field ${passwordConfirmError ? 'error' : ''}`}
-          placeholder="비밀번호를 다시 입력해주세요"
+          placeholder={t('auth.signup.passwordConfirmPlaceholder')}
           disabled={isLoading}
         />
         {passwordConfirmError && <div className="error-message">{passwordConfirmError}</div>}
       </div>
 
       <div className="input-group">
-        <label className="input-label">이름</label>
+        <label className="input-label">{t('auth.signup.nameLabel')}</label>
         <input
           type="text"
           value={name}
           onChange={handleNameChange}
           className={`input-field ${nameError ? 'error' : ''}`}
-          placeholder="이름을 입력해주세요"
+          placeholder={t('auth.signup.namePlaceholder')}
           disabled={isLoading}
         />
         {nameError && <div className="error-message">{nameError}</div>}
       </div>
 
       <div className="input-group">
-        <label className="input-label">휴대폰 번호</label>
+        <label className="input-label">{t('auth.signup.phoneLabel')}</label>
         <input
           type="tel"
           value={phone}
           onChange={handlePhoneChange}
           className={`input-field ${phoneError ? 'error' : ''}`}
-          placeholder="휴대폰 번호를 입력해주세요"
+          placeholder={t('auth.signup.phonePlaceholder')}
           disabled={isLoading}
         />
         {phoneError && <div className="error-message">{phoneError}</div>}
@@ -186,7 +188,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               onChange={(e) => setAgreement1(e.target.checked)}
               disabled={isLoading}
             />
-            <span className="checkbox-text">[필수] 개인정보 수집 및 이용동의</span>
+            <span className="checkbox-text">{t('auth.signup.privacyRequired')}</span>
           </label>
         </div>
         <div className="checkbox-group">
@@ -198,8 +200,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               disabled={isLoading}
             />
             <span className="checkbox-text">
-              [선택] 새로운 기능 출시 안내를 받아보세요. 언제든 취소할 수 있어요. (광고·마케팅 수신
-              동의)
+              {t('auth.signup.marketingOptional')}
             </span>
           </label>
         </div>
@@ -208,11 +209,11 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
       <div className="form-actions">
         <div className="links">
           <Link to="/login" className="link">
-            이미 계정이 있으신가요? 로그인
+            {t('auth.signup.loginLink')}
           </Link>
         </div>
         <button type="submit" className="signup-button" disabled={isLoading || !agreement1}>
-          {isLoading ? '계정 만들기 중...' : '계정 만들기'}
+          {isLoading ? t('auth.signup.creatingAccount') : t('auth.signup.createAccount')}
         </button>
       </div>
     </form>

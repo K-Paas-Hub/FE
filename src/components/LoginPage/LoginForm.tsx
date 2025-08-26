@@ -24,7 +24,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     const value = e.target.value;
     setId(value);
     if (value === '') {
-      setIdError('아이디를 입력해주세요.');
+      setIdError(t('auth.login.idRequired'));
     } else {
       setIdError('');
     }
@@ -34,7 +34,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     const value = e.target.value;
     setPw(value);
     if (value === '') {
-      setPwError('비밀번호를 입력해주세요.');
+      setPwError(t('auth.login.passwordRequired'));
     } else {
       setPwError('');
     }
@@ -45,11 +45,11 @@ const LoginForm: React.FC<LoginFormProps> = ({
     let hasError = false;
 
     if (!id) {
-      setIdError('아이디를 입력해주세요.');
+      setIdError(t('auth.login.idRequired'));
       hasError = true;
     }
     if (!pw) {
-      setPwError('비밀번호를 입력해주세요.');
+      setPwError(t('auth.login.passwordRequired'));
       hasError = true;
     }
 
@@ -68,26 +68,26 @@ const LoginForm: React.FC<LoginFormProps> = ({
     <div className="login-form">
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-          <label className="input-label">아이디</label>
+          <label className="input-label">{t('auth.login.idLabel')}</label>
           <input
             type="text"
             value={id}
             onChange={handleIdChange}
             className={`input-field ${idError ? 'error' : ''}`}
-            placeholder="아이디를 입력해주세요"
+            placeholder={t('auth.login.idPlaceholder')}
             disabled={isLoading}
           />
           {idError && <div className="error-message">{idError}</div>}
         </div>
 
         <div className="input-group">
-          <label className="input-label">비밀번호</label>
+          <label className="input-label">{t('auth.login.passwordLabel')}</label>
           <input
             type="password"
             value={pw}
             onChange={handlePwChange}
             className={`input-field ${pwError ? 'error' : ''}`}
-            placeholder="비밀번호를 입력해주세요"
+            placeholder={t('auth.login.passwordPlaceholder')}
             disabled={isLoading}
           />
           {pwError && <div className="error-message">{pwError}</div>}
@@ -95,23 +95,23 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
         <div className="form-actions">
           <div className="links">
-            <Link to="/signup" className="link">회원가입</Link>
+            <Link to="/signup" className="link">{t('auth.login.signupLink')}</Link>
             <span className="separator">|</span>
-            <Link to="/find-password" className="link">비밀번호 찾기</Link>
+            <Link to="/find-password" className="link">{t('auth.login.findPasswordLink')}</Link>
           </div>
           <button 
             type="submit" 
             className="login-button"
             disabled={isLoading}
           >
-            {isLoading ? '로그인 중...' : '로그인'}
+            {isLoading ? t('auth.login.loggingIn') : t('auth.login.loginButton')}
           </button>
         </div>
       </form>
 
       <div className="oauth-section">
         <div className="oauth-divider">
-          <span>또는</span>
+          <span>{t('auth.login.or')}</span>
         </div>
         
         <button 

@@ -25,7 +25,42 @@
     "appleContinue": "Tiếp tục với Apple (Sắp ra mắt)",
     "phoneContinue": "Tiếp tục với Điện thoại (Sắp ra mắt)",
     "termsOfService": "Điều khoản dịch vụ",
-    "privacyPolicy": "Chính sách bảo mật"
+    "privacyPolicy": "Chính sách bảo mật",
+    "signup": {
+      "idLabel": "ID",
+      "idPlaceholder": "Vui lòng nhập ID của bạn",
+      "idRequired": "Vui lòng nhập ID của bạn.",
+      "passwordLabel": "Mật khẩu",
+      "passwordPlaceholder": "Vui lòng nhập mật khẩu mới",
+      "passwordRequired": "Vui lòng nhập mật khẩu mới.",
+      "passwordConfirmLabel": "Xác nhận mật khẩu",
+      "passwordConfirmPlaceholder": "Vui lòng nhập lại mật khẩu",
+      "passwordMismatch": "Mật khẩu không khớp.",
+      "nameLabel": "Tên",
+      "namePlaceholder": "Vui lòng nhập tên của bạn",
+      "nameRequired": "Vui lòng nhập tên của bạn.",
+      "phoneLabel": "Số điện thoại",
+      "phonePlaceholder": "Vui lòng nhập số điện thoại của bạn",
+      "phoneRequired": "Vui lòng nhập số điện thoại của bạn.",
+      "privacyRequired": "[Bắt buộc] Đồng ý với chính sách bảo mật và điều khoản dịch vụ",
+      "marketingOptional": "[Tùy chọn] Nhận thông báo về tính năng mới. Bạn có thể hủy bất cứ lúc nào. (Đồng ý tiếp thị)",
+      "loginLink": "Đã có tài khoản? Đăng nhập",
+      "createAccount": "Tạo tài khoản",
+      "creatingAccount": "Đang tạo tài khoản..."
+    },
+    "login": {
+      "idLabel": "ID",
+      "idPlaceholder": "Vui lòng nhập ID của bạn",
+      "idRequired": "Vui lòng nhập ID của bạn.",
+      "passwordLabel": "Mật khẩu",
+      "passwordPlaceholder": "Vui lòng nhập mật khẩu của bạn",
+      "passwordRequired": "Vui lòng nhập mật khẩu của bạn.",
+      "signupLink": "Đăng ký",
+      "findPasswordLink": "Tìm mật khẩu",
+      "loginButton": "Đăng nhập",
+      "loggingIn": "Đang đăng nhập...",
+      "or": "hoặc"
+    }
   },
   "header": {
     "jobPostings": "Tin tuyển dụng",
@@ -113,5 +148,64 @@
     "jobNotFound": "Không tìm thấy tin tuyển dụng.",
     "loading": "Đang tải tin tuyển dụng...",
     "error": "Không thể tải tin tuyển dụng."
+  },
+  "landing": {
+    "hero": {
+      "title": "WE ARE INNOVATION",
+      "subtitle": "Kết nối nhân tài và doanh nghiệp hàng đầu\nthông qua nền tảng tuyển dụng sáng tạo",
+      "ctaButton": "Đi đến trang tuyển dụng"
+    },
+    "features": {
+      "title": "Tính năng đặc biệt của Fair Work",
+      "multilingual": {
+        "title": "Hỗ trợ đa ngôn ngữ",
+        "description": "Hỗ trợ nhiều ngôn ngữ để giúp lao động nước ngoài sử dụng nền tảng dễ dàng"
+      },
+      "fairHiring": {
+        "title": "Tuyển dụng công bằng",
+        "description": "Quy trình tuyển dụng công bằng không phân biệt đối xử để bảo vệ quyền lợi của tất cả người lao động"
+      },
+      "legalSupport": {
+        "title": "Hỗ trợ pháp lý",
+        "description": "Hỗ trợ pháp lý về luật lao động và các vấn đề liên quan đến visa để tạo môi trường làm việc an toàn"
+      },
+      "visaSupport": {
+        "title": "Hỗ trợ visa",
+        "description": "Hỗ trợ có hệ thống cho việc đăng ký và gia hạn visa để đảm bảo cư trú ổn định"
+      }
+    }
+  },
+  "interview": {
+    "title": "Phỏng vấn AI",
+    "subtitle": "Thực hành trong môi trường tương tự như phỏng vấn thực tế",
+    "aiInterviewer": "Người phỏng vấn AI",
+    "online": "Trực tuyến",
+    "interviewInfo": "Thông tin phỏng vấn",
+    "difficulty": "Độ khó",
+    "questionCount": "Số câu hỏi",
+    "estimatedTime": "Thời gian ước tính",
+    "difficultyLevels": {
+      "easy": "Cơ bản",
+      "medium": "Trung cấp",
+      "hard": "Nâng cao",
+      "selectRequired": "Cần chọn"
+    },
+    "actions": {
+      "startInterview": "Bắt đầu phỏng vấn",
+      "restartInterview": "Phỏng vấn lại",
+      "viewResult": "Xem kết quả",
+      "settings": "Cài đặt",
+      "copy": "Sao chép",
+      "export": "Xuất",
+      "closeChat": "Đóng chat"
+    },
+    "messages": {
+      "noContentToCopy": "Không có nội dung chat để sao chép.",
+      "copySuccess": "Nội dung chat đã được sao chép vào clipboard.",
+      "copyFailed": "Sao chép thất bại.",
+      "noContentToExport": "Không có nội dung chat để xuất.",
+      "closeConfirm": "Bạn có chắc chắn muốn đóng chat? Cuộc phỏng vấn hiện tại sẽ kết thúc.",
+      "exportFileName": "Cuộc_trò_chuyện_phỏng_vấn_"
+    }
   }
 }
