@@ -74,20 +74,108 @@
     "aiInterview": "ការសម្ភាសន៍ AI"
   },
   "mainPage": {
-    "searchPlaceholder": "ស្វែងរកចំណងជើងការងារ និងពាក្យគន្លឹះ...",
-    "region": "តំបន់",
-    "employmentType": "ប្រភេទការងារ",
-    "jobCategory": "ប្រភេទការងារ",
-    "refresh": "ធ្វើឱ្យថ្មី",
-    "jobPostings": "ការផ្សព្វផ្សាយការងារ",
-    "sortBy": "តម្រៀបតាម",
-    "latest": "ថ្មីៗ",
-    "popular": "ពេញនិយម",
-    "salary": "ប្រាក់ខែ",
-    "deadline": "ថ្ងៃផុតកំណត់",
-    "noResults": "រកមិនឃើញលទ្ធផលស្វែងរក។",
-    "searchResults": "លទ្ធផលស្វែងរក",
-    "items": "ធាតុ"
+    "search": {
+      "placeholder": "ស្វែងរកចំណងជើងការងារ និងពាក្យគន្លឹះដែលពាក់ព័ន្ធនឹងការងារ...",
+      "clearButton": "✕"
+    },
+    "filters": {
+      "region": "តំបន់",
+      "employmentType": "ប្រភេទការងារ",
+      "category": "ប្រភេទការងារ",
+      "resetAll": "កំណត់ឡើងវិញគ្រប់អត្ថបទ"
+    },
+    "filterOptions": {
+      "regions": {
+        "seoul": "ទីក្រុងសេអ៊ូល",
+        "gyeonggi": "ខេត្តគីយ៉ុងហ្គី",
+        "incheon": "ទីក្រុងអ៊ីនឈន",
+        "busan": "ទីក្រុងប៊ូសាន",
+        "daejeon": "ទីក្រុងដេជន",
+        "daegu": "ទីក្រុងដេហ្គូ",
+        "ulsan": "ទីក្រុងអ៊ុលសាន",
+        "gwangju": "ទីក្រុងគ្វាងជូ",
+        "gangwon": "ខេត្តគាងវន",
+        "sejong": "ទីក្រុងសេជុង",
+        "chungbuk": "ខេត្តឈុងឈុងប៊ុក",
+        "chungnam": "ខេត្តឈុងឈុងណាម",
+        "gyeongbuk": "ខេត្តគីយ៉ុងប៊ុក",
+        "gyeongnam": "ខេត្តគីយ៉ុងណាម",
+        "jeju": "ខេត្តជេជូ",
+        "jeonbuk": "ខេត្តជនប៊ុក",
+        "jeonnam": "ខេត្តជនណាម"
+      },
+      "employmentTypes": {
+        "fulltime": "ការងារពេញម៉ោង",
+        "contract": "កិច្ចសន្យា",
+        "intern": "អ្នកធ្វើការងារជាមួយបទពិសោធន៍",
+        "parttime": "ការងារក្រៅម៉ោង",
+        "freelance": "អ្នកធ្វើការងារឯករាជ្យ"
+      },
+      "categories": {
+        "design": "ការរចនា",
+        "manufacturing": "ការផលិត/ផលិតកម្ម",
+        "it": "វិទ្យាសាស្ត្រព័ត៌មាន",
+        "management": "ការគ្រប់គ្រង/ការិយាល័យ",
+        "marketing": "ការផ្សព្វផ្សាយ/ពាណិជ្ជកម្ម",
+        "education": "ការអប់រំ",
+        "trade": "ពាណិជ្ជកម្ម/ដឹកជញ្ជូន",
+        "sales": "ការលក់/អតិថិជន",
+        "service": "សេវាកម្ម",
+        "construction": "សំណង់",
+        "entertainment": "ការកម្សាន្ត",
+        "translation": "ការបកប្រែ",
+        "rd": "ការស្រាវជ្រាវ និងការអភិវឌ្ឍន៍",
+        "other": "ផ្សេងទៀត"
+      }
+    },
+    "searchResults": {
+      "title": "លទ្ធផលស្វែងរក",
+      "count": "ធាតុ",
+      "noResults": {
+        "title": "រកមិនឃើញលទ្ធផលស្វែងរក",
+        "subtitle": "សូមស្វែងរកជាមួយពាក្យគន្លឹះផ្សេងទៀត"
+      }
+    },
+    "jobList": {
+      "title": "ការផ្សព្វផ្សាយការងារ",
+      "sortOptions": {
+        "latest": "ថ្មីៗ",
+        "popular": "ពេញនិយម",
+        "salary": "ប្រាក់ខែ",
+        "deadline": "ថ្ងៃផុតកំណត់"
+      },
+      "sortLabel": "ជ្រើសរើសជម្រើសតម្រៀប"
+    },
+    "jobCard": {
+      "visaSupport": "ការគាំទ្រវីសា E-7"
+    },
+    "filterModal": {
+      "close": "បិទអត្ថបទអត្ថបទ",
+      "appliedFilters": "អត្ថបទដែលបានអនុវត្ត",
+      "actions": {
+        "reset": "កំណត់ឡើងវិញ",
+        "viewResults": "មើលលទ្ធផល"
+      }
+    },
+    "chat": {
+      "title": "ជជែកជាមួយ FairWork Chatbot",
+      "subtitle": "ដោះស្រាយការស្នើសុំរបស់អ្នកតាមរយៈ chatbot!",
+      "close": "បិទ",
+      "time": "ម៉ោង 6:14 ល្ងាច",
+      "botMessage": {
+        "greeting": "សួស្តី។ ខ្ញុំជា FairWork BOT។",
+        "selectType": "សូមជ្រើសរើសប្រភេទសមាជិក។",
+        "note": "(*Chatbot នេះមិនដំណើរការសេវាជជែកផ្ទាល់ជាមួយអ្នកណែនាំទេ។)"
+      },
+      "userTypes": {
+        "individual": "សមាជិកផ្ទាល់ខ្លួន",
+        "corporate": "សមាជិកក្រុមហ៊ុន"
+      },
+      "input": {
+        "placeholder": "បញ្ចូលសារ"
+      },
+      "footer": "បង្កើតឡើងដោយ Zendesk"
+    }
   },
   "resumePage": {
     "title": "ការសរសេរព្រឹត្តិការណ៍",
