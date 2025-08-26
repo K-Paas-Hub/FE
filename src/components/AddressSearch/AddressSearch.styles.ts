@@ -9,28 +9,28 @@ export const AddressSearchContainer = styled.div`
 
 export const AddressSearchInput = styled.input`
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid ${theme.colors.borderLight};
-  border-radius: ${theme.radius.md};
-  font-size: ${theme.typography.fontSize.base};
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
   background: white;
-  color: ${theme.colors.textPrimary};
+  color: #374151;
   min-height: 44px;
   
   &:focus {
     outline: none;
-    border-color: ${theme.colors.primary};
+    border-color: #4ade80;
     box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
   }
   
   &:disabled {
-    background: ${theme.colors.backgroundGray};
-    color: ${theme.colors.textSecondary};
+    background: #f9fafb;
+    color: #9ca3af;
     cursor: not-allowed;
   }
   
-  ${theme.media.tablet} {
-    font-size: 16px; // iOS에서 줌 방지
+  @media (max-width: 768px) {
+    font-size: 16px; /* iOS에서 줌 방지 */
   }
 `;
 

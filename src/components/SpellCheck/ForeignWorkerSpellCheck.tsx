@@ -101,12 +101,7 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     }
   };
 
-  // 다시 불러오기 (저장된 이력서 데이터로)
-  const handleReload = () => {
-    loadResumeData();
-    setErrors([]);
-    setIsComplete(false);
-  };
+  // handleReload 함수 제거 - 사용되지 않음
 
   // 전체 복사
   const handleCopyAll = () => {
@@ -119,6 +114,17 @@ const ForeignWorkerSpellCheck: React.FC = () => {
   const handleApplyAll = () => {
     setText(correctedText);
   };
+
+  // 검사완료 상태가 변경될 때 자동 사라짐 타이머 설정
+  useEffect(() => {
+    if (isComplete) {
+      const timer = setTimeout(() => {
+        setIsComplete(false);
+      }, 2000); // 2초 후 자동 사라짐
+
+      return () => clearTimeout(timer);
+    }
+  }, [isComplete]);
 
   if (isLoading) {
     return (
@@ -233,11 +239,24 @@ const ForeignWorkerSpellCheck: React.FC = () => {
                   <LoadingSpinner />
                   검사 중...
                 </LoadingContainer>
+              ) : isComplete && errors.length === 0 ? (
+                <div style={{ 
+                  textAlign: 'center', 
+                  color: '#10b981', 
+                  fontWeight: '500',
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '100%'
+                }}>
+                  ✓ 맞춤법 검사 완료 - 오류가 발견되지 않았습니다
+                </div>
               ) : null}
             </EmptyState>
           )}
           
-          {isComplete && (
+          {isComplete && errors.length > 0 && (
             <CompleteButton
               as={motion.button}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -279,7 +298,9 @@ const Container = styled.div`
 
 const TopBar = styled.div`
   display: flex;
-  background: ${COLORS.background};
+  background: white;
+  border: 1px solid ${COLORS.border};
+  border-bottom: none;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
   margin-bottom: 0;
@@ -336,7 +357,7 @@ const InputSection = styled.div`
 
 const TextArea = styled.textarea`
   flex: 1;
-  min-height: 400px;
+  min-height: 450px;
   padding: 1.5rem;
   border: 1px solid ${COLORS.border};
   border-radius: 8px;
@@ -364,7 +385,7 @@ const TextArea = styled.textarea`
   }
   
   @media (max-width: 768px) {
-    min-height: 300px;
+    min-height: 350px;
   }
 `;
 
@@ -479,11 +500,7 @@ const ResultHeader = styled.div`
   box-shadow: 0 2px 4px rgba(74, 222, 128, 0.1);
 `;
 
-const ResultTitle = styled.h3`
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
-`;
+// ResultTitle 스타일 컴포넌트 제거 - 사용되지 않음
 
 const ApplyAllButton = styled.button`
   padding: 0.5rem 1rem;
@@ -508,6 +525,7 @@ const ResultContent = styled.div`
   background: white;
   position: relative;
   color: ${COLORS.background};
+  min-height: 200px;
 `;
 
 const ErrorList = styled.div`
@@ -616,6 +634,7 @@ const Legend = styled.div`
   background: ${COLORS.background};
   font-size: 0.8rem;
   color: ${COLORS.textSecondary};
+  margin-bottom: 2rem;
 `;
 
 const LegendDot = styled.div`

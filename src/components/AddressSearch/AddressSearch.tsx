@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { kakaoAddressService, AddressData } from '../../services/kakaoAddressService';
 import {
@@ -93,16 +93,7 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
     setShowResults(false);
   };
 
-  const handleClear = () => {
-    setSelectedAddress(null);
-    if (isControlled) {
-      controlledOnChange('');
-    } else {
-      setSearchTerm('');
-    }
-    setResults([]);
-    setShowResults(false);
-  };
+  // handleClear 함수 제거 - 사용되지 않음
 
   const handleManualSearch = () => {
     const term = isControlled ? controlledValue : searchTerm;

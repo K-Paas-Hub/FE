@@ -32,6 +32,7 @@ import PasswordResetPage from './components/PasswordResetPage';
 import TermsPage from './components/TermsPage';
 import PrivacyPage from './components/PrivacyPage';
 import InterviewPage from './components/InterviewPage';
+import { GoogleOAuthForm, OAuthSuccess } from './components/OAuth';
 
 const LandingPage = () => (
   <div className="app-container">
@@ -69,7 +70,9 @@ function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/interview" element={<InterviewPage />} />
-                    <Route path="/my-page" element={<MyPage />} />
+          <Route path="/my-page" element={<MyPage />} />
+          <Route path="/oauth/additional-info" element={<GoogleOAuthForm />} />
+          <Route path="/oauth/success" element={<OAuthSuccess />} />
         </Routes>
       </Router>
     </LanguageProvider>

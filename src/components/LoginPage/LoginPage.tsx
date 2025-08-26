@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import LoginForm from './LoginForm';
 import Footer from '../MainFooter';
 import '../../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
   const [isFormLoading, setIsFormLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const handleGoogleLogin = async () => {
     setIsGoogleLoading(true);
     try {
-      // Google 로그인 버튼 클릭 시 처리 (실제 OAuth는 동작하지 않음)
-      console.log('Google login button clicked (OAuth disabled)');
-      alert('Google 로그인 기능은 현재 비활성화되어 있습니다.');
+      // 더미 OAuth 처리 - 백엔드 연동 시 실제 로직으로 교체
+      console.log('Google OAuth 처리 시작');
+      navigate('/oauth/additional-info');
     } catch (error) {
       console.error('Google login error:', error);
+      alert('구글 로그인 중 오류가 발생했습니다.');
     } finally {
       setIsGoogleLoading(false);
     }
