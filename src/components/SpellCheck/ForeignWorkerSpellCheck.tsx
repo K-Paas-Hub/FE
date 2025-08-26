@@ -86,6 +86,21 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     }
   };
 
+  // 자기소개서 불러오기
+  const handleLoadResume = () => {
+    try {
+      const resumeData = storage.get('resume_draft');
+      
+      if (resumeData && resumeData.introduction && resumeData.introduction.trim()) {
+        setText(resumeData.introduction);
+        setCorrectedText(resumeData.introduction);
+        setHasResumeData(true);
+      }
+    } catch (error) {
+      console.error('자기소개서 불러오기 실패:', error);
+    }
+  };
+
   // 다시 불러오기 (저장된 이력서 데이터로)
   const handleReload = () => {
     loadResumeData();
@@ -138,11 +153,12 @@ const ForeignWorkerSpellCheck: React.FC = () => {
               as={motion.button}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={handleReload}
+              onClick={handleLoadResume}
             >
-              <Icon>↻</Icon>
-              다시쓰기
+              <Icon>📁</Icon>
+              불러오기
             </SecondaryButton>
+
             <SecondaryButton
               as={motion.button}
               whileHover={{ scale: 1.02 }}
@@ -153,6 +169,25 @@ const ForeignWorkerSpellCheck: React.FC = () => {
               <Icon>📄</Icon>
               전체 복사
             </SecondaryButton>
+            <PrimaryButton
+              as={motion.button}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleCheck}
+              disabled={isChecking || !text.trim()}
+            >
+              {isChecking ? (
+                <>
+                  <LoadingSpinner />
+                  검사 중...
+                </>
+              ) : (
+                <>
+                  <Icon>🔍</Icon>
+                  맞춤법 검사
+                </>
+              )}
+            </PrimaryButton>
           </ButtonContainer>
         </InputSection>
 
@@ -336,7 +371,8 @@ const TextArea = styled.textarea`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -373,6 +409,23 @@ const buttonBase = `
 
 
 
+
+const PrimaryButton = styled.button`
+  ${buttonBase}
+  background: ${COLORS.primary};
+  color: white;
+  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.2);
+  
+  &:hover:not(:disabled) {
+    background: ${COLORS.primaryHover};
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 222, 128, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+`;
 
 const SecondaryButton = styled.button`
   ${buttonBase}
