@@ -185,6 +185,40 @@
       "backToLogin": "Back to Login"
     }
   },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "purpose": "1. Purpose of Personal Information Processing",
+      "retention": "2. Processing and Retention Period of Personal Information",
+      "thirdParty": "3. Third Party Provision of Personal Information",
+      "outsourcing": "4. Outsourcing of Personal Information Processing",
+      "rights": "5. Rights, Obligations, and Exercise Methods of Information Subjects",
+      "items": "6. Personal Information Items Being Processed",
+      "destruction": "7. Destruction of Personal Information",
+      "security": "8. Security Measures for Personal Information",
+      "officer": "9. Personal Information Protection Officer",
+      "changes": "10. Changes to Privacy Policy",
+      "inquiry": "11. Department for Receiving and Processing Personal Information Access Requests",
+      "effectiveDate": "Effective Date"
+    },
+    "content": {
+      "purpose": "FairWork (hereinafter referred to as the \"Company\") processes personal information for the following purposes and does not use it for purposes other than the following:\n\n• Member registration and management\n• Service provision and operation\n• Customer consultation and inquiry response\n• Marketing and advertising utilization\n• Service improvement and new service development",
+      "retention": "The Company processes and retains personal information within the personal information retention and use period under laws and regulations or the personal information retention and use period agreed upon when collecting personal information from information subjects.\n\n• Member registration and management: Until member withdrawal\n• Service provision: Until service use termination\n• Customer consultation: 3 years after consultation completion\n• Marketing: Until consent withdrawal",
+      "thirdParty": "The Company processes the information subject's personal information only within the scope specified in Article 1 (Purpose of Personal Information Processing) and provides personal information to third parties only in cases corresponding to Articles 17 and 18 of the Personal Information Protection Act, such as the information subject's consent and special provisions of laws.\n\nThe Company may provide personal information to third parties in the following cases:\n• When separate consent is received from the information subject\n• When requested by government agencies based on laws and regulations\n• When necessary for statistical compilation and academic research purposes",
+      "outsourcing": "The Company outsources personal information processing tasks as follows for smooth personal information work processing.\n\n• Outsourced party (consignee): Cloud service provider\n• Content of outsourced work: Data storage and management\n• Outsourcing period: Service provision period",
+      "rights": "Users can exercise the following rights as personal information subjects:\n\n• Personal information access request\n• Correction request in case of errors\n• Deletion request\n• Processing suspension request\n\nRights exercise under paragraph 1 can be made to the Company through written documents, phone, email, facsimile transmission (FAX), etc., and the Company will take action without delay.",
+      "items": "The Company processes the following personal information items:\n\n• Required items: Email address, password, name\n• Optional items: Phone number, address, date of birth\n• Automatically collected items: IP address, cookies, service usage records, access logs",
+      "destruction": "The Company destroys the relevant personal information without delay when personal information becomes unnecessary due to the expiration of the personal information retention period or achievement of the processing purpose.\n\n• Information in electronic file format is processed using technical methods that cannot reproduce records.\n• Personal information printed on paper is destroyed by shredding or incineration.",
+      "security": "The Company takes the following security measures in accordance with Article 29 of the Personal Information Protection Act:\n\n• Encryption of personal information\n• Technical measures against hacking\n• Access restrictions to personal information\n• Minimization and education of personal information handling staff",
+      "officer": "The Company is responsible for overseeing personal information processing tasks and designates a personal information protection officer as follows for handling information subjects' complaints and damage relief related to personal information processing:\n\n▶ Personal Information Protection Officer\n• Name: [Officer Name]\n• Position: [Position]\n• Contact: [Contact]\n• Email: [Email]",
+      "changes": "This Privacy Policy applies from the effective date, and if there are additions, deletions, or corrections to the content due to changes in laws and policies, notice will be given through announcements 7 days before the implementation of the changes.",
+      "inquiry": "Information subjects can make personal information access requests in accordance with Article 35 of the Personal Information Protection Act to the department below:\n\n▶ Department for Receiving and Processing Personal Information Access Requests\n• Department: [Department Name]\n• Person in charge: [Person in Charge]\n• Contact: [Contact]\n• Email: [Email]",
+      "effectiveDate": "This Privacy Policy applies from January 1, 2024."
+    },
+    "actions": {
+      "backToLogin": "Back to Login"
+    }
+  },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",

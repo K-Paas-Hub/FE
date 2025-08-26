@@ -1,156 +1,80 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import MainFooter from '../MainFooter';
 import '../../styles/PrivacyPage.css';
 
 const PrivacyPage: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="privacy-container">
       <div className="privacy-content">
-        <h1 className="privacy-title">개인정보 처리방침</h1>
+        <h1 className="privacy-title">{t('privacy.title')}</h1>
         
         <div className="privacy-section">
-          <h2>1. 개인정보의 처리 목적</h2>
-          <p>
-            FairWork(이하 "회사")는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 
-            다음의 목적 이외의 용도로는 이용하지 않습니다.<br/><br/>
-            
-            • 회원가입 및 관리<br/>
-            • 서비스 제공 및 운영<br/>
-            • 고객상담 및 문의응대<br/>
-            • 마케팅 및 광고에의 활용<br/>
-            • 서비스 개선 및 신규 서비스 개발
-          </p>
+          <h2>{t('privacy.sections.purpose')}</h2>
+          <p>{t('privacy.content.purpose')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>2. 개인정보의 처리 및 보유기간</h2>
-          <p>
-            회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.<br/><br/>
-            
-            • 회원가입 및 관리: 회원탈퇴 시까지<br/>
-            • 서비스 제공: 서비스 이용 종료 시까지<br/>
-            • 고객상담: 상담 완료 후 3년<br/>
-            • 마케팅: 동의 철회 시까지
-          </p>
+          <h2>{t('privacy.sections.retention')}</h2>
+          <p>{t('privacy.content.retention')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>3. 개인정보의 제3자 제공</h2>
-          <p>
-            회사는 정보주체의 개인정보를 제1조(개인정보의 처리 목적)에서 명시한 범위 내에서만 처리하며, 
-            정보주체의 동의, 법률의 특별한 규정 등 개인정보 보호법 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.<br/><br/>
-            
-            회사는 다음과 같은 경우에 개인정보를 제3자에게 제공할 수 있습니다:<br/>
-            • 정보주체로부터 별도의 동의를 받은 경우<br/>
-            • 법령에 근거하여 정부기관으로부터 요구받은 경우<br/>
-            • 통계작성 및 학술연구 등의 목적을 위하여 필요한 경우
-          </p>
+          <h2>{t('privacy.sections.thirdParty')}</h2>
+          <p>{t('privacy.content.thirdParty')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>4. 개인정보처리의 위탁</h2>
-          <p>
-            회사는 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.<br/><br/>
-            
-            • 위탁받는 자 (수탁자): 클라우드 서비스 제공업체<br/>
-            • 위탁하는 업무의 내용: 데이터 저장 및 관리<br/>
-            • 위탁기간: 서비스 제공 기간
-          </p>
+          <h2>{t('privacy.sections.outsourcing')}</h2>
+          <p>{t('privacy.content.outsourcing')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>5. 정보주체의 권리·의무 및 그 행사방법</h2>
-          <p>
-            이용자는 개인정보주체로서 다음과 같은 권리를 행사할 수 있습니다.<br/><br/>
-            
-            • 개인정보 열람요구<br/>
-            • 오류 등이 있을 경우 정정 요구<br/>
-            • 삭제요구<br/>
-            • 처리정지 요구<br/><br/>
-            
-            제1항에 따른 권리 행사는 회사에 대해 서면, 전화, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 
-            회사는 이에 대해 지체 없이 조치하겠습니다.
-          </p>
+          <h2>{t('privacy.sections.rights')}</h2>
+          <p>{t('privacy.content.rights')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>6. 처리하는 개인정보의 항목</h2>
-          <p>
-            회사는 다음의 개인정보 항목을 처리하고 있습니다.<br/><br/>
-            
-            • 필수항목: 이메일 주소, 비밀번호, 이름<br/>
-            • 선택항목: 전화번호, 주소, 생년월일<br/>
-            • 자동수집항목: IP주소, 쿠키, 서비스 이용기록, 접속로그
-          </p>
+          <h2>{t('privacy.sections.items')}</h2>
+          <p>{t('privacy.content.items')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>7. 개인정보의 파기</h2>
-          <p>
-            회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 
-            지체없이 해당 개인정보를 파기합니다.<br/><br/>
-            
-            • 전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용합니다.<br/>
-            • 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.
-          </p>
+          <h2>{t('privacy.sections.destruction')}</h2>
+          <p>{t('privacy.content.destruction')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>8. 개인정보의 안전성 확보 조치</h2>
-          <p>
-            회사는 개인정보보호법 제29조에 따라 다음과 같은 안전성 확보 조치를 취하고 있습니다.<br/><br/>
-            
-            • 개인정보의 암호화<br/>
-            • 해킹 등에 대비한 기술적 대책<br/>
-            • 개인정보에 대한 접근 제한<br/>
-            • 개인정보 취급 직원의 최소화 및 교육
-          </p>
+          <h2>{t('privacy.sections.security')}</h2>
+          <p>{t('privacy.content.security')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>9. 개인정보 보호책임자</h2>
-          <p>
-            회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 
-            개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.<br/><br/>
-            
-            ▶ 개인정보 보호책임자<br/>
-            • 성명: [책임자명]<br/>
-            • 직책: [직책]<br/>
-            • 연락처: [연락처]<br/>
-            • 이메일: [이메일]
-          </p>
+          <h2>{t('privacy.sections.officer')}</h2>
+          <p>{t('privacy.content.officer')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>10. 개인정보 처리방침 변경</h2>
-          <p>
-            이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 
-            변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
-          </p>
+          <h2>{t('privacy.sections.changes')}</h2>
+          <p>{t('privacy.content.changes')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>11. 개인정보의 열람청구를 접수·처리하는 부서</h2>
-          <p>
-            정보주체는 개인정보 보호법 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다.<br/><br/>
-            
-            ▶ 개인정보 열람청구 접수·처리 부서<br/>
-            • 부서명: [부서명]<br/>
-            • 담당자: [담당자명]<br/>
-            • 연락처: [연락처]<br/>
-            • 이메일: [이메일]
-          </p>
+          <h2>{t('privacy.sections.inquiry')}</h2>
+          <p>{t('privacy.content.inquiry')}</p>
         </div>
 
         <div className="privacy-section">
-          <h2>시행일자</h2>
-          <p>이 개인정보처리방침은 2024년 1월 1일부터 적용됩니다.</p>
+          <h2>{t('privacy.sections.effectiveDate')}</h2>
+          <p>{t('privacy.content.effectiveDate')}</p>
         </div>
         
         <div className="login-button-section">
           <Link to="/login" className="login-button">
-            로그인으로 돌아가기
+            {t('privacy.actions.backToLogin')}
           </Link>
         </div>
       </div>

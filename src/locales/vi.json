@@ -268,5 +268,39 @@
   },
   "footer": {
     "copyright": "© FairWork 2024. Tất cả quyền được bảo lưu."
+  },
+  "privacy": {
+    "title": "Chính sách Bảo mật Thông tin Cá nhân",
+    "sections": {
+      "purpose": "1. Mục đích xử lý thông tin cá nhân",
+      "retention": "2. Thời gian xử lý và lưu trữ thông tin cá nhân",
+      "thirdParty": "3. Cung cấp thông tin cá nhân cho bên thứ ba",
+      "outsourcing": "4. Ủy thác xử lý thông tin cá nhân",
+      "rights": "5. Quyền, nghĩa vụ và phương thức thực hiện của chủ thể thông tin",
+      "items": "6. Các mục thông tin cá nhân đang được xử lý",
+      "destruction": "7. Hủy thông tin cá nhân",
+      "security": "8. Biện pháp bảo mật thông tin cá nhân",
+      "officer": "9. Cán bộ bảo vệ thông tin cá nhân",
+      "changes": "10. Thay đổi chính sách bảo mật",
+      "inquiry": "11. Bộ phận tiếp nhận và xử lý yêu cầu truy cập thông tin cá nhân",
+      "effectiveDate": "Ngày hiệu lực"
+    },
+    "content": {
+      "purpose": "FairWork (sau đây gọi là \"Công ty\") xử lý thông tin cá nhân cho các mục đích sau và không sử dụng cho mục đích khác:\n\n• Đăng ký và quản lý thành viên\n• Cung cấp và vận hành dịch vụ\n• Tư vấn khách hàng và phản hồi thắc mắc\n• Tiếp thị và quảng cáo\n• Cải thiện dịch vụ và phát triển dịch vụ mới",
+      "retention": "Công ty xử lý và lưu trữ thông tin cá nhân trong thời gian lưu trữ và sử dụng thông tin cá nhân theo luật pháp hoặc thời gian lưu trữ và sử dụng thông tin cá nhân được đồng ý khi thu thập thông tin cá nhân từ chủ thể thông tin.\n\n• Đăng ký và quản lý thành viên: Cho đến khi rút khỏi thành viên\n• Cung cấp dịch vụ: Cho đến khi kết thúc sử dụng dịch vụ\n• Tư vấn khách hàng: 3 năm sau khi hoàn thành tư vấn\n• Tiếp thị: Cho đến khi rút lại sự đồng ý",
+      "thirdParty": "Công ty chỉ xử lý thông tin cá nhân của chủ thể thông tin trong phạm vi được quy định tại Điều 1 (Mục đích xử lý thông tin cá nhân) và chỉ cung cấp thông tin cá nhân cho bên thứ ba trong các trường hợp tương ứng với Điều 17 và 18 của Luật Bảo vệ Thông tin Cá nhân, như sự đồng ý của chủ thể thông tin và các quy định đặc biệt của luật pháp.\n\nCông ty có thể cung cấp thông tin cá nhân cho bên thứ ba trong các trường hợp sau:\n• Khi nhận được sự đồng ý riêng biệt từ chủ thể thông tin\n• Khi được yêu cầu bởi cơ quan chính phủ dựa trên luật pháp\n• Khi cần thiết cho mục đích biên soạn thống kê và nghiên cứu học thuật",
+      "outsourcing": "Công ty ủy thác các nhiệm vụ xử lý thông tin cá nhân như sau để xử lý công việc thông tin cá nhân một cách trơn tru.\n\n• Bên được ủy thác (người nhận ủy thác): Nhà cung cấp dịch vụ đám mây\n• Nội dung công việc được ủy thác: Lưu trữ và quản lý dữ liệu\n• Thời gian ủy thác: Thời gian cung cấp dịch vụ",
+      "rights": "Người dùng có thể thực hiện các quyền sau với tư cách là chủ thể thông tin cá nhân:\n\n• Yêu cầu truy cập thông tin cá nhân\n• Yêu cầu sửa chữa trong trường hợp có lỗi\n• Yêu cầu xóa\n• Yêu cầu tạm dừng xử lý\n\nViệc thực hiện quyền theo khoản 1 có thể được thực hiện đối với Công ty thông qua văn bản, điện thoại, email, fax, v.v., và Công ty sẽ thực hiện hành động mà không chậm trễ.",
+      "items": "Công ty xử lý các mục thông tin cá nhân sau:\n\n• Các mục bắt buộc: Địa chỉ email, mật khẩu, tên\n• Các mục tùy chọn: Số điện thoại, địa chỉ, ngày sinh\n• Các mục được thu thập tự động: Địa chỉ IP, cookie, bản ghi sử dụng dịch vụ, nhật ký truy cập",
+      "destruction": "Công ty hủy thông tin cá nhân liên quan mà không chậm trễ khi thông tin cá nhân trở nên không cần thiết do hết hạn thời gian lưu trữ thông tin cá nhân hoặc đạt được mục đích xử lý.\n\n• Thông tin ở định dạng tệp điện tử được xử lý bằng các phương pháp kỹ thuật không thể tái tạo bản ghi.\n• Thông tin cá nhân được in trên giấy được hủy bằng cách xé nhỏ hoặc đốt.",
+      "security": "Công ty thực hiện các biện pháp bảo mật sau theo Điều 29 của Luật Bảo vệ Thông tin Cá nhân:\n\n• Mã hóa thông tin cá nhân\n• Biện pháp kỹ thuật chống hack\n• Hạn chế truy cập vào thông tin cá nhân\n• Tối thiểu hóa và đào tạo nhân viên xử lý thông tin cá nhân",
+      "officer": "Công ty chịu trách nhiệm giám sát các nhiệm vụ xử lý thông tin cá nhân và chỉ định cán bộ bảo vệ thông tin cá nhân như sau để xử lý khiếu nại và cứu trợ thiệt hại của chủ thể thông tin liên quan đến xử lý thông tin cá nhân:\n\n▶ Cán bộ Bảo vệ Thông tin Cá nhân\n• Tên: [Tên Cán bộ]\n• Chức vụ: [Chức vụ]\n• Liên hệ: [Liên hệ]\n• Email: [Email]",
+      "changes": "Chính sách Bảo mật này có hiệu lực từ ngày hiệu lực, và nếu có thêm, xóa hoặc sửa đổi nội dung do thay đổi trong luật pháp và chính sách, thông báo sẽ được đưa ra thông qua thông báo 7 ngày trước khi thực hiện các thay đổi.",
+      "inquiry": "Chủ thể thông tin có thể thực hiện yêu cầu truy cập thông tin cá nhân theo Điều 35 của Luật Bảo vệ Thông tin Cá nhân tại bộ phận dưới đây:\n\n▶ Bộ phận Tiếp nhận và Xử lý Yêu cầu Truy cập Thông tin Cá nhân\n• Bộ phận: [Tên Bộ phận]\n• Người phụ trách: [Người Phụ trách]\n• Liên hệ: [Liên hệ]\n• Email: [Email]",
+      "effectiveDate": "Chính sách Bảo mật này có hiệu lực từ ngày 1 tháng 1 năm 2024."
+    },
+    "actions": {
+      "backToLogin": "Quay lại Đăng nhập"
+    }
   }
 }
