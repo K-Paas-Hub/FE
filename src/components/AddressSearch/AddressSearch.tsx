@@ -145,8 +145,6 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
       <AddressSearchButton
         onClick={handleManualSearch}
         disabled={disabled || loading}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
         type="button"
       >
         {loading ? (
