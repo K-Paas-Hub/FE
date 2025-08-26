@@ -5,13 +5,17 @@ export interface SpellCheckError {
   id: string;
   word: string;
   position: { start: number; end: number };
-  errorType: 'spelling' | 'grammar' | 'punctuation' | 'spacing';
+  // ✅ 기존 errorType 확장
+  errorType: 'spelling' | 'grammar' | 'punctuation' | 'spacing' | 'resume_specific';
   suggestion: string;
   description: string;
   section?: keyof ResumeFormData;
   severity: 'low' | 'medium' | 'high';
   confidence: number; // 신뢰도 (0-1)
   context?: string; // 오류 주변 문맥
+  // ✅ 새로운 필드 추가 (기존과 호환)
+  resumeCategory?: 'honorific' | 'tabooWords' | 'sentenceLength' | 'paragraphStructure';
+  improvement?: string; // 구체적인 개선 제안
 }
 
 // 맞춤법 검사 결과
@@ -43,6 +47,14 @@ export interface SpellCheckOptions {
   checkGrammar: boolean;
   checkPunctuation: boolean;
   checkSpacing: boolean;
+  // ✅ 새로운 옵션 추가
+  checkResumeSpecific?: boolean;
+  resumeOptions?: {
+    checkHonorific: boolean;
+    checkTabooWords: boolean;
+    checkSentenceLength: boolean;
+    checkParagraphStructure: boolean;
+  };
   language: 'ko' | 'en' | 'vi' | 'km' | 'ne' | 'id' | 'zh' | 'th' | 'auto';
   severity: 'low' | 'medium' | 'high';
   includeSuggestions: boolean;
@@ -64,6 +76,25 @@ export interface ResumeCheckResult {
     totalErrors: number;
     overallAccuracy: number;
     processingTime: number;
+  };
+}
+
+// ✅ 새로운 타입 추가 (기존과 독립적)
+export interface ResumeSpellCheckResult {
+  generalErrors: SpellCheckError[];
+  resumeSpecificErrors: SpellCheckError[];
+  categoryScores: {
+    honorific: number;
+    tabooWords: number;
+    sentenceLength: number;
+    paragraphStructure: number;
+  };
+  overallResumeScore: number;
+  suggestions: {
+    honorific: string[];
+    tabooWords: string[];
+    sentenceLength: string[];
+    paragraphStructure: string[];
   };
 }
 

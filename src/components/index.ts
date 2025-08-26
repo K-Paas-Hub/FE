@@ -20,7 +20,7 @@ export { default as ContractTutorial } from './ContractTutorial';
 export { default as ContractQuiz } from './ContractQuiz';
 export { default as ResumePage } from './ResumePage';
 export { default as ContractAnalysis } from './ContractAnalysis';
-export { default as SpellCheckPage } from './SpellCheck';
+
 export { default as LoginPage } from './LoginPage';
 export { default as InterviewPage } from './InterviewPage';
 export { default as MyPage } from './MyPage';

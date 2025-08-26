@@ -137,6 +137,37 @@
       "wordCount": "단어",
       "noErrors": "오류 없음",
       "errorCount": "개 오류"
+    },
+    "foreignWorker": {
+      "optionsTitle": "외국인 근로자 맞춤법 검사",
+      "checkButton": "외국인 맞춤법 검사하기",
+      "checkingButton": "검사 중...",
+      "resultsTitle": "외국인 맞춤법 검사 결과",
+      "improvementSuggestions": "개선 제안",
+      "options": {
+        "checkPronunciation": "발음 오류 검사",
+        "checkFinalConsonant": "받침 오류 검사",
+        "checkParticle": "조사 오류 검사",
+        "checkSpacing": "띄어쓰기 검사",
+        "checkCommonWord": "자주 틀리는 단어 검사",
+        "checkEnding": "문장 끝 표현 검사"
+      },
+      "descriptions": {
+        "checkPronunciation": "발음이 비슷해서 틀리는 경우 검사",
+        "checkFinalConsonant": "받침 사용 오류 검사",
+        "checkParticle": "조사 사용 오류 검사",
+        "checkSpacing": "띄어쓰기 오류 검사",
+        "checkCommonWord": "자주 틀리는 단어 검사",
+        "checkEnding": "문장 끝 표현 오류 검사"
+      },
+      "categories": {
+        "pronunciation": "발음 오류",
+        "finalConsonant": "받침 오류",
+        "particle": "조사 오류",
+        "spacing": "띄어쓰기",
+        "commonWord": "자주 틀리는 단어",
+        "ending": "문장 끝 표현"
+      }
     }
   },
   "stats": {

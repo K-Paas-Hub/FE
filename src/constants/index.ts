@@ -3,11 +3,13 @@ export const COLORS = {
   primary: '#4ade80',
   primaryHover: '#22c55e',
   secondary: '#7c3aed',
+  secondaryHover: '#6d28d9',
   background: '#1a1a1a',
   backgroundGradient: '#1b2d1a',
   text: '#ffffff',
   textSecondary: '#cccccc',
   border: 'rgba(255, 255, 255, 0.1)',
+  error: '#ef4444',
 } as const;
 
 // 애니메이션 상수

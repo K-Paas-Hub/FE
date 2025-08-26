@@ -22,13 +22,14 @@ import styled from 'styled-components';
 // 드롭다운 스타일
 const FormSelect = styled.select`
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
+  padding: 1rem;
+  border: 2px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
   background-color: white;
   color: #374151;
   min-height: 44px;
+  transition: all 0.3s ease;
   
   &:focus {
     outline: none;

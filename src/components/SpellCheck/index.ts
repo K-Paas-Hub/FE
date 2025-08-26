@@ -1,1 +1,1 @@
-export { default } from './SpellCheckPage';
+export { default } from './ForeignWorkerSpellCheckPage';
