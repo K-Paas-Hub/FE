@@ -20,9 +20,10 @@ const HeaderContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 1rem 2rem;
+  gap: 2rem;
   
   @media (max-width: 768px) {
     padding: 1rem;
@@ -35,6 +36,7 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  flex-shrink: 0;
   
   @media (max-width: 768px) {
     order: 1;
@@ -51,22 +53,22 @@ const LogoImage = styled.img`
 `;
 
 const NavWrapper = styled.div`
-  flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0 2rem;
+  flex: 1;
   
   @media (max-width: 768px) {
     padding: 0;
     flex: none;
     order: 2;
+    justify-content: center;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
   
   @media (max-width: 768px) {
@@ -208,6 +210,7 @@ const RightSection = styled.div`
   align-items: center;
   gap: 1rem;
   margin-left: auto;
+  flex-shrink: 0;
   
   @media (max-width: 768px) {
     order: 3;
