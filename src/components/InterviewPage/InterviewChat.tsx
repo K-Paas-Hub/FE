@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import InterviewMessage from './InterviewMessage';
 import InterviewInput from './InterviewInput';
@@ -48,11 +48,11 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  const scrollToBottom = () => {
+  const scrollToBottom = useCallback(() => {
     if (shouldAutoScroll && !isInitialLoad) {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, [shouldAutoScroll, isInitialLoad]);
 
   // 사용자가 스크롤을 올렸을 때 자동 스크롤 비활성화
   const handleScroll = () => {
@@ -82,7 +82,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
     if (isInterviewStarted) {
       scrollToBottom();
     }
-  }, [messages, shouldAutoScroll, isInitialLoad, isInterviewStarted]);
+  }, [messages, shouldAutoScroll, isInitialLoad, isInterviewStarted, scrollToBottom]);
 
   useEffect(() => {
     if (isInterviewStarted && currentQuestionIndex === 0) {
@@ -107,7 +107,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
       
       startInterview();
     }
-  }, [isInterviewStarted, currentQuestionIndex, settings.difficulty, settings.questionCount, settings.estimatedTime]);
+  }, [isInterviewStarted, currentQuestionIndex, settings.difficulty, settings.questionCount, settings.estimatedTime, t]);
 
 
 

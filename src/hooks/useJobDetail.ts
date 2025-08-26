@@ -69,7 +69,7 @@ export const useJobDetail = (jobIdFromComponent?: string) => {
     if (targetId) {
       fetchJobDetail();
     }
-  }, [fetchJobDetail]);
+  }, [fetchJobDetail, targetId]);
 
   useEffect(() => {
     if (job?.deadline) {

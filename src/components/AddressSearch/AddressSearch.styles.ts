@@ -34,7 +34,7 @@ export const AddressSearchInput = styled.input`
   }
 `;
 
-export const AddressSearchButton = styled(motion.button)`
+export const AddressSearchButton = styled.button`
   position: absolute;
   right: 0.5rem;
   top: 50%;
@@ -50,6 +50,7 @@ export const AddressSearchButton = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.2s ease;
   
   &:hover {
     background: ${theme.colors.primaryHover};
