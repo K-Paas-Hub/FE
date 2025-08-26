@@ -27,18 +27,18 @@ export const SearchBar = styled.div`
   background: white;
   border: 2px solid ${theme.colors.borderLight};
   border-radius: ${theme.radius.lg};
-  padding: ${theme.spacing.lg};
+  padding: ${theme.spacing.md};
   margin-bottom: ${theme.spacing.lg};
   display: flex;
   align-items: center;
-  gap: ${theme.spacing.lg};
+  gap: ${theme.spacing.md};
   
   &:focus-within {
     border-color: ${theme.colors.primary};
   }
   
   ${theme.media.tablet} {
-    padding: ${theme.spacing.lg};
+    padding: ${theme.spacing.sm};
   }
 `;
 
