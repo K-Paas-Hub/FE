@@ -16,14 +16,6 @@ export const MyPageContainer = styled.div`
 export const MyPageContent = styled.div`
   max-width: ${theme.containers.wide};
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 2rem;
-  
-  ${theme.media.tablet} {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
 `;
 
 export const Sidebar = styled(motion.div)`

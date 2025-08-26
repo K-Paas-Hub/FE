@@ -5,9 +5,7 @@ import { useMyPage } from '../../hooks/useMyPage';
 import {
   MyPageContainer,
   MyPageContent,
-  Sidebar,
   MainContent,
-  SectionTitle,
   LoadingSpinner,
   ErrorMessage,
 } from '../../styles/components/MyPage.styles';
@@ -48,19 +46,10 @@ const MyPage: React.FC = () => {
       <MainHeader />
       <MyPageContainer>
         <MyPageContent>
-          <Sidebar
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle>{t('myPage.title', '마이페이지')}</SectionTitle>
-            {/* 사이드바 네비게이션 - 향후 확장 예정 */}
-          </Sidebar>
-          
           <MainContent
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
             <ProfileSection profile={profile} />
             <SettingsSection settings={settings} />

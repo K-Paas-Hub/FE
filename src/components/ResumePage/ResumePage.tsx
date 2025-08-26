@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
+import AddressSearch from '../AddressSearch';
+import { AddressData } from '../../services/kakaoAddressService';
 import {
   ResumeContainer,
   ResumeContent,
@@ -41,7 +43,7 @@ const FormSelect = styled.select`
   }
   
   @media (max-width: 768px) {
-    font-size: 16px; // iOS에서 줌 방지
+    font-size: 16px; /* iOS에서 줌 방지 */
   }
 `;
 
@@ -992,9 +994,7 @@ const ResumePage: React.FC = () => {
   const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string}>>([]);
   
   // 주소 정보 상태
-  const [addressSearch, setAddressSearch] = useState('');
-  const [showAddressDropdown, setShowAddressDropdown] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState<{id: string, name: string, category: string, type: string} | null>(null);
+  const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
 
   // 저장된 자격증 데이터를 selectedCertifications로 변환
   React.useEffect(() => {
@@ -1063,11 +1063,23 @@ const ResumePage: React.FC = () => {
   // 저장된 주소 데이터를 selectedAddress로 변환
   React.useEffect(() => {
     if (formData.address) {
+      // 기존 주소 데이터가 있으면 AddressData 형태로 변환
       const foundAddress = addressData.find(addr => addr.name === formData.address.trim());
       if (foundAddress) {
-        setSelectedAddress(foundAddress);
-      } else {
-        setSelectedAddress({ id: 'custom', name: formData.address.trim(), category: '기타', type: '기타' });
+        const addressData: AddressData = {
+          id: foundAddress.id,
+          address_name: foundAddress.name,
+          address_type: 'ROAD_ADDR',
+          x: '127.0286',
+          y: '37.4979',
+          address: {
+            address_name: foundAddress.name,
+            region_1depth_name: foundAddress.category,
+            region_2depth_name: foundAddress.type,
+            region_3depth_name: ''
+          }
+        };
+        setSelectedAddress(addressData);
       }
     }
   }, [formData.address]);
@@ -1330,52 +1342,7 @@ const ResumePage: React.FC = () => {
     }, 200);
   };
 
-  // 주소 검색 필터링
-  const filteredAddress = addressData.filter(address =>
-    address.name.toLowerCase().includes(addressSearch.toLowerCase()) ||
-    address.category.toLowerCase().includes(addressSearch.toLowerCase()) ||
-    address.type.toLowerCase().includes(addressSearch.toLowerCase())
-  );
 
-  // 주소 선택
-  const handleAddressSelect = (address: {id: string, name: string, category: string, type: string}) => {
-    setSelectedAddress(address);
-    
-    // formData에 주소 정보 저장
-    handleInputChange({
-      target: { name: 'address', value: address.name }
-    } as React.ChangeEvent<HTMLInputElement>);
-    
-    setAddressSearch('');
-    setShowAddressDropdown(false);
-  };
-
-  // 주소 제거
-  const handleAddressRemove = () => {
-    setSelectedAddress(null);
-    
-    // formData에서 주소 정보 제거
-    handleInputChange({
-      target: { name: 'address', value: '' }
-    } as React.ChangeEvent<HTMLInputElement>);
-  };
-
-  // 주소 검색 입력 처리
-  const handleAddressSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddressSearch(e.target.value);
-    setShowAddressDropdown(true);
-  };
-
-  // 주소 검색 포커스/블러 처리
-  const handleAddressSearchFocus = () => {
-    setShowAddressDropdown(true);
-  };
-
-  const handleAddressSearchBlur = () => {
-    setTimeout(() => {
-      setShowAddressDropdown(false);
-    }, 200);
-  };
 
   // 미리보기 모달
   const PreviewModal: React.FC = () => {
@@ -1417,7 +1384,7 @@ const ResumePage: React.FC = () => {
                 <strong>비자 유형:</strong> {formData.visaType || <EmptyText>입력되지 않음</EmptyText>}
               </PreviewText>
               <PreviewText>
-                <strong>주소:</strong> {selectedAddress ? selectedAddress.name : <EmptyText>입력되지 않음</EmptyText>}
+                <strong>주소:</strong> {selectedAddress ? selectedAddress.address_name : <EmptyText>입력되지 않음</EmptyText>}
               </PreviewText>
             </PreviewContent>
           </PreviewSection>
@@ -1603,43 +1570,27 @@ const ResumePage: React.FC = () => {
             </FormGroup>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>주소</FormLabel>
-              <CertificationSearchContainer>
-                <FormInput 
-                  type="text" 
-                  value={addressSearch}
-                  onChange={handleAddressSearchChange}
-                  onFocus={handleAddressSearchFocus}
-                  onBlur={handleAddressSearchBlur}
-                  placeholder="주소를 검색하세요 (예: 서울특별시 강남구, 경기도 수원시)" 
-                  aria-label="주소 검색"
-                  style={{ width: '100%', minWidth: '100%' }}
-                />
-                {showAddressDropdown && (
-                  <CertificationDropdown>
-                    {filteredAddress.length > 0 ? (
-                      filteredAddress.map((address) => (
-                        <CertificationOption
-                          key={address.id}
-                          onClick={() => handleAddressSelect(address)}
-                          onMouseDown={(e) => e.preventDefault()}
-                        >
-                          <CertificationName>{address.name}</CertificationName>
-                          <CertificationCategory>{address.category}</CertificationCategory>
-                        </CertificationOption>
-                      ))
-                    ) : (
-                      <NoResultsText>검색 결과가 없습니다.</NoResultsText>
-                    )}
-                  </CertificationDropdown>
-                )}
-              </CertificationSearchContainer>
+              <AddressSearch
+                onAddressSelect={(address: AddressData) => {
+                  setSelectedAddress(address);
+                  handleInputChange({
+                    target: { name: 'address', value: address.address_name }
+                  } as React.ChangeEvent<HTMLInputElement>);
+                }}
+                placeholder="주소를 검색하세요 (예: 서울특별시 강남구, 경기도 수원시)"
+              />
               {selectedAddress && (
                 <SelectedCertificationsContainer>
                   <SelectedAddressTag>
-                    {selectedAddress.name}
+                    {selectedAddress.address_name}
                     <RemoveButton
-                      onClick={handleAddressRemove}
-                      aria-label={`${selectedAddress.name} 제거`}
+                      onClick={() => {
+                        setSelectedAddress(null);
+                        handleInputChange({
+                          target: { name: 'address', value: '' }
+                        } as React.ChangeEvent<HTMLInputElement>);
+                      }}
+                      aria-label={`${selectedAddress.address_name} 제거`}
                     >
                       ×
                     </RemoveButton>
