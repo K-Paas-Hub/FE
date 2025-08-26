@@ -271,7 +271,7 @@ export const DropdownItem = styled(Link)`
 export const LanguageButton = styled.div`
   background: none;
   border: 1px solid ${theme.colors.borderLight};
-  height: 40px;
+  height: 48px;
   padding: 0 12px;
   border-radius: ${theme.radius.sm};
   color: ${theme.colors.textSecondary};
@@ -281,7 +281,7 @@ export const LanguageButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
   position: relative;
   white-space: nowrap;
   min-width: 140px;
@@ -295,7 +295,7 @@ export const LanguageButton = styled.div`
   
   ${theme.media.tablet} {
     font-size: ${theme.typography.fontSize.xs};
-    height: 36px;
+    height: 44px;
     padding: 0 10px;
     min-width: 120px;
     max-width: 160px;
@@ -303,11 +303,17 @@ export const LanguageButton = styled.div`
 `;
 
 export const FlagIcon = styled.img`
-  width: 20px;
-  height: 14px;
+  width: 32px;
+  height: 20px;
   border-radius: 2px;
   flex-shrink: 0;
-  object-fit: cover;
+  object-fit: contain;
+  
+  &.nepal-flag {
+    width: 36px;
+    height: 22px;
+    object-fit: contain;
+  }
 `;
 
 export const LanguageText = styled.span`
@@ -335,7 +341,7 @@ export const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
 
 export const LanguageOption = styled.button`
   width: 100%;
-  height: 40px;
+  height: 48px;
   padding: 0 12px;
   background: none;
   border: none;
@@ -346,7 +352,7 @@ export const LanguageOption = styled.button`
   transition: background ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -366,7 +372,7 @@ export const LanguageOption = styled.button`
   
   ${theme.media.tablet} {
     font-size: ${theme.typography.fontSize.xs};
-    height: 36px;
+    height: 44px;
     padding: 0 10px;
   }
 `;

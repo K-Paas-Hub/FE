@@ -101,7 +101,11 @@ const MainHeaderComponent: React.FC = () => {
           
           <MainHeaderRight>
             <LanguageButton onClick={handleLanguageClick} className="language-dropdown">
-              <FlagIcon src={getCurrentLanguage().flag} alt={getCurrentLanguageName()} />
+              <FlagIcon 
+                src={getCurrentLanguage().flag} 
+                alt={getCurrentLanguageName()} 
+                className={getCurrentLanguage().code === 'ne' ? 'nepal-flag' : ''}
+              />
               <LanguageText>{getCurrentLanguageName()}</LanguageText>
               <LanguageDropdown $isOpen={isLanguageOpen}>
                 {languages.map((language) => (
@@ -109,7 +113,11 @@ const MainHeaderComponent: React.FC = () => {
                     key={language.code}
                     onClick={() => handleLanguageSelect(language.code)}
                   >
-                    <FlagIcon src={language.flag} alt={language.name} />
+                    <FlagIcon 
+                      src={language.flag} 
+                      alt={language.name} 
+                      className={language.code === 'ne' ? 'nepal-flag' : ''}
+                    />
                     <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: '0 1 auto', minWidth: 0 }}>
                       {language.name}
                     </span>
