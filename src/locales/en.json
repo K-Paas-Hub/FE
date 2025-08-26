@@ -128,6 +128,28 @@
       "errorCount": "errors"
     }
   },
+  "stats": {
+    "title": "Building",
+    "highlight": "Success Stories Together",
+    "stats": {
+      "registeredCompanies": "Registered Companies",
+      "successfulHires": "Successful Hires",
+      "satisfaction": "Satisfaction",
+      "customerSupport": "Customer Support"
+    }
+  },
+  "partners": {
+    "title": "Growing",
+    "highlight": "Partnerships Together",
+    "partners": {
+      "soongsil": "Soongsil University",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
+  },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",

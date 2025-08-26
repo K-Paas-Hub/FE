@@ -243,5 +243,27 @@
       "closeConfirm": "Bạn có chắc chắn muốn đóng chat? Cuộc phỏng vấn hiện tại sẽ kết thúc.",
       "exportFileName": "Cuộc_trò_chuyện_phỏng_vấn_"
     }
+  },
+  "stats": {
+    "title": "Xây dựng",
+    "highlight": "Câu chuyện thành công cùng nhau",
+    "stats": {
+      "registeredCompanies": "Công ty đã đăng ký",
+      "successfulHires": "Tuyển dụng thành công",
+      "satisfaction": "Sự hài lòng",
+      "customerSupport": "Hỗ trợ khách hàng"
+    }
+  },
+  "partners": {
+    "title": "Phát triển",
+    "highlight": "Đối tác cùng nhau",
+    "partners": {
+      "soongsil": "Đại học Soongsil",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
   }
 }

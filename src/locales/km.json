@@ -243,5 +243,27 @@
       "noErrors": "គ្មានកំហុស",
       "errorCount": "កំហុស"
     }
+  },
+  "stats": {
+    "title": "ការកសាង",
+    "highlight": "រឿងរ៉ាវជោគជ័យជាមួយគ្នា",
+    "stats": {
+      "registeredCompanies": "ក្រុមហ៊ុនដែលបានចុះឈ្មោះ",
+      "successfulHires": "ការជ្រើសរើសជោគជ័យ",
+      "satisfaction": "ការពេញចិត្ត",
+      "customerSupport": "ការគាំទ្រអតិថិជន"
+    }
+  },
+  "partners": {
+    "title": "ការលូតលាស់",
+    "highlight": "ដៃគូរជាមួយគ្នា",
+    "partners": {
+      "soongsil": "សាកលវិទ្យាល័យ Soongsil",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
   }
 }

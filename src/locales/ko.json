@@ -128,6 +128,28 @@
       "errorCount": "개 오류"
     }
   },
+  "stats": {
+    "title": "함께 만들어가는",
+    "highlight": "성공 스토리",
+    "stats": {
+      "registeredCompanies": "등록된 기업",
+      "successfulHires": "채용 성공",
+      "satisfaction": "만족도",
+      "customerSupport": "고객 지원"
+    }
+  },
+  "partners": {
+    "title": "함께 성장하는",
+    "highlight": "파트너십",
+    "partners": {
+      "soongsil": "숭실대학교",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
+  },
   "header": {
     "jobPostings": "채용 공고",
     "myResume": "내 이력서",

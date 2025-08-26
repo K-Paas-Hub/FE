@@ -243,5 +243,27 @@
       "noErrors": "कुनै त्रुटि छैन",
       "errorCount": "त्रुटि"
     }
+  },
+  "stats": {
+    "title": "सँगै बनाउँदै",
+    "highlight": "सफलताका कथाहरू",
+    "stats": {
+      "registeredCompanies": "दर्ता गरिएका कम्पनीहरू",
+      "successfulHires": "सफल भर्तीहरू",
+      "satisfaction": "सन्तुष्टि",
+      "customerSupport": "ग्राहक सहयोग"
+    }
+  },
+  "partners": {
+    "title": "सँगै बढ्दै",
+    "highlight": "साझेदारीहरू",
+    "partners": {
+      "soongsil": "सुङ्सिल विश्वविद्यालय",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
   }
 }

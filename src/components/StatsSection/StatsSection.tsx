@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
 import { useCountUp } from '../../hooks';
 import {
@@ -16,14 +17,16 @@ interface Stat {
   suffix?: string;
 }
 
-const stats: Stat[] = [
-  { number: 10000, label: '등록된 기업', suffix: '+' },
-  { number: 50000, label: '채용 성공', suffix: '+' },
-  { number: 95, label: '만족도', suffix: '%' },
-  { number: 24, label: '고객 지원', suffix: '/7' }
-];
-
 const StatsSection: React.FC = () => {
+  const { t } = useTranslation();
+  
+  const stats: Stat[] = [
+    { number: 10000, label: t('stats.stats.registeredCompanies'), suffix: '+' },
+    { number: 50000, label: t('stats.stats.successfulHires'), suffix: '+' },
+    { number: 95, label: t('stats.stats.satisfaction'), suffix: '%' },
+    { number: 24, label: t('stats.stats.customerSupport'), suffix: '/7' }
+  ];
+
   const count1 = useCountUp(10000, 'project', 2500, 0);
   const count2 = useCountUp(50000, 'project', 2500, 500);
   const count3 = useCountUp(95, 'project', 2000, 1000);
@@ -39,8 +42,8 @@ const StatsSection: React.FC = () => {
         transition={{ duration: ANIMATIONS.duration.slow }}
         viewport={{ once: true }}
       >
-        함께 만들어가는<br />
-        <span className="highlight">성공 스토리</span>
+        {t('stats.title')}<br />
+        <span className="highlight">{t('stats.highlight')}</span>
       </SectionTitle>
       <StatsGrid>
         {stats.map((stat, index) => (

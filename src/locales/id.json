@@ -208,6 +208,28 @@
       }
     }
   },
+  "stats": {
+    "title": "Membangun",
+    "highlight": "Kisah Sukses Bersama",
+    "stats": {
+      "registeredCompanies": "Perusahaan Terdaftar",
+      "successfulHires": "Perekrutan Berhasil",
+      "satisfaction": "Kepuasan",
+      "customerSupport": "Dukungan Pelanggan"
+    }
+  },
+  "partners": {
+    "title": "Berkembang",
+    "highlight": "Kemitraan Bersama",
+    "partners": {
+      "soongsil": "Universitas Soongsil",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
+  },
   "spellCheck": {
     "title": "Pemeriksaan Ejaan",
     "noDataTitle": "Tidak Ada Data Resume",

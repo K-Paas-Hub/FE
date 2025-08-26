@@ -243,5 +243,27 @@
         "description": "系统的签证申请和续签支持，确保稳定居留"
       }
     }
+  },
+  "stats": {
+    "title": "共同创造",
+    "highlight": "成功故事",
+    "stats": {
+      "registeredCompanies": "注册企业",
+      "successfulHires": "成功招聘",
+      "satisfaction": "满意度",
+      "customerSupport": "客户支持"
+    }
+  },
+  "partners": {
+    "title": "共同成长",
+    "highlight": "合作伙伴关系",
+    "partners": {
+      "soongsil": "崇实大学",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
   }
 }

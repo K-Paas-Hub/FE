@@ -243,5 +243,27 @@
       "noErrors": "ไม่มีข้อผิดพลาด",
       "errorCount": "ข้อผิดพลาด"
     }
+  },
+  "stats": {
+    "title": "สร้างสรรค์",
+    "highlight": "เรื่องราวความสำเร็จด้วยกัน",
+    "stats": {
+      "registeredCompanies": "บริษัทที่ลงทะเบียน",
+      "successfulHires": "การจ้างงานที่สำเร็จ",
+      "satisfaction": "ความพึงพอใจ",
+      "customerSupport": "การสนับสนุนลูกค้า"
+    }
+  },
+  "partners": {
+    "title": "เติบโต",
+    "highlight": "พันธมิตรด้วยกัน",
+    "partners": {
+      "soongsil": "มหาวิทยาลัยซูงซิล",
+      "kaci": "KACI",
+      "opa": "OPA",
+      "ktCloud": "KT Cloud",
+      "nhnCloud": "NHN Cloud",
+      "naverCloud": "Naver Cloud"
+    }
   }
 }
