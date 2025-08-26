@@ -667,6 +667,72 @@ const experienceData = [
   { id: '69', name: '기타 직종', category: '기타', description: '기타 직종 경력' }
 ];
 
+// 기술 데이터
+const skillData = [
+  // IT/개발 관련
+  { id: '1', name: 'JavaScript', category: 'IT/개발', description: '웹 개발 프로그래밍 언어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '2', name: 'React', category: 'IT/개발', description: 'JavaScript UI 라이브러리', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '3', name: 'Vue.js', category: 'IT/개발', description: 'JavaScript 프레임워크', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '4', name: 'Angular', category: 'IT/개발', description: 'TypeScript 기반 프레임워크', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '5', name: 'Node.js', category: 'IT/개발', description: '서버 사이드 JavaScript', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '6', name: 'Python', category: 'IT/개발', description: '다목적 프로그래밍 언어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '7', name: 'Java', category: 'IT/개발', description: '객체지향 프로그래밍 언어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '8', name: 'C++', category: 'IT/개발', description: '시스템 프로그래밍 언어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '9', name: 'C#', category: 'IT/개발', description: 'Microsoft 개발 언어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '10', name: 'PHP', category: 'IT/개발', description: '웹 서버 프로그래밍 언어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '11', name: 'TypeScript', category: 'IT/개발', description: 'JavaScript 타입 확장', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '12', name: 'Django', category: 'IT/개발', description: 'Python 웹 프레임워크', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '13', name: 'Spring', category: 'IT/개발', description: 'Java 엔터프라이즈 프레임워크', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '14', name: 'Express.js', category: 'IT/개발', description: 'Node.js 웹 프레임워크', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '15', name: 'Laravel', category: 'IT/개발', description: 'PHP 웹 프레임워크', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '16', name: 'MySQL', category: 'IT/개발', description: '관계형 데이터베이스', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '17', name: 'PostgreSQL', category: 'IT/개발', description: '오픈소스 데이터베이스', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '18', name: 'MongoDB', category: 'IT/개발', description: 'NoSQL 데이터베이스', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '19', name: 'Redis', category: 'IT/개발', description: '인메모리 데이터베이스', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '20', name: 'Docker', category: 'IT/개발', description: '컨테이너 플랫폼', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '21', name: 'Kubernetes', category: 'IT/개발', description: '컨테이너 오케스트레이션', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '22', name: 'AWS', category: 'IT/개발', description: '클라우드 플랫폼', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '23', name: 'Azure', category: 'IT/개발', description: 'Microsoft 클라우드', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '24', name: 'GCP', category: 'IT/개발', description: 'Google 클라우드', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '25', name: 'Git', category: 'IT/개발', description: '버전 관리 시스템', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '26', name: 'Jenkins', category: 'IT/개발', description: 'CI/CD 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '27', name: 'Jira', category: 'IT/개발', description: '프로젝트 관리 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '28', name: 'Confluence', category: 'IT/개발', description: '협업 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '29', name: 'Slack', category: 'IT/개발', description: '팀 커뮤니케이션', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '30', name: 'Figma', category: 'IT/개발', description: '디자인 협업 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  
+  // 디자인 관련
+  { id: '31', name: 'Photoshop', category: '디자인', description: '이미지 편집 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '32', name: 'Illustrator', category: '디자인', description: '벡터 그래픽 편집', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '33', name: 'InDesign', category: '디자인', description: '페이지 레이아웃 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '34', name: 'XD', category: '디자인', description: 'UI/UX 디자인 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '35', name: 'Sketch', category: '디자인', description: 'Mac 디자인 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '36', name: 'After Effects', category: '디자인', description: '모션 그래픽 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '37', name: 'Premiere Pro', category: '디자인', description: '비디오 편집 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '38', name: 'Cinema 4D', category: '디자인', description: '3D 모델링 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '39', name: 'Blender', category: '디자인', description: '오픈소스 3D 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '40', name: 'Canva', category: '디자인', description: '온라인 디자인 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  
+  // 마케팅 관련
+  { id: '41', name: 'Google Analytics', category: '마케팅', description: '웹 분석 도구', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '42', name: 'Google Ads', category: '마케팅', description: '검색 광고 플랫폼', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '43', name: 'Facebook Ads', category: '마케팅', description: '소셜 미디어 광고', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '44', name: 'Instagram Ads', category: '마케팅', description: '인스타그램 광고', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '45', name: 'YouTube Ads', category: '마케팅', description: '유튜브 광고', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '46', name: 'SEO', category: '마케팅', description: '검색 엔진 최적화', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '47', name: 'SEM', category: '마케팅', description: '검색 엔진 마케팅', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '48', name: 'Email Marketing', category: '마케팅', description: '이메일 마케팅', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '49', name: 'Content Marketing', category: '마케팅', description: '콘텐츠 마케팅', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '50', name: 'Social Media Marketing', category: '마케팅', description: '소셜 미디어 마케팅', levels: ['초급', '중급', '고급', '전문가'] },
+  
+  // 기타
+  { id: '51', name: 'Excel', category: '기타', description: '스프레드시트 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '52', name: 'PowerPoint', category: '기타', description: '프레젠테이션 소프트웨어', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '53', name: 'Word', category: '기타', description: '워드 프로세서', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '54', name: 'Power BI', category: '기타', description: '비즈니스 인텔리전스', levels: ['초급', '중급', '고급', '전문가'] },
+  { id: '55', name: 'Tableau', category: '기타', description: '데이터 시각화 도구', levels: ['초급', '중급', '고급', '전문가'] }
+];
+
 // 미리보기 모달 스타일
 const ModalOverlay = styled.div`
   position: fixed;
@@ -1416,6 +1482,158 @@ const CertificationGradeSelect = styled.select`
   }
 `;
 
+// 기술 관련 스타일드 컴포넌트
+const SkillTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const SkillTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const SkillCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const SkillCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const SkillCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const SkillIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const SkillCardName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const SkillCardCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+const SkillCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const SkillDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+`;
+
+const SkillCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+const SkillTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineSkillCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineSkillHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineSkillIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineSkillInfo = styled.div`
+  flex: 1;
+`;
+
+const TimelineSkillName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineSkillCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineSkillBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+// 기술 레벨 선택 스타일
+const SkillLevelSelect = styled.select`
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: white;
+  color: #374151;
+  min-height: 36px;
+  margin-left: 0.5rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+  }
+`;
+
 const ResumePage: React.FC = () => {
   const {
     formData,
@@ -1431,6 +1649,11 @@ const ResumePage: React.FC = () => {
   const [certificationSearch, setCertificationSearch] = useState('');
   const [showCertificationDropdown, setShowCertificationDropdown] = useState(false);
   const [selectedCertifications, setSelectedCertifications] = useState<Array<{id: string, name: string, category: string, description: string, grade: string, grades: string[]}>>([]);
+  
+  // 기술 상태
+  const [skillSearch, setSkillSearch] = useState('');
+  const [showSkillDropdown, setShowSkillDropdown] = useState(false);
+  const [selectedSkills, setSelectedSkills] = useState<Array<{id: string, name: string, category: string, description: string, level: string, levels: string[]}>>([]);
   
   // 어학 능력 상태
   const [languageSearch, setLanguageSearch] = useState('');
@@ -1454,6 +1677,7 @@ const ResumePage: React.FC = () => {
   const [schoolTypeFilter, setSchoolTypeFilter] = useState<string>('전체');
   const [languageTypeFilter, setLanguageTypeFilter] = useState<string>('전체');
   const [certificationTypeFilter, setCertificationTypeFilter] = useState<string>('전체');
+  const [skillTypeFilter, setSkillTypeFilter] = useState<string>('전체');
 
   // 저장된 자격증 데이터를 selectedCertifications로 변환
   React.useEffect(() => {
@@ -1551,6 +1775,27 @@ const ResumePage: React.FC = () => {
       }
     }
   }, [formData.address]);
+
+  // 저장된 기술 데이터를 selectedSkills로 변환
+  React.useEffect(() => {
+    if (formData.skills) {
+      const skillEntries = formData.skills.split(', ').filter(entry => entry.trim());
+      const skills = skillEntries.map(entry => {
+        // "기술명 레벨" 형태에서 분리
+        const parts = entry.trim().split(' ');
+        const skillName = parts[0];
+        const level = parts.slice(1).join(' ');
+        
+        const foundSkill = skillData.find(skill => skill.name === skillName);
+        if (foundSkill) {
+          return { ...foundSkill, level: level || '' };
+        } else {
+          return { id: `custom-${skillName}`, name: skillName, category: '기타', description: '기타 기술', level: level || '', levels: [] };
+        }
+      });
+      setSelectedSkills(skills);
+    }
+  }, [formData.skills]);
 
   const handleSave = async () => {
     const result = await saveResumeWithValidation();
@@ -1828,7 +2073,74 @@ const ResumePage: React.FC = () => {
     }, 200);
   };
 
+  // 기술 검색 필터링
+  const filteredSkills = skillData.filter(skill => {
+    const matchesSearch = skill.name.toLowerCase().includes(skillSearch.toLowerCase()) ||
+                         skill.category.toLowerCase().includes(skillSearch.toLowerCase()) ||
+                         skill.description.toLowerCase().includes(skillSearch.toLowerCase());
+    const matchesType = skillTypeFilter === '전체' || skill.category === skillTypeFilter;
+    return matchesSearch && matchesType;
+  });
 
+  // 기술 선택
+  const handleSkillSelect = (skill: {id: string, name: string, category: string, description: string, levels: string[]}) => {
+    if (!selectedSkills.find(s => s.id === skill.id)) {
+      const newSelectedSkills = [...selectedSkills, { ...skill, level: '' }];
+      setSelectedSkills(newSelectedSkills);
+      
+      // formData에 기술 문자열로 저장
+      const skillNames = newSelectedSkills.map(s => s.level ? `${s.name} ${s.level}` : s.name).join(', ');
+      handleInputChange({
+        target: { name: 'skills', value: skillNames }
+      } as React.ChangeEvent<HTMLInputElement>);
+    }
+    setSkillSearch('');
+    setShowSkillDropdown(false);
+  };
+
+  // 기술 제거
+  const handleSkillRemove = (skillId: string) => {
+    const newSelectedSkills = selectedSkills.filter(skill => skill.id !== skillId);
+    setSelectedSkills(newSelectedSkills);
+    
+    // formData에 기술 문자열로 업데이트
+    const skillNames = newSelectedSkills.map(s => s.level ? `${s.name} ${s.level}` : s.name).join(', ');
+    handleInputChange({
+      target: { name: 'skills', value: skillNames }
+    } as React.ChangeEvent<HTMLInputElement>);
+  };
+
+  // 기술 레벨 변경
+  const handleSkillLevelChange = (skillId: string, level: string) => {
+    const newSelectedSkills = selectedSkills.map(skill => 
+      skill.id === skillId ? { ...skill, level } : skill
+    );
+    setSelectedSkills(newSelectedSkills);
+    
+    // formData에 기술 문자열로 업데이트
+    const skillNames = newSelectedSkills.map(s => s.level ? `${s.name} ${s.level}` : s.name).join(', ');
+    handleInputChange({
+      target: { name: 'skills', value: skillNames }
+    } as React.ChangeEvent<HTMLInputElement>);
+  };
+
+  // 기술 검색 입력 처리
+  const handleSkillSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSkillSearch(e.target.value);
+    setShowSkillDropdown(true);
+  };
+
+  // 기술 검색 포커스 처리
+  const handleSkillSearchFocus = () => {
+    setShowSkillDropdown(true);
+  };
+
+  // 기술 검색 블러 처리
+  const handleSkillSearchBlur = () => {
+    setTimeout(() => {
+      setShowSkillDropdown(false);
+    }, 200);
+  };
 
   // 미리보기 모달
   const PreviewModal: React.FC = () => {
@@ -2265,15 +2577,127 @@ const ResumePage: React.FC = () => {
             기술/자격증
           </SectionTitle>
           <ResumeForm>
-            <FormGroup>
+            <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>보유 기술</FormLabel>
-              <FormInput 
-                type="text" 
-                name="skills"
-                value={formData.skills}
-                onChange={handleInputChange}
-                placeholder="보유 기술을 입력하세요 (예: JavaScript, React, Python)" 
-              />
+              
+              {/* 기술 유형 필터 */}
+              <SkillTypeFilter>
+                {['전체', 'IT/개발', '디자인', '마케팅', '기타'].map((type) => (
+                  <SkillTypeButton
+                    key={type}
+                    $active={skillTypeFilter === type}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSkillTypeFilter(type);
+                    }}
+                  >
+                    {type}
+                  </SkillTypeButton>
+                ))}
+              </SkillTypeFilter>
+
+              {/* 스마트 검색 */}
+              <SmartSearchContainer>
+                <SearchIcon>🔍</SearchIcon>
+                <SearchInput
+                  type="text"
+                  value={skillSearch}
+                  onChange={handleSkillSearchChange}
+                  onFocus={handleSkillSearchFocus}
+                  onBlur={handleSkillSearchBlur}
+                  placeholder="기술을 검색하세요 (예: JavaScript, React, Photoshop)"
+                />
+              </SmartSearchContainer>
+
+              {/* 기술 카드 그리드 */}
+              {showSkillDropdown && (
+                <SkillCardGrid>
+                  {filteredSkills.length > 0 ? (
+                    filteredSkills.map((skill) => (
+                      <SkillCard
+                        key={skill.id}
+                        onClick={() => handleSkillSelect(skill)}
+                      >
+                        <SkillCardHeader>
+                          <SkillIcon>
+                            {skill.category === 'IT/개발' ? '💻' :
+                             skill.category === '디자인' ? '🎨' :
+                             skill.category === '마케팅' ? '📈' : '🔧'}
+                          </SkillIcon>
+                          <div>
+                            <SkillCardName>{skill.name}</SkillCardName>
+                            <SkillCardCategory>{skill.category}</SkillCardCategory>
+                          </div>
+                        </SkillCardHeader>
+                        <SkillCardBody>
+                          <SkillDescription>
+                            {skill.description}
+                          </SkillDescription>
+                          <SkillCardFooter>
+                            {skill.levels.length > 0 ? `${skill.levels.length}개 레벨 지원` : '전문 기술'}
+                          </SkillCardFooter>
+                        </SkillCardBody>
+                      </SkillCard>
+                    ))
+                  ) : (
+                    <NoResultsCard>검색 결과가 없습니다.</NoResultsCard>
+                  )}
+                </SkillCardGrid>
+              )}
+
+              {/* 선택된 기술 타임라인 */}
+              {selectedSkills.length > 0 && (
+                <SkillTimeline>
+                  <TimelineTitle>🛠️ 보유 기술</TimelineTitle>
+                  <TimelineContainer>
+                    {selectedSkills.map((skill, index) => (
+                      <TimelineItem key={skill.id}>
+                        <TimelineDot />
+                        <TimelineContent>
+                          <TimelineSkillCard>
+                            <TimelineSkillHeader>
+                              <TimelineSkillIcon>
+                                {skill.category === 'IT/개발' ? '💻' :
+                                 skill.category === '디자인' ? '🎨' :
+                                 skill.category === '마케팅' ? '📈' : '🔧'}
+                              </TimelineSkillIcon>
+                              <TimelineSkillInfo>
+                                <TimelineSkillName>
+                                  {skill.name}
+                                  {skill.level && <span style={{ color: '#4ade80', fontWeight: '600' }}> {skill.level}</span>}
+                                </TimelineSkillName>
+                                <TimelineSkillCategory>{skill.category}</TimelineSkillCategory>
+                              </TimelineSkillInfo>
+                              <TimelineRemoveButton
+                                onClick={() => handleSkillRemove(skill.id)}
+                                aria-label={`${skill.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineSkillHeader>
+                            <TimelineSkillBody>
+                              <span>{skill.description}</span>
+                              {skill.levels.length > 0 && (
+                                <SkillLevelSelect
+                                  value={skill.level}
+                                  onChange={(e) => handleSkillLevelChange(skill.id, e.target.value)}
+                                >
+                                  <option value="">레벨 선택</option>
+                                  {skill.levels.map((level) => (
+                                    <option key={level} value={level}>
+                                      {level}
+                                    </option>
+                                  ))}
+                                </SkillLevelSelect>
+                              )}
+                            </TimelineSkillBody>
+                          </TimelineSkillCard>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </TimelineContainer>
+                </SkillTimeline>
+              )}
             </FormGroup>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>자격증</FormLabel>
