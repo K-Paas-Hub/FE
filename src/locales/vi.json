@@ -634,5 +634,55 @@
       },
       "footer": "Được xây dựng với Zendesk"
     }
+  },
+  "terms": {
+    "title": "Điều khoản sử dụng",
+    "sections": {
+      "purpose": "Điều 1 (Mục đích)",
+      "definitions": "Điều 2 (Định nghĩa)",
+      "effectiveness": "Điều 3 (Hiệu lực và thay đổi điều khoản)",
+      "service": "Điều 4 (Cung cấp dịch vụ)",
+      "suspension": "Điều 5 (Tạm ngưng dịch vụ)",
+      "registration": "Điều 6 (Đăng ký thành viên)",
+      "withdrawal": "Điều 7 (Rút khỏi thành viên và mất tư cách)",
+      "memberObligations": "Điều 8 (Nghĩa vụ của thành viên)",
+      "companyObligations": "Điều 9 (Nghĩa vụ của công ty)",
+      "privacy": "Điều 10 (Bảo vệ thông tin cá nhân)",
+      "supplementary": "Phụ lục"
+    },
+    "content": {
+      "purpose": "Điều khoản này quy định về quyền, nghĩa vụ và trách nhiệm giữa công ty và thành viên liên quan đến việc sử dụng dịch vụ do FairWork (sau đây gọi là \"Công ty\") cung cấp, và các vấn đề cần thiết khác.",
+      "definitions": "1. \"Dịch vụ\" có nghĩa là tất cả dịch vụ do công ty cung cấp.\n2. \"Thành viên\" có nghĩa là khách hàng truy cập dịch vụ của công ty và ký kết hợp đồng sử dụng với công ty theo điều khoản này và sử dụng dịch vụ do công ty cung cấp.\n3. \"Tài khoản\" có nghĩa là sự kết hợp của chữ cái, số hoặc ký tự đặc biệt mà thành viên chọn và công ty chấp thuận để xác định thành viên và sử dụng dịch vụ của thành viên.",
+      "effectiveness": "1. Điều khoản này có hiệu lực đối với tất cả thành viên muốn sử dụng dịch vụ.\n2. Công ty có thể thay đổi điều khoản này trong phạm vi không vi phạm luật liên quan khi cần thiết.\n3. Khi công ty thay đổi điều khoản, công ty sẽ thông báo ngày áp dụng và lý do thay đổi cùng với điều khoản hiện hành trên màn hình chính của dịch vụ từ 7 ngày trước ngày áp dụng.",
+      "service": "1. Công ty cung cấp các dịch vụ sau:\n- Cung cấp thông tin liên quan đến lao động nước ngoài\n- Dịch vụ đăng ký và quản lý visa\n- Dịch vụ phân tích và xem xét hợp đồng\n- Các dịch vụ khác do công ty quy định\n2. Dịch vụ được cung cấp 24 giờ một ngày, 365 ngày một năm theo nguyên tắc.",
+      "suspension": "1. Công ty có thể tạm thời ngưng cung cấp dịch vụ khi có lý do như bảo trì, thay thế và hỏng hóc thiết bị thông tin liên lạc như máy tính, gián đoạn thông tin liên lạc.\n2. Công ty sẽ bồi thường thiệt hại mà thành viên hoặc bên thứ ba phải chịu do việc cung cấp dịch vụ bị tạm thời ngưng vì lý do quy định tại khoản 1. Tuy nhiên, điều này không áp dụng khi công ty chứng minh rằng không có cố ý hoặc sơ suất.",
+      "registration": "1. Thành viên đăng ký thành viên bằng cách điền thông tin thành viên theo mẫu đăng ký do công ty quy định và thể hiện ý định đồng ý với điều khoản này.\n2. Công ty sẽ đăng ký người sử dụng đăng ký làm thành viên như quy định tại khoản 1 trừ khi thuộc các trường hợp sau.",
+      "withdrawal": "1. Thành viên có thể yêu cầu rút khỏi công ty bất cứ lúc nào và công ty sẽ xử lý việc rút khỏi thành viên ngay lập tức.\n2. Khi thành viên thuộc các trường hợp sau, công ty có thể hạn chế và tạm ngưng tư cách thành viên.",
+      "memberObligations": "1. Thành viên phải tuân thủ luật liên quan, quy định của điều khoản này, hướng dẫn sử dụng và lưu ý được thông báo trên dịch vụ, các vấn đề công ty thông báo, v.v. và không được thực hiện hành vi cản trở hoạt động của công ty.\n2. Thành viên không được thực hiện các hành vi sau liên quan đến việc sử dụng dịch vụ.",
+      "companyObligations": "1. Công ty không thực hiện hành vi bị cấm bởi luật liên quan và điều khoản này hoặc trái với đạo đức xã hội và nỗ lực cung cấp dịch vụ liên tục và ổn định theo quy định của điều khoản này.\n2. Công ty xây dựng hệ thống bảo mật để bảo vệ thông tin cá nhân của thành viên (bao gồm thông tin tín dụng) để thành viên có thể sử dụng dịch vụ internet một cách an toàn.",
+      "privacy": "1. Công ty bảo vệ thông tin cá nhân của thành viên theo quy định của luật liên quan, và việc bảo vệ và sử dụng thông tin cá nhân tuân theo luật liên quan và chính sách xử lý thông tin cá nhân do công ty quy định.\n2. Tuy nhiên, công ty không chịu bất kỳ trách nhiệm nào đối với thông tin bị lộ do lỗi của thành viên.",
+      "supplementary": "Điều khoản này có hiệu lực từ ngày 1 tháng 1 năm 2025."
+    },
+    "actions": {
+      "backToLogin": "Quay lại đăng nhập"
+    }
+  },
+  "passwordReset": {
+    "title": "Đặt lại mật khẩu cho tài khoản FairWork.",
+    "description": "Vui lòng nhập tài khoản email để nhận mật khẩu tạm thời.",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Vui lòng nhập email",
+      "emailRequired": "Vui lòng nhập ID.",
+      "submitButton": "Tiếp theo",
+      "loadingButton": "Đang xử lý..."
+    },
+    "messages": {
+      "success": "Mật khẩu tạm thời đã được gửi qua email.",
+      "error": "Đã xảy ra lỗi khi đặt lại mật khẩu."
+    },
+    "actions": {
+      "backToLogin": "Quay lại đăng nhập"
+    }
   }
 }
