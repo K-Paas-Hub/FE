@@ -4,9 +4,11 @@ export interface ResumeFormData {
   phone: string;
   nationality: string;
   visaType: string;
+  address: string; // 주소 필드 추가
   education: string;
   experience: string;
   skills: string;
+  certifications: string; // 자격증 필드 추가
   languages: string;
   introduction: string;
 }

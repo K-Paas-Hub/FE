@@ -9,9 +9,11 @@ const initialFormData: ResumeFormData = {
   phone: '',
   nationality: '',
   visaType: '',
+  address: '', // 주소 필드 추가
   education: '',
   experience: '',
   skills: '',
+  certifications: '', // 자격증 필드 추가
   languages: '',
   introduction: ''
 };
