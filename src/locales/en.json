@@ -284,7 +284,16 @@
     "employmentContract": "Employment Contract",
     "writingGuide": "📝 Writing Guide",
     "contractAnalysis": "🔍 Contract Analysis",
-    "aiInterview": "AI Mock Interview"
+    "aiInterview": "AI Mock Interview",
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "About Us",
+      "features": "Features",
+      "partners": "Partners"
+    }
   },
   "mainPage": {
     "search": {
@@ -566,17 +575,6 @@
           }
         ]
       }
-    }
-  },
-  "header": {
-    "logo": {
-      "fair": "Fair",
-      "work": "Work"
-    },
-    "navigation": {
-      "aboutUs": "About Us",
-      "features": "Features",
-      "partners": "Partners"
     }
   },
   "sidebar": {

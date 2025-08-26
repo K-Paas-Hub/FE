@@ -73,7 +73,16 @@
     "employmentContract": "Hợp đồng",
     "writingGuide": "📝 Hướng dẫn",
     "contractAnalysis": "🔍 Phân tích",
-    "aiInterview": "Phỏng vấn AI"
+    "aiInterview": "Phỏng vấn AI",
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "Về chúng tôi",
+      "features": "Tính năng",
+      "partners": "Đối tác"
+    }
   },
   "mainPage": {
     "searchPlaceholder": "Tìm kiếm chức danh công việc và từ khóa...",
@@ -213,17 +222,6 @@
         "title": "✅ Thời hạn hợp đồng được chỉ định",
         "content": "Thời hạn hợp đồng được chỉ định rõ ràng."
       }
-    }
-  },
-  "header": {
-    "logo": {
-      "fair": "Fair",
-      "work": "Work"
-    },
-    "navigation": {
-      "aboutUs": "Về chúng tôi",
-      "features": "Tính năng",
-      "partners": "Đối tác"
     }
   },
   "sidebar": {
