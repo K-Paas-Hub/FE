@@ -1,20 +1,36 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '../../hooks/useAuth';
 import LoginForm from './LoginForm';
 import Footer from '../MainFooter';
 import '../../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
-  const { signInWithGoogle } = useAuth();
   const { t } = useTranslation();
   const [isFormLoading, setIsFormLoading] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const handleGoogleLogin = async () => {
+    setIsGoogleLoading(true);
     try {
-      await signInWithGoogle();
+      // 백엔드 API 호출
+      const response = await fetch('/api/auth/google', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        // 성공 시 처리 (예: 토큰 저장, 리디렉션 등)
+        console.log('Google login successful:', data);
+      } else {
+        console.error('Google login failed');
+      }
     } catch (error) {
-      console.error('Google login failed:', error);
+      console.error('Google login error:', error);
+    } finally {
+      setIsGoogleLoading(false);
     }
   };
 
@@ -35,7 +51,11 @@ const LoginPage: React.FC = () => {
     <div className="login-container">
       <div className="login-content">
         <h1 className="login-title">로그인</h1>
-        <LoginForm onSubmit={handleFormLogin} isLoading={isFormLoading} />
+        <LoginForm 
+          onSubmit={handleFormLogin} 
+          isLoading={isFormLoading || isGoogleLoading}
+          onGoogleLogin={handleGoogleLogin}
+        />
       </div>
       <Footer />
     </div>

@@ -9,39 +9,6 @@ export const useAuth = () => {
     error: null
   });
 
-  // Google 로그인
-  const signInWithGoogle = async () => {
-    try {
-      setAuthState(prev => ({ ...prev, loading: true, error: null }));
-      
-      const { data, error } = await authService.signInWithGoogle();
-      
-      if (error) {
-        setAuthState(prev => ({ 
-          ...prev, 
-          loading: false, 
-          error: error.message || 'Google 로그인에 실패했습니다.' 
-        }));
-        return { success: false, error };
-      }
-      
-      setAuthState(prev => ({ 
-        ...prev, 
-        user: data.user, 
-        loading: false 
-      }));
-      
-      return { success: true, data };
-    } catch (error) {
-      setAuthState(prev => ({ 
-        ...prev, 
-        loading: false, 
-        error: '로그인 중 오류가 발생했습니다.' 
-      }));
-      return { success: false, error };
-    }
-  };
-
   // 로그아웃
   const signOut = async () => {
     try {
@@ -114,7 +81,6 @@ export const useAuth = () => {
     user: authState.user,
     loading: authState.loading,
     error: authState.error,
-    signInWithGoogle,
     signOut,
     isAuthenticated: !!authState.user
   };

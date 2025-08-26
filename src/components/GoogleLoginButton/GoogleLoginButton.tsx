@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { COLORS, ANIMATIONS } from '../../constants';
-import { useAuth } from '../../hooks/useAuth';
 
 const GoogleButton = styled(motion.button)`
   background: white;
@@ -64,26 +63,30 @@ const LoadingSpinner = styled.div`
 
 interface GoogleLoginButtonProps {
   className?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  loading?: boolean;
 }
 
-const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({ className }) => {
-  const { signInWithGoogle, loading, error } = useAuth();
+const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({ 
+  className, 
+  onClick, 
+  disabled = false,
+  loading = false 
+}) => {
   const { t } = useTranslation();
 
-  const handleGoogleLogin = async () => {
-    const result = await signInWithGoogle();
-    
-    if (!result.success) {
-      console.error('Google 로그인 실패:', result.error);
-      // 여기에 에러 처리 로직 추가 가능 (토스트 메시지 등)
+  const handleClick = () => {
+    if (onClick && !disabled && !loading) {
+      onClick();
     }
   };
 
   return (
     <GoogleButton
       className={className}
-      onClick={handleGoogleLogin}
-      disabled={loading}
+      onClick={handleClick}
+      disabled={disabled || loading}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: ANIMATIONS.duration.normal }}

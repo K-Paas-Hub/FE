@@ -16,11 +16,3 @@ export interface AuthState {
   loading: boolean;
   error: string | null;
 }
-
-export interface GoogleAuthResponse {
-  data: {
-    user: AuthUser | null;
-    session: any | null;
-  };
-  error: any | null;
-}

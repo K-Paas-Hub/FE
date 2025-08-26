@@ -1,954 +1,90 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { COLORS } from '../../constants';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 import CommunityBanner from '../CommunityBanner';
+import {
+  MainContainer,
+  PageContent,
+  SearchSection,
+  SearchBar,
+  MainSearchIcon,
+  MainSearchInput,
+  FilterContainer,
+  FilterButton,
+  FilterDownArrowIcon,
+  DownArrowFallback,
+  VisaButton,
+  RefreshButton,
+  RefreshIcon,
+  RefreshFallback,
+  FilterOverlay,
+  FilterModal,
+  CloseButton,
+  FilterTabs,
+  FilterTab,
+  FilterOptions,
+  FilterOption,
+  AppliedFilters,
+  AppliedFiltersTitle,
+  AppliedFilterTags,
+  AppliedFilterTag,
+  RemoveButton,
+  FilterActions,
+  ResetButton,
+  ViewResultsButton,
+  JobListSection,
+  SectionHeader,
+  MainSectionTitle,
+  SortButton,
+  SortDropdown,
+  SortOption,
+  DownArrowIcon,
+  JobGrid,
+  JobCard,
+  JobImage,
+  JobImageContent,
+  JobContent,
+  JobHeader,
+  CompanyInfo,
+  CompanyLogo,
+  CompanyDetails,
+  CompanyName,
+  JobTitle,
+  JobTags,
+  Tag,
+  HeartButton,
+  ChatButton,
+  ChatIcon,
+  ChatOverlay,
+  ChatHeader,
+  ChatHeaderContent,
+  ChatLogo,
+  ChatTitle,
+  ChatTitleMain,
+  ChatTitleSub,
+  ChatCloseButton,
+  DownIcon,
+  ChatContent,
+  ChatMessage,
+  ChatAvatar,
+  ChatBubble,
+  ChatText,
+  ChatTime,
+  ChatOptions,
+  ChatOptionButton,
+  ChatInput,
+  ChatInputField,
+  ChatFooter,
+  SearchResultsInfo,
+  SearchCount,
+  ClearSearchButton,
+  NoResultsMessage,
+  NoResultsIcon,
+  NoResultsTitle,
+  NoResultsText,
+  SearchLoadingSpinner,
+} from '../../styles/components/MainPage.styles';
 
-const MainContainer = styled.div`
-  min-height: 100vh;
-  background: white;
-`;
-
-
-
-const MainContent = styled.main`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
-`;
-
-const SearchSection = styled.section`
-  margin-bottom: 2rem;
-`;
-
-const SearchBar = styled.div`
-  background: white;
-  border: 2px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  
-  &:focus-within {
-    border-color: ${COLORS.primary};
-  }
-  
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
-`;
-
-const SearchIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  color: white;
-  
-  &:not([src]), &[src=""], &[src*="error"] {
-    display: none;
-  }
-`;
-
-const SearchInput = styled.input`
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  color: #333;
-  
-  &::placeholder {
-    color: #999;
-  }
-`;
-
-const FilterContainer = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  align-items: center;
-  
-  @media (max-width: 768px) {
-    gap: 0.5rem;
-  }
-`;
-
-const FilterButton = styled.button<{ $isActive?: boolean }>`
-  background: white;
-  color: #333;
-  border: 1px solid #e5e5e5;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  
-  &:hover {
-    border-color: ${COLORS.primary};
-    color: ${COLORS.primary};
-  }
-  
-  @media (max-width: 768px) {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-`;
-
-const FilterDownArrowIcon = styled.img`
-  width: 12px;
-  height: 12px;
-  
-  &:not([src]), &[src=""], &[src*="error"] {
-    display: none;
-  }
-`;
-
-const DownArrowFallback = styled.span`
-  font-size: 12px;
-  color: #666;
-  display: ${props => props.className?.includes('show') ? 'inline' : 'none'};
-`;
-
-const VisaButton = styled.button`
-  background: ${COLORS.primary};
-  color: white;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 0.9rem;
-  
-  &:hover {
-    background: #4ade80;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-`;
-
-const RefreshButton = styled.button`
-  background: none;
-  border: none;
-  color: #666;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    background: #f8f9fa;
-  }
-`;
-
-const RefreshIcon = styled.img`
-  width: 16px;
-  height: 16px;
-  
-  &:not([src]), &[src=""], &[src*="error"] {
-    display: none;
-  }
-`;
-
-const RefreshFallback = styled.span`
-  font-size: 16px;
-  color: #666;
-  display: ${props => props.className?.includes('show') ? 'inline' : 'none'};
-`;
-
-const FilterOverlay = styled.div<{ $isOpen: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: ${props => props.$isOpen ? 'flex' : 'none'};
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 100px;
-`;
-
-const FilterModal = styled.div`
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-    width: 95%;
-  }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #666;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    background: #f8f9fa;
-    color: #333;
-  }
-  
-  @media (max-width: 768px) {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
-  }
-`;
-
-const FilterTabs = styled.div`
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 1rem;
-`;
-
-const FilterTab = styled.button<{ $isActive: boolean }>`
-  background: none;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: ${props => props.$isActive ? COLORS.primary : 'transparent'};
-  color: ${props => props.$isActive ? 'white' : '#666'};
-  
-  &:hover {
-    background: ${props => props.$isActive ? COLORS.primary : '#f8f9fa'};
-  }
-`;
-
-const FilterOptions = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 0.8rem;
-  margin-bottom: 2rem;
-`;
-
-const FilterOption = styled.button<{ $isSelected: boolean }>`
-  background: ${props => props.$isSelected ? COLORS.primary : '#f8f9fa'};
-  color: ${props => props.$isSelected ? 'white' : '#333'};
-  border: 1px solid ${props => props.$isSelected ? COLORS.primary : '#e5e5e5'};
-  padding: 0.8rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: ${props => props.$isSelected ? COLORS.primary : '#e9ecef'};
-  }
-`;
-
-const AppliedFilters = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const AppliedFiltersTitle = styled.div`
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #333;
-`;
-
-const AppliedFilterTags = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-`;
-
-const AppliedFilterTag = styled.div`
-  background: ${COLORS.primary};
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const RemoveButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0;
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const FilterActions = styled.div`
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-`;
-
-const ResetButton = styled.button`
-  background: none;
-  border: 1px solid #e5e5e5;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    border-color: ${COLORS.primary};
-    color: ${COLORS.primary};
-  }
-`;
-
-const ViewResultsButton = styled.button`
-  background: #1e293b;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  
-  &:hover {
-    background: #334155;
-  }
-`;
-
-const JobListSection = styled.section`
-  margin-top: 2rem;
-`;
-
-const SectionHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #333;
-  
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
-  }
-`;
-
-const SortButton = styled.div`
-  background: none;
-  border: none;
-  color: #666;
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  user-select: none;
-  
-  &:hover {
-    color: ${COLORS.primary};
-  }
-`;
-
-const SortDropdown = styled.div<{ $isOpen: boolean }>`
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  min-width: 120px;
-  display: ${props => props.$isOpen ? 'block' : 'none'};
-  margin-top: 0.5rem;
-`;
-
-const SortOption = styled.button`
-  width: 100%;
-  padding: 0.8rem 1rem;
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: #333;
-  transition: background 0.3s ease;
-  
-  &:hover {
-    background: #f8f9fa;
-  }
-  
-  &:first-child {
-    border-radius: 8px 8px 0 0;
-  }
-  
-  &:last-child {
-    border-radius: 0 0 8px 8px;
-  }
-  
-  &.active {
-    background: #ecfdf5;
-    color: ${COLORS.primary};
-    font-weight: 600;
-  }
-`;
-
-const DownArrowIcon = styled.img`
-  width: 12px;
-  height: 12px;
-  transition: transform 0.3s ease;
-  transform: ${props => props.className?.includes('rotated') ? 'rotate(180deg)' : 'rotate(0deg)'};
-`;
-
-const JobGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-`;
-
-const JobCard = styled(motion.div)`
-  background: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  
-  &:hover {
-    border-color: ${COLORS.primary};
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
-  }
-  
-  @media (max-width: 768px) {
-    border-radius: 12px;
-  }
-`;
-
-const JobImage = styled.div`
-  width: 100%;
-  height: 210px;
-  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  position: relative;
-  overflow: hidden;
-  
-  @media (max-width: 768px) {
-    height: 160px;
-  }
-`;
-
-const JobImageContent = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #9ca3af;
-  font-weight: 700;
-`;
-
-
-
-const JobContent = styled.div`
-  padding: 1.2rem;
-  
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
-`;
-
-const JobHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-`;
-
-const CompanyInfo = styled.div`
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  flex: 1;
-`;
-
-const CompanyLogo = styled.div`
-  width: 50px;
-  height: 50px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: ${COLORS.primary};
-  flex-shrink: 0;
-  
-  &.red {
-    background: #fee2e2;
-    color: #dc2626;
-  }
-  
-  &.blue {
-    background: #dbeafe;
-    color: #2563eb;
-  }
-  
-  &.green {
-    background: #dcfce7;
-    color: #059669;
-  }
-  
-  &.purple {
-    background: #f3e8ff;
-    color: #7c3aed;
-  }
-`;
-
-const CompanyDetails = styled.div`
-  flex: 1;
-  min-width: 0;
-`;
-
-const CompanyName = styled.div`
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.3rem;
-  font-weight: 500;
-`;
-
-const JobTitle = styled.h3`
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const JobTags = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-`;
-
-const Tag = styled.span`
-  background: #f3f4f6;
-  color: #374151;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  
-  &.visa {
-    background: ${COLORS.primary};
-    color: white;
-  }
-  
-  &.location {
-    background: #dbeafe;
-    color: #1e40af;
-  }
-  
-  &.experience {
-    background: #fef3c7;
-    color: #92400e;
-  }
-`;
-
-const HeartButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  padding: 0.5rem;
-  border-radius: 4px;
-  
-  &.liked {
-    color: #ff4757;
-  }
-  
-  &:hover {
-    color: #ff4757;
-    background: #f8f9fa;
-  }
-`;
-
-
-
-const ChatButton = styled.button`
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  background: ${COLORS.primary};
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-  transition: all 0.3s ease;
-  z-index: 100;
-  
-  &:hover {
-    background: #10b981;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
-  }
-  
-  @media (max-width: 768px) {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 50px;
-    height: 50px;
-  }
-`;
-
-const ChatIcon = styled.img`
-  width: 24px;
-  height: 24px;
-  
-  @media (max-width: 768px) {
-    width: 20px;
-    height: 20px;
-  }
-`;
-
-const ChatOverlay = styled.div<{ $isOpen: boolean }>`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 400px;
-  height: 600px;
-  background: white;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  display: ${props => props.$isOpen ? 'flex' : 'none'};
-  flex-direction: column;
-  transform: translateY(${props => props.$isOpen ? '0' : '100%'});
-  transition: transform 0.3s ease;
-  
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-`;
-
-const ChatHeader = styled.div`
-  background: ${COLORS.primary};
-  color: white;
-  padding: 1rem;
-  border-radius: 12px 12px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  @media (max-width: 768px) {
-    border-radius: 0;
-  }
-`;
-
-const ChatHeaderContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-`;
-
-const ChatLogo = styled.div`
-  width: 32px;
-  height: 32px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: ${COLORS.primary};
-  font-size: 0.9rem;
-`;
-
-const ChatTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ChatTitleMain = styled.div`
-  font-weight: 600;
-  font-size: 0.9rem;
-`;
-
-const ChatTitleSub = styled.div`
-  font-size: 0.7rem;
-  opacity: 0.8;
-`;
-
-const ChatCloseButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const DownIcon = styled.img`
-  width: 16px;
-  height: 16px;
-`;
-
-const ChatContent = styled.div`
-  flex: 1;
-  padding: 1rem;
-  overflow-y: auto;
-  background: #f8f9fa;
-`;
-
-const ChatMessage = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
-`;
-
-const ChatAvatar = styled.div`
-  width: 36px;
-  height: 36px;
-  background: #fbbf24;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-`;
-
-const ChatBubble = styled.div`
-  background: white;
-  padding: 0.8rem 1rem;
-  border-radius: 12px;
-  max-width: 280px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const ChatText = styled.div`
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #333;
-`;
-
-const ChatTime = styled.div`
-  font-size: 0.7rem;
-  color: #666;
-  margin-top: 0.3rem;
-`;
-
-const ChatOptions = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.8rem;
-`;
-
-const ChatOptionButton = styled.button`
-  background: white;
-  border: 1px solid ${COLORS.primary};
-  color: ${COLORS.primary};
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: ${COLORS.primary};
-    color: white;
-  }
-`;
-
-const ChatInput = styled.div`
-  padding: 1rem;
-  border-top: 1px solid #e5e5e5;
-  background: white;
-`;
-
-const ChatInputField = styled.input`
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  outline: none;
-  
-  &:focus {
-    border-color: ${COLORS.primary};
-  }
-`;
-
-const ChatFooter = styled.div`
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 0.7rem;
-  color: #666;
-  border-top: 1px solid #e5e5e5;
-`;
-
-// 검색 관련 스타일 컴포넌트
-const SearchResultsInfo = styled.div`
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const SearchCount = styled.span`
-  font-weight: 500;
-  color: ${COLORS.primary};
-`;
-
-const ClearSearchButton = styled.button`
-  background: none;
-  border: none;
-  color: #999;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: #f5f5f5;
-    color: #666;
-  }
-`;
-
-const NoResultsMessage = styled.div`
-  text-align: center;
-  padding: 3rem 1rem;
-  color: #666;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-  width: 100%;
-`;
-
-const NoResultsIcon = styled.div`
-  font-size: 3rem;
-  margin-bottom: 1rem;
-`;
-
-const NoResultsTitle = styled.h3`
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-`;
-
-const NoResultsText = styled.p`
-  font-size: 0.9rem;
-  color: #999;
-`;
-
-const SearchLoadingSpinner = styled.div`
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid ${COLORS.primary};
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-left: 0.5rem;
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
 
 // Sample job data - 외국인 노동자용 15개
 const sampleJobs = [
@@ -1489,15 +625,15 @@ const MainPage: React.FC = () => {
       <CommunityBanner />
       <MainHeader />
       
-      <MainContent>
+      <PageContent>
         <SearchSection>
           <SearchBar>
-            <SearchIcon 
+            <MainSearchIcon 
               src="/images/search.png" 
               alt="search"
               onError={() => handleImageError('search')}
             />
-            <SearchInput 
+            <MainSearchInput 
               placeholder="직무명, 직무 관련 키워드를 검색해 보세요."
               type="text"
               value={searchQuery}
@@ -1608,7 +744,7 @@ const MainPage: React.FC = () => {
 
         <JobListSection>
           <SectionHeader>
-            <SectionTitle>채용 공고</SectionTitle>
+            <MainSectionTitle>채용 공고</MainSectionTitle>
             <SortButton 
               onClick={handleSortClick} 
               className="sort-dropdown"
@@ -1665,7 +801,7 @@ const MainPage: React.FC = () => {
               {filteredJobs.map((job, index) => (
                 <JobCard
                   key={job.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
@@ -1713,7 +849,7 @@ const MainPage: React.FC = () => {
               {jobs.map((job, index) => (
                 <JobCard
                   key={job.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
@@ -1750,7 +886,7 @@ const MainPage: React.FC = () => {
             </JobGrid>
           )}
         </JobListSection>
-      </MainContent>
+      </PageContent>
       
       <ChatButton onClick={handleChatClick}>
         <ChatIcon 

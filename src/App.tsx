@@ -23,7 +23,6 @@ import {
   ContractAnalysis
 } from './components';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
-import AuthCallback from './components/AuthCallback';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import PasswordResetPage from './components/PasswordResetPage';
@@ -64,7 +63,6 @@ function App() {
           <Route path="/resume" element={<ResumePage />} />
           <Route path="/spell-check" element={<SpellCheckPage />} />
           <Route path="/contract-analysis" element={<ContractAnalysis />} />
-          <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/find-password" element={<PasswordResetPage />} />
