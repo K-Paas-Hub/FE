@@ -209,10 +209,10 @@ describe('Visa Constants', () => {
       expect(VISA_CATEGORY_LABELS).toHaveProperty('PREPARATION');
     });
 
-    test('labels are in Korean', () => {
-      expect(VISA_CATEGORY_LABELS.EMPLOYMENT).toBe('취업 비자');
-      expect(VISA_CATEGORY_LABELS.RESIDENCE).toBe('거주 비자');
-      expect(VISA_CATEGORY_LABELS.PREPARATION).toBe('준비 비자');
+    test('labels are i18n keys', () => {
+      expect(VISA_CATEGORY_LABELS.EMPLOYMENT).toBe('visaCenter.categories.employment');
+      expect(VISA_CATEGORY_LABELS.RESIDENCE).toBe('visaCenter.categories.residence');
+      expect(VISA_CATEGORY_LABELS.PREPARATION).toBe('visaCenter.categories.preparation');
     });
   });
 });
