@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: kareer-fe
-          image: sudo21/kareer:fe-{BUILD_NUMBER}
+          image: sudo21/kareer:fe-{BUILD_DATE_TIME}
           ports:
             - containerPort: 80
           resources:
@@ -44,3 +44,4 @@ spec:
       port: 3000      # 클러스터 내부에서 접근할 포트
       targetPort: 80  # 컨테이너 nginx 포트
   type: ClusterIP
+
