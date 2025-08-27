@@ -1,0 +1,327 @@
+.postcode-search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.postcode-search-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.postcode-search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.postcode-search-input:hover {
+  border-color: #0B65C8;
+  background-color: #ffffff;
+}
+
+.postcode-search-input:focus {
+  outline: none;
+  border-color: #0B65C8;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(11, 101, 200, 0.1);
+}
+
+.postcode-search-input:disabled {
+  background-color: #f1f3f4;
+  color: #9aa0a6;
+  cursor: not-allowed;
+}
+
+.postcode-search-button,
+.postcode-layer-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.postcode-search-button {
+  background-color: #0B65C8;
+  color: white;
+}
+
+.postcode-search-button:hover:not(:disabled) {
+  background-color: #0952a3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(11, 101, 200, 0.2);
+}
+
+.postcode-layer-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.postcode-layer-button:hover:not(:disabled) {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+
+.postcode-search-button:disabled,
+.postcode-layer-button:disabled {
+  background-color: #6c757d;
+  color: #adb5bd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.postcode-address-details {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 16px;
+}
+
+.postcode-zonecode {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0B65C8;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background-color: #e3f2fd;
+  border-radius: 6px;
+  border-left: 4px solid #0B65C8;
+}
+
+.postcode-road-address,
+.postcode-jibun-address {
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.postcode-road-address strong,
+.postcode-jibun-address strong {
+  color: #495057;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.postcode-detail-address {
+  margin: 16px 0;
+}
+
+.postcode-detail-address label {
+  display: block;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.postcode-detail-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.postcode-detail-input:focus {
+  outline: none;
+  border-color: #0B65C8;
+  box-shadow: 0 0 0 3px rgba(11, 101, 200, 0.1);
+}
+
+.postcode-building-name {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  color: #856404;
+}
+
+.postcode-building-name strong {
+  color: #856404;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* 레이어 모드 스타일 */
+.postcode-layer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.postcode-layer-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.postcode-layer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+}
+
+.postcode-layer-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.postcode-layer-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.postcode-layer-close:hover {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.postcode-layer-content {
+  flex: 1;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .postcode-search-input-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .postcode-search-button,
+  .postcode-layer-button {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+  
+  .postcode-layer-container {
+    margin: 10px;
+    max-height: 90vh;
+  }
+  
+  .postcode-layer-header {
+    padding: 16px 20px;
+  }
+  
+  .postcode-layer-content {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .postcode-search-container {
+    max-width: 100%;
+  }
+  
+  .postcode-address-details {
+    padding: 16px;
+  }
+  
+  .postcode-zonecode {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+  
+  .postcode-layer-overlay {
+    padding: 10px;
+  }
+}
+
+/* 애니메이션 */
+.postcode-layer-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.postcode-layer-container {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 로딩 상태 */
+.postcode-search-button:disabled,
+.postcode-layer-button:disabled {
+  position: relative;
+}
+
+.postcode-search-button:disabled::after,
+.postcode-layer-button:disabled::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

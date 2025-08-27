@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
-import AddressSearch from '../AddressSearch';
-import { AddressData } from '../../services/kakaoAddressService';
+import PostcodeSearch from '../PostcodeSearch';
 import {
   ResumeContainer,
   ResumeContent,
@@ -310,274 +309,7 @@ const graduationStatusOptions = [
   { value: '수료', label: '수료' }
 ];
 
-// 주소 데이터
-const addressData = [
-  // 서울특별시
-  { id: '1', name: '서울특별시 강남구', category: '서울특별시', type: '강남구' },
-  { id: '2', name: '서울특별시 강동구', category: '서울특별시', type: '강동구' },
-  { id: '3', name: '서울특별시 강북구', category: '서울특별시', type: '강북구' },
-  { id: '4', name: '서울특별시 강서구', category: '서울특별시', type: '강서구' },
-  { id: '5', name: '서울특별시 관악구', category: '서울특별시', type: '관악구' },
-  { id: '6', name: '서울특별시 광진구', category: '서울특별시', type: '광진구' },
-  { id: '7', name: '서울특별시 구로구', category: '서울특별시', type: '구로구' },
-  { id: '8', name: '서울특별시 금천구', category: '서울특별시', type: '금천구' },
-  { id: '9', name: '서울특별시 노원구', category: '서울특별시', type: '노원구' },
-  { id: '10', name: '서울특별시 도봉구', category: '서울특별시', type: '도봉구' },
-  { id: '11', name: '서울특별시 동대문구', category: '서울특별시', type: '동대문구' },
-  { id: '12', name: '서울특별시 동작구', category: '서울특별시', type: '동작구' },
-  { id: '13', name: '서울특별시 마포구', category: '서울특별시', type: '마포구' },
-  { id: '14', name: '서울특별시 서대문구', category: '서울특별시', type: '서대문구' },
-  { id: '15', name: '서울특별시 서초구', category: '서울특별시', type: '서초구' },
-  { id: '16', name: '서울특별시 성동구', category: '서울특별시', type: '성동구' },
-  { id: '17', name: '서울특별시 성북구', category: '서울특별시', type: '성북구' },
-  { id: '18', name: '서울특별시 송파구', category: '서울특별시', type: '송파구' },
-  { id: '19', name: '서울특별시 양천구', category: '서울특별시', type: '양천구' },
-  { id: '20', name: '서울특별시 영등포구', category: '서울특별시', type: '영등포구' },
-  { id: '21', name: '서울특별시 용산구', category: '서울특별시', type: '용산구' },
-  { id: '22', name: '서울특별시 은평구', category: '서울특별시', type: '은평구' },
-  { id: '23', name: '서울특별시 종로구', category: '서울특별시', type: '종로구' },
-  { id: '24', name: '서울특별시 중구', category: '서울특별시', type: '중구' },
-  { id: '25', name: '서울특별시 중랑구', category: '서울특별시', type: '중랑구' },
-  
-  // 부산광역시
-  { id: '26', name: '부산광역시 강서구', category: '부산광역시', type: '강서구' },
-  { id: '27', name: '부산광역시 금정구', category: '부산광역시', type: '금정구' },
-  { id: '28', name: '부산광역시 남구', category: '부산광역시', type: '남구' },
-  { id: '29', name: '부산광역시 동구', category: '부산광역시', type: '동구' },
-  { id: '30', name: '부산광역시 동래구', category: '부산광역시', type: '동래구' },
-  { id: '31', name: '부산광역시 부산진구', category: '부산광역시', type: '부산진구' },
-  { id: '32', name: '부산광역시 북구', category: '부산광역시', type: '북구' },
-  { id: '33', name: '부산광역시 사상구', category: '부산광역시', type: '사상구' },
-  { id: '34', name: '부산광역시 사하구', category: '부산광역시', type: '사하구' },
-  { id: '35', name: '부산광역시 서구', category: '부산광역시', type: '서구' },
-  { id: '36', name: '부산광역시 수영구', category: '부산광역시', type: '수영구' },
-  { id: '37', name: '부산광역시 연제구', category: '부산광역시', type: '연제구' },
-  { id: '38', name: '부산광역시 영도구', category: '부산광역시', type: '영도구' },
-  { id: '39', name: '부산광역시 중구', category: '부산광역시', type: '중구' },
-  { id: '40', name: '부산광역시 해운대구', category: '부산광역시', type: '해운대구' },
-  { id: '41', name: '부산광역시 기장군', category: '부산광역시', type: '기장군' },
-  
-  // 대구광역시
-  { id: '42', name: '대구광역시 남구', category: '대구광역시', type: '남구' },
-  { id: '43', name: '대구광역시 달서구', category: '대구광역시', type: '달서구' },
-  { id: '44', name: '대구광역시 달성군', category: '대구광역시', type: '달성군' },
-  { id: '45', name: '대구광역시 동구', category: '대구광역시', type: '동구' },
-  { id: '46', name: '대구광역시 북구', category: '대구광역시', type: '북구' },
-  { id: '47', name: '대구광역시 서구', category: '대구광역시', type: '서구' },
-  { id: '48', name: '대구광역시 수성구', category: '대구광역시', type: '수성구' },
-  { id: '49', name: '대구광역시 중구', category: '대구광역시', type: '중구' },
-  
-  // 인천광역시
-  { id: '50', name: '인천광역시 계양구', category: '인천광역시', type: '계양구' },
-  { id: '51', name: '인천광역시 남구', category: '인천광역시', type: '남구' },
-  { id: '52', name: '인천광역시 남동구', category: '인천광역시', type: '남동구' },
-  { id: '53', name: '인천광역시 동구', category: '인천광역시', type: '동구' },
-  { id: '54', name: '인천광역시 부평구', category: '인천광역시', type: '부평구' },
-  { id: '55', name: '인천광역시 서구', category: '인천광역시', type: '서구' },
-  { id: '56', name: '인천광역시 연수구', category: '인천광역시', type: '연수구' },
-  { id: '57', name: '인천광역시 중구', category: '인천광역시', type: '중구' },
-  { id: '58', name: '인천광역시 강화군', category: '인천광역시', type: '강화군' },
-  { id: '59', name: '인천광역시 옹진군', category: '인천광역시', type: '옹진군' },
-  
-  // 광주광역시
-  { id: '60', name: '광주광역시 광산구', category: '광주광역시', type: '광산구' },
-  { id: '61', name: '광주광역시 남구', category: '광주광역시', type: '남구' },
-  { id: '62', name: '광주광역시 동구', category: '광주광역시', type: '동구' },
-  { id: '63', name: '광주광역시 북구', category: '광주광역시', type: '북구' },
-  { id: '64', name: '광주광역시 서구', category: '광주광역시', type: '서구' },
-  
-  // 대전광역시
-  { id: '65', name: '대전광역시 대덕구', category: '대전광역시', type: '대덕구' },
-  { id: '66', name: '대전광역시 동구', category: '대전광역시', type: '동구' },
-  { id: '67', name: '대전광역시 서구', category: '대전광역시', type: '서구' },
-  { id: '68', name: '대전광역시 유성구', category: '대전광역시', type: '유성구' },
-  { id: '69', name: '대전광역시 중구', category: '대전광역시', type: '중구' },
-  
-  // 울산광역시
-  { id: '70', name: '울산광역시 남구', category: '울산광역시', type: '남구' },
-  { id: '71', name: '울산광역시 동구', category: '울산광역시', type: '동구' },
-  { id: '72', name: '울산광역시 북구', category: '울산광역시', type: '북구' },
-  { id: '73', name: '울산광역시 중구', category: '울산광역시', type: '중구' },
-  { id: '74', name: '울산광역시 울주군', category: '울산광역시', type: '울주군' },
-  
-  // 세종특별자치시
-  { id: '75', name: '세종특별자치시', category: '세종특별자치시', type: '세종특별자치시' },
-  
-  // 경기도
-  { id: '76', name: '경기도 수원시', category: '경기도', type: '수원시' },
-  { id: '77', name: '경기도 성남시', category: '경기도', type: '성남시' },
-  { id: '78', name: '경기도 의정부시', category: '경기도', type: '의정부시' },
-  { id: '79', name: '경기도 안양시', category: '경기도', type: '안양시' },
-  { id: '80', name: '경기도 부천시', category: '경기도', type: '부천시' },
-  { id: '81', name: '경기도 광명시', category: '경기도', type: '광명시' },
-  { id: '82', name: '경기도 평택시', category: '경기도', type: '평택시' },
-  { id: '83', name: '경기도 동두천시', category: '경기도', type: '동두천시' },
-  { id: '84', name: '경기도 안산시', category: '경기도', type: '안산시' },
-  { id: '85', name: '경기도 고양시', category: '경기도', type: '고양시' },
-  { id: '86', name: '경기도 과천시', category: '경기도', type: '과천시' },
-  { id: '87', name: '경기도 구리시', category: '경기도', type: '구리시' },
-  { id: '88', name: '경기도 남양주시', category: '경기도', type: '남양주시' },
-  { id: '89', name: '경기도 오산시', category: '경기도', type: '오산시' },
-  { id: '90', name: '경기도 시흥시', category: '경기도', type: '시흥시' },
-  { id: '91', name: '경기도 군포시', category: '경기도', type: '군포시' },
-  { id: '92', name: '경기도 의왕시', category: '경기도', type: '의왕시' },
-  { id: '93', name: '경기도 하남시', category: '경기도', type: '하남시' },
-  { id: '94', name: '경기도 용인시', category: '경기도', type: '용인시' },
-  { id: '95', name: '경기도 파주시', category: '경기도', type: '파주시' },
-  { id: '96', name: '경기도 이천시', category: '경기도', type: '이천시' },
-  { id: '97', name: '경기도 안성시', category: '경기도', type: '안성시' },
-  { id: '98', name: '경기도 김포시', category: '경기도', type: '김포시' },
-  { id: '99', name: '경기도 화성시', category: '경기도', type: '화성시' },
-  { id: '100', name: '경기도 광주시', category: '경기도', type: '광주시' },
-  { id: '101', name: '경기도 여주시', category: '경기도', type: '여주시' },
-  { id: '102', name: '경기도 양평군', category: '경기도', type: '양평군' },
-  { id: '103', name: '경기도 고양군', category: '경기도', type: '고양군' },
-  { id: '104', name: '경기도 연천군', category: '경기도', type: '연천군' },
-  { id: '105', name: '경기도 포천군', category: '경기도', type: '포천군' },
-  { id: '106', name: '경기도 가평군', category: '경기도', type: '가평군' },
-  
-  // 강원도
-  { id: '107', name: '강원도 춘천시', category: '강원도', type: '춘천시' },
-  { id: '108', name: '강원도 원주시', category: '강원도', type: '원주시' },
-  { id: '109', name: '강원도 강릉시', category: '강원도', type: '강릉시' },
-  { id: '110', name: '강원도 동해시', category: '강원도', type: '동해시' },
-  { id: '111', name: '강원도 태백시', category: '강원도', type: '태백시' },
-  { id: '112', name: '강원도 속초시', category: '강원도', type: '속초시' },
-  { id: '113', name: '강원도 삼척시', category: '강원도', type: '삼척시' },
-  { id: '114', name: '강원도 홍천군', category: '강원도', type: '홍천군' },
-  { id: '115', name: '강원도 횡성군', category: '강원도', type: '횡성군' },
-  { id: '116', name: '강원도 영월군', category: '강원도', type: '영월군' },
-  { id: '117', name: '강원도 평창군', category: '강원도', type: '평창군' },
-  { id: '118', name: '강원도 정선군', category: '강원도', type: '정선군' },
-  { id: '119', name: '강원도 철원군', category: '강원도', type: '철원군' },
-  { id: '120', name: '강원도 화천군', category: '강원도', type: '화천군' },
-  { id: '121', name: '강원도 양구군', category: '강원도', type: '양구군' },
-  { id: '122', name: '강원도 인제군', category: '강원도', type: '인제군' },
-  { id: '123', name: '강원도 고성군', category: '강원도', type: '고성군' },
-  { id: '124', name: '강원도 양양군', category: '강원도', type: '양양군' },
-  
-  // 충청북도
-  { id: '125', name: '충청북도 청주시', category: '충청북도', type: '청주시' },
-  { id: '126', name: '충청북도 충주시', category: '충청북도', type: '충주시' },
-  { id: '127', name: '충청북도 제천시', category: '충청북도', type: '제천시' },
-  { id: '128', name: '충청북도 보은군', category: '충청북도', type: '보은군' },
-  { id: '129', name: '충청북도 옥천군', category: '충청북도', type: '옥천군' },
-  { id: '130', name: '충청북도 영동군', category: '충청북도', type: '영동군' },
-  { id: '131', name: '충청북도 증평군', category: '충청북도', type: '증평군' },
-  { id: '132', name: '충청북도 진천군', category: '충청북도', type: '진천군' },
-  { id: '133', name: '충청북도 괴산군', category: '충청북도', type: '괴산군' },
-  { id: '134', name: '충청북도 음성군', category: '충청북도', type: '음성군' },
-  { id: '135', name: '충청북도 단양군', category: '충청북도', type: '단양군' },
-  
-  // 충청남도
-  { id: '136', name: '충청남도 천안시', category: '충청남도', type: '천안시' },
-  { id: '137', name: '충청남도 공주시', category: '충청남도', type: '공주시' },
-  { id: '138', name: '충청남도 보령시', category: '충청남도', type: '보령시' },
-  { id: '139', name: '충청남도 아산시', category: '충청남도', type: '아산시' },
-  { id: '140', name: '충청남도 서산시', category: '충청남도', type: '서산시' },
-  { id: '141', name: '충청남도 논산시', category: '충청남도', type: '논산시' },
-  { id: '142', name: '충청남도 계룡시', category: '충청남도', type: '계룡시' },
-  { id: '143', name: '충청남도 당진시', category: '충청남도', type: '당진시' },
-  { id: '144', name: '충청남도 금산군', category: '충청남도', type: '금산군' },
-  { id: '145', name: '충청남도 부여군', category: '충청남도', type: '부여군' },
-  { id: '146', name: '충청남도 서천군', category: '충청남도', type: '서천군' },
-  { id: '147', name: '충청남도 청양군', category: '충청남도', type: '청양군' },
-  { id: '148', name: '충청남도 홍성군', category: '충청남도', type: '홍성군' },
-  { id: '149', name: '충청남도 예산군', category: '충청남도', type: '예산군' },
-  { id: '150', name: '충청남도 태안군', category: '충청남도', type: '태안군' },
-  
-  // 전라북도
-  { id: '151', name: '전라북도 전주시', category: '전라북도', type: '전주시' },
-  { id: '152', name: '전라북도 군산시', category: '전라북도', type: '군산시' },
-  { id: '153', name: '전라북도 익산시', category: '전라북도', type: '익산시' },
-  { id: '154', name: '전라북도 정읍시', category: '전라북도', type: '정읍시' },
-  { id: '155', name: '전라북도 남원시', category: '전라북도', type: '남원시' },
-  { id: '156', name: '전라북도 김제시', category: '전라북도', type: '김제시' },
-  { id: '157', name: '전라북도 완주군', category: '전라북도', type: '완주군' },
-  { id: '158', name: '전라북도 진안군', category: '전라북도', type: '진안군' },
-  { id: '159', name: '전라북도 무주군', category: '전라북도', type: '무주군' },
-  { id: '160', name: '전라북도 장수군', category: '전라북도', type: '장수군' },
-  { id: '161', name: '전라북도 임실군', category: '전라북도', type: '임실군' },
-  { id: '162', name: '전라북도 순창군', category: '전라북도', type: '순창군' },
-  { id: '163', name: '전라북도 고창군', category: '전라북도', type: '고창군' },
-  { id: '164', name: '전라북도 부안군', category: '전라북도', type: '부안군' },
-  
-  // 전라남도
-  { id: '165', name: '전라남도 목포시', category: '전라남도', type: '목포시' },
-  { id: '166', name: '전라남도 여수시', category: '전라남도', type: '여수시' },
-  { id: '167', name: '전라남도 순천시', category: '전라남도', type: '순천시' },
-  { id: '168', name: '전라남도 나주시', category: '전라남도', type: '나주시' },
-  { id: '169', name: '전라남도 광양시', category: '전라남도', type: '광양시' },
-  { id: '170', name: '전라남도 담양군', category: '전라남도', type: '담양군' },
-  { id: '171', name: '전라남도 곡성군', category: '전라남도', type: '곡성군' },
-  { id: '172', name: '전라남도 구례군', category: '전라남도', type: '구례군' },
-  { id: '173', name: '전라남도 고흥군', category: '전라남도', type: '고흥군' },
-  { id: '174', name: '전라남도 보성군', category: '전라남도', type: '보성군' },
-  { id: '175', name: '전라남도 화순군', category: '전라남도', type: '화순군' },
-  { id: '176', name: '전라남도 장흥군', category: '전라남도', type: '장흥군' },
-  { id: '177', name: '전라남도 강진군', category: '전라남도', type: '강진군' },
-  { id: '178', name: '전라남도 해남군', category: '전라남도', type: '해남군' },
-  { id: '179', name: '전라남도 영암군', category: '전라남도', type: '영암군' },
-  { id: '180', name: '전라남도 무안군', category: '전라남도', type: '무안군' },
-  { id: '181', name: '전라남도 함평군', category: '전라남도', type: '함평군' },
-  { id: '182', name: '전라남도 영광군', category: '전라남도', type: '영광군' },
-  { id: '183', name: '전라남도 장성군', category: '전라남도', type: '장성군' },
-  { id: '184', name: '전라남도 완도군', category: '전라남도', type: '완도군' },
-  { id: '185', name: '전라남도 진도군', category: '전라남도', type: '진도군' },
-  { id: '186', name: '전라남도 신안군', category: '전라남도', type: '신안군' },
-  
-  // 경상북도
-  { id: '187', name: '경상북도 포항시', category: '경상북도', type: '포항시' },
-  { id: '188', name: '경상북도 경주시', category: '경상북도', type: '경주시' },
-  { id: '189', name: '경상북도 김천시', category: '경상북도', type: '김천시' },
-  { id: '190', name: '경상북도 안동시', category: '경상북도', type: '안동시' },
-  { id: '191', name: '경상북도 구미시', category: '경상북도', type: '구미시' },
-  { id: '192', name: '경상북도 영주시', category: '경상북도', type: '영주시' },
-  { id: '193', name: '경상북도 영천시', category: '경상북도', type: '영천시' },
-  { id: '194', name: '경상북도 상주시', category: '경상북도', type: '상주시' },
-  { id: '195', name: '경상북도 문경시', category: '경상북도', type: '문경시' },
-  { id: '196', name: '경상북도 경산시', category: '경상북도', type: '경산시' },
-  { id: '197', name: '경상북도 군위군', category: '경상북도', type: '군위군' },
-  { id: '198', name: '경상북도 의성군', category: '경상북도', type: '의성군' },
-  { id: '199', name: '경상북도 청송군', category: '경상북도', type: '청송군' },
-  { id: '200', name: '경상북도 영양군', category: '경상북도', type: '영양군' },
-  { id: '201', name: '경상북도 영덕군', category: '경상북도', type: '영덕군' },
-  { id: '202', name: '경상북도 청도군', category: '경상북도', type: '청도군' },
-  { id: '203', name: '경상북도 고령군', category: '경상북도', type: '고령군' },
-  { id: '204', name: '경상북도 성주군', category: '경상북도', type: '성주군' },
-  { id: '205', name: '경상북도 칠곡군', category: '경상북도', type: '칠곡군' },
-  { id: '206', name: '경상북도 예천군', category: '경상북도', type: '예천군' },
-  { id: '207', name: '경상북도 봉화군', category: '경상북도', type: '봉화군' },
-  { id: '208', name: '경상북도 울진군', category: '경상북도', type: '울진군' },
-  { id: '209', name: '경상북도 울릉군', category: '경상북도', type: '울릉군' },
-  
-  // 경상남도
-  { id: '210', name: '경상남도 창원시', category: '경상남도', type: '창원시' },
-  { id: '211', name: '경상남도 진주시', category: '경상남도', type: '진주시' },
-  { id: '212', name: '경상남도 통영시', category: '경상남도', type: '통영시' },
-  { id: '213', name: '경상남도 사천시', category: '경상남도', type: '사천시' },
-  { id: '214', name: '경상남도 김해시', category: '경상남도', type: '김해시' },
-  { id: '215', name: '경상남도 밀양시', category: '경상남도', type: '밀양시' },
-  { id: '216', name: '경상남도 거제시', category: '경상남도', type: '거제시' },
-  { id: '217', name: '경상남도 양산시', category: '경상남도', type: '양산시' },
-  { id: '218', name: '경상남도 의령군', category: '경상남도', type: '의령군' },
-  { id: '219', name: '경상남도 함안군', category: '경상남도', type: '함안군' },
-  { id: '220', name: '경상남도 창녕군', category: '경상남도', type: '창녕군' },
-  { id: '221', name: '경상남도 고성군', category: '경상남도', type: '고성군' },
-  { id: '222', name: '경상남도 남해군', category: '경상남도', type: '남해군' },
-  { id: '223', name: '경상남도 하동군', category: '경상남도', type: '하동군' },
-  { id: '224', name: '경상남도 산청군', category: '경상남도', type: '산청군' },
-  { id: '225', name: '경상남도 함양군', category: '경상남도', type: '함양군' },
-  { id: '226', name: '경상남도 거창군', category: '경상남도', type: '거창군' },
-  { id: '227', name: '경상남도 합천군', category: '경상남도', type: '합천군' },
-  
-  // 제주특별자치도
-  { id: '228', name: '제주특별자치도 제주시', category: '제주특별자치도', type: '제주시' },
-  { id: '229', name: '제주특별자치도 서귀포시', category: '제주특별자치도', type: '서귀포시' },
-  
-  // 기타
-  { id: '230', name: '기타 지역', category: '기타', type: '기타' }
-];
+
 
 // 경력 정보 데이터
 const experienceData = [
@@ -945,17 +677,7 @@ const SelectedExperienceTag = styled.div`
   font-weight: 500;
 `;
 
-const SelectedAddressTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #10b981;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
+
 
 // 학력 정보 관련 스타일드 컴포넌트
 const SchoolTypeFilter = styled.div`
@@ -1673,7 +1395,7 @@ const ResumePage: React.FC = () => {
   const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string}>>([]);
   
   // 주소 정보 상태
-  const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
+  
 
   // 학력 정보와 어학 능력 필터 상태
   const [schoolTypeFilter, setSchoolTypeFilter] = useState<string>('전체');
@@ -1754,29 +1476,7 @@ const ResumePage: React.FC = () => {
     }
   }, [formData.experience]);
 
-  // 저장된 주소 데이터를 selectedAddress로 변환
-  React.useEffect(() => {
-    if (formData.address) {
-      // 기존 주소 데이터가 있으면 AddressData 형태로 변환
-      const foundAddress = addressData.find(addr => addr.name === formData.address.trim());
-      if (foundAddress) {
-        const addressData: AddressData = {
-          id: foundAddress.id,
-          address_name: foundAddress.name,
-          address_type: 'ROAD_ADDR',
-          x: '127.0286',
-          y: '37.4979',
-          address: {
-            address_name: foundAddress.name,
-            region_1depth_name: foundAddress.category,
-            region_2depth_name: foundAddress.type,
-            region_3depth_name: ''
-          }
-        };
-        setSelectedAddress(addressData);
-      }
-    }
-  }, [formData.address]);
+
 
   // 저장된 기술 데이터를 selectedSkills로 변환
   React.useEffect(() => {
@@ -2183,7 +1883,7 @@ const ResumePage: React.FC = () => {
                 <strong>비자 유형:</strong> {formData.visaType || <EmptyText>입력되지 않음</EmptyText>}
               </PreviewText>
               <PreviewText>
-                <strong>주소:</strong> {selectedAddress ? selectedAddress.address_name : <EmptyText>입력되지 않음</EmptyText>}
+                <strong>주소:</strong> {formData.address || <EmptyText>입력되지 않음</EmptyText>}
               </PreviewText>
             </PreviewContent>
           </PreviewSection>
@@ -2369,33 +2069,17 @@ const ResumePage: React.FC = () => {
             </FormGroup>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>주소</FormLabel>
-              <AddressSearch
-                onAddressSelect={(address: AddressData) => {
-                  setSelectedAddress(address);
+              <PostcodeSearch
+                onAddressSelect={(address) => {
                   handleInputChange({
-                    target: { name: 'address', value: address.address_name }
+                    target: { name: 'address', value: address.address }
                   } as React.ChangeEvent<HTMLInputElement>);
                 }}
-                placeholder="주소를 검색하세요 (예: 서울특별시 강남구, 경기도 수원시)"
+                placeholder="주소를 검색하세요"
+                showDetailAddress={true}
+                showRoadAddress={true}
+                showJibunAddress={true}
               />
-              {selectedAddress && (
-                <SelectedCertificationsContainer>
-                  <SelectedAddressTag>
-                    {selectedAddress.address_name}
-                    <RemoveButton
-                      onClick={() => {
-                        setSelectedAddress(null);
-                        handleInputChange({
-                          target: { name: 'address', value: '' }
-                        } as React.ChangeEvent<HTMLInputElement>);
-                      }}
-                      aria-label={`${selectedAddress.address_name} 제거`}
-                    >
-                      ×
-                    </RemoveButton>
-                  </SelectedAddressTag>
-                </SelectedCertificationsContainer>
-              )}
             </FormGroup>
           </ResumeForm>
         </ResumeSection>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { VisaInfo, VISA_TYPE_OPTIONS } from '../../types/visa';
-import AddressSearch from '../AddressSearch';
-import { AddressData } from '../../services/kakaoAddressService';
+import PostcodeSearch from '../PostcodeSearch';
+
 import '../../styles/SignupForm.css';
 
 interface SignupFormProps {
@@ -27,7 +27,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
+
   const [visaInfo, setVisaInfo] = useState<VisaInfo>({
     hasVisa: false,
     visaType: '',
@@ -97,11 +97,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
     }
   };
 
-  const handleAddressSelect = (addressData: AddressData) => {
-    setSelectedAddress(addressData);
-    setAddress(addressData.address_name);
-    setAddressError('');
-  };
+
 
   const handleVisaChange = (field: keyof VisaInfo, value: string | boolean) => {
     const newVisaInfo = { ...visaInfo, [field]: value };
@@ -244,17 +240,18 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
 
       <div className="input-group">
         <label className="input-label">주소</label>
-        <AddressSearch
-          onAddressSelect={handleAddressSelect}
+        <PostcodeSearch
+          onAddressSelect={(address) => {
+            setAddress(address.address);
+            setAddressError('');
+          }}
           placeholder="주소를 검색하세요"
           disabled={isLoading}
+          showDetailAddress={true}
+          showRoadAddress={true}
+          showJibunAddress={true}
         />
         {addressError && <div className="error-message">{addressError}</div>}
-        {selectedAddress && (
-          <div className="selected-address">
-            <span>선택된 주소: {selectedAddress.address_name}</span>
-          </div>
-        )}
       </div>
 
       {/* 비자 정보 섹션 */}

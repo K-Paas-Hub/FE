@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MainHeader, MainFooter } from '../';
-import AddressSearch from '../AddressSearch';
+import PostcodeSearch from '../PostcodeSearch';
 import useOAuth from '../../hooks/useOAuth';
 import { OAuthAdditionalInfo } from '../../types/oauth';
 import {
@@ -243,12 +243,7 @@ const GoogleOAuthForm: React.FC = () => {
     }
   };
 
-  const handleAddressSelect = (address: any) => {
-    setFormData(prev => ({
-      ...prev,
-      address: address.address_name
-    }));
-  };
+
 
   const validateForm = (): boolean => {
     const errors: Record<string, string> = {};
@@ -376,12 +371,18 @@ const GoogleOAuthForm: React.FC = () => {
 
           <FormGroup>
             <FormLabel>주소</FormLabel>
-            <div style={{ position: 'relative' }}>
-              <AddressSearch
-                onAddressSelect={handleAddressSelect}
-                placeholder="주소를 검색하세요"
-              />
-            </div>
+            <PostcodeSearch
+              onAddressSelect={(address) => {
+                setFormData(prev => ({
+                  ...prev,
+                  address: address.address
+                }));
+              }}
+              placeholder="주소를 검색하세요"
+              showDetailAddress={true}
+              showRoadAddress={true}
+              showJibunAddress={true}
+            />
             {validationErrors.address && (
               <ErrorMessage>{validationErrors.address}</ErrorMessage>
             )}

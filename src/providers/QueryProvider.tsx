@@ -8,7 +8,7 @@ const queryClient = new QueryClient({
       // 기본 설정
       staleTime: 5 * 60 * 1000, // 5분
       gcTime: 10 * 60 * 1000, // 10분 (v5에서 cacheTime -> gcTime)
-      retry: (failureCount, error) => {
+      retry: (failureCount: number, error: unknown) => {
         // 최대 3번 재시도
         if (failureCount >= 3) return false;
         
@@ -24,7 +24,7 @@ const queryClient = new QueryClient({
         
         return true;
       },
-      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+      retryDelay: (attemptIndex: number) => Math.min(1000 * 2 ** attemptIndex, 30000),
       refetchOnWindowFocus: false, // 창 포커스 시 자동 재검색 비활성화
       refetchOnReconnect: true, // 네트워크 재연결 시 재검색
     },
