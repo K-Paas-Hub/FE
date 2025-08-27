@@ -914,6 +914,16 @@
     "confirm": "Confirm"
   },
   "resume": {
+    "title": "Resume Writing",
+    "subtitle": "Customized resume writing for foreign workers",
+    "sections": {
+      "basicInfo": "Basic Information",
+      "education": "Education",
+      "experience": "Experience",
+      "skills": "Skills & Certificates",
+      "languages": "Language Skills",
+      "introduction": "Self-Introduction"
+    },
     "form": {
       "namePlaceholder": "Enter your name",
       "emailPlaceholder": "Enter your email",
@@ -925,6 +935,35 @@
       "certificatePlaceholder": "Search for certificates (e.g., Information Processing Engineer, TOEIC, AWS)",
       "languagePlaceholder": "Search for language skills (e.g., TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Enter your self-introduction (include growth process, motivation for application, aspirations, etc.)"
+    },
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "nationality": "Nationality",
+      "visaType": "Visa Type",
+      "address": "Address",
+      "school": "School",
+      "major": "Major",
+      "graduationYear": "Graduation Year",
+      "company": "Company",
+      "position": "Position",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "description": "Job Description",
+      "skills": "Skills",
+      "certificates": "Certificates",
+      "languages": "Language Skills",
+      "introduction": "Self-Introduction"
+    },
+    "placeholders": {
+      "selectNationality": "Select your nationality",
+      "selectVisaType": "Select your visa type"
+    },
+    "actions": {
+      "save": "Save",
+      "preview": "Preview",
+      "submit": "Submit"
     }
   },
   "oauth": {
@@ -982,6 +1021,17 @@
     "loadingResumeData": "Loading resume data...",
     "savedResumeMessage": "This is your saved self-introduction. Please modify and check.",
     "defaultIntroduction": "Hello. I am a foreign worker. I want to work in Korea.",
-    "loadResumeDataError": "Failed to load resume data"
+    "loadResumeDataError": "Failed to load resume data",
+    "resumeSpecific": {
+      "resultsTitle": "Resume Spell Check Results",
+      "improvementSuggestions": "Improvement Suggestions",
+      "score": "points",
+      "categories": {
+        "honorific": "Honorific Usage",
+        "tabooWords": "Taboo Words",
+        "sentenceLength": "Sentence Length",
+        "paragraphStructure": "Paragraph Structure"
+      }
+    }
   }
 }

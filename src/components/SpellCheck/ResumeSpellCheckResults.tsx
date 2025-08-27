@@ -46,7 +46,7 @@ const ResumeSpellCheckResults: React.FC<ResumeSpellCheckResultsProps> = ({ resul
         </ResumeResultsTitle>
         <ResumeResultsScore>
           <DynamicScore $score={result.overallResumeScore}>
-            {result.overallResumeScore}점
+            {result.overallResumeScore}{t('spellCheck.resumeSpecific.score')}
           </DynamicScore>
         </ResumeResultsScore>
       </ResumeResultsHeader>
@@ -64,7 +64,7 @@ const ResumeSpellCheckResults: React.FC<ResumeSpellCheckResultsProps> = ({ resul
               </ResumeCategoryName>
               <ResumeCategoryScore>
                 <DynamicScore $score={score}>
-                  {score}점
+                  {score}{t('spellCheck.resumeSpecific.score')}
                 </DynamicScore>
               </ResumeCategoryScore>
               
