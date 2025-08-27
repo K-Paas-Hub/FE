@@ -2350,7 +2350,6 @@ const ResumePage: React.FC = () => {
                               <TimelineSkillInfo>
                                 <TimelineSkillName>
                                   {skill.name}
-                                  {skill.level && <span style={{ color: '#4ade80', fontWeight: '600' }}> {skill.level}</span>}
                                 </TimelineSkillName>
                                 <TimelineSkillCategory>{skill.category}</TimelineSkillCategory>
                               </TimelineSkillInfo>
@@ -2478,7 +2477,6 @@ const ResumePage: React.FC = () => {
                               <TimelineCertificationInfo>
                                 <TimelineCertificationName>
                                   {certification.name}
-                                  {certification.grade && <span style={{ color: '#4ade80', fontWeight: '600' }}> {certification.grade}</span>}
                                 </TimelineCertificationName>
                                 <TimelineCertificationCategory>{certification.category}</TimelineCertificationCategory>
                               </TimelineCertificationInfo>
