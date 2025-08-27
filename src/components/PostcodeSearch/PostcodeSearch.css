@@ -14,10 +14,10 @@
 
 .postcode-search-input {
   flex: 1;
-  padding: 16px 20px;
+  padding: 12px 16px;
   border: 1px solid #e5e8eb;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 14px;
   background-color: #ffffff;
   color: #191f28;
   cursor: pointer;
@@ -45,17 +45,17 @@
 }
 
 .postcode-search-button {
-  padding: 16px 24px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
   background-color: #3182f6;
   color: white;
-  min-width: 100px;
+  min-width: 80px;
 }
 
 .postcode-search-button:hover:not(:disabled) {
@@ -73,39 +73,29 @@
 }
 
 .postcode-address-details {
-  background-color: #f8fafc;
+  background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 20px;
   margin-top: 20px;
 }
 
 .postcode-zonecode {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   color: #3182f6;
-  margin-bottom: 16px;
-  padding: 12px 16px;
-  background-color: #eff6ff;
-  border-radius: 12px;
-  border-left: 4px solid #3182f6;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.postcode-zonecode::before {
-  content: "📮";
-  font-size: 16px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  border-left: 3px solid #3182f6;
 }
 
 .postcode-road-address,
 .postcode-jibun-address {
   margin-bottom: 12px;
-  padding: 16px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
   color: #191f28;
   font-size: 15px;
   line-height: 1.5;
@@ -127,16 +117,16 @@
   display: block;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-size: 15px;
 }
 
 .postcode-detail-input {
   width: 100%;
-  padding: 16px 20px;
+  padding: 12px 16px;
   border: 1px solid #e5e8eb;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 14px;
   background-color: #ffffff;
   color: #191f28;
   transition: all 0.2s ease;
@@ -158,16 +148,8 @@
   padding: 12px 16px;
   background-color: #fef3c7;
   border: 1px solid #fde68a;
-  border-radius: 12px;
+  border-radius: 8px;
   color: #92400e;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.postcode-building-name::before {
-  content: "🏢";
   font-size: 14px;
 }
 
@@ -178,20 +160,15 @@
 }
 
 .postcode-complete-address {
-  margin-top: 20px;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px;
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.6;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-}
-
-.postcode-complete-address::before {
-  content: "📍 ";
-  margin-right: 8px;
+  margin-top: 16px;
+  padding: 10px 14px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #191f28;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 /* 레이어 모드 스타일 */
@@ -212,7 +189,7 @@
 
 .postcode-layer-container {
   background-color: #ffffff;
-  border-radius: 20px;
+  border-radius: 12px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 600px;
@@ -226,15 +203,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 28px;
+  padding: 20px 24px;
   border-bottom: 1px solid #e2e8f0;
   background-color: #f8fafc;
 }
 
 .postcode-layer-header h3 {
   margin: 0;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   color: #191f28;
 }
 
@@ -274,18 +251,18 @@
 
   .postcode-search-button {
     width: 100%;
-    padding: 16px 20px;
-    font-size: 16px;
+    padding: 12px 20px;
+    font-size: 14px;
   }
 
   .postcode-layer-container {
     margin: 10px;
     max-height: 90vh;
-    border-radius: 16px;
+    border-radius: 12px;
   }
 
   .postcode-layer-header {
-    padding: 20px 24px;
+    padding: 16px 20px;
   }
 
   .postcode-layer-content {
@@ -293,7 +270,7 @@
   }
 
   .postcode-address-details {
-    padding: 20px;
+    padding: 16px;
   }
 }
 
@@ -304,12 +281,12 @@
 
   .postcode-address-details {
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   .postcode-zonecode {
-    font-size: 18px;
-    padding: 10px 14px;
+    font-size: 13px;
+    padding: 8px 12px;
   }
 
   .postcode-layer-overlay {
@@ -318,7 +295,7 @@
 
   .postcode-road-address,
   .postcode-jibun-address {
-    padding: 12px;
+    padding: 10px 0;
     font-size: 14px;
   }
 }
