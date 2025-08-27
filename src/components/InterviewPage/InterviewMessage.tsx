@@ -1,7 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Message } from './InterviewChat';
-import '../../styles/InterviewMessage.css';
+import {
+  MessageContainer,
+  MessageContent,
+  MessageAvatar,
+  AvatarIcon,
+  MessageBubble,
+  MessageText,
+  RecommendedTime,
+  TimeIcon,
+  MessageTimestamp
+} from '../../styles/components/InterviewMessage.styles';
 
 interface InterviewMessageProps {
   message: Message;
@@ -12,37 +22,37 @@ const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
   const isSystem = message.type === 'system';
 
   return (
-    <div className={`message-container ${isSystem ? 'system' : 'user'}`}>
-      <div className="message-content">
+    <MessageContainer messageType={isSystem ? 'system' : 'user'}>
+      <MessageContent>
         {isSystem && (
-          <div className="message-avatar">
-            <img src="/images/chatbot.png" alt="Chatbot" className="avatar-icon" />
-          </div>
+          <MessageAvatar>
+            <AvatarIcon src="/images/chatbot.png" alt="Chatbot" />
+          </MessageAvatar>
         )}
         
-        <div className="message-bubble">
-          <div className="message-text">
+        <MessageBubble messageType={isSystem ? 'system' : 'user'}>
+          <MessageText messageType={isSystem ? 'system' : 'user'}>
             {message.content.split('\n').map((line, index) => (
               <React.Fragment key={index}>
                 {line}
                 {index < message.content.split('\n').length - 1 && <br />}
               </React.Fragment>
             ))}
-          </div>
+          </MessageText>
           
           {message.recommendedTime && (
-            <div className="recommended-time">
-              <span className="time-icon">⏱️</span>
+            <RecommendedTime messageType={isSystem ? 'system' : 'user'}>
+              <TimeIcon>⏱️</TimeIcon>
               {t('interview.message.recommendedTime')}: {message.recommendedTime}
-            </div>
+            </RecommendedTime>
           )}
-        </div>
-      </div>
+        </MessageBubble>
+      </MessageContent>
       
-      <div className="message-timestamp">
+      <MessageTimestamp messageType={isSystem ? 'system' : 'user'}>
         {message.timestamp}
-      </div>
-    </div>
+      </MessageTimestamp>
+    </MessageContainer>
   );
 };
 

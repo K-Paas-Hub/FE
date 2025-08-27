@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../../styles/InterviewInput.css';
+import {
+  InterviewInputContainer,
+  InputForm,
+  InputWrapper,
+  MessageInput,
+  InputActions,
+  ActionButton,
+  MicIcon,
+  SendIcon
+} from '../../styles/components/InterviewInput.styles';
 
 interface InterviewInputProps {
   onSendMessage: (message: string) => void;
@@ -26,28 +35,27 @@ const InterviewInput: React.FC<InterviewInputProps> = ({ onSendMessage }) => {
   };
 
   return (
-    <div className="interview-input-container">
-      <form onSubmit={handleSubmit} className="input-form">
-        <div className="input-wrapper">
-          <textarea
+    <InterviewInputContainer>
+      <InputForm onSubmit={handleSubmit}>
+        <InputWrapper>
+          <MessageInput
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder={t('interview.input.placeholder')}
-            className="message-input"
             rows={1}
           />
-          <div className="input-actions">
-            <button type="button" className="action-button mic-button">
-              <img src="/images/microphone.png" alt="Microphone" className="mic-icon" />
-            </button>
-            <button type="submit" className="action-button send-button">
-              <img src="/images/send-message.png" alt="Send" className="send-icon" />
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+          <InputActions>
+            <ActionButton type="button" variant="mic">
+              <MicIcon src="/images/microphone.png" alt="Microphone" />
+            </ActionButton>
+            <ActionButton type="submit" variant="send">
+              <SendIcon src="/images/send-message.png" alt="Send" />
+            </ActionButton>
+          </InputActions>
+        </InputWrapper>
+      </InputForm>
+    </InterviewInputContainer>
   );
 };
 

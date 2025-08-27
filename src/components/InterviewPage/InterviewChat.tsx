@@ -2,7 +2,20 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import InterviewMessage from './InterviewMessage';
 import InterviewInput from './InterviewInput';
-import '../../styles/InterviewChat.css';
+import {
+  InterviewChat as StyledInterviewChat,
+  ChatMessages,
+  WelcomeSection,
+  WelcomeCard,
+  WelcomeIcon,
+  WelcomeImage,
+  WelcomeTitle,
+  WelcomeDescription,
+  WelcomeFeatures,
+  FeatureItem,
+  FeatureIcon,
+  StartInterviewButton
+} from '../../styles/components/InterviewChat.styles';
 
 export interface Message {
   id: string;
@@ -176,52 +189,52 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
   };
 
   return (
-    <div className="interview-chat">
-      <div className="chat-messages">
+    <StyledInterviewChat>
+      <ChatMessages>
         {messages.map((message) => (
           <InterviewMessage key={message.id} message={message} />
         ))}
         
         {!isInterviewStarted && (
-          <div className="welcome-section">
-            <div className="welcome-card">
-              <div className="welcome-icon">
-                <img src="/images/ai.png" alt="AI" className="welcome-image" />
-              </div>
-              <h3>{t('interviewChat.welcomeSection.title')}</h3>
-              <p>{t('interviewChat.welcomeSection.subtitle')}</p>
-              <div className="welcome-features">
-                <div className="feature-item">
-                  <img src="/images/setting.png" alt="Settings" className="feature-icon" />
+          <WelcomeSection>
+            <WelcomeCard>
+              <WelcomeIcon>
+                <WelcomeImage src="/images/ai.png" alt="AI" />
+              </WelcomeIcon>
+              <WelcomeTitle>{t('interviewChat.welcomeSection.title')}</WelcomeTitle>
+              <WelcomeDescription>{t('interviewChat.welcomeSection.subtitle')}</WelcomeDescription>
+              <WelcomeFeatures>
+                <FeatureItem>
+                  <FeatureIcon src="/images/setting.png" alt="Settings" />
                   <span>{t('interviewChat.welcomeSection.features.settings')}</span>
-                </div>
-                <div className="feature-item">
-                  <img src="/images/ai.png" alt="AI" className="feature-icon" />
+                </FeatureItem>
+                <FeatureItem>
+                  <FeatureIcon src="/images/ai.png" alt="AI" />
                   <span>{t('interviewChat.welcomeSection.features.aiInterview')}</span>
-                </div>
-                <div className="feature-item">
-                  <img src="/images/interview.png" alt="Interview" className="feature-icon" />
+                </FeatureItem>
+                <FeatureItem>
+                  <FeatureIcon src="/images/interview.png" alt="Interview" />
                   <span>{t('interviewChat.welcomeSection.features.timeGuide')}</span>
-                </div>
-                <div className="feature-item">
-                  <img src="/images/result.png" alt="Result" className="feature-icon" />
+                </FeatureItem>
+                <FeatureItem>
+                  <FeatureIcon src="/images/result.png" alt="Result" />
                   <span>{t('interviewChat.welcomeSection.features.analysis')}</span>
-                </div>
-              </div>
-              <button className="start-interview-button" onClick={onStartInterview}>
+                </FeatureItem>
+              </WelcomeFeatures>
+              <StartInterviewButton onClick={onStartInterview}>
                 {t('interviewChat.welcomeSection.startButton')}
-              </button>
-            </div>
-          </div>
+              </StartInterviewButton>
+            </WelcomeCard>
+          </WelcomeSection>
         )}
         
         <div ref={messagesEndRef} />
-      </div>
+      </ChatMessages>
       
       {isInterviewStarted && (
         <InterviewInput onSendMessage={handleSendMessage} />
       )}
-    </div>
+    </StyledInterviewChat>
   );
 };
 

@@ -4,7 +4,31 @@ import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 import InterviewChat from './InterviewChat';
 import InterviewSettings from './InterviewSettings';
-import '../../styles/InterviewPage.css';
+import {
+  InterviewPage as StyledInterviewPage,
+  InterviewContainer,
+  InterviewSidebar,
+  SidebarHeader,
+  InterviewLogo,
+  AiLogo,
+  InterviewLogoTitle,
+  InterviewStatus,
+  StatusIndicator,
+  SidebarContent,
+  InterviewInfo,
+  InfoItem,
+  InfoLabel,
+  InfoValue,
+  SidebarActions,
+  SidebarButton,
+  ButtonIcon,
+  InterviewMain,
+  MainHeader as StyledMainHeader,
+  HeaderLeft,
+  HeaderActions,
+  HeaderButton,
+  HeaderIcon
+} from '../../styles/components/InterviewPage.styles';
 
 interface InterviewConfig {
   difficulty: string;
@@ -124,90 +148,90 @@ const InterviewPage: React.FC = () => {
   };
 
   return (
-    <div className="interview-page">
+    <StyledInterviewPage>
       <MainHeader />
-      <div className="interview-container">
-        <div className="interview-sidebar">
-          <div className="sidebar-header">
-            <div className="interview-logo">
-              <img src="/images/ai.png" alt="AI" className="ai-logo" />
-              <h2>{t('interview.aiInterviewer')}</h2>
-            </div>
-            <div className="interview-status">
-              <div className="status-indicator online"></div>
+      <InterviewContainer>
+        <InterviewSidebar>
+          <SidebarHeader>
+            <InterviewLogo>
+              <AiLogo src="/images/ai.png" alt="AI" />
+              <InterviewLogoTitle>{t('interview.aiInterviewer')}</InterviewLogoTitle>
+            </InterviewLogo>
+            <InterviewStatus>
+              <StatusIndicator />
               <span>{t('interview.online')}</span>
-            </div>
-          </div>
+            </InterviewStatus>
+          </SidebarHeader>
           
-          <div className="sidebar-content">
-            <div className="interview-info">
+          <SidebarContent>
+            <InterviewInfo>
               <h3>{t('interview.interviewInfo')}</h3>
-              <div className="info-item">
-                <span className="info-label">{t('interview.difficulty')}:</span>
-                <span className="info-value">{getDifficultyText()}</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">{t('interview.questionCount')}:</span>
-                <span className="info-value">{settings.questionCount}{t('common.count', '개')}</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">{t('interview.estimatedTime')}:</span>
-                <span className="info-value">{getEstimatedTimeText()}</span>
-              </div>
-            </div>
+              <InfoItem>
+                <InfoLabel>{t('interview.difficulty')}:</InfoLabel>
+                <InfoValue>{getDifficultyText()}</InfoValue>
+              </InfoItem>
+              <InfoItem>
+                <InfoLabel>{t('interview.questionCount')}:</InfoLabel>
+                <InfoValue>{settings.questionCount}{t('common.count', '개')}</InfoValue>
+              </InfoItem>
+              <InfoItem>
+                <InfoLabel>{t('interview.estimatedTime')}:</InfoLabel>
+                <InfoValue>{getEstimatedTimeText()}</InfoValue>
+              </InfoItem>
+            </InterviewInfo>
             
-            <div className="sidebar-actions">
-              <button 
-                className="sidebar-button primary"
+            <SidebarActions>
+              <SidebarButton 
+                variant="primary"
                 onClick={handleStartInterview}
               >
-                <img src="/images/interview.png" alt="Interview" className="button-icon" />
+                <ButtonIcon src="/images/interview.png" alt="Interview" />
                 {isInterviewStarted ? t('interview.actions.restartInterview') : t('interview.actions.startInterview')}
-              </button>
-              <button className="sidebar-button secondary">
-                <img src="/images/result.png" alt="Result" className="button-icon" />
+              </SidebarButton>
+              <SidebarButton variant="secondary">
+                <ButtonIcon src="/images/result.png" alt="Result" />
                 {t('interview.actions.viewResult')}
-              </button>
-              <button 
-                className="sidebar-button secondary"
+              </SidebarButton>
+              <SidebarButton 
+                variant="secondary"
                 onClick={() => setShowSettings(true)}
               >
-                <img src="/images/setting.png" alt="Settings" className="button-icon" />
+                <ButtonIcon src="/images/setting.png" alt="Settings" />
                 {t('interview.actions.settings')}
-              </button>
-            </div>
-          </div>
-        </div>
+              </SidebarButton>
+            </SidebarActions>
+          </SidebarContent>
+        </InterviewSidebar>
         
-        <div className="interview-main">
-          <div className="main-header">
-            <div className="header-left">
+        <InterviewMain>
+          <StyledMainHeader>
+            <HeaderLeft>
               <h1>{t('interview.title')}</h1>
               <p>{t('interview.subtitle')}</p>
-            </div>
-            <div className="header-actions">
-              <button className="header-button" onClick={handleCopy}>
-                <img src="/images/copy.png" alt="Copy" className="header-icon" />
+            </HeaderLeft>
+            <HeaderActions>
+              <HeaderButton onClick={handleCopy}>
+                <HeaderIcon src="/images/copy.png" alt="Copy" />
                 {t('interview.actions.copy')}
-              </button>
-              <button className="header-button" onClick={handleExport}>
-                <img src="/images/upload.png" alt="Export" className="header-icon" />
+              </HeaderButton>
+              <HeaderButton onClick={handleExport}>
+                <HeaderIcon src="/images/upload.png" alt="Export" />
                 {t('interview.actions.export')}
-              </button>
-              <button className="header-button close" onClick={handleCloseChat}>
-                <span className="header-icon">×</span>
+              </HeaderButton>
+              <HeaderButton variant="close" onClick={handleCloseChat}>
+                <span>×</span>
                 {t('interview.actions.closeChat')}
-              </button>
-            </div>
-          </div>
+              </HeaderButton>
+            </HeaderActions>
+          </StyledMainHeader>
           
           <InterviewChat 
             settings={settings}
             isInterviewStarted={isInterviewStarted}
             onStartInterview={handleStartInterview}
           />
-        </div>
-      </div>
+        </InterviewMain>
+      </InterviewContainer>
 
       {showSettings && (
         <InterviewSettings
@@ -218,7 +242,7 @@ const InterviewPage: React.FC = () => {
       )}
       
       <MainFooter />
-    </div>
+    </StyledInterviewPage>
   );
 };
 
