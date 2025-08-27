@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import LoginForm from './LoginForm';
 import Footer from '../MainFooter';
 import '../../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isFormLoading, setIsFormLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
@@ -18,7 +20,7 @@ const LoginPage: React.FC = () => {
       navigate('/oauth/additional-info');
     } catch (error) {
       console.error('Google login error:', error);
-      alert('구글 로그인 중 오류가 발생했습니다.');
+      alert(t('auth.googleLoginError'));
     } finally {
       setIsGoogleLoading(false);
     }
@@ -40,7 +42,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-content">
-        <h1 className="login-title">로그인</h1>
+        <h1 className="login-title">{t('auth.loginTitle')}</h1>
         <LoginForm 
           onSubmit={handleFormLogin} 
           isLoading={isFormLoading || isGoogleLoading}

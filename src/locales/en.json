@@ -15,7 +15,8 @@
     "close": "Close",
     "user": "User",
     "minutes": "min",
-    "count": ""
+    "count": "",
+    "korean": "Korean"
   },
   "auth": {
     "welcome": "Welcome to FairWork",
@@ -25,6 +26,8 @@
     "loginLoading": "Signing in...",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
+    "loginTitle": "Login",
+    "googleLoginError": "An error occurred during Google login.",
     "signup": {
       "idLabel": "ID",
       "idPlaceholder": "Please enter your ID",

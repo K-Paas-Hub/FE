@@ -100,7 +100,7 @@ const MainHeaderComponent: React.FC = () => {
 
   const getCurrentLanguageName = () => {
     const currentLang = getCurrentLanguage();
-    return currentLang ? currentLang.name : '한국어';
+    return currentLang ? currentLang.name : t('common.korean');
   };
 
   // 이력서 관련 페이지인지 확인
@@ -209,8 +209,8 @@ const MainHeaderComponent: React.FC = () => {
                   {t('header.resumeWriting')}
                 </DropdownItem>
                   <DropdownItem to="/spell-check">
-                    <DropdownItemIcon src="/images/search.png" alt="맞춤법 검사" />
-                    맞춤법 검사
+                    <DropdownItemIcon src="/images/search.png" alt={t('header.spellCheck')} />
+                    {t('header.spellCheck')}
                 </DropdownItem>
               </DropdownMenu>
             </DropdownContainer>

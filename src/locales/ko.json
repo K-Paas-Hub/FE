@@ -15,7 +15,8 @@
     "close": "닫기",
     "user": "사용자",
     "minutes": "분",
-    "count": "개"
+    "count": "개",
+    "korean": "한국어"
   },
   "auth": {
     "welcome": "FairWork에 오신 걸 환영합니다",
@@ -25,6 +26,8 @@
     "loginLoading": "로그인 중...",
     "termsOfService": "이용약관",
     "privacyPolicy": "개인정보 보호 정책",
+    "loginTitle": "로그인",
+    "googleLoginError": "구글 로그인 중 오류가 발생했습니다.",
     "signup": {
       "idLabel": "아이디",
       "idPlaceholder": "아이디를 입력해주세요",
