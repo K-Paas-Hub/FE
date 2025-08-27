@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import AddressSearch from '../AddressSearch';
@@ -98,6 +97,30 @@ import {
   TimelineSkillCard,
   TimelineSkillHeader,
   TimelineSkillIcon,
+  CertificationSearchContainer,
+  CertificationDropdown,
+  CertificationOption,
+  CertificationName,
+  CertificationCategory,
+  SelectedCertificationsContainer,
+  RemoveButton,
+  NoResultsText,
+  LanguageLevelSelect,
+  NoResultsCard,
+  EducationTimeline,
+  TimelineTitle,
+  TimelineContainer,
+  TimelineItem,
+  TimelineContent,
+  TimelineSchoolCard,
+  TimelineSchoolHeader,
+  TimelineSchoolIcon,
+  TimelineSchoolInfo,
+  TimelineSchoolName,
+  TimelineSchoolCategory,
+  TimelineRemoveButton,
+  TimelineSchoolBody,
+  StatusSelect,
   TimelineSkillInfo,
   TimelineSkillName,
   TimelineSkillCategory,
@@ -798,252 +821,6 @@ const skillData = [
   { id: '54', name: 'Power BI', category: '기타', description: '비즈니스 인텔리전스', levels: ['초급', '중급', '고급', '전문가'] },
   { id: '55', name: 'Tableau', category: '기타', description: '데이터 시각화 도구', levels: ['초급', '중급', '고급', '전문가'] }
 ];
-
-
-
-// 자격증 검색 드롭다운 스타일
-const CertificationSearchContainer = styled.div`
-  position: relative;
-  width: 100%;
-  min-width: 300px;
-`;
-
-const CertificationDropdown = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #d1d5db;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 1000;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  min-width: 100%;
-  width: 100%;
-`;
-
-const CertificationOption = styled.div`
-  padding: 0.75rem;
-  cursor: pointer;
-  border-bottom: 1px solid #f3f4f6;
-  min-height: 44px;
-  display: flex;
-  flex-direction: column;
-  
-  &:hover {
-    background-color: #f9fafb;
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-
-
-const CertificationName = styled.span`
-  font-weight: 500;
-  color: #374151;
-`;
-
-const CertificationCategory = styled.span`
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
-`;
-
-const SelectedCertificationsContainer = styled.div`
-  margin-top: 1rem;
-`;
-
-
-
-const RemoveButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  margin-left: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0;
-  min-width: 20px;
-  min-height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const NoResultsText = styled.div`
-  padding: 1rem;
-  text-align: center;
-  color: #6b7280;
-  font-style: italic;
-`;
-
-// 어학 능력 레벨 선택 스타일
-const LanguageLevelSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  background: white;
-  color: #374151;
-  margin-left: 0.125rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-  }
-`;
-
-
-
-
-
-
-
-const NoResultsCard = styled.div`
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 2rem;
-  color: #6b7280;
-  font-style: italic;
-`;
-
-const EducationTimeline = styled.div`
-  margin-top: 1.5rem;
-`;
-
-const TimelineTitle = styled.h4`
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 1rem;
-`;
-
-const TimelineContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const TimelineItem = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: 1.5rem;
-    top: 2.5rem;
-    bottom: -1rem;
-    width: 2px;
-    background: #e5e7eb;
-  }
-  
-  &:last-child::before {
-    display: none;
-  }
-`;
-
-
-
-const TimelineContent = styled.div`
-  flex: 1;
-`;
-
-const TimelineSchoolCard = styled.div`
-  background: #f9fafb;
-  border-radius: 6px;
-  padding: 0.75rem;
-`;
-
-const TimelineSchoolHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const TimelineSchoolIcon = styled.span`
-  font-size: 1.25rem;
-`;
-
-const TimelineSchoolInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
-`;
-
-const TimelineSchoolName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const TimelineSchoolCategory = styled.div`
-  font-size: 0.75rem;
-  color: #6b7280;
-`;
-
-const TimelineRemoveButton = styled.button`
-  background: none;
-  color: #6b7280;
-  border: none;
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  
-  &:hover {
-    color: #374151;
-    background: #f3f4f6;
-  }
-`;
-
-const TimelineSchoolBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const StatusSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  background: white;
-  color: #374151;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-  }
-`;
-
-
-
-
-
-
 
 
 
