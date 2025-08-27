@@ -1199,6 +1199,7 @@ export const NoResultsText = styled.div`
   font-style: italic;
 `;
 
+// 어학 능력 레벨 선택 스타일
 export const LanguageLevelSelect = styled.select`
   padding: 0.25rem 0.5rem;
   border: 1px solid #d1d5db;
@@ -1214,7 +1215,6 @@ export const LanguageLevelSelect = styled.select`
   &:focus {
     outline: none;
     border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
   }
 `;
 
@@ -1311,17 +1311,18 @@ export const TimelineRemoveButton = styled.button`
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  font-weight: bold;
   
   &:hover {
+    color: #374151;
     background: #f3f4f6;
-    color: #ef4444;
   }
 `;
 
 export const TimelineSchoolBody = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 export const StatusSelect = styled.select`
@@ -1331,7 +1332,7 @@ export const StatusSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.125rem;
+  margin-left: 0.5rem;
   margin-right: 0.5rem;
   align-self: flex-start;
   margin-top: -0.125rem;
@@ -1339,7 +1340,6 @@ export const StatusSelect = styled.select`
   &:focus {
     outline: none;
     border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
   }
 `;
 
