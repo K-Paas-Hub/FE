@@ -142,14 +142,20 @@ export const RefreshButton = styled.button`
   border: none;
   color: ${theme.colors.textSecondary};
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: ${theme.radius.sm};
+  padding: 0.8rem 1.2rem;
+  border-radius: ${theme.radius.md};
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: ${theme.typography.fontSize.sm};
   
   &:hover {
     background: ${theme.colors.backgroundGray};
+  }
+  
+  ${theme.media.tablet} {
+    padding: 0.6rem 1rem;
+    font-size: ${theme.typography.fontSize.xs};
   }
 `;
 

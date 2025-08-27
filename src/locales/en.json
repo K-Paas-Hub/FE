@@ -887,5 +887,16 @@
       "languagePlaceholder": "Search for language skills (e.g., TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Enter your self-introduction (include growth process, motivation for application, aspirations, etc.)"
     }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "Enter your answer..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "Enter your phone number",
+      "addressPlaceholder": "Search for address"
+    }
   }
 }

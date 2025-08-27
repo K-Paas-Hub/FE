@@ -847,5 +847,16 @@
       "languagePlaceholder": "Tìm kiếm kỹ năng ngôn ngữ (ví dụ: TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Nhập lời giới thiệu bản thân (bao gồm quá trình phát triển, động lực ứng tuyển, hoài bão, v.v.)"
     }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "Nhập câu trả lời của bạn..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "Nhập số điện thoại của bạn",
+      "addressPlaceholder": "Tìm kiếm địa chỉ"
+    }
   }
 }
