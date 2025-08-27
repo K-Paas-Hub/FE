@@ -12,7 +12,8 @@ import {
   BlogTitle,
   BlogExcerpt,
   SectionTitle,
-  BlogCard
+  BlogCard,
+  HighlightText
 } from '../../styles/components/BlogSection.styles';
 
 interface BlogPost {
@@ -36,9 +37,9 @@ const BlogSection: React.FC = () => {
         transition={{ duration: ANIMATIONS.duration.slow }}
         viewport={{ once: true }}
       >
-        <span className="highlight" style={{ fontSize: '2.0rem', fontWeight: '600' }}>{t('blogSection.title.weAre')}</span><br />
+        <HighlightText>{t('blogSection.title.weAre')}</HighlightText><br />
         {t('blogSection.title.dreamReality')}<br />
-        <span className="highlight">{t('blogSection.title.partner')}</span>
+        <HighlightText>{t('blogSection.title.partner')}</HighlightText>
       </SectionTitle>
       <BlogGrid>
         {blogPosts.map((post, index) => (

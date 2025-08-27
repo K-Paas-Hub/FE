@@ -189,3 +189,18 @@ export const BlogExcerpt = styled.p`
   }
 `;
 
+// 하이라이트 텍스트
+export const HighlightText = styled.span`
+  font-size: 2.0rem;
+  font-weight: 600;
+  color: ${COLORS.primary};
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+`;
+
