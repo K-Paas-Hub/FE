@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../hooks/useAuth';
+import { devLog } from '../../utils/logger';
 import {
   Header,
   MainHeader,
@@ -47,16 +48,12 @@ const MainHeaderComponent: React.FC = () => {
   const languageDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLanguageClick = () => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Language button clicked, current state:', isLanguageOpen);
-    }
+    devLog('언어 버튼 클릭', { currentState: isLanguageOpen });
     setIsLanguageOpen(!isLanguageOpen);
   };
 
   const handleLanguageSelect = (language: string) => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Language selected:', language);
-    }
+    devLog('언어 선택', { language });
     changeLanguage(language);
     setIsLanguageOpen(false);
   };

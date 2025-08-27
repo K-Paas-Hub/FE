@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import SignupForm from './SignupForm';
 import Footer from '../MainFooter';
 import { VisaInfo } from '../../types/visa';
+import { devLog, devError } from '../../utils/logger';
 import '../../styles/SignupForm.css';
 
 const SignupPage: React.FC = () => {
@@ -21,10 +22,8 @@ const SignupPage: React.FC = () => {
     setIsFormLoading(true);
     try {
       // 여기에 실제 회원가입 로직을 구현하세요
-      console.log('Signup attempt:', { 
+      devLog('회원가입 시도', { 
         id, 
-        password, 
-        passwordConfirm, 
         name, 
         phone, 
         address,
@@ -39,7 +38,7 @@ const SignupPage: React.FC = () => {
       window.location.href = '/login';
       
     } catch (error) {
-      console.error('Signup failed:', error);
+      devError('회원가입 실패', error);
               alert(t('auth.signup.error'));
     } finally {
       setIsFormLoading(false);

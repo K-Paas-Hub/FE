@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import LoginForm from './LoginForm';
 import Footer from '../MainFooter';
+import { devLog, devError } from '../../utils/logger';
 import '../../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
@@ -16,10 +17,10 @@ const LoginPage: React.FC = () => {
     setIsGoogleLoading(true);
     try {
       // 더미 OAuth 처리 - 백엔드 연동 시 실제 로직으로 교체
-      console.log('Google OAuth 처리 시작');
+      devLog('Google OAuth 처리 시작');
       navigate('/oauth/additional-info');
     } catch (error) {
-      console.error('Google login error:', error);
+      devError('Google 로그인 에러', error);
       alert(t('auth.googleLoginError'));
     } finally {
       setIsGoogleLoading(false);
@@ -30,10 +31,10 @@ const LoginPage: React.FC = () => {
     setIsFormLoading(true);
     try {
       // 여기에 실제 로그인 로직을 구현하세요
-      console.log('Form login attempt:', { id, pw });
+      devLog('폼 로그인 시도', { id });
       // 예시: await signInWithEmail(id, pw);
     } catch (error) {
-      console.error('Form login failed:', error);
+      devError('폼 로그인 실패', error);
     } finally {
       setIsFormLoading(false);
     }

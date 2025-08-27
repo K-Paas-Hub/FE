@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PasswordResetForm from './PasswordResetForm';
 import Footer from '../MainFooter';
+import { devLog, devError } from '../../utils/logger';
 import '../../styles/PasswordResetForm.css';
 
 const PasswordResetPage: React.FC = () => {
@@ -12,7 +13,7 @@ const PasswordResetPage: React.FC = () => {
     setIsFormLoading(true);
     try {
       // TODO: 실제 비밀번호 재설정 API 호출
-      console.log('비밀번호 재설정 요청:', email);
+      devLog('비밀번호 재설정 요청', { email });
       
       // 임시로 2초 대기
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -20,7 +21,7 @@ const PasswordResetPage: React.FC = () => {
       // 성공 처리
       alert(t('passwordReset.messages.success'));
     } catch (error) {
-      console.error('비밀번호 재설정 오류:', error);
+      devError('비밀번호 재설정 오류', error);
       alert(t('passwordReset.messages.error'));
     } finally {
       setIsFormLoading(false);

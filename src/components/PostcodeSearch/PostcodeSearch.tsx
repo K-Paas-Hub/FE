@@ -10,6 +10,7 @@ import {
   AddressData,
   PostcodeSearchProps,
 } from '../../types/postcode';
+import { devLog } from '../../utils/logger';
 
 
 
@@ -87,17 +88,17 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
     const loadPostcodeScript = () => {
       // 이미 로드되어 있는지 확인
       if (window.daum && window.daum.Postcode) {
-        console.log('Daum Postcode already loaded');
+        devLog('Daum Postcode 이미 로드됨');
         setIsPostcodeLoaded(true);
         return;
       }
 
-      console.log('Loading Daum Postcode script...');
+      devLog('Daum Postcode 스크립트 로딩 중...');
       const script = document.createElement('script');
       script.src = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
       script.async = true;
       script.onload = () => {
-        console.log('Daum Postcode script loaded successfully');
+        devLog('Daum Postcode 스크립트 로드 성공');
         setIsPostcodeLoaded(true);
       };
       script.onerror = (error) => {
@@ -112,13 +113,13 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
 
   // 우편번호 검색 팝업 열기
   const openPostcode = () => {
-    console.log('openPostcode called');
+    devLog('우편번호 팝업 열기 호출');
     if (!isPostcodeLoaded || disabled) {
-      console.log('Cannot open postcode - not loaded or disabled');
+      devLog('우편번호를 열 수 없음 - 로드되지 않았거나 비활성화됨');
       return;
     }
 
-    console.log('Creating Daum Postcode instance...');
+    devLog('Daum Postcode 인스턴스 생성 중...');
     const postcode = new window.daum.Postcode({
       oncomplete: (data: AddressData) => {
         setSelectedAddress(data);
