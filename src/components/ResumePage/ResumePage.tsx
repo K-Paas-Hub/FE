@@ -1442,7 +1442,7 @@ const ResumePage: React.FC = () => {
   // 경력 정보 상태
   const [experienceSearch, setExperienceSearch] = useState('');
   const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
-  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, years: string[], selectedYear: string}>>([]);
+  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, description: string, years: string[], selectedYear: string}>>([]);
   
   // 주소 정보 상태
   
@@ -1452,6 +1452,7 @@ const ResumePage: React.FC = () => {
   const [languageTypeFilter, setLanguageTypeFilter] = useState<string>('전체');
   const [certificationTypeFilter, setCertificationTypeFilter] = useState<string>('전체');
   const [skillTypeFilter, setSkillTypeFilter] = useState<string>('전체');
+  const [experienceTypeFilter, setExperienceTypeFilter] = useState<string>('전체');
 
   // 저장된 자격증 데이터를 selectedCertifications로 변환
   React.useEffect(() => {
@@ -1535,6 +1536,7 @@ const ResumePage: React.FC = () => {
             id: `custom-${jobName}`, 
             name: jobName, 
             category: '기타', 
+            description: '기타 경력',
             years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'],
             selectedYear: year || '1년 미만' 
           };
@@ -1792,13 +1794,16 @@ const ResumePage: React.FC = () => {
   };
 
   // 경력 정보 검색 필터링
-  const filteredExperience = experienceData.filter(exp =>
-    exp.name.toLowerCase().includes(experienceSearch.toLowerCase()) ||
-    exp.category.toLowerCase().includes(experienceSearch.toLowerCase())
-  );
+  const filteredExperience = experienceData.filter(exp => {
+    const matchesSearch = exp.name.toLowerCase().includes(experienceSearch.toLowerCase()) ||
+                         exp.category.toLowerCase().includes(experienceSearch.toLowerCase()) ||
+                         exp.description.toLowerCase().includes(experienceSearch.toLowerCase());
+    const matchesType = experienceTypeFilter === '전체' || exp.category === experienceTypeFilter;
+    return matchesSearch && matchesType;
+  });
 
   // 경력 정보 선택
-  const handleExperienceSelect = (experience: {id: string, name: string, category: string, years: string[]}) => {
+  const handleExperienceSelect = (experience: {id: string, name: string, category: string, description: string, years: string[]}) => {
     if (!selectedExperiences.find(exp => exp.id === experience.id)) {
       const newSelectedExperiences = [...selectedExperiences, { ...experience, selectedYear: '1년 미만' }];
       setSelectedExperiences(newSelectedExperiences);
@@ -2298,63 +2303,130 @@ const ResumePage: React.FC = () => {
           <ResumeForm>
             <FormGroup style={{ minWidth: '100%' }}>
               <FormLabel>경력</FormLabel>
-              <CertificationSearchContainer>
-                <FormInput 
-                  type="text" 
+              
+              {/* 경력 유형 필터 */}
+              <CertificationTypeFilter>
+                {['전체', 'IT/개발', '제조업', '서비스업', '건설업', '금융업', '의료/헬스케어', '교육', '기타'].map((type) => (
+                  <CertificationTypeButton
+                    key={type}
+                    $active={experienceTypeFilter === type}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setExperienceTypeFilter(type);
+                    }}
+                  >
+                    {type}
+                  </CertificationTypeButton>
+                ))}
+              </CertificationTypeFilter>
+
+              {/* 스마트 검색 */}
+              <SmartSearchContainer>
+                <SearchIcon>🔍</SearchIcon>
+                <SearchInput
+                  type="text"
                   value={experienceSearch}
                   onChange={handleExperienceSearchChange}
                   onFocus={handleExperienceSearchFocus}
                   onBlur={handleExperienceSearchBlur}
-                  placeholder="경력을 검색하세요 (예: 웹 개발자, 영업사원, 생산 관리자)" 
-                  aria-label="경력 검색"
-                  style={{ width: '100%', minWidth: '100%' }}
+                  placeholder="경력을 검색하세요 (예: 웹 개발자, 영업사원, 생산 관리자)"
                 />
-                {showExperienceDropdown && (
-                  <CertificationDropdown>
-                    {filteredExperience.length > 0 ? (
-                      filteredExperience.map((experience) => (
-                        <CertificationOption
-                          key={experience.id}
-                          onClick={() => handleExperienceSelect(experience)}
-                          onMouseDown={(e) => e.preventDefault()}
-                        >
-                          <CertificationName>{experience.name}</CertificationName>
-                          <CertificationCategory>{experience.category}</CertificationCategory>
-                        </CertificationOption>
-                      ))
-                    ) : (
-                      <NoResultsText>검색 결과가 없습니다.</NoResultsText>
-                    )}
-                  </CertificationDropdown>
-                )}
-              </CertificationSearchContainer>
+              </SmartSearchContainer>
+
+              {/* 경력 카드 그리드 */}
+              {showExperienceDropdown && (
+                <CertificationCardGrid>
+                  {filteredExperience.length > 0 ? (
+                    filteredExperience.map((experience) => (
+                      <CertificationCard
+                        key={experience.id}
+                        onClick={() => handleExperienceSelect(experience)}
+                      >
+                        <CertificationCardHeader>
+                          <CertificationIcon>
+                            {experience.category === 'IT/개발' ? '💻' :
+                             experience.category === '제조업' ? '⚙️' :
+                             experience.category === '서비스업' ? '🎯' :
+                             experience.category === '건설업' ? '🏗️' :
+                             experience.category === '금융업' ? '💰' :
+                             experience.category === '의료/헬스케어' ? '🏥' :
+                             experience.category === '교육' ? '📚' : '🔧'}
+                          </CertificationIcon>
+                          <div>
+                            <CertificationCardName>{experience.name}</CertificationCardName>
+                            <CertificationCardCategory>{experience.category}</CertificationCardCategory>
+                          </div>
+                        </CertificationCardHeader>
+                        <CertificationCardBody>
+                          <CertificationDescription>
+                            {experience.description}
+                          </CertificationDescription>
+                          <CertificationCardFooter>
+                            {experience.years.length > 0 ? `${experience.years.length}개 연도 지원` : '전문 경력'}
+                          </CertificationCardFooter>
+                        </CertificationCardBody>
+                      </CertificationCard>
+                    ))
+                  ) : (
+                    <NoResultsCard>검색 결과가 없습니다.</NoResultsCard>
+                  )}
+                </CertificationCardGrid>
+              )}
+              {/* 선택된 경력 타임라인 */}
               {selectedExperiences.length > 0 && (
-                <SelectedCertificationsContainer>
-                  {selectedExperiences.map((experience) => (
-                    <SelectedExperienceTag key={experience.id}>
-                      <ExperienceInfo>
-                        <ExperienceName>{experience.name}</ExperienceName>
-                        <ExperienceYearSelect
-                          value={experience.selectedYear}
-                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleExperienceYearChange(experience.id, e.target.value)}
-                          aria-label={`${experience.name} 경력 연도 선택`}
-                        >
-                          {experience.years.map((year) => (
-                            <option key={year} value={year}>
-                              {year}
-                                  </option>
-                                ))}
-                        </ExperienceYearSelect>
-                      </ExperienceInfo>
-                      <RemoveButton
+                <CertificationTimeline>
+                  <TimelineTitle>💼 보유 경력</TimelineTitle>
+                  <TimelineContainer>
+                    {selectedExperiences.map((experience, index) => (
+                      <TimelineItem key={experience.id}>
+                        <TimelineContent>
+                          <TimelineCertificationCard>
+                            <TimelineCertificationHeader>
+                              <TimelineCertificationIcon>
+                                {experience.category === 'IT/개발' ? '💻' :
+                                 experience.category === '제조업' ? '⚙️' :
+                                 experience.category === '서비스업' ? '🎯' :
+                                 experience.category === '건설업' ? '🏗️' :
+                                 experience.category === '금융업' ? '💰' :
+                                 experience.category === '의료/헬스케어' ? '🏥' :
+                                 experience.category === '교육' ? '📚' : '🔧'}
+                              </TimelineCertificationIcon>
+                              <TimelineCertificationInfo>
+                                <TimelineCertificationName>
+                                  {experience.name}
+                                </TimelineCertificationName>
+                                <TimelineCertificationCategory>{experience.category}</TimelineCertificationCategory>
+                              </TimelineCertificationInfo>
+                              {experience.years.length > 0 && (
+                                <CertificationGradeSelect
+                                  value={experience.selectedYear}
+                                  onChange={(e) => handleExperienceYearChange(experience.id, e.target.value)}
+                                >
+                                  <option value="">연도 선택</option>
+                                  {experience.years.map((year) => (
+                                    <option key={year} value={year}>
+                                      {year}
+                                    </option>
+                                  ))}
+                                </CertificationGradeSelect>
+                              )}
+                              <div style={{ flex: 1 }}></div>
+                              <TimelineRemoveButton
                                 onClick={() => handleExperienceRemove(experience.id)}
                                 aria-label={`${experience.name} 제거`}
                               >
                                 ×
-                      </RemoveButton>
-                    </SelectedExperienceTag>
-                  ))}
-                </SelectedCertificationsContainer>
+                              </TimelineRemoveButton>
+                            </TimelineCertificationHeader>
+                            <TimelineCertificationBody>
+                              <span>{experience.description}</span>
+                            </TimelineCertificationBody>
+                          </TimelineCertificationCard>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </TimelineContainer>
+                </CertificationTimeline>
               )}
             </FormGroup>
           </ResumeForm>

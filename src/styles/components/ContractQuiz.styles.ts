@@ -525,3 +525,9 @@ export const TimerBar = styled.div`
   border-radius: 2px;
   overflow: hidden;
 `;
+
+// 시작 버튼 컨테이너
+export const StartButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;

@@ -32,7 +32,8 @@ import {
   DetailValue,
   RestartButton,
   QuizInfo,
-  InfoText
+  InfoText,
+  StartButtonContainer
 } from '../../styles/components/ContractQuiz.styles';
 
 interface QuizQuestion {
@@ -215,11 +216,11 @@ const ContractQuiz: React.FC = () => {
               <InfoText>{t('contractQuiz.instructions')}</InfoText>
             </QuizInfo>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <StartButtonContainer>
               <NavButton onClick={startQuiz}>
                 {t('contractQuiz.startButton')}
               </NavButton>
-            </div>
+            </StartButtonContainer>
           </QuizSection>
         </QuizContent>
         <MainFooter />
