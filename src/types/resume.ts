@@ -5,6 +5,7 @@ export interface ResumeFormData {
   nationality: string;
   visaType: string;
   address: string; // 주소 필드 추가
+  addressDetail?: any; // 주소 상세 정보 추가
   education: string;
   experience: string;
   skills: string;

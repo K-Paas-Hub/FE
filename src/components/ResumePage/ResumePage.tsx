@@ -1483,6 +1483,25 @@ const CertificationGradeSelect = styled.select`
   }
 `;
 
+// 경력 연도 선택 스타일
+const ExperienceYearsSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
 // 기술 관련 스타일드 컴포넌트
 const SkillTypeFilter = styled.div`
   display: flex;
@@ -1636,9 +1655,67 @@ const SkillLevelSelect = styled.select`
   }
 `;
 
+const ExperienceTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineExperienceCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineExperienceHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineExperienceIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineExperienceInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+const TimelineExperienceName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineExperienceCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineExperienceBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const TimelineExperienceRemoveButton = styled.button`
+  background: none;
+  color: #6b7280;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  
+  &:hover {
+    color: #374151;
+    background: #f3f4f6;
+  }
+`;
+
 const ResumePage: React.FC = () => {
   const {
     formData,
+    setFormData,
     loading,
     error,
     validationErrors,
@@ -1670,7 +1747,7 @@ const ResumePage: React.FC = () => {
   // 경력 정보 상태
   const [experienceSearch, setExperienceSearch] = useState('');
   const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
-  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string}>>([]);
+  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, years: string, yearsOptions: string[]}>>([]);
   
   // 주소 정보 상태
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
@@ -1745,10 +1822,19 @@ const ResumePage: React.FC = () => {
   // 저장된 경력 데이터를 selectedExperiences로 변환
   React.useEffect(() => {
     if (formData.experience) {
-      const experienceNames = formData.experience.split(', ').filter(name => name.trim());
-      const experiences = experienceNames.map(name => {
-        const foundExp = experienceData.find(exp => exp.name === name.trim());
-        return foundExp || { id: `custom-${name}`, name: name.trim(), category: '기타' };
+      const experienceEntries = formData.experience.split(', ').filter(entry => entry.trim());
+      const experiences = experienceEntries.map(entry => {
+        // "직업명 연도" 형태에서 분리
+        const parts = entry.trim().split(' ');
+        const experienceName = parts[0];
+        const years = parts.slice(1).join(' ');
+        
+        const foundExp = experienceData.find(exp => exp.name === experienceName);
+        if (foundExp) {
+          return { ...foundExp, years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
+        } else {
+          return { id: `custom-${experienceName}`, name: experienceName, category: '기타', years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
+        }
       });
       setSelectedExperiences(experiences);
     }
@@ -1757,26 +1843,31 @@ const ResumePage: React.FC = () => {
   // 저장된 주소 데이터를 selectedAddress로 변환
   React.useEffect(() => {
     if (formData.address) {
-      // 기존 주소 데이터가 있으면 AddressData 형태로 변환
-      const foundAddress = addressData.find(addr => addr.name === formData.address.trim());
-      if (foundAddress) {
-        const addressData: AddressData = {
-          id: foundAddress.id,
-          address_name: foundAddress.name,
-          address_type: 'ROAD_ADDR',
-          x: '127.0286',
-          y: '37.4979',
-          address: {
+      // 주소 상세 정보가 있으면 그것을 사용
+      if (formData.addressDetail) {
+        setSelectedAddress(formData.addressDetail);
+      } else {
+        // 기존 주소 데이터가 있으면 AddressData 형태로 변환
+        const foundAddress = addressData.find(addr => addr.name === formData.address.trim());
+        if (foundAddress) {
+          const addressData: AddressData = {
+            id: foundAddress.id,
             address_name: foundAddress.name,
-            region_1depth_name: foundAddress.category,
-            region_2depth_name: foundAddress.type,
-            region_3depth_name: ''
-          }
-        };
-        setSelectedAddress(addressData);
+            address_type: 'ROAD_ADDR',
+            x: '127.0286',
+            y: '37.4979',
+            address: {
+              address_name: foundAddress.name,
+              region_1depth_name: foundAddress.category,
+              region_2depth_name: foundAddress.type,
+              region_3depth_name: ''
+            }
+          };
+          setSelectedAddress(addressData);
+        }
       }
     }
-  }, [formData.address]);
+  }, [formData.address, formData.addressDetail]);
 
   // 저장된 기술 데이터를 selectedSkills로 변환
   React.useEffect(() => {
@@ -1800,6 +1891,30 @@ const ResumePage: React.FC = () => {
   }, [formData.skills]);
 
   const handleSave = async () => {
+    // 주소 정보가 있으면 formData에 추가 정보 저장
+    if (selectedAddress) {
+      const addressInfo = {
+        address: selectedAddress.address_name,
+        addressDetail: {
+          id: selectedAddress.id,
+          address_name: selectedAddress.address_name,
+          address_type: selectedAddress.address_type,
+          x: selectedAddress.x,
+          y: selectedAddress.y,
+          address: selectedAddress.address
+        }
+      };
+      
+      // formData에 주소 상세 정보 추가
+      const updatedFormData = {
+        ...formData,
+        addressDetail: addressInfo.addressDetail
+      };
+      
+      // 임시로 formData 업데이트
+      setFormData(updatedFormData);
+    }
+    
     const result = await saveResumeWithValidation();
     if (result.success) {
       alert('이력서가 성공적으로 저장되었습니다!');
@@ -2032,11 +2147,15 @@ const ResumePage: React.FC = () => {
   // 경력 정보 선택
   const handleExperienceSelect = (experience: {id: string, name: string, category: string}) => {
     if (!selectedExperiences.find(exp => exp.id === experience.id)) {
-      const newSelectedExperiences = [...selectedExperiences, experience];
+      const newSelectedExperiences = [...selectedExperiences, { 
+        ...experience, 
+        years: '', 
+        yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년']
+      }];
       setSelectedExperiences(newSelectedExperiences);
       
       // formData에 경력 정보 문자열로 저장
-      const experienceNames = newSelectedExperiences.map(exp => exp.name).join(', ');
+      const experienceNames = newSelectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ');
       handleInputChange({
         target: { name: 'experience', value: experienceNames }
       } as React.ChangeEvent<HTMLInputElement>);
@@ -2051,7 +2170,21 @@ const ResumePage: React.FC = () => {
     setSelectedExperiences(newSelectedExperiences);
     
     // formData에 경력 정보 문자열로 업데이트
-    const experienceNames = newSelectedExperiences.map(exp => exp.name).join(', ');
+    const experienceNames = newSelectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ');
+    handleInputChange({
+      target: { name: 'experience', value: experienceNames }
+    } as React.ChangeEvent<HTMLInputElement>);
+  };
+
+  // 경력 연도 변경
+  const handleExperienceYearsChange = (experienceId: string, years: string) => {
+    const newSelectedExperiences = selectedExperiences.map(experience => 
+      experience.id === experienceId ? { ...experience, years } : experience
+    );
+    setSelectedExperiences(newSelectedExperiences);
+    
+    // formData에 경력 정보 문자열로 업데이트
+    const experienceNames = newSelectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ');
     handleInputChange({
       target: { name: 'experience', value: experienceNames }
     } as React.ChangeEvent<HTMLInputElement>);
@@ -2214,7 +2347,7 @@ const ResumePage: React.FC = () => {
             <PreviewContent>
               <PreviewText>
                 {selectedExperiences.length > 0 ? (
-                  selectedExperiences.map(exp => exp.name).join(', ')
+                  selectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ')
                 ) : (
                   <EmptyText>입력되지 않음</EmptyText>
                 )}
@@ -2552,20 +2685,54 @@ const ResumePage: React.FC = () => {
                   </CertificationDropdown>
                 )}
               </CertificationSearchContainer>
+              {/* 선택된 경력 타임라인 */}
               {selectedExperiences.length > 0 && (
-                <SelectedCertificationsContainer>
-                  {selectedExperiences.map((experience) => (
-                    <SelectedExperienceTag key={experience.id}>
-                      {experience.name}
-                      <RemoveButton
-                        onClick={() => handleExperienceRemove(experience.id)}
-                        aria-label={`${experience.name} 제거`}
-                      >
-                        ×
-                      </RemoveButton>
-                    </SelectedExperienceTag>
-                  ))}
-                </SelectedCertificationsContainer>
+                <ExperienceTimeline>
+                  <TimelineTitle>💼 경력 정보</TimelineTitle>
+                  <TimelineContainer>
+                    {selectedExperiences.map((experience, index) => (
+                      <TimelineItem key={experience.id}>
+                        <TimelineContent>
+                          <TimelineExperienceCard>
+                            <TimelineExperienceHeader>
+                              <TimelineExperienceIcon>
+                                {experience.category === 'IT/개발' ? '💻' :
+                                 experience.category === '영업/마케팅' ? '📈' :
+                                 experience.category === '생산/제조' ? '⚙️' :
+                                 experience.category === '서비스' ? '🎯' :
+                                 experience.category === '관리/사무' ? '📊' : '💼'}
+                              </TimelineExperienceIcon>
+                              <TimelineExperienceInfo>
+                                <TimelineExperienceName>
+                                  {experience.name}
+                                </TimelineExperienceName>
+                                <TimelineExperienceCategory>{experience.category}</TimelineExperienceCategory>
+                              </TimelineExperienceInfo>
+                              <ExperienceYearsSelect
+                                value={experience.years}
+                                onChange={(e) => handleExperienceYearsChange(experience.id, e.target.value)}
+                              >
+                                <option value="">연도 선택</option>
+                                {experience.yearsOptions.map((years) => (
+                                  <option key={years} value={years}>
+                                    {years}
+                                  </option>
+                                ))}
+                              </ExperienceYearsSelect>
+                              <div style={{ flex: 1 }}></div>
+                              <TimelineRemoveButton
+                                onClick={() => handleExperienceRemove(experience.id)}
+                                aria-label={`${experience.name} 제거`}
+                              >
+                                ×
+                              </TimelineRemoveButton>
+                            </TimelineExperienceHeader>
+                          </TimelineExperienceCard>
+                        </TimelineContent>
+                      </TimelineItem>
+                    ))}
+                  </TimelineContainer>
+                </ExperienceTimeline>
               )}
             </FormGroup>
           </ResumeForm>
