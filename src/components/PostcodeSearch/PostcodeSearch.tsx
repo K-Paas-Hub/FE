@@ -295,6 +295,17 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
     setDetailAddress(e.target.value);
   };
 
+  const handleDetailAddressKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const addressWithComplete = {
+        ...selectedAddress,
+        completeAddress: getCompleteAddress()
+      };
+      onAddressSelect(addressWithComplete);
+    }
+  };
+
   const handleSearchClick = () => {
     openPostcode();
   };
@@ -349,14 +360,43 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           {showDetailAddress && (
             <div className="postcode-detail-address">
               <label htmlFor="detail-address">{t('상세주소')}</label>
-              <input
-                id="detail-address"
-                type="text"
-                value={detailAddress}
-                onChange={handleDetailAddressChange}
-                placeholder={t('상세주소를 입력하세요')}
-                className="postcode-detail-input"
-              />
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+                <input
+                  id="detail-address"
+                  type="text"
+                  value={detailAddress}
+                  onChange={handleDetailAddressChange}
+                  onKeyPress={handleDetailAddressKeyPress}
+                  placeholder={t('상세주소를 입력하세요')}
+                  className="postcode-detail-input"
+                  style={{ flex: 1 }}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    const addressWithComplete = {
+                      ...selectedAddress,
+                      completeAddress: getCompleteAddress()
+                    };
+                    onAddressSelect(addressWithComplete);
+                  }}
+                  className="postcode-confirm-button"
+                  style={{
+                    padding: '8px 16px',
+                    backgroundColor: '#4ade80',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    minHeight: '44px',
+                    minWidth: '44px'
+                  }}
+                >
+                  확인
+                </button>
+              </div>
             </div>
           )}
           
