@@ -762,5 +762,19 @@
     "detailAddressPlaceholder": "输入详细地址",
     "buildingName": "建筑物名称",
     "confirm": "确认"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "请输入您的姓名",
+      "emailPlaceholder": "请输入您的邮箱",
+      "phonePlaceholder": "请输入您的电话号码",
+      "addressPlaceholder": "搜索地址",
+      "schoolPlaceholder": "搜索学校名称（例如：首尔大学、延世大学）",
+      "experiencePlaceholder": "搜索工作经验（例如：网页开发者、销售代表、生产经理）",
+      "skillPlaceholder": "搜索技能（例如：JavaScript、React、Photoshop）",
+      "certificatePlaceholder": "搜索证书（例如：信息处理工程师、TOEIC、AWS）",
+      "languagePlaceholder": "搜索语言能力（例如：TOEIC、TOPIK、JLPT）",
+      "introductionPlaceholder": "请输入自我介绍（包括成长过程、申请动机、抱负等）"
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import PostcodeSearch from '../PostcodeSearch';
@@ -1413,6 +1414,7 @@ const SkillLevelSelect = styled.select`
 `;
 
 const ResumePage: React.FC = () => {
+  const { t } = useTranslation();
   const {
     formData,
     loading,
@@ -2091,7 +2093,7 @@ const ResumePage: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="이름을 입력하세요" 
+                placeholder={t('resume.form.namePlaceholder')} 
                 aria-describedby={validationErrors.name ? "name-error" : undefined}
               />
               {validationErrors.name && (
@@ -2107,7 +2109,7 @@ const ResumePage: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="이메일을 입력하세요" 
+                placeholder={t('resume.form.emailPlaceholder')} 
                 aria-describedby={validationErrors.email ? "email-error" : undefined}
               />
               {validationErrors.email && (
@@ -2123,7 +2125,7 @@ const ResumePage: React.FC = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                placeholder="전화번호를 입력하세요" 
+                placeholder={t('resume.form.phonePlaceholder')} 
                 aria-describedby={validationErrors.phone ? "phone-error" : undefined}
               />
               {validationErrors.phone && (

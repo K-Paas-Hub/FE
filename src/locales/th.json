@@ -784,5 +784,19 @@
     "detailAddressPlaceholder": "ป้อนที่อยู่อาศัย",
     "buildingName": "ชื่ออาคาร",
     "confirm": "ยืนยัน"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "ป้อนชื่อของคุณ",
+      "emailPlaceholder": "ป้อนอีเมลของคุณ",
+      "phonePlaceholder": "ป้อนหมายเลขโทรศัพท์ของคุณ",
+      "addressPlaceholder": "ค้นหาที่อยู่",
+      "schoolPlaceholder": "ค้นหาชื่อโรงเรียน (เช่น มหาวิทยาลัยแห่งชาติโซล, มหาวิทยาลัยยอนเซ)",
+      "experiencePlaceholder": "ค้นหาประสบการณ์ (เช่น นักพัฒนาเว็บ, ตัวแทนขาย, ผู้จัดการการผลิต)",
+      "skillPlaceholder": "ค้นหาทักษะ (เช่น JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "ค้นหาสัมฤทธิบัตร (เช่น วิศวกรประมวลผลข้อมูล, TOEIC, AWS)",
+      "languagePlaceholder": "ค้นหาทักษะภาษา (เช่น TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "ป้อนการแนะนำตัวเอง (รวมถึงกระบวนการเติบโต, แรงจูงใจในการสมัคร, ความทะเยอทะยาน, ฯลฯ)"
+    }
   }
 }

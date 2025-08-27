@@ -762,5 +762,19 @@
     "detailAddressPlaceholder": "Masukkan alamat detail",
     "buildingName": "Nama Gedung",
     "confirm": "Konfirmasi"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "Masukkan nama Anda",
+      "emailPlaceholder": "Masukkan email Anda",
+      "phonePlaceholder": "Masukkan nomor telepon Anda",
+      "addressPlaceholder": "Cari alamat",
+      "schoolPlaceholder": "Cari nama sekolah (mis., Universitas Nasional Seoul, Universitas Yonsei)",
+      "experiencePlaceholder": "Cari pengalaman (mis., Pengembang Web, Perwakilan Penjualan, Manajer Produksi)",
+      "skillPlaceholder": "Cari keterampilan (mis., JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "Cari sertifikat (mis., Insinyur Pemrosesan Informasi, TOEIC, AWS)",
+      "languagePlaceholder": "Cari keterampilan bahasa (mis., TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "Masukkan perkenalan diri (termasuk proses pertumbuhan, motivasi melamar, aspirasi, dll.)"
+    }
   }
 }

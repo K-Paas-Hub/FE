@@ -963,5 +963,19 @@
     "detailAddressPlaceholder": "បញ្ចូលអាសយដ្ឋានលម្អិត",
     "buildingName": "ឈ្មោះអគារ",
     "confirm": "បញ្ជាក់"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "បញ្ចូលឈ្មោះរបស់អ្នក",
+      "emailPlaceholder": "បញ្ចូលអ៊ីមែលរបស់អ្នក",
+      "phonePlaceholder": "បញ្ចូលលេខទូរស័ព្ទរបស់អ្នក",
+      "addressPlaceholder": "ស្វែងរកអាសយដ្ឋាន",
+      "schoolPlaceholder": "ស្វែងរកឈ្មោះសាលា (ឧ. សាកលវិទ្យាល័យជាតិសេអ៊ូល, សាកលវិទ្យាល័យយ៉ុនសេ)",
+      "experiencePlaceholder": "ស្វែងរកបទពិសោធន៍ (ឧ. អ្នកអភិវឌ្ឍន៍វែប, តំណាងលក់, អ្នកគ្រប់គ្រងផលិតកម្ម)",
+      "skillPlaceholder": "ស្វែងរកជំនាញ (ឧ. JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "ស្វែងរកវិញ្ញាបនបត្រ (ឧ. វិស្វករដំណើរការព័ត៌មាន, TOEIC, AWS)",
+      "languagePlaceholder": "ស្វែងរកជំនាញភាសា (ឧ. TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "បញ្ចូលការណែនាំខ្លួនឯង (រួមបញ្ចូលដំណើរការលូតលាស់, ការលើកទឹកចិត្តដាក់ពាក្យ, សុបិន, ល។)"
+    }
   }
 }

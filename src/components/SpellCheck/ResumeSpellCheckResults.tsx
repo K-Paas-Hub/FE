@@ -17,7 +17,8 @@ import {
   ResumeErrorSuggestion,
   ResumeSuggestionsContainer,
   ResumeSuggestionsTitle,
-  ResumeSuggestionList
+  ResumeSuggestionList,
+  DynamicScore
 } from '../../styles/components/ResumeSpellCheckResults.styles';
 
 interface ResumeSpellCheckResultsProps {
@@ -43,8 +44,10 @@ const ResumeSpellCheckResults: React.FC<ResumeSpellCheckResultsProps> = ({ resul
         <ResumeResultsTitle>
           📊 {t('spellCheck.resumeSpecific.resultsTitle')}
         </ResumeResultsTitle>
-        <ResumeResultsScore style={{ color: getScoreColor(result.overallResumeScore) }}>
-          {result.overallResumeScore}점
+        <ResumeResultsScore>
+          <DynamicScore $score={result.overallResumeScore}>
+            {result.overallResumeScore}점
+          </DynamicScore>
         </ResumeResultsScore>
       </ResumeResultsHeader>
 
@@ -59,8 +62,10 @@ const ResumeSpellCheckResults: React.FC<ResumeSpellCheckResultsProps> = ({ resul
               <ResumeCategoryName>
                 {getCategoryName(category)}
               </ResumeCategoryName>
-              <ResumeCategoryScore style={{ color: getScoreColor(score) }}>
-                {score}점
+              <ResumeCategoryScore>
+                <DynamicScore $score={score}>
+                  {score}점
+                </DynamicScore>
               </ResumeCategoryScore>
               
               {errors.length > 0 && (

@@ -343,6 +343,17 @@ export const Legend = styled.div`
   margin-bottom: 2rem;
 `;
 
+export const SuccessMessage = styled.div`
+  text-align: center;
+  color: #10b981;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+`;
+
 export const LegendDot = styled.div`
   width: 8px;
   height: 8px;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PostcodeSearch from '../PostcodeSearch';
+import { TestContainer, ResultContainer, CodeBlock } from './PostcodeTest.styles';
 
 interface AddressData {
   zonecode: string;
@@ -47,7 +48,7 @@ const PostcodeTest: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+    <TestContainer>
       <h1>우편번호 검색 테스트</h1>
       <p>아래 버튼을 클릭하여 우편번호 검색을 테스트해보세요.</p>
       
@@ -60,14 +61,14 @@ const PostcodeTest: React.FC = () => {
       />
 
       {selectedAddress && (
-        <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+        <ResultContainer>
           <h3>선택된 주소 정보:</h3>
-          <pre style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '4px', overflow: 'auto' }}>
+          <CodeBlock>
             {JSON.stringify(selectedAddress, null, 2)}
-          </pre>
-        </div>
+          </CodeBlock>
+        </ResultContainer>
       )}
-    </div>
+    </TestContainer>
   );
 };
 

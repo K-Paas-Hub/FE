@@ -29,6 +29,7 @@ import {
   CheckIcon,
   Legend,
   LegendDot,
+  SuccessMessage,
 } from '../../styles/components/ForeignWorkerSpellCheck.styles';
 
 import { storage } from '../../utils';
@@ -267,18 +268,9 @@ const ForeignWorkerSpellCheck: React.FC = () => {
                   검사 중...
                 </LoadingContainer>
               ) : isComplete && errors.length === 0 ? (
-                <div style={{ 
-                  textAlign: 'center', 
-                  color: '#10b981', 
-                  fontWeight: '500',
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  width: '100%'
-                }}>
+                <SuccessMessage>
                   ✓ 맞춤법 검사 완료 - 오류가 발견되지 않았습니다
-                </div>
+                </SuccessMessage>
               ) : null}
             </EmptyState>
           )}

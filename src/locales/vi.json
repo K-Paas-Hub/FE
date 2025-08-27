@@ -833,5 +833,19 @@
     "detailAddressPlaceholder": "Nhập địa chỉ chi tiết",
     "buildingName": "Tên tòa nhà",
     "confirm": "Xác nhận"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "Nhập tên của bạn",
+      "emailPlaceholder": "Nhập email của bạn",
+      "phonePlaceholder": "Nhập số điện thoại của bạn",
+      "addressPlaceholder": "Tìm kiếm địa chỉ",
+      "schoolPlaceholder": "Tìm kiếm tên trường (ví dụ: Đại học Quốc gia Seoul, Đại học Yonsei)",
+      "experiencePlaceholder": "Tìm kiếm kinh nghiệm (ví dụ: Lập trình viên Web, Đại diện Bán hàng, Quản lý Sản xuất)",
+      "skillPlaceholder": "Tìm kiếm kỹ năng (ví dụ: JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "Tìm kiếm chứng chỉ (ví dụ: Kỹ sư Xử lý Thông tin, TOEIC, AWS)",
+      "languagePlaceholder": "Tìm kiếm kỹ năng ngôn ngữ (ví dụ: TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "Nhập lời giới thiệu bản thân (bao gồm quá trình phát triển, động lực ứng tuyển, hoài bão, v.v.)"
+    }
   }
 }

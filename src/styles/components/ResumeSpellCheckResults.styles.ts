@@ -101,6 +101,14 @@ export const ResumeSuggestionsTitle = styled.h4`
   margin-bottom: 1rem;
 `;
 
+export const DynamicScore = styled.span<{ $score: number }>`
+  color: ${props => {
+    if (props.$score >= 80) return '#10b981'; // green
+    if (props.$score >= 60) return '#f59e0b'; // yellow
+    return '#ef4444'; // red
+  }};
+`;
+
 export const ResumeSuggestionList = styled.ul`
   list-style: none;
   padding: 0;

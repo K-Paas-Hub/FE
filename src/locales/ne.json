@@ -661,5 +661,19 @@
     "detailAddressPlaceholder": "विस्तृत ठेगाना प्रविष्ट गर्नुहोस्",
     "buildingName": "भवनको नाम",
     "confirm": "पुष्टि गर्नुहोस्"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "आफ्नो नाम प्रविष्ट गर्नुहोस्",
+      "emailPlaceholder": "आफ्नो इमेल प्रविष्ट गर्नुहोस्",
+      "phonePlaceholder": "आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्",
+      "addressPlaceholder": "ठेगाना खोज्नुहोस्",
+      "schoolPlaceholder": "स्कूलको नाम खोज्नुहोस् (उदाहरण: सियोल राष्ट्रिय विश्वविद्यालय, योन्से विश्वविद्यालय)",
+      "experiencePlaceholder": "अनुभव खोज्नुहोस् (उदाहरण: वेब डेभलपर, बिक्री प्रतिनिधि, उत्पादन प्रबन्धक)",
+      "skillPlaceholder": "सीपहरू खोज्नुहोस् (उदाहरण: JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "प्रमाणपत्रहरू खोज्नुहोस् (उदाहरण: सूचना प्रशोधन इन्जिनियर, TOEIC, AWS)",
+      "languagePlaceholder": "भाषा सीपहरू खोज्नुहोस् (उदाहरण: TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "आफ्नो आत्मपरिचय प्रविष्ट गर्नुहोस् (विकास प्रक्रिया, आवेदनको प्रेरणा, आकांक्षाहरू आदि समावेश गर्नुहोस्)"
+    }
   }
 }
