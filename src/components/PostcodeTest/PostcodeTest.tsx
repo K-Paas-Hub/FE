@@ -2,43 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PostcodeSearch from '../PostcodeSearch';
 import { TestContainer, ResultContainer, CodeBlock } from './PostcodeTest.styles';
-
-interface AddressData {
-  zonecode: string;
-  address: string;
-  roadAddress: string;
-  jibunAddress: string;
-  buildingName: string;
-  apartment: string;
-  sido: string;
-  sigungu: string;
-  bname: string;
-  bname1: string;
-  bname2: string;
-  hname: string;
-  noSelected: string;
-  userLanguageType: string;
-  userSelectedType: string;
-  roadnameCode: string;
-  roadname: string;
-  bcode: string;
-  sigunguCode: string;
-  addressType: string;
-  addressEnglish: string;
-  roadAddressEnglish: string;
-  jibunAddressEnglish: string;
-  autoRoadAddress: string;
-  autoRoadAddressEnglish: string;
-  autoJibunAddress: string;
-  autoJibunAddressEnglish: string;
-  userQueryType: string;
-  query: string;
-  postcode: string;
-  postcode1: string;
-  postcode2: string;
-  postcodeSeq: string;
-  buildingCode: string;
-}
+import { AddressData } from '../../types/postcode';
 
 const PostcodeTest: React.FC = () => {
   const { t } = useTranslation();

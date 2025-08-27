@@ -6,74 +6,12 @@ import {
   DetailAddressInput,
   ConfirmButton,
 } from './PostcodeSearch.styles';
+import {
+  AddressData,
+  PostcodeSearchProps,
+} from '../../types/postcode';
 
-interface AddressData {
-  zonecode: string;
-  address: string;
-  roadAddress: string;
-  jibunAddress: string;
-  buildingName: string;
-  apartment: string;
-  sido: string;
-  sigungu: string;
-  bname: string;
-  bname1: string;
-  bname2: string;
-  hname: string;
-  noSelected: string;
-  userLanguageType: string;
-  userSelectedType: string;
-  roadnameCode: string;
-  roadname: string;
-  bcode: string;
-  sigunguCode: string;
-  addressType: string;
-  addressEnglish: string;
-  roadAddressEnglish: string;
-  jibunAddressEnglish: string;
-  autoRoadAddress: string;
-  autoRoadAddressEnglish: string;
-  autoJibunAddress: string;
-  autoJibunAddressEnglish: string;
-  userQueryType: string;
-  query: string;
-  postcode: string;
-  postcode1: string;
-  postcode2: string;
-  postcodeSeq: string;
-  buildingCode: string;
-  completeAddress?: string;
-}
 
-interface PostcodeSearchProps {
-  onAddressSelect: (address: AddressData) => void;
-  placeholder?: string;
-  disabled?: boolean;
-  className?: string;
-  value?: string;
-  onChange?: (value: string) => void;
-  showDetailAddress?: boolean;
-  showRoadAddress?: boolean;
-  showJibunAddress?: boolean;
-  theme?: {
-    searchBgColor?: string;
-    queryTextColor?: string;
-    postcodeTextColor?: string;
-    emphTextColor?: string;
-    outlineColor?: string;
-  };
-}
-
-declare global {
-  interface Window {
-    daum: {
-      Postcode: new (options: any) => {
-        open: (options?: any) => void;
-        embed: (element: HTMLElement, options?: any) => void;
-      };
-    };
-  }
-}
 
 const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
   onAddressSelect,
