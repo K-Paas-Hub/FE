@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { AddressData } from '../../services/kakaoAddressService';
-import { useAdvancedAddressSearch, useFavorites } from '../../hooks/useAdvancedAddressSearch';
+import { useAdvancedAddressSearch } from '../../hooks/useAdvancedAddressSearch';
 import { formatErrorMessage, getErrorIcon } from '../../utils/errorHandling';
 import { storageManager } from '../../utils/storageManager';
 import {
@@ -24,8 +24,6 @@ interface AddressSearchProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
-  showFavorites?: boolean;
-  showHistory?: boolean;
   enablePerformanceMode?: boolean;
   maxResults?: number;
   onError?: (error: any) => void;
@@ -38,8 +36,6 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
   className = '',
   value: controlledValue,
   onChange: controlledOnChange,
-  showFavorites = true,
-  showHistory = true,
   enablePerformanceMode = false,
   maxResults = 10,
   onError,
@@ -69,27 +65,11 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
     enabled: displayValue.length >= 2,
     onError: onError
   });
-  const { favorites, isFavorite, addFavorite, removeFavorite } = useFavorites();
   
-  // 최종 결과 계산 (검색 결과 + 즐겨찾기)
+  // 최종 결과 계산 (검색 결과만)
   const combinedResults = useMemo(() => {
-    let results = [...searchResults];
-    
-    // 즐겨찾기 결과 추가 (검색어가 짧을 때)
-    if (showFavorites && displayValue.length < 3) {
-      const favoriteResults = favorites
-        .filter(fav => 
-          fav.address_name.toLowerCase().includes(displayValue.toLowerCase()) ||
-          (fav.nickname && fav.nickname.toLowerCase().includes(displayValue.toLowerCase()))
-        )
-        .slice(0, 3)
-        .map(fav => ({ ...fav, isFavoriteResult: true }));
-      
-      results = [...favoriteResults, ...results];
-    }
-    
-    return results.slice(0, maxResults);
-  }, [searchResults, favorites, displayValue, showFavorites, maxResults]);
+    return searchResults.slice(0, maxResults);
+  }, [searchResults, maxResults]);
 
   // 키보드 내비게이션 처리
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
@@ -150,36 +130,11 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
     // 주소 선택 내역 저장
     storageManager.addToSearchHistory(address.address_name, 1, address);
     
-    // 즐겨찾기 사용 횟수 증가
-    if ('isFavoriteResult' in address && address.isFavoriteResult) {
-      storageManager.incrementFavoriteUseCount(address.id);
-    }
-    
     onAddressSelect(address);
     setShowResults(false);
     setShowSuggestions(false);
     setSelectedIndex(-1);
   }, [isControlled, controlledOnChange, onAddressSelect]);
-
-  // 즐겨찾기 토글 처리
-  const handleFavoriteToggle = useCallback((address: AddressData, e: React.MouseEvent) => {
-    e.preventDefault(); // 기본 동작 방지
-    e.stopPropagation(); // 이벤트 전파 방지
-    
-    // 현재 스크롤 위치 저장
-    const currentScrollY = window.scrollY;
-    
-    if (isFavorite(address)) {
-      removeFavorite(address.id);
-    } else {
-      addFavorite(address);
-    }
-    
-    // 스크롤 위치 복원 (다음 프레임에서)
-    requestAnimationFrame(() => {
-      window.scrollTo(0, currentScrollY);
-    });
-  }, [isFavorite, addFavorite, removeFavorite]);
   
   // 검색 입력 포커스 처리
   const handleInputFocus = () => {
@@ -337,45 +292,17 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
                   role="option"
                   aria-selected={selectedIndex === index}
                   style={{
-                    backgroundColor: selectedIndex === index ? '#f3f4f6' : 'transparent',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
+                    backgroundColor: selectedIndex === index ? '#f3f4f6' : 'transparent'
                   }}
                 >
-                  <div style={{ flex: 1 }}>
+                  <div>
                     <AddressResultTitle>
-                      {`${'isFavoriteResult' in address && address.isFavoriteResult ? '⭐ ' : ''}${address.address_name}`}
+                      {address.address_name}
                     </AddressResultTitle>
                     <AddressResultSubtitle>
                       {address.address.region_1depth_name} {address.address.region_2depth_name} {address.address.region_3depth_name}
                     </AddressResultSubtitle>
                   </div>
-                  
-                  {/* 즐겨찾기 버튼 */}
-                  {showFavorites && (
-                    <button
-                      onClick={(e) => handleFavoriteToggle(address, e)}
-                      onMouseDown={(e) => e.preventDefault()}
-                      onTouchStart={(e) => e.preventDefault()}
-                      type="button"
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        fontSize: '1.2rem',
-                        cursor: 'pointer',
-                        padding: '0.25rem',
-                        marginLeft: '0.5rem',
-                        userSelect: 'none',
-                        WebkitUserSelect: 'none',
-                        MozUserSelect: 'none',
-                        msUserSelect: 'none'
-                      }}
-                      aria-label={isFavorite(address) ? '즐겨찾기에서 제거' : '즐겨찾기에 추가'}
-                    >
-                      {isFavorite(address) ? '❤️' : '🤍'}
-                    </button>
-                  )}
                 </AddressResultItem>
               ))
             )}
