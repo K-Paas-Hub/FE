@@ -2022,17 +2022,17 @@ const ResumePage: React.FC = () => {
                 <PostcodeSearch
                   value={formData.address}
                   onChange={(value) => {
-                    handleInputChange({
+                  handleInputChange({
                       target: { name: 'address', value }
-                    } as React.ChangeEvent<HTMLInputElement>);
-                  }}
+                  } as React.ChangeEvent<HTMLInputElement>);
+                }}
                   onAddressSelect={(address) => {
                     // 전체 주소를 저장 (우편번호, 도로명주소, 상세주소 포함)
                     const completeAddress = address.completeAddress || address.address;
-                    handleInputChange({
+                        handleInputChange({
                       target: { name: 'address', value: completeAddress }
-                    } as React.ChangeEvent<HTMLInputElement>);
-                  }}
+                        } as React.ChangeEvent<HTMLInputElement>);
+                      }}
                   placeholder={t('resume.form.addressPlaceholder')}
                   showDetailAddress={true}
                   showRoadAddress={true}
@@ -2186,7 +2186,7 @@ const ResumePage: React.FC = () => {
               <SmartSearchContainer>
                 <SearchIcon>🔍</SearchIcon>
                 <SearchInput
-                  type="text"
+                  type="text" 
                   value={experienceSearch}
                   onChange={handleExperienceSearchChange}
                   onFocus={handleExperienceSearchFocus}
@@ -2196,13 +2196,13 @@ const ResumePage: React.FC = () => {
               </SmartSearchContainer>
 
               {/* 경력 카드 그리드 */}
-              {showExperienceDropdown && (
+                {showExperienceDropdown && (
                 <CertificationCardGrid>
-                  {filteredExperience.length > 0 ? (
-                    filteredExperience.map((experience) => (
+                    {filteredExperience.length > 0 ? (
+                      filteredExperience.map((experience) => (
                       <CertificationCard
-                        key={experience.id}
-                        onClick={() => handleExperienceSelect(experience)}
+                          key={experience.id}
+                          onClick={() => handleExperienceSelect(experience)}
                       >
                         <CertificationCardHeader>
                           <CertificationIcon>
@@ -2228,12 +2228,12 @@ const ResumePage: React.FC = () => {
                           </CertificationCardFooter>
                         </CertificationCardBody>
                       </CertificationCard>
-                    ))
-                  ) : (
+                      ))
+                    ) : (
                     <NoResultsCard>검색 결과가 없습니다.</NoResultsCard>
-                  )}
+                    )}
                 </CertificationCardGrid>
-              )}
+                )}
               {/* 선택된 경력 타임라인 */}
               {selectedExperiences.length > 0 && (
                 <CertificationTimeline>
@@ -2255,7 +2255,7 @@ const ResumePage: React.FC = () => {
                               </TimelineCertificationIcon>
                               <TimelineCertificationInfo>
                                 <TimelineCertificationName>
-                                  {experience.name}
+                      {experience.name}
                                 </TimelineCertificationName>
                                 <TimelineCertificationCategory>{experience.category}</TimelineCertificationCategory>
                               </TimelineCertificationInfo>
@@ -2274,10 +2274,10 @@ const ResumePage: React.FC = () => {
                               )}
                               <FlexSpacer />
                               <TimelineRemoveButton
-                                onClick={() => handleExperienceRemove(experience.id)}
-                                aria-label={`${experience.name} 제거`}
-                              >
-                                ×
+                        onClick={() => handleExperienceRemove(experience.id)}
+                        aria-label={`${experience.name} 제거`}
+                      >
+                        ×
                               </TimelineRemoveButton>
                             </TimelineCertificationHeader>
                             <TimelineCertificationBody>
