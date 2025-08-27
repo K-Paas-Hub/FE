@@ -2067,19 +2067,21 @@ const ResumePage: React.FC = () => {
                 </div>
               )}
             </FormGroup>
-            <FormGroup style={{ minWidth: '100%' }}>
+            <FormGroup style={{ width: '100%' }}>
               <FormLabel>주소</FormLabel>
-              <PostcodeSearch
-                onAddressSelect={(address) => {
-                  handleInputChange({
-                    target: { name: 'address', value: address.address }
-                  } as React.ChangeEvent<HTMLInputElement>);
-                }}
-                placeholder="주소를 검색하세요"
-                showDetailAddress={true}
-                showRoadAddress={true}
-                showJibunAddress={true}
-              />
+              <div style={{ width: '100%' }}>
+                <PostcodeSearch
+                  onAddressSelect={(address) => {
+                    handleInputChange({
+                      target: { name: 'address', value: address.address }
+                    } as React.ChangeEvent<HTMLInputElement>);
+                  }}
+                  placeholder="주소를 검색하세요"
+                  showDetailAddress={true}
+                  showRoadAddress={true}
+                  showJibunAddress={true}
+                />
+              </div>
             </FormGroup>
           </ResumeForm>
         </ResumeSection>
