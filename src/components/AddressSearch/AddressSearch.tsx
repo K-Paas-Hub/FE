@@ -163,14 +163,23 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
 
   // 즐겨찾기 토글 처리
   const handleFavoriteToggle = useCallback((address: AddressData, e: React.MouseEvent) => {
-    e.stopPropagation();
+    e.preventDefault(); // 기본 동작 방지
+    e.stopPropagation(); // 이벤트 전파 방지
+    
+    // 현재 스크롤 위치 저장
+    const currentScrollY = window.scrollY;
     
     if (isFavorite(address)) {
       removeFavorite(address.id);
     } else {
       addFavorite(address);
     }
-  }, [isFavorite, addFavorite, removeFavorite, handleAddressSelect]);
+    
+    // 스크롤 위치 복원 (다음 프레임에서)
+    requestAnimationFrame(() => {
+      window.scrollTo(0, currentScrollY);
+    });
+  }, [isFavorite, addFavorite, removeFavorite]);
   
   // 검색 입력 포커스 처리
   const handleInputFocus = () => {
@@ -347,13 +356,20 @@ const AddressSearch: React.FC<AddressSearchProps> = ({
                   {showFavorites && (
                     <button
                       onClick={(e) => handleFavoriteToggle(address, e)}
+                      onMouseDown={(e) => e.preventDefault()}
+                      onTouchStart={(e) => e.preventDefault()}
+                      type="button"
                       style={{
                         background: 'none',
                         border: 'none',
                         fontSize: '1.2rem',
                         cursor: 'pointer',
                         padding: '0.25rem',
-                        marginLeft: '0.5rem'
+                        marginLeft: '0.5rem',
+                        userSelect: 'none',
+                        WebkitUserSelect: 'none',
+                        MozUserSelect: 'none',
+                        msUserSelect: 'none'
                       }}
                       aria-label={isFavorite(address) ? '즐겨찾기에서 제거' : '즐겨찾기에 추가'}
                     >

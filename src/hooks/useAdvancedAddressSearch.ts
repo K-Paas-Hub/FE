@@ -257,16 +257,32 @@ export const useFavorites = () => {
   const [favorites, setFavorites] = useState(() => storageManager.getFavorites());
 
   const addFavorite = useCallback((address: AddressData, nickname?: string, category?: string) => {
+    // 현재 스크롤 위치 저장
+    const currentScrollY = window.scrollY;
+    
     const success = storageManager.addToFavorites(address, nickname, category);
     if (success) {
       setFavorites(storageManager.getFavorites());
+      
+      // 스크롤 위치 복원
+      requestAnimationFrame(() => {
+        window.scrollTo(0, currentScrollY);
+      });
     }
     return success;
   }, []);
 
   const removeFavorite = useCallback((id: string) => {
+    // 현재 스크롤 위치 저장
+    const currentScrollY = window.scrollY;
+    
     storageManager.removeFromFavorites(id);
     setFavorites(storageManager.getFavorites());
+    
+    // 스크롤 위치 복원
+    requestAnimationFrame(() => {
+      window.scrollTo(0, currentScrollY);
+    });
   }, []);
 
   const updateFavorite = useCallback((id: string, updates: any) => {
