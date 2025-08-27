@@ -14,7 +14,14 @@ import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
 import VisaTypeCard from './VisaTypeCard';
-import '../../styles/VisaCenter.css';
+import {
+  VisaContainer,
+  VisaContent,
+  FilterSection,
+  CategoryFilter,
+  CategoryButton,
+  VisaGrid,
+} from '../../styles/components/VisaCenter.styles';
 
 const VisaCenter: React.FC = () => {
   const navigate = useNavigate();
@@ -46,36 +53,36 @@ const VisaCenter: React.FC = () => {
   };
 
   return (
-    <div className="visa-container">
+    <VisaContainer>
       <MainHeader />
-      <main className="visa-content">
-        <motion.div 
-          className="filter-section"
+      <VisaContent>
+        <FilterSection
+          as={motion.div}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: ANIMATIONS.duration.normal, delay: 0.1 }}
         >
-          <div className="category-filter">
-            <button
-              className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+          <CategoryFilter>
+            <CategoryButton
+              $active={selectedCategory === 'all'}
               onClick={() => setSelectedCategory('all')}
             >
               {t('visaCenter.all')}
-            </button>
+            </CategoryButton>
             {Object.entries(VISA_CATEGORY_LABELS).map(([category, labelKey]) => (
-              <button
+              <CategoryButton
                 key={category}
-                className={`category-button ${selectedCategory === category.toLowerCase() ? 'active' : ''}`}
+                $active={selectedCategory === category.toLowerCase()}
                 onClick={() => setSelectedCategory(category.toLowerCase())}
               >
                 {t(labelKey)}
-              </button>
+              </CategoryButton>
             ))}
-          </div>
-        </motion.div>
+          </CategoryFilter>
+        </FilterSection>
 
-        <motion.div 
-          className="visa-grid"
+        <VisaGrid
+          as={motion.div}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -99,10 +106,10 @@ const VisaCenter: React.FC = () => {
               />
             </motion.div>
           ))}
-        </motion.div>
-      </main>
+        </VisaGrid>
+      </VisaContent>
       <MainFooter />
-    </div>
+    </VisaContainer>
   );
 };
 
