@@ -1,8 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Divider } from '../../styles/components/LoginForm.styles';
-import '../../styles/LoginForm.css';
+import {
+  LoginForm as StyledLoginForm,
+  InputGroup,
+  InputLabel,
+  InputField,
+  ErrorMessage,
+  FormActions,
+  Links,
+  Link as StyledLink,
+  Separator,
+  LoginButton,
+  OAuthSection,
+  OAuthDivider,
+  OAuthButton,
+  ButtonIcon,
+  FooterLinks,
+  FooterLink
+} from '../../styles/components/LoginForm.styles';
 
 interface LoginFormProps {
   onSubmit: (id: string, pw: string) => void;
@@ -66,77 +82,77 @@ const LoginForm: React.FC<LoginFormProps> = ({
   };
 
   return (
-    <div className="login-form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label className="input-label">{t('auth.login.idLabel')}</label>
-          <input
+    <div>
+      <StyledLoginForm onSubmit={handleSubmit}>
+        <InputGroup>
+          <InputLabel>{t('auth.login.idLabel')}</InputLabel>
+          <InputField
             type="text"
             value={id}
             onChange={handleIdChange}
-            className={`input-field ${idError ? 'error' : ''}`}
+            hasError={!!idError}
             placeholder={t('auth.login.idPlaceholder')}
             disabled={isLoading}
           />
-          {idError && <div className="error-message">{idError}</div>}
-        </div>
+          {idError && <ErrorMessage>{idError}</ErrorMessage>}
+        </InputGroup>
 
-        <div className="input-group">
-          <label className="input-label">{t('auth.login.passwordLabel')}</label>
-          <input
+        <InputGroup>
+          <InputLabel>{t('auth.login.passwordLabel')}</InputLabel>
+          <InputField
             type="password"
             value={pw}
             onChange={handlePwChange}
-            className={`input-field ${pwError ? 'error' : ''}`}
+            hasError={!!pwError}
             placeholder={t('auth.login.passwordPlaceholder')}
             disabled={isLoading}
           />
-          {pwError && <div className="error-message">{pwError}</div>}
-        </div>
+          {pwError && <ErrorMessage>{pwError}</ErrorMessage>}
+        </InputGroup>
 
-        <div className="form-actions">
-          <div className="links">
-            <Link to="/signup" className="link">{t('auth.login.signupLink')}</Link>
-            <span className="separator">|</span>
-            <Link to="/find-password" className="link">{t('auth.login.findPasswordLink')}</Link>
-          </div>
-          <button 
+        <FormActions>
+          <Links>
+            <StyledLink as={Link} to="/signup">{t('auth.login.signupLink')}</StyledLink>
+            <Separator>|</Separator>
+            <StyledLink as={Link} to="/find-password">{t('auth.login.findPasswordLink')}</StyledLink>
+          </Links>
+          <LoginButton 
             type="submit" 
-            className="login-button"
+            isEnabled={!isLoading}
             disabled={isLoading}
           >
             {isLoading ? t('auth.login.loggingIn') : t('auth.login.loginButton')}
-          </button>
-        </div>
-      </form>
+          </LoginButton>
+        </FormActions>
+      </StyledLoginForm>
 
-      <div className="oauth-section">
-        <div className="oauth-divider">
+      <OAuthSection>
+        <OAuthDivider>
           <span>{t('auth.login.or')}</span>
-        </div>
+        </OAuthDivider>
         
-        <button 
-          className="oauth-button google" 
+        <OAuthButton 
+          variant="google"
           onClick={handleGoogleLogin}
           disabled={isLoading}
         >
-          <div className="button-icon">
+          <ButtonIcon>
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
               <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
             </svg>
-          </div>
+          </ButtonIcon>
           {isLoading ? '로그인 중...' : t('auth.googleContinue')}
-        </button>
-      </div>
+        </OAuthButton>
+      </OAuthSection>
 
-      <div className="footer-links">
-        <Link to="/terms" className="footer-link">{t('auth.termsOfService')}</Link>
-        <Divider>|</Divider>
-        <Link to="/privacy" className="footer-link">{t('auth.privacyPolicy')}</Link>
-      </div>
+      <FooterLinks>
+        <FooterLink as={Link} to="/terms">{t('auth.termsOfService')}</FooterLink>
+        <Separator>|</Separator>
+        <FooterLink as={Link} to="/privacy">{t('auth.privacyPolicy')}</FooterLink>
+      </FooterLinks>
     </div>
   );
 };
