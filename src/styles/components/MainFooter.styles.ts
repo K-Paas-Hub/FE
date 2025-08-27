@@ -1,20 +1,11 @@
 import styled from 'styled-components';
 
-/**
- * MainFooter 컴포넌트 스타일
- * MainFooter.css를 styled-components로 변환
- */
-
-export const MainFooterContainer = styled.footer`
+export const MainFooter = styled.footer`
   background: #f8f9fa;
   color: #333;
   padding: 2rem 2rem 1rem;
   margin-top: 4rem;
   border-top: 1px solid #e5e5e5;
-
-  @media (max-width: 768px) {
-    padding: 1.5rem 1rem 1rem;
-  }
 `;
 
 export const FooterContent = styled.div`
@@ -29,11 +20,6 @@ export const TopNav = styled.nav`
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 1.5rem;
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
 `;
 
 export const TopNavLink = styled.a`
@@ -51,11 +37,6 @@ export const MainSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1.5rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 1rem;
-  }
 `;
 
 export const LeftSection = styled.div`
@@ -86,10 +67,6 @@ export const RightSection = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 0.5rem;
-
-  @media (max-width: 768px) {
-    align-items: flex-start;
-  }
 `;
 
 export const EmailButton = styled.button`
@@ -112,7 +89,7 @@ export const SocialIcons = styled.div`
   gap: 0.5rem;
 `;
 
-export const SocialIconLink = styled.a`
+export const SocialIcon = styled.a`
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -197,4 +174,31 @@ export const MobileLink = styled.a`
 export const MobileLinkContainer = styled.div`
   text-align: center;
   margin-top: 1rem;
+`;
+
+// 반응형 스타일
+export const MainFooterMobile = styled(MainFooter)`
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem 1rem;
+  }
+`;
+
+export const TopNavMobile = styled(TopNav)`
+  @media (max-width: 768px) {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+`;
+
+export const MainSectionMobile = styled(MainSection)`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+export const RightSectionMobile = styled(RightSection)`
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 `;

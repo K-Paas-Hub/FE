@@ -1,67 +1,89 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import '../../styles/MainFooter.css';
+import {
+  MainFooter as StyledMainFooter,
+  FooterContent,
+  TopNav,
+  TopNavLink,
+  MainSection,
+  LeftSection,
+  FooterLogo,
+  CustomerService,
+  ContactInfo,
+  RightSection,
+  EmailButton,
+  SocialIcons,
+  SocialIcon,
+  CompanyInfo,
+  BusinessInfo,
+  BusinessButton,
+  Certification,
+  IsmsLogo,
+  Copyright,
+  MobileLinkContainer,
+  MobileLink
+} from '../../styles/components/MainFooter.styles';
 
 const MainFooter: React.FC = () => {
   const { t } = useTranslation();
   
   return (
-    <footer className="main-footer">
-      <div className="footer-content">
-        <div className="top-nav">
-          <a href="#company" className="top-nav-link">{t('mainFooter.links.company')}</a>
-          <a href="#recruitment" className="top-nav-link">{t('mainFooter.links.recruitment')}</a>
-          <a href="#terms" className="top-nav-link">{t('mainFooter.links.terms')}</a>
-          <a href="#privacy" className="top-nav-link">{t('mainFooter.links.privacy')}</a>
-          <a href="#email-reject" className="top-nav-link">{t('mainFooter.links.emailReject')}</a>
-          <a href="#api" className="top-nav-link">{t('mainFooter.links.api')}</a>
-          <a href="#partnership" className="top-nav-link">{t('mainFooter.links.partnership')}</a>
-          <a href="#customer-center" className="top-nav-link">{t('mainFooter.links.customerCenter')}</a>
-        </div>
+    <StyledMainFooter>
+      <FooterContent>
+        <TopNav>
+          <TopNavLink href="#company">{t('mainFooter.links.company')}</TopNavLink>
+          <TopNavLink href="#recruitment">{t('mainFooter.links.recruitment')}</TopNavLink>
+          <TopNavLink href="#terms">{t('mainFooter.links.terms')}</TopNavLink>
+          <TopNavLink href="#privacy">{t('mainFooter.links.privacy')}</TopNavLink>
+          <TopNavLink href="#email-reject">{t('mainFooter.links.emailReject')}</TopNavLink>
+          <TopNavLink href="#api">{t('mainFooter.links.api')}</TopNavLink>
+          <TopNavLink href="#partnership">{t('mainFooter.links.partnership')}</TopNavLink>
+          <TopNavLink href="#customer-center">{t('mainFooter.links.customerCenter')}</TopNavLink>
+        </TopNav>
         
-        <div className="main-section">
-          <div className="left-section">
-            <div className="footer-logo">FairWork</div>
-            <div className="customer-service">
+        <MainSection>
+          <LeftSection>
+            <FooterLogo>FairWork</FooterLogo>
+            <CustomerService>
               <br/>
               {t('mainFooter.contact.title')} {t('mainFooter.contact.phone')} ({t('mainFooter.contact.hours')})
-            </div>
-            <div className="contact-info">
+            </CustomerService>
+            <ContactInfo>
               {t('mainFooter.contact.emailLabel')} : {t('mainFooter.contact.email')}, {t('mainFooter.contact.faxLabel')} : {t('mainFooter.contact.fax')}
-            </div>
-          </div>
+            </ContactInfo>
+          </LeftSection>
           
-          <div className="right-section">
-            <button className="email-button">{t('mainFooter.actions.emailInquiry')}</button>
-            <div className="social-icons">
-              <a href="#blog">B</a>
-              <a href="#facebook">f</a>
-            </div>
-          </div>
-        </div>
+          <RightSection>
+            <EmailButton>{t('mainFooter.actions.emailInquiry')}</EmailButton>
+            <SocialIcons>
+              <SocialIcon href="#blog">B</SocialIcon>
+              <SocialIcon href="#facebook">f</SocialIcon>
+            </SocialIcons>
+          </RightSection>
+        </MainSection>
         
-        <div className="company-info">
+        <CompanyInfo>
           {t('mainFooter.company.name')}, {t('mainFooter.company.address')}, {t('mainFooter.company.ceo')}
-        </div>
+        </CompanyInfo>
         
-        <div className="business-info">
+        <BusinessInfo>
           {t('footer.businessInfo')}
-          <button className="business-button">{t('footer.businessInfoButton')}</button>
-        </div>
+          <BusinessButton>{t('footer.businessInfoButton')}</BusinessButton>
+        </BusinessInfo>
         
-        <div className="certification">
-          <div className="isms-logo">ISMS-P</div>
-        </div>
+        <Certification>
+          <IsmsLogo>ISMS-P</IsmsLogo>
+        </Certification>
         
-        <div className="copyright">
+        <Copyright>
           {t('footer.copyright')}
-        </div>
+        </Copyright>
         
-        <div className="mobile-link-container">
-          <a href="#mobile" className="mobile-link">{t('footer.mobileVersion')}</a>
-        </div>
-      </div>
-    </footer>
+        <MobileLinkContainer>
+          <MobileLink href="#mobile">{t('footer.mobileVersion')}</MobileLink>
+        </MobileLinkContainer>
+      </FooterContent>
+    </StyledMainFooter>
   );
 };
 
