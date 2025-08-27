@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { theme } from '../theme/theme';
-import { motion } from 'framer-motion';
-import { COLORS, ANIMATIONS } from '../../constants';
 
 // Main Container
 export const ResumeContainer = styled.div`
@@ -1343,8 +1341,8 @@ export const StatusSelect = styled.select`
   }
 `;
 
-export const RestartButton = styled(motion.button)`
-  background: ${COLORS.primary};
+export const RestartButton = styled.button`
+  background: ${theme.colors.primary};
   color: white;
   border: none;
   border-radius: 8px;
@@ -1357,7 +1355,7 @@ export const RestartButton = styled(motion.button)`
   transition: all 0.2s ease;
   
   &:hover {
-    background: ${COLORS.primaryHover};
+    background: ${theme.colors.primaryHover};
     transform: translateY(-2px);
   }
   

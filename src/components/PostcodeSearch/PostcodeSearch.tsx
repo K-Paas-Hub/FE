@@ -176,66 +176,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
     });
   };
 
-  // 레이어 모드로 우편번호 열기
-  const openPostcodeLayer = () => {
-    if (!isPostcodeLoaded || disabled || !postcodeRef.current) return;
-
-    setShowPostcode(true);
-
-    const postcode = new window.daum.Postcode({
-      oncomplete: (data: AddressData) => {
-        setSelectedAddress(data);
-        setSearchTerm(data.address);
-        setDetailAddress('');
-        
-        // 제어 컴포넌트인 경우 onChange 호출
-        if (isControlled && controlledOnChange) {
-          controlledOnChange(data.address);
-        }
-        
-        // 부모 컴포넌트에 주소 데이터 전달 (전체 주소 포함)
-        const addressWithComplete = {
-          ...data,
-          completeAddress: getCompleteAddress()
-        };
-        onAddressSelect(addressWithComplete);
-        setShowPostcode(false);
-      },
-      onresize: (size: { width: number; height: number }) => {
-        if (postcodeRef.current) {
-          postcodeRef.current.style.height = size.height + 'px';
-        }
-      },
-      onclose: (state: string) => {
-        setShowPostcode(false);
-      },
-      theme: {
-        searchBgColor: theme.searchBgColor || '#3182f6',
-        queryTextColor: theme.queryTextColor || '#FFFFFF',
-        postcodeTextColor: theme.postcodeTextColor || '#FA4256',
-        emphTextColor: theme.emphTextColor || '#008BD3',
-        outlineColor: theme.outlineColor || '#E0E0E0',
-      },
-      width: '100%',
-      height: '100%',
-      animation: true,
-      focusInput: true,
-      autoMappingRoad: true,
-      autoMappingJibun: true,
-      shorthand: true,
-      pleaseReadGuide: 5,
-      pleaseReadGuideTimer: 1.5,
-      maxSuggestItems: 10,
-      showMoreHName: false,
-      hideMapBtn: false,
-      hideEngBtn: false,
-      alwaysShowEngAddr: false,
-      submitMode: true,
-      useBannerLink: true,
-    });
-
-    postcode.embed(postcodeRef.current);
-  };
+  // openPostcodeLayer 함수 제거 (미사용)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

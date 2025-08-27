@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { COLORS } from '../../constants';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
 import {
   Container,
@@ -24,9 +22,7 @@ import {
   ErrorList,
   ErrorItem,
   ErrorText,
-  DropdownIcon,
   EmptyState,
-  CompleteButton,
   CheckIcon,
   Legend,
   LegendDot,
