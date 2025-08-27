@@ -1,20 +1,44 @@
-# Node.js 18 Alpine 이미지를 베이스로 사용
-FROM node:18-alpine
-
-# 작업 디렉토리 설정
+# ---------- Stage 1: Build ----------
+FROM node:18-alpine AS build
 WORKDIR /app
 
-# package.json과 package-lock.json만 먼저 복사
+# 의존성 설치
 COPY package*.json ./
+RUN npm ci && npm cache clean --force
 
-# 의존성 설치 (캐시 레이어 최적화)
-RUN npm ci --only=production && npm cache clean --force
-
-# 소스 코드 복사
+# 소스 복사
 COPY . .
 
-# 포트 3000 노출
-EXPOSE 3000
+# 환경변수 (CRA 기준, Vite도 유사)
+ENV NODE_ENV=production
+ENV GENERATE_SOURCEMAP=false
 
-# 개발 서버 시작
-CMD ["npm", "start"]
+# React 빌드
+RUN npm run build
+
+# 빌드 산출물 난독화
+RUN npx --yes javascript-obfuscator build/static/js \
+    --output build/static/js \
+    --compact true \
+    --control-flow-flattening true \
+    --dead-code-injection true \
+    --dead-code-injection-threshold 0.4 \
+    --disable-console-output true \
+    --identifier-names-generator mangled \
+    --self-defending true \
+    --string-array true \
+    --string-array-encoding base64 \
+    --string-array-threshold 0.75
+
+# ---------- Stage 2: Runtime ----------
+FROM nginx:1.27-alpine
+WORKDIR /usr/share/nginx/html
+
+# 정적 파일 복사
+COPY --from=build /app/build ./
+
+# 커스텀 nginx.conf (SPA 라우팅 + 캐싱) 복사
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
