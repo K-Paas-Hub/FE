@@ -50,7 +50,7 @@ const renderWithProvider = (children: React.ReactNode) => {
 
 const renderHookWithProvider = (hook: () => any) => {
   return renderHook(hook, {
-    wrapper: ({ children }) => (
+    wrapper: ({ children }: { children: React.ReactNode }) => (
       <LanguageProvider>
         {children}
       </LanguageProvider>

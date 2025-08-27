@@ -1,6 +1,7 @@
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useResumeForm } from './useResumeForm';
 import { resumeService } from '../services/api';
+import { ResumeData } from '../types/resume';
 
 // Mock localStorage
 const localStorageMock = {
@@ -93,7 +94,8 @@ describe('useResumeForm', () => {
   });
 
   test('should load saved resume', async () => {
-    const mockData = {
+    const mockData: ResumeData = {
+      id: 'resume-1',
       name: '홍길동',
       email: 'test@test.com',
       phone: '010-1234-5678',
@@ -106,7 +108,10 @@ describe('useResumeForm', () => {
       skills: 'React, TypeScript',
       certifications: '자격증',
       languages: '한국어, 영어',
-      introduction: '자기소개'
+      introduction: '자기소개',
+      status: 'draft',
+      createdAt: '2023-01-01T00:00:00.000Z',
+      updatedAt: '2023-01-01T00:00:00.000Z'
     };
     mockResumeService.getResume.mockResolvedValue({
       success: true,
