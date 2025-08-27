@@ -792,5 +792,56 @@
       "phonePlaceholder": "Masukkan nomor telepon Anda",
       "addressPlaceholder": "Cari alamat"
     }
+  },
+  "interviewSettings": {
+    "title": "Pengaturan Wawancara",
+    "difficultySettings": "Pengaturan Tingkat Kesulitan",
+    "difficultyLevels": {
+      "easy": "Pemula",
+      "medium": "Menengah",
+      "hard": "Lanjutan"
+    },
+    "difficultyDescriptions": {
+      "easy": "Pertanyaan wawancara dasar dengan petunjuk jawaban",
+      "medium": "Pertanyaan wawancara standar dengan tingkat kesulitan sedang",
+      "hard": "Pertanyaan yang disesuaikan berdasarkan resume dengan tingkat kesulitan tinggi"
+    },
+    "questionCountSettings": "Pengaturan Jumlah Pertanyaan",
+    "additionalOptions": "Opsi Tambahan",
+    "options": {
+      "hints": "Berikan Petunjuk Jawaban",
+      "hintsDescription": "Memberikan petunjuk yang membantu saat menjawab",
+      "customQuestions": "Pertanyaan yang Disesuaikan",
+      "customQuestionsDescription": "Membuat pertanyaan yang dipersonalisasi berdasarkan resume"
+    },
+    "summary": {
+      "title": "Ringkasan Pengaturan",
+      "estimatedTime": "Perkiraan Waktu",
+      "totalQuestions": "Total Pertanyaan"
+    },
+    "actions": {
+      "cancel": "Batal",
+      "startInterview": "Mulai Wawancara"
+    }
+  },
+  "postcodeTest": {
+    "title": "Tes Pencarian Kode Pos",
+    "description": "Klik tombol di bawah untuk menguji pencarian kode pos.",
+    "selectedAddressInfo": "Informasi Alamat yang Dipilih:"
+  },
+  "validation": {
+    "password": {
+      "minLength": "Kata sandi harus minimal 8 karakter.",
+      "lowercase": "Harus menyertakan huruf kecil.",
+      "uppercase": "Harus menyertakan huruf besar.",
+      "number": "Harus menyertakan angka.",
+      "special": "Harus menyertakan karakter khusus."
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "Memuat data resume...",
+    "savedResumeMessage": "Ini adalah konten pengenalan diri yang tersimpan. Silakan edit dan periksa.",
+    "defaultIntroduction": "Halo. Saya adalah pekerja asing. Saya ingin bekerja di Korea.",
+    "loadResumeDataError": "Gagal memuat data resume"
   }
 }

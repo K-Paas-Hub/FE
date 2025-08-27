@@ -691,5 +691,56 @@
       "phonePlaceholder": "आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्",
       "addressPlaceholder": "ठेगाना खोज्नुहोस्"
     }
+  },
+  "interviewSettings": {
+    "title": "अन्तर्वार्ता सेटिङहरू",
+    "difficultySettings": "कठिनाई सेटिङहरू",
+    "difficultyLevels": {
+      "easy": "सुरुवाती",
+      "medium": "मध्यम",
+      "hard": "उच्च"
+    },
+    "difficultyDescriptions": {
+      "easy": "आधारभूत अन्तर्वार्ता प्रश्नहरू र उत्तर सङ्केतहरू",
+      "medium": "मानक अन्तर्वार्ता प्रश्नहरू र मध्यम कठिनाई",
+      "hard": "रिज्युमे आधारित अनुकूलित प्रश्नहरू र उच्च कठिनाई"
+    },
+    "questionCountSettings": "प्रश्न संख्या सेटिङहरू",
+    "additionalOptions": "अतिरिक्त विकल्पहरू",
+    "options": {
+      "hints": "उत्तर सङ्केतहरू प्रदान गर्नुहोस्",
+      "hintsDescription": "उत्तरहरूमा सहायक सङ्केतहरू प्रदान गर्दछ",
+      "customQuestions": "अनुकूलित प्रश्नहरू",
+      "customQuestionsDescription": "रिज्युमे आधारित व्यक्तिगत प्रश्नहरू सिर्जना गर्दछ"
+    },
+    "summary": {
+      "title": "सेटिङ सारांश",
+      "estimatedTime": "अनुमानित समय",
+      "totalQuestions": "कुल प्रश्नहरू"
+    },
+    "actions": {
+      "cancel": "रद्द गर्नुहोस्",
+      "startInterview": "अन्तर्वार्ता सुरु गर्नुहोस्"
+    }
+  },
+  "postcodeTest": {
+    "title": "हुलाक कोड खोजी परीक्षण",
+    "description": "हुलाक कोड खोजी परीक्षण गर्न तलको बटन क्लिक गर्नुहोस्।",
+    "selectedAddressInfo": "छानिएको ठेगाना जानकारी:"
+  },
+  "validation": {
+    "password": {
+      "minLength": "पासवर्ड कम्तिमा ८ अक्षरहरू हुनुपर्छ।",
+      "lowercase": "सानो अक्षरहरू समावेश गर्नुपर्छ।",
+      "uppercase": "ठूलो अक्षरहरू समावेश गर्नुपर्छ।",
+      "number": "संख्याहरू समावेश गर्नुपर्छ।",
+      "special": "विशेष अक्षरहरू समावेश गर्नुपर्छ।"
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "रिज्युमे डाटा लोड गर्दै...",
+    "savedResumeMessage": "यो तपाईंको बचत गरिएको आत्मपरिचय हो। कृपया सम्पादन गर्नुहोस् र जाँच गर्नुहोस्।",
+    "defaultIntroduction": "नमस्ते। म विदेशी कामदार हुँ। म कोरियामा काम गर्न चाहन्छु।",
+    "loadResumeDataError": "रिज्युमे डाटा लोड गर्न असफल"
   }
 }

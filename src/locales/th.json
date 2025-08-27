@@ -814,5 +814,56 @@
       "phonePlaceholder": "ป้อนหมายเลขโทรศัพท์ของคุณ",
       "addressPlaceholder": "ค้นหาที่อยู่"
     }
+  },
+  "interviewSettings": {
+    "title": "การตั้งค่าการสัมภาษณ์",
+    "difficultySettings": "การตั้งค่าระดับความยาก",
+    "difficultyLevels": {
+      "easy": "ระดับเริ่มต้น",
+      "medium": "ระดับกลาง",
+      "hard": "ระดับสูง"
+    },
+    "difficultyDescriptions": {
+      "easy": "คำถามสัมภาษณ์พื้นฐานพร้อมคำแนะนำการตอบ",
+      "medium": "คำถามสัมภาษณ์มาตรฐานพร้อมระดับความยากปานกลาง",
+      "hard": "คำถามที่ปรับแต่งตามประวัติย่อพร้อมระดับความยากสูง"
+    },
+    "questionCountSettings": "การตั้งค่าจำนวนคำถาม",
+    "additionalOptions": "ตัวเลือกเพิ่มเติม",
+    "options": {
+      "hints": "ให้คำแนะนำการตอบ",
+      "hintsDescription": "ให้คำแนะนำที่เป็นประโยชน์ขณะตอบคำถาม",
+      "customQuestions": "คำถามที่ปรับแต่ง",
+      "customQuestionsDescription": "สร้างคำถามส่วนบุคคลตามประวัติย่อ"
+    },
+    "summary": {
+      "title": "สรุปการตั้งค่า",
+      "estimatedTime": "เวลาที่คาดการณ์",
+      "totalQuestions": "จำนวนคำถามทั้งหมด"
+    },
+    "actions": {
+      "cancel": "ยกเลิก",
+      "startInterview": "เริ่มการสัมภาษณ์"
+    }
+  },
+  "postcodeTest": {
+    "title": "การทดสอบการค้นหารหัสไปรษณีย์",
+    "description": "คลิกปุ่มด้านล่างเพื่อทดสอบการค้นหารหัสไปรษณีย์",
+    "selectedAddressInfo": "ข้อมูลที่อยู่ที่เลือก:"
+  },
+  "validation": {
+    "password": {
+      "minLength": "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+      "lowercase": "ต้องมีตัวอักษรตัวพิมพ์เล็ก",
+      "uppercase": "ต้องมีตัวอักษรตัวพิมพ์ใหญ่",
+      "number": "ต้องมีตัวเลข",
+      "special": "ต้องมีอักขระพิเศษ"
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "กำลังโหลดข้อมูลประวัติย่อ...",
+    "savedResumeMessage": "นี่คือเนื้อหาการแนะนำตัวเองที่บันทึกไว้ กรุณาแก้ไขและตรวจสอบ",
+    "defaultIntroduction": "สวัสดี ฉันเป็นแรงงานต่างชาติ ฉันต้องการทำงานในเกาหลี",
+    "loadResumeDataError": "ไม่สามารถโหลดข้อมูลประวัติย่อได้"
   }
 }

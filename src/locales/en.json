@@ -898,5 +898,56 @@
       "phonePlaceholder": "Enter your phone number",
       "addressPlaceholder": "Search for address"
     }
+  },
+  "interviewSettings": {
+    "title": "Interview Settings",
+    "difficultySettings": "Difficulty Settings",
+    "difficultyLevels": {
+      "easy": "Beginner",
+      "medium": "Intermediate",
+      "hard": "Advanced"
+    },
+    "difficultyDescriptions": {
+      "easy": "Basic interview questions with answer hints",
+      "medium": "Standard interview questions with moderate difficulty",
+      "hard": "Resume-based customized questions with high difficulty"
+    },
+    "questionCountSettings": "Question Count Settings",
+    "additionalOptions": "Additional Options",
+    "options": {
+      "hints": "Provide Answer Hints",
+      "hintsDescription": "Provides helpful hints during answers",
+      "customQuestions": "Customized Questions",
+      "customQuestionsDescription": "Generates personalized questions based on resume"
+    },
+    "summary": {
+      "title": "Settings Summary",
+      "estimatedTime": "Estimated Time",
+      "totalQuestions": "Total Questions"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "startInterview": "Start Interview"
+    }
+  },
+  "postcodeTest": {
+    "title": "Postcode Search Test",
+    "description": "Click the button below to test postcode search.",
+    "selectedAddressInfo": "Selected Address Information:"
+  },
+  "validation": {
+    "password": {
+      "minLength": "Password must be at least 8 characters long.",
+      "lowercase": "Must include lowercase letters.",
+      "uppercase": "Must include uppercase letters.",
+      "number": "Must include numbers.",
+      "special": "Must include special characters."
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "Loading resume data...",
+    "savedResumeMessage": "This is your saved self-introduction. Please modify and check.",
+    "defaultIntroduction": "Hello. I am a foreign worker. I want to work in Korea.",
+    "loadResumeDataError": "Failed to load resume data"
   }
 }

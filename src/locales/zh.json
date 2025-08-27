@@ -792,5 +792,56 @@
       "phonePlaceholder": "请输入您的电话号码",
       "addressPlaceholder": "搜索地址"
     }
+  },
+  "interviewSettings": {
+    "title": "面试设置",
+    "difficultySettings": "难度设置",
+    "difficultyLevels": {
+      "easy": "初级",
+      "medium": "中级",
+      "hard": "高级"
+    },
+    "difficultyDescriptions": {
+      "easy": "基础面试问题和答案提示",
+      "medium": "标准面试问题和中等难度",
+      "hard": "基于简历的定制问题和高难度"
+    },
+    "questionCountSettings": "问题数量设置",
+    "additionalOptions": "附加选项",
+    "options": {
+      "hints": "提供答案提示",
+      "hintsDescription": "在回答时提供有用的提示",
+      "customQuestions": "定制问题",
+      "customQuestionsDescription": "基于简历生成个性化问题"
+    },
+    "summary": {
+      "title": "设置摘要",
+      "estimatedTime": "预计时间",
+      "totalQuestions": "总问题数"
+    },
+    "actions": {
+      "cancel": "取消",
+      "startInterview": "开始面试"
+    }
+  },
+  "postcodeTest": {
+    "title": "邮政编码搜索测试",
+    "description": "点击下面的按钮测试邮政编码搜索。",
+    "selectedAddressInfo": "选中的地址信息："
+  },
+  "validation": {
+    "password": {
+      "minLength": "密码必须至少8个字符。",
+      "lowercase": "必须包含小写字母。",
+      "uppercase": "必须包含大写字母。",
+      "number": "必须包含数字。",
+      "special": "必须包含特殊字符。"
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "正在加载简历数据...",
+    "savedResumeMessage": "这是您保存的自我介绍内容。请编辑并检查。",
+    "defaultIntroduction": "您好。我是外籍劳工。我想在韩国工作。",
+    "loadResumeDataError": "加载简历数据失败"
   }
 }

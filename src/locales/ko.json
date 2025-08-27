@@ -929,5 +929,56 @@
       "phonePlaceholder": "전화번호를 입력하세요",
       "addressPlaceholder": "주소를 검색하세요"
     }
+  },
+  "interviewSettings": {
+    "title": "면접 설정",
+    "difficultySettings": "난이도 설정",
+    "difficultyLevels": {
+      "easy": "초급",
+      "medium": "중급",
+      "hard": "고급"
+    },
+    "difficultyDescriptions": {
+      "easy": "기본적인 면접 질문과 답변 힌트 제공",
+      "medium": "일반적인 면접 질문과 적당한 난이도",
+      "hard": "이력서 기반 맞춤형 질문과 높은 난이도"
+    },
+    "questionCountSettings": "질문 수 설정",
+    "additionalOptions": "추가 옵션",
+    "options": {
+      "hints": "답변 힌트 제공",
+      "hintsDescription": "답변 시 도움이 되는 힌트를 제공합니다",
+      "customQuestions": "맞춤형 질문",
+      "customQuestionsDescription": "이력서 기반으로 개인화된 질문을 생성합니다"
+    },
+    "summary": {
+      "title": "설정 요약",
+      "estimatedTime": "예상 소요 시간",
+      "totalQuestions": "총 질문 수"
+    },
+    "actions": {
+      "cancel": "취소",
+      "startInterview": "면접 시작"
+    }
+  },
+  "postcodeTest": {
+    "title": "우편번호 검색 테스트",
+    "description": "아래 버튼을 클릭하여 우편번호 검색을 테스트해보세요.",
+    "selectedAddressInfo": "선택된 주소 정보:"
+  },
+  "validation": {
+    "password": {
+      "minLength": "비밀번호는 최소 8자 이상이어야 합니다.",
+      "lowercase": "소문자를 포함해야 합니다.",
+      "uppercase": "대문자를 포함해야 합니다.",
+      "number": "숫자를 포함해야 합니다.",
+      "special": "특수문자를 포함해야 합니다."
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "이력서 데이터를 불러오는 중...",
+    "savedResumeMessage": "저장된 자기소개서 내용입니다. 수정 후 검사하세요.",
+    "defaultIntroduction": "안녕하세요. 저는 외국인 근로자입니다. 한국에서 일하고 싶습니다.",
+    "loadResumeDataError": "이력서 데이터 불러오기 실패"
   }
 }

@@ -858,5 +858,56 @@
       "phonePlaceholder": "Nhập số điện thoại của bạn",
       "addressPlaceholder": "Tìm kiếm địa chỉ"
     }
+  },
+  "interviewSettings": {
+    "title": "Cài đặt phỏng vấn",
+    "difficultySettings": "Cài đặt độ khó",
+    "difficultyLevels": {
+      "easy": "Sơ cấp",
+      "medium": "Trung cấp",
+      "hard": "Cao cấp"
+    },
+    "difficultyDescriptions": {
+      "easy": "Câu hỏi phỏng vấn cơ bản với gợi ý trả lời",
+      "medium": "Câu hỏi phỏng vấn tiêu chuẩn với độ khó vừa phải",
+      "hard": "Câu hỏi tùy chỉnh dựa trên sơ yếu lý lịch với độ khó cao"
+    },
+    "questionCountSettings": "Cài đặt số câu hỏi",
+    "additionalOptions": "Tùy chọn bổ sung",
+    "options": {
+      "hints": "Cung cấp gợi ý trả lời",
+      "hintsDescription": "Cung cấp gợi ý hữu ích trong khi trả lời",
+      "customQuestions": "Câu hỏi tùy chỉnh",
+      "customQuestionsDescription": "Tạo câu hỏi cá nhân hóa dựa trên sơ yếu lý lịch"
+    },
+    "summary": {
+      "title": "Tóm tắt cài đặt",
+      "estimatedTime": "Thời gian ước tính",
+      "totalQuestions": "Tổng số câu hỏi"
+    },
+    "actions": {
+      "cancel": "Hủy",
+      "startInterview": "Bắt đầu phỏng vấn"
+    }
+  },
+  "postcodeTest": {
+    "title": "Kiểm tra tìm kiếm mã bưu điện",
+    "description": "Nhấp vào nút bên dưới để kiểm tra tìm kiếm mã bưu điện.",
+    "selectedAddressInfo": "Thông tin địa chỉ đã chọn:"
+  },
+  "validation": {
+    "password": {
+      "minLength": "Mật khẩu phải có ít nhất 8 ký tự.",
+      "lowercase": "Phải bao gồm chữ thường.",
+      "uppercase": "Phải bao gồm chữ hoa.",
+      "number": "Phải bao gồm số.",
+      "special": "Phải bao gồm ký tự đặc biệt."
+    }
+  },
+  "spellCheck": {
+    "loadingResumeData": "Đang tải dữ liệu sơ yếu lý lịch...",
+    "savedResumeMessage": "Đây là nội dung tự giới thiệu đã lưu. Vui lòng chỉnh sửa và kiểm tra.",
+    "defaultIntroduction": "Xin chào. Tôi là lao động nước ngoài. Tôi muốn làm việc tại Hàn Quốc.",
+    "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch"
   }
 }
