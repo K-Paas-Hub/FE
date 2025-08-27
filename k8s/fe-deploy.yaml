@@ -45,3 +45,4 @@ spec:
       targetPort: 80  # 컨테이너 nginx 포트
   type: ClusterIP
 
+
