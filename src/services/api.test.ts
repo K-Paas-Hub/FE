@@ -174,8 +174,11 @@ describe('API Services', () => {
       });
 
       const applicationData = {
+        userId: 'user-123',
         visaType: 'e9',
         documents: ['passport', 'contract'],
+        status: 'pending' as const,
+        submittedAt: new Date().toISOString(),
       };
 
       await visaService.submitVisaApplication(applicationData);

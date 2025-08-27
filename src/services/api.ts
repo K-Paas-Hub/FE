@@ -1,4 +1,5 @@
 import { API_ENDPOINTS } from '../constants';
+import { UserData, JobData, CompanyData, VisaApplicationData, ResumeData } from '../types/api';
 
 // API 응답 타입 정의
 export interface ApiResponse<T = any> {
@@ -23,7 +24,7 @@ class ApiClient {
   private async request<T>(
     endpoint: string,
     method: HttpMethod = 'GET',
-    data?: any,
+    data?: unknown,
     headers?: Record<string, string>
   ): Promise<ApiResponse<T>> {
     try {
@@ -73,12 +74,12 @@ class ApiClient {
   }
 
   // POST 요청
-  async post<T>(endpoint: string, data?: any, headers?: Record<string, string>): Promise<ApiResponse<T>> {
+  async post<T>(endpoint: string, data?: unknown, headers?: Record<string, string>): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, 'POST', data, headers);
   }
 
   // PUT 요청
-  async put<T>(endpoint: string, data?: any, headers?: Record<string, string>): Promise<ApiResponse<T>> {
+  async put<T>(endpoint: string, data?: unknown, headers?: Record<string, string>): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, 'PUT', data, headers);
   }
 
@@ -88,7 +89,7 @@ class ApiClient {
   }
 
   // PATCH 요청
-  async patch<T>(endpoint: string, data?: any, headers?: Record<string, string>): Promise<ApiResponse<T>> {
+  async patch<T>(endpoint: string, data?: unknown, headers?: Record<string, string>): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, 'PATCH', data, headers);
   }
 }
@@ -101,7 +102,7 @@ export const authService = {
   login: (email: string, password: string) =>
     apiClient.post(API_ENDPOINTS.auth + '/login', { email, password }),
   
-  register: (userData: any) =>
+  register: (userData: UserData) =>
     apiClient.post(API_ENDPOINTS.auth + '/register', userData),
   
   logout: () =>
@@ -115,24 +116,24 @@ export const userService = {
   getProfile: () =>
     apiClient.get(API_ENDPOINTS.users + '/profile'),
   
-  updateProfile: (userData: any) =>
+  updateProfile: (userData: UserData) =>
     apiClient.put(API_ENDPOINTS.users + '/profile', userData),
   
-  getUsers: (params?: any) =>
+  getUsers: (params?: Record<string, string>) =>
     apiClient.get(API_ENDPOINTS.users + '?' + new URLSearchParams(params)),
 };
 
 export const jobService = {
-  getJobs: (params?: any) =>
+  getJobs: (params?: Record<string, string>) =>
     apiClient.get(API_ENDPOINTS.jobs + '?' + new URLSearchParams(params)),
   
   getJob: (id: string) =>
     apiClient.get(API_ENDPOINTS.jobs + '/' + id),
   
-  createJob: (jobData: any) =>
+  createJob: (jobData: JobData) =>
     apiClient.post(API_ENDPOINTS.jobs, jobData),
   
-  updateJob: (id: string, jobData: any) =>
+  updateJob: (id: string, jobData: JobData) =>
     apiClient.put(API_ENDPOINTS.jobs + '/' + id, jobData),
   
   deleteJob: (id: string) =>
@@ -140,16 +141,16 @@ export const jobService = {
 };
 
 export const companyService = {
-  getCompanies: (params?: any) =>
+  getCompanies: (params?: Record<string, string>) =>
     apiClient.get(API_ENDPOINTS.companies + '?' + new URLSearchParams(params)),
   
   getCompany: (id: string) =>
     apiClient.get(API_ENDPOINTS.companies + '/' + id),
   
-  createCompany: (companyData: any) =>
+  createCompany: (companyData: CompanyData) =>
     apiClient.post(API_ENDPOINTS.companies, companyData),
   
-  updateCompany: (id: string, companyData: any) =>
+  updateCompany: (id: string, companyData: CompanyData) =>
     apiClient.put(API_ENDPOINTS.companies + '/' + id, companyData),
 };
 
@@ -166,7 +167,7 @@ export const visaService = {
   getVisaFAQ: () =>
     apiClient.get(API_ENDPOINTS.visa + '/faq'),
   
-  submitVisaApplication: (data: any) =>
+  submitVisaApplication: (data: VisaApplicationData) =>
     apiClient.post(API_ENDPOINTS.visa + '/apply', data),
   
   checkVisaStatus: (applicationId: string) =>
@@ -175,7 +176,7 @@ export const visaService = {
 
 // 이력서 서비스 추가
 export const resumeService = {
-  saveResume: async (data: any): Promise<ApiResponse<any>> => {
+  saveResume: async (data: ResumeData): Promise<ApiResponse<ResumeData>> => {
     try {
       const serialized = JSON.stringify(data);
       if (serialized.length > 5 * 1024 * 1024) { // 5MB 제한
@@ -205,7 +206,7 @@ export const resumeService = {
     }
   },
 
-  submitResume: async (data: any): Promise<ApiResponse<any>> => {
+  submitResume: async (data: ResumeData): Promise<ApiResponse<ResumeData>> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -223,7 +224,7 @@ export const resumeService = {
     });
   },
 
-  getResume: async (id: string): Promise<ApiResponse<any>> => {
+  getResume: async (id: string): Promise<ApiResponse<ResumeData>> => {
     try {
       const saved = localStorage.getItem('resume_draft');
       if (saved) {

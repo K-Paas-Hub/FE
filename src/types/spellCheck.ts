@@ -144,3 +144,9 @@ export interface SpellCheckHistory {
   result: SpellCheckResult;
   options: SpellCheckOptions;
 }
+
+export interface SpellCheckRule {
+  pattern: RegExp;
+  fix: string;
+  description: string;
+}

@@ -35,7 +35,7 @@ describe('useResumeForm', () => {
     // 기본적으로 getResume이 성공하도록 모킹
     mockResumeService.getResume.mockResolvedValue({
       success: true,
-      data: null,
+      data: undefined,
       message: 'No saved resume'
     });
   });
@@ -93,7 +93,21 @@ describe('useResumeForm', () => {
   });
 
   test('should load saved resume', async () => {
-    const mockData = { name: '홍길동', email: 'test@test.com' };
+    const mockData = {
+      name: '홍길동',
+      email: 'test@test.com',
+      phone: '010-1234-5678',
+      nationality: '베트남',
+      visaType: 'E9',
+      address: '서울시 강남구',
+      addressDetail: '테헤란로 123',
+      education: '대학교 졸업',
+      experience: '3년',
+      skills: 'React, TypeScript',
+      certifications: '자격증',
+      languages: '한국어, 영어',
+      introduction: '자기소개'
+    };
     mockResumeService.getResume.mockResolvedValue({
       success: true,
       data: mockData,

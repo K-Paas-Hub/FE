@@ -1,3 +1,5 @@
+import { AuthChangeEvent, Session } from '@supabase/supabase-js';
+
 export interface AuthUser {
   id: string;
   email?: string;
@@ -33,7 +35,7 @@ export interface UserResponse {
 
 export interface AuthTokenResponse {
   data: {
-    session: any | null;
+    session: Session | null;
   };
   error: AuthError | null;
 }
@@ -44,7 +46,7 @@ export interface SignOutResponse {
 
 export interface Subscription {
   id: string;
-  callback: (event: string, session: any) => void;
+  callback: (event: AuthChangeEvent, session: Session | null) => void;
   unsubscribe: () => void;
 }
 

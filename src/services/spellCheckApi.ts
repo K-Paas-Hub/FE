@@ -4,7 +4,8 @@ import {
   SpellCheckResult, 
   SpellCheckRequest,
   SpellCheckOptions,
-  SpellCheckStatus
+  SpellCheckStatus,
+  SpellCheckRule
 } from '../types/spellCheck';
 
 // 맞춤법 검사 규칙 (향후 확장 예정)
@@ -57,7 +58,7 @@ const performSpellCheck = (text: string, options: SpellCheckOptions): SpellCheck
 
   // 띄어쓰기 검사
   if (options.checkSpacing) {
-    SPELLING_RULES.spacing.forEach((rule: any) => {
+    SPELLING_RULES.spacing.forEach((rule: SpellCheckRule) => {
       let match;
       const regex = new RegExp(rule.pattern.source, 'g');
       while ((match = regex.exec(text)) !== null) {
@@ -78,7 +79,7 @@ const performSpellCheck = (text: string, options: SpellCheckOptions): SpellCheck
 
   // 맞춤법 검사
   if (options.checkSpelling) {
-    SPELLING_RULES.spelling.forEach((rule: any) => {
+    SPELLING_RULES.spelling.forEach((rule: SpellCheckRule) => {
       let match;
       const regex = new RegExp(rule.pattern.source, 'g');
       while ((match = regex.exec(text)) !== null) {
@@ -99,7 +100,7 @@ const performSpellCheck = (text: string, options: SpellCheckOptions): SpellCheck
 
   // 문법 검사
   if (options.checkGrammar) {
-    SPELLING_RULES.grammar.forEach((rule: any) => {
+    SPELLING_RULES.grammar.forEach((rule: SpellCheckRule) => {
       let match;
       const regex = new RegExp(rule.pattern.source, 'g');
       while ((match = regex.exec(text)) !== null) {

@@ -71,9 +71,12 @@ export const useResumeForm = () => {
     const errors: Record<string, string> = {};
     
     Object.keys(formData).forEach(key => {
-      const error = validateField(key, formData[key as keyof ResumeFormData]);
-      if (error) {
-        errors[key] = error;
+      const value = formData[key as keyof ResumeFormData];
+      if (value !== undefined) {
+        const error = validateField(key, value);
+        if (error) {
+          errors[key] = error;
+        }
       }
     });
     

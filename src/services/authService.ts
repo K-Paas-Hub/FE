@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, AuthChangeEvent, Session } from '@supabase/supabase-js';
 
 // Supabase 클라이언트 생성
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || 'https://ucrrijvxknjzxehhpwom.supabase.co';
@@ -18,7 +18,7 @@ export class AuthService {
   }
   
   // 인증 상태 변경 감지
-  onAuthStateChange(callback: (event: string, session: any) => void) {
+  onAuthStateChange(callback: (event: AuthChangeEvent, session: Session | null) => void) {
     return supabase.auth.onAuthStateChange(callback);
   }
   

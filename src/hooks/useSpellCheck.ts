@@ -4,7 +4,8 @@ import {
   SpellCheckOptions, 
   SpellCheckStatus,
   SpellCheckConfig,
-  ResumeSpellCheckResult
+  ResumeSpellCheckResult,
+  SpellCheckError
 } from '../types/spellCheck';
 import { spellCheckService } from '../services/spellCheckService';
 
@@ -112,7 +113,7 @@ export const useSpellCheck = () => {
   }, []);
 
   // 오류 필터링
-  const filterErrors = useCallback((errors: any[], filters: {
+  const filterErrors = useCallback((errors: SpellCheckError[], filters: {
     severity?: 'low' | 'medium' | 'high';
     errorType?: string;
     section?: string;
@@ -121,7 +122,7 @@ export const useSpellCheck = () => {
   }, []);
 
   // 오류 통계 생성
-  const generateErrorStatistics = useCallback((errors: any[]) => {
+  const generateErrorStatistics = useCallback((errors: SpellCheckError[]) => {
     const stats = {
       total: errors.length,
       byType: {
