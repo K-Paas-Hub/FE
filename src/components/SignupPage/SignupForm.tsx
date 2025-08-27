@@ -3,8 +3,25 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { VisaInfo, VISA_TYPE_OPTIONS } from '../../types/visa';
 import PostcodeSearch from '../PostcodeSearch';
-
-import '../../styles/SignupForm.css';
+import {
+  SignupForm as StyledSignupForm,
+  InputGroup,
+  InputLabel,
+  InputField,
+  SelectField,
+  DateField,
+  ErrorMessage,
+  AgreementSection,
+  CheckboxGroup,
+  CheckboxLabel,
+  CheckboxText,
+  FormActions,
+  Links,
+  Link as StyledLink,
+  SignupButton,
+  VisaRadioGroup,
+  VisaRadioOption
+} from '../../styles/components/SignupForm.styles';
 
 interface SignupFormProps {
   onSubmit: (
@@ -172,74 +189,74 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="signup-form">
-      <div className="input-group">
-        <label className="input-label">{t('auth.signup.idLabel')}</label>
-        <input
-          type="id"
+    <StyledSignupForm onSubmit={handleSubmit}>
+      <InputGroup>
+        <InputLabel>{t('auth.signup.idLabel')}</InputLabel>
+        <InputField
+          type="text"
           value={id}
           onChange={handleIdChange}
-          className={`input-field ${idError ? 'error' : ''}`}
+          hasError={!!idError}
           placeholder={t('auth.signup.idPlaceholder')}
           disabled={isLoading}
         />
-        {idError && <div className="error-message">{idError}</div>}
-      </div>
+        {idError && <ErrorMessage>{idError}</ErrorMessage>}
+      </InputGroup>
 
-      <div className="input-group">
-        <label className="input-label">{t('auth.signup.passwordLabel')}</label>
-        <input
+      <InputGroup>
+        <InputLabel>{t('auth.signup.passwordLabel')}</InputLabel>
+        <InputField
           type="password"
           value={password}
           onChange={handlePasswordChange}
-          className={`input-field ${passwordError ? 'error' : ''}`}
+          hasError={!!passwordError}
           placeholder={t('auth.signup.passwordPlaceholder')}
           disabled={isLoading}
         />
-        {passwordError && <div className="error-message">{passwordError}</div>}
-      </div>
+        {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
+      </InputGroup>
 
-      <div className="input-group">
-        <label className="input-label">{t('auth.signup.passwordConfirmLabel')}</label>
-        <input
+      <InputGroup>
+        <InputLabel>{t('auth.signup.passwordConfirmLabel')}</InputLabel>
+        <InputField
           type="password"
           value={passwordConfirm}
           onChange={handlePasswordConfirmChange}
-          className={`input-field ${passwordConfirmError ? 'error' : ''}`}
+          hasError={!!passwordConfirmError}
           placeholder={t('auth.signup.passwordConfirmPlaceholder')}
           disabled={isLoading}
         />
-        {passwordConfirmError && <div className="error-message">{passwordConfirmError}</div>}
-      </div>
+        {passwordConfirmError && <ErrorMessage>{passwordConfirmError}</ErrorMessage>}
+      </InputGroup>
 
-      <div className="input-group">
-        <label className="input-label">{t('auth.signup.nameLabel')}</label>
-        <input
+      <InputGroup>
+        <InputLabel>{t('auth.signup.nameLabel')}</InputLabel>
+        <InputField
           type="text"
           value={name}
           onChange={handleNameChange}
-          className={`input-field ${nameError ? 'error' : ''}`}
+          hasError={!!nameError}
           placeholder={t('auth.signup.namePlaceholder')}
           disabled={isLoading}
         />
-        {nameError && <div className="error-message">{nameError}</div>}
-      </div>
+        {nameError && <ErrorMessage>{nameError}</ErrorMessage>}
+      </InputGroup>
 
-      <div className="input-group">
-        <label className="input-label">{t('auth.signup.phoneLabel')}</label>
-        <input
+      <InputGroup>
+        <InputLabel>{t('auth.signup.phoneLabel')}</InputLabel>
+        <InputField
           type="tel"
           value={phone}
           onChange={handlePhoneChange}
-          className={`input-field ${phoneError ? 'error' : ''}`}
+          hasError={!!phoneError}
           placeholder={t('auth.signup.phonePlaceholder')}
           disabled={isLoading}
         />
-        {phoneError && <div className="error-message">{phoneError}</div>}
-      </div>
+        {phoneError && <ErrorMessage>{phoneError}</ErrorMessage>}
+      </InputGroup>
 
-      <div className="input-group">
-        <label className="input-label">{t('signup.addressLabel')}</label>
+      <InputGroup>
+        <InputLabel>{t('signup.addressLabel')}</InputLabel>
         <PostcodeSearch
           onAddressSelect={(address) => {
             setAddress(address.address);
@@ -251,14 +268,14 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
           showRoadAddress={true}
           showJibunAddress={true}
         />
-        {addressError && <div className="error-message">{addressError}</div>}
-      </div>
+        {addressError && <ErrorMessage>{addressError}</ErrorMessage>}
+      </InputGroup>
 
       {/* Visa Information Section */}
-      <div className="input-group">
-        <label className="input-label">{t('signup.visaInfoLabel')}</label>
-        <div className="visa-radio-group">
-          <label className="visa-radio-option">
+      <InputGroup>
+        <InputLabel>{t('signup.visaInfoLabel')}</InputLabel>
+        <VisaRadioGroup>
+          <VisaRadioOption>
             <input
               type="radio"
               name="hasVisa"
@@ -267,8 +284,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               disabled={isLoading}
             />
             <span>{t('signup.hasVisa')}</span>
-          </label>
-          <label className="visa-radio-option">
+          </VisaRadioOption>
+          <VisaRadioOption>
             <input
               type="radio"
               name="hasVisa"
@@ -277,19 +294,19 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               disabled={isLoading}
             />
             <span>{t('signup.noVisa')}</span>
-          </label>
-        </div>
-      </div>
+          </VisaRadioOption>
+        </VisaRadioGroup>
+      </InputGroup>
 
       {/* Visa Details (only shown when visa is selected) */}
       {visaInfo.hasVisa && (
         <>
-          <div className="input-group">
-            <label className="input-label">{t('signup.visaTypeLabel')}</label>
-            <select
+          <InputGroup>
+            <InputLabel>{t('signup.visaTypeLabel')}</InputLabel>
+            <SelectField
               value={visaInfo.visaType}
               onChange={(e) => handleVisaChange('visaType', e.target.value)}
-              className={`input-field ${visaError && !visaInfo.visaType ? 'error' : ''}`}
+              hasError={!!(visaError && !visaInfo.visaType)}
               disabled={isLoading}
             >
               {VISA_TYPE_OPTIONS.map((option) => (
@@ -297,75 +314,73 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
                   {option.label}
                 </option>
               ))}
-            </select>
-          </div>
+            </SelectField>
+          </InputGroup>
 
-          <div className="input-group">
-            <label className="input-label">{t('signup.issueDateLabel')}</label>
-            <input
+          <InputGroup>
+            <InputLabel>{t('signup.issueDateLabel')}</InputLabel>
+            <DateField
               type="date"
               value={visaInfo.issueDate}
               onChange={(e) => handleVisaChange('issueDate', e.target.value)}
-              className={`input-field ${visaError && !visaInfo.issueDate ? 'error' : ''}`}
               max={new Date().toISOString().split('T')[0]}
               disabled={isLoading}
             />
-          </div>
+          </InputGroup>
 
-          <div className="input-group">
-            <label className="input-label">{t('signup.expiryDateLabel')}</label>
-            <input
+          <InputGroup>
+            <InputLabel>{t('signup.expiryDateLabel')}</InputLabel>
+            <DateField
               type="date"
               value={visaInfo.expiryDate}
               onChange={(e) => handleVisaChange('expiryDate', e.target.value)}
-              className={`input-field ${visaError && !visaInfo.expiryDate ? 'error' : ''}`}
               min={visaInfo.issueDate || new Date().toISOString().split('T')[0]}
               disabled={isLoading}
             />
-          </div>
+          </InputGroup>
         </>
       )}
 
-      {visaError && <div className="error-message">{visaError}</div>}
+      {visaError && <ErrorMessage>{visaError}</ErrorMessage>}
 
-      <div className="agreement-section">
-        <div className="checkbox-group">
-          <label className="checkbox-label">
+      <AgreementSection>
+        <CheckboxGroup>
+          <CheckboxLabel>
             <input
               type="checkbox"
               checked={agreement1}
               onChange={(e) => setAgreement1(e.target.checked)}
               disabled={isLoading}
             />
-            <span className="checkbox-text">{t('auth.signup.privacyRequired')}</span>
-          </label>
-        </div>
-        <div className="checkbox-group">
-          <label className="checkbox-label">
+            <CheckboxText>{t('auth.signup.privacyRequired')}</CheckboxText>
+          </CheckboxLabel>
+        </CheckboxGroup>
+        <CheckboxGroup>
+          <CheckboxLabel>
             <input
               type="checkbox"
               checked={agreement2}
               onChange={(e) => setAgreement2(e.target.checked)}
               disabled={isLoading}
             />
-            <span className="checkbox-text">
+            <CheckboxText>
               {t('auth.signup.marketingOptional')}
-            </span>
-          </label>
-        </div>
-      </div>
+            </CheckboxText>
+          </CheckboxLabel>
+        </CheckboxGroup>
+      </AgreementSection>
 
-      <div className="form-actions">
-        <div className="links">
-          <Link to="/login" className="link">
+      <FormActions>
+        <Links>
+          <StyledLink as={Link} to="/login">
             {t('auth.signup.loginLink')}
-          </Link>
-        </div>
-        <button type="submit" className="signup-button" disabled={isLoading || !agreement1}>
+          </StyledLink>
+        </Links>
+        <SignupButton type="submit" isEnabled={!isLoading && agreement1} disabled={isLoading || !agreement1}>
           {isLoading ? t('auth.signup.creatingAccount') : t('auth.signup.createAccount')}
-        </button>
-      </div>
-    </form>
+        </SignupButton>
+      </FormActions>
+    </StyledSignupForm>
   );
 };
 

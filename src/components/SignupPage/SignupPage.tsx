@@ -4,7 +4,11 @@ import SignupForm from './SignupForm';
 import Footer from '../MainFooter';
 import { VisaInfo } from '../../types/visa';
 import { devLog, devError } from '../../utils/logger';
-import '../../styles/SignupForm.css';
+import {
+  SignupContainer,
+  SignupContent,
+  SignupTitle
+} from '../../styles/components/SignupForm.styles';
 
 const SignupPage: React.FC = () => {
   const { t } = useTranslation();
@@ -46,13 +50,13 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-content">
-        <h1 className="signup-title">{t('auth.signup.title')}</h1>
+    <SignupContainer>
+      <SignupContent>
+        <SignupTitle>{t('auth.signup.title')}</SignupTitle>
         <SignupForm onSubmit={handleSignup} isLoading={isFormLoading} />
-      </div>
+      </SignupContent>
       <Footer />
-    </div>
+    </SignupContainer>
   );
 };
 
