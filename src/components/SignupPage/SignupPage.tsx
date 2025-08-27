@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SignupForm from './SignupForm';
 import Footer from '../MainFooter';
 import { VisaInfo } from '../../types/visa';
 import '../../styles/SignupForm.css';
 
 const SignupPage: React.FC = () => {
+  const { t } = useTranslation();
   const [isFormLoading, setIsFormLoading] = useState(false);
 
   const handleSignup = async (
@@ -33,12 +35,12 @@ const SignupPage: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       // 성공 시 처리 (예: 로그인 페이지로 리다이렉트)
-      alert('회원가입이 완료되었습니다!');
+              alert(t('auth.signup.success'));
       window.location.href = '/login';
       
     } catch (error) {
       console.error('Signup failed:', error);
-      alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+              alert(t('auth.signup.error'));
     } finally {
       setIsFormLoading(false);
     }
@@ -47,7 +49,7 @@ const SignupPage: React.FC = () => {
   return (
     <div className="signup-container">
       <div className="signup-content">
-        <h1 className="signup-title">회원가입</h1>
+        <h1 className="signup-title">{t('auth.signup.title')}</h1>
         <SignupForm onSubmit={handleSignup} isLoading={isFormLoading} />
       </div>
       <Footer />

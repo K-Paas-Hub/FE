@@ -45,8 +45,8 @@ const MainFooter: React.FC = () => {
         </div>
         
         <div className="business-info">
-          사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호
-          <button className="business-button">사업자정보확인</button>
+          {t('footer.businessInfo')}
+          <button className="business-button">{t('footer.businessInfoButton')}</button>
         </div>
         
         <div className="certification">
@@ -54,11 +54,11 @@ const MainFooter: React.FC = () => {
         </div>
         
         <div className="copyright">
-          Copyright (c) (주)FairWork. All rights reserved.
+          {t('footer.copyright')}
         </div>
         
         <div className="mobile-link-container">
-          <a href="#mobile" className="mobile-link">모바일 버전 보기</a>
+          <a href="#mobile" className="mobile-link">{t('footer.mobileVersion')}</a>
         </div>
       </div>
     </footer>

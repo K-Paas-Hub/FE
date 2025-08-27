@@ -45,7 +45,10 @@
       "marketingOptional": "[Optional] Receive notifications about new features. You can cancel anytime. (Marketing consent)",
       "loginLink": "Already have an account? Login",
       "createAccount": "Create Account",
-      "creatingAccount": "Creating account..."
+      "creatingAccount": "Creating account...",
+      "title": "Sign Up",
+      "success": "Sign up completed successfully!",
+      "error": "Sign up failed. Please try again."
     },
     "login": {
       "idLabel": "ID",

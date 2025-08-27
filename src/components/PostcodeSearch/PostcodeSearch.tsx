@@ -347,7 +347,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           disabled={disabled || !isPostcodeLoaded}
           className="postcode-search-button"
         >
-          {t('주소 검색')}
+          {t('postcode.searchAddress')}
         </button>
       </div>
 
@@ -359,26 +359,26 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           
           {showRoadAddress && selectedAddress.roadAddress && (
             <div className="postcode-road-address">
-              <strong>{t('도로명주소')}</strong> {selectedAddress.roadAddress}
+              <strong>{t('postcode.roadAddress')}</strong> {selectedAddress.roadAddress}
             </div>
           )}
           
           {showJibunAddress && selectedAddress.jibunAddress && (
             <div className="postcode-jibun-address">
-              <strong>{t('지번주소')}</strong> {selectedAddress.jibunAddress}
+              <strong>{t('postcode.jibunAddress')}</strong> {selectedAddress.jibunAddress}
             </div>
           )}
           
           {showDetailAddress && (
             <DetailAddressContainer>
-              <label htmlFor="detail-address">{t('상세주소')}</label>
+              <label htmlFor="detail-address">{t('postcode.detailAddress')}</label>
               <DetailAddressInput
                 id="detail-address"
                 type="text"
                 value={detailAddress}
                 onChange={handleDetailAddressChange}
                 onKeyPress={handleDetailAddressKeyPress}
-                placeholder={t('상세주소를 입력하세요')}
+                placeholder={t('postcode.detailAddressPlaceholder')}
               />
               <ConfirmButton
                 onClick={() => {
@@ -391,14 +391,14 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
                   }
                 }}
               >
-                확인
+                {t('postcode.confirm')}
               </ConfirmButton>
             </DetailAddressContainer>
           )}
           
           {selectedAddress.buildingName && (
             <div className="postcode-building-name">
-              <strong>{t('건물명')}</strong> {selectedAddress.buildingName}
+              <strong>{t('postcode.buildingName')}</strong> {selectedAddress.buildingName}
             </div>
           )}
 
@@ -414,7 +414,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
         <div className="postcode-layer-overlay">
           <div className="postcode-layer-container">
             <div className="postcode-layer-header">
-              <h3>{t('주소 검색')}</h3>
+              <h3>{t('postcode.searchAddress')}</h3>
               <button
                 type="button"
                 onClick={() => setShowPostcode(false)}

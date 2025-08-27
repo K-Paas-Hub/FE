@@ -46,7 +46,10 @@
       "marketingOptional": "[可选] 接收新功能通知。您可以随时取消。（营销同意）",
       "loginLink": "已有账户？登录",
       "createAccount": "创建账户",
-      "creatingAccount": "正在创建账户..."
+      "creatingAccount": "正在创建账户...",
+      "title": "注册",
+      "success": "注册成功！",
+      "error": "注册失败。请重试。"
     },
     "login": {
       "idLabel": "用户名",

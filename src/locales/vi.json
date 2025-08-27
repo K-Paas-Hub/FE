@@ -48,7 +48,10 @@
       "marketingOptional": "[Tùy chọn] Nhận thông báo về tính năng mới. Bạn có thể hủy bất cứ lúc nào. (Đồng ý tiếp thị)",
       "loginLink": "Đã có tài khoản? Đăng nhập",
       "createAccount": "Tạo tài khoản",
-      "creatingAccount": "Đang tạo tài khoản..."
+      "creatingAccount": "Đang tạo tài khoản...",
+      "title": "Đăng ký",
+      "success": "Đăng ký thành công!",
+      "error": "Đăng ký thất bại. Vui lòng thử lại."
     },
     "login": {
       "idLabel": "ID",

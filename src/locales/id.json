@@ -46,7 +46,10 @@
       "marketingOptional": "[Opsional] Terima notifikasi tentang fitur baru. Anda dapat membatalkan kapan saja. (Persetujuan pemasaran)",
       "loginLink": "Sudah punya akun? Masuk",
       "createAccount": "Buat Akun",
-      "creatingAccount": "Membuat akun..."
+      "creatingAccount": "Membuat akun...",
+      "title": "Daftar",
+      "success": "Pendaftaran berhasil!",
+      "error": "Pendaftaran gagal. Silakan coba lagi."
     },
     "login": {
       "idLabel": "ID",

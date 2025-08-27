@@ -38,7 +38,7 @@ const VisaDetailPage: React.FC = () => {
   const visaSteps = VISA_STEPS[visaTypeKey];
 
   if (!visaType) {
-    return <div>비자 유형을 찾을 수 없습니다.</div>;
+    return <div>{t('visaDetail.visaTypeNotFound')}</div>;
   }
 
 
@@ -47,7 +47,7 @@ const VisaDetailPage: React.FC = () => {
       <MainHeader />
       <DetailContent>
         <BackButton onClick={() => navigate('/visa')}>
-          ← 비자 센터로 돌아가기
+          {t('visaDetail.backToVisaCenter')}
         </BackButton>
 
         <VisaHeader>
@@ -69,7 +69,7 @@ const VisaDetailPage: React.FC = () => {
           >
             <Section>
               <SectionTitle>
-                📋 필요 서류
+                {t('visaDetail.requiredDocuments')}
               </SectionTitle>
               <DocumentList>
                 {visaType.documents.map((document, index) => (
@@ -89,7 +89,7 @@ const VisaDetailPage: React.FC = () => {
           >
             <Section>
               <SectionTitle>
-                🚀 신청 절차
+                {t('visaDetail.applicationProcess')}
               </SectionTitle>
               <StepList>
                 {visaSteps.map((step) => (
