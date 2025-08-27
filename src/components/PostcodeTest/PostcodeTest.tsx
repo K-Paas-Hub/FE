@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import PostcodeSearch from '../PostcodeSearch';
 import { TestContainer, ResultContainer, CodeBlock } from './PostcodeTest.styles';
 import { AddressData } from '../../types/postcode';
+import { devLog } from '../../utils/logger';
 
 const PostcodeTest: React.FC = () => {
   const { t } = useTranslation();
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
 
   const handleAddressSelect = (address: AddressData) => {
-    console.log('Selected address:', address);
+    devLog('주소 선택됨', address);
     setSelectedAddress(address);
   };
 
