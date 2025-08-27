@@ -205,9 +205,9 @@ const MainHeaderComponent: React.FC = () => {
                 <DropdownItem to="/resume">
                   {t('header.resumeWriting')}
                 </DropdownItem>
-                  <DropdownItem to="/spell-check">
-                    <DropdownItemIcon src="/images/search.png" alt={t('header.spellCheck')} />
-                    {t('header.spellCheck')}
+                <DropdownItem to="/spell-check">
+                  <DropdownItemIcon src="/images/search.png" alt={t('header.spellCheck')} />
+                  {t('header.spellCheck')}
                 </DropdownItem>
               </DropdownMenu>
             </DropdownContainer>

@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import '../../styles/PasswordResetForm.css';
+import {
+  PasswordResetForm as StyledPasswordResetForm,
+  InputGroup,
+  InputDescription,
+  InputField,
+  ErrorMessage,
+  FormActions,
+  Links,
+  Link as StyledLink,
+  ResetButton,
+} from '../../styles/components/PasswordResetForm.styles';
 
 interface PasswordResetFormProps {
   onSubmit: (id: string) => void;
@@ -38,31 +48,31 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
   };
 
   return (
-    <form onSubmit={handleSubmit} className="password-reset-form">
-      <div className="input-group">
-        <p className="input-description">{t('passwordReset.description')}</p>
-        <input
+    <StyledPasswordResetForm onSubmit={handleSubmit}>
+      <InputGroup>
+        <InputDescription>{t('passwordReset.description')}</InputDescription>
+        <InputField
           type="text"
           value={id}
           onChange={handleIdChange}
-          className={`input-field ${idError ? 'error' : ''}`}
+          hasError={!!idError}
           placeholder={t('passwordReset.form.emailPlaceholder')}
           disabled={isLoading}
         />
-        {idError && <div className="error-message">{idError}</div>}
-      </div>
+        {idError && <ErrorMessage>{idError}</ErrorMessage>}
+      </InputGroup>
 
-      <div className="form-actions">
-        <div className="links">
-          <Link to="/login" className="link">
+      <FormActions>
+        <Links>
+          <StyledLink as={Link} to="/login">
             {t('passwordReset.actions.backToLogin')}
-          </Link>
-        </div>
-        <button type="submit" className="reset-button" disabled={isLoading || !id}>
+          </StyledLink>
+        </Links>
+        <ResetButton type="submit" isEnabled={!isLoading && !!id} disabled={isLoading || !id}>
           {isLoading ? t('passwordReset.form.loadingButton') : t('passwordReset.form.submitButton')}
-        </button>
-      </div>
-    </form>
+        </ResetButton>
+      </FormActions>
+    </StyledPasswordResetForm>
   );
 };
 

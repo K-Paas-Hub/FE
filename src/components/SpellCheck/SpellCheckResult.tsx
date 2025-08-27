@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import { ResumeCheckResult, SpellCheckError } from '../../types/spellCheck';
 import {
   ResultContainer,
@@ -10,8 +8,6 @@ import {
   StatItem,
   StatValue,
   StatLabel,
-  NoErrorsMessage,
-  NoErrorsIcon,
   SectionResult,
   SectionHeader,
   SectionName,
@@ -23,8 +19,12 @@ import {
   Suggestion,
   SuggestionLabel,
   SuggestionText,
-  ApplyButton
+  ApplyButton,
+  NoErrorsMessage,
+  NoErrorsIcon
 } from '../../styles/components/SpellCheckResult.styles';
+
+
 
 interface SpellCheckResultProps {
   result: ResumeCheckResult;
@@ -35,12 +35,24 @@ const SpellCheckResult: React.FC<SpellCheckResultProps> = ({
   result, 
   onApplyCorrection 
 }) => {
-  const { t } = useTranslation();
   const { sections, overallStatistics } = result;
 
   // 섹션 이름을 표시용으로 변환하는 함수
   const getSectionDisplayName = (section: string): string => {
-    return t(`spellCheck.result.sections.${section}`) || section;
+    const sectionNames: Record<string, string> = {
+      name: '이름',
+      email: '이메일',
+      phone: '전화번호',
+      nationality: '국적',
+      visaType: '비자 유형',
+      education: '학력',
+      experience: '경력',
+      skills: '기술 및 자격증',
+      languages: '언어 능력',
+      introduction: '자기소개'
+    };
+    
+    return sectionNames[section] || section;
   };
 
   // 오류가 있는 섹션만 필터링
@@ -49,19 +61,19 @@ const SpellCheckResult: React.FC<SpellCheckResultProps> = ({
   return (
     <ResultContainer>
       <StatisticsCard>
-        <StatisticsTitle>{t('spellCheck.result.overallStatistics')}</StatisticsTitle>
+        <StatisticsTitle>전체 검사 통계</StatisticsTitle>
         <StatisticsGrid>
           <StatItem>
             <StatValue>{overallStatistics.totalWords}</StatValue>
-            <StatLabel>{t('spellCheck.result.totalWords')}</StatLabel>
+            <StatLabel>총 단어 수</StatLabel>
           </StatItem>
           <StatItem>
             <StatValue>{overallStatistics.totalErrors}</StatValue>
-            <StatLabel>{t('spellCheck.result.foundErrors')}</StatLabel>
+            <StatLabel>발견된 오류</StatLabel>
           </StatItem>
           <StatItem>
             <StatValue>{overallStatistics.overallAccuracy.toFixed(1)}%</StatValue>
-            <StatLabel>{t('spellCheck.result.accuracy')}</StatLabel>
+            <StatLabel>정확도</StatLabel>
           </StatItem>
         </StatisticsGrid>
       </StatisticsCard>
@@ -69,7 +81,7 @@ const SpellCheckResult: React.FC<SpellCheckResultProps> = ({
       {sectionsWithErrors.length === 0 ? (
         <NoErrorsMessage>
           <NoErrorsIcon>✅</NoErrorsIcon>
-          <div>{t('spellCheck.result.noErrorsFound')}</div>
+          <div>맞춤법 오류가 발견되지 않았습니다!</div>
         </NoErrorsMessage>
       ) : (
         sectionsWithErrors.map((sectionResult) => (
@@ -79,7 +91,7 @@ const SpellCheckResult: React.FC<SpellCheckResultProps> = ({
                 {getSectionDisplayName(sectionResult.section)}
               </SectionName>
               <ErrorCount $hasErrors={sectionResult.errors.length > 0}>
-                {sectionResult.errors.length}{t('spellCheck.result.errorCount')}
+                {sectionResult.errors.length}개 오류
               </ErrorCount>
             </SectionHeader>
             
@@ -94,13 +106,13 @@ const SpellCheckResult: React.FC<SpellCheckResultProps> = ({
                   <ErrorWord>"{error.word}"</ErrorWord>
                   <ErrorDescription>{error.description}</ErrorDescription>
                   <Suggestion>
-                    <SuggestionLabel>{t('spellCheck.result.suggestionLabel')}</SuggestionLabel>
+                    <SuggestionLabel>수정 제안:</SuggestionLabel>
                     <SuggestionText>{error.suggestion}</SuggestionText>
                   </Suggestion>
                   <ApplyButton
                     onClick={() => onApplyCorrection(sectionResult.section, [error])}
                   >
-                    {t('spellCheck.result.applyCorrection')}
+                    이 수정사항 적용
                   </ApplyButton>
                 </ErrorItem>
               ))}

@@ -8,27 +8,27 @@ import {
 } from '../types/spellCheck';
 
 // 맞춤법 검사 규칙 (향후 확장 예정)
-const createSpellingRules = (t: any) => ({
+const SPELLING_RULES = {
   // 띄어쓰기 규칙
   spacing: [
-    { pattern: /([가-힣])([a-zA-Z])/g, fix: '$1 $2', description: t('spellCheck.rules.spacing.koreanEnglish') },
-    { pattern: /([a-zA-Z])([가-힣])/g, fix: '$1 $2', description: t('spellCheck.rules.spacing.englishKorean') },
-    { pattern: /([가-힣])([0-9])/g, fix: '$1 $2', description: t('spellCheck.rules.spacing.koreanNumber') },
-    { pattern: /([0-9])([가-힣])/g, fix: '$1 $2', description: t('spellCheck.rules.spacing.numberKorean') },
+    { pattern: /([가-힣])([a-zA-Z])/g, fix: '$1 $2', description: '한글과 영문 사이 띄어쓰기' },
+    { pattern: /([a-zA-Z])([가-힣])/g, fix: '$1 $2', description: '영문과 한글 사이 띄어쓰기' },
+    { pattern: /([가-힣])([0-9])/g, fix: '$1 $2', description: '한글과 숫자 사이 띄어쓰기' },
+    { pattern: /([0-9])([가-힣])/g, fix: '$1 $2', description: '숫자와 한글 사이 띄어쓰기' },
   ],
   
   // 맞춤법 규칙
   spelling: [
-    { pattern: /되요/g, fix: '돼요', description: t('spellCheck.rules.spelling.doeyo') },
-    { pattern: /안되요/g, fix: '안돼요', description: t('spellCheck.rules.spelling.andoeyo') },
+    { pattern: /되요/g, fix: '돼요', description: '되요 → 돼요' },
+    { pattern: /안되요/g, fix: '안돼요', description: '안되요 → 안돼요' },
   ],
   
   // 문법 규칙
   grammar: [
-    { pattern: /할수\s+있습니다/g, fix: '할 수 있습니다', description: t('spellCheck.rules.grammar.halsu') },
-    { pattern: /할수\s+있어요/g, fix: '할 수 있어요', description: t('spellCheck.rules.grammar.halsu') },
+    { pattern: /할수\s+있습니다/g, fix: '할 수 있습니다', description: '할수 → 할 수' },
+    { pattern: /할수\s+있어요/g, fix: '할 수 있어요', description: '할수 → 할 수' },
   ]
-});
+};
 
 // 단어 수 계산
 const countWords = (text: string): number => {
@@ -51,10 +51,9 @@ const calculateReadability = (text: string): number => {
 };
 
 // 맞춤법 검사 수행
-const performSpellCheck = (text: string, options: SpellCheckOptions, t: any): SpellCheckError[] => {
+const performSpellCheck = (text: string, options: SpellCheckOptions): SpellCheckError[] => {
   const errors: SpellCheckError[] = [];
   let errorId = 1;
-  const SPELLING_RULES = createSpellingRules(t);
 
   // 띄어쓰기 검사
   if (options.checkSpacing) {
@@ -127,7 +126,7 @@ export const spellCheckApi = {
   /**
    * 단일 텍스트 맞춤법 검사
    */
-  checkText: async (request: SpellCheckRequest & { t?: any }): Promise<ApiResponse<SpellCheckResult>> => {
+  checkText: async (request: SpellCheckRequest): Promise<ApiResponse<SpellCheckResult>> => {
     try {
       const startTime = Date.now();
       const { text, options } = request;
@@ -141,7 +140,7 @@ export const spellCheckApi = {
       }
 
       // 맞춤법 검사 수행
-      const errors = performSpellCheck(text, options, request.t || (() => ''));
+      const errors = performSpellCheck(text, options);
       const processingTime = Date.now() - startTime;
       const totalWords = countWords(text);
       const errorCount = errors.length;
@@ -151,8 +150,7 @@ export const spellCheckApi = {
       // 개선 제안 생성
       const suggestions = [];
       if (errorCount > 0) {
-        const t = request.t || (() => '');
-        suggestions.push(t('spellCheck.suggestions.errorsFound', { count: errorCount }) || `총 ${errorCount}개의 오류를 발견했습니다.`);
+        suggestions.push(`총 ${errorCount}개의 오류를 발견했습니다.`);
       }
 
       const result: SpellCheckResult = {
@@ -175,10 +173,9 @@ export const spellCheckApi = {
         data: result
       };
     } catch (error) {
-      const t = request.t || (() => '');
       return {
         success: false,
-        error: t('spellCheck.errors.checkFailed') || '맞춤법 검사 중 오류가 발생했습니다.'
+        error: '맞춤법 검사 중 오류가 발생했습니다.'
       };
     }
   },
