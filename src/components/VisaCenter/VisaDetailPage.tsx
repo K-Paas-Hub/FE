@@ -19,6 +19,7 @@ import {
   DocumentList,
   DocumentItem,
   DocumentIcon,
+  DocumentText,
   StepList,
   StepItem,
   StepContent,
@@ -74,7 +75,7 @@ const VisaDetailPage: React.FC = () => {
                 {visaType.documents.map((document, index) => (
                   <DocumentItem key={index}>
                     <DocumentIcon>📄</DocumentIcon>
-                    <span style={{ color: '#374151', fontWeight: '500' }}>{document}</span>
+                    <DocumentText>{document}</DocumentText>
                   </DocumentItem>
                 ))}
               </DocumentList>

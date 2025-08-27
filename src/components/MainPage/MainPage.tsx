@@ -85,6 +85,7 @@ import {
   NoResultsTitle,
   NoResultsText,
   SearchLoadingSpinner,
+  ChatTimeInfo,
 } from '../../styles/components/MainPage.styles';
 
 
@@ -519,12 +520,9 @@ const MainPage: React.FC = () => {
 
             <RefreshButton
               onClick={() => {
-                // 모든 필터 초기화 (useEffect가 자동으로 필터링 적용)
                 setSearchQuery('');
                 setSelectedFilters([]);
-                setSelectedSort('최신순');
-                
-                // CSS 애니메이션으로 아이콘 회전
+                setSelectedSort(t('mainPage.jobList.sortOptions.latest'));
                 const refreshIcon = document.querySelector('.refresh-icon') as HTMLElement;
                 if (refreshIcon) {
                   refreshIcon.style.transform = 'rotate(360deg)';
@@ -535,7 +533,6 @@ const MainPage: React.FC = () => {
                   }, 300);
                 }
               }}
-              style={{ cursor: 'pointer' }}
               title={t('mainPage.filters.resetAll')}
             >
               <RefreshIcon 
@@ -770,9 +767,9 @@ const MainPage: React.FC = () => {
         </ChatHeader>
         
         <ChatContent>
-          <div style={{ textAlign: 'center', fontSize: '0.8rem', color: '#666', marginBottom: '1rem' }}>
+          <ChatTimeInfo>
             {t('mainPage.chat.time')}
-          </div>
+          </ChatTimeInfo>
           
           <ChatMessage>
             <ChatAvatar>🤖</ChatAvatar>

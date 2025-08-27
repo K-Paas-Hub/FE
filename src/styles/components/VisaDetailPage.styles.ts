@@ -218,3 +218,9 @@ export const StepDescription = styled.p`
     font-size: 0.8rem;
   }
 `;
+
+// 문서 텍스트
+export const DocumentText = styled.span`
+  color: #374151;
+  font-weight: 500;
+`;

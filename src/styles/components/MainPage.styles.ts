@@ -294,28 +294,46 @@ export const AppliedFilterTags = styled.div`
 `;
 
 export const AppliedFilterTag = styled.div`
-  background: ${theme.colors.primary};
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: ${theme.radius.full};
-  font-size: ${theme.typography.fontSize.xs};
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: ${theme.colors.primary};
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: ${theme.radius.full};
+  font-size: ${theme.typography.fontSize.sm};
+  
+  ${theme.media.tablet} {
+    padding: 0.4rem 0.8rem;
+    font-size: ${theme.typography.fontSize.xs};
+  }
 `;
 
 export const RemoveButton = styled.button`
   background: none;
   border: none;
   color: white;
-  font-size: ${theme.typography.fontSize.base};
   cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
   padding: 0;
-  width: 16px;
-  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+// 채팅 시간 정보
+export const ChatTimeInfo = styled.div`
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 1rem;
 `;
 
 export const FilterActions = styled.div`
