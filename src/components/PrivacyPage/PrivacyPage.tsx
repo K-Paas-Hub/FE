@@ -2,85 +2,92 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import MainFooter from '../MainFooter';
-import '../../styles/PrivacyPage.css';
+import {
+  PrivacyContainer,
+  PrivacyContent,
+  PrivacyTitle,
+  PrivacySection,
+  LoginButtonSection,
+  LoginButton,
+} from '../../styles/components/PrivacyPage.styles';
 
 const PrivacyPage: React.FC = () => {
   const { t } = useTranslation();
   
   return (
-    <div className="privacy-container">
-      <div className="privacy-content">
-        <h1 className="privacy-title">{t('privacy.title')}</h1>
+    <PrivacyContainer>
+      <PrivacyContent>
+        <PrivacyTitle>{t('privacy.title')}</PrivacyTitle>
         
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.purpose')}</h2>
           <p>{t('privacy.content.purpose')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.retention')}</h2>
           <p>{t('privacy.content.retention')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.thirdParty')}</h2>
           <p>{t('privacy.content.thirdParty')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.outsourcing')}</h2>
           <p>{t('privacy.content.outsourcing')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.rights')}</h2>
           <p>{t('privacy.content.rights')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.items')}</h2>
           <p>{t('privacy.content.items')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.destruction')}</h2>
           <p>{t('privacy.content.destruction')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.security')}</h2>
           <p>{t('privacy.content.security')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.officer')}</h2>
           <p>{t('privacy.content.officer')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.changes')}</h2>
           <p>{t('privacy.content.changes')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.inquiry')}</h2>
           <p>{t('privacy.content.inquiry')}</p>
-        </div>
+        </PrivacySection>
 
-        <div className="privacy-section">
+        <PrivacySection>
           <h2>{t('privacy.sections.effectiveDate')}</h2>
           <p>{t('privacy.content.effectiveDate')}</p>
-        </div>
+        </PrivacySection>
         
-        <div className="login-button-section">
-          <Link to="/login" className="login-button">
+        <LoginButtonSection>
+          <LoginButton as={Link} to="/login">
             {t('privacy.actions.backToLogin')}
-          </Link>
-        </div>
-      </div>
+          </LoginButton>
+        </LoginButtonSection>
+      </PrivacyContent>
       
       <MainFooter />
-    </div>
+    </PrivacyContainer>
   );
 };
 
