@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
 import { VISA_TYPES, VISA_STEPS } from '../../constants/visa';
 import MainHeader from '../MainHeader';
@@ -30,6 +31,7 @@ import {
 const VisaDetailPage: React.FC = () => {
   const { type } = useParams<{ type: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
 
   // URL 파라미터를 대문자로 변환하여 VISA_TYPES 키와 매칭

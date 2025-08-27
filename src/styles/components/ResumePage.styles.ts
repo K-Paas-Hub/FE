@@ -1343,6 +1343,72 @@ export const StatusSelect = styled.select`
   }
 `;
 
+export const RestartButton = styled(motion.button)`
+  background: ${COLORS.primary};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: ${COLORS.primaryHover};
+    transform: translateY(-2px);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+`;
+
+// 에러 메시지
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+`;
+
+// 전체 너비 폼 그룹
+export const FullWidthFormGroup = styled(FormGroup)`
+  width: 100%;
+`;
+
+// 최소 너비 폼 그룹
+export const MinWidthFormGroup = styled(FormGroup)`
+  min-width: 100%;
+`;
+
+// 플렉스 스페이서
+export const FlexSpacer = styled.div`
+  flex: 1;
+`;
+
+// 에러 알림
+export const ErrorAlert = styled.div`
+  color: red;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+`;
+
 
 
 

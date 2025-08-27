@@ -15,6 +15,11 @@ import {
   ButtonGroup,
   PrimaryButton,
   SecondaryButton,
+  ErrorMessage,
+  FullWidthFormGroup,
+  MinWidthFormGroup,
+  FlexSpacer,
+  ErrorAlert,
 } from '../../styles/components/ResumePage.styles';
 import styled from 'styled-components';
 
@@ -2090,9 +2095,9 @@ const ResumePage: React.FC = () => {
                 aria-describedby={validationErrors.name ? "name-error" : undefined}
               />
               {validationErrors.name && (
-                <div id="name-error" role="alert" style={{ color: 'red', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                <ErrorMessage id="name-error" role="alert">
                   {validationErrors.name}
-                </div>
+                </ErrorMessage>
               )}
             </FormGroup>
             <FormGroup>
@@ -2106,9 +2111,9 @@ const ResumePage: React.FC = () => {
                 aria-describedby={validationErrors.email ? "email-error" : undefined}
               />
               {validationErrors.email && (
-                <div id="email-error" role="alert" style={{ color: 'red', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                <ErrorMessage id="email-error" role="alert">
                   {validationErrors.email}
-                </div>
+                </ErrorMessage>
               )}
             </FormGroup>
             <FormGroup>
@@ -2122,9 +2127,9 @@ const ResumePage: React.FC = () => {
                 aria-describedby={validationErrors.phone ? "phone-error" : undefined}
               />
               {validationErrors.phone && (
-                <div id="phone-error" role="alert" style={{ color: 'red', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                <ErrorMessage id="phone-error" role="alert">
                   {validationErrors.phone}
-                </div>
+                </ErrorMessage>
               )}
             </FormGroup>
             <FormGroup>
@@ -2143,9 +2148,9 @@ const ResumePage: React.FC = () => {
                 ))}
               </FormSelect>
               {validationErrors.nationality && (
-                <div id="nationality-error" role="alert" style={{ color: 'red', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                <ErrorMessage id="nationality-error" role="alert">
                   {validationErrors.nationality}
-                </div>
+                </ErrorMessage>
               )}
             </FormGroup>
             <FormGroup>
@@ -2164,14 +2169,14 @@ const ResumePage: React.FC = () => {
                 ))}
               </FormSelect>
               {validationErrors.visaType && (
-                <div id="visaType-error" role="alert" style={{ color: 'red', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                <ErrorMessage id="visaType-error" role="alert">
                   {validationErrors.visaType}
-                </div>
+                </ErrorMessage>
               )}
             </FormGroup>
-            <FormGroup style={{ width: '100%' }}>
+            <FullWidthFormGroup>
               <FormLabel>주소</FormLabel>
-              <div style={{ width: '100%' }}>
+              <div>
                 <PostcodeSearch
                   value={formData.address}
                   onChange={(value) => {
@@ -2192,7 +2197,7 @@ const ResumePage: React.FC = () => {
                   showJibunAddress={true}
                 />
               </div>
-            </FormGroup>
+            </FullWidthFormGroup>
           </ResumeForm>
         </ResumeSection>
 
@@ -2203,7 +2208,7 @@ const ResumePage: React.FC = () => {
             학력 정보
           </SectionTitle>
           <ResumeForm>
-            <FormGroup style={{ minWidth: '100%' }}>
+            <MinWidthFormGroup>
               <FormLabel>학력</FormLabel>
               
               {/* 학력 유형 필터 */}
@@ -2287,7 +2292,7 @@ const ResumePage: React.FC = () => {
                                   </option>
                                 ))}
                               </StatusSelect>
-                              <div style={{ flex: 1 }}></div>
+                              <FlexSpacer />
                               <TimelineRemoveButton
                                 onClick={() => handleSchoolRemove(school.id)}
                                 aria-label={`${school.name} 제거`}
@@ -2305,7 +2310,7 @@ const ResumePage: React.FC = () => {
                   </TimelineContainer>
                 </EducationTimeline>
               )}
-            </FormGroup>
+            </MinWidthFormGroup>
           </ResumeForm>
         </ResumeSection>
 
@@ -2316,7 +2321,7 @@ const ResumePage: React.FC = () => {
             경력 정보
           </SectionTitle>
           <ResumeForm>
-            <FormGroup style={{ minWidth: '100%' }}>
+            <MinWidthFormGroup>
               <FormLabel>경력</FormLabel>
               
               {/* 경력 유형 필터 */}
@@ -2425,7 +2430,7 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </CertificationGradeSelect>
                               )}
-                              <div style={{ flex: 1 }}></div>
+                              <FlexSpacer />
                               <TimelineRemoveButton
                                 onClick={() => handleExperienceRemove(experience.id)}
                                 aria-label={`${experience.name} 제거`}
@@ -2443,7 +2448,7 @@ const ResumePage: React.FC = () => {
                   </TimelineContainer>
                 </CertificationTimeline>
               )}
-            </FormGroup>
+            </MinWidthFormGroup>
           </ResumeForm>
         </ResumeSection>
 
@@ -2454,7 +2459,7 @@ const ResumePage: React.FC = () => {
             기술/자격증
           </SectionTitle>
           <ResumeForm>
-            <FormGroup style={{ minWidth: '100%' }}>
+            <MinWidthFormGroup>
               <FormLabel>보유 기술</FormLabel>
               
               {/* 기술 유형 필터 */}
@@ -2556,7 +2561,7 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </SkillLevelSelect>
                               )}
-                              <div style={{ flex: 1 }}></div>
+                              <FlexSpacer />
                               <TimelineRemoveButton
                                 onClick={() => handleSkillRemove(skill.id)}
                                 aria-label={`${skill.name} 제거`}
@@ -2574,8 +2579,8 @@ const ResumePage: React.FC = () => {
                   </TimelineContainer>
                 </SkillTimeline>
               )}
-            </FormGroup>
-            <FormGroup style={{ minWidth: '100%' }}>
+            </MinWidthFormGroup>
+            <MinWidthFormGroup>
               <FormLabel>자격증</FormLabel>
               
               {/* 자격증 유형 필터 */}
@@ -2683,7 +2688,7 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </CertificationGradeSelect>
                               )}
-                              <div style={{ flex: 1 }}></div>
+                              <FlexSpacer />
                               <TimelineRemoveButton
                                 onClick={() => handleCertificationRemove(certification.id)}
                                 aria-label={`${certification.name} 제거`}
@@ -2701,8 +2706,8 @@ const ResumePage: React.FC = () => {
                   </TimelineContainer>
                 </CertificationTimeline>
               )}
-            </FormGroup>
-            <FormGroup style={{ minWidth: '100%' }}>
+            </MinWidthFormGroup>
+            <MinWidthFormGroup>
               <FormLabel>어학 능력</FormLabel>
               
               {/* 어학 유형 필터 */}
@@ -2818,7 +2823,7 @@ const ResumePage: React.FC = () => {
                                   ))}
                                 </LanguageLevelSelect>
                               )}
-                              <div style={{ flex: 1 }}></div>
+                              <FlexSpacer />
                               <TimelineRemoveButton
                                 onClick={() => handleLanguageRemove(language.id)}
                                 aria-label={`${language.name} 제거`}
@@ -2840,7 +2845,7 @@ const ResumePage: React.FC = () => {
                   </TimelineContainer>
                 </LanguageTimeline>
               )}
-            </FormGroup>
+            </MinWidthFormGroup>
           </ResumeForm>
         </ResumeSection>
 
@@ -2867,16 +2872,9 @@ const ResumePage: React.FC = () => {
 
         {/* 에러 메시지 */}
         {error && (
-          <div role="alert" style={{ 
-            color: 'red', 
-            backgroundColor: '#fef2f2', 
-            border: '1px solid #fecaca', 
-            borderRadius: '8px', 
-            padding: '1rem', 
-            marginBottom: '1rem' 
-          }}>
+          <ErrorAlert role="alert">
             {error}
-          </div>
+          </ErrorAlert>
         )}
 
 
