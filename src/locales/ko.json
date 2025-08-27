@@ -918,5 +918,16 @@
       "languagePlaceholder": "어학 능력을 검색하세요 (예: TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "자기소개를 입력하세요 (성장 과정, 지원 동기, 포부 등을 포함하여 작성하세요)"
     }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "답변을 입력하세요..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "전화번호를 입력하세요",
+      "addressPlaceholder": "주소를 검색하세요"
+    }
   }
 }

@@ -955,13 +955,22 @@ export const ChatInputField = styled.input`
 `;
 
 export const AnimatedRefreshIcon = styled.img`
+  width: 16px;
+  height: 16px;
   transition: transform 0.5s ease-in-out;
   transform: rotate(0deg);
+  
+  &:not([src]), &[src=""], &[src*="error"] {
+    display: none;
+  }
 `;
 
 export const AnimatedRefreshFallback = styled.div`
+  font-size: 16px;
+  color: ${theme.colors.textSecondary};
   transition: transform 0.5s ease-in-out;
   transform: rotate(0deg);
+  display: ${props => props.className?.includes('show') ? 'inline' : 'none'};
 `;
 
 export const ChatFooter = styled.div`

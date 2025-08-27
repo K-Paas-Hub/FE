@@ -2193,7 +2193,7 @@ const ResumePage: React.FC = () => {
                       target: { name: 'address', value: completeAddress }
                     } as React.ChangeEvent<HTMLInputElement>);
                   }}
-                  placeholder="주소를 검색하세요"
+                  placeholder={t('resume.form.addressPlaceholder')}
                   showDetailAddress={true}
                   showRoadAddress={true}
                   showJibunAddress={true}
@@ -2238,7 +2238,7 @@ const ResumePage: React.FC = () => {
                   onChange={handleSchoolSearchChange}
                   onFocus={handleSchoolSearchFocus}
                   onBlur={handleSchoolSearchBlur}
-                  placeholder="학교명을 검색하세요 (예: 서울대학교, 연세대학교)"
+                  placeholder={t('resume.form.schoolPlaceholder')}
                 />
               </SmartSearchContainer>
 
@@ -2610,7 +2610,7 @@ const ResumePage: React.FC = () => {
                   onChange={handleCertificationSearchChange}
                   onFocus={handleCertificationSearchFocus}
                   onBlur={handleCertificationSearchBlur}
-                  placeholder="자격증을 검색하세요 (예: 정보처리기사, TOEIC, AWS)"
+                  placeholder={t('resume.form.certificatePlaceholder')}
                 />
               </SmartSearchContainer>
 
@@ -2737,7 +2737,7 @@ const ResumePage: React.FC = () => {
                   onChange={handleLanguageSearchChange}
                   onFocus={handleLanguageSearchFocus}
                   onBlur={handleLanguageSearchBlur}
-                  placeholder="어학 능력을 검색하세요 (예: TOEIC, TOPIK, JLPT)"
+                  placeholder={t('resume.form.languagePlaceholder')}
                 />
               </SmartSearchContainer>
 
@@ -2865,7 +2865,7 @@ const ResumePage: React.FC = () => {
                 name="introduction"
                 value={formData.introduction}
                 onChange={handleInputChange}
-                placeholder="자기소개를 입력하세요 (성장 과정, 지원 동기, 포부 등을 포함하여 작성하세요)"
+                placeholder={t('resume.form.introductionPlaceholder')}
                 rows={6}
               />
             </FormGroup>
