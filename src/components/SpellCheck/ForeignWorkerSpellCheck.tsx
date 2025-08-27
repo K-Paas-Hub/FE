@@ -35,6 +35,7 @@ import {
   CompleteButton,
 } from '../../styles/components/ForeignWorkerSpellCheck.styles';
 import { storage } from '../../utils';
+import { ResumeFormData } from '../../types/resume';
 
 // 컴포넌트 Props 인터페이스 정의
 interface ForeignWorkerSpellCheckProps {
@@ -87,7 +88,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
       }
       
       // localStorage에서 이력서 데이터 가져오기
-      const resumeData = storage.get('resume_draft');
+      const resumeData = storage.get('resume_draft') as ResumeFormData | null;
       
       if (resumeData && resumeData.introduction && resumeData.introduction.trim()) {
         setText(resumeData.introduction);
