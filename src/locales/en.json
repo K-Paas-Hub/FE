@@ -100,12 +100,12 @@
       "finalWords": "Is there anything else you'd like to say?"
     },
     "welcomeSection": {
-      "title": "Interview Ready",
-      "subtitle": "Check your settings and start the interview",
+      "title": "Ready for Interview",
+      "subtitle": "Check settings and start interview",
       "features": {
         "settings": "Set difficulty and number of questions",
         "aiInterview": "Real-time conversation with AI interviewer",
-        "timeGuide": "Recommended answer time provided",
+        "timeGuide": "Suggested response time",
         "analysis": "Interview result analysis"
       },
       "startButton": "Start Interview"
@@ -151,39 +151,63 @@
     }
   },
   "spellCheck": {
-    "title": "Spell Check",
-    "noDataTitle": "No Resume Data",
-    "noDataText": "Please create a resume first to perform spell check.",
-    "createResumeLink": "Create Resume →",
-    "resumeContent": "Resume Content",
-    "checkOptions": {
-      "spelling": "Spelling",
-      "grammar": "Grammar",
-      "punctuation": "Punctuation",
-      "spacing": "Spacing"
+    "loadingResumeData": "Loading resume data...",
+    "savedResumeMessage": "This is your saved self-introduction. Please modify and check.",
+    "defaultIntroduction": "Hello. I am a foreign worker. I want to work in Korea.",
+    "loadResumeDataError": "Failed to load resume data",
+    "resumeSpecific": {
+      "resultsTitle": "Resume Spell Check Results",
+      "improvementSuggestions": "Improvement Suggestions",
+      "score": "points",
+      "categories": {
+        "honorific": "Honorific Usage",
+        "tabooWords": "Taboo Words",
+        "sentenceLength": "Sentence Length",
+        "paragraphStructure": "Paragraph Structure"
+      }
     },
-    "sections": {
-      "name": "Name",
-      "email": "Email",
-      "phone": "Phone",
-      "nationality": "Nationality",
-      "visaType": "Visa Type",
-      "education": "Education",
-      "experience": "Experience",
-      "skills": "Skills & Certifications",
-      "languages": "Language Skills",
-      "introduction": "Self Introduction"
+    "result": {
+      "overallStatistics": "Overall Check Statistics",
+      "totalWords": "Total Words",
+      "foundErrors": "Found Errors",
+      "accuracy": "Accuracy",
+      "noErrorsFound": "No spelling errors found!",
+      "errorCount": "errors",
+      "suggestionLabel": "Suggestion:",
+      "applyCorrection": "Apply this correction",
+      "sections": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "nationality": "Nationality",
+        "visaType": "Visa Type",
+        "education": "Education",
+        "experience": "Experience",
+        "skills": "Skills & Certificates",
+        "languages": "Language Skills",
+        "introduction": "Self-Introduction"
+      }
     },
-    "actions": {
-      "check": "Check",
-      "checking": "Checking...",
-      "apply": "Apply"
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "Spacing between Korean and English",
+        "englishKorean": "Spacing between English and Korean",
+        "koreanNumber": "Spacing between Korean and numbers",
+        "numberKorean": "Spacing between numbers and Korean"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
     },
-    "messages": {
-      "noContent": "No content entered.",
-      "wordCount": "words",
-      "noErrors": "No errors",
-      "errorCount": "errors"
+    "suggestions": {
+      "errorsFound": "Found {{count}} errors."
+    },
+    "errors": {
+      "checkFailed": "An error occurred during spell checking."
     }
   },
   "stats": {
@@ -209,7 +233,10 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. All rights reserved."
+    "copyright": "© FairWork 2024. All rights reserved.",
+    "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
+    "businessInfoButton": "사업자정보확인",
+    "mobileVersion": "모바일 버전 보기"
   },
   "terms": {
     "title": "Terms of Service",
@@ -300,37 +327,43 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "Company",
-      "recruitment": "Recruitment",
-      "terms": "Terms of Service",
-      "privacy": "Privacy Policy",
-      "emailReject": "Email Collection Rejection",
-      "api": "Job Information API",
-      "partnership": "Partnership Inquiry",
-      "customerCenter": "Customer Center"
-    },
     "contact": {
-      "title": "FairWork Customer Center",
+      "emailLabel": "Email",
+      "faxLabel": "Fax",
+      "title": "FairWork 고객센터",
       "phone": "02-3354-1256",
-      "hours": "Weekdays 09:00~19:00, Weekends and Holidays Closed",
+      "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
       "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(Main), 02-1234-5680(Tax Invoice)"
+      "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
+    },
+    "businessInfo": "Business Registration: 123-45-67890, Job Information Service: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "Verify Business Information",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "View Mobile Version",
+    "links": {
+      "company": "회사소개",
+      "recruitment": "인재채용",
+      "terms": "회원약관",
+      "privacy": "개인정보처리방침",
+      "emailReject": "이메일무단수집거부",
+      "api": "채용정보 API",
+      "partnership": "제휴문의",
+      "customerCenter": "고객센터"
     },
     "actions": {
-      "emailInquiry": "Email Inquiry"
+      "emailInquiry": "이메일 문의"
     },
     "company": {
       "name": "(주)FairWork",
-      "address": "P.O. Box: 03921, 6F, Sangam IT Tower, 17 World Cup Buk-ro 60-gil, Mapo-gu, Seoul",
-      "ceo": "CEO: Choi Hong-seok, Kim Mir, Lim Seong-hyeok, Hong Yun-ki, Heo Wan"
+      "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
+      "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
     }
   },
   "header": {
     "jobPostings": "Job Postings",
     "myResume": "My Resume",
     "resumeWriting": "📄 Write Resume",
-    "spellCheck": "✏️ Spell Check",
+    "spellCheck": "Spell Check",
     "visaCenter": "Visa Center",
     "employmentContract": "Employment Contract",
     "writingGuide": "📝 Writing Guide",
@@ -353,8 +386,8 @@
       "clearButton": "✕"
     },
     "filters": {
-    "region": "Region",
-    "employmentType": "Employment Type",
+      "region": "Region",
+      "employmentType": "Employment Type",
       "category": "Category",
       "resetAll": "Reset All Filters"
     },
@@ -413,9 +446,9 @@
     "jobList": {
       "title": "Job Postings",
       "sortOptions": {
-    "latest": "Latest",
-    "popular": "Popular",
-    "salary": "Salary",
+        "latest": "Latest",
+        "popular": "Popular",
+        "salary": "Salary",
         "deadline": "Deadline"
       },
       "sortLabel": "Select sort option"
@@ -882,44 +915,23 @@
     "other": "Other"
   },
   "signup": {
-    "visaTypeRequired": "Please select a visa type.",
-    "issueDateRequired": "Please enter the issue date.",
-    "expiryDateRequired": "Please enter the expiry date.",
-    "expiryDateAfterIssue": "Expiry date must be after the issue date.",
-    "addressRequired": "Please enter your address.",
-    "addressLabel": "Address",
-    "addressPlaceholder": "Search for address",
     "visaInfoLabel": "Visa Information",
     "hasVisa": "Have Visa",
     "noVisa": "No Visa",
     "visaTypeLabel": "Visa Type",
     "issueDateLabel": "Issue Date",
-    "expiryDateLabel": "Expiry Date"
+    "expiryDateLabel": "Expiry Date",
+    "visaTypeRequired": "Please select a visa type.",
+    "issueDateRequired": "Please enter the issue date.",
+    "expiryDateRequired": "Please enter the expiry date.",
+    "expiryDateAfterIssue": "Expiry date must be after issue date.",
+    "addressRequired": "Please enter your address."
   },
   "visaDetail": {
     "visaTypeNotFound": "Visa type not found.",
     "backToVisaCenter": "← Back to Visa Center",
     "requiredDocuments": "📋 Required Documents",
     "applicationProcess": "🚀 Application Process"
-  },
-  "postcode": {
-    "searchAddress": "Search Address",
-    "roadAddress": "Road Address",
-    "jibunAddress": "Jibun Address",
-    "detailAddress": "Detail Address",
-    "detailAddressPlaceholder": "Enter detail address",
-    "buildingName": "Building Name",
-    "confirm": "Confirm"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "Email",
-      "faxLabel": "Fax"
-    },
-    "businessInfo": "Business Registration: 123-45-67890, Job Information Service: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
-    "businessInfoButton": "Verify Business Information",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "View Mobile Version"
   },
   "postcode": {
     "searchAddress": "Search Address",
@@ -990,19 +1002,6 @@
       "addressPlaceholder": "Search for address"
     }
   },
-  "signup": {
-    "visaInfoLabel": "Visa Information",
-    "hasVisa": "Have Visa",
-    "noVisa": "No Visa",
-    "visaTypeLabel": "Visa Type",
-    "issueDateLabel": "Issue Date",
-    "expiryDateLabel": "Expiry Date",
-    "visaTypeRequired": "Please select a visa type.",
-    "issueDateRequired": "Please enter the issue date.",
-    "expiryDateRequired": "Please enter the expiry date.",
-    "expiryDateAfterIssue": "Expiry date must be after issue date.",
-    "addressRequired": "Please enter your address."
-  },
   "interviewSettings": {
     "title": "Interview Settings",
     "difficultySettings": "Difficulty Settings",
@@ -1046,66 +1045,6 @@
       "uppercase": "Must include uppercase letters.",
       "number": "Must include numbers.",
       "special": "Must include special characters."
-    }
-  },
-  "spellCheck": {
-    "loadingResumeData": "Loading resume data...",
-    "savedResumeMessage": "This is your saved self-introduction. Please modify and check.",
-    "defaultIntroduction": "Hello. I am a foreign worker. I want to work in Korea.",
-    "loadResumeDataError": "Failed to load resume data",
-    "resumeSpecific": {
-      "resultsTitle": "Resume Spell Check Results",
-      "improvementSuggestions": "Improvement Suggestions",
-      "score": "points",
-      "categories": {
-        "honorific": "Honorific Usage",
-        "tabooWords": "Taboo Words",
-        "sentenceLength": "Sentence Length",
-        "paragraphStructure": "Paragraph Structure"
-      }
-    },
-    "result": {
-      "overallStatistics": "Overall Check Statistics",
-      "totalWords": "Total Words",
-      "foundErrors": "Found Errors",
-      "accuracy": "Accuracy",
-      "noErrorsFound": "No spelling errors found!",
-      "errorCount": "errors",
-      "suggestionLabel": "Suggestion:",
-      "applyCorrection": "Apply this correction",
-      "sections": {
-        "name": "Name",
-        "email": "Email",
-        "phone": "Phone",
-        "nationality": "Nationality",
-        "visaType": "Visa Type",
-        "education": "Education",
-        "experience": "Experience",
-        "skills": "Skills & Certificates",
-        "languages": "Language Skills",
-        "introduction": "Self-Introduction"
-      }
-    },
-    "rules": {
-      "spacing": {
-        "koreanEnglish": "Spacing between Korean and English",
-        "englishKorean": "Spacing between English and Korean",
-        "koreanNumber": "Spacing between Korean and numbers",
-        "numberKorean": "Spacing between numbers and Korean"
-      },
-      "spelling": {
-        "doeyo": "되요 → 돼요",
-        "andoeyo": "안되요 → 안돼요"
-      },
-      "grammar": {
-        "halsu": "할수 → 할 수"
-      }
-    },
-    "suggestions": {
-      "errorsFound": "Found {{count}} errors."
-    },
-    "errors": {
-      "checkFailed": "An error occurred during spell checking."
     }
   }
 }

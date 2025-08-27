@@ -78,7 +78,7 @@
     "jobPostings": "Tin tuyển dụng",
     "myResume": "Sơ yếu lý lịch",
     "resumeWriting": "📄 Viết sơ yếu",
-    "spellCheck": "✏️ Kiểm tra",
+    "spellCheck": "Kiểm tra",
     "visaCenter": "Trung tâm Visa",
     "employmentContract": "Hợp đồng",
     "writingGuide": "📝 Hướng dẫn",
@@ -227,44 +227,44 @@
     "defaultIntroduction": "Xin chào. Tôi là lao động nước ngoài. Tôi muốn làm việc tại Hàn Quốc.",
     "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch",
     "resumeSpecific": {
-      "resultsTitle": "Kết quả kiểm tra chính tả sơ yếu lý lịch",
-      "improvementSuggestions": "Đề xuất cải thiện",
-      "score": "điểm",
+      "resultsTitle": "이력서 맞춤법 검사 결과",
+      "improvementSuggestions": "개선 제안사항",
+      "score": "점",
       "categories": {
-        "honorific": "Sử dụng kính ngữ",
-        "tabooWords": "Từ cấm kỵ",
-        "sentenceLength": "Độ dài câu",
-        "paragraphStructure": "Cấu trúc đoạn văn"
+        "honorific": "경어 사용",
+        "tabooWords": "금기어 사용",
+        "sentenceLength": "문장 길이",
+        "paragraphStructure": "문단 구조"
       }
     },
     "result": {
-      "overallStatistics": "Thống kê kiểm tra tổng thể",
-      "totalWords": "Tổng số từ",
-      "foundErrors": "Lỗi tìm thấy",
-      "accuracy": "Độ chính xác",
-      "noErrorsFound": "Không tìm thấy lỗi chính tả!",
-      "errorCount": "lỗi",
-      "suggestionLabel": "Đề xuất sửa:",
-      "applyCorrection": "Áp dụng sửa đổi này",
+      "overallStatistics": "전체 검사 통계",
+      "totalWords": "총 단어 수",
+      "foundErrors": "발견된 오류",
+      "accuracy": "정확도",
+      "noErrorsFound": "맞춤법 오류가 발견되지 않았습니다!",
+      "errorCount": "개 오류",
+      "suggestionLabel": "수정 제안:",
+      "applyCorrection": "이 수정사항 적용",
       "sections": {
-        "name": "Tên",
+        "name": "이름",
         "email": "Email",
         "phone": "Điện thoại",
-        "nationality": "Quốc tịch",
-        "visaType": "Loại visa",
-        "education": "Học vấn",
-        "experience": "Kinh nghiệm",
-        "skills": "Kỹ năng & Chứng chỉ",
-        "languages": "Kỹ năng ngôn ngữ",
-        "introduction": "Tự giới thiệu"
+        "nationality": "국적",
+        "visaType": "비자 유형",
+        "education": "학력",
+        "experience": "경력",
+        "skills": "기술 및 자격증",
+        "languages": "언어 능력",
+        "introduction": "자기소개"
       }
     },
     "rules": {
       "spacing": {
-        "koreanEnglish": "Khoảng cách giữa tiếng Hàn và tiếng Anh",
-        "englishKorean": "Khoảng cách giữa tiếng Anh và tiếng Hàn",
-        "koreanNumber": "Khoảng cách giữa tiếng Hàn và số",
-        "numberKorean": "Khoảng cách giữa số và tiếng Hàn"
+        "koreanEnglish": "한글과 영문 사이 띄어쓰기",
+        "englishKorean": "영문과 한글 사이 띄어쓰기",
+        "koreanNumber": "한글과 숫자 사이 띄어쓰기",
+        "numberKorean": "숫자와 한글 사이 띄어쓰기"
       },
       "spelling": {
         "doeyo": "되요 → 돼요",
@@ -275,10 +275,10 @@
       }
     },
     "suggestions": {
-      "errorsFound": "Tìm thấy {{count}} lỗi."
+      "errorsFound": "총 {{count}}개의 오류를 발견했습니다."
     },
     "errors": {
-      "checkFailed": "Đã xảy ra lỗi trong quá trình kiểm tra chính tả."
+      "checkFailed": "맞춤법 검사 중 오류가 발생했습니다."
     }
   },
   "visaCenter": {
@@ -732,7 +732,10 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. Tất cả quyền được bảo lưu."
+    "copyright": "© FairWork 2024. Tất cả quyền được bảo lưu.",
+    "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
+    "businessInfoButton": "사업자정보확인",
+    "mobileVersion": "모바일 버전 보기"
   },
   "privacy": {
     "title": "Chính sách Bảo mật Thông tin Cá nhân",
@@ -771,12 +774,35 @@
   "mainFooter": {
     "contact": {
       "emailLabel": "Email",
-      "faxLabel": "Fax"
+      "faxLabel": "Fax",
+      "title": "FairWork 고객센터",
+      "phone": "02-3354-1256",
+      "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
+      "email": "contact@fairwork.co.kr",
+      "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
     },
     "businessInfo": "Đăng ký kinh doanh: 123-45-67890, Cung cấp thông tin việc làm: Seoul Gangnam 2024-1, Thương mại điện tử: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Xác nhận thông tin kinh doanh",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "Xem phiên bản di động"
+    "mobileVersion": "Xem phiên bản di động",
+    "links": {
+      "company": "회사소개",
+      "recruitment": "인재채용",
+      "terms": "회원약관",
+      "privacy": "개인정보처리방침",
+      "emailReject": "이메일무단수집거부",
+      "api": "채용정보 API",
+      "partnership": "제휴문의",
+      "customerCenter": "고객센터"
+    },
+    "actions": {
+      "emailInquiry": "이메일 문의"
+    },
+    "company": {
+      "name": "(주)FairWork",
+      "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
+      "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
+    }
   },
   "terms": {
     "title": "Điều khoản sử dụng",
@@ -826,6 +852,10 @@
     },
     "actions": {
       "backToLogin": "Quay lại đăng nhập"
+    },
+    "logs": {
+      "request": "Yêu cầu đặt lại mật khẩu",
+      "error": "Lỗi đặt lại mật khẩu"
     }
   },
   "signup": {
@@ -833,7 +863,7 @@
     "issueDateRequired": "Vui lòng nhập ngày cấp.",
     "expiryDateRequired": "Vui lòng nhập ngày hết hạn.",
     "expiryDateAfterIssue": "Ngày hết hạn phải sau ngày cấp.",
-    "addressRequired": "Vui lòng nhập địa chỉ của bạn.",
+    "addressRequired": "Vui lòng nhập địa chỉ.",
     "addressLabel": "Địa chỉ",
     "addressPlaceholder": "Tìm kiếm địa chỉ",
     "visaInfoLabel": "Thông tin visa",
@@ -871,6 +901,45 @@
       "certificatePlaceholder": "Tìm kiếm chứng chỉ (ví dụ: Kỹ sư Xử lý Thông tin, TOEIC, AWS)",
       "languagePlaceholder": "Tìm kiếm kỹ năng ngôn ngữ (ví dụ: TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Nhập lời giới thiệu bản thân (bao gồm quá trình phát triển, động lực ứng tuyển, hoài bão, v.v.)"
+    },
+    "title": "이력서 작성",
+    "subtitle": "외국인 근로자를 위한 맞춤형 이력서 작성",
+    "sections": {
+      "basicInfo": "기본 정보",
+      "education": "학력",
+      "experience": "경력",
+      "skills": "기술 및 자격증",
+      "languages": "어학 능력",
+      "introduction": "자기소개"
+    },
+    "labels": {
+      "name": "이름",
+      "email": "Email",
+      "phone": "Điện thoại",
+      "nationality": "국적",
+      "visaType": "비자 유형",
+      "address": "주소",
+      "school": "학교명",
+      "major": "전공",
+      "graduationYear": "졸업년도",
+      "company": "회사명",
+      "position": "직책",
+      "startDate": "시작일",
+      "endDate": "종료일",
+      "description": "업무 설명",
+      "skills": "기술",
+      "certificates": "자격증",
+      "languages": "어학 능력",
+      "introduction": "자기소개"
+    },
+    "placeholders": {
+      "selectNationality": "국적을 선택하세요",
+      "selectVisaType": "비자 유형을 선택하세요"
+    },
+    "actions": {
+      "save": "Lưu",
+      "preview": "Xem trước",
+      "submit": "Gửi"
     }
   },
   "oauth": {
@@ -923,5 +992,64 @@
       "number": "Phải bao gồm số.",
       "special": "Phải bao gồm ký tự đặc biệt."
     }
+  },
+  "nationalityOptions": {
+    "placeholder": "국적을 선택하세요",
+    "vietnam": "베트남",
+    "cambodia": "캄보디아",
+    "nepal": "네팔",
+    "indonesia": "인도네시아",
+    "china": "중국",
+    "thailand": "태국",
+    "philippines": "필리핀",
+    "myanmar": "미얀마",
+    "mongolia": "몽골",
+    "uzbekistan": "우즈베키스탄",
+    "kazakhstan": "카자흐스탄",
+    "kyrgyzstan": "키르기스스탄",
+    "tajikistan": "타지키스탄",
+    "turkey": "터키",
+    "iran": "이란",
+    "pakistan": "파키스탄",
+    "bangladesh": "방글라데시",
+    "sriLanka": "스리랑카",
+    "india": "인도",
+    "other": "기타"
+  },
+  "visaOptions": {
+    "placeholder": "비자 유형을 선택하세요",
+    "e1": "E-1 (조약에 의한 무역업무)",
+    "e2": "E-2 (투자)",
+    "e3": "E-3 (연구)",
+    "e4": "E-4 (기술지도)",
+    "e5": "E-5 (전문직업)",
+    "e6": "E-6 (예술흥행)",
+    "e7": "E-7 (특정활동)",
+    "e8": "E-8 (연수취업)",
+    "e9": "E-9 (비전문취업)",
+    "e10": "E-10 (선원취업)",
+    "f1": "F-1 (방문동거)",
+    "f2": "F-2 (거주)",
+    "f3": "F-3 (동반가족)",
+    "f4": "F-4 (재외동포)",
+    "f5": "F-5 (영주)",
+    "f6": "F-6 (결혼이민)",
+    "d1": "D-1 (문화예술)",
+    "d2": "D-2 (유학)",
+    "d3": "D-3 (산업연수)",
+    "d4": "D-4 (일반연수)",
+    "d5": "D-5 (취재)",
+    "d6": "D-6 (종교)",
+    "d7": "D-7 (주재)",
+    "d8": "D-8 (기업투자)",
+    "d9": "D-9 (무역경영)",
+    "d10": "D-10 (구직)",
+    "h1": "H-1 (관광취업)",
+    "h2": "H-2 (방문취업)",
+    "c1": "C-1 (단기방문)",
+    "c2": "C-2 (단기상용)",
+    "c3": "C-3 (단기종합)",
+    "c4": "C-4 (단기취업)",
+    "other": "기타"
   }
 }

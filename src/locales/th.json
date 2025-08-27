@@ -13,7 +13,10 @@
     "edit": "แก้ไข",
     "delete": "ลบ",
     "close": "ปิด",
-    "user": "ผู้ใช้"
+    "user": "ผู้ใช้",
+    "minutes": "นาที",
+    "count": "개",
+    "korean": "ภาษาเกาหลี"
   },
   "auth": {
     "welcome": "ยินดีต้อนรับสู่ FairWork",
@@ -67,18 +70,30 @@
       "loginButton": "เข้าสู่ระบบ",
       "loggingIn": "กำลังเข้าสู่ระบบ...",
       "or": "หรือ"
-    }
+    },
+    "loginTitle": "เข้าสู่ระบบ",
+    "googleLoginError": "เกิดข้อผิดพลาดในการเข้าสู่ระบบ Google"
   },
   "header": {
     "jobPostings": "ประกาศรับสมัครงาน",
     "myResume": "ประวัติส่วนตัวของฉัน",
     "resumeWriting": "📄 เขียนประวัติส่วนตัว",
-    "spellCheck": "✏️ ตรวจสอบการสะกด",
+    "spellCheck": "ตรวจสอบการสะกด",
     "visaCenter": "ศูนย์วีซ่า",
     "employmentContract": "สัญญาจ้างงาน",
     "writingGuide": "📝 คู่มือการเขียน",
     "contractAnalysis": "🔍 การวิเคราะห์สัญญา",
-    "aiInterview": "สัมภาษณ์ AI"
+    "aiInterview": "สัมภาษณ์ AI",
+    "contractQuiz": "📝 계약서 퀴즈",
+    "logo": {
+      "fair": "Fair",
+      "work": "Work"
+    },
+    "navigation": {
+      "aboutUs": "소개",
+      "features": "기능",
+      "partners": "파트너"
+    }
   },
   "mainPage": {
     "searchPlaceholder": "ค้นหาตำแหน่งงานและคำสำคัญ...",
@@ -93,8 +108,109 @@
     "salary": "เงินเดือน",
     "deadline": "วันหมดอายุ",
     "noResults": "ไม่พบผลการค้นหา",
-    "searchResults": "ผลการค้นหา",
-    "items": "รายการ"
+    "searchResults": {
+      "title": "ผลการค้นหา",
+      "count": "건",
+      "noResults": {
+        "title": "검색 결과가 없습니다",
+        "subtitle": "다른 키워드로 검색해보세요"
+      }
+    },
+    "items": "รายการ",
+    "search": {
+      "placeholder": "직무명, 직무 관련 키워드를 검색해 보세요.",
+      "clearButton": "✕"
+    },
+    "filters": {
+      "region": "지역",
+      "employmentType": "고용 형태",
+      "category": "직종",
+      "resetAll": "모든 필터 초기화"
+    },
+    "filterOptions": {
+      "regions": {
+        "seoul": "서울특별시",
+        "gyeonggi": "경기도",
+        "incheon": "인천광역시",
+        "busan": "부산광역시",
+        "daejeon": "대전광역시",
+        "daegu": "대구광역시",
+        "ulsan": "울산광역시",
+        "gwangju": "광주광역시",
+        "gangwon": "강원특별자치도",
+        "sejong": "세종특별자치시",
+        "chungbuk": "충청북도",
+        "chungnam": "충청남도",
+        "gyeongbuk": "경상북도",
+        "gyeongnam": "경상남도",
+        "jeju": "제주특별자치도",
+        "jeonbuk": "전라북도",
+        "jeonnam": "전라남도"
+      },
+      "employmentTypes": {
+        "fulltime": "정규직",
+        "contract": "계약직",
+        "intern": "인턴",
+        "parttime": "아르바이트",
+        "freelance": "프리랜서"
+      },
+      "categories": {
+        "design": "디자인",
+        "manufacturing": "생산/제조",
+        "it": "IT",
+        "management": "경영/사무",
+        "marketing": "마케팅/광고",
+        "education": "교육",
+        "trade": "무역/물류",
+        "sales": "영업/CS",
+        "service": "서비스",
+        "construction": "건설",
+        "entertainment": "엔터테인먼트",
+        "translation": "번역",
+        "rd": "R&D",
+        "other": "기타"
+      }
+    },
+    "jobList": {
+      "title": "채용 공고",
+      "sortOptions": {
+        "latest": "최신순",
+        "popular": "인기순",
+        "salary": "급여순",
+        "deadline": "마감임박순"
+      },
+      "sortLabel": "정렬 옵션 선택"
+    },
+    "jobCard": {
+      "visaSupport": "E-7 비자지원"
+    },
+    "filterModal": {
+      "close": "필터 모달 닫기",
+      "appliedFilters": "적용 필터",
+      "actions": {
+        "reset": "초기화",
+        "viewResults": "결과 보기"
+      }
+    },
+    "chat": {
+      "title": "FairWork 챗봇과 대화하기",
+      "subtitle": "챗봇을 통해 문의를 해결해보세요!",
+      "close": "닫기",
+      "time": "오후 6:14",
+      "botMessage": {
+        "greeting": "안녕하세요. FairWork BOT 입니다.",
+        "selectType": "회원 유형을 선택해 주세요.",
+        "note": "(*본 챗봇은 상담원과의 실시간 채팅 서비스는 운영하지 않습니다.)"
+      },
+      "userTypes": {
+        "individual": "개인회원",
+        "corporate": "기업회원"
+      },
+      "input": {
+        "placeholder": "메시지 입력"
+      },
+      "footer": "Zendesk 로 구축"
+    }
   },
   "resumePage": {
     "title": "การเขียนประวัติส่วนตัว",
@@ -132,6 +248,13 @@
       "study": "วีซ่าเรียน",
       "business": "วีซ่าธุรกิจ",
       "preparation": "วีซ่าเตรียมการ"
+    },
+    "card": {
+      "requiredDocuments": "필요 서류",
+      "stayPeriod": "체류기간",
+      "extensionPossible": "연장 가능",
+      "extensionNotPossible": "연장 불가",
+      "viewInfo": "정보 보기"
     }
   },
   "contractAnalysis": {
@@ -144,7 +267,47 @@
     "analysisResults": "ผลการวิเคราะห์",
     "favorable": "เงื่อนไขที่เป็นประโยชน์",
     "unfavorable": "เงื่อนไขที่ไม่เป็นประโยชน์",
-    "neutral": "เงื่อนไขที่เป็นกลาง"
+    "neutral": "เงื่อนไขที่เป็นกลาง",
+    "sections": {
+      "fileUpload": "파일 업로드",
+      "analysisResults": "분석 결과"
+    },
+    "upload": {
+      "title": "근로계약서 파일을 업로드하세요",
+      "text": "PDF 또는 HWP 파일을 드래그 앤 드롭하거나 클릭하여 선택하세요",
+      "subtext": "최대 파일 크기: 10MB",
+      "fileTypeError": "PDF 또는 HWP 파일만 업로드 가능합니다."
+    },
+    "fileInfo": {
+      "remove": "삭제"
+    },
+    "analysis": {
+      "button": "근로계약서 분석하기",
+      "analyzing": "분석 중...",
+      "progress": "진행률"
+    },
+    "results": {
+      "formatCheck": {
+        "title": "✅ 근로계약서 형식 확인",
+        "content": "근로계약서의 기본 형식이 올바르게 작성되었습니다."
+      },
+      "workHours": {
+        "title": "⚠️ 근로시간 명시 필요",
+        "content": "근로시간이 구체적으로 명시되지 않았습니다. \"회사 내규에 따름\"과 같은 모호한 표현을 피하고 구체적인 시간을 명시해주세요."
+      },
+      "salary": {
+        "title": "❌ 임금 구성 누락",
+        "content": "임금의 세부 구성(기본급, 수당 등)이 명시되지 않았습니다. 연봉과 월급의 구체적인 구성을 명시해주세요."
+      },
+      "annualLeave": {
+        "title": "⚠️ 연차 관리 기준 누락",
+        "content": "연차 유급휴가 및 미사용 연차 처리에 관한 내용이 명시되지 않았습니다."
+      },
+      "contractPeriod": {
+        "title": "✅ 계약 기간 명시",
+        "content": "계약 기간이 명확하게 명시되어 있습니다."
+      }
+    }
   },
   "jobDetail": {
     "backButton": "← กลับ",
@@ -196,6 +359,37 @@
       "easy": "เริ่มต้น",
       "medium": "ปานกลาง",
       "hard": "ขั้นสูง"
+    },
+    "startInterview": "มาเริ่มการสัมภาษณ์กันเถอะ!",
+    "interviewInfo": {
+      "difficulty": "ระดับความยาก",
+      "totalQuestions": "จำนวนคำถามทั้งหมด",
+      "estimatedTime": "เวลาที่คาดการณ์",
+      "firstQuestion": "นี่คือคำถามแรก:"
+    },
+    "questions": {
+      "strengthsWeaknesses": "กรุณาบอกเราเกี่ยวกับจุดแข็งและจุดอ่อนของคุณ",
+      "teamwork": "ทำไมการทำงานเป็นทีมจึงสำคัญและคุณมีบทบาทอะไรในทีม?",
+      "memorableProject": "บอกเราเกี่ยวกับโครงการหรือความสำเร็จที่จดจำได้มากที่สุด",
+      "stressManagement": "คุณจัดการกับสถานการณ์ที่เครียดอย่างไร?",
+      "futureGoals": "คุณเห็นตัวเองทำอะไรในอีก 5 ปีข้างหน้า?",
+      "motivation": "ทำไมคุณถึงสมัครเข้าบริษัทของเรา?",
+      "workLifeBalance": "คุณสร้างสมดุลระหว่างงานและชีวิตส่วนตัวอย่างไร?",
+      "learningMethod": "คุณใช้วิธีใดในการเรียนรู้เทคโนโลยีหรือเครื่องมือใหม่?",
+      "failureExperience": "บอกเราเกี่ยวกับครั้งที่คุณล้มเหลวและสิ่งที่คุณเรียนรู้จากมัน",
+      "conflictResolution": "คุณแก้ไขความขัดแย้งอย่างไรเมื่อไม่เห็นด้วยกับเพื่อนร่วมงาน?",
+      "finalWords": "มีอะไรอื่นที่คุณอยากจะพูดไหม?"
+    },
+    "welcomeSection": {
+      "title": "พร้อมสำหรับการสัมภาษณ์",
+      "subtitle": "ตรวจสอบการตั้งค่าและเริ่มการสัมภาษณ์",
+      "features": {
+        "settings": "ตั้งค่าระดับความยากและจำนวนคำถาม",
+        "aiInterview": "การสนทนาแบบเรียลไทม์กับผู้สัมภาษณ์ AI",
+        "timeGuide": "เวลาตอบที่แนะนำ",
+        "analysis": "การวิเคราะห์ผลการสัมภาษณ์"
+      },
+      "startButton": "เริ่มการสัมภาษณ์"
     }
   },
   "interview": {
@@ -232,6 +426,9 @@
     },
     "input": {
       "placeholder": "ป้อนคำตอบของคุณ..."
+    },
+    "message": {
+      "recommendedTime": "เวลาตอบที่แนะนำ"
     }
   },
   "spellCheck": {
@@ -317,7 +514,10 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. สงวนลิขสิทธิ์ทั้งหมด"
+    "copyright": "© FairWork 2024. สงวนลิขสิทธิ์ทั้งหมด",
+    "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
+    "businessInfoButton": "사업자정보확인",
+    "mobileVersion": "모바일 버전 보기"
   },
   "terms": {
     "title": "ข้อกำหนดการใช้งาน",
@@ -401,17 +601,44 @@
     },
     "actions": {
       "backToLogin": "กลับไปยังหน้าเข้าสู่ระบบ"
+    },
+    "logs": {
+      "request": "คำขอรีเซ็ตรหัสผ่าน",
+      "error": "ข้อผิดพลาดในการรีเซ็ตรหัสผ่าน"
     }
   },
   "mainFooter": {
     "contact": {
       "emailLabel": "อีเมล",
-      "faxLabel": "แฟกซ์"
+      "faxLabel": "แฟกซ์",
+      "title": "FairWork 고객센터",
+      "phone": "02-3354-1256",
+      "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
+      "email": "contact@fairwork.co.kr",
+      "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
     },
     "businessInfo": "การลงทะเบียนธุรกิจ: 123-45-67890, บริการข้อมูลงาน: Seoul Gangnam 2024-1, อีคอมเมิร์ซ: 2024-SeoulGangnam-1234",
     "businessInfoButton": "ตรวจสอบข้อมูลธุรกิจ",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "ดูเวอร์ชันมือถือ"
+    "mobileVersion": "ดูเวอร์ชันมือถือ",
+    "links": {
+      "company": "회사소개",
+      "recruitment": "인재채용",
+      "terms": "회원약관",
+      "privacy": "개인정보처리방침",
+      "emailReject": "이메일무단수집거부",
+      "api": "채용정보 API",
+      "partnership": "제휴문의",
+      "customerCenter": "고객센터"
+    },
+    "actions": {
+      "emailInquiry": "이메일 문의"
+    },
+    "company": {
+      "name": "(주)FairWork",
+      "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
+      "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
+    }
   },
   "contractTutorial": {
     "sections": {
@@ -799,6 +1026,45 @@
       "certificatePlaceholder": "ค้นหาสัมฤทธิบัตร (เช่น วิศวกรประมวลผลข้อมูล, TOEIC, AWS)",
       "languagePlaceholder": "ค้นหาทักษะภาษา (เช่น TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "ป้อนการแนะนำตัวเอง (รวมถึงกระบวนการเติบโต, แรงจูงใจในการสมัคร, ความทะเยอทะยาน, ฯลฯ)"
+    },
+    "title": "이력서 작성",
+    "subtitle": "외국인 근로자를 위한 맞춤형 이력서 작성",
+    "sections": {
+      "basicInfo": "기본 정보",
+      "education": "학력",
+      "experience": "경력",
+      "skills": "기술 및 자격증",
+      "languages": "어학 능력",
+      "introduction": "자기소개"
+    },
+    "labels": {
+      "name": "이름",
+      "email": "อีเมล",
+      "phone": "โทรศัพท์",
+      "nationality": "국적",
+      "visaType": "비자 유형",
+      "address": "주소",
+      "school": "학교명",
+      "major": "전공",
+      "graduationYear": "졸업년도",
+      "company": "회사명",
+      "position": "직책",
+      "startDate": "시작일",
+      "endDate": "종료일",
+      "description": "업무 설명",
+      "skills": "기술",
+      "certificates": "자격증",
+      "languages": "어학 능력",
+      "introduction": "자기소개"
+    },
+    "placeholders": {
+      "selectNationality": "국적을 선택하세요",
+      "selectVisaType": "비자 유형을 선택하세요"
+    },
+    "actions": {
+      "save": "บันทึก",
+      "preview": "ดูตัวอย่าง",
+      "submit": "ส่ง"
     }
   },
   "oauth": {

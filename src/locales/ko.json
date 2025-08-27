@@ -240,7 +240,10 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. All rights reserved."
+    "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
+    "businessInfoButton": "사업자정보확인",
+    "copyright": "© FairWork 2024. All rights reserved.",
+    "mobileVersion": "모바일 버전 보기"
   },
   "terms": {
     "title": "이용약관",
@@ -346,7 +349,9 @@
       "phone": "02-3354-1256",
       "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
       "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
+      "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)",
+      "emailLabel": "이메일",
+      "faxLabel": "Fax"
     },
     "actions": {
       "emailInquiry": "이메일 문의"
@@ -465,7 +470,7 @@
     "jobPostings": "채용 공고",
     "myResume": "내 이력서",
     "resumeWriting": "📄 이력서 작성",
-    "spellCheck": "✏️ 맞춤법 검사",
+    "spellCheck": "맞춤법 검사",
     "visaCenter": "비자 센터",
     "employmentContract": "근로계약서",
     "writingGuide": "📝 작성 가이드",
@@ -942,16 +947,7 @@
     "buildingName": "건물명",
     "confirm": "확인"
   },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "이메일",
-      "faxLabel": "Fax"
-    },
-    "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
-    "businessInfoButton": "사업자정보확인",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "모바일 버전 보기"
-  },
+
   "postcode": {
     "searchAddress": "주소 검색",
     "searchAddressPlaceholder": "주소를 검색하세요",
@@ -1034,6 +1030,7 @@
     "expiryDateAfterIssue": "만료일은 발급일 이후여야 합니다.",
     "addressRequired": "주소를 입력해주세요."
   },
+
   "interviewSettings": {
     "title": "면접 설정",
     "difficultySettings": "난이도 설정",
