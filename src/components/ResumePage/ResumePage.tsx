@@ -314,89 +314,99 @@ const graduationStatusOptions = [
 // 경력 정보 데이터
 const experienceData = [
   // IT/개발 관련
-  { id: '1', name: '웹 개발자', category: 'IT/개발', description: '웹 애플리케이션 개발' },
-  { id: '2', name: '프론트엔드 개발자', category: 'IT/개발', description: '프론트엔드 기술 개발' },
-  { id: '3', name: '백엔드 개발자', category: 'IT/개발', description: '백엔드 시스템 개발' },
-  { id: '4', name: '풀스택 개발자', category: 'IT/개발', description: '전체 스택 개발' },
-  { id: '5', name: '모바일 앱 개발자', category: 'IT/개발', description: '모바일 애플리케이션 개발' },
-  { id: '6', name: '데이터 분석가', category: 'IT/개발', description: '데이터 분석 및 인사이트 도출' },
-  { id: '7', name: '데이터 엔지니어', category: 'IT/개발', description: '데이터 파이프라인 구축' },
-  { id: '8', name: 'AI/ML 엔지니어', category: 'IT/개발', description: '인공지능/머신러닝 개발' },
-  { id: '9', name: 'DevOps 엔지니어', category: 'IT/개발', description: '개발 및 운영 환경 구축' },
-  { id: '10', name: '시스템 관리자', category: 'IT/개발', description: '시스템 및 네트워크 관리' },
-  { id: '11', name: '보안 엔지니어', category: 'IT/개발', description: '정보보안 및 보안 시스템 구축' },
-  { id: '12', name: 'QA 엔지니어', category: 'IT/개발', description: '품질 보증 및 테스트' },
-  { id: '13', name: 'UI/UX 디자이너', category: 'IT/개발', description: '사용자 인터페이스 및 경험 디자인' },
-  { id: '14', name: '프로덕트 매니저', category: 'IT/개발', description: '제품 기획 및 관리' },
-  
-  // 경영/사무 관련
-  { id: '15', name: '경영진', category: '경영/사무', description: '회사 경영 및 전략 수립' },
-  { id: '16', name: '부서장', category: '경영/사무', description: '부서 관리 및 운영' },
-  { id: '17', name: '팀장', category: '경영/사무', description: '팀 관리 및 프로젝트 진행' },
-  { id: '18', name: '사무직원', category: '경영/사무', description: '일반 사무 업무' },
-  { id: '19', name: '인사담당자', category: '경영/사무', description: '인사 관리 및 채용' },
-  { id: '20', name: '회계담당자', category: '경영/사무', description: '회계 및 재무 관리' },
-  { id: '21', name: '마케팅 매니저', category: '경영/사무', description: '마케팅 전략 및 실행' },
-  { id: '22', name: '영업 매니저', category: '경영/사무', description: '영업 관리 및 고객 관리' },
-  { id: '23', name: '기획담당자', category: '경영/사무', description: '사업 기획 및 전략 수립' },
-  { id: '24', name: '법무담당자', category: '경영/사무', description: '법무 및 계약 관리' },
-  
-  // 제조/생산 관련
-  { id: '25', name: '생산 관리자', category: '제조/생산', description: '생산 계획 및 관리' },
-  { id: '26', name: '품질 관리자', category: '제조/생산', description: '품질 관리 및 검사' },
-  { id: '27', name: '공정 엔지니어', category: '제조/생산', description: '생산 공정 설계 및 관리' },
-  { id: '28', name: '설비 엔지니어', category: '제조/생산', description: '설비 유지보수 및 관리' },
-  { id: '29', name: '생산 기술자', category: '제조/생산', description: '생산 기술 개발 및 적용' },
-  { id: '30', name: '조립공', category: '제조/생산', description: '제품 조립 및 생산' },
-  { id: '31', name: '용접공', category: '제조/생산', description: '용접 작업 및 품질 관리' },
-  { id: '32', name: '기계조작공', category: '제조/생산', description: '기계 조작 및 유지보수' },
-  { id: '33', name: '검사원', category: '제조/생산', description: '제품 검사 및 품질 확인' },
-  
-  // 건설/기술 관련
-  { id: '34', name: '건축가', category: '건설/기술', description: '건축 설계 및 감리' },
-  { id: '35', name: '토목 엔지니어', category: '건설/기술', description: '토목 설계 및 시공 관리' },
-  { id: '36', name: '전기 엔지니어', category: '건설/기술', description: '전기 설계 및 시공' },
-  { id: '37', name: '기계 엔지니어', category: '건설/기술', description: '기계 설계 및 시공' },
-  { id: '38', name: '설비 엔지니어', category: '건설/기술', description: '건축 설비 설계 및 시공' },
-  { id: '39', name: '안전 관리자', category: '건설/기술', description: '건설 안전 관리' },
-  { id: '40', name: '시공 관리자', category: '건설/기술', description: '건설 시공 관리' },
-  { id: '41', name: '감리원', category: '건설/기술', description: '건설 감리 및 품질 관리' },
-  { id: '42', name: '측량사', category: '건설/기술', description: '측량 및 지형 조사' },
-  
-  // 서비스/영업 관련
-  { id: '43', name: '영업사원', category: '서비스/영업', description: '제품/서비스 영업' },
-  { id: '44', name: '고객 서비스 담당자', category: '서비스/영업', description: '고객 응대 및 서비스 제공' },
-  { id: '45', name: '마케터', category: '서비스/영업', description: '마케팅 전략 및 실행' },
-  { id: '46', name: '디자이너', category: '서비스/영업', description: '그래픽 및 시각 디자인' },
-  { id: '47', name: '번역가', category: '서비스/영업', description: '언어 번역 및 통역' },
-  { id: '48', name: '강사', category: '서비스/영업', description: '교육 및 강의' },
-  { id: '49', name: '상담사', category: '서비스/영업', description: '고객 상담 및 컨설팅' },
-  { id: '50', name: '요리사', category: '서비스/영업', description: '음식 조리 및 메뉴 개발' },
-  { id: '51', name: '미용사', category: '서비스/영업', description: '미용 서비스 제공' },
-  { id: '52', name: '호텔 직원', category: '서비스/영업', description: '호텔 서비스 및 관리' },
-  { id: '53', name: '여행 가이드', category: '서비스/영업', description: '여행 안내 및 서비스' },
-  
-  // 교육/연구 관련
-  { id: '54', name: '교사', category: '교육/연구', description: '학교 교육 및 학생 지도' },
-  { id: '55', name: '대학교수', category: '교육/연구', description: '대학 교육 및 연구' },
-  { id: '56', name: '연구원', category: '교육/연구', description: '연구 및 개발' },
-  { id: '57', name: '연구소 연구원', category: '교육/연구', description: '연구소 연구 및 개발' },
-  { id: '58', name: '교육 컨설턴트', category: '교육/연구', description: '교육 프로그램 개발 및 컨설팅' },
-  
-  // 의료/보건 관련
-  { id: '59', name: '의사', category: '의료/보건', description: '의료 서비스 제공' },
-  { id: '60', name: '간호사', category: '의료/보건', description: '간호 서비스 제공' },
-  { id: '61', name: '약사', category: '의료/보건', description: '약품 조제 및 의약품 관리' },
-  { id: '62', name: '치과의사', category: '의료/보건', description: '치과 의료 서비스' },
-  { id: '63', name: '물리치료사', category: '의료/보건', description: '물리치료 서비스' },
-  { id: '64', name: '영양사', category: '의료/보건', description: '영양 관리 및 상담' },
-  
+  { id: '1', name: '웹 개발자', category: 'IT/개발', description: '웹 애플리케이션 개발', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '2', name: '프론트엔드 개발자', category: 'IT/개발', description: '사용자 인터페이스 개발', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '3', name: '백엔드 개발자', category: 'IT/개발', description: '서버 및 데이터베이스 개발', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '4', name: '풀스택 개발자', category: 'IT/개발', description: '전체 스택 개발', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '5', name: '모바일 앱 개발자', category: 'IT/개발', description: '모바일 애플리케이션 개발', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '6', name: '데이터 분석가', category: 'IT/개발', description: '데이터 분석 및 시각화', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '7', name: 'DevOps 엔지니어', category: 'IT/개발', description: '개발 및 운영 자동화', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '8', name: 'QA 엔지니어', category: 'IT/개발', description: '품질 보증 및 테스트', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '9', name: '시스템 관리자', category: 'IT/개발', description: '시스템 및 네트워크 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '10', name: 'UI/UX 디자이너', category: 'IT/개발', description: '사용자 인터페이스 및 경험 디자인', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 제조업 관련
+  { id: '11', name: '생산 관리자', category: '제조업', description: '생산 공정 관리 및 최적화', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '12', name: '품질 관리자', category: '제조업', description: '제품 품질 관리 및 검사', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '13', name: '기계 조작원', category: '제조업', description: '산업용 기계 조작 및 유지보수', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '14', name: '전기 기술자', category: '제조업', description: '전기 설비 설치 및 유지보수', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '15', name: '용접공', category: '제조업', description: '금속 용접 및 가공', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '16', name: '조립공', category: '제조업', description: '제품 조립 및 검사', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '17', name: '도장공', category: '제조업', description: '제품 도장 및 마감 작업', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '18', name: '포장공', category: '제조업', description: '제품 포장 및 출하 준비', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 건설업 관련
+  { id: '19', name: '건설 현장 관리자', category: '건설업', description: '건설 현장 관리 및 감독', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '20', name: '목수', category: '건설업', description: '목재 가공 및 건축 작업', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '21', name: '미장공', category: '건설업', description: '벽면 마감 및 도장 작업', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '22', name: '타일공', category: '건설업', description: '타일 시공 및 마감', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '23', name: '철근공', category: '건설업', description: '철근 가공 및 설치', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '24', name: '콘크리트공', category: '건설업', description: '콘크리트 타설 및 양생', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '25', name: '건설기계조작사', category: '건설업', description: '건설기계 조작 및 운전', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 서비스업 관련
+  { id: '26', name: '영업사원', category: '서비스업', description: '제품 및 서비스 영업', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '27', name: '고객 서비스 담당자', category: '서비스업', description: '고객 문의 및 상담', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '28', name: '마케팅 담당자', category: '서비스업', description: '마케팅 전략 및 실행', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '29', name: '인사 담당자', category: '서비스업', description: '인사 관리 및 채용', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '30', name: '회계 담당자', category: '서비스업', description: '회계 및 재무 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '31', name: '법무 담당자', category: '서비스업', description: '법무 및 계약 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '32', name: '총무 담당자', category: '서비스업', description: '일반 행정 및 총무', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '33', name: '기획 담당자', category: '서비스업', description: '사업 기획 및 전략 수립', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 요식업 관련
+  { id: '34', name: '요리사', category: '요식업', description: '음식 조리 및 메뉴 개발', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '35', name: '서버', category: '요식업', description: '음식 서빙 및 고객 응대', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '36', name: '바리스타', category: '요식업', description: '커피 제조 및 서빙', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '37', name: '주방 보조', category: '요식업', description: '주방 보조 및 정리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '38', name: '매장 관리자', category: '요식업', description: '매장 운영 및 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 운송업 관련
+  { id: '39', name: '택시 운전사', category: '운송업', description: '택시 운전 및 고객 서비스', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '40', name: '트럭 운전사', category: '운송업', description: '화물 운송 및 배송', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '41', name: '배송원', category: '운송업', description: '택배 및 소화물 배송', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '42', name: '물류 관리자', category: '운송업', description: '물류 및 창고 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 농업 관련
+  { id: '43', name: '농작업자', category: '농업', description: '농작물 재배 및 수확', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '44', name: '축산업자', category: '농업', description: '가축 사육 및 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '45', name: '농기계 조작사', category: '농업', description: '농기계 조작 및 유지보수', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 어업 관련
+  { id: '46', name: '어부', category: '어업', description: '어업 및 수산물 생산', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '47', name: '양식업자', category: '어업', description: '수산물 양식 및 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 광업 관련
+  { id: '48', name: '광부', category: '광업', description: '광물 채굴 및 가공', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '49', name: '채석공', category: '광업', description: '석재 채굴 및 가공', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 교육업 관련
+  { id: '50', name: '강사', category: '교육업', description: '교육 및 강의', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '51', name: '교사', category: '교육업', description: '학교 교육 및 학생 지도', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '52', name: '교육 관리자', category: '교육업', description: '교육 기관 운영 및 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 의료업 관련
+  { id: '53', name: '간호사', category: '의료업', description: '환자 간호 및 의료 보조', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '54', name: '의료 보조원', category: '의료업', description: '의료 기기 조작 및 보조', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '55', name: '약사', category: '의료업', description: '약품 조제 및 약학 서비스', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
+  // 금융업 관련
+  { id: '56', name: '은행원', category: '금융업', description: '은행 업무 및 고객 서비스', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '57', name: '보험 설계사', category: '금융업', description: '보험 상품 설계 및 판매', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '58', name: '증권사 직원', category: '금융업', description: '증권 거래 및 투자 상담', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+
   // 기타
-  { id: '65', name: '운전기사', category: '기타', description: '운전 및 배송 서비스' },
-  { id: '66', name: '배송원', category: '기타', description: '물품 배송 및 운송' },
-  { id: '67', name: '청소원', category: '기타', description: '청소 및 환경 관리' },
-  { id: '68', name: '보안원', category: '기타', description: '보안 및 안전 관리' },
-  { id: '69', name: '기타 직종', category: '기타', description: '기타 직종 경력' }
+  { id: '59', name: '청소원', category: '기타', description: '건물 청소 및 정리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '60', name: '경비원', category: '기타', description: '시설 보안 및 안전 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '61', name: '사무보조', category: '기타', description: '사무 보조 및 문서 처리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '62', name: '통역사', category: '기타', description: '언어 통역 및 번역', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '63', name: '번역가', category: '기타', description: '문서 번역 및 언어 서비스', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '64', name: '디자이너', category: '기타', description: '그래픽 및 시각 디자인', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '65', name: '사진작가', category: '기타', description: '사진 촬영 및 편집', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '66', name: '작가', category: '기타', description: '글쓰기 및 콘텐츠 제작', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '67', name: '기자', category: '기타', description: '뉴스 취재 및 기사 작성', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '68', name: '보안원', category: '기타', description: '보안 및 안전 관리', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] },
+  { id: '69', name: '기타 직종', category: '기타', description: '기타 직종 경력', years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'] }
 ];
 
 // 기술 데이터
@@ -675,6 +685,45 @@ const SelectedExperienceTag = styled.div`
   margin: 0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
+  gap: 0.5rem;
+`;
+
+const ExperienceInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+`;
+
+const ExperienceName = styled.span`
+  font-weight: 500;
+  color: white;
+`;
+
+const ExperienceYearSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  min-height: 32px;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+  
+  option {
+    background-color: #f59e0b;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 
@@ -1366,6 +1415,7 @@ const ResumePage: React.FC = () => {
     validationErrors,
     handleInputChange,
     saveResumeWithValidation,
+    loadSavedResume,
   } = useResumeForm();
 
 
@@ -1392,7 +1442,7 @@ const ResumePage: React.FC = () => {
   // 경력 정보 상태
   const [experienceSearch, setExperienceSearch] = useState('');
   const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
-  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string}>>([]);
+  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, years: string[], selectedYear: string}>>([]);
   
   // 주소 정보 상태
   
@@ -1467,10 +1517,28 @@ const ResumePage: React.FC = () => {
   // 저장된 경력 데이터를 selectedExperiences로 변환
   React.useEffect(() => {
     if (formData.experience) {
-      const experienceNames = formData.experience.split(', ').filter(name => name.trim());
-      const experiences = experienceNames.map(name => {
-        const foundExp = experienceData.find(exp => exp.name === name.trim());
-        return foundExp || { id: `custom-${name}`, name: name.trim(), category: '기타' };
+      const experienceEntries = formData.experience.split(', ').filter(entry => entry.trim());
+      const experiences = experienceEntries.map(entry => {
+        // "직업명 연도" 형태에서 분리
+        const parts = entry.trim().split(' ');
+        const year = parts[parts.length - 1]; // 마지막 단어가 연도
+        const jobName = parts.slice(0, -1).join(' '); // 나머지가 직업명
+        
+        const foundExp = experienceData.find(exp => exp.name === jobName);
+        if (foundExp) {
+          return { 
+            ...foundExp, 
+            selectedYear: year || '1년 미만' 
+          };
+        } else {
+          return { 
+            id: `custom-${jobName}`, 
+            name: jobName, 
+            category: '기타', 
+            years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'],
+            selectedYear: year || '1년 미만' 
+          };
+        }
       });
       setSelectedExperiences(experiences);
     }
@@ -1730,15 +1798,15 @@ const ResumePage: React.FC = () => {
   );
 
   // 경력 정보 선택
-  const handleExperienceSelect = (experience: {id: string, name: string, category: string}) => {
+  const handleExperienceSelect = (experience: {id: string, name: string, category: string, years: string[]}) => {
     if (!selectedExperiences.find(exp => exp.id === experience.id)) {
-      const newSelectedExperiences = [...selectedExperiences, experience];
+      const newSelectedExperiences = [...selectedExperiences, { ...experience, selectedYear: '1년 미만' }];
       setSelectedExperiences(newSelectedExperiences);
       
       // formData에 경력 정보 문자열로 저장
-      const experienceNames = newSelectedExperiences.map(exp => exp.name).join(', ');
+      const experienceEntries = newSelectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ');
       handleInputChange({
-        target: { name: 'experience', value: experienceNames }
+        target: { name: 'experience', value: experienceEntries }
       } as React.ChangeEvent<HTMLInputElement>);
     }
     setExperienceSearch('');
@@ -1751,9 +1819,9 @@ const ResumePage: React.FC = () => {
     setSelectedExperiences(newSelectedExperiences);
     
     // formData에 경력 정보 문자열로 업데이트
-    const experienceNames = newSelectedExperiences.map(exp => exp.name).join(', ');
+    const experienceEntries = newSelectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ');
     handleInputChange({
-      target: { name: 'experience', value: experienceNames }
+      target: { name: 'experience', value: experienceEntries }
     } as React.ChangeEvent<HTMLInputElement>);
   };
 
@@ -1772,6 +1840,20 @@ const ResumePage: React.FC = () => {
     setTimeout(() => {
       setShowExperienceDropdown(false);
     }, 200);
+  };
+
+  // 경력 연도 변경
+  const handleExperienceYearChange = (experienceId: string, year: string) => {
+    const newSelectedExperiences = selectedExperiences.map(exp => 
+      exp.id === experienceId ? { ...exp, selectedYear: year } : exp
+    );
+    setSelectedExperiences(newSelectedExperiences);
+    
+    // formData에 경력 정보 문자열로 업데이트
+    const experienceEntries = newSelectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ');
+    handleInputChange({
+      target: { name: 'experience', value: experienceEntries }
+    } as React.ChangeEvent<HTMLInputElement>);
   };
 
   // 기술 검색 필터링
@@ -1914,7 +1996,7 @@ const ResumePage: React.FC = () => {
             <PreviewContent>
               <PreviewText>
                 {selectedExperiences.length > 0 ? (
-                  selectedExperiences.map(exp => exp.name).join(', ')
+                  selectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ')
                 ) : (
                   <EmptyText>입력되지 않음</EmptyText>
                 )}
@@ -2071,6 +2153,12 @@ const ResumePage: React.FC = () => {
               <FormLabel>주소</FormLabel>
               <div style={{ width: '100%' }}>
                 <PostcodeSearch
+                  value={formData.address}
+                  onChange={(value) => {
+                    handleInputChange({
+                      target: { name: 'address', value }
+                    } as React.ChangeEvent<HTMLInputElement>);
+                  }}
                   onAddressSelect={(address) => {
                     // 전체 주소를 저장 (우편번호, 도로명주소, 상세주소 포함)
                     const completeAddress = address.completeAddress || address.address;
@@ -2244,7 +2332,20 @@ const ResumePage: React.FC = () => {
                 <SelectedCertificationsContainer>
                   {selectedExperiences.map((experience) => (
                     <SelectedExperienceTag key={experience.id}>
-                      {experience.name}
+                      <ExperienceInfo>
+                        <ExperienceName>{experience.name}</ExperienceName>
+                        <ExperienceYearSelect
+                          value={experience.selectedYear}
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleExperienceYearChange(experience.id, e.target.value)}
+                          aria-label={`${experience.name} 경력 연도 선택`}
+                        >
+                          {experience.years.map((year) => (
+                            <option key={year} value={year}>
+                              {year}
+                            </option>
+                          ))}
+                        </ExperienceYearSelect>
+                      </ExperienceInfo>
                       <RemoveButton
                         onClick={() => handleExperienceRemove(experience.id)}
                         aria-label={`${experience.name} 제거`}

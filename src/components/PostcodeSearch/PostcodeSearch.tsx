@@ -97,6 +97,13 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
   const isControlled = controlledValue !== undefined && controlledOnChange !== undefined;
   const displayValue = isControlled ? controlledValue : searchTerm;
 
+  // 저장된 주소가 있으면 표시
+  useEffect(() => {
+    if (controlledValue && controlledValue.trim()) {
+      setSearchTerm(controlledValue);
+    }
+  }, [controlledValue]);
+
   // 전체 주소 생성 함수
   const getCompleteAddress = () => {
     if (!selectedAddress) return '';
