@@ -1,4 +1,4 @@
-export const VISA_TYPES = {
+export const VISA_TYPES: Record<string, VisaType> = {
   E9: {
     id: 'e9',
     name: 'E-9 비자',
@@ -648,3 +648,59 @@ export const VISA_CATEGORY_LABELS = {
 } as const;
 
 export type VisaCategory = keyof typeof VISA_CATEGORIES;
+
+// ============================================================================
+// 비자 타입 정의
+// ============================================================================
+
+/**
+ * 비자 타입 인터페이스
+ */
+export interface VisaType {
+  id: string;
+  name: string;
+  fullName: string;
+  description: string;
+  duration: string;
+  extension: boolean;
+  documents: readonly string[];
+}
+
+/**
+ * 비자 카테고리 타입
+ */
+export type VisaCategoryType = 'EMPLOYMENT' | 'RESIDENCE' | 'STUDY' | 'BUSINESS' | 'PREPARATION';
+
+/**
+ * 비자 카테고리 라벨 타입
+ */
+export type VisaCategoryLabelType = 'EMPLOYMENT' | 'RESIDENCE' | 'STUDY' | 'BUSINESS' | 'PREPARATION';
+
+/**
+ * 비자 신청 절차 단계 타입
+ */
+export interface VisaApplicationStep {
+  id: number;
+  name: string;
+  description: string;
+}
+
+/**
+ * 비자 신청 절차 타입
+ */
+export type VisaApplicationProcess = readonly VisaApplicationStep[];
+
+/**
+ * 비자 카테고리별 비자 ID 배열 타입
+ */
+export type VisaCategoryVisas = readonly string[];
+
+/**
+ * 비자 카테고리 매핑 타입
+ */
+export type VisaCategoryMapping = Record<VisaCategoryType, VisaCategoryVisas>;
+
+/**
+ * 비자 카테고리 라벨 매핑 타입
+ */
+export type VisaCategoryLabelMapping = Record<VisaCategoryLabelType, string>;

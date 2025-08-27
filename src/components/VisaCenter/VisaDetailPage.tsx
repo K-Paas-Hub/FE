@@ -37,7 +37,7 @@ const VisaDetailPage: React.FC = () => {
   // URL 파라미터를 대문자로 변환하여 VISA_TYPES 키와 매칭
   const visaTypeKey = type?.toUpperCase() as keyof typeof VISA_TYPES;
   const visaType = VISA_TYPES[visaTypeKey];
-  const visaSteps = VISA_STEPS[visaTypeKey];
+  const visaSteps = VISA_STEPS[visaTypeKey as keyof typeof VISA_STEPS];
 
   if (!visaType) {
     return <div>{t('visaDetail.visaTypeNotFound')}</div>;

@@ -3,7 +3,13 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ANIMATIONS } from '../../constants';
-import { VISA_TYPES, VISA_CATEGORIES, VISA_CATEGORY_LABELS } from '../../constants/visa';
+import { 
+  VISA_TYPES, 
+  VISA_CATEGORIES, 
+  VISA_CATEGORY_LABELS,
+  VisaType,
+  VisaCategoryType
+} from '../../constants/visa';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
 
@@ -23,19 +29,19 @@ const VisaCenter: React.FC = () => {
     }
     
     // selectedCategory를 대문자로 변환하여 VISA_CATEGORIES의 키와 매칭
-    const categoryKey = selectedCategory.toUpperCase();
-    const categoryVisas = (VISA_CATEGORIES as any)[categoryKey];
+    const categoryKey = selectedCategory.toUpperCase() as VisaCategoryType;
+    const categoryVisas = VISA_CATEGORIES[categoryKey];
     
     if (!categoryVisas) {
       return visaTypesArray;
     }
     
     return visaTypesArray.filter(visa => 
-      categoryVisas.includes(visa.id.toUpperCase())
+      (categoryVisas as readonly string[]).includes(visa.id.toUpperCase())
     );
   }, [selectedCategory]);
 
-  const handleVisaClick = (visaType: any) => {
+  const handleVisaClick = (visaType: VisaType) => {
     navigate(`/visa/${visaType.id}`);
   };
 
