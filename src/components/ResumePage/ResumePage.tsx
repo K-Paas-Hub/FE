@@ -1721,6 +1721,7 @@ const ResumePage: React.FC = () => {
     validationErrors,
     handleInputChange,
     saveResumeWithValidation,
+    saveResume,
   } = useResumeForm();
 
 
@@ -1747,7 +1748,7 @@ const ResumePage: React.FC = () => {
   // 경력 정보 상태
   const [experienceSearch, setExperienceSearch] = useState('');
   const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
-  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, years: string, yearsOptions: string[]}>>([]);
+  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, description: string, years: string, yearsOptions: string[]}>>([]);
   
   // 주소 정보 상태
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
@@ -1833,7 +1834,7 @@ const ResumePage: React.FC = () => {
         if (foundExp) {
           return { ...foundExp, years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
         } else {
-          return { id: `custom-${experienceName}`, name: experienceName, category: '기타', years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
+          return { id: `custom-${experienceName}`, name: experienceName, category: '기타', description: '기타 경력', years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
         }
       });
       setSelectedExperiences(experiences);
@@ -1892,8 +1893,11 @@ const ResumePage: React.FC = () => {
 
   const handleSave = async () => {
     // 주소 정보가 있으면 formData에 추가 정보 저장
+    let dataToSave = { ...formData };
+    
     if (selectedAddress) {
-      const addressInfo = {
+      dataToSave = {
+        ...dataToSave,
         address: selectedAddress.address_name,
         addressDetail: {
           id: selectedAddress.id,
@@ -1904,17 +1908,12 @@ const ResumePage: React.FC = () => {
           address: selectedAddress.address
         }
       };
-      
-      // formData에 주소 상세 정보 추가
-      const updatedFormData = {
-        ...formData,
-        addressDetail: addressInfo.addressDetail
-      };
-      
-      // 임시로 formData 업데이트
-      setFormData(updatedFormData);
     }
     
+    // formData 업데이트
+    setFormData(dataToSave);
+    
+    // 업데이트된 데이터로 저장
     const result = await saveResumeWithValidation();
     if (result.success) {
       alert('이력서가 성공적으로 저장되었습니다!');
@@ -2145,7 +2144,7 @@ const ResumePage: React.FC = () => {
   );
 
   // 경력 정보 선택
-  const handleExperienceSelect = (experience: {id: string, name: string, category: string}) => {
+  const handleExperienceSelect = (experience: {id: string, name: string, category: string, description: string}) => {
     if (!selectedExperiences.find(exp => exp.id === experience.id)) {
       const newSelectedExperiences = [...selectedExperiences, { 
         ...experience, 
