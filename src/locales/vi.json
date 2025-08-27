@@ -274,8 +274,7 @@
   "contractQuiz": {
     "title": "Bài Kiểm Tra Hợp Đồng Lao Động",
     "description": "Kiểm tra hiểu biết của bạn về hợp đồng lao động. Kiểm tra nội dung quan trọng liên quan đến việc viết hợp đồng lao động thông qua 7 câu hỏi.",
-    "instructions": "Chọn câu trả lời phù hợp nhất cho mỗi câu hỏi. Sau khi trả lời tất cả câu hỏi, bạn có thể xem điểm số và kết quả chi tiết.",
-    "totalQuestions": "Tổng cộng {{count}} câu hỏi",
+    "instructions": "Chọn câu trả lời phù hợp nhất cho mỗi câu hỏi. Sau khi trả lời tất cả câu hỏi, bạn có thể xem điểm số và kết quả chi tiết. (Tổng cộng 7 câu hỏi)",
     "startButton": "Bắt Đầu Kiểm Tra",
     "progress": "{{current}} / {{total}}",
     "questionNumber": "Câu hỏi {{number}}",

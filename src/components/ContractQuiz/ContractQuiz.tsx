@@ -213,7 +213,6 @@ const ContractQuiz: React.FC = () => {
           <QuizSection>
             <QuizInfo>
               <InfoText>{t('contractQuiz.instructions')}</InfoText>
-              <InfoText>{t('contractQuiz.totalQuestions', { count: quizQuestions.length })}</InfoText>
             </QuizInfo>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

@@ -491,8 +491,7 @@
   "contractQuiz": {
     "title": "Employment Contract Quiz",
     "description": "Test your understanding of employment contracts. Check important content related to employment contract writing through 7 questions.",
-    "instructions": "Choose the most appropriate answer for each question. After solving all questions, you can check your score and detailed results.",
-    "totalQuestions": "Total {{count}} questions",
+    "instructions": "Choose the most appropriate answer for each question. After solving all questions, you can check your score and detailed results. (Total 7 questions)",
     "startButton": "Start Quiz",
     "progress": "{{current}} / {{total}}",
     "questionNumber": "Question {{number}}",
