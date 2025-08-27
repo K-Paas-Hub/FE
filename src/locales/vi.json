@@ -30,7 +30,7 @@
     "termsOfService": "Điều khoản dịch vụ",
     "privacyPolicy": "Chính sách bảo mật",
     "loginTitle": "Đăng nhập",
-    "googleLoginError": "Lỗi xảy ra khi đăng nhập Google."
+    "googleLoginError": "Lỗi xảy ra khi đăng nhập Google.",
     "signup": {
       "idLabel": "ID",
       "idPlaceholder": "Vui lòng nhập ID của bạn",
