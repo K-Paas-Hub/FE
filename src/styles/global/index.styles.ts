@@ -1,0 +1,85 @@
+import { createGlobalStyle } from 'styled-components';
+
+/**
+ * 글로벌 인덱스 스타일
+ * index.css를 styled-components로 변환
+ */
+export const GlobalIndexStyles = createGlobalStyle`
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+  body {
+    margin: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+
+  /* 스크롤바 스타일링 */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4ade80;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22c55e;
+  }
+
+  /* 선택 텍스트 스타일 */
+  ::selection {
+    background: #4ade80;
+    color: #1a1a1a;
+  }
+
+  /* 포커스 스타일 */
+  *:focus {
+    outline: 2px solid #4ade80;
+    outline-offset: 2px;
+  }
+
+  /* 부드러운 스크롤 */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 글로벌 텍스트 줄바꿈 설정 */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    word-break: keep-all;
+  }
+
+  /* 긴 텍스트 컨테이너 */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  div,
+  span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    word-break: keep-all;
+  }
+`;

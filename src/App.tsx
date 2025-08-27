@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './styles/App.css';
+import { GlobalAppStyles, GlobalIndexStyles } from './styles/global';
 import './i18n';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { QueryProvider } from './providers/QueryProvider';
@@ -52,6 +52,8 @@ function App() {
   return (
     <QueryProvider>
       <LanguageProvider>
+        <GlobalAppStyles />
+        <GlobalIndexStyles />
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage />} />
