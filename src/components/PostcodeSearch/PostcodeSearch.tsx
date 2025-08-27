@@ -303,7 +303,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
   };
 
   const handleDetailAddressKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && selectedAddress) {
       e.preventDefault();
       const addressWithComplete = {
         ...selectedAddress,
@@ -381,11 +381,13 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    const addressWithComplete = {
-                      ...selectedAddress,
-                      completeAddress: getCompleteAddress()
-                    };
-                    onAddressSelect(addressWithComplete);
+                    if (selectedAddress) {
+                      const addressWithComplete = {
+                        ...selectedAddress,
+                        completeAddress: getCompleteAddress()
+                      };
+                      onAddressSelect(addressWithComplete);
+                    }
                   }}
                   className="postcode-confirm-button"
                   style={{

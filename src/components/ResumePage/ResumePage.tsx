@@ -2342,15 +2342,15 @@ const ResumePage: React.FC = () => {
                           {experience.years.map((year) => (
                             <option key={year} value={year}>
                               {year}
-                            </option>
-                          ))}
+                                  </option>
+                                ))}
                         </ExperienceYearSelect>
                       </ExperienceInfo>
                       <RemoveButton
-                        onClick={() => handleExperienceRemove(experience.id)}
-                        aria-label={`${experience.name} 제거`}
-                      >
-                        ×
+                                onClick={() => handleExperienceRemove(experience.id)}
+                                aria-label={`${experience.name} 제거`}
+                              >
+                                ×
                       </RemoveButton>
                     </SelectedExperienceTag>
                   ))}
