@@ -3,7 +3,13 @@ import { useTranslation } from 'react-i18next';
 import PasswordResetForm from './PasswordResetForm';
 import Footer from '../MainFooter';
 import { devLog, devError } from '../../utils/logger';
-import '../../styles/PasswordResetForm.css';
+import {
+  PasswordResetContainer,
+  PasswordResetContent,
+  SecurityIcon,
+  SafetyLockVideo,
+  PasswordResetDescription,
+} from '../../styles/components/PasswordResetForm.styles';
 
 const PasswordResetPage: React.FC = () => {
   const { t } = useTranslation();
@@ -29,31 +35,30 @@ const PasswordResetPage: React.FC = () => {
   };
 
   return (
-    <div className="password-reset-container">
-      <div className="password-reset-content">
-        <div className="security-icon">
-          <video 
+    <PasswordResetContainer>
+      <PasswordResetContent>
+        <SecurityIcon>
+          <SafetyLockVideo
             src="/images/safety_lock.mp4" 
-            className="safety-lock-video"
             autoPlay
             loop
             muted
             playsInline
           />
-        </div>
+        </SecurityIcon>
         
-        <div className="password-reset-description">
+        <PasswordResetDescription>
           {t('passwordReset.title')}
-        </div>
+        </PasswordResetDescription>
         
         <PasswordResetForm 
           onSubmit={handlePasswordReset}
           isLoading={isFormLoading}
         />
-      </div>
+      </PasswordResetContent>
       
       <Footer />
-    </div>
+    </PasswordResetContainer>
   );
 };
 

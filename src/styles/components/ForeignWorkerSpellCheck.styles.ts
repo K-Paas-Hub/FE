@@ -15,24 +15,6 @@ export const Container = styled.div`
   }
 `;
 
-export const TopBar = styled.div`
-  display: flex;
-  background: white;
-  border: 2px solid #d1d5db;
-  border-radius: 8px 8px 0 0;
-  overflow: hidden;
-  margin-bottom: 0;
-`;
-
-export const TopBarTitle = styled.div`
-  flex: 1;
-  padding: 1rem;
-  color: #1f2937;
-  font-weight: 600;
-  text-align: center;
-  font-size: 1.1rem;
-`;
-
 export const ContentArea = styled.div`
   display: flex;
   gap: 2rem;
@@ -65,13 +47,13 @@ export const InputSection = styled.div`
   padding: 2rem;
   background: white;
   border: 1px solid ${COLORS.border};
-  border-radius: 0 0 0 12px;
+  border-radius: 12px;
   position: relative;
 `;
 
 export const TextArea = styled.textarea`
   flex: 1;
-  min-height: 450px;
+  min-height: 300px;
   padding: 1.5rem;
   border: 1px solid ${COLORS.border};
   border-radius: 8px;
@@ -99,7 +81,7 @@ export const TextArea = styled.textarea`
   }
   
   @media (max-width: 768px) {
-    min-height: 350px;
+    min-height: 250px;
   }
 `;
 
@@ -196,7 +178,7 @@ export const ResultSection = styled.div`
   overflow: hidden;
   background: white;
   border: 1px solid ${COLORS.border};
-  border-radius: 0 0 12px 0;
+  border-radius: 12px;
   position: relative;
 `;
 
@@ -207,6 +189,7 @@ export const ResultHeader = styled.div`
   padding: 1.25rem;
   background: ${COLORS.primary};
   color: white;
+  border-radius: 12px 12px 0 0;
   box-shadow: 0 2px 4px rgba(74, 222, 128, 0.1);
 `;
 
@@ -229,11 +212,12 @@ export const ApplyAllButton = styled.button`
 
 export const ResultContent = styled.div`
   flex: 1;
-  padding: 1rem;
+  padding: 1.5rem;
   background: white;
   position: relative;
   color: ${COLORS.background};
   min-height: 200px;
+  border-radius: 0 0 12px 12px;
 `;
 
 export const ErrorList = styled.div`
@@ -294,13 +278,16 @@ export const DropdownIcon = styled.span`
 
 export const EmptyState = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 200px;
-  color: ${COLORS.textSecondary};
-  font-size: 0.9rem;
+  color: ${COLORS.background};
+  font-size: 1rem;
   text-align: center;
   line-height: 1.5;
+  gap: 1rem;
+  font-weight: 500;
 `;
 
 export const CompleteButton = styled.button`
@@ -345,13 +332,13 @@ export const Legend = styled.div`
 
 export const SuccessMessage = styled.div`
   text-align: center;
-  color: #10b981;
-  font-weight: 500;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  color: #059669;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
 `;
 
 export const LegendDot = styled.div`
@@ -359,4 +346,42 @@ export const LegendDot = styled.div`
   height: 8px;
   background: ${COLORS.primary};
   border-radius: 50%;
+`;
+
+// ✅ 새로운 스타일 컴포넌트 추가
+export const SavedResumeMessage = styled.div`
+  background: #e8f5e8;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #2d5a2d;
+  border-left: 3px solid ${COLORS.primary};
+`;
+
+export const ApplyErrorButton = styled.button`
+  background: #4ecdc4;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  min-height: 44px;
+  min-width: 44px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #45b7aa;
+    transform: translateY(-1px);
+  }
+  
+  &:focus {
+    outline: 2px solid ${COLORS.primary};
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
 `;

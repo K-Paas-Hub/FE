@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
+import { SpellCheckError } from '../../types/spellCheck';
+import { COLORS, ANIMATIONS } from '../../constants';
 import {
   Container,
-  TopBar,
-  TopBarTitle,
   ContentArea,
   LoadingContainer,
   LoadingText,
@@ -27,15 +28,29 @@ import {
   Legend,
   LegendDot,
   SuccessMessage,
+  SavedResumeMessage,
+  ApplyErrorButton,
 } from '../../styles/components/ForeignWorkerSpellCheck.styles';
-
 import { storage } from '../../utils';
 
-const ForeignWorkerSpellCheck: React.FC = () => {
+// 컴포넌트 Props 인터페이스 정의
+interface ForeignWorkerSpellCheckProps {
+  onComplete?: (result: any) => void;
+  onError?: (error: string) => void;
+  initialText?: string;
+  autoCheck?: boolean;
+}
+
+const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
+  onComplete,
+  onError,
+  initialText,
+  autoCheck = false
+}) => {
   const { t } = useTranslation();
   const [text, setText] = useState('');
   const [correctedText, setCorrectedText] = useState('');
-  const [errors, setErrors] = useState<any[]>([]);
+  const [errors, setErrors] = useState<SpellCheckError[]>([]);
   const [isChecking, setIsChecking] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -48,10 +63,25 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     loadResumeData();
   }, []);
 
+  // 자동 검사 옵션
+  useEffect(() => {
+    if (autoCheck && text.trim() && !isChecking) {
+      handleCheck();
+    }
+  }, [autoCheck, text]);
+
   // 저장된 이력서 데이터 불러오기
   const loadResumeData = () => {
     try {
       setIsLoading(true);
+      
+      // 초기 텍스트가 있으면 우선 사용
+      if (initialText) {
+        setText(initialText);
+        setCorrectedText(initialText);
+        setHasResumeData(false);
+        return;
+      }
       
       // localStorage에서 이력서 데이터 가져오기
       const resumeData = storage.get('resume_draft');
@@ -69,6 +99,7 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     } catch (error) {
       console.error(t('spellCheck.loadResumeDataError'), error);
       setHasResumeData(false);
+      onError?.(t('spellCheck.loadResumeDataError'));
     } finally {
       setIsLoading(false);
     }
@@ -83,7 +114,13 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     setIsComplete(false);
   };
 
-
+  // 키보드 이벤트 핸들러
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.ctrlKey && e.key === 'Enter') {
+      e.preventDefault();
+      handleCheck();
+    }
+  };
 
   // 맞춤법 검사 실행
   const handleCheck = async () => {
@@ -102,11 +139,14 @@ const ForeignWorkerSpellCheck: React.FC = () => {
         }
         
         setIsComplete(true);
+        onComplete?.(response.data);
       } else {
         console.error('맞춤법 검사 실패:', response.error);
+        onError?.(response.error || '맞춤법 검사에 실패했습니다.');
       }
     } catch (error) {
       console.error('맞춤법 검사 중 오류 발생:', error);
+      onError?.('맞춤법 검사 중 오류가 발생했습니다.');
     } finally {
       setIsChecking(false);
     }
@@ -120,7 +160,7 @@ const ForeignWorkerSpellCheck: React.FC = () => {
   };
 
   // 개별 수정사항 적용
-  const handleApplyError = (error: any) => {
+  const handleApplyError = (error: SpellCheckError) => {
     const newText = text.replace(error.word, error.suggestion);
     setText(newText);
     setCorrectedText(newText);
@@ -129,12 +169,39 @@ const ForeignWorkerSpellCheck: React.FC = () => {
     setErrors(prev => prev.filter(e => e !== error));
   };
 
+  // 접근성을 위한 키보드 이벤트 핸들러
+  const handleApplyErrorKeyPress = (e: React.KeyboardEvent<HTMLButtonElement>, error: SpellCheckError) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleApplyError(error);
+    }
+  };
+
+  const handleApplyAllKeyPress = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleApplyAll();
+    }
+  };
+
   if (isLoading) {
     return (
       <Container>
         <LoadingContainer>
-          <LoadingSpinner />
-          <LoadingText>{t('spellCheck.loadingResumeData')}</LoadingText>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: ANIMATIONS.duration.normal }}
+          >
+            <LoadingSpinner />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: ANIMATIONS.duration.normal, delay: 0.2 }}
+          >
+            <LoadingText>{t('spellCheck.loadingResumeData')}</LoadingText>
+          </motion.div>
         </LoadingContainer>
       </Container>
     );
@@ -142,41 +209,47 @@ const ForeignWorkerSpellCheck: React.FC = () => {
 
   return (
     <Container>
-      <TopBar>
-        <TopBarTitle>외국인 근로자 맞춤법 검사</TopBarTitle>
-      </TopBar>
-      
       <ContentArea>
         <InputSection>
-          {hasResumeData && (
-            <div style={{ 
-              background: '#e8f5e8', 
-              padding: '10px', 
-              borderRadius: '8px', 
-              marginBottom: '15px',
-              fontSize: '14px',
-              color: '#2d5a2d'
-            }}>
-              {t('spellCheck.savedResumeMessage')}
-            </div>
-          )}
+          <AnimatePresence>
+            {hasResumeData && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: ANIMATIONS.duration.normal }}
+              >
+                <SavedResumeMessage>
+                  {t('spellCheck.savedResumeMessage')}
+                </SavedResumeMessage>
+              </motion.div>
+            )}
+          </AnimatePresence>
           
           <TextArea
             value={text}
             onChange={handleTextChange}
-            placeholder="검사할 텍스트를 입력하세요..."
+            onKeyDown={handleKeyDown}
+            placeholder="검사할 텍스트를 입력하세요... (Ctrl+Enter로 검사)"
             rows={10}
+            aria-label="맞춤법 검사할 텍스트 입력"
+            aria-describedby="text-help"
           />
+          <div id="text-help" style={{ fontSize: '0.8rem', color: COLORS.textSecondary, marginTop: '0.5rem' }}>
+            Ctrl+Enter를 눌러 빠르게 검사할 수 있습니다.
+          </div>
           
           <ButtonContainer>
             <PrimaryButton
               onClick={handleCheck}
               disabled={isChecking || !text.trim()}
+              aria-label="맞춤법 검사 시작"
+              aria-describedby={isChecking ? "checking-status" : undefined}
             >
               {isChecking ? (
                 <>
                   <LoadingSpinner />
-                  검사 중...
+                  <span id="checking-status">검사 중...</span>
                 </>
               ) : (
                 <>
@@ -186,75 +259,113 @@ const ForeignWorkerSpellCheck: React.FC = () => {
               )}
             </PrimaryButton>
             
-            <SecondaryButton onClick={loadResumeData}>
+            <SecondaryButton 
+              onClick={loadResumeData}
+              aria-label="저장된 이력서 데이터 새로고침"
+            >
               <Icon>🔄</Icon>
               새로고침
             </SecondaryButton>
           </ButtonContainer>
         </InputSection>
 
-        {isComplete && (
-          <ResultSection>
-            <ResultHeader>
-              <h3>검사 결과</h3>
-              {errors.length > 0 && (
-                <ApplyAllButton onClick={handleApplyAll}>
-                  <CheckIcon>✓</CheckIcon>
-                  모든 수정사항 적용
-                </ApplyAllButton>
-              )}
-            </ResultHeader>
-            
-            <ResultContent>
-              {errors.length === 0 ? (
-                <EmptyState>
-                  <CheckIcon>✓</CheckIcon>
-                  <p>맞춤법 오류가 없습니다!</p>
-                </EmptyState>
-              ) : (
-                <>
-                  <Legend>
-                    <LegendDot style={{ background: '#ff6b6b' }} />
-                    <span>맞춤법 오류</span>
-                    <LegendDot style={{ background: '#4ecdc4' }} />
-                    <span>문법 오류</span>
-                  </Legend>
-                  
-                  <ErrorList>
-                    {errors.map((error, index) => (
-                      <ErrorItem key={index}>
-                        <ErrorText>
-                          <strong>"{error.word}"</strong> → <strong>"{error.suggestion}"</strong>
-                          <br />
-                          <small>{error.description}</small>
-                        </ErrorText>
-                        <button 
-                          onClick={() => handleApplyError(error)}
-                          style={{
-                            background: '#4ecdc4',
-                            color: 'white',
-                            border: 'none',
-                            padding: '5px 10px',
-                            borderRadius: '4px',
-                            cursor: 'pointer',
-                            fontSize: '12px'
-                          }}
-                        >
-                          적용
-                        </button>
-                      </ErrorItem>
-                    ))}
-                  </ErrorList>
-                  
-                  <SuccessMessage>
-                    <CheckIcon>✓</CheckIcon>
-                    <p>검사가 완료되었습니다!</p>
-                  </SuccessMessage>
-                </>
-              )}
-            </ResultContent>
-          </ResultSection>
-        )}
+        <AnimatePresence>
+          {isComplete && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: ANIMATIONS.duration.normal }}
+            >
+              <ResultSection>
+                <ResultHeader>
+                  <h3>검사 결과</h3>
+                  {errors.length > 0 && (
+                    <ApplyAllButton 
+                      onClick={handleApplyAll}
+                      onKeyPress={handleApplyAllKeyPress}
+                      tabIndex={0}
+                      role="button"
+                      aria-label="모든 수정사항 적용"
+                    >
+                      <CheckIcon>✓</CheckIcon>
+                      모든 수정사항 적용
+                    </ApplyAllButton>
+                  )}
+                </ResultHeader>
+                
+                <ResultContent>
+                  {errors.length === 0 ? (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: ANIMATIONS.duration.normal }}
+                    >
+                      <EmptyState>
+                        <CheckIcon>✓</CheckIcon>
+                        <p>맞춤법 오류가 없습니다!</p>
+                      </EmptyState>
+                    </motion.div>
+                  ) : (
+                    <>
+                      <Legend>
+                        <LegendDot style={{ background: '#ff6b6b' }} />
+                        <span>맞춤법 오류</span>
+                        <LegendDot style={{ background: '#4ecdc4' }} />
+                        <span>문법 오류</span>
+                      </Legend>
+                      
+                      <ErrorList>
+                        <AnimatePresence>
+                          {errors.map((error, index) => (
+                            <motion.div
+                              key={error.id || index}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ 
+                                duration: ANIMATIONS.duration.normal,
+                                delay: index * 0.1 
+                              }}
+                            >
+                              <ErrorItem>
+                                <ErrorText>
+                                  <strong>"{error.word}"</strong> → <strong>"{error.suggestion}"</strong>
+                                  <br />
+                                  <small>{error.description}</small>
+                                </ErrorText>
+                                <ApplyErrorButton
+                                  onClick={() => handleApplyError(error)}
+                                  onKeyPress={(e) => handleApplyErrorKeyPress(e, error)}
+                                  tabIndex={0}
+                                  role="button"
+                                  aria-label={`"${error.word}"을 "${error.suggestion}"로 수정`}
+                                >
+                                  적용
+                                </ApplyErrorButton>
+                              </ErrorItem>
+                            </motion.div>
+                          ))}
+                        </AnimatePresence>
+                      </ErrorList>
+                      
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: ANIMATIONS.duration.normal, delay: 0.5 }}
+                      >
+                        <SuccessMessage>
+                          <CheckIcon>✓</CheckIcon>
+                          <p>검사가 완료되었습니다!</p>
+                        </SuccessMessage>
+                      </motion.div>
+                    </>
+                  )}
+                </ResultContent>
+              </ResultSection>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </ContentArea>
     </Container>
   );
