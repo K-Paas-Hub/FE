@@ -31,13 +31,13 @@ jest.mock('../../styles/components/MainHeader.styles', () => ({
   MainHeaderRight: 'div',
   NavWrapper: 'div',
   Nav: 'nav',
-  NavLink: ({ to, children, className, ...props }: any) => (
+  NavLink: ({ to, children, className, ...props }: { to: string; children: React.ReactNode; className?: string; [key: string]: unknown }) => (
     <a href={to} className={className} {...props}>{children}</a>
   ),
   DropdownContainer: 'div',
   DropdownTrigger: 'button',
   DropdownMenu: 'div',
-  DropdownItem: ({ to, children, ...props }: any) => (
+  DropdownItem: ({ to, children, ...props }: { to: string; children: React.ReactNode; [key: string]: unknown }) => (
     <a href={to} {...props}>{children}</a>
   ),
   LanguageButton: 'button',

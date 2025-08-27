@@ -91,6 +91,7 @@ import {
 
 
 import { jobData } from '../../data/jobData';
+import { Job } from '../../types/job';
 
 // 공통 데이터 사용
 const sampleJobs = jobData;
@@ -142,7 +143,7 @@ const MainPage: React.FC = () => {
   };
 
   // 필터링 함수
-  const applyFilters = useCallback((jobsToFilter: any[]) => {
+  const applyFilters = useCallback((jobsToFilter: Job[]) => {
     let filteredJobs = jobsToFilter;
 
     // 선택된 필터가 없으면 모든 결과 반환
@@ -271,7 +272,7 @@ const MainPage: React.FC = () => {
   };
 
   // 정렬 함수
-  const applySorting = useCallback((jobsToSort: any[]) => {
+  const applySorting = useCallback((jobsToSort: Job[]) => {
     const sortedJobs = [...jobsToSort];
     
     switch (selectedSort) {

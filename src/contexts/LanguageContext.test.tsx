@@ -251,7 +251,7 @@ describe('LanguageContext', () => {
     test('all languages have required properties', () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      result.current.languages.forEach((lang: any) => {
+      result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
         expect(lang).toHaveProperty('code');
         expect(lang).toHaveProperty('name');
         expect(lang).toHaveProperty('flag');
@@ -264,7 +264,7 @@ describe('LanguageContext', () => {
     test('language codes are unique', () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      const codes = result.current.languages.map((lang: any) => lang.code);
+      const codes = result.current.languages.map((lang: { code: string; name: string; flag: string }) => lang.code);
       const uniqueCodes = new Set(codes);
       expect(codes.length).toBe(uniqueCodes.size);
     });
@@ -273,7 +273,7 @@ describe('LanguageContext', () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
       const validCodes = ['ko', 'en', 'vi', 'km', 'ne', 'id', 'zh', 'th'];
-      result.current.languages.forEach((lang: any) => {
+      result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
         expect(validCodes).toContain(lang.code);
       });
     });
@@ -281,7 +281,7 @@ describe('LanguageContext', () => {
     test('flag paths are correctly formatted', () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      result.current.languages.forEach((lang: any) => {
+      result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
         expect(lang.flag).toMatch(/^\/images\/flags\/.+\.png$/);
       });
     });
