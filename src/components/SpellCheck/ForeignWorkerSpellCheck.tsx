@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
-import { SpellCheckError } from '../../types/spellCheck';
+import { SpellCheckError, ResumeSpellCheckResult } from '../../types/spellCheck';
 import { COLORS, ANIMATIONS } from '../../constants';
 import {
   Container,
@@ -39,7 +39,7 @@ import { ResumeFormData } from '../../types/resume';
 
 // 컴포넌트 Props 인터페이스 정의
 interface ForeignWorkerSpellCheckProps {
-  onComplete?: (result: any) => void;
+  onComplete?: (result: ResumeSpellCheckResult) => void;
   onError?: (error: string) => void;
   initialText?: string;
   autoCheck?: boolean;

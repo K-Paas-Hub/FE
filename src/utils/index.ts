@@ -56,7 +56,7 @@ export const checkPasswordStrength = (password: string): {
 
 // 로컬 스토리지 유틸리티
 export const storage = {
-  get: (key: string): any => {
+  get: (key: string): unknown => {
     try {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
@@ -68,7 +68,7 @@ export const storage = {
     }
   },
   
-  set: (key: string, value: any): void => {
+  set: (key: string, value: unknown): void => {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
