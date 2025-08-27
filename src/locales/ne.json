@@ -642,10 +642,24 @@
     "buildingName": "भवन नाम",
     "confirm": "पुष्टि गर्नुहोस्"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "इमेल",
+      "faxLabel": "फ्याक्स"
+    },
     "businessInfo": "व्यवसाय दर्ता: 123-45-67890, रोजगार जानकारी सेवा: Seoul Gangnam 2024-1, इ-कमर्स: 2024-SeoulGangnam-1234",
     "businessInfoButton": "व्यवसाय जानकारी जाँच गर्नुहोस्",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "मोबाइल संस्करण हेर्नुहोस्"
+  },
+  "postcode": {
+    "searchAddress": "ठेगाना खोज्नुहोस्",
+    "searchAddressPlaceholder": "खोज्नको लागि ठेगाना प्रविष्ट गर्नुहोस्",
+    "roadAddress": "सडक ठेगाना",
+    "jibunAddress": "जिबुन ठेगाना",
+    "detailAddress": "विस्तृत ठेगाना",
+    "detailAddressPlaceholder": "विस्तृत ठेगाना प्रविष्ट गर्नुहोस्",
+    "buildingName": "भवनको नाम",
+    "confirm": "पुष्टि गर्नुहोस्"
   }
 }

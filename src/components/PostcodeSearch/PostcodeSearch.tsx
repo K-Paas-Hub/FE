@@ -77,7 +77,7 @@ declare global {
 
 const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
   onAddressSelect,
-  placeholder = '주소를 검색하세요',
+  placeholder,
   disabled = false,
   className = '',
   value: controlledValue,
@@ -89,6 +89,10 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
 }) => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // 기본 placeholder 설정
+  const defaultPlaceholder = t('postcode.searchAddressPlaceholder');
+  const displayPlaceholder = placeholder || defaultPlaceholder;
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
   const [detailAddress, setDetailAddress] = useState('');
   const [isPostcodeLoaded, setIsPostcodeLoaded] = useState(false);
@@ -227,7 +231,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
     });
 
     postcode.open({
-      popupTitle: '주소 검색',
+      popupTitle: t('postcode.searchAddress'),
       popupKey: 'postcode-popup',
       autoClose: true,
     });
@@ -336,7 +340,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           type="text"
           value={displayValue}
           onChange={handleInputChange}
-          placeholder={placeholder}
+          placeholder={displayPlaceholder}
           disabled={disabled}
           className="postcode-search-input"
           readOnly

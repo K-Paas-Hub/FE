@@ -944,10 +944,24 @@
     "buildingName": "ឈ្មោះអគារ",
     "confirm": "បញ្ជាក់"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "អ៊ីមែល",
+      "faxLabel": "ហ្វាក់"
+    },
     "businessInfo": "ការចុះឈ្មោះអាជីវកម្ម: 123-45-67890, សេវាព័ត៌មានការងារ: Seoul Gangnam 2024-1, ពាណិជ្ជកម្មអេឡិចត្រូនិច: 2024-SeoulGangnam-1234",
     "businessInfoButton": "ផ្ទៀងផ្ទាត់ព័ត៌មានអាជីវកម្ម",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "មើលកំណែទូរស័ព្ទចល័ត"
+  },
+  "postcode": {
+    "searchAddress": "ស្វែងរកអាសយដ្ឋាន",
+    "searchAddressPlaceholder": "បញ្ចូលអាសយដ្ឋានដើម្បីស្វែងរក",
+    "roadAddress": "អាសយដ្ឋានផ្លូវ",
+    "jibunAddress": "អាសយដ្ឋាន Jibun",
+    "detailAddress": "អាសយដ្ឋានលម្អិត",
+    "detailAddressPlaceholder": "បញ្ចូលអាសយដ្ឋានលម្អិត",
+    "buildingName": "ឈ្មោះអគារ",
+    "confirm": "បញ្ជាក់"
   }
 }

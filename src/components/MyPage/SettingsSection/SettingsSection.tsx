@@ -9,7 +9,7 @@ import {
   FormGroup,
   FormLabel,
   FormInput,
-  FormSelect,
+
   PrimaryButton,
   SecondaryButton,
   DangerButton,
@@ -29,6 +29,7 @@ import {
   SettingLabel,
   SettingTitle,
   SettingDescription,
+  MinWidthSelect,
 } from '../../../styles/components/MyPage.styles';
 
 interface SettingsSectionProps {
@@ -128,14 +129,13 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({ settings }) => {
             <SettingTitle>{t('myPage.settings.profileVisibility', '프로필 공개')}</SettingTitle>
             <SettingDescription>다른 사용자가 내 프로필을 볼 수 있는지 설정합니다</SettingDescription>
           </SettingLabel>
-          <FormSelect
+          <MinWidthSelect
             value={privacy.profileVisibility}
             onChange={(e) => handlePrivacyChange('profileVisibility', e.target.value)}
-            style={{ minWidth: '150px' }}
           >
             <option value="public">{t('myPage.settings.public', '공개')}</option>
             <option value="private">{t('myPage.settings.private', '비공개')}</option>
-          </FormSelect>
+          </MinWidthSelect>
         </SettingRow>
       </SettingGroup>
 

@@ -27,7 +27,7 @@ const MainFooter: React.FC = () => {
               {t('mainFooter.contact.title')} {t('mainFooter.contact.phone')} ({t('mainFooter.contact.hours')})
             </div>
             <div className="contact-info">
-              이메일 : {t('mainFooter.contact.email')}, Fax : {t('mainFooter.contact.fax')}
+              {t('mainFooter.contact.emailLabel')} : {t('mainFooter.contact.email')}, {t('mainFooter.contact.faxLabel')} : {t('mainFooter.contact.fax')}
             </div>
           </div>
           

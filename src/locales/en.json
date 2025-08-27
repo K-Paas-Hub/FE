@@ -854,10 +854,38 @@
     "buildingName": "Building Name",
     "confirm": "Confirm"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
+    },
     "businessInfo": "Business Registration: 123-45-67890, Job Information Service: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Verify Business Information",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "View Mobile Version"
+  },
+  "postcode": {
+    "searchAddress": "Search Address",
+    "searchAddressPlaceholder": "Enter address to search",
+    "roadAddress": "Road Address",
+    "jibunAddress": "Jibun Address",
+    "detailAddress": "Detail Address",
+    "detailAddressPlaceholder": "Enter detail address",
+    "buildingName": "Building Name",
+    "confirm": "Confirm"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "addressPlaceholder": "Search for address",
+      "schoolPlaceholder": "Search for school name (e.g., Seoul National University, Yonsei University)",
+      "experiencePlaceholder": "Search for experience (e.g., Web Developer, Sales Representative, Production Manager)",
+      "skillPlaceholder": "Search for skills (e.g., JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "Search for certificates (e.g., Information Processing Engineer, TOEIC, AWS)",
+      "languagePlaceholder": "Search for language skills (e.g., TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "Enter your self-introduction (include growth process, motivation for application, aspirations, etc.)"
+    }
   }
 }

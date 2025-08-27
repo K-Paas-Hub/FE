@@ -743,10 +743,24 @@
     "buildingName": "建筑物名称",
     "confirm": "确认"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "邮箱",
+      "faxLabel": "传真"
+    },
     "businessInfo": "商业登记: 123-45-67890, 职业信息服务: 首尔江南 2024-1, 电子商务: 2024-首尔江南-1234",
     "businessInfoButton": "验证商业信息",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "查看移动版本"
+  },
+  "postcode": {
+    "searchAddress": "搜索地址",
+    "searchAddressPlaceholder": "输入地址进行搜索",
+    "roadAddress": "道路地址",
+    "jibunAddress": "地本地址",
+    "detailAddress": "详细地址",
+    "detailAddressPlaceholder": "输入详细地址",
+    "buildingName": "建筑物名称",
+    "confirm": "确认"
   }
 }

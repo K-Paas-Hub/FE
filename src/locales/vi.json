@@ -814,10 +814,24 @@
     "buildingName": "Tên tòa nhà",
     "confirm": "Xác nhận"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
+    },
     "businessInfo": "Đăng ký kinh doanh: 123-45-67890, Cung cấp thông tin việc làm: Seoul Gangnam 2024-1, Thương mại điện tử: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Xác nhận thông tin kinh doanh",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "Xem phiên bản di động"
+  },
+  "postcode": {
+    "searchAddress": "Tìm kiếm địa chỉ",
+    "searchAddressPlaceholder": "Nhập địa chỉ để tìm kiếm",
+    "roadAddress": "Địa chỉ đường",
+    "jibunAddress": "Địa chỉ Jibun",
+    "detailAddress": "Địa chỉ chi tiết",
+    "detailAddressPlaceholder": "Nhập địa chỉ chi tiết",
+    "buildingName": "Tên tòa nhà",
+    "confirm": "Xác nhận"
   }
 }

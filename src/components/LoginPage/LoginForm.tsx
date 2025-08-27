@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Divider } from '../../styles/components/LoginForm.styles';
 import '../../styles/LoginForm.css';
 
 interface LoginFormProps {
@@ -133,7 +134,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
       <div className="footer-links">
         <Link to="/terms" className="footer-link">{t('auth.termsOfService')}</Link>
-        <span style={{ color: '#6b7280' }}>|</span>
+        <Divider>|</Divider>
         <Link to="/privacy" className="footer-link">{t('auth.privacyPolicy')}</Link>
       </div>
     </div>

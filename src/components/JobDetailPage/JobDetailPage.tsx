@@ -30,7 +30,8 @@ import {
   PrimaryActionButton,
   SecondaryActionButton,
   LoadingSpinner,
-  ErrorMessage
+  ErrorMessage,
+  WebsiteLink
 } from '../../styles/components/JobDetailPage.styles';
 
 const JobDetailPage: React.FC = () => {
@@ -180,14 +181,13 @@ const JobDetailPage: React.FC = () => {
                       {job.companyInfo.website && (
                         <p>
                           <strong>웹사이트:</strong>{' '}
-                          <a 
+                          <WebsiteLink 
                             href={job.companyInfo.website} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            style={{ color: '#4ade80', textDecoration: 'underline' }}
                           >
                             {job.companyInfo.website}
-                          </a>
+                          </WebsiteLink>
                         </p>
                       )}
                     </div>

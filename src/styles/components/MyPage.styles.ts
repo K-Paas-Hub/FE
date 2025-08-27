@@ -490,3 +490,7 @@ export const SettingDescription = styled.span`
   font-size: ${theme.typography.fontSize.sm};
   color: ${theme.colors.textSecondary};
 `;
+
+export const MinWidthSelect = styled.select`
+  min-width: 150px;
+`;

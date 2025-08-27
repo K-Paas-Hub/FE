@@ -31,6 +31,7 @@ import {
   UserDropdownMenu,
   UserDropdownItem,
   MobileMenuButton,
+  EllipsisText,
 } from '../../styles/components/MainHeader.styles';
 
 const MainHeaderComponent: React.FC = () => {
@@ -145,9 +146,9 @@ const MainHeaderComponent: React.FC = () => {
                       alt={language.name} 
                       className={language.code === 'ne' ? 'nepal-flag' : ''}
                     />
-                    <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: '0 1 auto', minWidth: 0 }}>
+                    <EllipsisText>
                       {language.name}
-                    </span>
+                    </EllipsisText>
                   </LanguageOption>
                 ))}
               </LanguageDropdown>

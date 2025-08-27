@@ -482,6 +482,14 @@ export const UserDropdownItem = styled.button`
 `;
 
 // 모바일 햄버거 메뉴
+export const EllipsisText = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: 0;
+`;
+
 export const MobileMenuButton = styled.button`
   display: none;
   background: none;

@@ -954,6 +954,16 @@ export const ChatInputField = styled.input`
   }
 `;
 
+export const AnimatedRefreshIcon = styled.img`
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(0deg);
+`;
+
+export const AnimatedRefreshFallback = styled.div`
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(0deg);
+`;
+
 export const ChatFooter = styled.div`
   text-align: center;
   padding: 0.5rem;

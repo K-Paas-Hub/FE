@@ -765,10 +765,24 @@
     "buildingName": "ชื่ออาคาร",
     "confirm": "ยืนยัน"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "อีเมล",
+      "faxLabel": "แฟกซ์"
+    },
     "businessInfo": "การลงทะเบียนธุรกิจ: 123-45-67890, บริการข้อมูลงาน: Seoul Gangnam 2024-1, อีคอมเมิร์ซ: 2024-SeoulGangnam-1234",
     "businessInfoButton": "ตรวจสอบข้อมูลธุรกิจ",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "ดูเวอร์ชันมือถือ"
+  },
+  "postcode": {
+    "searchAddress": "ค้นหาที่อยู่",
+    "searchAddressPlaceholder": "ป้อนที่อยู่เพื่อค้นหา",
+    "roadAddress": "ที่อยู่ถนน",
+    "jibunAddress": "ที่อยู่จิบุน",
+    "detailAddress": "ที่อยู่อาศัย",
+    "detailAddressPlaceholder": "ป้อนที่อยู่อาศัย",
+    "buildingName": "ชื่ออาคาร",
+    "confirm": "ยืนยัน"
   }
 }

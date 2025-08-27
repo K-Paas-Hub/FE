@@ -885,10 +885,38 @@
     "buildingName": "건물명",
     "confirm": "확인"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "이메일",
+      "faxLabel": "Fax"
+    },
     "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
     "businessInfoButton": "사업자정보확인",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "모바일 버전 보기"
+  },
+  "postcode": {
+    "searchAddress": "주소 검색",
+    "searchAddressPlaceholder": "주소를 검색하세요",
+    "roadAddress": "도로명주소",
+    "jibunAddress": "지번주소",
+    "detailAddress": "상세주소",
+    "detailAddressPlaceholder": "상세주소를 입력하세요",
+    "buildingName": "건물명",
+    "confirm": "확인"
+  },
+  "resume": {
+    "form": {
+      "namePlaceholder": "이름을 입력하세요",
+      "emailPlaceholder": "이메일을 입력하세요",
+      "phonePlaceholder": "전화번호를 입력하세요",
+      "addressPlaceholder": "주소를 검색하세요",
+      "schoolPlaceholder": "학교명을 검색하세요 (예: 서울대학교, 연세대학교)",
+      "experiencePlaceholder": "경력을 검색하세요 (예: 웹 개발자, 영업사원, 생산 관리자)",
+      "skillPlaceholder": "기술을 검색하세요 (예: JavaScript, React, Photoshop)",
+      "certificatePlaceholder": "자격증을 검색하세요 (예: 정보처리기사, TOEIC, AWS)",
+      "languagePlaceholder": "어학 능력을 검색하세요 (예: TOEIC, TOPIK, JLPT)",
+      "introductionPlaceholder": "자기소개를 입력하세요 (성장 과정, 지원 동기, 포부 등을 포함하여 작성하세요)"
+    }
   }
 }

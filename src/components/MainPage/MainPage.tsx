@@ -17,8 +17,7 @@ import {
   FilterDownArrowIcon,
   DownArrowFallback,
   RefreshButton,
-  RefreshIcon,
-  RefreshFallback,
+
   FilterOverlay,
   FilterModal,
   CloseButton,
@@ -86,6 +85,8 @@ import {
   NoResultsText,
   SearchLoadingSpinner,
   ChatTimeInfo,
+  AnimatedRefreshIcon,
+  AnimatedRefreshFallback,
 } from '../../styles/components/MainPage.styles';
 
 
@@ -535,25 +536,17 @@ const MainPage: React.FC = () => {
               }}
               title={t('mainPage.filters.resetAll')}
             >
-              <RefreshIcon 
+              <AnimatedRefreshIcon 
                 src="/images/refresh.png" 
                 alt="refresh"
                 className="refresh-icon"
-                style={{ 
-                  transition: 'transform 0.5s ease-in-out',
-                  transform: 'rotate(0deg)'
-                }}
                 onError={() => handleImageError('refresh')}
               />
-              <RefreshFallback 
+              <AnimatedRefreshFallback 
                 className={`refresh-icon ${imageErrors['refresh'] ? 'show' : ''}`}
-                style={{ 
-                  transition: 'transform 0.5s ease-in-out',
-                  transform: 'rotate(0deg)'
-                }}
               >
                 🔄
-              </RefreshFallback>
+              </AnimatedRefreshFallback>
             </RefreshButton>
           </FilterContainer>
         </SearchSection>

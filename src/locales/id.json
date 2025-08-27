@@ -743,10 +743,24 @@
     "buildingName": "Nama Gedung",
     "confirm": "Konfirmasi"
   },
-  "footer": {
+  "mainFooter": {
+    "contact": {
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
+    },
     "businessInfo": "Pendaftaran Bisnis: 123-45-67890, Layanan Informasi Pekerjaan: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Verifikasi Informasi Bisnis",
     "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
     "mobileVersion": "Lihat Versi Mobile"
+  },
+  "postcode": {
+    "searchAddress": "Cari Alamat",
+    "searchAddressPlaceholder": "Masukkan alamat untuk mencari",
+    "roadAddress": "Alamat Jalan",
+    "jibunAddress": "Alamat Jibun",
+    "detailAddress": "Alamat Detail",
+    "detailAddressPlaceholder": "Masukkan alamat detail",
+    "buildingName": "Nama Gedung",
+    "confirm": "Konfirmasi"
   }
 }

@@ -401,6 +401,15 @@ export const LoadingSpinner = styled.div`
   }
 `;
 
+export const WebsiteLink = styled.a`
+  color: #4ade80;
+  text-decoration: underline;
+  
+  &:hover {
+    color: #22c55e;
+  }
+`;
+
 export const ErrorMessage = styled.div`
   display: flex;
   flex-direction: column;
