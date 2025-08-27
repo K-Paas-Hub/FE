@@ -16,5 +16,10 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/kakao-address.js": {
+      "maxDuration": 10
+    }
+  }
 }
