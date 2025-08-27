@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const ContentArea = styled.div`
   display: flex;
   gap: 2rem;
+  align-items: stretch;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -49,6 +50,7 @@ export const InputSection = styled.div`
   border: 1px solid ${COLORS.border};
   border-radius: 12px;
   position: relative;
+  min-height: 500px;
 `;
 
 export const TextArea = styled.textarea`
@@ -175,11 +177,11 @@ export const ResultSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   background: white;
   border: 1px solid ${COLORS.border};
   border-radius: 12px;
   position: relative;
+  min-height: 500px;
 `;
 
 export const ResultHeader = styled.div`
@@ -214,10 +216,13 @@ export const ResultContent = styled.div`
   flex: 1;
   padding: 1.5rem;
   background: white;
-  position: relative;
   color: ${COLORS.background};
-  min-height: 200px;
   border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
 `;
 
 export const ErrorList = styled.div`

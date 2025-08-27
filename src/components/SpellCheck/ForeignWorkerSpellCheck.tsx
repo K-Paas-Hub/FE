@@ -235,7 +235,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
             aria-label="맞춤법 검사할 텍스트 입력"
             aria-describedby="text-help"
           />
-          <div id="text-help" style={{ fontSize: '0.8rem', color: COLORS.textSecondary, marginTop: '0.5rem' }}>
+          <div id="text-help" style={{ fontSize: '0.9rem', color: '#1a1a1a', marginTop: '0.5rem', fontWeight: '500' }}>
             Ctrl+Enter를 눌러 빠르게 검사할 수 있습니다.
           </div>
           
