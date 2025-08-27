@@ -1,45 +1,86 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { COLORS } from '../../constants';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 600px;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
-export const Title = styled.h1`
-  font-size: 2rem;
-  font-weight: 700;
-  color: ${COLORS.text};
+export const TopBar = styled.div`
+  display: flex;
+  background: white;
+  border: 2px solid #d1d5db;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+`;
+
+export const TopBarTitle = styled.div`
+  flex: 1;
+  padding: 1rem;
+  color: #1f2937;
+  font-weight: 600;
   text-align: center;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 `;
 
-export const Subtitle = styled.p`
-  font-size: 1rem;
+export const ContentArea = styled.div`
+  display: flex;
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 1rem;
+`;
+
+export const LoadingText = styled.p`
   color: ${COLORS.textSecondary};
-  text-align: center;
-  margin-bottom: 2rem;
+  font-size: 1rem;
 `;
 
-export const TextAreaContainer = styled.div`
-  margin-bottom: 2rem;
+export const InputSection = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border: 1px solid ${COLORS.border};
+  border-radius: 0 0 0 12px;
+  position: relative;
 `;
 
 export const TextArea = styled.textarea`
-  width: 100%;
-  min-height: 200px;
-  padding: 1rem;
-  border: 2px solid ${COLORS.border};
+  flex: 1;
+  min-height: 450px;
+  padding: 1.5rem;
+  border: 1px solid ${COLORS.border};
   border-radius: 8px;
   font-size: 1rem;
   line-height: 1.6;
   resize: vertical;
-  font-family: inherit;
+  background: white;
+  color: #333333;
+  transition: all 0.2s ease;
   
   &:focus {
     outline: none;
@@ -47,63 +88,91 @@ export const TextArea = styled.textarea`
     box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
   }
   
-  &::placeholder {
+  &:disabled {
+    background: ${COLORS.background};
     color: ${COLORS.textSecondary};
+    cursor: not-allowed;
+  }
+  
+  &::placeholder {
+    color: #999999;
+  }
+  
+  @media (max-width: 768px) {
+    min-height: 350px;
   }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 1rem;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-export const CheckButton = styled(motion.button)`
-  padding: 12px 24px;
+// 프로젝트 일관성을 위한 버튼 스타일
+const buttonBase = `
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+`;
+
+export const PrimaryButton = styled.button`
+  ${buttonBase}
   background: ${COLORS.primary};
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 120px;
-  justify-content: center;
+  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.2);
   
-  &:hover {
+  &:hover:not(:disabled) {
     background: ${COLORS.primaryHover};
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 222, 128, 0.3);
   }
   
-  &:disabled {
-    background: ${COLORS.textSecondary};
-    cursor: not-allowed;
+  &:active {
+    transform: translateY(0);
   }
 `;
 
-export const ClearButton = styled(motion.button)`
-  padding: 12px 24px;
-  background: ${COLORS.secondary};
-  color: white;
-  border: none;
-  border-radius: 8px;
+export const SecondaryButton = styled.button`
+  ${buttonBase}
+  background: white;
+  color: ${COLORS.background};
+  border: 1px solid ${COLORS.border};
+  
+  &:hover:not(:disabled) {
+    background: ${COLORS.background};
+    border-color: ${COLORS.primary};
+    color: ${COLORS.primary};
+  }
+`;
+
+export const Icon = styled.span`
   font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  min-width: 80px;
-  
-  &:hover {
-    background: ${COLORS.secondaryHover};
-  }
-  
-  &:disabled {
-    background: ${COLORS.textSecondary};
-    cursor: not-allowed;
-  }
 `;
 
 export const LoadingSpinner = styled.div`
@@ -120,54 +189,163 @@ export const LoadingSpinner = styled.div`
   }
 `;
 
-export const ResultsContainer = styled.div`
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: ${COLORS.background};
-  border-radius: 8px;
+export const ResultSection = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: white;
   border: 1px solid ${COLORS.border};
+  border-radius: 0 0 12px 0;
+  position: relative;
 `;
 
-export const WordCount = styled.span`
-  font-size: 0.9rem;
-  color: ${COLORS.textSecondary};
+export const ResultHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: ${COLORS.primary};
+  color: white;
+  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.1);
 `;
 
-export const ErrorCount = styled.span`
-  font-size: 0.9rem;
-  color: ${COLORS.error};
+export const ApplyAllButton = styled.button`
+  padding: 0.5rem 1rem;
+  background: ${COLORS.primary};
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.85rem;
   font-weight: 500;
-`;
-
-// 반응형 디자인
-export const ResponsiveContainer = styled(Container)`
-  @media (max-width: 768px) {
-    padding: 1rem;
-    margin: 0 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: ${COLORS.primaryHover};
+    transform: translateY(-1px);
   }
 `;
 
-export const ResponsiveTitle = styled(Title)`
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+export const ResultContent = styled.div`
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  position: relative;
+  color: ${COLORS.background};
+  min-height: 200px;
+`;
+
+export const ErrorList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`;
+
+export const ErrorItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid ${COLORS.border};
+  border-radius: 6px;
+  background: rgba(74, 222, 128, 0.05);
+  border-left: 3px solid ${COLORS.primary};
+`;
+
+export const ErrorText = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  
+  .error-text {
+    color: ${COLORS.error};
+    font-weight: 500;
+    background: rgba(239, 68, 68, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  
+  .arrow {
+    color: ${COLORS.textSecondary};
+    font-weight: bold;
+  }
+  
+  .suggestion {
+    color: ${COLORS.primary};
+    font-weight: 500;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
   }
 `;
 
-export const ResponsiveButtonContainer = styled(ButtonContainer)`
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: stretch;
+export const DropdownIcon = styled.span`
+  color: ${COLORS.textSecondary};
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: ${COLORS.primary};
   }
 `;
 
-export const ResponsiveCheckButton = styled(CheckButton)`
-  @media (max-width: 768px) {
-    width: 100%;
+export const EmptyState = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: ${COLORS.textSecondary};
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5;
+`;
+
+export const CompleteButton = styled.button`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: ${COLORS.primary};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: ${COLORS.primaryHover};
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
   }
 `;
 
-export const ResponsiveClearButton = styled(ClearButton)`
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+export const CheckIcon = styled.span`
+  font-size: 1rem;
+`;
+
+export const Legend = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: ${COLORS.background};
+  font-size: 0.8rem;
+  color: ${COLORS.textSecondary};
+  margin-bottom: 2rem;
+`;
+
+export const LegendDot = styled.div`
+  width: 8px;
+  height: 8px;
+  background: ${COLORS.primary};
+  border-radius: 50%;
 `;
