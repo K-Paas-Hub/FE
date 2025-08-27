@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpellCheck } from '../../hooks/useSpellCheck';
 import { SpellCheckError, ResumeSpellCheckResult } from '../../types/spellCheck';
-import { COLORS, ANIMATIONS } from '../../constants';
+import { ANIMATIONS } from '../../constants';
 import {
   Container,
   ContentArea,
@@ -27,8 +27,7 @@ import {
   EmptyState,
   LargeCheckIcon,
   CheckIcon,
-  Legend,
-  LegendDot,
+
   SuccessMessage,
   SavedResumeMessage,
   ApplyErrorButton,
@@ -72,7 +71,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
     if (autoCheck && text.trim() && !isChecking) {
       handleCheck();
     }
-  }, [autoCheck, text]);
+  }, [autoCheck, text, isChecking]);
 
   // 저장된 이력서 데이터 불러오기
   const loadResumeData = () => {

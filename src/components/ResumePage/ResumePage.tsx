@@ -13,6 +13,7 @@ import {
   FormGroup,
   FormLabel,
   FormInput,
+  FormSelect,
   ButtonGroup,
   PrimaryButton,
   SecondaryButton,
@@ -24,34 +25,7 @@ import {
 } from '../../styles/components/ResumePage.styles';
 import styled from 'styled-components';
 
-// 드롭다운 스타일
-const FormSelect = styled.select`
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: white;
-  color: #374151;
-  min-height: 44px;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
-  }
-  
-  &:disabled {
-    background-color: #f9fafb;
-    color: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 16px; /* iOS에서 줌 방지 */
-  }
-`;
+
 
 // 국적 옵션
 const nationalityOptions = [
