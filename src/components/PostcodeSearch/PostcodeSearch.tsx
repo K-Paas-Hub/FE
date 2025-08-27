@@ -96,6 +96,37 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
   const isControlled = controlledValue !== undefined && controlledOnChange !== undefined;
   const displayValue = isControlled ? controlledValue : searchTerm;
 
+  // 전체 주소 생성 함수
+  const getCompleteAddress = () => {
+    if (!selectedAddress) return '';
+    
+    let completeAddress = '';
+    
+    // 우편번호
+    completeAddress += `[${selectedAddress.zonecode}] `;
+    
+    // 기본 주소 (도로명 또는 지번)
+    if (selectedAddress.roadAddress) {
+      completeAddress += selectedAddress.roadAddress;
+    } else if (selectedAddress.jibunAddress) {
+      completeAddress += selectedAddress.jibunAddress;
+    } else {
+      completeAddress += selectedAddress.address;
+    }
+    
+    // 상세주소
+    if (detailAddress.trim()) {
+      completeAddress += ` ${detailAddress.trim()}`;
+    }
+    
+    // 건물명
+    if (selectedAddress.buildingName && selectedAddress.buildingName.trim()) {
+      completeAddress += ` (${selectedAddress.buildingName.trim()})`;
+    }
+    
+    return completeAddress;
+  };
+
   // Daum 우편번호 스크립트 로드
   useEffect(() => {
     const loadPostcodeScript = () => {
@@ -154,7 +185,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
         }
       },
       theme: {
-        searchBgColor: theme.searchBgColor || '#0B65C8',
+        searchBgColor: theme.searchBgColor || '#3182f6',
         queryTextColor: theme.queryTextColor || '#FFFFFF',
         postcodeTextColor: theme.postcodeTextColor || '#FA4256',
         emphTextColor: theme.emphTextColor || '#008BD3',
@@ -210,12 +241,12 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
         if (postcodeRef.current) {
           postcodeRef.current.style.height = size.height + 'px';
         }
-           },
+      },
       onclose: (state: string) => {
         setShowPostcode(false);
       },
       theme: {
-        searchBgColor: theme.searchBgColor || '#0B65C8',
+        searchBgColor: theme.searchBgColor || '#3182f6',
         queryTextColor: theme.queryTextColor || '#FFFFFF',
         postcodeTextColor: theme.postcodeTextColor || '#FA4256',
         emphTextColor: theme.emphTextColor || '#008BD3',
@@ -263,6 +294,8 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
     openPostcodeLayer();
   };
 
+  const completeAddress = getCompleteAddress();
+
   return (
     <div className={`postcode-search-container ${className}`} ref={containerRef}>
       <div className="postcode-search-input-group">
@@ -289,24 +322,24 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
       {selectedAddress && (
         <div className="postcode-address-details">
           <div className="postcode-zonecode">
-            <strong>{t('우편번호')}:</strong> {selectedAddress.zonecode}
+            {selectedAddress.zonecode}
           </div>
           
           {showRoadAddress && selectedAddress.roadAddress && (
             <div className="postcode-road-address">
-              <strong>{t('도로명주소')}:</strong> {selectedAddress.roadAddress}
+              <strong>{t('도로명주소')}</strong> {selectedAddress.roadAddress}
             </div>
           )}
           
           {showJibunAddress && selectedAddress.jibunAddress && (
             <div className="postcode-jibun-address">
-              <strong>{t('지번주소')}:</strong> {selectedAddress.jibunAddress}
+              <strong>{t('지번주소')}</strong> {selectedAddress.jibunAddress}
             </div>
           )}
           
           {showDetailAddress && (
             <div className="postcode-detail-address">
-              <label htmlFor="detail-address">{t('상세주소')}:</label>
+              <label htmlFor="detail-address">{t('상세주소')}</label>
               <input
                 id="detail-address"
                 type="text"
@@ -320,7 +353,13 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           
           {selectedAddress.buildingName && (
             <div className="postcode-building-name">
-              <strong>{t('건물명')}:</strong> {selectedAddress.buildingName}
+              <strong>{t('건물명')}</strong> {selectedAddress.buildingName}
+            </div>
+          )}
+
+          {completeAddress && (
+            <div className="postcode-complete-address">
+              {completeAddress}
             </div>
           )}
         </div>
