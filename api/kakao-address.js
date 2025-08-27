@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     }
 
     // 환경변수에서 카카오 API 키 가져오기
-    const KAKAO_API_KEY = process.env.KAKAO_API_KEY;
+    let KAKAO_API_KEY = process.env.KAKAO_API_KEY;
 
     console.log("Environment check:", {
       hasApiKey: !!KAKAO_API_KEY,
@@ -42,26 +42,26 @@ export default async function handler(req, res) {
       });
     }
 
-    // API 키 형식 검증
-    if (!KAKAO_API_KEY.startsWith("KakaoAK ")) {
-      console.error("Invalid API key format. Should start with 'KakaoAK '");
-      return res.status(500).json({
-        error: "Invalid API key format",
-        message: "API key should start with 'KakaoAK '",
-      });
+    // API 키 형식 정리 (KakaoAK 접두사 제거 또는 추가)
+    if (KAKAO_API_KEY.startsWith("KakaoAK ")) {
+      KAKAO_API_KEY = KAKAO_API_KEY.substring(8); // "KakaoAK " 제거
     }
+    
+    // Authorization 헤더에 KakaoAK 접두사 추가
+    const authorizationHeader = `KakaoAK ${KAKAO_API_KEY}`;
 
     const apiUrl = `https://dapi.kakao.com/v2/local/search/address.json?query=${encodeURIComponent(
       query
     )}&size=${size}`;
 
     console.log("Making request to:", apiUrl);
+    console.log("Authorization header:", authorizationHeader.substring(0, 20) + "...");
 
     // 카카오 주소 검색 API 호출
     const kakaoResponse = await fetch(apiUrl, {
       method: "GET",
       headers: {
-        Authorization: KAKAO_API_KEY,
+        Authorization: authorizationHeader,
         "Content-Type": "application/json",
       },
     });
