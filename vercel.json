@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/kakao-address",
+      "destination": "/api/kakao-address.js"
+    },
+    {
       "source": "/job/(.*)",
       "destination": "/index.html"
     },
