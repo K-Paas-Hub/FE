@@ -294,7 +294,7 @@ export const LanguageButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
@@ -363,7 +363,7 @@ export const LanguageOption = styled.button`
   transition: background ${theme.animations.duration.normal} ${theme.animations.easing.ease};
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
