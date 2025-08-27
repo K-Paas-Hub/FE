@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
-import AddressSearch from '../AddressSearch';
-import { AddressData } from '../../services/kakaoAddressService';
-import { resumeService } from '../../services/api';
+import PostcodeSearch from '../PostcodeSearch';
 import {
   ResumeContainer,
   ResumeContent,
@@ -17,125 +15,37 @@ import {
   ButtonGroup,
   PrimaryButton,
   SecondaryButton,
-  FormSelect,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalTitle,
-  CloseButton,
-  PreviewSection,
-  PreviewSectionTitle,
-  PreviewContent,
-  PreviewText,
-  EmptyText,
-  SelectedExperienceTag,
-  SelectedAddressTag,
-  SchoolTypeFilter,
-  SchoolTypeButton,
-  SmartSearchContainer,
-  SearchInput,
-  SearchIcon,
-  SchoolCardGrid,
-  SchoolCard,
-  SchoolCardHeader,
-  SchoolIcon,
-  SchoolName,
-  SchoolCategory,
-  SchoolCardBody,
-  LanguageTypeFilter,
-  LanguageTypeButton,
-  LanguageCardGrid,
-  LanguageCard,
-  LanguageCardHeader,
-  LanguageIcon,
-  LanguageName,
-  LanguageCardBody,
-  LanguageCategory,
-  LanguageDescription,
-  LanguageCardFooter,
-  LanguageTimeline,
-  TimelineLanguageCard,
-  TimelineLanguageHeader,
-  TimelineLanguageIcon,
-  TimelineLanguageInfo,
-  TimelineLanguageName,
-  TimelineLanguageCategory,
-  TimelineLanguageBody,
-  CertificationTypeFilter,
-  CertificationTypeButton,
-  CertificationCardGrid,
-  CertificationCard,
-  CertificationCardHeader,
-  CertificationIcon,
-  CertificationCardName,
-  CertificationCardCategory,
-  CertificationCardBody,
-  CertificationDescription,
-  CertificationCardFooter,
-  CertificationTimeline,
-  TimelineCertificationCard,
-  TimelineCertificationHeader,
-  TimelineCertificationIcon,
-  TimelineCertificationInfo,
-  TimelineCertificationName,
-  TimelineCertificationCategory,
-  TimelineCertificationBody,
-  CertificationGradeSelect,
-  ExperienceYearsSelect,
-  SkillTypeFilter,
-  SkillTypeButton,
-  SkillCardGrid,
-  SkillCard,
-  SkillCardHeader,
-  SkillIcon,
-  SkillCardName,
-  SkillCardCategory,
-  SkillCardBody,
-  SkillDescription,
-  SkillCardFooter,
-  SkillTimeline,
-  TimelineSkillCard,
-  TimelineSkillHeader,
-  TimelineSkillIcon,
-  CertificationSearchContainer,
-  CertificationDropdown,
-  CertificationOption,
-  CertificationName,
-  CertificationCategory,
-  SelectedCertificationsContainer,
-  RemoveButton,
-  NoResultsText,
-  LanguageLevelSelect,
-  NoResultsCard,
-  EducationTimeline,
-  TimelineTitle,
-  TimelineContainer,
-  TimelineItem,
-  TimelineContent,
-  TimelineSchoolCard,
-  TimelineSchoolHeader,
-  TimelineSchoolIcon,
-  TimelineSchoolInfo,
-  TimelineSchoolName,
-  TimelineSchoolCategory,
-  TimelineRemoveButton,
-  TimelineSchoolBody,
-  StatusSelect,
-  TimelineSkillInfo,
-  TimelineSkillName,
-  TimelineSkillCategory,
-  TimelineSkillBody,
-  SkillLevelSelect,
-  ExperienceTimeline,
-  TimelineExperienceCard,
-  TimelineExperienceHeader,
-  TimelineExperienceIcon,
-  TimelineExperienceInfo,
-  TimelineExperienceName,
-  TimelineExperienceCategory,
-  TimelineExperienceBody,
-  TimelineExperienceRemoveButton,
 } from '../../styles/components/ResumePage.styles';
+import styled from 'styled-components';
+
+// 드롭다운 스타일
+const FormSelect = styled.select`
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  color: #374151;
+  min-height: 44px;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+  }
+  
+  &:disabled {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px; /* iOS에서 줌 방지 */
+  }
+`;
 
 // 국적 옵션
 const nationalityOptions = [
@@ -399,274 +309,7 @@ const graduationStatusOptions = [
   { value: '수료', label: '수료' }
 ];
 
-// 주소 데이터
-const addressData = [
-  // 서울특별시
-  { id: '1', name: '서울특별시 강남구', category: '서울특별시', type: '강남구' },
-  { id: '2', name: '서울특별시 강동구', category: '서울특별시', type: '강동구' },
-  { id: '3', name: '서울특별시 강북구', category: '서울특별시', type: '강북구' },
-  { id: '4', name: '서울특별시 강서구', category: '서울특별시', type: '강서구' },
-  { id: '5', name: '서울특별시 관악구', category: '서울특별시', type: '관악구' },
-  { id: '6', name: '서울특별시 광진구', category: '서울특별시', type: '광진구' },
-  { id: '7', name: '서울특별시 구로구', category: '서울특별시', type: '구로구' },
-  { id: '8', name: '서울특별시 금천구', category: '서울특별시', type: '금천구' },
-  { id: '9', name: '서울특별시 노원구', category: '서울특별시', type: '노원구' },
-  { id: '10', name: '서울특별시 도봉구', category: '서울특별시', type: '도봉구' },
-  { id: '11', name: '서울특별시 동대문구', category: '서울특별시', type: '동대문구' },
-  { id: '12', name: '서울특별시 동작구', category: '서울특별시', type: '동작구' },
-  { id: '13', name: '서울특별시 마포구', category: '서울특별시', type: '마포구' },
-  { id: '14', name: '서울특별시 서대문구', category: '서울특별시', type: '서대문구' },
-  { id: '15', name: '서울특별시 서초구', category: '서울특별시', type: '서초구' },
-  { id: '16', name: '서울특별시 성동구', category: '서울특별시', type: '성동구' },
-  { id: '17', name: '서울특별시 성북구', category: '서울특별시', type: '성북구' },
-  { id: '18', name: '서울특별시 송파구', category: '서울특별시', type: '송파구' },
-  { id: '19', name: '서울특별시 양천구', category: '서울특별시', type: '양천구' },
-  { id: '20', name: '서울특별시 영등포구', category: '서울특별시', type: '영등포구' },
-  { id: '21', name: '서울특별시 용산구', category: '서울특별시', type: '용산구' },
-  { id: '22', name: '서울특별시 은평구', category: '서울특별시', type: '은평구' },
-  { id: '23', name: '서울특별시 종로구', category: '서울특별시', type: '종로구' },
-  { id: '24', name: '서울특별시 중구', category: '서울특별시', type: '중구' },
-  { id: '25', name: '서울특별시 중랑구', category: '서울특별시', type: '중랑구' },
-  
-  // 부산광역시
-  { id: '26', name: '부산광역시 강서구', category: '부산광역시', type: '강서구' },
-  { id: '27', name: '부산광역시 금정구', category: '부산광역시', type: '금정구' },
-  { id: '28', name: '부산광역시 남구', category: '부산광역시', type: '남구' },
-  { id: '29', name: '부산광역시 동구', category: '부산광역시', type: '동구' },
-  { id: '30', name: '부산광역시 동래구', category: '부산광역시', type: '동래구' },
-  { id: '31', name: '부산광역시 부산진구', category: '부산광역시', type: '부산진구' },
-  { id: '32', name: '부산광역시 북구', category: '부산광역시', type: '북구' },
-  { id: '33', name: '부산광역시 사상구', category: '부산광역시', type: '사상구' },
-  { id: '34', name: '부산광역시 사하구', category: '부산광역시', type: '사하구' },
-  { id: '35', name: '부산광역시 서구', category: '부산광역시', type: '서구' },
-  { id: '36', name: '부산광역시 수영구', category: '부산광역시', type: '수영구' },
-  { id: '37', name: '부산광역시 연제구', category: '부산광역시', type: '연제구' },
-  { id: '38', name: '부산광역시 영도구', category: '부산광역시', type: '영도구' },
-  { id: '39', name: '부산광역시 중구', category: '부산광역시', type: '중구' },
-  { id: '40', name: '부산광역시 해운대구', category: '부산광역시', type: '해운대구' },
-  { id: '41', name: '부산광역시 기장군', category: '부산광역시', type: '기장군' },
-  
-  // 대구광역시
-  { id: '42', name: '대구광역시 남구', category: '대구광역시', type: '남구' },
-  { id: '43', name: '대구광역시 달서구', category: '대구광역시', type: '달서구' },
-  { id: '44', name: '대구광역시 달성군', category: '대구광역시', type: '달성군' },
-  { id: '45', name: '대구광역시 동구', category: '대구광역시', type: '동구' },
-  { id: '46', name: '대구광역시 북구', category: '대구광역시', type: '북구' },
-  { id: '47', name: '대구광역시 서구', category: '대구광역시', type: '서구' },
-  { id: '48', name: '대구광역시 수성구', category: '대구광역시', type: '수성구' },
-  { id: '49', name: '대구광역시 중구', category: '대구광역시', type: '중구' },
-  
-  // 인천광역시
-  { id: '50', name: '인천광역시 계양구', category: '인천광역시', type: '계양구' },
-  { id: '51', name: '인천광역시 남구', category: '인천광역시', type: '남구' },
-  { id: '52', name: '인천광역시 남동구', category: '인천광역시', type: '남동구' },
-  { id: '53', name: '인천광역시 동구', category: '인천광역시', type: '동구' },
-  { id: '54', name: '인천광역시 부평구', category: '인천광역시', type: '부평구' },
-  { id: '55', name: '인천광역시 서구', category: '인천광역시', type: '서구' },
-  { id: '56', name: '인천광역시 연수구', category: '인천광역시', type: '연수구' },
-  { id: '57', name: '인천광역시 중구', category: '인천광역시', type: '중구' },
-  { id: '58', name: '인천광역시 강화군', category: '인천광역시', type: '강화군' },
-  { id: '59', name: '인천광역시 옹진군', category: '인천광역시', type: '옹진군' },
-  
-  // 광주광역시
-  { id: '60', name: '광주광역시 광산구', category: '광주광역시', type: '광산구' },
-  { id: '61', name: '광주광역시 남구', category: '광주광역시', type: '남구' },
-  { id: '62', name: '광주광역시 동구', category: '광주광역시', type: '동구' },
-  { id: '63', name: '광주광역시 북구', category: '광주광역시', type: '북구' },
-  { id: '64', name: '광주광역시 서구', category: '광주광역시', type: '서구' },
-  
-  // 대전광역시
-  { id: '65', name: '대전광역시 대덕구', category: '대전광역시', type: '대덕구' },
-  { id: '66', name: '대전광역시 동구', category: '대전광역시', type: '동구' },
-  { id: '67', name: '대전광역시 서구', category: '대전광역시', type: '서구' },
-  { id: '68', name: '대전광역시 유성구', category: '대전광역시', type: '유성구' },
-  { id: '69', name: '대전광역시 중구', category: '대전광역시', type: '중구' },
-  
-  // 울산광역시
-  { id: '70', name: '울산광역시 남구', category: '울산광역시', type: '남구' },
-  { id: '71', name: '울산광역시 동구', category: '울산광역시', type: '동구' },
-  { id: '72', name: '울산광역시 북구', category: '울산광역시', type: '북구' },
-  { id: '73', name: '울산광역시 중구', category: '울산광역시', type: '중구' },
-  { id: '74', name: '울산광역시 울주군', category: '울산광역시', type: '울주군' },
-  
-  // 세종특별자치시
-  { id: '75', name: '세종특별자치시', category: '세종특별자치시', type: '세종특별자치시' },
-  
-  // 경기도
-  { id: '76', name: '경기도 수원시', category: '경기도', type: '수원시' },
-  { id: '77', name: '경기도 성남시', category: '경기도', type: '성남시' },
-  { id: '78', name: '경기도 의정부시', category: '경기도', type: '의정부시' },
-  { id: '79', name: '경기도 안양시', category: '경기도', type: '안양시' },
-  { id: '80', name: '경기도 부천시', category: '경기도', type: '부천시' },
-  { id: '81', name: '경기도 광명시', category: '경기도', type: '광명시' },
-  { id: '82', name: '경기도 평택시', category: '경기도', type: '평택시' },
-  { id: '83', name: '경기도 동두천시', category: '경기도', type: '동두천시' },
-  { id: '84', name: '경기도 안산시', category: '경기도', type: '안산시' },
-  { id: '85', name: '경기도 고양시', category: '경기도', type: '고양시' },
-  { id: '86', name: '경기도 과천시', category: '경기도', type: '과천시' },
-  { id: '87', name: '경기도 구리시', category: '경기도', type: '구리시' },
-  { id: '88', name: '경기도 남양주시', category: '경기도', type: '남양주시' },
-  { id: '89', name: '경기도 오산시', category: '경기도', type: '오산시' },
-  { id: '90', name: '경기도 시흥시', category: '경기도', type: '시흥시' },
-  { id: '91', name: '경기도 군포시', category: '경기도', type: '군포시' },
-  { id: '92', name: '경기도 의왕시', category: '경기도', type: '의왕시' },
-  { id: '93', name: '경기도 하남시', category: '경기도', type: '하남시' },
-  { id: '94', name: '경기도 용인시', category: '경기도', type: '용인시' },
-  { id: '95', name: '경기도 파주시', category: '경기도', type: '파주시' },
-  { id: '96', name: '경기도 이천시', category: '경기도', type: '이천시' },
-  { id: '97', name: '경기도 안성시', category: '경기도', type: '안성시' },
-  { id: '98', name: '경기도 김포시', category: '경기도', type: '김포시' },
-  { id: '99', name: '경기도 화성시', category: '경기도', type: '화성시' },
-  { id: '100', name: '경기도 광주시', category: '경기도', type: '광주시' },
-  { id: '101', name: '경기도 여주시', category: '경기도', type: '여주시' },
-  { id: '102', name: '경기도 양평군', category: '경기도', type: '양평군' },
-  { id: '103', name: '경기도 고양군', category: '경기도', type: '고양군' },
-  { id: '104', name: '경기도 연천군', category: '경기도', type: '연천군' },
-  { id: '105', name: '경기도 포천군', category: '경기도', type: '포천군' },
-  { id: '106', name: '경기도 가평군', category: '경기도', type: '가평군' },
-  
-  // 강원도
-  { id: '107', name: '강원도 춘천시', category: '강원도', type: '춘천시' },
-  { id: '108', name: '강원도 원주시', category: '강원도', type: '원주시' },
-  { id: '109', name: '강원도 강릉시', category: '강원도', type: '강릉시' },
-  { id: '110', name: '강원도 동해시', category: '강원도', type: '동해시' },
-  { id: '111', name: '강원도 태백시', category: '강원도', type: '태백시' },
-  { id: '112', name: '강원도 속초시', category: '강원도', type: '속초시' },
-  { id: '113', name: '강원도 삼척시', category: '강원도', type: '삼척시' },
-  { id: '114', name: '강원도 홍천군', category: '강원도', type: '홍천군' },
-  { id: '115', name: '강원도 횡성군', category: '강원도', type: '횡성군' },
-  { id: '116', name: '강원도 영월군', category: '강원도', type: '영월군' },
-  { id: '117', name: '강원도 평창군', category: '강원도', type: '평창군' },
-  { id: '118', name: '강원도 정선군', category: '강원도', type: '정선군' },
-  { id: '119', name: '강원도 철원군', category: '강원도', type: '철원군' },
-  { id: '120', name: '강원도 화천군', category: '강원도', type: '화천군' },
-  { id: '121', name: '강원도 양구군', category: '강원도', type: '양구군' },
-  { id: '122', name: '강원도 인제군', category: '강원도', type: '인제군' },
-  { id: '123', name: '강원도 고성군', category: '강원도', type: '고성군' },
-  { id: '124', name: '강원도 양양군', category: '강원도', type: '양양군' },
-  
-  // 충청북도
-  { id: '125', name: '충청북도 청주시', category: '충청북도', type: '청주시' },
-  { id: '126', name: '충청북도 충주시', category: '충청북도', type: '충주시' },
-  { id: '127', name: '충청북도 제천시', category: '충청북도', type: '제천시' },
-  { id: '128', name: '충청북도 보은군', category: '충청북도', type: '보은군' },
-  { id: '129', name: '충청북도 옥천군', category: '충청북도', type: '옥천군' },
-  { id: '130', name: '충청북도 영동군', category: '충청북도', type: '영동군' },
-  { id: '131', name: '충청북도 증평군', category: '충청북도', type: '증평군' },
-  { id: '132', name: '충청북도 진천군', category: '충청북도', type: '진천군' },
-  { id: '133', name: '충청북도 괴산군', category: '충청북도', type: '괴산군' },
-  { id: '134', name: '충청북도 음성군', category: '충청북도', type: '음성군' },
-  { id: '135', name: '충청북도 단양군', category: '충청북도', type: '단양군' },
-  
-  // 충청남도
-  { id: '136', name: '충청남도 천안시', category: '충청남도', type: '천안시' },
-  { id: '137', name: '충청남도 공주시', category: '충청남도', type: '공주시' },
-  { id: '138', name: '충청남도 보령시', category: '충청남도', type: '보령시' },
-  { id: '139', name: '충청남도 아산시', category: '충청남도', type: '아산시' },
-  { id: '140', name: '충청남도 서산시', category: '충청남도', type: '서산시' },
-  { id: '141', name: '충청남도 논산시', category: '충청남도', type: '논산시' },
-  { id: '142', name: '충청남도 계룡시', category: '충청남도', type: '계룡시' },
-  { id: '143', name: '충청남도 당진시', category: '충청남도', type: '당진시' },
-  { id: '144', name: '충청남도 금산군', category: '충청남도', type: '금산군' },
-  { id: '145', name: '충청남도 부여군', category: '충청남도', type: '부여군' },
-  { id: '146', name: '충청남도 서천군', category: '충청남도', type: '서천군' },
-  { id: '147', name: '충청남도 청양군', category: '충청남도', type: '청양군' },
-  { id: '148', name: '충청남도 홍성군', category: '충청남도', type: '홍성군' },
-  { id: '149', name: '충청남도 예산군', category: '충청남도', type: '예산군' },
-  { id: '150', name: '충청남도 태안군', category: '충청남도', type: '태안군' },
-  
-  // 전라북도
-  { id: '151', name: '전라북도 전주시', category: '전라북도', type: '전주시' },
-  { id: '152', name: '전라북도 군산시', category: '전라북도', type: '군산시' },
-  { id: '153', name: '전라북도 익산시', category: '전라북도', type: '익산시' },
-  { id: '154', name: '전라북도 정읍시', category: '전라북도', type: '정읍시' },
-  { id: '155', name: '전라북도 남원시', category: '전라북도', type: '남원시' },
-  { id: '156', name: '전라북도 김제시', category: '전라북도', type: '김제시' },
-  { id: '157', name: '전라북도 완주군', category: '전라북도', type: '완주군' },
-  { id: '158', name: '전라북도 진안군', category: '전라북도', type: '진안군' },
-  { id: '159', name: '전라북도 무주군', category: '전라북도', type: '무주군' },
-  { id: '160', name: '전라북도 장수군', category: '전라북도', type: '장수군' },
-  { id: '161', name: '전라북도 임실군', category: '전라북도', type: '임실군' },
-  { id: '162', name: '전라북도 순창군', category: '전라북도', type: '순창군' },
-  { id: '163', name: '전라북도 고창군', category: '전라북도', type: '고창군' },
-  { id: '164', name: '전라북도 부안군', category: '전라북도', type: '부안군' },
-  
-  // 전라남도
-  { id: '165', name: '전라남도 목포시', category: '전라남도', type: '목포시' },
-  { id: '166', name: '전라남도 여수시', category: '전라남도', type: '여수시' },
-  { id: '167', name: '전라남도 순천시', category: '전라남도', type: '순천시' },
-  { id: '168', name: '전라남도 나주시', category: '전라남도', type: '나주시' },
-  { id: '169', name: '전라남도 광양시', category: '전라남도', type: '광양시' },
-  { id: '170', name: '전라남도 담양군', category: '전라남도', type: '담양군' },
-  { id: '171', name: '전라남도 곡성군', category: '전라남도', type: '곡성군' },
-  { id: '172', name: '전라남도 구례군', category: '전라남도', type: '구례군' },
-  { id: '173', name: '전라남도 고흥군', category: '전라남도', type: '고흥군' },
-  { id: '174', name: '전라남도 보성군', category: '전라남도', type: '보성군' },
-  { id: '175', name: '전라남도 화순군', category: '전라남도', type: '화순군' },
-  { id: '176', name: '전라남도 장흥군', category: '전라남도', type: '장흥군' },
-  { id: '177', name: '전라남도 강진군', category: '전라남도', type: '강진군' },
-  { id: '178', name: '전라남도 해남군', category: '전라남도', type: '해남군' },
-  { id: '179', name: '전라남도 영암군', category: '전라남도', type: '영암군' },
-  { id: '180', name: '전라남도 무안군', category: '전라남도', type: '무안군' },
-  { id: '181', name: '전라남도 함평군', category: '전라남도', type: '함평군' },
-  { id: '182', name: '전라남도 영광군', category: '전라남도', type: '영광군' },
-  { id: '183', name: '전라남도 장성군', category: '전라남도', type: '장성군' },
-  { id: '184', name: '전라남도 완도군', category: '전라남도', type: '완도군' },
-  { id: '185', name: '전라남도 진도군', category: '전라남도', type: '진도군' },
-  { id: '186', name: '전라남도 신안군', category: '전라남도', type: '신안군' },
-  
-  // 경상북도
-  { id: '187', name: '경상북도 포항시', category: '경상북도', type: '포항시' },
-  { id: '188', name: '경상북도 경주시', category: '경상북도', type: '경주시' },
-  { id: '189', name: '경상북도 김천시', category: '경상북도', type: '김천시' },
-  { id: '190', name: '경상북도 안동시', category: '경상북도', type: '안동시' },
-  { id: '191', name: '경상북도 구미시', category: '경상북도', type: '구미시' },
-  { id: '192', name: '경상북도 영주시', category: '경상북도', type: '영주시' },
-  { id: '193', name: '경상북도 영천시', category: '경상북도', type: '영천시' },
-  { id: '194', name: '경상북도 상주시', category: '경상북도', type: '상주시' },
-  { id: '195', name: '경상북도 문경시', category: '경상북도', type: '문경시' },
-  { id: '196', name: '경상북도 경산시', category: '경상북도', type: '경산시' },
-  { id: '197', name: '경상북도 군위군', category: '경상북도', type: '군위군' },
-  { id: '198', name: '경상북도 의성군', category: '경상북도', type: '의성군' },
-  { id: '199', name: '경상북도 청송군', category: '경상북도', type: '청송군' },
-  { id: '200', name: '경상북도 영양군', category: '경상북도', type: '영양군' },
-  { id: '201', name: '경상북도 영덕군', category: '경상북도', type: '영덕군' },
-  { id: '202', name: '경상북도 청도군', category: '경상북도', type: '청도군' },
-  { id: '203', name: '경상북도 고령군', category: '경상북도', type: '고령군' },
-  { id: '204', name: '경상북도 성주군', category: '경상북도', type: '성주군' },
-  { id: '205', name: '경상북도 칠곡군', category: '경상북도', type: '칠곡군' },
-  { id: '206', name: '경상북도 예천군', category: '경상북도', type: '예천군' },
-  { id: '207', name: '경상북도 봉화군', category: '경상북도', type: '봉화군' },
-  { id: '208', name: '경상북도 울진군', category: '경상북도', type: '울진군' },
-  { id: '209', name: '경상북도 울릉군', category: '경상북도', type: '울릉군' },
-  
-  // 경상남도
-  { id: '210', name: '경상남도 창원시', category: '경상남도', type: '창원시' },
-  { id: '211', name: '경상남도 진주시', category: '경상남도', type: '진주시' },
-  { id: '212', name: '경상남도 통영시', category: '경상남도', type: '통영시' },
-  { id: '213', name: '경상남도 사천시', category: '경상남도', type: '사천시' },
-  { id: '214', name: '경상남도 김해시', category: '경상남도', type: '김해시' },
-  { id: '215', name: '경상남도 밀양시', category: '경상남도', type: '밀양시' },
-  { id: '216', name: '경상남도 거제시', category: '경상남도', type: '거제시' },
-  { id: '217', name: '경상남도 양산시', category: '경상남도', type: '양산시' },
-  { id: '218', name: '경상남도 의령군', category: '경상남도', type: '의령군' },
-  { id: '219', name: '경상남도 함안군', category: '경상남도', type: '함안군' },
-  { id: '220', name: '경상남도 창녕군', category: '경상남도', type: '창녕군' },
-  { id: '221', name: '경상남도 고성군', category: '경상남도', type: '고성군' },
-  { id: '222', name: '경상남도 남해군', category: '경상남도', type: '남해군' },
-  { id: '223', name: '경상남도 하동군', category: '경상남도', type: '하동군' },
-  { id: '224', name: '경상남도 산청군', category: '경상남도', type: '산청군' },
-  { id: '225', name: '경상남도 함양군', category: '경상남도', type: '함양군' },
-  { id: '226', name: '경상남도 거창군', category: '경상남도', type: '거창군' },
-  { id: '227', name: '경상남도 합천군', category: '경상남도', type: '합천군' },
-  
-  // 제주특별자치도
-  { id: '228', name: '제주특별자치도 제주시', category: '제주특별자치도', type: '제주시' },
-  { id: '229', name: '제주특별자치도 서귀포시', category: '제주특별자치도', type: '서귀포시' },
-  
-  // 기타
-  { id: '230', name: '기타 지역', category: '기타', type: '기타' }
-];
+
 
 // 경력 정보 데이터
 const experienceData = [
@@ -822,18 +465,907 @@ const skillData = [
   { id: '55', name: 'Tableau', category: '기타', description: '데이터 시각화 도구', levels: ['초급', '중급', '고급', '전문가'] }
 ];
 
+// 미리보기 모달 스타일
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+`;
 
+const ModalContent = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+`;
+
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+`;
+
+const ModalTitle = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.5rem;
+  border-radius: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  
+  &:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+  }
+`;
+
+const PreviewSection = styled.div`
+  margin-bottom: 2rem;
+`;
+
+const PreviewSectionTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const PreviewContent = styled.div`
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #4ade80;
+`;
+
+const PreviewText = styled.p`
+  margin: 0;
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-wrap;
+`;
+
+const EmptyText = styled.p`
+  color: #9ca3af;
+  font-style: italic;
+  margin: 0;
+`;
+
+// 자격증 검색 드롭다운 스타일
+const CertificationSearchContainer = styled.div`
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+`;
+
+const CertificationDropdown = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 100%;
+  width: 100%;
+`;
+
+const CertificationOption = styled.div`
+  padding: 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    background-color: #f9fafb;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+
+
+const CertificationName = styled.span`
+  font-weight: 500;
+  color: #374151;
+`;
+
+const CertificationCategory = styled.span`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+`;
+
+const SelectedCertificationsContainer = styled.div`
+  margin-top: 1rem;
+`;
+
+
+
+const RemoveButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const NoResultsText = styled.div`
+  padding: 1rem;
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+`;
+
+// 어학 능력 레벨 선택 스타일
+const LanguageLevelSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+
+
+const SelectedExperienceTag = styled.div`
+  display: inline-flex;
+  align-items: center;
+  background-color: #f59e0b;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+`;
+
+
+
+// 학력 정보 관련 스타일드 컴포넌트
+const SchoolTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const SchoolTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const SmartSearchContainer = styled.div`
+  position: relative;
+  margin-bottom: 1rem;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #374151;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+  }
+`;
+
+const SearchIcon = styled.span`
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 1rem;
+`;
+
+const SchoolCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const SchoolCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const SchoolCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const SchoolIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const SchoolName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const SchoolCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+const SchoolCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const NoResultsCard = styled.div`
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-style: italic;
+`;
+
+const EducationTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineTitle = styled.h4`
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+`;
+
+const TimelineContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const TimelineItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 2.5rem;
+    bottom: -1rem;
+    width: 2px;
+    background: #e5e7eb;
+  }
+  
+  &:last-child::before {
+    display: none;
+  }
+`;
+
+
+
+const TimelineContent = styled.div`
+  flex: 1;
+`;
+
+const TimelineSchoolCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineSchoolHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineSchoolIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineSchoolInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+const TimelineSchoolName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineSchoolCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineRemoveButton = styled.button`
+  background: none;
+  color: #6b7280;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  
+  &:hover {
+    color: #374151;
+    background: #f3f4f6;
+  }
+`;
+
+const TimelineSchoolBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const StatusSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+// 어학 능력 관련 스타일드 컴포넌트
+const LanguageTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const LanguageTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const LanguageCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const LanguageCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const LanguageCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const LanguageIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const LanguageName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const LanguageCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const LanguageCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+`;
+
+const LanguageDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const LanguageCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+const LanguageTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineLanguageCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineLanguageHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineLanguageIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineLanguageInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+const TimelineLanguageName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineLanguageCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineLanguageBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+// 자격증 관련 스타일드 컴포넌트
+const CertificationTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const CertificationTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const CertificationCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const CertificationCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const CertificationCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const CertificationIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const CertificationCardName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const CertificationCardCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+const CertificationCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const CertificationDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+`;
+
+const CertificationCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+const CertificationTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineCertificationCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineCertificationHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineCertificationIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineCertificationInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+const TimelineCertificationName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineCertificationCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineCertificationBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+// 자격증 급수 선택 스타일
+const CertificationGradeSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+// 기술 관련 스타일드 컴포넌트
+const SkillTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const SkillTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+const SkillCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+const SkillCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+const SkillCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const SkillIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+const SkillCardName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const SkillCardCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+const SkillCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+const SkillDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+`;
+
+const SkillCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+const SkillTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const TimelineSkillCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+const TimelineSkillHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const TimelineSkillIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+const TimelineSkillInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+const TimelineSkillName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+const TimelineSkillCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+const TimelineSkillBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+// 기술 레벨 선택 스타일
+const SkillLevelSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
 
 const ResumePage: React.FC = () => {
   const {
     formData,
-    setFormData,
     loading,
     error,
     validationErrors,
     handleInputChange,
     saveResumeWithValidation,
-    saveResume,
   } = useResumeForm();
 
 
@@ -860,10 +1392,10 @@ const ResumePage: React.FC = () => {
   // 경력 정보 상태
   const [experienceSearch, setExperienceSearch] = useState('');
   const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
-  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string, description: string, years: string, yearsOptions: string[]}>>([]);
+  const [selectedExperiences, setSelectedExperiences] = useState<Array<{id: string, name: string, category: string}>>([]);
   
   // 주소 정보 상태
-  const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
+  
 
   // 학력 정보와 어학 능력 필터 상태
   const [schoolTypeFilter, setSchoolTypeFilter] = useState<string>('전체');
@@ -935,52 +1467,16 @@ const ResumePage: React.FC = () => {
   // 저장된 경력 데이터를 selectedExperiences로 변환
   React.useEffect(() => {
     if (formData.experience) {
-      const experienceEntries = formData.experience.split(', ').filter(entry => entry.trim());
-      const experiences = experienceEntries.map(entry => {
-        // "직업명 연도" 형태에서 분리
-        const parts = entry.trim().split(' ');
-        const experienceName = parts[0];
-        const years = parts.slice(1).join(' ');
-        
-        const foundExp = experienceData.find(exp => exp.name === experienceName);
-        if (foundExp) {
-          return { ...foundExp, years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
-        } else {
-          return { id: `custom-${experienceName}`, name: experienceName, category: '기타', description: '기타 경력', years: years || '', yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년'] };
-        }
+      const experienceNames = formData.experience.split(', ').filter(name => name.trim());
+      const experiences = experienceNames.map(name => {
+        const foundExp = experienceData.find(exp => exp.name === name.trim());
+        return foundExp || { id: `custom-${name}`, name: name.trim(), category: '기타' };
       });
       setSelectedExperiences(experiences);
     }
   }, [formData.experience]);
 
-  // 저장된 주소 데이터를 selectedAddress로 변환
-  React.useEffect(() => {
-    if (formData.address) {
-      // 주소 상세 정보가 있으면 그것을 사용
-      if (formData.addressDetail) {
-        setSelectedAddress(formData.addressDetail);
-      } else {
-        // 기존 주소 데이터가 있으면 AddressData 형태로 변환
-        const foundAddress = addressData.find(addr => addr.name === formData.address.trim());
-        if (foundAddress) {
-          const addressData: AddressData = {
-            id: foundAddress.id,
-            address_name: foundAddress.name,
-            address_type: 'ROAD_ADDR',
-            x: '127.0286',
-            y: '37.4979',
-            address: {
-              address_name: foundAddress.name,
-              region_1depth_name: foundAddress.category,
-              region_2depth_name: foundAddress.type,
-              region_3depth_name: ''
-            }
-          };
-          setSelectedAddress(addressData);
-        }
-      }
-    }
-  }, [formData.address, formData.addressDetail]);
+
 
   // 저장된 기술 데이터를 selectedSkills로 변환
   React.useEffect(() => {
@@ -1004,33 +1500,9 @@ const ResumePage: React.FC = () => {
   }, [formData.skills]);
 
   const handleSave = async () => {
-    // 주소 정보가 있으면 formData에 추가 정보 저장
-    let dataToSave = { ...formData };
-    
-    if (selectedAddress) {
-      dataToSave = {
-        ...dataToSave,
-        address: selectedAddress.address_name,
-        addressDetail: {
-          id: selectedAddress.id,
-          address_name: selectedAddress.address_name,
-          address_type: selectedAddress.address_type,
-          x: selectedAddress.x,
-          y: selectedAddress.y,
-          address: selectedAddress.address
-        }
-      };
-    }
-    
-    // formData 업데이트
-    setFormData(dataToSave);
-    
-    // 업데이트된 데이터로 직접 저장
-    const result = await resumeService.saveResume(dataToSave);
+    const result = await saveResumeWithValidation();
     if (result.success) {
       alert('이력서가 성공적으로 저장되었습니다!');
-    } else {
-      alert('저장에 실패했습니다: ' + result.error);
     }
   };
 
@@ -1258,17 +1730,13 @@ const ResumePage: React.FC = () => {
   );
 
   // 경력 정보 선택
-  const handleExperienceSelect = (experience: {id: string, name: string, category: string, description: string}) => {
+  const handleExperienceSelect = (experience: {id: string, name: string, category: string}) => {
     if (!selectedExperiences.find(exp => exp.id === experience.id)) {
-      const newSelectedExperiences = [...selectedExperiences, { 
-        ...experience, 
-        years: '', 
-        yearsOptions: ['1년', '2년', '3년', '4년', '5년', '6년', '7년', '8년', '9년', '10년', '11년', '12년', '13년', '14년', '15년', '16년', '17년', '18년', '19년', '20년', '21년', '22년', '23년', '24년', '25년', '26년', '27년', '28년', '29년', '30년']
-      }];
+      const newSelectedExperiences = [...selectedExperiences, experience];
       setSelectedExperiences(newSelectedExperiences);
       
       // formData에 경력 정보 문자열로 저장
-      const experienceNames = newSelectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ');
+      const experienceNames = newSelectedExperiences.map(exp => exp.name).join(', ');
       handleInputChange({
         target: { name: 'experience', value: experienceNames }
       } as React.ChangeEvent<HTMLInputElement>);
@@ -1283,21 +1751,7 @@ const ResumePage: React.FC = () => {
     setSelectedExperiences(newSelectedExperiences);
     
     // formData에 경력 정보 문자열로 업데이트
-    const experienceNames = newSelectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ');
-    handleInputChange({
-      target: { name: 'experience', value: experienceNames }
-    } as React.ChangeEvent<HTMLInputElement>);
-  };
-
-  // 경력 연도 변경
-  const handleExperienceYearsChange = (experienceId: string, years: string) => {
-    const newSelectedExperiences = selectedExperiences.map(experience => 
-      experience.id === experienceId ? { ...experience, years } : experience
-    );
-    setSelectedExperiences(newSelectedExperiences);
-    
-    // formData에 경력 정보 문자열로 업데이트
-    const experienceNames = newSelectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ');
+    const experienceNames = newSelectedExperiences.map(exp => exp.name).join(', ');
     handleInputChange({
       target: { name: 'experience', value: experienceNames }
     } as React.ChangeEvent<HTMLInputElement>);
@@ -1429,7 +1883,7 @@ const ResumePage: React.FC = () => {
                 <strong>비자 유형:</strong> {formData.visaType || <EmptyText>입력되지 않음</EmptyText>}
               </PreviewText>
               <PreviewText>
-                <strong>주소:</strong> {selectedAddress ? selectedAddress.address_name : <EmptyText>입력되지 않음</EmptyText>}
+                <strong>주소:</strong> {formData.address || <EmptyText>입력되지 않음</EmptyText>}
               </PreviewText>
             </PreviewContent>
           </PreviewSection>
@@ -1460,7 +1914,7 @@ const ResumePage: React.FC = () => {
             <PreviewContent>
               <PreviewText>
                 {selectedExperiences.length > 0 ? (
-                  selectedExperiences.map(exp => exp.years ? `${exp.name} ${exp.years}` : exp.name).join(', ')
+                  selectedExperiences.map(exp => exp.name).join(', ')
                 ) : (
                   <EmptyText>입력되지 않음</EmptyText>
                 )}
@@ -1613,35 +2067,21 @@ const ResumePage: React.FC = () => {
                 </div>
               )}
             </FormGroup>
-            <FormGroup style={{ minWidth: '100%' }}>
+            <FormGroup style={{ width: '100%' }}>
               <FormLabel>주소</FormLabel>
-              <AddressSearch
-                onAddressSelect={(address: AddressData) => {
-                  setSelectedAddress(address);
-                  handleInputChange({
-                    target: { name: 'address', value: address.address_name }
-                  } as React.ChangeEvent<HTMLInputElement>);
-                }}
-                placeholder="주소를 검색하세요 (예: 서울특별시 강남구, 경기도 수원시)"
-              />
-              {selectedAddress && (
-                <SelectedCertificationsContainer>
-                  <SelectedAddressTag>
-                    {selectedAddress.address_name}
-                    <RemoveButton
-                      onClick={() => {
-                        setSelectedAddress(null);
-                        handleInputChange({
-                          target: { name: 'address', value: '' }
-                        } as React.ChangeEvent<HTMLInputElement>);
-                      }}
-                      aria-label={`${selectedAddress.address_name} 제거`}
-                    >
-                      ×
-                    </RemoveButton>
-                  </SelectedAddressTag>
-                </SelectedCertificationsContainer>
-              )}
+              <div style={{ width: '100%' }}>
+                <PostcodeSearch
+                  onAddressSelect={(address) => {
+                    handleInputChange({
+                      target: { name: 'address', value: address.address }
+                    } as React.ChangeEvent<HTMLInputElement>);
+                  }}
+                  placeholder="주소를 검색하세요"
+                  showDetailAddress={true}
+                  showRoadAddress={true}
+                  showJibunAddress={true}
+                />
+              </div>
             </FormGroup>
           </ResumeForm>
         </ResumeSection>
@@ -1798,54 +2238,20 @@ const ResumePage: React.FC = () => {
                   </CertificationDropdown>
                 )}
               </CertificationSearchContainer>
-              {/* 선택된 경력 타임라인 */}
               {selectedExperiences.length > 0 && (
-                <ExperienceTimeline>
-                  <TimelineTitle>💼 경력 정보</TimelineTitle>
-                  <TimelineContainer>
-                    {selectedExperiences.map((experience, index) => (
-                      <TimelineItem key={experience.id}>
-                        <TimelineContent>
-                          <TimelineExperienceCard>
-                            <TimelineExperienceHeader>
-                              <TimelineExperienceIcon>
-                                {experience.category === 'IT/개발' ? '💻' :
-                                 experience.category === '영업/마케팅' ? '📈' :
-                                 experience.category === '생산/제조' ? '⚙️' :
-                                 experience.category === '서비스' ? '🎯' :
-                                 experience.category === '관리/사무' ? '📊' : '💼'}
-                              </TimelineExperienceIcon>
-                              <TimelineExperienceInfo>
-                                <TimelineExperienceName>
-                                  {experience.name}
-                                </TimelineExperienceName>
-                                <TimelineExperienceCategory>{experience.category}</TimelineExperienceCategory>
-                              </TimelineExperienceInfo>
-                              <ExperienceYearsSelect
-                                value={experience.years}
-                                onChange={(e) => handleExperienceYearsChange(experience.id, e.target.value)}
-                              >
-                                <option value="">연도 선택</option>
-                                {experience.yearsOptions.map((years) => (
-                                  <option key={years} value={years}>
-                                    {years}
-                                  </option>
-                                ))}
-                              </ExperienceYearsSelect>
-                              <div style={{ flex: 1 }}></div>
-                              <TimelineRemoveButton
-                                onClick={() => handleExperienceRemove(experience.id)}
-                                aria-label={`${experience.name} 제거`}
-                              >
-                                ×
-                              </TimelineRemoveButton>
-                            </TimelineExperienceHeader>
-                          </TimelineExperienceCard>
-                        </TimelineContent>
-                      </TimelineItem>
-                    ))}
-                  </TimelineContainer>
-                </ExperienceTimeline>
+                <SelectedCertificationsContainer>
+                  {selectedExperiences.map((experience) => (
+                    <SelectedExperienceTag key={experience.id}>
+                      {experience.name}
+                      <RemoveButton
+                        onClick={() => handleExperienceRemove(experience.id)}
+                        aria-label={`${experience.name} 제거`}
+                      >
+                        ×
+                      </RemoveButton>
+                    </SelectedExperienceTag>
+                  ))}
+                </SelectedCertificationsContainer>
               )}
             </FormGroup>
           </ResumeForm>
@@ -1944,6 +2350,7 @@ const ResumePage: React.FC = () => {
                               <TimelineSkillInfo>
                                 <TimelineSkillName>
                                   {skill.name}
+                                  {skill.level && <span style={{ color: '#4ade80', fontWeight: '600' }}> {skill.level}</span>}
                                 </TimelineSkillName>
                                 <TimelineSkillCategory>{skill.category}</TimelineSkillCategory>
                               </TimelineSkillInfo>
@@ -2071,6 +2478,7 @@ const ResumePage: React.FC = () => {
                               <TimelineCertificationInfo>
                                 <TimelineCertificationName>
                                   {certification.name}
+                                  {certification.grade && <span style={{ color: '#4ade80', fontWeight: '600' }}> {certification.grade}</span>}
                                 </TimelineCertificationName>
                                 <TimelineCertificationCategory>{certification.category}</TimelineCertificationCategory>
                               </TimelineCertificationInfo>
