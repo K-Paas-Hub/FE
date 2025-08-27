@@ -2,7 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { VisaType } from '../../types/visa';
-import '../../styles/VisaTypeCard.css';
+import {
+  VisaCard,
+  VisaIcon,
+  VisaName,
+  VisaFullName,
+  VisaDescription,
+  VisaDetails,
+  VisaDuration,
+  ExtensionBadge,
+  DocumentCount,
+} from '../../styles/components/VisaTypeCard.styles';
 
 interface VisaTypeCardProps {
   visaType: VisaType;
@@ -27,8 +37,8 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
   };
 
   return (
-    <motion.div
-      className="visa-card"
+    <VisaCard
+      as={motion.div}
       onClick={onClick}
       whileHover={{ 
         scale: 1.02,
@@ -49,27 +59,26 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
         }
       }}
     >
-      <img 
-        className="visa-icon"
+      <VisaIcon
         src={getVisaIcon(visaType.id)} 
         alt={`${visaType.name} 아이콘`}
       />
       
-      <h3 className="visa-name">{visaType.name}</h3>
-      <p className="visa-full-name">{visaType.fullName}</p>
-      <p className="visa-description">{visaType.description}</p>
+      <VisaName>{visaType.name}</VisaName>
+      <VisaFullName>{visaType.fullName}</VisaFullName>
+      <VisaDescription>{visaType.description}</VisaDescription>
       
-      <div className="document-count">
+      <DocumentCount>
         📄 {t('visaCenter.card.requiredDocuments')}: {visaType.documents.length}{t('common.count')}
-      </div>
+      </DocumentCount>
       
-      <div className="visa-details">
-        <span className="visa-duration">{t('visaCenter.card.stayPeriod')}: {visaType.duration}</span>
-        <span className={`extension-badge extension-${visaType.extension}`}>
+      <VisaDetails>
+        <VisaDuration>{t('visaCenter.card.stayPeriod')}: {visaType.duration}</VisaDuration>
+        <ExtensionBadge $extension={visaType.extension}>
           {visaType.extension ? t('visaCenter.card.extensionPossible') : t('visaCenter.card.extensionNotPossible')}
-        </span>
-      </div>
-    </motion.div>
+        </ExtensionBadge>
+      </VisaDetails>
+    </VisaCard>
   );
 };
 
