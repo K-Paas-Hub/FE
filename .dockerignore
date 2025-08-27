@@ -19,8 +19,6 @@ dist
 .nuxt
 .cache
 .parcel-cache
-public/images
-src/assets
 *.md
 .eslintrc*
 .prettierrc*
