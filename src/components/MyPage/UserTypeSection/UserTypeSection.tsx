@@ -1,6 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { UserProfile } from '../../../types/myPage';
+import { 
+  UserProfile, 
+  WorkerProfile, 
+  StudentProfile, 
+  EmployerProfile 
+} from '../../../types/myPage';
 import {
   Section,
   SectionTitle,
@@ -31,32 +36,32 @@ const UserTypeSection: React.FC<UserTypeSectionProps> = ({ profile }) => {
       <InfoRow>
         <InfoLabel>{t('myPage.userType.worker.visaType', '비자 유형')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'worker' && (profile as any).visaType ? 
-            (profile as any).visaType : t('myPage.userType.worker.notSet', '미설정')}
+          {profile.userType === 'worker' && (profile as WorkerProfile).visaType ? 
+            (profile as WorkerProfile).visaType : t('myPage.userType.worker.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.worker.workPermit', '근로허가번호')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'worker' && (profile as any).workPermitNumber ? 
-            (profile as any).workPermitNumber : t('myPage.userType.worker.notSet', '미설정')}
+          {profile.userType === 'worker' && (profile as WorkerProfile).workPermitNumber ? 
+            (profile as WorkerProfile).workPermitNumber : t('myPage.userType.worker.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.worker.employer', '고용주')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'worker' && (profile as any).employerName ? 
-            (profile as any).employerName : t('myPage.userType.worker.notSet', '미설정')}
+          {profile.userType === 'worker' && (profile as WorkerProfile).employerName ? 
+            (profile as WorkerProfile).employerName : t('myPage.userType.worker.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.worker.contractExpiry', '계약 만료일')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'worker' && (profile as any).contractExpiryDate ? 
-            new Date((profile as any).contractExpiryDate).toLocaleDateString() : 
+          {profile.userType === 'worker' && (profile as WorkerProfile).contractExpiryDate ? 
+            new Date((profile as WorkerProfile).contractExpiryDate!).toLocaleDateString() : 
             t('myPage.userType.worker.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
@@ -82,32 +87,32 @@ const UserTypeSection: React.FC<UserTypeSectionProps> = ({ profile }) => {
       <InfoRow>
         <InfoLabel>{t('myPage.userType.student.studentId', '학번')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'student' && (profile as any).studentId ? 
-            (profile as any).studentId : t('myPage.userType.student.notSet', '미설정')}
+          {profile.userType === 'student' && (profile as StudentProfile).studentId ? 
+            (profile as StudentProfile).studentId : t('myPage.userType.student.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.student.university', '대학교')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'student' && (profile as any).university ? 
-            (profile as any).university : t('myPage.userType.student.notSet', '미설정')}
+          {profile.userType === 'student' && (profile as StudentProfile).university ? 
+            (profile as StudentProfile).university : t('myPage.userType.student.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.student.major', '전공')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'student' && (profile as any).major ? 
-            (profile as any).major : t('myPage.userType.student.notSet', '미설정')}
+          {profile.userType === 'student' && (profile as StudentProfile).major ? 
+            (profile as StudentProfile).major : t('myPage.userType.student.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.student.enrollmentDate', '입학일')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'student' && (profile as any).enrollmentDate ? 
-            new Date((profile as any).enrollmentDate).toLocaleDateString() : 
+          {profile.userType === 'student' && (profile as StudentProfile).enrollmentDate ? 
+            new Date((profile as StudentProfile).enrollmentDate!).toLocaleDateString() : 
             t('myPage.userType.student.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
@@ -115,8 +120,8 @@ const UserTypeSection: React.FC<UserTypeSectionProps> = ({ profile }) => {
       <InfoRow>
         <InfoLabel>{t('myPage.userType.student.graduationDate', '졸업 예정일')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'student' && (profile as any).graduationDate ? 
-            new Date((profile as any).graduationDate).toLocaleDateString() : 
+          {profile.userType === 'student' && (profile as StudentProfile).graduationDate ? 
+            new Date((profile as StudentProfile).graduationDate!).toLocaleDateString() : 
             t('myPage.userType.student.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
@@ -124,8 +129,8 @@ const UserTypeSection: React.FC<UserTypeSectionProps> = ({ profile }) => {
       <InfoRow>
         <InfoLabel>{t('myPage.userType.student.d2VisaExpiry', 'D-2 비자 만료일')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'student' && (profile as any).d2VisaExpiry ? 
-            new Date((profile as any).d2VisaExpiry).toLocaleDateString() : 
+          {profile.userType === 'student' && (profile as StudentProfile).d2VisaExpiry ? 
+            new Date((profile as StudentProfile).d2VisaExpiry!).toLocaleDateString() : 
             t('myPage.userType.student.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
@@ -151,25 +156,25 @@ const UserTypeSection: React.FC<UserTypeSectionProps> = ({ profile }) => {
       <InfoRow>
         <InfoLabel>{t('myPage.userType.employer.companyName', '회사명')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'employer' && (profile as any).companyName ? 
-            (profile as any).companyName : t('myPage.userType.employer.notSet', '미설정')}
+          {profile.userType === 'employer' && (profile as EmployerProfile).companyName ? 
+            (profile as EmployerProfile).companyName : t('myPage.userType.employer.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.employer.businessNumber', '사업자등록번호')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'employer' && (profile as any).businessNumber ? 
-            (profile as any).businessNumber : t('myPage.userType.employer.notSet', '미설정')}
+          {profile.userType === 'employer' && (profile as EmployerProfile).businessNumber ? 
+            (profile as EmployerProfile).businessNumber : t('myPage.userType.employer.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
       
       <InfoRow>
         <InfoLabel>{t('myPage.userType.employer.companySize', '회사 규모')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'employer' && (profile as any).companySize ? 
-            (profile as any).companySize === 'small' ? t('myPage.userType.employer.small', '소규모') :
-            (profile as any).companySize === 'medium' ? t('myPage.userType.employer.medium', '중규모') :
+          {profile.userType === 'employer' && (profile as EmployerProfile).companySize ? 
+            (profile as EmployerProfile).companySize === 'small' ? t('myPage.userType.employer.small', '소규모') :
+            (profile as EmployerProfile).companySize === 'medium' ? t('myPage.userType.employer.medium', '중규모') :
             t('myPage.userType.employer.large', '대규모') : 
             t('myPage.userType.employer.notSet', '미설정')}
         </InfoValue>
@@ -178,8 +183,8 @@ const UserTypeSection: React.FC<UserTypeSectionProps> = ({ profile }) => {
       <InfoRow>
         <InfoLabel>{t('myPage.userType.employer.industry', '업종')}</InfoLabel>
         <InfoValue>
-          {profile.userType === 'employer' && (profile as any).industry ? 
-            (profile as any).industry : t('myPage.userType.employer.notSet', '미설정')}
+          {profile.userType === 'employer' && (profile as EmployerProfile).industry ? 
+            (profile as EmployerProfile).industry : t('myPage.userType.employer.notSet', '미설정')}
         </InfoValue>
       </InfoRow>
 
