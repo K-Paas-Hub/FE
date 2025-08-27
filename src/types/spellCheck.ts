@@ -83,6 +83,7 @@ export interface ResumeCheckResult {
 export interface ResumeSpellCheckResult {
   generalErrors: SpellCheckError[];
   resumeSpecificErrors: SpellCheckError[];
+  correctedText?: string; // 수정된 텍스트
   categoryScores: {
     honorific: number;
     tabooWords: number;

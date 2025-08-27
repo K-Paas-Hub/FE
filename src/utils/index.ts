@@ -34,19 +34,19 @@ export const checkPasswordStrength = (password: string): {
   const feedback: string[] = [];
 
   if (password.length >= 8) score += 1;
-  else feedback.push('비밀번호는 최소 8자 이상이어야 합니다.');
+  else feedback.push('validation.password.minLength');
 
   if (/[a-z]/.test(password)) score += 1;
-  else feedback.push('소문자를 포함해야 합니다.');
+  else feedback.push('validation.password.lowercase');
 
   if (/[A-Z]/.test(password)) score += 1;
-  else feedback.push('대문자를 포함해야 합니다.');
+  else feedback.push('validation.password.uppercase');
 
   if (/[0-9]/.test(password)) score += 1;
-  else feedback.push('숫자를 포함해야 합니다.');
+  else feedback.push('validation.password.number');
 
   if (/[^A-Za-z0-9]/.test(password)) score += 1;
-  else feedback.push('특수문자를 포함해야 합니다.');
+  else feedback.push('validation.password.special');
 
   return {
     score,

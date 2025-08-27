@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../../styles/InterviewSettings.css';
 
 interface InterviewConfig {
@@ -20,6 +21,7 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
   onSave, 
   onClose 
 }) => {
+  const { t } = useTranslation();
   const [localSettings, setLocalSettings] = useState<InterviewConfig>(settings);
 
   const handleSave = () => {
@@ -52,7 +54,7 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
     <div className="settings-overlay" onClick={handleOverlayClick}>
       <div className="settings-modal">
         <div className="settings-header">
-          <h2>면접 설정</h2>
+          <h2>{t('interviewSettings.title')}</h2>
           <button className="close-button" onClick={onClose}>
             <span>×</span>
           </button>
@@ -60,7 +62,7 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
         
         <div className="settings-content">
           <div className="setting-section">
-            <h3>난이도 설정</h3>
+            <h3>{t('interviewSettings.difficultySettings')}</h3>
             <div className="difficulty-options">
               <label className="difficulty-option">
                 <input
@@ -73,10 +75,10 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
                 <div className="option-content">
                   <div className="option-header">
                     <span className="difficulty-icon">🟢</span>
-                    <span className="difficulty-title">초급</span>
+                    <span className="difficulty-title">{t('interviewSettings.difficultyLevels.easy')}</span>
                   </div>
                   <p className="difficulty-description">
-                    기본적인 면접 질문과 답변 힌트 제공
+                    {t('interviewSettings.difficultyDescriptions.easy')}
                   </p>
                 </div>
               </label>
@@ -92,10 +94,10 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
                 <div className="option-content">
                   <div className="option-header">
                     <span className="difficulty-icon">🟡</span>
-                    <span className="difficulty-title">중급</span>
+                    <span className="difficulty-title">{t('interviewSettings.difficultyLevels.medium')}</span>
                   </div>
                   <p className="difficulty-description">
-                    일반적인 면접 질문과 적당한 난이도
+                    {t('interviewSettings.difficultyDescriptions.medium')}
                   </p>
                 </div>
               </label>
@@ -111,10 +113,10 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
                 <div className="option-content">
                   <div className="option-header">
                     <span className="difficulty-icon">🔴</span>
-                    <span className="difficulty-title">고급</span>
+                    <span className="difficulty-title">{t('interviewSettings.difficultyLevels.hard')}</span>
                   </div>
                   <p className="difficulty-description">
-                    이력서 기반 맞춤형 질문과 높은 난이도
+                    {t('interviewSettings.difficultyDescriptions.hard')}
                   </p>
                 </div>
               </label>
@@ -122,7 +124,7 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
           </div>
           
           <div className="setting-section">
-            <h3>질문 수 설정</h3>
+            <h3>{t('interviewSettings.questionCountSettings')}</h3>
             <div className="question-count-slider">
               <input
                 type="range"
@@ -133,15 +135,15 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
                 className="slider"
               />
               <div className="slider-labels">
-                <span>3개</span>
-                <span>{localSettings.questionCount}개</span>
-                <span>10개</span>
+                <span>3{t('common.count')}</span>
+                <span>{localSettings.questionCount}{t('common.count')}</span>
+                <span>10{t('common.count')}</span>
               </div>
             </div>
           </div>
           
           <div className="setting-section">
-            <h3>추가 옵션</h3>
+            <h3>{t('interviewSettings.additionalOptions')}</h3>
             <div className="checkbox-options">
               <label className="checkbox-option">
                 <input
@@ -154,8 +156,8 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
                 />
                 <span className="checkmark"></span>
                 <div className="checkbox-content">
-                  <span className="checkbox-title">답변 힌트 제공</span>
-                  <span className="checkbox-description">답변 시 도움이 되는 힌트를 제공합니다</span>
+                  <span className="checkbox-title">{t('interviewSettings.options.hints')}</span>
+                  <span className="checkbox-description">{t('interviewSettings.options.hintsDescription')}</span>
                 </div>
               </label>
               
@@ -170,23 +172,23 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
                 />
                 <span className="checkmark"></span>
                 <div className="checkbox-content">
-                  <span className="checkbox-title">맞춤형 질문</span>
-                  <span className="checkbox-description">이력서 기반으로 개인화된 질문을 생성합니다</span>
+                  <span className="checkbox-title">{t('interviewSettings.options.customQuestions')}</span>
+                  <span className="checkbox-description">{t('interviewSettings.options.customQuestionsDescription')}</span>
                 </div>
               </label>
             </div>
           </div>
           
           <div className="setting-summary">
-            <h4>설정 요약</h4>
+            <h4>{t('interviewSettings.summary.title')}</h4>
             <div className="summary-items">
               <div className="summary-item">
-                <span className="summary-label">예상 소요 시간:</span>
-                <span className="summary-value">{localSettings.estimatedTime}분</span>
+                <span className="summary-label">{t('interviewSettings.summary.estimatedTime')}:</span>
+                <span className="summary-value">{localSettings.estimatedTime}{t('common.minutes')}</span>
               </div>
               <div className="summary-item">
-                <span className="summary-label">총 질문 수:</span>
-                <span className="summary-value">{localSettings.questionCount}개</span>
+                <span className="summary-label">{t('interviewSettings.summary.totalQuestions')}:</span>
+                <span className="summary-value">{localSettings.questionCount}{t('common.count')}</span>
               </div>
             </div>
           </div>
@@ -194,14 +196,14 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
         
         <div className="settings-footer">
           <button className="cancel-button" onClick={onClose}>
-            취소
+            {t('interviewSettings.actions.cancel')}
           </button>
           <button 
             className="save-button"
             onClick={handleSave}
             disabled={!localSettings.difficulty}
           >
-            면접 시작
+            {t('interviewSettings.actions.startInterview')}
           </button>
         </div>
       </div>
