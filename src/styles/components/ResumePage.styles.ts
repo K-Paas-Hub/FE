@@ -603,3 +603,5 @@ export const SchoolCardBody = styled.div`
 `;
 
 
+
+
