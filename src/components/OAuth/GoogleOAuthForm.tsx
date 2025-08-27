@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { MainHeader, MainFooter } from '../';
 import PostcodeSearch from '../PostcodeSearch';
 import useOAuth from '../../hooks/useOAuth';
@@ -110,6 +111,7 @@ const languageOptions = [
 ];
 
 const GoogleOAuthForm: React.FC = () => {
+  const { t } = useTranslation();
   const { isLoading, error, googleUser, saveAdditionalInfo, authenticateWithGoogle } = useOAuth();
   const [formData, setFormData] = useState<OAuthAdditionalInfo>({
     phone: '',
@@ -263,7 +265,7 @@ const GoogleOAuthForm: React.FC = () => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="전화번호를 입력하세요"
+              placeholder={t('oauth.form.phonePlaceholder')}
             />
             {validationErrors.phone && (
               <ErrorMessage>{validationErrors.phone}</ErrorMessage>
@@ -279,7 +281,7 @@ const GoogleOAuthForm: React.FC = () => {
                   address: address.address
                 }));
               }}
-              placeholder="주소를 검색하세요"
+              placeholder={t('oauth.form.addressPlaceholder')}
               showDetailAddress={true}
               showRoadAddress={true}
               showJibunAddress={true}

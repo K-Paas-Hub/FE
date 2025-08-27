@@ -121,7 +121,14 @@
     "employment": "就业",
     "study": "学习",
     "family": "家庭",
-    "other": "其他"
+    "other": "其他",
+    "categories": {
+      "employment": "就业签证",
+      "residence": "居留签证",
+      "study": "留学签证",
+      "business": "商务签证",
+      "preparation": "准备签证"
+    }
   },
   "contractAnalysis": {
     "title": "劳动合同分析",
@@ -775,6 +782,17 @@
       "certificatePlaceholder": "搜索证书（例如：信息处理工程师、TOEIC、AWS）",
       "languagePlaceholder": "搜索语言能力（例如：TOEIC、TOPIK、JLPT）",
       "introductionPlaceholder": "请输入自我介绍（包括成长过程、申请动机、抱负等）"
+    }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "请输入您的答案..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "请输入您的电话号码",
+      "addressPlaceholder": "搜索地址"
     }
   }
 }

@@ -467,6 +467,8 @@
     "categories": {
       "employment": "취업 비자",
       "residence": "거주 비자",
+      "study": "유학 비자",
+      "business": "사업 비자",
       "preparation": "준비 비자"
     }
   },

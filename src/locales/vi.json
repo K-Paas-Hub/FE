@@ -173,6 +173,8 @@
     "categories": {
       "employment": "Visa Việc làm",
       "residence": "Visa Cư trú",
+      "study": "Visa Du học",
+      "business": "Visa Kinh doanh",
       "preparation": "Visa Chuẩn bị"
     }
   },

@@ -436,6 +436,8 @@
     "categories": {
       "employment": "Employment Visa",
       "residence": "Residence Visa",
+      "study": "Study Visa",
+      "business": "Business Visa",
       "preparation": "Preparation Visa"
     }
   },

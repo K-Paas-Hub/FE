@@ -121,7 +121,14 @@
     "employment": "Pekerjaan",
     "study": "Studi",
     "family": "Keluarga",
-    "other": "Lainnya"
+    "other": "Lainnya",
+    "categories": {
+      "employment": "Visa Pekerjaan",
+      "residence": "Visa Tempat Tinggal",
+      "study": "Visa Studi",
+      "business": "Visa Bisnis",
+      "preparation": "Visa Persiapan"
+    }
   },
   "contractAnalysis": {
     "title": "Analisis Kontrak Kerja",
@@ -775,6 +782,17 @@
       "certificatePlaceholder": "Cari sertifikat (mis., Insinyur Pemrosesan Informasi, TOEIC, AWS)",
       "languagePlaceholder": "Cari keterampilan bahasa (mis., TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Masukkan perkenalan diri (termasuk proses pertumbuhan, motivasi melamar, aspirasi, dll.)"
+    }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "Masukkan jawaban Anda..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "Masukkan nomor telepon Anda",
+      "addressPlaceholder": "Cari alamat"
     }
   }
 }

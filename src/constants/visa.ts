@@ -255,6 +255,210 @@ export const VISA_TYPES = {
       '체류목적 증명서',
       '범죄경력조회서'
     ]
+  },
+  // 새로 추가되는 비자들
+  D2: {
+    id: 'd2',
+    name: 'D-2 비자',
+    fullName: '유학비자',
+    description: '한국 대학에서 학위과정을 수학하는 외국인',
+    duration: '학위과정 기간',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '대학 입학허가서',
+      '학력증명서',
+      '재정증명서',
+      '범죄경력조회서',
+      '건강검진서'
+    ]
+  },
+  D4: {
+    id: 'd4',
+    name: 'D-4 비자',
+    fullName: '일반연수비자',
+    description: '어학연수, 기술연수 등을 받는 외국인',
+    duration: '연수과정 기간',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '연수기관 입학허가서',
+      '학력증명서',
+      '재정증명서',
+      '범죄경력조회서'
+    ]
+  },
+  F1: {
+    id: 'f1',
+    name: 'F-1 비자',
+    fullName: '방문동거비자',
+    description: '한국에 거주하는 가족을 방문하는 외국인',
+    duration: '90일',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '초청장',
+      '초청인 신분증',
+      '초청인 소득증명서',
+      '가족관계증명서',
+      '범죄경력조회서'
+    ]
+  },
+  F3: {
+    id: 'f3',
+    name: 'F-3 비자',
+    fullName: '동반비자',
+    description: '한국에 체류하는 가족과 함께 거주하는 외국인',
+    duration: '동반자 체류기간',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '동반자 신분증',
+      '가족관계증명서',
+      '동반자 소득증명서',
+      '범죄경력조회서'
+    ]
+  },
+  F5: {
+    id: 'f5',
+    name: 'F-5 비자',
+    fullName: '영주비자',
+    description: '한국에서 영주권을 가진 외국인',
+    duration: '무기한',
+    extension: false,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '영주권증',
+      '범죄경력조회서'
+    ]
+  },
+  D6: {
+    id: 'd6',
+    name: 'D-6 비자',
+    fullName: '문화예술비자',
+    description: '문화예술 활동을 하는 외국인',
+    duration: '1년',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '문화예술 활동 계획서',
+      '경력증명서',
+      '활동기관 초빙장',
+      '범죄경력조회서'
+    ]
+  },
+  D7: {
+    id: 'd7',
+    name: 'D-7 비자',
+    fullName: '주재비자',
+    description: '해외기업의 한국 지사 주재원',
+    duration: '3년',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '해외본사 임명장',
+      '한국지사 등록증',
+      '경력증명서',
+      '범죄경력조회서'
+    ]
+  },
+  D8: {
+    id: 'd8',
+    name: 'D-8 비자',
+    fullName: '기업투자비자',
+    description: '한국에 기업을 투자하는 외국인',
+    duration: '3년',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '투자계획서',
+      '투자금 증명서',
+      '사업자등록증',
+      '범죄경력조회서'
+    ]
+  },
+  D9: {
+    id: 'd9',
+    name: 'D-9 비자',
+    fullName: '무역경영비자',
+    description: '무역업무를 수행하는 외국인',
+    duration: '3년',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '무역업 등록증',
+      '무역계획서',
+      '경력증명서',
+      '범죄경력조회서'
+    ]
+  },
+  E1: {
+    id: 'e1',
+    name: 'E-1 비자',
+    fullName: '외교비자',
+    description: '외교관 및 외교업무 수행자',
+    duration: '외교업무 기간',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '외교관 신분증',
+      '외교부 승인서',
+      '범죄경력조회서'
+    ]
+  },
+  E2: {
+    id: 'e2',
+    name: 'E-2 비자',
+    fullName: '협정취업비자',
+    description: '한국과 협정을 체결한 국가의 근로자',
+    duration: '3년',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '고용계약서',
+      '협정서 사본',
+      '범죄경력조회서',
+      '건강검진서'
+    ]
+  },
+  E6: {
+    id: 'e6',
+    name: 'E-6 비자',
+    fullName: '예술흥행비자',
+    description: '예술활동, 흥행업무를 수행하는 외국인',
+    duration: '3년',
+    extension: true,
+    documents: [
+      '여권 사본',
+      '여권용 사진',
+      '신청서',
+      '예술활동 계획서',
+      '흥행업 등록증',
+      '경력증명서',
+      '범죄경력조회서'
+    ]
   }
 } as const;
 
@@ -349,19 +553,97 @@ export const VISA_STEPS = {
     { id: 2, name: '목적 증명', description: '체류목적에 따른 증명서 발급' },
     { id: 3, name: '비자 신청', description: '목적 증명서와 함께 비자 신청' },
     { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  // 새로 추가되는 비자들의 신청 절차
+  D2: [
+    { id: 1, name: '대학 입학 신청', description: '한국 대학에 입학 신청 및 입학허가서 발급' },
+    { id: 2, name: '재정 증명', description: '학비 및 생활비 증명서 발급' },
+    { id: 3, name: '비자 신청', description: '입학허가서와 함께 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  D4: [
+    { id: 1, name: '연수기관 신청', description: '한국 연수기관에 입학 신청 및 입학허가서 발급' },
+    { id: 2, name: '재정 증명', description: '연수비 및 생활비 증명서 발급' },
+    { id: 3, name: '비자 신청', description: '입학허가서와 함께 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  F1: [
+    { id: 1, name: '초청인 확인', description: '한국에 거주하는 가족(초청인) 확인' },
+    { id: 2, name: '초청장 발급', description: '초청인이 초청장 및 소득증명서 발급' },
+    { id: 3, name: '비자 신청', description: '초청장과 함께 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  F3: [
+    { id: 1, name: '동반자 확인', description: '한국에 체류하는 가족(동반자) 확인' },
+    { id: 2, name: '가족관계 증명', description: '가족관계증명서 및 동반자 소득증명서 발급' },
+    { id: 3, name: '비자 신청', description: '가족관계증명서와 함께 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  F5: [
+    { id: 1, name: '영주권 신청', description: '한국에서 영주권 신청 및 심사' },
+    { id: 2, name: '영주권 발급', description: '영주권 승인 및 영주권증 발급' },
+    { id: 3, name: '비자 신청', description: '영주권증과 함께 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  D6: [
+    { id: 1, name: '문화예술 활동 계획', description: '문화예술 활동 계획서 작성' },
+    { id: 2, name: '활동기관 초빙', description: '한국 문화예술 기관에서 초빙장 발급' },
+    { id: 3, name: '비자 신청', description: '활동 계획서와 초빙장으로 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  D7: [
+    { id: 1, name: '해외본사 임명', description: '해외본사에서 한국 지사 주재원 임명' },
+    { id: 2, name: '한국지사 등록', description: '한국에서 지사 등록 및 등록증 발급' },
+    { id: 3, name: '비자 신청', description: '임명장과 지사등록증으로 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  D8: [
+    { id: 1, name: '투자계획 수립', description: '한국 기업 투자 계획서 작성' },
+    { id: 2, name: '투자금 입금', description: '투자금 입금 및 투자금 증명서 발급' },
+    { id: 3, name: '사업자등록', description: '한국에서 사업자등록 및 등록증 발급' },
+    { id: 4, name: '비자 신청', description: '투자계획서와 투자금증명서로 비자 신청' },
+    { id: 5, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  D9: [
+    { id: 1, name: '무역업 등록', description: '한국에서 무역업 등록 및 등록증 발급' },
+    { id: 2, name: '무역계획 수립', description: '무역업무 계획서 작성' },
+    { id: 3, name: '비자 신청', description: '무역업등록증과 무역계획서로 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  E1: [
+    { id: 1, name: '외교부 승인', description: '외교부에서 외교관 신분 승인' },
+    { id: 2, name: '외교관 신분증 발급', description: '외교관 신분증 발급' },
+    { id: 3, name: '비자 신청', description: '외교관 신분증과 외교부 승인서로 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  E2: [
+    { id: 1, name: '협정 확인', description: '한국과 협정을 체결한 국가 확인' },
+    { id: 2, name: '고용계약 체결', description: '한국 고용주와 고용계약 체결' },
+    { id: 3, name: '비자 신청', description: '협정서와 고용계약서로 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
+  ],
+  E6: [
+    { id: 1, name: '예술활동 계획', description: '예술활동 또는 흥행업무 계획서 작성' },
+    { id: 2, name: '흥행업 등록', description: '한국에서 흥행업 등록 및 등록증 발급' },
+    { id: 3, name: '비자 신청', description: '활동계획서와 흥행업등록증으로 비자 신청' },
+    { id: 4, name: '입국', description: '비자 발급 후 한국 입국' }
   ]
 } as const;
 
 // 비자 카테고리 분류
 export const VISA_CATEGORIES = {
-  EMPLOYMENT: ['E9', 'H2', 'E7', 'E8', 'E3', 'E4', 'E5', 'E10', 'C4'],
-  RESIDENCE: ['F2', 'F4', 'F6'],
+  EMPLOYMENT: ['E9', 'H2', 'E7', 'E8', 'E3', 'E4', 'E5', 'E10', 'C4', 'E2', 'E6'],
+  RESIDENCE: ['F2', 'F4', 'F6', 'F1', 'F3', 'F5'],
+  STUDY: ['D2', 'D4'],
+  BUSINESS: ['D6', 'D7', 'D8', 'D9', 'E1'],
   PREPARATION: ['D10', 'H1', 'G1']
 } as const;
 
 export const VISA_CATEGORY_LABELS = {
   EMPLOYMENT: 'visaCenter.categories.employment',
   RESIDENCE: 'visaCenter.categories.residence',
+  STUDY: 'visaCenter.categories.study',
+  BUSINESS: 'visaCenter.categories.business',
   PREPARATION: 'visaCenter.categories.preparation'
 } as const;
 

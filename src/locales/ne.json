@@ -121,7 +121,14 @@
     "employment": "रोजगारी",
     "study": "अध्ययन",
     "family": "परिवार",
-    "other": "अन्य"
+    "other": "अन्य",
+    "categories": {
+      "employment": "रोजगारी भिसा",
+      "residence": "बसोबास भिसा",
+      "study": "अध्ययन भिसा",
+      "business": "व्यवसाय भिसा",
+      "preparation": "तयारी भिसा"
+    }
   },
   "contractAnalysis": {
     "title": "रोजगारी सम्झौता विश्लेषण",
@@ -674,6 +681,17 @@
       "certificatePlaceholder": "प्रमाणपत्रहरू खोज्नुहोस् (उदाहरण: सूचना प्रशोधन इन्जिनियर, TOEIC, AWS)",
       "languagePlaceholder": "भाषा सीपहरू खोज्नुहोस् (उदाहरण: TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "आफ्नो आत्मपरिचय प्रविष्ट गर्नुहोस् (विकास प्रक्रिया, आवेदनको प्रेरणा, आकांक्षाहरू आदि समावेश गर्नुहोस्)"
+    }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "आफ्नो जवाफ प्रविष्ट गर्नुहोस्..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्",
+      "addressPlaceholder": "ठेगाना खोज्नुहोस्"
     }
   }
 }

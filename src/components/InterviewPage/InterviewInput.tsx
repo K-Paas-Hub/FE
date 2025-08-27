@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../../styles/InterviewInput.css';
 
 interface InterviewInputProps {
@@ -6,6 +7,7 @@ interface InterviewInputProps {
 }
 
 const InterviewInput: React.FC<InterviewInputProps> = ({ onSendMessage }) => {
+  const { t } = useTranslation();
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,7 +33,7 @@ const InterviewInput: React.FC<InterviewInputProps> = ({ onSendMessage }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="답변을 입력하세요..."
+            placeholder={t('interview.input.placeholder')}
             className="message-input"
             rows={1}
           />

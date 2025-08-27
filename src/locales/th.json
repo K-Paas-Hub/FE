@@ -121,7 +121,14 @@
     "employment": "การจ้างงาน",
     "study": "การศึกษา",
     "family": "ครอบครัว",
-    "other": "อื่นๆ"
+    "other": "อื่นๆ",
+    "categories": {
+      "employment": "วีซ่าทำงาน",
+      "residence": "วีซ่าที่อยู่อาศัย",
+      "study": "วีซ่าเรียน",
+      "business": "วีซ่าธุรกิจ",
+      "preparation": "วีซ่าเตรียมการ"
+    }
   },
   "contractAnalysis": {
     "title": "การวิเคราะห์สัญญาจ้างงาน",
@@ -797,6 +804,17 @@
       "certificatePlaceholder": "ค้นหาสัมฤทธิบัตร (เช่น วิศวกรประมวลผลข้อมูล, TOEIC, AWS)",
       "languagePlaceholder": "ค้นหาทักษะภาษา (เช่น TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "ป้อนการแนะนำตัวเอง (รวมถึงกระบวนการเติบโต, แรงจูงใจในการสมัคร, ความทะเยอทะยาน, ฯลฯ)"
+    }
+  },
+  "interview": {
+    "input": {
+      "placeholder": "ป้อนคำตอบของคุณ..."
+    }
+  },
+  "oauth": {
+    "form": {
+      "phonePlaceholder": "ป้อนหมายเลขโทรศัพท์ของคุณ",
+      "addressPlaceholder": "ค้นหาที่อยู่"
     }
   }
 }
