@@ -2072,8 +2072,10 @@ const ResumePage: React.FC = () => {
               <div style={{ width: '100%' }}>
                 <PostcodeSearch
                   onAddressSelect={(address) => {
+                    // 전체 주소를 저장 (우편번호, 도로명주소, 상세주소 포함)
+                    const completeAddress = address.completeAddress || address.address;
                     handleInputChange({
-                      target: { name: 'address', value: address.address }
+                      target: { name: 'address', value: completeAddress }
                     } as React.ChangeEvent<HTMLInputElement>);
                   }}
                   placeholder="주소를 검색하세요"

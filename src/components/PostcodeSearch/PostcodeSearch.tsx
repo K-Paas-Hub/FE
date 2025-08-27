@@ -37,6 +37,7 @@ interface AddressData {
   postcode2: string;
   postcodeSeq: string;
   buildingCode: string;
+  completeAddress?: string;
 }
 
 interface PostcodeSearchProps {
@@ -175,8 +176,12 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           controlledOnChange(data.address);
         }
         
-        // 부모 컴포넌트에 주소 데이터 전달
-        onAddressSelect(data);
+        // 부모 컴포넌트에 주소 데이터 전달 (전체 주소 포함)
+        const addressWithComplete = {
+          ...data,
+          completeAddress: getCompleteAddress()
+        };
+        onAddressSelect(addressWithComplete);
         setShowPostcode(false);
       },
       onclose: (state: string) => {
@@ -233,8 +238,12 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           controlledOnChange(data.address);
         }
         
-        // 부모 컴포넌트에 주소 데이터 전달
-        onAddressSelect(data);
+        // 부모 컴포넌트에 주소 데이터 전달 (전체 주소 포함)
+        const addressWithComplete = {
+          ...data,
+          completeAddress: getCompleteAddress()
+        };
+        onAddressSelect(addressWithComplete);
         setShowPostcode(false);
       },
       onresize: (size: { width: number; height: number }) => {
