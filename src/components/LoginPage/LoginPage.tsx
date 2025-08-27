@@ -5,7 +5,11 @@ import { useTranslation } from 'react-i18next';
 import LoginForm from './LoginForm';
 import Footer from '../MainFooter';
 import { devLog, devError } from '../../utils/logger';
-import '../../styles/LoginPage.css';
+import {
+  LoginContainer,
+  LoginContent,
+  LoginTitle,
+} from '../../styles/components/LoginPage.styles';
 
 const LoginPage: React.FC = () => {
   const { t } = useTranslation();
@@ -41,17 +45,17 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-content">
-        <h1 className="login-title">{t('auth.loginTitle')}</h1>
+    <LoginContainer>
+      <LoginContent>
+        <LoginTitle>{t('auth.loginTitle')}</LoginTitle>
         <LoginForm 
           onSubmit={handleFormLogin} 
           isLoading={isFormLoading || isGoogleLoading}
           onGoogleLogin={handleGoogleLogin}
         />
-      </div>
+      </LoginContent>
       <Footer />
-    </div>
+    </LoginContainer>
   );
 };
 
