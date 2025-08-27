@@ -29,15 +29,20 @@ import {
   PreviewContent,
   PreviewText,
   EmptyText,
-  CertificationSearchContainer,
-  CertificationDropdown,
-  CertificationOption,
-  CertificationName,
-  CertificationCategory,
-  SelectedCertificationsContainer,
-  RemoveButton,
-  NoResultsText,
-  LanguageLevelSelect,
+  SelectedExperienceTag,
+  SelectedAddressTag,
+  SchoolTypeFilter,
+  SchoolTypeButton,
+  SmartSearchContainer,
+  SearchInput,
+  SearchIcon,
+  SchoolCardGrid,
+  SchoolCard,
+  SchoolCardHeader,
+  SchoolIcon,
+  SchoolName,
+  SchoolCategory,
+  SchoolCardBody,
 } from '../../styles/components/ResumePage.styles';
 
 // 국적 옵션
@@ -834,140 +839,9 @@ const LanguageLevelSelect = styled.select`
 
 
 
-const SelectedExperienceTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #f59e0b;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
 
-const SelectedAddressTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #10b981;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
 
-// 학력 정보 관련 스타일드 컴포넌트
-const SchoolTypeFilter = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-`;
 
-const SchoolTypeButton = styled.button<{ $active: boolean }>`
-  padding: 0.5rem 1rem;
-  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
-  background: ${props => props.$active ? '#4ade80' : 'white'};
-  color: ${props => props.$active ? 'white' : '#374151'};
-  border-radius: 6px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
-  }
-`;
-
-const SmartSearchContainer = styled.div`
-  position: relative;
-  margin-bottom: 1rem;
-`;
-
-const SearchInput = styled.input`
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  border: 2px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: white;
-  color: #374151;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
-  }
-`;
-
-const SearchIcon = styled.span`
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9ca3af;
-  font-size: 1rem;
-`;
-
-const SchoolCardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #f9fafb;
-`;
-
-const SchoolCard = styled.div`
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-`;
-
-const SchoolCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const SchoolIcon = styled.span`
-  font-size: 1.5rem;
-`;
-
-const SchoolName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const SchoolCategory = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  background: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-`;
-
-const SchoolCardBody = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-`;
 
 const NoResultsCard = styled.div`
   grid-column: 1 / -1;

@@ -466,103 +466,140 @@ export const EmptyText = styled.p`
   margin: 0;
 `;
 
-// 자격증 관련 스타일
-export const CertificationSearchContainer = styled.div`
-  position: relative;
-  width: 100%;
-  min-width: 300px;
-`;
-
-export const CertificationDropdown = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #d1d5db;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 1000;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  min-width: 100%;
-  width: 100%;
-`;
-
-export const CertificationOption = styled.div`
-  padding: 0.75rem;
-  cursor: pointer;
-  border-bottom: 1px solid #f3f4f6;
-  min-height: 44px;
-  display: flex;
-  flex-direction: column;
-  
-  &:hover {
-    background-color: #f9fafb;
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-export const CertificationName = styled.span`
-  font-weight: 500;
-  color: #374151;
-`;
-
-export const CertificationCategory = styled.span`
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
-`;
-
-export const SelectedCertificationsContainer = styled.div`
-  margin-top: 1rem;
-`;
-
-export const RemoveButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  margin-left: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0;
-  min-width: 20px;
-  min-height: 20px;
-  display: flex;
+// 선택된 태그 관련 스타일
+export const SelectedExperienceTag = styled.div`
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  background-color: #f59e0b;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+`;
+
+export const SelectedAddressTag = styled.div`
+  display: inline-flex;
+  align-items: center;
+  background-color: #10b981;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+`;
+
+// 학력 정보 관련 스타일
+export const SchoolTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const SchoolTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
   
   &:hover {
-    opacity: 0.8;
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
   }
 `;
 
-export const NoResultsText = styled.div`
-  padding: 1rem;
-  text-align: center;
-  color: #6b7280;
-  font-style: italic;
+export const SmartSearchContainer = styled.div`
+  position: relative;
+  margin-bottom: 1rem;
 `;
 
-export const LanguageLevelSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
+export const SearchInput = styled.input`
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
   background: white;
   color: #374151;
-  margin-left: 0.125rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
   
   &:focus {
     outline: none;
     border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
   }
 `;
+
+export const SearchIcon = styled.span`
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 1rem;
+`;
+
+export const SchoolCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+export const SchoolCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+export const SchoolCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const SchoolIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+export const SchoolName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const SchoolCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+export const SchoolCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+

@@ -225,6 +225,37 @@
       "wordCount": "词",
       "noErrors": "无错误",
       "errorCount": "个错误"
+    },
+    "foreignWorker": {
+      "optionsTitle": "外籍工人拼写检查",
+      "checkButton": "进行外籍工人拼写检查",
+      "checkingButton": "检查中...",
+      "resultsTitle": "外籍工人拼写检查结果",
+      "improvementSuggestions": "改善建议",
+      "options": {
+        "checkPronunciation": "发音错误检查",
+        "checkFinalConsonant": "收音错误检查",
+        "checkParticle": "助词错误检查",
+        "checkSpacing": "空格检查",
+        "checkCommonWord": "常见错误词汇检查",
+        "checkEnding": "句末表达检查"
+      },
+      "descriptions": {
+        "checkPronunciation": "检查因发音相似而出错的情况",
+        "checkFinalConsonant": "检查收音使用错误",
+        "checkParticle": "检查助词使用错误",
+        "checkSpacing": "检查空格错误",
+        "checkCommonWord": "检查常见错误词汇",
+        "checkEnding": "检查句末表达错误"
+      },
+      "categories": {
+        "pronunciation": "发音错误",
+        "finalConsonant": "收音错误",
+        "particle": "助词错误",
+        "spacing": "空格错误",
+        "commonWord": "常见错误词汇",
+        "ending": "句末表达"
+      }
     }
   },
   "landing": {

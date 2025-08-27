@@ -273,6 +273,37 @@
       "wordCount": "kata",
       "noErrors": "Tidak ada kesalahan",
       "errorCount": "kesalahan"
+    },
+    "foreignWorker": {
+      "optionsTitle": "Pemeriksaan Ejaan untuk Pekerja Asing",
+      "checkButton": "Periksa Ejaan Pekerja Asing",
+      "checkingButton": "Memeriksa...",
+      "resultsTitle": "Hasil Pemeriksaan Ejaan Pekerja Asing",
+      "improvementSuggestions": "Saran Perbaikan",
+      "options": {
+        "checkPronunciation": "Pemeriksaan Kesalahan Pengucapan",
+        "checkFinalConsonant": "Pemeriksaan Kesalahan Konsonan Akhir",
+        "checkParticle": "Pemeriksaan Kesalahan Partikel",
+        "checkSpacing": "Pemeriksaan Spasi",
+        "checkCommonWord": "Pemeriksaan Kata yang Sering Salah",
+        "checkEnding": "Pemeriksaan Ekspresi Akhir Kalimat"
+      },
+      "descriptions": {
+        "checkPronunciation": "Memeriksa kasus kesalahan karena pengucapan yang mirip",
+        "checkFinalConsonant": "Memeriksa kesalahan penggunaan konsonan akhir",
+        "checkParticle": "Memeriksa kesalahan penggunaan partikel",
+        "checkSpacing": "Memeriksa kesalahan spasi",
+        "checkCommonWord": "Memeriksa kata-kata yang sering salah",
+        "checkEnding": "Memeriksa kesalahan ekspresi akhir kalimat"
+      },
+      "categories": {
+        "pronunciation": "Kesalahan Pengucapan",
+        "finalConsonant": "Kesalahan Konsonan Akhir",
+        "particle": "Kesalahan Partikel",
+        "spacing": "Kesalahan Spasi",
+        "commonWord": "Kata yang Sering Salah",
+        "ending": "Ekspresi Akhir Kalimat"
+      }
     }
   },
   "footer": {

@@ -251,6 +251,37 @@
       "wordCount": "शब्द",
       "noErrors": "कुनै त्रुटि छैन",
       "errorCount": "त्रुटि"
+    },
+    "foreignWorker": {
+      "optionsTitle": "विदेशी कामदारको लागि हिज्जे जाँच",
+      "checkButton": "विदेशी हिज्जे जाँच गर्नुहोस्",
+      "checkingButton": "जाँच गर्दै...",
+      "resultsTitle": "विदेशी हिज्जे जाँचको परिणाम",
+      "improvementSuggestions": "सुधार सुझावहरू",
+      "options": {
+        "checkPronunciation": "उच्चारण त्रुटि जाँच",
+        "checkFinalConsonant": "अन्तिम व्यञ्जन त्रुटि जाँच",
+        "checkParticle": "सहायक शब्द त्रुटि जाँच",
+        "checkSpacing": "स्थान त्रुटि जाँच",
+        "checkCommonWord": "सामान्य गलत शब्दहरू जाँच",
+        "checkEnding": "वाक्य अन्त्य अभिव्यक्ति जाँच"
+      },
+      "descriptions": {
+        "checkPronunciation": "उच्चारण मिल्दा गलत हुने अवस्थाको जाँच",
+        "checkFinalConsonant": "अन्तिम व्यञ्जन प्रयोग त्रुटिको जाँच",
+        "checkParticle": "सहायक शब्द प्रयोग त्रुटिको जाँच",
+        "checkSpacing": "स्थान त्रुटिको जाँच",
+        "checkCommonWord": "बारम्बार गलत हुने शब्दहरूको जाँच",
+        "checkEnding": "वाक्य अन्त्य अभिव्यक्ति त्रुटिको जाँच"
+      },
+      "categories": {
+        "pronunciation": "उच्चारण त्रुटि",
+        "finalConsonant": "अन्तिम व्यञ्जन त्रुटि",
+        "particle": "सहायक शब्द त्रुटि",
+        "spacing": "स्थान त्रुटि",
+        "commonWord": "सामान्य गलत शब्द",
+        "ending": "वाक्य अन्त्य अभिव्यक्ति"
+      }
     }
   },
   "stats": {
