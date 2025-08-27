@@ -544,6 +544,9 @@
       "noContentToExport": "Không có nội dung chat để xuất.",
       "closeConfirm": "Bạn có chắc chắn muốn đóng chat? Cuộc phỏng vấn hiện tại sẽ kết thúc.",
       "exportFileName": "Cuộc_trò_chuyện_phỏng_vấn_"
+    },
+    "input": {
+      "placeholder": "Nhập câu trả lời của bạn..."
     }
   },
   "stats": {
@@ -848,11 +851,6 @@
       "certificatePlaceholder": "Tìm kiếm chứng chỉ (ví dụ: Kỹ sư Xử lý Thông tin, TOEIC, AWS)",
       "languagePlaceholder": "Tìm kiếm kỹ năng ngôn ngữ (ví dụ: TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Nhập lời giới thiệu bản thân (bao gồm quá trình phát triển, động lực ứng tuyển, hoài bão, v.v.)"
-    }
-  },
-  "interview": {
-    "input": {
-      "placeholder": "Nhập câu trả lời của bạn..."
     }
   },
   "oauth": {

@@ -199,6 +199,9 @@
       "noContentToExport": "Tidak ada konten chat untuk diekspor.",
       "closeConfirm": "Apakah Anda yakin ingin menutup chat? Wawancara saat ini akan berakhir.",
       "exportFileName": "Percakapan_Wawancara_"
+    },
+    "input": {
+      "placeholder": "Masukkan jawaban Anda..."
     }
   },
   "landing": {
@@ -782,11 +785,6 @@
       "certificatePlaceholder": "Cari sertifikat (mis., Insinyur Pemrosesan Informasi, TOEIC, AWS)",
       "languagePlaceholder": "Cari keterampilan bahasa (mis., TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Masukkan perkenalan diri (termasuk proses pertumbuhan, motivasi melamar, aspirasi, dll.)"
-    }
-  },
-  "interview": {
-    "input": {
-      "placeholder": "Masukkan jawaban Anda..."
     }
   },
   "oauth": {

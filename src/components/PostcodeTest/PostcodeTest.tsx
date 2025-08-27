@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import PostcodeSearch from '../PostcodeSearch';
 import { TestContainer, ResultContainer, CodeBlock } from './PostcodeTest.styles';
 
@@ -40,6 +41,7 @@ interface AddressData {
 }
 
 const PostcodeTest: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(null);
 
   const handleAddressSelect = (address: AddressData) => {
@@ -54,7 +56,7 @@ const PostcodeTest: React.FC = () => {
       
       <PostcodeSearch
         onAddressSelect={handleAddressSelect}
-        placeholder="주소를 검색하세요"
+        placeholder={t('postcode.searchAddressPlaceholder')}
         showDetailAddress={true}
         showRoadAddress={true}
         showJibunAddress={true}

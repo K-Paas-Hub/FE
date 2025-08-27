@@ -104,6 +104,9 @@
       "noContentToExport": "No chat content to export.",
       "closeConfirm": "Are you sure you want to close the chat? The current interview will end.",
       "exportFileName": "Interview_Conversation_"
+    },
+    "input": {
+      "placeholder": "Enter your answer..."
     }
   },
   "spellCheck": {
@@ -888,11 +891,6 @@
       "certificatePlaceholder": "Search for certificates (e.g., Information Processing Engineer, TOEIC, AWS)",
       "languagePlaceholder": "Search for language skills (e.g., TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "Enter your self-introduction (include growth process, motivation for application, aspirations, etc.)"
-    }
-  },
-  "interview": {
-    "input": {
-      "placeholder": "Enter your answer..."
     }
   },
   "oauth": {

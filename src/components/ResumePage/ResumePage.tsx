@@ -2351,7 +2351,7 @@ const ResumePage: React.FC = () => {
                   onChange={handleExperienceSearchChange}
                   onFocus={handleExperienceSearchFocus}
                   onBlur={handleExperienceSearchBlur}
-                  placeholder="경력을 검색하세요 (예: 웹 개발자, 영업사원, 생산 관리자)"
+                  placeholder={t('resume.form.experiencePlaceholder')}
                 />
               </SmartSearchContainer>
 
@@ -2489,7 +2489,7 @@ const ResumePage: React.FC = () => {
                   onChange={handleSkillSearchChange}
                   onFocus={handleSkillSearchFocus}
                   onBlur={handleSkillSearchBlur}
-                  placeholder="기술을 검색하세요 (예: JavaScript, React, Photoshop)"
+                  placeholder={t('resume.form.skillPlaceholder')}
                 />
               </SmartSearchContainer>
 

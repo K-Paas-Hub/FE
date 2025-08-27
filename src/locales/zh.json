@@ -199,6 +199,9 @@
       "noContentToExport": "没有聊天内容可导出。",
       "closeConfirm": "您确定要关闭聊天吗？当前面试将结束。",
       "exportFileName": "面试对话_"
+    },
+    "input": {
+      "placeholder": "请输入您的答案..."
     }
   },
   "spellCheck": {
@@ -782,11 +785,6 @@
       "certificatePlaceholder": "搜索证书（例如：信息处理工程师、TOEIC、AWS）",
       "languagePlaceholder": "搜索语言能力（例如：TOEIC、TOPIK、JLPT）",
       "introductionPlaceholder": "请输入自我介绍（包括成长过程、申请动机、抱负等）"
-    }
-  },
-  "interview": {
-    "input": {
-      "placeholder": "请输入您的答案..."
     }
   },
   "oauth": {

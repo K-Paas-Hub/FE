@@ -225,6 +225,9 @@
       "noContentToExport": "ไม่มีเนื้อหาแชทให้ส่งออก",
       "closeConfirm": "คุณแน่ใจหรือไม่ที่จะปิดแชท? การสัมภาษณ์ปัจจุบันจะสิ้นสุด",
       "exportFileName": "การสนทนาการสัมภาษณ์_"
+    },
+    "input": {
+      "placeholder": "ป้อนคำตอบของคุณ..."
     }
   },
   "spellCheck": {
@@ -804,11 +807,6 @@
       "certificatePlaceholder": "ค้นหาสัมฤทธิบัตร (เช่น วิศวกรประมวลผลข้อมูล, TOEIC, AWS)",
       "languagePlaceholder": "ค้นหาทักษะภาษา (เช่น TOEIC, TOPIK, JLPT)",
       "introductionPlaceholder": "ป้อนการแนะนำตัวเอง (รวมถึงกระบวนการเติบโต, แรงจูงใจในการสมัคร, ความทะเยอทะยาน, ฯลฯ)"
-    }
-  },
-  "interview": {
-    "input": {
-      "placeholder": "ป้อนคำตอบของคุณ..."
     }
   },
   "oauth": {
