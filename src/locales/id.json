@@ -709,5 +709,41 @@
     "c3": "C-3 (Umum jangka pendek)",
     "c4": "C-4 (Pekerjaan jangka pendek)",
     "other": "Lainnya"
+  },
+  "signup": {
+    "visaTypeRequired": "Silakan pilih jenis visa.",
+    "issueDateRequired": "Silakan masukkan tanggal terbit.",
+    "expiryDateRequired": "Silakan masukkan tanggal kedaluwarsa.",
+    "expiryDateAfterIssue": "Tanggal kedaluwarsa harus setelah tanggal terbit.",
+    "addressRequired": "Silakan masukkan alamat Anda.",
+    "addressLabel": "Alamat",
+    "addressPlaceholder": "Cari alamat",
+    "visaInfoLabel": "Informasi Visa",
+    "hasVisa": "Memiliki Visa",
+    "noVisa": "Tidak Memiliki Visa",
+    "visaTypeLabel": "Jenis Visa",
+    "issueDateLabel": "Tanggal Terbit",
+    "expiryDateLabel": "Tanggal Kedaluwarsa"
+  },
+  "visaDetail": {
+    "visaTypeNotFound": "Jenis visa tidak ditemukan.",
+    "backToVisaCenter": "← Kembali ke Pusat Visa",
+    "requiredDocuments": "📋 Dokumen yang Diperlukan",
+    "applicationProcess": "🚀 Proses Aplikasi"
+  },
+  "postcode": {
+    "searchAddress": "Cari Alamat",
+    "roadAddress": "Alamat Jalan",
+    "jibunAddress": "Alamat Jibun",
+    "detailAddress": "Alamat Detail",
+    "detailAddressPlaceholder": "Masukkan alamat detail",
+    "buildingName": "Nama Gedung",
+    "confirm": "Konfirmasi"
+  },
+  "footer": {
+    "businessInfo": "Pendaftaran Bisnis: 123-45-67890, Layanan Informasi Pekerjaan: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "Verifikasi Informasi Bisnis",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "Lihat Versi Mobile"
   }
 }

@@ -910,5 +910,41 @@
     "c3": "C-3 (ទូទៅរយៈពេលខ្លី)",
     "c4": "C-4 (ការងាររយៈពេលខ្លី)",
     "other": "ផ្សេងទៀត"
+  },
+  "signup": {
+    "visaTypeRequired": "សូមជ្រើសរើសប្រភេទទិដ្ឋាការ។",
+    "issueDateRequired": "សូមបញ្ចូលថ្ងៃចេញ។",
+    "expiryDateRequired": "សូមបញ្ចូលថ្ងៃផុតកំណត់។",
+    "expiryDateAfterIssue": "ថ្ងៃផុតកំណត់ត្រូវតែក្រោយថ្ងៃចេញ។",
+    "addressRequired": "សូមបញ្ចូលអាសយដ្ឋានរបស់អ្នក។",
+    "addressLabel": "អាសយដ្ឋាន",
+    "addressPlaceholder": "ស្វែងរកអាសយដ្ឋាន",
+    "visaInfoLabel": "ព័ត៌មានទិដ្ឋាការ",
+    "hasVisa": "មានទិដ្ឋាការ",
+    "noVisa": "គ្មានទិដ្ឋាការ",
+    "visaTypeLabel": "ប្រភេទទិដ្ឋាការ",
+    "issueDateLabel": "ថ្ងៃចេញ",
+    "expiryDateLabel": "ថ្ងៃផុតកំណត់"
+  },
+  "visaDetail": {
+    "visaTypeNotFound": "រកមិនឃើញប្រភេទទិដ្ឋាការ។",
+    "backToVisaCenter": "← ត្រឡប់ទៅមជ្ឈមណ្ឌលទិដ្ឋាការ",
+    "requiredDocuments": "📋 ឯកសារដែលត្រូវការ",
+    "applicationProcess": "🚀 ដំណើរការដាក់ពាក្យ"
+  },
+  "postcode": {
+    "searchAddress": "ស្វែងរកអាសយដ្ឋាន",
+    "roadAddress": "អាសយដ្ឋានផ្លូវ",
+    "jibunAddress": "អាសយដ្ឋានដី",
+    "detailAddress": "អាសយដ្ឋានលម្អិត",
+    "detailAddressPlaceholder": "បញ្ចូលអាសយដ្ឋានលម្អិត",
+    "buildingName": "ឈ្មោះអគារ",
+    "confirm": "បញ្ជាក់"
+  },
+  "footer": {
+    "businessInfo": "ការចុះឈ្មោះអាជីវកម្ម: 123-45-67890, សេវាព័ត៌មានការងារ: Seoul Gangnam 2024-1, ពាណិជ្ជកម្មអេឡិចត្រូនិច: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "ផ្ទៀងផ្ទាត់ព័ត៌មានអាជីវកម្ម",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "មើលកំណែទូរស័ព្ទចល័ត"
   }
 }

@@ -709,5 +709,41 @@
     "c3": "C-3 (短期综合)",
     "c4": "C-4 (短期就业)",
     "other": "其他"
+  },
+  "signup": {
+    "visaTypeRequired": "请选择签证类型。",
+    "issueDateRequired": "请输入签发日期。",
+    "expiryDateRequired": "请输入到期日期。",
+    "expiryDateAfterIssue": "到期日期必须在签发日期之后。",
+    "addressRequired": "请输入您的地址。",
+    "addressLabel": "地址",
+    "addressPlaceholder": "搜索地址",
+    "visaInfoLabel": "签证信息",
+    "hasVisa": "有签证",
+    "noVisa": "无签证",
+    "visaTypeLabel": "签证类型",
+    "issueDateLabel": "签发日期",
+    "expiryDateLabel": "到期日期"
+  },
+  "visaDetail": {
+    "visaTypeNotFound": "未找到签证类型。",
+    "backToVisaCenter": "← 返回签证中心",
+    "requiredDocuments": "📋 所需文件",
+    "applicationProcess": "🚀 申请流程"
+  },
+  "postcode": {
+    "searchAddress": "搜索地址",
+    "roadAddress": "道路地址",
+    "jibunAddress": "地番地址",
+    "detailAddress": "详细地址",
+    "detailAddressPlaceholder": "输入详细地址",
+    "buildingName": "建筑物名称",
+    "confirm": "确认"
+  },
+  "footer": {
+    "businessInfo": "商业登记: 123-45-67890, 职业信息服务: 首尔江南 2024-1, 电子商务: 2024-首尔江南-1234",
+    "businessInfoButton": "验证商业信息",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "查看移动版本"
   }
 }

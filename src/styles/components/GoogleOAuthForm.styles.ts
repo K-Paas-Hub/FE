@@ -94,11 +94,48 @@ export const VisaLabel = styled.label`
   margin: 0;
 `;
 
-export const CheckboxLabel = styled.span`
-  font-weight: 500;
-  color: #374151;
+export const CheckboxLabel = styled.label`
   font-size: 0.875rem;
-  margin: 0;
+  color: #374151;
+  cursor: pointer;
+  user-select: none;
+`;
+
+// Google 사용자 정보 컨테이너
+export const GoogleUserContainer = styled.div`
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+// 프로필 이미지
+export const ProfileImage = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+
+// 사용자 이름
+export const UserName = styled.div`
+  font-weight: 600;
+  color: #374151;
+`;
+
+// 사용자 이메일
+export const UserEmail = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+// 버튼 컨테이너
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 `;
 
 // PrimaryButton 추가

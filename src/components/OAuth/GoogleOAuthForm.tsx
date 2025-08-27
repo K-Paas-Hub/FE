@@ -24,6 +24,11 @@ import {
   VisaSection,
   VisaLabel,
   CheckboxLabel,
+  GoogleUserContainer,
+  ProfileImage,
+  UserName,
+  UserEmail,
+  ButtonContainer,
 } from '../../styles/components/GoogleOAuthForm.styles';
 
 // 기존 ResumePage의 옵션 데이터 재사용
@@ -231,35 +236,22 @@ const GoogleOAuthForm: React.FC = () => {
             {error && <ErrorMessage>{error}</ErrorMessage>}
 
             {googleUser && (
-              <div style={{
-                background: '#f9fafb',
-                padding: '1rem',
-                borderRadius: '8px',
-                marginBottom: '1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem'
-              }}>
+              <GoogleUserContainer>
                 {googleUser.picture && (
-                  <img 
+                  <ProfileImage 
                     src={googleUser.picture} 
                     alt="프로필" 
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%'
-                    }}
                   />
                 )}
                 <div>
-                  <div style={{ fontWeight: '600', color: '#374151' }}>
+                  <UserName>
                     {googleUser.name}
-                  </div>
-                  <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                  </UserName>
+                  <UserEmail>
                     {googleUser.email}
-                  </div>
+                  </UserEmail>
                 </div>
-              </div>
+              </GoogleUserContainer>
             )}
 
             <ResumeForm onSubmit={handleSubmit}>
@@ -408,11 +400,7 @@ const GoogleOAuthForm: React.FC = () => {
             </>
           )}
 
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '2rem'
-          }}>
+          <ButtonContainer>
             <PrimaryButton
               as={motion.button}
               whileHover={{ scale: 1.02 }}
@@ -422,7 +410,7 @@ const GoogleOAuthForm: React.FC = () => {
             >
               {isLoading ? '저장 중...' : '저장'}
             </PrimaryButton>
-          </div>
+          </ButtonContainer>
             </ResumeForm>
           </ResumeSection>
         </ResumeContent>

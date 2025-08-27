@@ -116,19 +116,19 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
   const validateVisaInfo = (): boolean => {
     if (visaInfo.hasVisa) {
       if (!visaInfo.visaType) {
-        setVisaError('비자 유형을 선택해주세요.');
+        setVisaError(t('signup.visaTypeRequired'));
         return false;
       }
       if (!visaInfo.issueDate) {
-        setVisaError('발급일을 입력해주세요.');
+        setVisaError(t('signup.issueDateRequired'));
         return false;
       }
       if (!visaInfo.expiryDate) {
-        setVisaError('만료일을 입력해주세요.');
+        setVisaError(t('signup.expiryDateRequired'));
         return false;
       }
       if (visaInfo.expiryDate <= visaInfo.issueDate) {
-        setVisaError('만료일은 발급일보다 늦어야 합니다.');
+        setVisaError(t('signup.expiryDateAfterIssue'));
         return false;
       }
     }
@@ -156,7 +156,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
       hasError = true;
     }
     if (!address) {
-      setAddressError('주소를 입력해주세요.');
+      setAddressError(t('signup.addressRequired'));
       hasError = true;
     }
     if (!agreement1) {
@@ -239,13 +239,13 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
       </div>
 
       <div className="input-group">
-        <label className="input-label">주소</label>
+        <label className="input-label">{t('signup.addressLabel')}</label>
         <PostcodeSearch
           onAddressSelect={(address) => {
             setAddress(address.address);
             setAddressError('');
           }}
-          placeholder="주소를 검색하세요"
+          placeholder={t('signup.addressPlaceholder')}
           disabled={isLoading}
           showDetailAddress={true}
           showRoadAddress={true}
@@ -256,7 +256,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
 
       {/* 비자 정보 섹션 */}
       <div className="input-group">
-        <label className="input-label">비자 정보</label>
+        <label className="input-label">{t('signup.visaInfoLabel')}</label>
         <div className="visa-radio-group">
           <label className="visa-radio-option">
             <input
@@ -266,7 +266,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               onChange={() => handleVisaChange('hasVisa', true)}
               disabled={isLoading}
             />
-            <span>비자 있음</span>
+            <span>{t('signup.hasVisa')}</span>
           </label>
           <label className="visa-radio-option">
             <input
@@ -276,7 +276,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               onChange={() => handleVisaChange('hasVisa', false)}
               disabled={isLoading}
             />
-            <span>비자 없음</span>
+            <span>{t('signup.noVisa')}</span>
           </label>
         </div>
       </div>
@@ -285,7 +285,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
       {visaInfo.hasVisa && (
         <>
           <div className="input-group">
-            <label className="input-label">비자 유형</label>
+            <label className="input-label">{t('signup.visaTypeLabel')}</label>
             <select
               value={visaInfo.visaType}
               onChange={(e) => handleVisaChange('visaType', e.target.value)}
@@ -301,7 +301,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
           </div>
 
           <div className="input-group">
-            <label className="input-label">발급일</label>
+            <label className="input-label">{t('signup.issueDateLabel')}</label>
             <input
               type="date"
               value={visaInfo.issueDate}
@@ -313,7 +313,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
           </div>
 
           <div className="input-group">
-            <label className="input-label">만료일</label>
+            <label className="input-label">{t('signup.expiryDateLabel')}</label>
             <input
               type="date"
               value={visaInfo.expiryDate}
