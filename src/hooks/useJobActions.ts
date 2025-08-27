@@ -6,6 +6,7 @@ import {
   applyToJob, 
   toggleScrapStatus 
 } from '../utils/jobUtils';
+import { devLog } from '../utils/logger';
 
 export const useJobActions = (job: Job | null) => {
 
@@ -35,7 +36,7 @@ export const useJobActions = (job: Job | null) => {
       const newStatus = await toggleScrapStatus(job.id, job.isScrapped || false);
       if (newStatus !== job.isScrapped) {
         // 성공적으로 상태가 변경된 경우
-        console.log(`스크랩 ${newStatus ? '추가' : '제거'} 완료`);
+        devLog(`스크랩 ${newStatus ? '추가' : '제거'} 완료`);
         // TODO: 상태 업데이트 (부모 컴포넌트에서 처리)
       }
     } catch (err) {

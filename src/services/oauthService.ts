@@ -1,4 +1,5 @@
 import { GoogleOAuthUser, OAuthAdditionalInfo } from '../types/oauth';
+import { devLog } from '../utils/logger';
 
 // 백엔드 연동 전까지 더미 데이터 사용
 const oauthService = {
@@ -19,7 +20,7 @@ const oauthService = {
   
   saveAdditionalInfo: async (data: OAuthAdditionalInfo) => {
     // 더미 저장 로직
-    console.log('저장할 데이터:', data);
+    devLog('OAuth 추가 정보 저장', data);
     return { success: true };
   }
 };

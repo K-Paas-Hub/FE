@@ -64,6 +64,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
   // 컴포넌트 마운트 시 저장된 이력서 데이터 불러오기
   useEffect(() => {
     loadResumeData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 자동 검사 옵션
@@ -71,6 +72,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
     if (autoCheck && text.trim() && !isChecking) {
       handleCheck();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoCheck, text, isChecking]);
 
   // 저장된 이력서 데이터 불러오기

@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-/**
- * Header 컴포넌트 스타일
- * Header.css를 styled-components로 변환
- */
-
 export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
@@ -18,10 +13,6 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
 `;
 
 export const HeaderLogo = styled.div`
@@ -35,27 +26,11 @@ export const HeaderLogo = styled.div`
   span:last-child {
     color: white;
   }
-
-  @media (max-width: 768px) {
-    font-size: 1.3rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.1rem;
-  }
 `;
 
 export const HeaderNav = styled.nav`
   display: flex;
   gap: 2rem;
-
-  @media (max-width: 768px) {
-    gap: 0.8rem;
-  }
-
-  @media (max-width: 480px) {
-    gap: 0.4rem;
-  }
 `;
 
 export const HeaderNavLink = styled.a`
@@ -84,5 +59,31 @@ export const HeaderNavLink = styled.a`
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;
     min-height: 36px;
+  }
+`;
+
+export const HeaderContainerMobile = styled(HeaderContainer)`
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+`;
+
+export const HeaderLogoMobile = styled(HeaderLogo)`
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+`;
+
+export const HeaderNavMobile = styled(HeaderNav)`
+  @media (max-width: 768px) {
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 0.4rem;
   }
 `;
