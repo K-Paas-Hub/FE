@@ -63,7 +63,7 @@ function App() {
             <Route path="/contract-quiz" element={<ContractQuiz />} />
             <Route path="/resume" element={<ResumePage />} />
 
-            <Route path="/foreign-worker-spell-check" element={<ForeignWorkerSpellCheckPage />} />
+            <Route path="/spell-check" element={<ForeignWorkerSpellCheckPage />} />
 
             <Route path="/contract-analysis" element={<ContractAnalysis />} />
             <Route path="/login" element={<LoginPage />} />

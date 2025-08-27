@@ -208,9 +208,9 @@ const MainHeaderComponent: React.FC = () => {
                 <DropdownItem to="/resume">
                   {t('header.resumeWriting')}
                 </DropdownItem>
-                  <DropdownItem to="/foreign-worker-spell-check">
+                  <DropdownItem to="/spell-check">
                     <DropdownItemIcon src="/images/search.png" alt="맞춤법 검사" />
-                    외국인 맞춤법 검사
+                    맞춤법 검사
                 </DropdownItem>
               </DropdownMenu>
             </DropdownContainer>
@@ -237,12 +237,12 @@ const MainHeaderComponent: React.FC = () => {
                 <DropdownItem to="/contract-tutorial">
                   {t('header.writingGuide')}
                 </DropdownItem>
+                <DropdownItem to="/contract-quiz">
+                  {t('header.contractQuiz')}
+                </DropdownItem>
                 <DropdownItem to="/contract-analysis">
                   {t('header.contractAnalysis')}
                 </DropdownItem>
-                  <DropdownItem to="/contract-quiz">
-                    {t('header.contractQuiz')}
-                  </DropdownItem>
               </DropdownMenu>
             </DropdownContainer>
               
