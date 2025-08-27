@@ -602,6 +602,753 @@ export const SchoolCardBody = styled.div`
   color: #6b7280;
 `;
 
+// 언어 관련 스타일
+export const LanguageTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const LanguageTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+export const LanguageCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+export const LanguageCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+export const LanguageCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const LanguageIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+export const LanguageName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const LanguageCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+export const LanguageCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+`;
+
+export const LanguageDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+export const LanguageCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+export const LanguageTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+// 언어 타임라인 관련 스타일
+export const TimelineLanguageCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+export const TimelineLanguageHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const TimelineLanguageIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+export const TimelineLanguageInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+export const TimelineLanguageName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const TimelineLanguageCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+export const TimelineLanguageBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+// 자격증 관련 스타일
+export const CertificationTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const CertificationTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+export const CertificationCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+export const CertificationCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+export const CertificationCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const CertificationIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+export const CertificationCardName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const CertificationCardCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+export const CertificationCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+export const CertificationDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+`;
+
+export const CertificationCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+export const CertificationTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+export const TimelineCertificationCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+export const TimelineCertificationHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const TimelineCertificationIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+export const TimelineCertificationInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+export const TimelineCertificationName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const TimelineCertificationCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+export const TimelineCertificationBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const CertificationGradeSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+export const ExperienceYearsSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+// 기술 관련 스타일
+export const SkillTypeFilter = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const SkillTypeButton = styled.button<{ $active: boolean }>`
+  padding: 0.5rem 1rem;
+  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
+  background: ${props => props.$active ? '#4ade80' : 'white'};
+  color: ${props => props.$active ? 'white' : '#374151'};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
+  }
+`;
+
+export const SkillCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+`;
+
+export const SkillCard = styled.div`
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: #4ade80;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+`;
+
+export const SkillCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const SkillIcon = styled.span`
+  font-size: 1.5rem;
+`;
+
+export const SkillCardName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const SkillCardCategory = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+export const SkillCardBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+export const SkillDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+`;
+
+export const SkillCardFooter = styled.div`
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+`;
+
+export const SkillTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+export const TimelineSkillCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+export const TimelineSkillHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const TimelineSkillIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+export const TimelineSkillInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+export const TimelineSkillName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const TimelineSkillCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+export const TimelineSkillBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const SkillLevelSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+  }
+`;
+
+export const ExperienceTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+export const TimelineExperienceCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+export const TimelineExperienceHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const TimelineExperienceIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+export const TimelineExperienceInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+export const TimelineExperienceName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const TimelineExperienceCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+export const TimelineExperienceBody = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const TimelineExperienceRemoveButton = styled.button`
+  background: none;
+  color: #6b7280;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  
+  &:hover {
+    color: #374151;
+    background: #f3f4f6;
+  }
+`;
+
+// 남은 스타일들
+export const CertificationSearchContainer = styled.div`
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+`;
+
+export const CertificationDropdown = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 100%;
+  width: 100%;
+`;
+
+export const CertificationOption = styled.div`
+  padding: 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    background-color: #f9fafb;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+export const CertificationName = styled.span`
+  font-weight: 500;
+  color: #374151;
+`;
+
+export const CertificationCategory = styled.span`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+`;
+
+export const SelectedCertificationsContainer = styled.div`
+  margin-top: 1rem;
+`;
+
+export const RemoveButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const NoResultsText = styled.div`
+  padding: 1rem;
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+`;
+
+export const LanguageLevelSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+  }
+`;
+
+export const NoResultsCard = styled.div`
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-style: italic;
+`;
+
+export const EducationTimeline = styled.div`
+  margin-top: 1.5rem;
+`;
+
+export const TimelineTitle = styled.h4`
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+`;
+
+export const TimelineContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const TimelineItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 2.5rem;
+    bottom: -1rem;
+    width: 2px;
+    background: #e5e7eb;
+  }
+  
+  &:last-child::before {
+    display: none;
+  }
+`;
+
+export const TimelineContent = styled.div`
+  flex: 1;
+`;
+
+export const TimelineSchoolCard = styled.div`
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+`;
+
+export const TimelineSchoolHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const TimelineSchoolIcon = styled.span`
+  font-size: 1.25rem;
+`;
+
+export const TimelineSchoolInfo = styled.div`
+  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+`;
+
+export const TimelineSchoolName = styled.div`
+  font-weight: 600;
+  color: #1f2937;
+`;
+
+export const TimelineSchoolCategory = styled.div`
+  font-size: 0.75rem;
+  color: #6b7280;
+`;
+
+export const TimelineRemoveButton = styled.button`
+  background: none;
+  color: #6b7280;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #f3f4f6;
+    color: #ef4444;
+  }
+`;
+
+export const TimelineSchoolBody = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+`;
+
+export const StatusSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+  }
+`;
+
+
+
+
+
+
+
 
 
 

@@ -555,5 +555,159 @@
         "category": "JOB"
       }
     ]
+  },
+  "contractQuiz": {
+    "title": "Kuis Kontrak Kerja",
+    "description": "Uji pemahaman Anda tentang kontrak kerja. Melalui 7 pertanyaan, Anda dapat memeriksa konten penting yang terkait dengan penyusunan kontrak kerja.",
+    "instructions": "Pilih jawaban yang paling tepat untuk setiap pertanyaan. Setelah menyelesaikan semua pertanyaan, Anda dapat melihat skor dan hasil detail. (Total 7 pertanyaan)",
+    "startButton": "Mulai Kuis",
+    "progress": "{{current}} / {{total}}",
+    "questionNumber": "Pertanyaan {{number}}",
+    "previousButton": "Sebelumnya",
+    "nextButton": "Selanjutnya", 
+    "finishButton": "Selesai Kuis",
+    "results": {
+      "title": "Hasil Kuis",
+      "score": "Skor Akhir",
+      "excellent": "Luar biasa! Pemahaman Anda tentang kontrak kerja sangat tinggi.",
+      "good": "Bagus! Anda memiliki pemahaman dasar tentang kontrak kerja.",
+      "fair": "Cukup. Tingkatkan pengetahuan terkait kontrak kerja.",
+      "needsImprovement": "Perlu perbaikan. Silakan periksa panduan kontrak kerja sekali lagi.",
+      "correctAnswers": "Jumlah jawaban benar",
+      "timeSpent": "Waktu yang dibutuhkan",
+      "accuracy": "Tingkat akurasi",
+      "restartButton": "Mulai ulang"
+    },
+    "questions": {
+      "q1": {
+        "question": "Ekspresi yang paling tepat saat mencantumkan jam kerja dalam kontrak kerja adalah?",
+        "options": [
+          "Jam kerja adalah dari 9:00 hingga 18:00, 40 jam per minggu",
+          "Jam kerja sesuai dengan peraturan internal perusahaan",
+          "Jam kerja dapat disesuaikan berdasarkan situasi kerja",
+          "Jam kerja dapat diperpanjang bila diperlukan"
+        ],
+        "explanation": "Jam kerja harus dicantumkan secara spesifik dan jelas. Ekspresi yang ambigu seperti 'sesuai peraturan internal perusahaan' dapat menyebabkan sengketa."
+      },
+      "q2": {
+        "question": "Berapa gaji pokok untuk karyawan dengan gaji tahunan 300 juta rupiah?",
+        "options": [
+          "20.000.000 rupiah",
+          "23.000.000 rupiah",
+          "25.000.000 rupiah", 
+          "30.000.000 rupiah"
+        ],
+        "explanation": "1/12 dari gaji tahunan 300 juta rupiah adalah 25 juta rupiah. Ini harus dibayar sebagai gaji pokok, dan tunjangan tambahan harus dicantumkan terpisah."
+      },
+      "q3": {
+        "question": "Berapa jam kerja legal per hari?",
+        "options": [
+          "6 jam",
+          "8 jam",
+          "10 jam", 
+          "12 jam"
+        ],
+        "explanation": "Menurut Undang-Undang Ketenagakerjaan, jam kerja legal adalah 8 jam per hari, 40 jam per minggu. Waktu yang melebihi ini dianggap sebagai lembur."
+      },
+      "q4": {
+        "question": "Hukuman apa yang diberikan jika tidak membuat kontrak kerja?",
+        "options": [
+          "Peringatan",
+          "Denda 10 juta rupiah",
+          "Denda 30 juta rupiah",
+          "Denda hingga 50 juta rupiah"
+        ],
+        "explanation": "Jika tidak membuat kontrak kerja tertulis atau tidak memberikannya kepada pekerja, akan dikenakan denda hingga 50 juta rupiah."
+      },
+      "q5": {
+        "question": "Berapa lama maksimal periode kontrak untuk pekerja kontrak?",
+        "options": [
+          "1 tahun",
+          "2 tahun", 
+          "3 tahun",
+          "Tidak ada batasan"
+        ],
+        "explanation": "Periode kontrak untuk pekerja kontrak maksimal 2 tahun. Jika melebihi 2 tahun, harus dikonversi menjadi karyawan tetap."
+      },
+      "q6": {
+        "question": "Cuti tahunan berbayar dapat diperoleh jika hadir berapa persen dalam 1 tahun?",
+        "options": [
+          "80%",
+          "85%", 
+          "90%",
+          "95%"
+        ],
+        "explanation": "Pekerja dapat memperoleh cuti tahunan berbayar 15 hari jika hadir 80% atau lebih dalam 1 tahun."
+      },
+      "q7": {
+        "question": "Berapa jam maksimal lembur dalam 1 minggu?",
+        "options": [
+          "8 jam",
+          "10 jam",
+          "12 jam", 
+          "Tidak ada batasan"
+        ],
+        "explanation": "Menurut Pasal 53 Undang-Undang Ketenagakerjaan, lembur dalam 1 minggu dibatasi maksimal 12 jam. Melebihi ini merupakan pelanggaran hukum."
+      }
+    }
+  },
+  "nationalityOptions": {
+    "placeholder": "Pilih kewarganegaraan Anda",
+    "vietnam": "Vietnam",
+    "cambodia": "Kamboja",
+    "nepal": "Nepal",
+    "indonesia": "Indonesia",
+    "china": "China",
+    "thailand": "Thailand",
+    "philippines": "Filipina",
+    "myanmar": "Myanmar",
+    "mongolia": "Mongolia",
+    "uzbekistan": "Uzbekistan",
+    "kazakhstan": "Kazakhstan",
+    "kyrgyzstan": "Kyrgyzstan",
+    "tajikistan": "Tajikistan",
+    "turkey": "Turki",
+    "iran": "Iran",
+    "pakistan": "Pakistan",
+    "bangladesh": "Bangladesh",
+    "sriLanka": "Sri Lanka",
+    "india": "India",
+    "other": "Lainnya"
+  },
+  "visaOptions": {
+    "placeholder": "Pilih jenis visa Anda",
+    "e1": "E-1 (Perdagangan berdasarkan perjanjian)",
+    "e2": "E-2 (Investasi)",
+    "e3": "E-3 (Penelitian)",
+    "e4": "E-4 (Transfer teknologi)",
+    "e5": "E-5 (Pekerjaan profesional)",
+    "e6": "E-6 (Seni dan hiburan)",
+    "e7": "E-7 (Aktivitas khusus)",
+    "e8": "E-8 (Pelatihan kerja)",
+    "e9": "E-9 (Pekerjaan non-profesional)",
+    "e10": "E-10 (Pekerjaan pelaut)",
+    "f1": "F-1 (Kunjungan kohabitasi)",
+    "f2": "F-2 (Tinggal)",
+    "f3": "F-3 (Keluarga pendamping)",
+    "f4": "F-4 (Korea Luar Negeri)",
+    "f5": "F-5 (Tinggal permanen)",
+    "f6": "F-6 (Migran pernikahan)",
+    "d1": "D-1 (Budaya dan seni)",
+    "d2": "D-2 (Belajar)",
+    "d3": "D-3 (Pelatihan industri)",
+    "d4": "D-4 (Pelatihan umum)",
+    "d5": "D-5 (Pers)",
+    "d6": "D-6 (Pekerjaan keagamaan)",
+    "d7": "D-7 (Transfer antar perusahaan)",
+    "d8": "D-8 (Investasi perusahaan)",
+    "d9": "D-9 (Manajemen perdagangan)",
+    "d10": "D-10 (Pencarian kerja)",
+    "h1": "H-1 (Liburan kerja)",
+    "h2": "H-2 (Kunjungan kerja)",
+    "c1": "C-1 (Kunjungan jangka pendek)",
+    "c2": "C-2 (Bisnis jangka pendek)",
+    "c3": "C-3 (Umum jangka pendek)",
+    "c4": "C-4 (Pekerjaan jangka pendek)",
+    "other": "Lainnya"
   }
 }
