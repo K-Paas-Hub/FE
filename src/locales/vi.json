@@ -15,7 +15,8 @@
     "close": "Đóng",
     "user": "Người dùng",
     "minutes": "phút",
-    "count": ""
+    "count": "",
+    "korean": "Tiếng Hàn"
   },
   "auth": {
     "welcome": "Chào mừng đến với FairWork",
@@ -28,6 +29,8 @@
     "phoneContinue": "Tiếp tục với Điện thoại (Sắp ra mắt)",
     "termsOfService": "Điều khoản dịch vụ",
     "privacyPolicy": "Chính sách bảo mật",
+    "loginTitle": "Đăng nhập",
+    "googleLoginError": "Lỗi xảy ra khi đăng nhập Google."
     "signup": {
       "idLabel": "ID",
       "idPlaceholder": "Vui lòng nhập ID của bạn",
@@ -160,6 +163,21 @@
       "wordCount": "từ",
       "noErrors": "Không có lỗi",
       "errorCount": "lỗi"
+    },
+    "loadingResumeData": "Đang tải dữ liệu sơ yếu lý lịch...",
+    "savedResumeMessage": "Đây là nội dung tự giới thiệu đã lưu của bạn. Vui lòng chỉnh sửa và kiểm tra.",
+    "defaultIntroduction": "Xin chào. Tôi là công nhân nước ngoài. Tôi muốn làm việc ở Hàn Quốc.",
+    "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch",
+    "resumeSpecific": {
+      "resultsTitle": "Kết quả kiểm tra chính tả sơ yếu lý lịch",
+      "improvementSuggestions": "Đề xuất cải thiện",
+      "score": "điểm",
+      "categories": {
+        "honorific": "Sử dụng kính ngữ",
+        "tabooWords": "Từ cấm kỵ",
+        "sentenceLength": "Độ dài câu",
+        "paragraphStructure": "Cấu trúc đoạn văn"
+      }
     }
   },
   "visaCenter": {
@@ -176,6 +194,13 @@
       "study": "Visa Du học",
       "business": "Visa Kinh doanh",
       "preparation": "Visa Chuẩn bị"
+    },
+    "card": {
+      "requiredDocuments": "Tài liệu yêu cầu",
+      "stayPeriod": "Thời gian lưu trú",
+      "extensionPossible": "Có thể gia hạn",
+      "extensionNotPossible": "Không thể gia hạn",
+      "viewInfo": "Xem thông tin"
     }
   },
   "contractAnalysis": {
@@ -511,6 +536,37 @@
       "easy": "Sơ cấp",
       "medium": "Trung cấp",
       "hard": "Cao cấp"
+    },
+    "startInterview": "Hãy bắt đầu phỏng vấn!",
+    "interviewInfo": {
+      "difficulty": "Độ khó",
+      "totalQuestions": "Tổng số câu hỏi",
+      "estimatedTime": "Thời gian ước tính",
+      "firstQuestion": "Đây là câu hỏi đầu tiên:"
+    },
+    "questions": {
+      "strengthsWeaknesses": "Vui lòng cho chúng tôi biết về điểm mạnh và điểm yếu của bạn.",
+      "teamwork": "Tại sao làm việc nhóm quan trọng và bạn đóng vai trò gì trong nhóm?",
+      "memorableProject": "Hãy kể cho chúng tôi nghe về dự án hoặc thành tựu đáng nhớ nhất của bạn.",
+      "stressManagement": "Bạn xử lý tình huống căng thẳng như thế nào?",
+      "futureGoals": "Bạn thấy mình sẽ làm gì trong 5 năm tới?",
+      "motivation": "Tại sao bạn ứng tuyển vào công ty chúng tôi?",
+      "workLifeBalance": "Bạn cân bằng giữa công việc và cuộc sống cá nhân như thế nào?",
+      "learningMethod": "Bạn sử dụng phương pháp nào để học công nghệ hoặc công cụ mới?",
+      "failureExperience": "Hãy kể cho chúng tôi nghe về lần bạn thất bại và những gì bạn học được từ đó.",
+      "conflictResolution": "Bạn giải quyết xung đột khi không đồng ý với đồng nghiệp như thế nào?",
+      "finalWords": "Bạn có muốn nói gì thêm không?"
+    },
+    "welcomeSection": {
+      "title": "Sẵn sàng phỏng vấn",
+      "subtitle": "Kiểm tra cài đặt và bắt đầu phỏng vấn",
+      "features": {
+        "settings": "Đặt độ khó và số lượng câu hỏi",
+        "aiInterview": "Trò chuyện thời gian thực với người phỏng vấn AI",
+        "timeGuide": "Thời gian trả lời được đề xuất",
+        "analysis": "Phân tích kết quả phỏng vấn"
+      },
+      "startButton": "Bắt đầu phỏng vấn"
     }
   },
   "interview": {
@@ -547,6 +603,9 @@
     },
     "input": {
       "placeholder": "Nhập câu trả lời của bạn..."
+    },
+    "message": {
+      "recommendedTime": "Thời gian trả lời được đề xuất"
     }
   },
   "stats": {
