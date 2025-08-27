@@ -479,6 +479,13 @@
       "study": "Study Visa",
       "business": "Business Visa",
       "preparation": "Preparation Visa"
+    },
+    "card": {
+      "requiredDocuments": "Required Documents",
+      "stayPeriod": "Stay Period",
+      "extensionPossible": "Extension Possible",
+      "extensionNotPossible": "Extension Not Possible",
+      "viewInfo": "View Information"
     }
   },
   "contractAnalysis": {

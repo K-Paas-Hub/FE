@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { VisaType } from '../../types/visa';
 import '../../styles/VisaTypeCard.css';
 
@@ -9,6 +10,8 @@ interface VisaTypeCardProps {
 }
 
 const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
+  const { t } = useTranslation();
+  
   const getVisaIcon = (visaId: string) => {
     switch (visaId) {
       case 'e9': return '/images/visa/conveyor.png';
@@ -38,7 +41,7 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
       }}
       role="button"
       tabIndex={0}
-      aria-label={`${visaType.name} 정보 보기`}
+      aria-label={`${visaType.name} ${t('visaCenter.card.viewInfo')}`}
       onKeyPress={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -57,13 +60,13 @@ const VisaTypeCard: React.FC<VisaTypeCardProps> = ({ visaType, onClick }) => {
       <p className="visa-description">{visaType.description}</p>
       
       <div className="document-count">
-        📄 필요 서류: {visaType.documents.length}개
+        📄 {t('visaCenter.card.requiredDocuments')}: {visaType.documents.length}{t('common.count')}
       </div>
       
       <div className="visa-details">
-        <span className="visa-duration">체류기간: {visaType.duration}</span>
+        <span className="visa-duration">{t('visaCenter.card.stayPeriod')}: {visaType.duration}</span>
         <span className={`extension-badge extension-${visaType.extension}`}>
-          {visaType.extension ? '연장 가능' : '연장 불가'}
+          {visaType.extension ? t('visaCenter.card.extensionPossible') : t('visaCenter.card.extensionNotPossible')}
         </span>
       </div>
     </motion.div>

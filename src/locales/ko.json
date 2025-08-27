@@ -510,6 +510,13 @@
       "study": "유학 비자",
       "business": "사업 비자",
       "preparation": "준비 비자"
+    },
+    "card": {
+      "requiredDocuments": "필요 서류",
+      "stayPeriod": "체류기간",
+      "extensionPossible": "연장 가능",
+      "extensionNotPossible": "연장 불가",
+      "viewInfo": "정보 보기"
     }
   },
   "contractAnalysis": {
