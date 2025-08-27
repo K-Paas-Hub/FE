@@ -120,7 +120,7 @@ const MainHeaderComponent: React.FC = () => {
           <Logo onClick={() => navigate('/main')}>
             <LogoImage src="/fairwork.svg" alt="FairWork" />
             <LogoText>FairWork</LogoText>
-          </Logo>
+        </Logo>
           
           <MainHeaderRight>
             <LanguageButton 
@@ -183,67 +183,67 @@ const MainHeaderComponent: React.FC = () => {
             ☰
           </MobileMenuButton>
           
-          <NavWrapper>
-            <Nav>
-              <NavLink 
-                to="/main" 
-                className={location.pathname === '/main' ? 'active' : ''}
+        <NavWrapper>
+          <Nav>
+            <NavLink 
+              to="/main" 
+              className={location.pathname === '/main' ? 'active' : ''}
+            >
+              {t('header.jobPostings')}
+            </NavLink>
+            
+            {/* 이력서 드롭다운 메뉴 */}
+            <DropdownContainer
+              onMouseEnter={handleResumeDropdownMouseEnter}
+              onMouseLeave={handleResumeDropdownMouseLeave}
+            >
+              <DropdownTrigger 
+                $isOpen={isResumeDropdownOpen}
+                className={isResumePage() ? 'active' : ''}
               >
-                {t('header.jobPostings')}
-              </NavLink>
-              
-              {/* 이력서 드롭다운 메뉴 */}
-              <DropdownContainer
-                onMouseEnter={handleResumeDropdownMouseEnter}
-                onMouseLeave={handleResumeDropdownMouseLeave}
-              >
-                <DropdownTrigger 
-                  $isOpen={isResumeDropdownOpen}
-                  className={isResumePage() ? 'active' : ''}
-                >
-                  {t('header.myResume')}
-                </DropdownTrigger>
-                <DropdownMenu $isOpen={isResumeDropdownOpen}>
-                  <DropdownItem to="/resume">
-                    {t('header.resumeWriting')}
-                  </DropdownItem>
+                {t('header.myResume')}
+              </DropdownTrigger>
+              <DropdownMenu $isOpen={isResumeDropdownOpen}>
+                <DropdownItem to="/resume">
+                  {t('header.resumeWriting')}
+                </DropdownItem>
                   <DropdownItem to="/foreign-worker-spell-check">
                     <DropdownItemIcon src="/images/search.png" alt="맞춤법 검사" />
                     외국인 맞춤법 검사
-                  </DropdownItem>
-                </DropdownMenu>
-              </DropdownContainer>
-              
-              <NavLink 
-                to="/visa" 
-                className={location.pathname === '/visa' ? 'active' : ''}
+                </DropdownItem>
+              </DropdownMenu>
+            </DropdownContainer>
+            
+            <NavLink 
+              to="/visa" 
+              className={location.pathname === '/visa' ? 'active' : ''}
+            >
+              {t('header.visaCenter')}
+            </NavLink>
+            
+            {/* 근로계약서 드롭다운 메뉴 */}
+            <DropdownContainer
+              onMouseEnter={handleContractDropdownMouseEnter}
+              onMouseLeave={handleContractDropdownMouseLeave}
+            >
+              <DropdownTrigger 
+                $isOpen={isContractDropdownOpen}
+                className={isContractPage() ? 'active' : ''}
               >
-                {t('header.visaCenter')}
-              </NavLink>
-              
-              {/* 근로계약서 드롭다운 메뉴 */}
-              <DropdownContainer
-                onMouseEnter={handleContractDropdownMouseEnter}
-                onMouseLeave={handleContractDropdownMouseLeave}
-              >
-                <DropdownTrigger 
-                  $isOpen={isContractDropdownOpen}
-                  className={isContractPage() ? 'active' : ''}
-                >
-                  {t('header.employmentContract')}
-                </DropdownTrigger>
-                <DropdownMenu $isOpen={isContractDropdownOpen}>
-                  <DropdownItem to="/contract-tutorial">
-                    {t('header.writingGuide')}
-                  </DropdownItem>
-                  <DropdownItem to="/contract-analysis">
-                    {t('header.contractAnalysis')}
-                  </DropdownItem>
+                {t('header.employmentContract')}
+              </DropdownTrigger>
+              <DropdownMenu $isOpen={isContractDropdownOpen}>
+                <DropdownItem to="/contract-tutorial">
+                  {t('header.writingGuide')}
+                </DropdownItem>
+                <DropdownItem to="/contract-analysis">
+                  {t('header.contractAnalysis')}
+                </DropdownItem>
                   <DropdownItem to="/contract-quiz">
                     {t('header.contractQuiz')}
                   </DropdownItem>
-                </DropdownMenu>
-              </DropdownContainer>
+              </DropdownMenu>
+            </DropdownContainer>
               
               <NavLink 
                 to="/interview" 
@@ -252,8 +252,8 @@ const MainHeaderComponent: React.FC = () => {
               >
                 {t('header.aiInterview')}
               </NavLink>
-            </Nav>
-          </NavWrapper>
+          </Nav>
+        </NavWrapper>
           
 
         </SubHeaderContent>
