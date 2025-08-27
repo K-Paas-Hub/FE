@@ -85,29 +85,35 @@ const LoginForm: React.FC<LoginFormProps> = ({
     <div>
       <StyledLoginForm onSubmit={handleSubmit}>
         <InputGroup>
-          <InputLabel>{t('auth.login.idLabel')}</InputLabel>
+          <InputLabel htmlFor="login-id">{t('auth.login.idLabel')}</InputLabel>
           <InputField
+            id="login-id"
             type="text"
             value={id}
             onChange={handleIdChange}
             hasError={!!idError}
             placeholder={t('auth.login.idPlaceholder')}
             disabled={isLoading}
+            aria-describedby={idError ? "id-error" : undefined}
+            aria-invalid={!!idError}
           />
-          {idError && <ErrorMessage>{idError}</ErrorMessage>}
+          {idError && <ErrorMessage id="id-error" role="alert">{idError}</ErrorMessage>}
         </InputGroup>
 
         <InputGroup>
-          <InputLabel>{t('auth.login.passwordLabel')}</InputLabel>
+          <InputLabel htmlFor="login-password">{t('auth.login.passwordLabel')}</InputLabel>
           <InputField
+            id="login-password"
             type="password"
             value={pw}
             onChange={handlePwChange}
             hasError={!!pwError}
             placeholder={t('auth.login.passwordPlaceholder')}
             disabled={isLoading}
+            aria-describedby={pwError ? "password-error" : undefined}
+            aria-invalid={!!pwError}
           />
-          {pwError && <ErrorMessage>{pwError}</ErrorMessage>}
+          {pwError && <ErrorMessage id="password-error" role="alert">{pwError}</ErrorMessage>}
         </InputGroup>
 
         <FormActions>
@@ -135,6 +141,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           variant="google"
           onClick={handleGoogleLogin}
           disabled={isLoading}
+          aria-label="Google로 로그인"
         >
           <ButtonIcon>
             <svg width="24" height="24" viewBox="0 0 24 24">

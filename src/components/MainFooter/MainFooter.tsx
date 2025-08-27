@@ -30,15 +30,15 @@ const MainFooter: React.FC = () => {
   return (
     <StyledMainFooter>
       <FooterContent>
-        <TopNav>
-          <TopNavLink href="#company">{t('mainFooter.links.company')}</TopNavLink>
-          <TopNavLink href="#recruitment">{t('mainFooter.links.recruitment')}</TopNavLink>
-          <TopNavLink href="#terms">{t('mainFooter.links.terms')}</TopNavLink>
-          <TopNavLink href="#privacy">{t('mainFooter.links.privacy')}</TopNavLink>
-          <TopNavLink href="#email-reject">{t('mainFooter.links.emailReject')}</TopNavLink>
-          <TopNavLink href="#api">{t('mainFooter.links.api')}</TopNavLink>
-          <TopNavLink href="#partnership">{t('mainFooter.links.partnership')}</TopNavLink>
-          <TopNavLink href="#customer-center">{t('mainFooter.links.customerCenter')}</TopNavLink>
+        <TopNav role="navigation" aria-label="푸터 네비게이션">
+          <TopNavLink href="#company" aria-label="회사 정보">{t('mainFooter.links.company')}</TopNavLink>
+          <TopNavLink href="#recruitment" aria-label="채용 정보">{t('mainFooter.links.recruitment')}</TopNavLink>
+          <TopNavLink href="#terms" aria-label="이용약관">{t('mainFooter.links.terms')}</TopNavLink>
+          <TopNavLink href="#privacy" aria-label="개인정보처리방침">{t('mainFooter.links.privacy')}</TopNavLink>
+          <TopNavLink href="#email-reject" aria-label="이메일 무단수집 거부">{t('mainFooter.links.emailReject')}</TopNavLink>
+          <TopNavLink href="#api" aria-label="API 정보">{t('mainFooter.links.api')}</TopNavLink>
+          <TopNavLink href="#partnership" aria-label="파트너십">{t('mainFooter.links.partnership')}</TopNavLink>
+          <TopNavLink href="#customer-center" aria-label="고객센터">{t('mainFooter.links.customerCenter')}</TopNavLink>
         </TopNav>
         
         <MainSection>
@@ -54,10 +54,15 @@ const MainFooter: React.FC = () => {
           </LeftSection>
           
           <RightSection>
-            <EmailButton>{t('mainFooter.actions.emailInquiry')}</EmailButton>
-            <SocialIcons>
-              <SocialIcon href="#blog">B</SocialIcon>
-              <SocialIcon href="#facebook">f</SocialIcon>
+            <EmailButton 
+              onClick={() => window.open('mailto:contact@fairwork.kr')}
+              aria-label="이메일 문의하기"
+            >
+              {t('mainFooter.actions.emailInquiry')}
+            </EmailButton>
+            <SocialIcons role="group" aria-label="소셜 미디어 링크">
+              <SocialIcon href="#blog" aria-label="블로그">B</SocialIcon>
+              <SocialIcon href="#facebook" aria-label="페이스북">f</SocialIcon>
             </SocialIcons>
           </RightSection>
         </MainSection>
@@ -68,7 +73,12 @@ const MainFooter: React.FC = () => {
         
         <BusinessInfo>
           {t('footer.businessInfo')}
-          <BusinessButton>{t('footer.businessInfoButton')}</BusinessButton>
+          <BusinessButton 
+            onClick={() => window.open('#business-info', '_blank')}
+            aria-label="사업자정보 확인"
+          >
+            {t('footer.businessInfoButton')}
+          </BusinessButton>
         </BusinessInfo>
         
         <Certification>
