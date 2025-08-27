@@ -26,7 +26,7 @@ const isProduction = process.env.NODE_ENV === 'production';
  * @param message - 로그 메시지
  * @param data - 추가 데이터 (선택사항)
  */
-export const devLog = (message: string, data?: any): void => {
+export const devLog = (message: string, data?: unknown): void => {
   if (isDevelopment) {
     console.log(`[DEV] ${message}`, data || '');
   }
@@ -37,7 +37,7 @@ export const devLog = (message: string, data?: any): void => {
  * @param message - 에러 메시지
  * @param error - 에러 객체 (선택사항)
  */
-export const devError = (message: string, error?: any): void => {
+export const devError = (message: string, error?: unknown): void => {
   if (isDevelopment) {
     console.error(`[DEV ERROR] ${message}`, error || '');
   }
@@ -48,7 +48,7 @@ export const devError = (message: string, error?: any): void => {
  * @param message - 경고 메시지
  * @param data - 추가 데이터 (선택사항)
  */
-export const devWarn = (message: string, data?: any): void => {
+export const devWarn = (message: string, data?: unknown): void => {
   if (isDevelopment) {
     console.warn(`[DEV WARN] ${message}`, data || '');
   }
@@ -59,7 +59,7 @@ export const devWarn = (message: string, data?: any): void => {
  * @param message - 정보 메시지
  * @param data - 추가 데이터 (선택사항)
  */
-export const devInfo = (message: string, data?: any): void => {
+export const devInfo = (message: string, data?: unknown): void => {
   if (isDevelopment) {
     console.info(`[DEV INFO] ${message}`, data || '');
   }
@@ -70,7 +70,7 @@ export const devInfo = (message: string, data?: any): void => {
  * @param message - 디버그 메시지
  * @param data - 추가 데이터 (선택사항)
  */
-export const devDebug = (message: string, data?: any): void => {
+export const devDebug = (message: string, data?: unknown): void => {
   if (isDevelopment) {
     console.debug(`[DEV DEBUG] ${message}`, data || '');
   }
@@ -85,7 +85,7 @@ export const devDebug = (message: string, data?: any): void => {
  * @param message - 로그 메시지
  * @param data - 추가 데이터 (선택사항)
  */
-export const prodLog = (message: string, data?: any): void => {
+export const prodLog = (message: string, data?: unknown): void => {
   console.log(`[PROD] ${message}`, data || '');
 };
 
@@ -94,7 +94,7 @@ export const prodLog = (message: string, data?: any): void => {
  * @param message - 에러 메시지
  * @param error - 에러 객체 (선택사항)
  */
-export const prodError = (message: string, error?: any): void => {
+export const prodError = (message: string, error?: unknown): void => {
   console.error(`[PROD ERROR] ${message}`, error || '');
 };
 
@@ -108,7 +108,7 @@ export const prodError = (message: string, error?: any): void => {
  * @param data - 추가 데이터 (선택사항)
  * @param forceProduction - 프로덕션에서도 강제 출력할지 여부
  */
-export const log = (message: string, data?: any, forceProduction = false): void => {
+export const log = (message: string, data?: unknown, forceProduction = false): void => {
   if (isDevelopment || (isProduction && forceProduction)) {
     console.log(`[${isProduction ? 'PROD' : 'DEV'}] ${message}`, data || '');
   }
@@ -120,7 +120,7 @@ export const log = (message: string, data?: any, forceProduction = false): void 
  * @param error - 에러 객체 (선택사항)
  * @param forceProduction - 프로덕션에서도 강제 출력할지 여부
  */
-export const logError = (message: string, error?: any, forceProduction = true): void => {
+export const logError = (message: string, error?: unknown, forceProduction = true): void => {
   if (isDevelopment || (isProduction && forceProduction)) {
     console.error(`[${isProduction ? 'PROD' : 'DEV'} ERROR] ${message}`, error || '');
   }
@@ -180,7 +180,7 @@ export const logPerformanceSync = <T>(label: string, fn: () => T): T => {
  * @param url - 요청 URL
  * @param data - 요청 데이터 (선택사항)
  */
-export const logApiRequest = (method: string, url: string, data?: any): void => {
+export const logApiRequest = (method: string, url: string, data?: unknown): void => {
   devLog(`API 요청: ${method} ${url}`, data);
 };
 
@@ -191,7 +191,7 @@ export const logApiRequest = (method: string, url: string, data?: any): void => 
  * @param status - 응답 상태
  * @param data - 응답 데이터 (선택사항)
  */
-export const logApiResponse = (method: string, url: string, status: number, data?: any): void => {
+export const logApiResponse = (method: string, url: string, status: number, data?: unknown): void => {
   devLog(`API 응답: ${method} ${url} (${status})`, data);
 };
 
@@ -201,7 +201,7 @@ export const logApiResponse = (method: string, url: string, status: number, data
  * @param url - 요청 URL
  * @param error - 에러 객체
  */
-export const logApiError = (method: string, url: string, error: any): void => {
+export const logApiError = (method: string, url: string, error: unknown): void => {
   devError(`API 에러: ${method} ${url}`, error);
 };
 
@@ -214,7 +214,7 @@ export const logApiError = (method: string, url: string, error: any): void => {
  * @param action - 액션 이름
  * @param data - 액션 데이터 (선택사항)
  */
-export const logUserAction = (action: string, data?: any): void => {
+export const logUserAction = (action: string, data?: unknown): void => {
   devLog(`사용자 액션: ${action}`, data);
 };
 
@@ -236,7 +236,7 @@ export const logNavigation = (from: string, to: string): void => {
  * @param obj - 변환할 객체
  * @returns 문자열
  */
-export const safeStringify = (obj: any): string => {
+export const safeStringify = (obj: unknown): string => {
   try {
     return JSON.stringify(obj, null, 2);
   } catch (error) {
