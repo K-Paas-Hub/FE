@@ -287,6 +287,10 @@
       "success": "A temporary password has been sent to your email.",
       "error": "An error occurred while resetting your password."
     },
+    "logs": {
+      "request": "Password reset request",
+      "error": "Password reset error"
+    },
     "actions": {
       "backToLogin": "Back to Login"
     }
@@ -1042,6 +1046,49 @@
         "sentenceLength": "Sentence Length",
         "paragraphStructure": "Paragraph Structure"
       }
+    },
+    "result": {
+      "overallStatistics": "Overall Check Statistics",
+      "totalWords": "Total Words",
+      "foundErrors": "Found Errors",
+      "accuracy": "Accuracy",
+      "noErrorsFound": "No spelling errors found!",
+      "errorCount": "errors",
+      "suggestionLabel": "Suggestion:",
+      "applyCorrection": "Apply this correction",
+      "sections": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "nationality": "Nationality",
+        "visaType": "Visa Type",
+        "education": "Education",
+        "experience": "Experience",
+        "skills": "Skills & Certificates",
+        "languages": "Language Skills",
+        "introduction": "Self-Introduction"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "Spacing between Korean and English",
+        "englishKorean": "Spacing between English and Korean",
+        "koreanNumber": "Spacing between Korean and numbers",
+        "numberKorean": "Spacing between numbers and Korean"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "Found {{count}} errors."
+    },
+    "errors": {
+      "checkFailed": "An error occurred during spell checking."
     }
   }
 }

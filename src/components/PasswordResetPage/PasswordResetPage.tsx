@@ -13,7 +13,7 @@ const PasswordResetPage: React.FC = () => {
     setIsFormLoading(true);
     try {
       // TODO: 실제 비밀번호 재설정 API 호출
-      devLog('비밀번호 재설정 요청', { email });
+      devLog(t('passwordReset.logs.request'), { email });
       
       // 임시로 2초 대기
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -21,7 +21,7 @@ const PasswordResetPage: React.FC = () => {
       // 성공 처리
       alert(t('passwordReset.messages.success'));
     } catch (error) {
-      devError('비밀번호 재설정 오류', error);
+      devError(t('passwordReset.logs.error'), error);
       alert(t('passwordReset.messages.error'));
     } finally {
       setIsFormLoading(false);

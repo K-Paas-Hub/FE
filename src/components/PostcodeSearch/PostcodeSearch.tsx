@@ -265,9 +265,7 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
     openPostcode();
   };
 
-  const handleLayerClick = () => {
-    openPostcodeLayer();
-  };
+  // handleLayerClick 함수 제거 (미사용)
 
   const completeAddress = getCompleteAddress();
 

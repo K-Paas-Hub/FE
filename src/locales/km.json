@@ -78,51 +78,15 @@
   },
   "contractAnalysis": {
     "title": "ការវិភាគកិច្ចសន្យាការងារ",
-    "description": "ផ្ទុកឡើងកិច្ចសន្យាការងាររបស់អ្នក និងទទួលបានការវិភាគលម្អិត។",
-    "uploadButton": "ផ្ទុកឡើងឯកសារ",
-    "analyzeButton": "វិភាគ",
-    "loading": "កំពុងវិភាគ...",
-    "error": "បរាជ័យក្នុងការវិភាគ។",
-    "upload": {
-      "title": "ផ្ទុកឡើងកិច្ចសន្យាការងារ",
-      "description": "អាចផ្ទុកឡើងឯកសារ PDF, DOC, DOCX ឬរូបភាព។",
-      "dragDrop": "ទាញ និងទម្លាក់ឯកសារនៅទីនេះ ឬ",
-      "browseFiles": "រុករកឯកសារ",
-      "fileSizeLimit": "ទំហំឯកសារអតិបរមា៖ 10MB",
-      "supportedFormats": "ទម្រង់ឯកសារដែលគាំទ្រ៖ PDF, DOC, DOCX, JPG, PNG"
-    },
-    "fileInfo": {
-      "title": "ព័ត៌មានឯកសារ",
-      "fileName": "ឈ្មោះឯកសារ៖",
-      "fileSize": "ទំហំឯកសារ៖",
-      "uploadDate": "ថ្ងៃផ្ទុកឡើង៖",
-      "removeFile": "ដកឯកសារ"
-    },
-    "analysis": {
-      "title": "ការវិភាគកិច្ចសន្យា",
-      "progress": "កំពុងវិភាគ...",
-      "processing": "កំពុងដំណើរការឯកសារ",
-      "extracting": "កំពុងទាញយកអត្ថបទ",
-      "analyzing": "កំពុងវិភាគមាតិកា",
-      "generating": "កំពុងបង្កើតរបាយការណ៍"
-    },
-    "results": {
-      "title": "លទ្ធផលការវិភាគ",
-      "summary": "សេចក្តីសង្ខេប",
-      "riskLevel": "កម្រិតហានិភ័យ",
-      "recommendations": "ការណែនាំ",
-      "details": "ព័ត៌មានលម្អិត",
-      "downloadReport": "ទាញយករបាយការណ៍",
-      "shareReport": "ចែករំលែករបាយការណ៍"
-    },
-    "sections": {
-      "basicInfo": "ព័ត៌មានមូលដ្ឋាន",
-      "workConditions": "លក្ខខណ្ឌការងារ",
-      "salary": "ប្រាក់ខែ និងអត្ថប្រយោជន៍",
-      "legalRights": "សិទ្ធិផ្នែកច្បាប់",
-      "risks": "ហានិភ័យ និងការប្រុងប្រយ័ត្ន",
-      "recommendations": "ការណែនាំ"
-    }
+    "subtitle": "ពិនិត្យមើលលក្ខខណ្ឌដែលមិនអំណោយផលក្នុងកិច្ចសន្យាការងារដោយប្រើ AI",
+    "uploadTitle": "ផ្ទុកឡើងឯកសារកិច្ចសន្យាការងារ",
+    "uploadText": "ទាញ និងទម្លាក់ឯកសារ PDF, Word, HWP ឬចុចដើម្បីផ្ទុកឡើង",
+    "uploadSubtext": "អតិបរមា 10MB, ការវិភាគបញ្ចប់ក្នុងរយៈពេល 5 វិនាទី",
+    "analyze": "វិភាគ",
+    "analysisResults": "លទ្ធផលការវិភាគ",
+    "favorable": "លក្ខខណ្ឌអំណោយផល",
+    "unfavorable": "លក្ខខណ្ឌមិនអំណោយផល",
+    "neutral": "លក្ខខណ្ឌអព្យាក្រឹត"
   },
   "mainPage": {
     "search": {
@@ -266,18 +230,6 @@
       "preparation": "វីសាការរៀបចំ"
     }
   },
-  "contractAnalysis": {
-    "title": "ការវិភាគកិច្ចសន្យាការងារ",
-    "subtitle": "ពិនិត្យមើលលក្ខខណ្ឌដែលមិនអំណោយផលក្នុងកិច្ចសន្យាការងារដោយប្រើ AI",
-    "uploadTitle": "ផ្ទុកឡើងឯកសារកិច្ចសន្យាការងារ",
-    "uploadText": "ទាញ និងទម្លាក់ឯកសារ PDF, Word, HWP ឬចុចដើម្បីផ្ទុកឡើង",
-    "uploadSubtext": "អតិបរមា 10MB, ការវិភាគបញ្ចប់ក្នុងរយៈពេល 5 វិនាទី",
-    "analyze": "វិភាគ",
-    "analysisResults": "លទ្ធផលការវិភាគ",
-    "favorable": "លក្ខខណ្ឌអំណោយផល",
-    "unfavorable": "លក្ខខណ្ឌមិនអំណោយផល",
-    "neutral": "លក្ខខណ្ឌអព្យាក្រឹត"
-  },
   "jobDetail": {
     "backButton": "← ត្រឡប់",
     "applyButton": "ដាក់ពាក្យ",
@@ -285,20 +237,20 @@
     "requirements": "📝 តម្រូវការ",
     "benefits": "🎁 អត្ថប្រយោជន៍",
     "contactInfo": "📞 ទំនាក់ទំនង",
-    "visaSupport": "ការគាំទ្រ Visa E-7",
+    "visaSupport": "ការគាំទ្រវីសា E-7",
     "location": "📍",
     "salary": "💰",
     "deadline": "⏰",
     "email": "📧",
     "phone": "📱",
-    "jobNotFound": "រកមិនឃើញការផ្សាយការងារ។",
-    "loading": "កំពុងផ្ទុកការផ្សាយការងារ...",
-    "error": "បរាជ័យក្នុងការផ្ទុកការផ្សាយការងារ។"
+    "jobNotFound": "រកមិនឃើញការផ្សព្វផ្សាយការងារ។",
+    "loading": "កំពុងផ្ទុកការផ្សព្វផ្សាយការងារ...",
+    "error": "បរាជ័យក្នុងការផ្ទុកការផ្សព្វផ្សាយការងារ។"
   },
   "landing": {
     "hero": {
       "title": "WE ARE INNOVATION",
-      "subtitle": "ភ្ជាប់អ្នកជំនាញដ៏ល្អបំផុត និងក្រុមហ៊ុន\nតាមរយៈវេទិកាការងារថ្មី",
+      "subtitle": "ភ្ជាប់បុគ្គលិកដ៏ល្អបំផុត និងក្រុមហ៊ុន\nតាមរយៈវេទិកាការជ្រើសរើសថ្មី",
       "ctaButton": "ទៅកាន់គេហទំព័រការងារ"
     },
     "features": {
@@ -367,39 +319,63 @@
     }
   },
   "spellCheck": {
-    "title": "ការត្រួតពិនិត្យអក្សរសាស្ត្រ",
-    "noDataTitle": "គ្មានទិន្នន័យជីវប្រវត្តិ",
-    "noDataText": "សូមបង្កើតជីវប្រវត្តិជាមុនសិនដើម្បីធ្វើការត្រួតពិនិត្យអក្សរសាស្ត្រ។",
-    "createResumeLink": "បង្កើតជីវប្រវត្តិ →",
-    "resumeContent": "មាតិកាជីវប្រវត្តិ",
-    "checkOptions": {
-      "spelling": "អក្សរសាស្ត្រ",
-      "grammar": "វេយ្យាករណ៍",
-      "punctuation": "សញ្ញាវណ្ណយុត្ត",
-      "spacing": "ចន្លោះ"
+    "loadingResumeData": "កំពុងផ្ទុកទិន្នន័យជីវប្រវត្តិ...",
+    "savedResumeMessage": "នេះគឺជាមាតិកាការណែនាំខ្លួនឯងដែលបានរក្សាទុក។ សូមកែសម្រួលនិងពិនិត្យ។",
+    "defaultIntroduction": "សួស្តី។ ខ្ញុំជាកម្មករបរទេស។ ខ្ញុំចង់ធ្វើការនៅក្នុងប្រទេសកូរ៉េ។",
+    "loadResumeDataError": "បរាជ័យក្នុងការផ្ទុកទិន្នន័យជីវប្រវត្តិ",
+    "resumeSpecific": {
+      "resultsTitle": "លទ្ធផលពិនិត្យការប្រកបអក្សរសាស្ត្រកំណត់ត្រា",
+      "improvementSuggestions": "ការណែនាំដើម្បីកែលម្អ",
+      "score": "ពិន្ទុ",
+      "categories": {
+        "honorific": "ការប្រើប្រាស់ពាក្យគួរសម",
+        "tabooWords": "ពាក្យហាមឃាត់",
+        "sentenceLength": "ប្រវែងឃ្លា",
+        "paragraphStructure": "រចនាសម្ព័ន្ធកថាខណ្ឌ"
+      }
     },
-    "sections": {
-      "name": "ឈ្មោះ",
-      "email": "អ៊ីមែល",
-      "phone": "លេខទូរស័ព្ទ",
-      "nationality": "សញ្ជាតិ",
-      "visaType": "ប្រភេទវីសា",
-      "education": "ការអប់រំ",
-      "experience": "បទពិសោធន៍",
-      "skills": "ជំនាញ និងវិញ្ញាបនបត្រ",
-      "languages": "ជំនាញភាសា",
-      "introduction": "ការណែនាំខ្លួន"
+    "result": {
+      "overallStatistics": "ស្ថិតិពិនិត្យទាំងស្រុង",
+      "totalWords": "ពាក្យសរុប",
+      "foundErrors": "កំហុសដែលរកឃើញ",
+      "accuracy": "ភាពត្រឹមត្រូវ",
+      "noErrorsFound": "រកមិនឃើញកំហុសការប្រកបអក្សរសាស្ត្រ!",
+      "errorCount": "កំហុស",
+      "suggestionLabel": "ការណែនាំ:",
+      "applyCorrection": "អនុវត្តការកែតម្រូវនេះ",
+      "sections": {
+        "name": "ឈ្មោះ",
+        "email": "អ៊ីមែល",
+        "phone": "លេខទូរស័ព្ទ",
+        "nationality": "សញ្ជាតិ",
+        "visaType": "ប្រភេទវីសា",
+        "education": "ការអប់រំ",
+        "experience": "បទពិសោធន៍",
+        "skills": "ជំនាញ & វិញ្ញាបនបត្រ",
+        "languages": "ជំនាញភាសា",
+        "introduction": "ការណែនាំខ្លួន"
+      }
     },
-    "actions": {
-      "check": "ត្រួតពិនិត្យ",
-      "checking": "កំពុងត្រួតពិនិត្យ...",
-      "apply": "អនុវត្ត"
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "ចន្លោះរវាងភាសាកូរ៉េនិងអង់គ្លេស",
+        "englishKorean": "ចន្លោះរវាងអង់គ្លេសនិងភាសាកូរ៉េ",
+        "koreanNumber": "ចន្លោះរវាងភាសាកូរ៉េនិងលេខ",
+        "numberKorean": "ចន្លោះរវាងលេខនិងភាសាកូរ៉េ"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
     },
-    "messages": {
-      "noContent": "គ្មានមាតិកាត្រូវបានបញ្ចូល។",
-      "wordCount": "ពាក្យ",
-      "noErrors": "គ្មានកំហុស",
-      "errorCount": "កំហុស"
+    "suggestions": {
+      "errorsFound": "រកឃើញ {{count}} កំហុស។"
+    },
+    "errors": {
+      "checkFailed": "មានកំហុសកើតឡើងក្នុងពេលពិនិត្យការប្រកបអក្សរសាស្ត្រ។"
     }
   },
   "stats": {
@@ -512,74 +488,14 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "ការណែនាំក្រុមហ៊ុន",
-      "recruitment": "ការជ្រើសរើសបុគ្គលិក",
-      "terms": "លក្ខខណ្ឌសមាជិក",
-      "privacy": "គោលការណ៍គ្រប់គ្រងព័ត៌មានផ្ទាល់ខ្លួន",
-      "emailReject": "ការបដិសេធការប្រមូលអ៊ីមែលដោយគ្មានការអនុញ្ញាត",
-      "api": "API ព័ត៌មានការជ្រើសរើស",
-      "partnership": "ការពិគ្រោះដៃគូរ",
-      "customerCenter": "មជ្ឈមណ្ឌលអតិថិជន"
-    },
     "contact": {
-      "title": "មជ្ឈមណ្ឌលអតិថិជន FairWork",
-      "phone": "02-3354-1256",
-      "hours": "ថ្ងៃធ្វើការ 09:00~19:00, ថ្ងៃឈប់សម្រាក និងថ្ងៃឈប់",
-      "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(តំណាង), 02-1234-5680(វិក្កយបត្រពន្ធ)"
+      "emailLabel": "អ៊ីមែល",
+      "faxLabel": "ហ្វាក់"
     },
-    "actions": {
-      "emailInquiry": "ការពិគ្រោះតាមអ៊ីមែល"
-    },
-    "company": {
-      "name": "ក្រុមហ៊ុន FairWork ចាប់បដិវត្តន៍",
-      "address": "កូដប្រៃសណីយ៍: 03921, ជាន់ទី 6, អគារ IT សងអាំ, 17 ផ្លូវពិភពលោកពានខាងជើង 60-គីល, ម៉ាប៉ូ-គូ, សេអ៊ូល",
-      "ceo": "តំណាង: ឆវី ហុង-សុក, គីម មី-រុ, លីម សុង-ហ្យុក, ហុង យុន-គី, ហឺ វាន"
-    }
-  },
-  "jobDetail": {
-    "backButton": "← ត្រឡប់",
-    "applyButton": "ដាក់ពាក្យ",
-    "jobDescription": "📋 ការពិពណ៌នាការងារ",
-    "requirements": "📝 តម្រូវការ",
-    "benefits": "🎁 អត្ថប្រយោជន៍",
-    "contactInfo": "📞 ទំនាក់ទំនង",
-    "visaSupport": "ការគាំទ្រវីសា E-7",
-    "location": "📍",
-    "salary": "💰",
-    "deadline": "⏰",
-    "email": "📧",
-    "phone": "📱",
-    "jobNotFound": "រកមិនឃើញការផ្សព្វផ្សាយការងារ។",
-    "loading": "កំពុងផ្ទុកការផ្សព្វផ្សាយការងារ...",
-    "error": "បរាជ័យក្នុងការផ្ទុកការផ្សព្វផ្សាយការងារ។"
-  },
-  "landing": {
-    "hero": {
-      "title": "WE ARE INNOVATION",
-      "subtitle": "ភ្ជាប់បុគ្គលិកដ៏ល្អបំផុត និងក្រុមហ៊ុន\nតាមរយៈវេទិកាការជ្រើសរើសថ្មី",
-      "ctaButton": "ទៅកាន់គេហទំព័រការងារ"
-    },
-    "features": {
-      "title": "មុខងារពិសេសរបស់ Fair Work",
-      "multilingual": {
-        "title": "ការគាំទ្រពីភាសាច្រើន",
-        "description": "ការគាំទ្រជាភាសាផ្សេងៗគ្នាដើម្បីជួយឱ្យកម្មករបរទេសប្រើប្រាស់វេទិកាបានយ៉ាងងាយស្រួល"
-      },
-      "fairHiring": {
-        "title": "ការជ្រើសរើសដោយយុត្តិធម៌",
-        "description": "ដំណើរការជ្រើសរើសដោយយុត្តិធម៌ដោយគ្មានការរើសអើងដើម្បីការពារសិទ្ធិរបស់កម្មករទាំងអស់"
-      },
-      "legalSupport": {
-        "title": "ការគាំទ្រផ្នែកច្បាប់",
-        "description": "ការគាំទ្រផ្នែកច្បាប់សម្រាប់ច្បាប់ការងារ និងបញ្ហាទាក់ទងនឹងវីសាដើម្បីផ្តល់បរិស្ថានការងារមានសុវត្ថិភាព"
-      },
-      "visaSupport": {
-        "title": "ការគាំទ្រវីសា",
-        "description": "ការគាំទ្រជាប្រព័ន្ធសម្រាប់ការដាក់ពាក្យ និងការបន្តវីសាដើម្បីធានាការរស់នៅមានស្ថិរភាព"
-      }
-    }
+    "businessInfo": "ការចុះឈ្មោះអាជីវកម្ម: 123-45-67890, សេវាព័ត៌មានការងារ: Seoul Gangnam 2024-1, ពាណិជ្ជកម្មអេឡិចត្រូនិច: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "ផ្ទៀងផ្ទាត់ព័ត៌មានអាជីវកម្ម",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "មើលកំណែទូរស័ព្ទចល័ត"
   },
   "blogSection": {
     "title": {
@@ -947,25 +863,6 @@
   },
   "postcode": {
     "searchAddress": "ស្វែងរកអាសយដ្ឋាន",
-    "roadAddress": "អាសយដ្ឋានផ្លូវ",
-    "jibunAddress": "អាសយដ្ឋានដី",
-    "detailAddress": "អាសយដ្ឋានលម្អិត",
-    "detailAddressPlaceholder": "បញ្ចូលអាសយដ្ឋានលម្អិត",
-    "buildingName": "ឈ្មោះអគារ",
-    "confirm": "បញ្ជាក់"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "អ៊ីមែល",
-      "faxLabel": "ហ្វាក់"
-    },
-    "businessInfo": "ការចុះឈ្មោះអាជីវកម្ម: 123-45-67890, សេវាព័ត៌មានការងារ: Seoul Gangnam 2024-1, ពាណិជ្ជកម្មអេឡិចត្រូនិច: 2024-SeoulGangnam-1234",
-    "businessInfoButton": "ផ្ទៀងផ្ទាត់ព័ត៌មានអាជីវកម្ម",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "មើលកំណែទូរស័ព្ទចល័ត"
-  },
-  "postcode": {
-    "searchAddress": "ស្វែងរកអាសយដ្ឋាន",
     "searchAddressPlaceholder": "បញ្ចូលអាសយដ្ឋានដើម្បីស្វែងរក",
     "roadAddress": "អាសយដ្ឋានផ្លូវ",
     "jibunAddress": "អាសយដ្ឋាន Jibun",
@@ -1038,11 +935,5 @@
       "number": "ត្រូវតែមានលេខ។",
       "special": "ត្រូវតែមានតួអក្សរពិសេស។"
     }
-  },
-  "spellCheck": {
-    "loadingResumeData": "កំពុងផ្ទុកទិន្នន័យជីវប្រវត្តិ...",
-    "savedResumeMessage": "នេះគឺជាមាតិកាការណែនាំខ្លួនឯងដែលបានរក្សាទុក។ សូមកែសម្រួលនិងពិនិត្យ។",
-    "defaultIntroduction": "សួស្តី។ ខ្ញុំជាកម្មករបរទេស។ ខ្ញុំចង់ធ្វើការនៅក្នុងប្រទេសកូរ៉េ។",
-    "loadResumeDataError": "បរាជ័យក្នុងការផ្ទុកទិន្នន័យជីវប្រវត្តិ"
   }
 }

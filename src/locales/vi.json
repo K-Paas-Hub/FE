@@ -967,6 +967,60 @@
     "loadingResumeData": "Đang tải dữ liệu sơ yếu lý lịch...",
     "savedResumeMessage": "Đây là nội dung tự giới thiệu đã lưu. Vui lòng chỉnh sửa và kiểm tra.",
     "defaultIntroduction": "Xin chào. Tôi là lao động nước ngoài. Tôi muốn làm việc tại Hàn Quốc.",
-    "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch"
+    "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch",
+    "resumeSpecific": {
+      "resultsTitle": "Kết quả kiểm tra chính tả sơ yếu lý lịch",
+      "improvementSuggestions": "Đề xuất cải thiện",
+      "score": "điểm",
+      "categories": {
+        "honorific": "Sử dụng kính ngữ",
+        "tabooWords": "Từ cấm kỵ",
+        "sentenceLength": "Độ dài câu",
+        "paragraphStructure": "Cấu trúc đoạn văn"
+      }
+    },
+    "result": {
+      "overallStatistics": "Thống kê kiểm tra tổng thể",
+      "totalWords": "Tổng số từ",
+      "foundErrors": "Lỗi tìm thấy",
+      "accuracy": "Độ chính xác",
+      "noErrorsFound": "Không tìm thấy lỗi chính tả!",
+      "errorCount": "lỗi",
+      "suggestionLabel": "Đề xuất sửa:",
+      "applyCorrection": "Áp dụng sửa đổi này",
+      "sections": {
+        "name": "Tên",
+        "email": "Email",
+        "phone": "Điện thoại",
+        "nationality": "Quốc tịch",
+        "visaType": "Loại visa",
+        "education": "Học vấn",
+        "experience": "Kinh nghiệm",
+        "skills": "Kỹ năng & Chứng chỉ",
+        "languages": "Kỹ năng ngôn ngữ",
+        "introduction": "Tự giới thiệu"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "Khoảng cách giữa tiếng Hàn và tiếng Anh",
+        "englishKorean": "Khoảng cách giữa tiếng Anh và tiếng Hàn",
+        "koreanNumber": "Khoảng cách giữa tiếng Hàn và số",
+        "numberKorean": "Khoảng cách giữa số và tiếng Hàn"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "Tìm thấy {{count}} lỗi."
+    },
+    "errors": {
+      "checkFailed": "Đã xảy ra lỗi trong quá trình kiểm tra chính tả."
+    }
   }
 }

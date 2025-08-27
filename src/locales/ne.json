@@ -231,70 +231,63 @@
     }
   },
   "spellCheck": {
-    "title": "हिज्जे जाँच",
-    "noDataTitle": "रेज्युमे डाटा छैन",
-    "noDataText": "हिज्जे जाँच गर्न कृपया पहिले रेज्युमे सिर्जना गर्नुहोस्।",
-    "createResumeLink": "रेज्युमे सिर्जना गर्नुहोस् →",
-    "resumeContent": "रेज्युमे सामग्री",
-    "checkOptions": {
-      "spelling": "हिज्जे",
-      "grammar": "व्याकरण",
-      "punctuation": "विराम चिह्न",
-      "spacing": "खाली ठाउँ"
-    },
-    "sections": {
-      "name": "नाम",
-      "email": "इमेल",
-      "phone": "फोन",
-      "nationality": "राष्ट्रियता",
-      "visaType": "भिसा प्रकार",
-      "education": "शिक्षा",
-      "experience": "अनुभव",
-      "skills": "सीप र प्रमाणपत्र",
-      "languages": "भाषा सीप",
-      "introduction": "आफैको परिचय"
-    },
-    "actions": {
-      "check": "जाँच गर्नुहोस्",
-      "checking": "जाँच गर्दै...",
-      "apply": "लागू गर्नुहोस्"
-    },
-    "messages": {
-      "noContent": "कुनै सामग्री प्रविष्ट गरिएको छैन।",
-      "wordCount": "शब्द",
-      "noErrors": "कुनै त्रुटि छैन",
-      "errorCount": "त्रुटि"
-    },
-    "foreignWorker": {
-      "optionsTitle": "विदेशी कामदारको लागि हिज्जे जाँच",
-      "checkButton": "विदेशी हिज्जे जाँच गर्नुहोस्",
-      "checkingButton": "जाँच गर्दै...",
-      "resultsTitle": "विदेशी हिज्जे जाँचको परिणाम",
+    "loadingResumeData": "रिज्युमे डाटा लोड गर्दै...",
+    "savedResumeMessage": "यो तपाईंको बचत गरिएको आत्मपरिचय हो। कृपया सम्पादन गर्नुहोस् र जाँच गर्नुहोस्।",
+    "defaultIntroduction": "नमस्ते। म विदेशी कामदार हुँ। म कोरियामा काम गर्न चाहन्छु।",
+    "loadResumeDataError": "रिज्युमे डाटा लोड गर्न असफल",
+    "resumeSpecific": {
+      "resultsTitle": "रिज्युमे स्पेल चेक परिणाम",
       "improvementSuggestions": "सुधार सुझावहरू",
-      "options": {
-        "checkPronunciation": "उच्चारण त्रुटि जाँच",
-        "checkFinalConsonant": "अन्तिम व्यञ्जन त्रुटि जाँच",
-        "checkParticle": "सहायक शब्द त्रुटि जाँच",
-        "checkSpacing": "स्थान त्रुटि जाँच",
-        "checkCommonWord": "सामान्य गलत शब्दहरू जाँच",
-        "checkEnding": "वाक्य अन्त्य अभिव्यक्ति जाँच"
-      },
-      "descriptions": {
-        "checkPronunciation": "उच्चारण मिल्दा गलत हुने अवस्थाको जाँच",
-        "checkFinalConsonant": "अन्तिम व्यञ्जन प्रयोग त्रुटिको जाँच",
-        "checkParticle": "सहायक शब्द प्रयोग त्रुटिको जाँच",
-        "checkSpacing": "स्थान त्रुटिको जाँच",
-        "checkCommonWord": "बारम्बार गलत हुने शब्दहरूको जाँच",
-        "checkEnding": "वाक्य अन्त्य अभिव्यक्ति त्रुटिको जाँच"
-      },
+      "score": "अंक",
       "categories": {
-        "pronunciation": "उच्चारण त्रुटि",
-        "finalConsonant": "अन्तिम व्यञ्जन त्रुटि",
-        "particle": "सहायक शब्द त्रुटि",
-        "spacing": "स्थान त्रुटि",
-        "commonWord": "सामान्य गलत शब्द",
-        "ending": "वाक्य अन्त्य अभिव्यक्ति"
+        "honorific": "सम्मानजनक शब्द प्रयोग",
+        "tabooWords": "निषिद्ध शब्दहरू",
+        "sentenceLength": "वाक्य लम्बाई",
+        "paragraphStructure": "पैराग्राफ संरचना"
       }
+    },
+    "result": {
+      "overallStatistics": "सम्पूर्ण जाँच तथ्यांक",
+      "totalWords": "कुल शब्दहरू",
+      "foundErrors": "भेटिएका त्रुटिहरू",
+      "accuracy": "सटीकता",
+      "noErrorsFound": "कुनै स्पेलिङ त्रुटि भेटिएन!",
+      "errorCount": "त्रुटिहरू",
+      "suggestionLabel": "सुझाव:",
+      "applyCorrection": "यो सुधार लागू गर्नुहोस्",
+      "sections": {
+        "name": "नाम",
+        "email": "इमेल",
+        "phone": "फोन",
+        "nationality": "राष्ट्रियता",
+        "visaType": "भिसा प्रकार",
+        "education": "शिक्षा",
+        "experience": "अनुभव",
+        "skills": "सीप र प्रमाणपत्रहरू",
+        "languages": "भाषा सीपहरू",
+        "introduction": "आफैको परिचय"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "कोरियन र अंग्रेजी बीचको खाली ठाउँ",
+        "englishKorean": "अंग्रेजी र कोरियन बीचको खाली ठाउँ",
+        "koreanNumber": "कोरियन र संख्या बीचको खाली ठाउँ",
+        "numberKorean": "संख्या र कोरियन बीचको खाली ठाउँ"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "{{count}} वटा त्रुटिहरू भेटियो।"
+    },
+    "errors": {
+      "checkFailed": "स्पेल चेक गर्दा त्रुटि भयो।"
     }
   },
   "stats": {
@@ -407,23 +400,14 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "कम्पनी परिचय",
-      "recruitment": "कर्मचारी भर्ती",
-      "terms": "सदस्य सर्तहरू",
-      "privacy": "व्यक्तिगत जानकारी व्यवस्थापन नीति",
-      "emailReject": "इमेल अनधिकृत सङ्कलन अस्वीकार",
-      "api": "भर्ती जानकारी API",
-      "partnership": "साझेदारी सम्पर्क",
-      "customerCenter": "ग्राहक केन्द्र"
-    },
     "contact": {
-      "title": "FairWork ग्राहक केन्द्र",
-      "phone": "02-3354-1256",
-      "hours": "सोम-शुक्र 09:00~19:00, सप्ताहन्त र छुट्टी बन्द",
-      "email": "support@fairwork.kr"
+      "emailLabel": "इमेल",
+      "faxLabel": "फ्याक्स"
     },
-    "copyright": "© 2024 FairWork. सर्वाधिकार सुरक्षित।"
+    "businessInfo": "व्यवसाय दर्ता: 123-45-67890, रोजगार जानकारी सेवा: Seoul Gangnam 2024-1, इ-कमर्स: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "व्यवसाय जानकारी जाँच गर्नुहोस्",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "मोबाइल संस्करण हेर्नुहोस्"
   },
   "contractTutorial": {
     "title": "सम्झौता टुटोरियल",
@@ -505,7 +489,7 @@
         "question": "वार्षिक 30 लाख रुपैयाँ तलब पाउने कामदारको मासिक तलबको संरचनामा आधारभूत तलब कति हुन्छ?",
         "options": [
           "20,000 रुपैयाँ",
-          "23,000 रुपैयाँ", 
+          "23,000 रुपैयाँ",
           "25,000 रुपैयाँ",
           "30,000 रुपैयाँ"
         ],
@@ -515,7 +499,7 @@
         "question": "कानुनी काम गर्ने समय दैनिक कति घण्टा हो?",
         "options": [
           "6 घण्टा",
-          "8 घण्टा", 
+          "8 घण्टा",
           "10 घण्टा",
           "12 घण्टा"
         ],
@@ -526,7 +510,7 @@
         "options": [
           "चेतावनी",
           "1 लाख रुपैयाँ जरिबाना",
-          "3 लाख रुपैयाँ जरिबाना", 
+          "3 लाख रुपैयाँ जरिबाना",
           "5 लाख रुपैयाँसम्म जरिबाना"
         ],
         "explanation": "श्रम सम्झौता लिखित रूपमा गर्न नसकेमा वा कामदारलाई प्रदान नगरेमा 5 लाख रुपैयाँसम्म जरिबाना लाग्छ।"
@@ -536,7 +520,7 @@
         "options": [
           "1 वर्ष",
           "2 वर्ष",
-          "3 वर्ष", 
+          "3 वर्ष",
           "कुनै सीमा छैन"
         ],
         "explanation": "निश्चित अवधिका कामदारको सम्झौताको अवधि अधिकतम 2 वर्षसम्म सम्भव छ। 2 वर्षभन्दा बढी भएमा स्थायी कामदारमा रूपान्तरण गर्नुपर्छ।"
@@ -546,7 +530,7 @@
         "options": [
           "80%",
           "85%",
-          "90%", 
+          "90%",
           "95%"
         ],
         "explanation": "कामदारले 1 वर्षमा 80% भन्दा बढी उपस्थित भएमा 15 दिनको वार्षिक सवैतन बिदा पाउन सक्छ।"
@@ -555,7 +539,7 @@
         "question": "1 हप्ताको विस्तारित काम गर्ने समयको अधिकतम सीमा कति घण्टा हो?",
         "options": [
           "8 घण्टा",
-          "10 घण्टा", 
+          "10 घण्टा",
           "12 घण्टा",
           "कुनै सीमा छैन"
         ],
@@ -645,25 +629,6 @@
   },
   "postcode": {
     "searchAddress": "ठेगाना खोज्नुहोस्",
-    "roadAddress": "सडक ठेगाना",
-    "jibunAddress": "जिबुन ठेगाना",
-    "detailAddress": "विस्तृत ठेगाना",
-    "detailAddressPlaceholder": "विस्तृत ठेगाना प्रविष्ट गर्नुहोस्",
-    "buildingName": "भवन नाम",
-    "confirm": "पुष्टि गर्नुहोस्"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "इमेल",
-      "faxLabel": "फ्याक्स"
-    },
-    "businessInfo": "व्यवसाय दर्ता: 123-45-67890, रोजगार जानकारी सेवा: Seoul Gangnam 2024-1, इ-कमर्स: 2024-SeoulGangnam-1234",
-    "businessInfoButton": "व्यवसाय जानकारी जाँच गर्नुहोस्",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "मोबाइल संस्करण हेर्नुहोस्"
-  },
-  "postcode": {
-    "searchAddress": "ठेगाना खोज्नुहोस्",
     "searchAddressPlaceholder": "खोज्नको लागि ठेगाना प्रविष्ट गर्नुहोस्",
     "roadAddress": "सडक ठेगाना",
     "jibunAddress": "जिबुन ठेगाना",
@@ -736,11 +701,5 @@
       "number": "संख्याहरू समावेश गर्नुपर्छ।",
       "special": "विशेष अक्षरहरू समावेश गर्नुपर्छ।"
     }
-  },
-  "spellCheck": {
-    "loadingResumeData": "रिज्युमे डाटा लोड गर्दै...",
-    "savedResumeMessage": "यो तपाईंको बचत गरिएको आत्मपरिचय हो। कृपया सम्पादन गर्नुहोस् र जाँच गर्नुहोस्।",
-    "defaultIntroduction": "नमस्ते। म विदेशी कामदार हुँ। म कोरियामा काम गर्न चाहन्छु।",
-    "loadResumeDataError": "रिज्युमे डाटा लोड गर्न असफल"
   }
 }

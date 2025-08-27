@@ -231,39 +231,63 @@
     }
   },
   "spellCheck": {
-    "title": "ตรวจสอบการสะกด",
-    "noDataTitle": "ไม่มีข้อมูลเรซูเม่",
-    "noDataText": "กรุณาสร้างเรซูเม่ก่อนเพื่อทำการตรวจสอบการสะกด",
-    "createResumeLink": "สร้างเรซูเม่ →",
-    "resumeContent": "เนื้อหาเรซูเม่",
-    "checkOptions": {
-      "spelling": "การสะกด",
-      "grammar": "ไวยากรณ์",
-      "punctuation": "เครื่องหมายวรรคตอน",
-      "spacing": "การเว้นวรรค"
+    "loadingResumeData": "กำลังโหลดข้อมูลประวัติย่อ...",
+    "savedResumeMessage": "นี่คือเนื้อหาการแนะนำตัวเองที่บันทึกไว้ กรุณาแก้ไขและตรวจสอบ",
+    "defaultIntroduction": "สวัสดี ฉันเป็นแรงงานต่างชาติ ฉันต้องการทำงานในเกาหลี",
+    "loadResumeDataError": "ไม่สามารถโหลดข้อมูลประวัติย่อได้",
+    "resumeSpecific": {
+      "resultsTitle": "ผลการตรวจสอบการสะกดคำเรซูเม่",
+      "improvementSuggestions": "ข้อเสนอแนะการปรับปรุง",
+      "score": "คะแนน",
+      "categories": {
+        "honorific": "การใช้คำสุภาพ",
+        "tabooWords": "คำต้องห้าม",
+        "sentenceLength": "ความยาวประโยค",
+        "paragraphStructure": "โครงสร้างย่อหน้า"
+      }
     },
-    "sections": {
-      "name": "ชื่อ",
-      "email": "อีเมล",
-      "phone": "โทรศัพท์",
-      "nationality": "สัญชาติ",
-      "visaType": "ประเภทวีซ่า",
-      "education": "การศึกษา",
-      "experience": "ประสบการณ์",
-      "skills": "ทักษะและใบรับรอง",
-      "languages": "ทักษะภาษา",
-      "introduction": "แนะนำตัวเอง"
+    "result": {
+      "overallStatistics": "สถิติการตรวจสอบโดยรวม",
+      "totalWords": "จำนวนคำทั้งหมด",
+      "foundErrors": "ข้อผิดพลาดที่พบ",
+      "accuracy": "ความแม่นยำ",
+      "noErrorsFound": "ไม่พบข้อผิดพลาดการสะกดคำ!",
+      "errorCount": "ข้อผิดพลาด",
+      "suggestionLabel": "ข้อเสนอแนะ:",
+      "applyCorrection": "ใช้การแก้ไขนี้",
+      "sections": {
+        "name": "ชื่อ",
+        "email": "อีเมล",
+        "phone": "โทรศัพท์",
+        "nationality": "สัญชาติ",
+        "visaType": "ประเภทวีซ่า",
+        "education": "การศึกษา",
+        "experience": "ประสบการณ์",
+        "skills": "ทักษะและใบรับรอง",
+        "languages": "ทักษะภาษา",
+        "introduction": "แนะนำตัวเอง"
+      }
     },
-    "actions": {
-      "check": "ตรวจสอบ",
-      "checking": "กำลังตรวจสอบ...",
-      "apply": "ใช้"
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "การเว้นวรรคระหว่างภาษาเกาหลีและอังกฤษ",
+        "englishKorean": "การเว้นวรรคระหว่างภาษาอังกฤษและเกาหลี",
+        "koreanNumber": "การเว้นวรรคระหว่างภาษาเกาหลีและตัวเลข",
+        "numberKorean": "การเว้นวรรคระหว่างตัวเลขและภาษาเกาหลี"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
     },
-    "messages": {
-      "noContent": "ไม่มีเนื้อหาที่ป้อน",
-      "wordCount": "คำ",
-      "noErrors": "ไม่มีข้อผิดพลาด",
-      "errorCount": "ข้อผิดพลาด"
+    "suggestions": {
+      "errorsFound": "พบข้อผิดพลาด {{count}} รายการ"
+    },
+    "errors": {
+      "checkFailed": "เกิดข้อผิดพลาดในการตรวจสอบการสะกดคำ"
     }
   },
   "stats": {
@@ -376,31 +400,14 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "เกี่ยวกับบริษัท",
-      "recruitment": "การจ้างงาน",
-      "terms": "ข้อกำหนดสมาชิก",
-      "privacy": "นโยบายการคุ้มครองข้อมูลส่วนบุคคล",
-      "emailReject": "ปฏิเสธการเก็บรวบรวมอีเมลโดยไม่ได้รับอนุญาต",
-      "api": "API ข้อมูลการจ้างงาน",
-      "partnership": "คำขอความร่วมมือ",
-      "customerCenter": "ศูนย์ลูกค้า"
-    },
     "contact": {
-      "title": "ศูนย์ลูกค้า FairWork",
-      "phone": "02-3354-1256",
-      "hours": "วันธรรมดา 09:00~19:00, วันหยุดสุดสัปดาห์และวันหยุดนักขัตฤกษ์ปิดทำการ",
-      "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(ตัวแทน), 02-1234-5680(ใบแจ้งหนี้ภาษี)"
+      "emailLabel": "อีเมล",
+      "faxLabel": "แฟกซ์"
     },
-    "actions": {
-      "emailInquiry": "สอบถามทางอีเมล"
-    },
-    "company": {
-      "name": "บริษัท FairWork จำกัด",
-      "address": "รหัสไปรษณีย์: 03921, ชั้น 6, หอ IT ซังอัม, 60-กิล, ถนนโลกคัพเหนือ, แมโพ-กู, โซล",
-      "ceo": "ตัวแทน: ชเว ฮง-ซอก, คิม มิ-รึล, อิม ซอง-ฮยอก, ฮง ยุน-กิ, ฮอ วาน"
-    }
+    "businessInfo": "การลงทะเบียนธุรกิจ: 123-45-67890, บริการข้อมูลงาน: Seoul Gangnam 2024-1, อีคอมเมิร์ซ: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "ตรวจสอบข้อมูลธุรกิจ",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "ดูเวอร์ชันมือถือ"
   },
   "contractTutorial": {
     "sections": {
@@ -553,7 +560,7 @@
       "downloadButton": "ดาวน์โหลด",
       "languages": {
         "korean": "เกาหลี",
-        "english": "อังกฤษ", 
+        "english": "อังกฤษ",
         "vietnamese": "เวียดนาม",
         "cambodian": "กัมพูชา",
         "nepali": "เนปาล",
@@ -577,7 +584,7 @@
       "features": {
         "multiLanguage": "รองรับหลายภาษา",
         "aiPowered": "ขับเคลื่อนด้วย AI",
-        "realTime": "ตรวจสอบแบบเรียลไทม์", 
+        "realTime": "ตรวจสอบแบบเรียลไทม์",
         "contextAware": "เข้าใจบริบท",
         "customDictionary": "พจนานุกรมที่กำหนดเอง",
         "batchProcessing": "ประมวลผลเป็นชุด"
@@ -768,25 +775,6 @@
   },
   "postcode": {
     "searchAddress": "ค้นหาที่อยู่",
-    "roadAddress": "ที่อยู่ถนน",
-    "jibunAddress": "ที่อยู่จิบุน",
-    "detailAddress": "ที่อยู่อาศัย",
-    "detailAddressPlaceholder": "ใส่ที่อยู่อาศัย",
-    "buildingName": "ชื่ออาคาร",
-    "confirm": "ยืนยัน"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "อีเมล",
-      "faxLabel": "แฟกซ์"
-    },
-    "businessInfo": "การลงทะเบียนธุรกิจ: 123-45-67890, บริการข้อมูลงาน: Seoul Gangnam 2024-1, อีคอมเมิร์ซ: 2024-SeoulGangnam-1234",
-    "businessInfoButton": "ตรวจสอบข้อมูลธุรกิจ",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "ดูเวอร์ชันมือถือ"
-  },
-  "postcode": {
-    "searchAddress": "ค้นหาที่อยู่",
     "searchAddressPlaceholder": "ป้อนที่อยู่เพื่อค้นหา",
     "roadAddress": "ที่อยู่ถนน",
     "jibunAddress": "ที่อยู่จิบุน",
@@ -859,11 +847,5 @@
       "number": "ต้องมีตัวเลข",
       "special": "ต้องมีอักขระพิเศษ"
     }
-  },
-  "spellCheck": {
-    "loadingResumeData": "กำลังโหลดข้อมูลประวัติย่อ...",
-    "savedResumeMessage": "นี่คือเนื้อหาการแนะนำตัวเองที่บันทึกไว้ กรุณาแก้ไขและตรวจสอบ",
-    "defaultIntroduction": "สวัสดี ฉันเป็นแรงงานต่างชาติ ฉันต้องการทำงานในเกาหลี",
-    "loadResumeDataError": "ไม่สามารถโหลดข้อมูลประวัติย่อได้"
   }
 }

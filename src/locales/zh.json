@@ -205,70 +205,63 @@
     }
   },
   "spellCheck": {
-    "title": "拼写检查",
-    "noDataTitle": "没有简历数据",
-    "noDataText": "请先创建简历以进行拼写检查。",
-    "createResumeLink": "创建简历 →",
-    "resumeContent": "简历内容",
-    "checkOptions": {
-      "spelling": "拼写",
-      "grammar": "语法",
-      "punctuation": "标点符号",
-      "spacing": "间距"
-    },
-    "sections": {
-      "name": "姓名",
-      "email": "邮箱",
-      "phone": "电话",
-      "nationality": "国籍",
-      "visaType": "签证类型",
-      "education": "教育",
-      "experience": "经验",
-      "skills": "技能和证书",
-      "languages": "语言能力",
-      "introduction": "自我介绍"
-    },
-    "actions": {
-      "check": "检查",
-      "checking": "检查中...",
-      "apply": "应用"
-    },
-    "messages": {
-      "noContent": "未输入内容。",
-      "wordCount": "词",
-      "noErrors": "无错误",
-      "errorCount": "个错误"
-    },
-    "foreignWorker": {
-      "optionsTitle": "外籍工人拼写检查",
-      "checkButton": "进行外籍工人拼写检查",
-      "checkingButton": "检查中...",
-      "resultsTitle": "外籍工人拼写检查结果",
-      "improvementSuggestions": "改善建议",
-      "options": {
-        "checkPronunciation": "发音错误检查",
-        "checkFinalConsonant": "收音错误检查",
-        "checkParticle": "助词错误检查",
-        "checkSpacing": "空格检查",
-        "checkCommonWord": "常见错误词汇检查",
-        "checkEnding": "句末表达检查"
-      },
-      "descriptions": {
-        "checkPronunciation": "检查因发音相似而出错的情况",
-        "checkFinalConsonant": "检查收音使用错误",
-        "checkParticle": "检查助词使用错误",
-        "checkSpacing": "检查空格错误",
-        "checkCommonWord": "检查常见错误词汇",
-        "checkEnding": "检查句末表达错误"
-      },
+    "loadingResumeData": "正在加载简历数据...",
+    "savedResumeMessage": "这是您保存的自我介绍内容。请编辑并检查。",
+    "defaultIntroduction": "您好。我是外籍劳工。我想在韩国工作。",
+    "loadResumeDataError": "加载简历数据失败",
+    "resumeSpecific": {
+      "resultsTitle": "简历拼写检查结果",
+      "improvementSuggestions": "改进建议",
+      "score": "分",
       "categories": {
-        "pronunciation": "发音错误",
-        "finalConsonant": "收音错误",
-        "particle": "助词错误",
-        "spacing": "空格错误",
-        "commonWord": "常见错误词汇",
-        "ending": "句末表达"
+        "honorific": "敬语使用",
+        "tabooWords": "禁忌词汇",
+        "sentenceLength": "句子长度",
+        "paragraphStructure": "段落结构"
       }
+    },
+    "result": {
+      "overallStatistics": "整体检查统计",
+      "totalWords": "总词数",
+      "foundErrors": "发现的错误",
+      "accuracy": "准确度",
+      "noErrorsFound": "未发现拼写错误！",
+      "errorCount": "个错误",
+      "suggestionLabel": "建议：",
+      "applyCorrection": "应用此修正",
+      "sections": {
+        "name": "姓名",
+        "email": "邮箱",
+        "phone": "电话",
+        "nationality": "国籍",
+        "visaType": "签证类型",
+        "education": "教育",
+        "experience": "经验",
+        "skills": "技能和证书",
+        "languages": "语言能力",
+        "introduction": "自我介绍"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "韩语和英语之间的空格",
+        "englishKorean": "英语和韩语之间的空格",
+        "koreanNumber": "韩语和数字之间的空格",
+        "numberKorean": "数字和韩语之间的空格"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "发现{{count}}个错误。"
+    },
+    "errors": {
+      "checkFailed": "拼写检查时发生错误。"
     }
   },
   "landing": {
@@ -407,31 +400,14 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "公司介绍",
-      "recruitment": "人才招聘",
-      "terms": "会员条款",
-      "privacy": "个人信息处理方针",
-      "emailReject": "拒绝未经许可的电子邮件收集",
-      "api": "招聘信息API",
-      "partnership": "合作咨询",
-      "customerCenter": "客户中心"
-    },
     "contact": {
-      "title": "FairWork客户中心",
-      "phone": "02-3354-1256",
-      "hours": "平日09:00~19:00，周末·公休日休息",
-      "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(代表)，02-1234-5680(税务发票)"
+      "emailLabel": "邮箱",
+      "faxLabel": "传真"
     },
-    "actions": {
-      "emailInquiry": "电子邮件咨询"
-    },
-    "company": {
-      "name": "FairWork株式会社",
-      "address": "邮编：03921，首尔麻浦区世界杯北路60街17号，上岩IT塔6层",
-      "ceo": "代表：崔洪硕、金米露、林成赫、洪允基、许完"
-    }
+    "businessInfo": "商业登记: 123-45-67890, 职业信息服务: 首尔江南 2024-1, 电子商务: 2024-首尔江南-1234",
+    "businessInfoButton": "验证商业信息",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "查看移动版本"
   },
   "contractTutorial": {
     "sections": {
@@ -746,25 +722,6 @@
   },
   "postcode": {
     "searchAddress": "搜索地址",
-    "roadAddress": "道路地址",
-    "jibunAddress": "地番地址",
-    "detailAddress": "详细地址",
-    "detailAddressPlaceholder": "输入详细地址",
-    "buildingName": "建筑物名称",
-    "confirm": "确认"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "邮箱",
-      "faxLabel": "传真"
-    },
-    "businessInfo": "商业登记: 123-45-67890, 职业信息服务: 首尔江南 2024-1, 电子商务: 2024-首尔江南-1234",
-    "businessInfoButton": "验证商业信息",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "查看移动版本"
-  },
-  "postcode": {
-    "searchAddress": "搜索地址",
     "searchAddressPlaceholder": "输入地址进行搜索",
     "roadAddress": "道路地址",
     "jibunAddress": "地本地址",
@@ -837,11 +794,5 @@
       "number": "必须包含数字。",
       "special": "必须包含特殊字符。"
     }
-  },
-  "spellCheck": {
-    "loadingResumeData": "正在加载简历数据...",
-    "savedResumeMessage": "这是您保存的自我介绍内容。请编辑并检查。",
-    "defaultIntroduction": "您好。我是外籍劳工。我想在韩国工作。",
-    "loadResumeDataError": "加载简历数据失败"
   }
 }

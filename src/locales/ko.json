@@ -318,6 +318,10 @@
       "success": "임시 비밀번호가 이메일로 전송되었습니다.",
       "error": "비밀번호 재설정 중 오류가 발생했습니다."
     },
+    "logs": {
+      "request": "비밀번호 재설정 요청",
+      "error": "비밀번호 재설정 오류"
+    },
     "actions": {
       "backToLogin": "로그인으로 돌아가기"
     }
@@ -1073,6 +1077,49 @@
         "sentenceLength": "문장 길이",
         "paragraphStructure": "문단 구조"
       }
+    },
+    "result": {
+      "overallStatistics": "전체 검사 통계",
+      "totalWords": "총 단어 수",
+      "foundErrors": "발견된 오류",
+      "accuracy": "정확도",
+      "noErrorsFound": "맞춤법 오류가 발견되지 않았습니다!",
+      "errorCount": "개 오류",
+      "suggestionLabel": "수정 제안:",
+      "applyCorrection": "이 수정사항 적용",
+      "sections": {
+        "name": "이름",
+        "email": "이메일",
+        "phone": "전화번호",
+        "nationality": "국적",
+        "visaType": "비자 유형",
+        "education": "학력",
+        "experience": "경력",
+        "skills": "기술 및 자격증",
+        "languages": "언어 능력",
+        "introduction": "자기소개"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "한글과 영문 사이 띄어쓰기",
+        "englishKorean": "영문과 한글 사이 띄어쓰기",
+        "koreanNumber": "한글과 숫자 사이 띄어쓰기",
+        "numberKorean": "숫자와 한글 사이 띄어쓰기"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "총 {{count}}개의 오류를 발견했습니다."
+    },
+    "errors": {
+      "checkFailed": "맞춤법 검사 중 오류가 발생했습니다."
     }
   }
 }

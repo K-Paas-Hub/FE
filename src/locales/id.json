@@ -253,70 +253,63 @@
     }
   },
   "spellCheck": {
-    "title": "Pemeriksaan Ejaan",
-    "noDataTitle": "Tidak Ada Data Resume",
-    "noDataText": "Silakan buat resume terlebih dahulu untuk melakukan pemeriksaan ejaan.",
-    "createResumeLink": "Buat Resume →",
-    "resumeContent": "Konten Resume",
-    "checkOptions": {
-      "spelling": "Ejaan",
-      "grammar": "Tata Bahasa",
-      "punctuation": "Tanda Baca",
-      "spacing": "Spasi"
-    },
-    "sections": {
-      "name": "Nama",
-      "email": "Email",
-      "phone": "Telepon",
-      "nationality": "Kebangsaan",
-      "visaType": "Jenis Visa",
-      "education": "Pendidikan",
-      "experience": "Pengalaman",
-      "skills": "Keterampilan & Sertifikasi",
-      "languages": "Kemampuan Bahasa",
-      "introduction": "Perkenalan Diri"
-    },
-    "actions": {
-      "check": "Periksa",
-      "checking": "Memeriksa...",
-      "apply": "Terapkan"
-    },
-    "messages": {
-      "noContent": "Tidak ada konten yang dimasukkan.",
-      "wordCount": "kata",
-      "noErrors": "Tidak ada kesalahan",
-      "errorCount": "kesalahan"
-    },
-    "foreignWorker": {
-      "optionsTitle": "Pemeriksaan Ejaan untuk Pekerja Asing",
-      "checkButton": "Periksa Ejaan Pekerja Asing",
-      "checkingButton": "Memeriksa...",
-      "resultsTitle": "Hasil Pemeriksaan Ejaan Pekerja Asing",
+    "loadingResumeData": "Memuat data resume...",
+    "savedResumeMessage": "Ini adalah konten pengenalan diri yang tersimpan. Silakan edit dan periksa.",
+    "defaultIntroduction": "Halo. Saya adalah pekerja asing. Saya ingin bekerja di Korea.",
+    "loadResumeDataError": "Gagal memuat data resume",
+    "resumeSpecific": {
+      "resultsTitle": "Hasil Pemeriksaan Ejaan Resume",
       "improvementSuggestions": "Saran Perbaikan",
-      "options": {
-        "checkPronunciation": "Pemeriksaan Kesalahan Pengucapan",
-        "checkFinalConsonant": "Pemeriksaan Kesalahan Konsonan Akhir",
-        "checkParticle": "Pemeriksaan Kesalahan Partikel",
-        "checkSpacing": "Pemeriksaan Spasi",
-        "checkCommonWord": "Pemeriksaan Kata yang Sering Salah",
-        "checkEnding": "Pemeriksaan Ekspresi Akhir Kalimat"
-      },
-      "descriptions": {
-        "checkPronunciation": "Memeriksa kasus kesalahan karena pengucapan yang mirip",
-        "checkFinalConsonant": "Memeriksa kesalahan penggunaan konsonan akhir",
-        "checkParticle": "Memeriksa kesalahan penggunaan partikel",
-        "checkSpacing": "Memeriksa kesalahan spasi",
-        "checkCommonWord": "Memeriksa kata-kata yang sering salah",
-        "checkEnding": "Memeriksa kesalahan ekspresi akhir kalimat"
-      },
+      "score": "poin",
       "categories": {
-        "pronunciation": "Kesalahan Pengucapan",
-        "finalConsonant": "Kesalahan Konsonan Akhir",
-        "particle": "Kesalahan Partikel",
-        "spacing": "Kesalahan Spasi",
-        "commonWord": "Kata yang Sering Salah",
-        "ending": "Ekspresi Akhir Kalimat"
+        "honorific": "Penggunaan Kata Hormat",
+        "tabooWords": "Kata Tabu",
+        "sentenceLength": "Panjang Kalimat",
+        "paragraphStructure": "Struktur Paragraf"
       }
+    },
+    "result": {
+      "overallStatistics": "Statistik Pemeriksaan Keseluruhan",
+      "totalWords": "Total Kata",
+      "foundErrors": "Kesalahan Ditemukan",
+      "accuracy": "Akurasi",
+      "noErrorsFound": "Tidak ada kesalahan ejaan ditemukan!",
+      "errorCount": "kesalahan",
+      "suggestionLabel": "Saran:",
+      "applyCorrection": "Terapkan koreksi ini",
+      "sections": {
+        "name": "Nama",
+        "email": "Email",
+        "phone": "Telepon",
+        "nationality": "Kebangsaan",
+        "visaType": "Jenis Visa",
+        "education": "Pendidikan",
+        "experience": "Pengalaman",
+        "skills": "Keterampilan & Sertifikat",
+        "languages": "Kemampuan Bahasa",
+        "introduction": "Pengenalan Diri"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "Jarak antara Korea dan Inggris",
+        "englishKorean": "Jarak antara Inggris dan Korea",
+        "koreanNumber": "Jarak antara Korea dan angka",
+        "numberKorean": "Jarak antara angka dan Korea"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "Ditemukan {{count}} kesalahan."
+    },
+    "errors": {
+      "checkFailed": "Terjadi kesalahan saat memeriksa ejaan."
     }
   },
   "footer": {
@@ -407,31 +400,14 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "Tentang Perusahaan",
-      "recruitment": "Rekrutmen",
-      "terms": "Ketentuan Anggota",
-      "privacy": "Kebijakan Perlindungan Informasi Pribadi",
-      "emailReject": "Penolakan Pengumpulan Email Tanpa Izin",
-      "api": "API Informasi Lowongan",
-      "partnership": "Konsultasi Kemitraan",
-      "customerCenter": "Pusat Pelanggan"
-    },
     "contact": {
-      "title": "Pusat Pelanggan FairWork",
-      "phone": "02-3354-1256",
-      "hours": "Senin-Jumat 09:00~19:00, Sabtu-Minggu dan hari libur tutup",
-      "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(Perwakilan), 02-1234-5680(Faktur Pajak)"
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
     },
-    "actions": {
-      "emailInquiry": "Konsultasi Email"
-    },
-    "company": {
-      "name": "PT FairWork",
-      "address": "Kode Pos: 03921, Lantai 6, Menara IT Sangam, 60-gil, Jalan Piala Dunia Utara, Mapo-gu, Seoul",
-      "ceo": "Perwakilan: Choi Hong-seok, Kim Mir, Lim Seong-hyeok, Hong Yun-ki, Heo Wan"
-    }
+    "businessInfo": "Pendaftaran Bisnis: 123-45-67890, Layanan Informasi Pekerjaan: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "Verifikasi Informasi Bisnis",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "Lihat Versi Mobile"
   },
   "contractTutorial": {
     "sections": {
@@ -577,7 +553,7 @@
     "progress": "{{current}} / {{total}}",
     "questionNumber": "Pertanyaan {{number}}",
     "previousButton": "Sebelumnya",
-    "nextButton": "Selanjutnya", 
+    "nextButton": "Selanjutnya",
     "finishButton": "Selesai Kuis",
     "results": {
       "title": "Hasil Kuis",
@@ -607,7 +583,7 @@
         "options": [
           "20.000.000 rupiah",
           "23.000.000 rupiah",
-          "25.000.000 rupiah", 
+          "25.000.000 rupiah",
           "30.000.000 rupiah"
         ],
         "explanation": "1/12 dari gaji tahunan 300 juta rupiah adalah 25 juta rupiah. Ini harus dibayar sebagai gaji pokok, dan tunjangan tambahan harus dicantumkan terpisah."
@@ -617,7 +593,7 @@
         "options": [
           "6 jam",
           "8 jam",
-          "10 jam", 
+          "10 jam",
           "12 jam"
         ],
         "explanation": "Menurut Undang-Undang Ketenagakerjaan, jam kerja legal adalah 8 jam per hari, 40 jam per minggu. Waktu yang melebihi ini dianggap sebagai lembur."
@@ -636,7 +612,7 @@
         "question": "Berapa lama maksimal periode kontrak untuk pekerja kontrak?",
         "options": [
           "1 tahun",
-          "2 tahun", 
+          "2 tahun",
           "3 tahun",
           "Tidak ada batasan"
         ],
@@ -646,7 +622,7 @@
         "question": "Cuti tahunan berbayar dapat diperoleh jika hadir berapa persen dalam 1 tahun?",
         "options": [
           "80%",
-          "85%", 
+          "85%",
           "90%",
           "95%"
         ],
@@ -657,7 +633,7 @@
         "options": [
           "8 jam",
           "10 jam",
-          "12 jam", 
+          "12 jam",
           "Tidak ada batasan"
         ],
         "explanation": "Menurut Pasal 53 Undang-Undang Ketenagakerjaan, lembur dalam 1 minggu dibatasi maksimal 12 jam. Melebihi ini merupakan pelanggaran hukum."
@@ -746,25 +722,6 @@
   },
   "postcode": {
     "searchAddress": "Cari Alamat",
-    "roadAddress": "Alamat Jalan",
-    "jibunAddress": "Alamat Jibun",
-    "detailAddress": "Alamat Detail",
-    "detailAddressPlaceholder": "Masukkan alamat detail",
-    "buildingName": "Nama Gedung",
-    "confirm": "Konfirmasi"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "Email",
-      "faxLabel": "Fax"
-    },
-    "businessInfo": "Pendaftaran Bisnis: 123-45-67890, Layanan Informasi Pekerjaan: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
-    "businessInfoButton": "Verifikasi Informasi Bisnis",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "Lihat Versi Mobile"
-  },
-  "postcode": {
-    "searchAddress": "Cari Alamat",
     "searchAddressPlaceholder": "Masukkan alamat untuk mencari",
     "roadAddress": "Alamat Jalan",
     "jibunAddress": "Alamat Jibun",
@@ -837,11 +794,5 @@
       "number": "Harus menyertakan angka.",
       "special": "Harus menyertakan karakter khusus."
     }
-  },
-  "spellCheck": {
-    "loadingResumeData": "Memuat data resume...",
-    "savedResumeMessage": "Ini adalah konten pengenalan diri yang tersimpan. Silakan edit dan periksa.",
-    "defaultIntroduction": "Halo. Saya adalah pekerja asing. Saya ingin bekerja di Korea.",
-    "loadResumeDataError": "Gagal memuat data resume"
   }
 }
