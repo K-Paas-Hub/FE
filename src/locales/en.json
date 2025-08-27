@@ -71,6 +71,37 @@
       "easy": "Beginner",
       "medium": "Intermediate",
       "hard": "Advanced"
+    },
+    "startInterview": "Let's start the interview!",
+    "interviewInfo": {
+      "difficulty": "Difficulty",
+      "totalQuestions": "Total Questions",
+      "estimatedTime": "Estimated Time",
+      "firstQuestion": "Here's the first question:"
+    },
+    "questions": {
+      "strengthsWeaknesses": "Please tell us about your strengths and weaknesses.",
+      "teamwork": "Why is teamwork important and what role do you play in a team?",
+      "memorableProject": "Tell us about your most memorable project or achievement.",
+      "stressManagement": "How do you handle stressful situations?",
+      "futureGoals": "What do you see yourself doing in 5 years?",
+      "motivation": "Why did you apply to our company?",
+      "workLifeBalance": "How do you balance work and personal life?",
+      "learningMethod": "What methods do you use to learn new technologies or tools?",
+      "failureExperience": "Tell us about a time you failed and what you learned from it.",
+      "conflictResolution": "How do you resolve conflicts when you disagree with colleagues?",
+      "finalWords": "Is there anything else you'd like to say?"
+    },
+    "welcomeSection": {
+      "title": "Interview Ready",
+      "subtitle": "Check your settings and start the interview",
+      "features": {
+        "settings": "Set difficulty and number of questions",
+        "aiInterview": "Real-time conversation with AI interviewer",
+        "timeGuide": "Recommended answer time provided",
+        "analysis": "Interview result analysis"
+      },
+      "startButton": "Start Interview"
     }
   },
   "interview": {
@@ -107,6 +138,9 @@
     },
     "input": {
       "placeholder": "Enter your answer..."
+    },
+    "message": {
+      "recommendedTime": "Recommended answer time"
     }
   },
   "spellCheck": {

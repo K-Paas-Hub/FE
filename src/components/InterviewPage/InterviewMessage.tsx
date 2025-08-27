@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Message } from './InterviewChat';
 import '../../styles/InterviewMessage.css';
 
@@ -7,6 +8,7 @@ interface InterviewMessageProps {
 }
 
 const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
+  const { t } = useTranslation();
   const isSystem = message.type === 'system';
 
   return (
@@ -31,7 +33,7 @@ const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
           {message.recommendedTime && (
             <div className="recommended-time">
               <span className="time-icon">⏱️</span>
-              권장 답변 시간: {message.recommendedTime}
+              {t('interview.message.recommendedTime')}: {message.recommendedTime}
             </div>
           )}
         </div>

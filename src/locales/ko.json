@@ -71,6 +71,37 @@
       "easy": "초급",
       "medium": "중급",
       "hard": "고급"
+    },
+    "startInterview": "면접을 시작하겠습니다!",
+    "interviewInfo": {
+      "difficulty": "난이도",
+      "totalQuestions": "총 질문 수",
+      "estimatedTime": "예상 소요 시간",
+      "firstQuestion": "첫 번째 질문입니다:"
+    },
+    "questions": {
+      "strengthsWeaknesses": "자신의 강점과 약점에 대해 말씀해 주세요.",
+      "teamwork": "팀워크가 중요한 이유와 본인이 팀에서 어떤 역할을 하는지 설명해 주세요.",
+      "memorableProject": "가장 기억에 남는 프로젝트나 성과에 대해 말씀해 주세요.",
+      "stressManagement": "스트레스 상황에서 어떻게 대처하시나요?",
+      "futureGoals": "앞으로 5년 후 본인의 모습은 어떨 것 같나요?",
+      "motivation": "우리 회사에 지원한 이유는 무엇인가요?",
+      "workLifeBalance": "업무와 개인생활의 균형을 어떻게 맞추시나요?",
+      "learningMethod": "새로운 기술이나 도구를 배우는 데 있어서 어떤 방법을 사용하시나요?",
+      "failureExperience": "실패했던 경험과 그로부터 배운 점에 대해 말씀해 주세요.",
+      "conflictResolution": "동료와 의견이 다를 때 어떻게 해결하시나요?",
+      "finalWords": "마지막으로 하고 싶은 말이 있으시다면 말씀해 주세요."
+    },
+    "welcomeSection": {
+      "title": "면접 준비 완료",
+      "subtitle": "설정을 확인하고 면접을 시작하세요",
+      "features": {
+        "settings": "난이도 및 질문 수 설정",
+        "aiInterview": "AI 면접관과 실시간 대화",
+        "timeGuide": "권장 답변 시간 제공",
+        "analysis": "면접 결과 분석"
+      },
+      "startButton": "면접 시작하기"
     }
   },
   "interview": {
@@ -107,6 +138,9 @@
     },
     "input": {
       "placeholder": "답변을 입력하세요..."
+    },
+    "message": {
+      "recommendedTime": "권장 답변 시간"
     }
   },
   "spellCheck": {
