@@ -574,91 +574,7 @@ const EmptyText = styled.p`
   margin: 0;
 `;
 
-// 자격증 검색 드롭다운 스타일
-const CertificationSearchContainer = styled.div`
-  position: relative;
-  width: 100%;
-  min-width: 300px;
-`;
-
-const CertificationDropdown = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #d1d5db;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 1000;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  min-width: 100%;
-  width: 100%;
-`;
-
-const CertificationOption = styled.div`
-  padding: 0.75rem;
-  cursor: pointer;
-  border-bottom: 1px solid #f3f4f6;
-  min-height: 44px;
-  display: flex;
-  flex-direction: column;
-  
-  &:hover {
-    background-color: #f9fafb;
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-
-
-const CertificationName = styled.span`
-  font-weight: 500;
-  color: #374151;
-`;
-
-const CertificationCategory = styled.span`
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
-`;
-
-const SelectedCertificationsContainer = styled.div`
-  margin-top: 1rem;
-`;
-
-
-
-const RemoveButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  margin-left: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0;
-  min-width: 20px;
-  min-height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const NoResultsText = styled.div`
-  padding: 1rem;
-  text-align: center;
-  color: #6b7280;
-  font-style: italic;
-`;
+// 미사용 스타일 컴포넌트들 제거
 
 // 어학 능력 레벨 선택 스타일
 const LanguageLevelSelect = styled.select`
@@ -681,56 +597,7 @@ const LanguageLevelSelect = styled.select`
 
 
 
-const SelectedExperienceTag = styled.div`
-  display: inline-flex;
-  align-items: center;
-  background-color: #f59e0b;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  gap: 0.5rem;
-`;
-
-const ExperienceInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-`;
-
-const ExperienceName = styled.span`
-  font-weight: 500;
-  color: white;
-`;
-
-const ExperienceYearSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-  font-size: 0.875rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  min-height: 32px;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    outline: none;
-    border-color: white;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
-  }
-  
-  option {
-    background-color: #f59e0b;
-    color: white;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 16px;
-  }
-`;
+// 미사용 경험 관련 스타일 컴포넌트들 제거
 
 
 
@@ -1422,7 +1289,6 @@ const ResumePage: React.FC = () => {
     validationErrors,
     handleInputChange,
     saveResumeWithValidation,
-    loadSavedResume,
   } = useResumeForm();
 
 
