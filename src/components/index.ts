@@ -2,8 +2,8 @@
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Sidebar } from './Sidebar';
-export { default as MainHeader } from './MainHeader';
-export { default as MainFooter } from './MainFooter';
+// Note: MainHeader and MainFooter removed from barrel exports
+// They are imported directly where needed
 
 // Section Components
 export { default as HeroSection } from './HeroSection';
@@ -21,6 +21,5 @@ export { default as ContractQuiz } from './ContractQuiz';
 export { default as ResumePage } from './ResumePage';
 export { default as ContractAnalysis } from './ContractAnalysis';
 
-export { default as LoginPage } from './LoginPage';
-export { default as InterviewPage } from './InterviewPage';
-export { default as MyPage } from './MyPage';
+// Note: LoginPage, InterviewPage, MyPage removed from barrel exports
+// They are imported directly in App.tsx

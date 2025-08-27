@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { MainHeader, MainFooter } from '../';
+import MainHeader from '../MainHeader';
+import MainFooter from '../MainFooter';
 import { PrimaryButton } from '../../styles/components/GoogleOAuthForm.styles';
 import {
   SuccessContainer,

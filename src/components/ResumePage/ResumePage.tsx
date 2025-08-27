@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MainHeader, MainFooter } from '../';
+import MainHeader from '../MainHeader';
+import MainFooter from '../MainFooter';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import PostcodeSearch from '../PostcodeSearch';
 import {

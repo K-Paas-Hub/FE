@@ -1,5 +1,6 @@
 import React from 'react';
-import { MainHeader, MainFooter } from '../';
+import MainHeader from '../MainHeader';
+import MainFooter from '../MainFooter';
 import { useMyPage } from '../../hooks/useMyPage';
 import {
   MyPageContainer,

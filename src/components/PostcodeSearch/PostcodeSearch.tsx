@@ -1,7 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import './PostcodeSearch.css';
 import {
+  PostcodeSearchContainer,
+  PostcodeSearchInputGroup,
+  PostcodeSearchInput,
+  PostcodeSearchButton,
+  PostcodeAddressDetails,
+  PostcodeZonecode,
+  PostcodeRoadAddress,
+  PostcodeJibunAddress,
+  PostcodeDetailAddress,
+  PostcodeBuildingName,
+  PostcodeCompleteAddress,
+  PostcodeLayerOverlay,
+  PostcodeLayerContainer,
+  PostcodeLayerHeader,
+  PostcodeLayerClose,
+  PostcodeLayerContent,
   DetailAddressContainer,
   DetailAddressInput,
   ConfirmButton,
@@ -211,48 +226,47 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
   const completeAddress = getCompleteAddress();
 
   return (
-    <div className={`postcode-search-container ${className}`} ref={containerRef}>
-      <div className="postcode-search-input-group">
-        <input
+    <PostcodeSearchContainer className={className} ref={containerRef}>
+      <PostcodeSearchInputGroup>
+        <PostcodeSearchInput
           ref={inputRef}
           type="text"
           value={displayValue}
           onChange={handleInputChange}
           placeholder={displayPlaceholder}
           disabled={disabled}
-          className="postcode-search-input"
           readOnly
         />
-        <button
+        <PostcodeSearchButton
           type="button"
           onClick={handleSearchClick}
           disabled={disabled || !isPostcodeLoaded}
-          className="postcode-search-button"
         >
           {t('postcode.searchAddress')}
-        </button>
-      </div>
+        </PostcodeSearchButton>
+      </PostcodeSearchInputGroup>
 
       {selectedAddress && (
-        <div className="postcode-address-details">
-          <div className="postcode-zonecode">
+        <PostcodeAddressDetails>
+          <PostcodeZonecode>
             {selectedAddress.zonecode}
-          </div>
+          </PostcodeZonecode>
           
           {showRoadAddress && selectedAddress.roadAddress && (
-            <div className="postcode-road-address">
+            <PostcodeRoadAddress>
               <strong>{t('postcode.roadAddress')}</strong> {selectedAddress.roadAddress}
-            </div>
+            </PostcodeRoadAddress>
           )}
           
           {showJibunAddress && selectedAddress.jibunAddress && (
-            <div className="postcode-jibun-address">
+            <PostcodeJibunAddress>
               <strong>{t('postcode.jibunAddress')}</strong> {selectedAddress.jibunAddress}
-            </div>
+            </PostcodeJibunAddress>
           )}
           
           {showDetailAddress && (
-            <DetailAddressContainer>
+            <PostcodeDetailAddress>
+              <DetailAddressContainer>
               <label htmlFor="detail-address">{t('postcode.detailAddress')}</label>
               <DetailAddressInput
                 id="detail-address"
@@ -275,41 +289,41 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
               >
                 {t('postcode.confirm')}
               </ConfirmButton>
-            </DetailAddressContainer>
+              </DetailAddressContainer>
+            </PostcodeDetailAddress>
           )}
           
           {selectedAddress.buildingName && (
-            <div className="postcode-building-name">
+            <PostcodeBuildingName>
               <strong>{t('postcode.buildingName')}</strong> {selectedAddress.buildingName}
-            </div>
+            </PostcodeBuildingName>
           )}
 
           {completeAddress && (
-            <div className="postcode-complete-address">
+            <PostcodeCompleteAddress>
               {completeAddress}
-            </div>
+            </PostcodeCompleteAddress>
           )}
-        </div>
+        </PostcodeAddressDetails>
       )}
 
       {showPostcode && (
-        <div className="postcode-layer-overlay">
-          <div className="postcode-layer-container">
-            <div className="postcode-layer-header">
+        <PostcodeLayerOverlay>
+          <PostcodeLayerContainer>
+            <PostcodeLayerHeader>
               <h3>{t('postcode.searchAddress')}</h3>
-              <button
+              <PostcodeLayerClose
                 type="button"
                 onClick={() => setShowPostcode(false)}
-                className="postcode-layer-close"
               >
                 ✕
-              </button>
-            </div>
-            <div ref={postcodeRef} className="postcode-layer-content" />
-          </div>
-        </div>
+              </PostcodeLayerClose>
+            </PostcodeLayerHeader>
+            <PostcodeLayerContent ref={postcodeRef} />
+          </PostcodeLayerContainer>
+        </PostcodeLayerOverlay>
       )}
-    </div>
+    </PostcodeSearchContainer>
   );
 };
 

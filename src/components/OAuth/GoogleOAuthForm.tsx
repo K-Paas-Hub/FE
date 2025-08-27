@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { MainHeader, MainFooter } from '../';
+import MainHeader from '../MainHeader';
+import MainFooter from '../MainFooter';
 import PostcodeSearch from '../PostcodeSearch';
 import useOAuth from '../../hooks/useOAuth';
 import { OAuthAdditionalInfo } from '../../types/oauth';

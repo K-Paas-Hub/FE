@@ -1,58 +1,6 @@
-// 날짜 포맷팅 유틸리티
-export const formatDate = (date: Date | string): string => {
-  const d = new Date(date);
-  return d.toLocaleDateString('ko-KR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-};
-
-// 숫자 포맷팅 유틸리티
-export const formatNumber = (num: number): string => {
-  return new Intl.NumberFormat('ko-KR').format(num);
-};
-
-// 문자열 길이 제한 유틸리티
-export const truncateText = (text: string, maxLength: number): string => {
-  if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength) + '...';
-};
-
-// 이메일 유효성 검사 유틸리티
-export const isValidEmail = (email: string): boolean => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
-
-// 비밀번호 강도 검사 유틸리티
-export const checkPasswordStrength = (password: string): {
-  score: number;
-  feedback: string;
-} => {
-  let score = 0;
-  const feedback: string[] = [];
-
-  if (password.length >= 8) score += 1;
-  else feedback.push('validation.password.minLength');
-
-  if (/[a-z]/.test(password)) score += 1;
-  else feedback.push('validation.password.lowercase');
-
-  if (/[A-Z]/.test(password)) score += 1;
-  else feedback.push('validation.password.uppercase');
-
-  if (/[0-9]/.test(password)) score += 1;
-  else feedback.push('validation.password.number');
-
-  if (/[^A-Za-z0-9]/.test(password)) score += 1;
-  else feedback.push('validation.password.special');
-
-  return {
-    score,
-    feedback: feedback.join(' '),
-  };
-};
+// Note: formatDate, formatNumber, truncateText, isValidEmail, and checkPasswordStrength
+// were removed as they are not used anywhere in the codebase.
+// formatDate functionality is available in utils/jobUtils.ts and utils/i18nUtils.ts
 
 // 로컬 스토리지 유틸리티
 export const storage = {
