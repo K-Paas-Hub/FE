@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { MainHeader, MainFooter } from '../';
 import { useResumeForm } from '../../hooks/useResumeForm';
 import AddressSearch from '../AddressSearch';
 import { AddressData } from '../../services/kakaoAddressService';
+import { resumeService } from '../../services/api';
 import {
   ResumeContainer,
   ResumeContent,
@@ -16,37 +18,27 @@ import {
   ButtonGroup,
   PrimaryButton,
   SecondaryButton,
+  FormSelect,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalTitle,
+  CloseButton,
+  PreviewSection,
+  PreviewSectionTitle,
+  PreviewContent,
+  PreviewText,
+  EmptyText,
+  CertificationSearchContainer,
+  CertificationDropdown,
+  CertificationOption,
+  CertificationName,
+  CertificationCategory,
+  SelectedCertificationsContainer,
+  RemoveButton,
+  NoResultsText,
+  LanguageLevelSelect,
 } from '../../styles/components/ResumePage.styles';
-import styled from 'styled-components';
-
-// 드롭다운 스타일
-const FormSelect = styled.select`
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: white;
-  color: #374151;
-  min-height: 44px;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
-  }
-  
-  &:disabled {
-    background-color: #f9fafb;
-    color: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 16px; /* iOS에서 줌 방지 */
-  }
-`;
 
 // 국적 옵션
 const nationalityOptions = [
@@ -733,98 +725,7 @@ const skillData = [
   { id: '55', name: 'Tableau', category: '기타', description: '데이터 시각화 도구', levels: ['초급', '중급', '고급', '전문가'] }
 ];
 
-// 미리보기 모달 스타일
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  backdrop-filter: blur(4px);
-`;
 
-const ModalContent = styled.div`
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-`;
-
-const ModalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #e5e7eb;
-`;
-
-const ModalTitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-`;
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #6b7280;
-  padding: 0.5rem;
-  border-radius: 4px;
-  min-width: 44px;
-  min-height: 44px;
-  
-  &:hover {
-    background-color: #f3f4f6;
-    color: #374151;
-  }
-`;
-
-const PreviewSection = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const PreviewSectionTitle = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const PreviewContent = styled.div`
-  background-color: #f9fafb;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #4ade80;
-`;
-
-const PreviewText = styled.p`
-  margin: 0;
-  line-height: 1.6;
-  color: #374151;
-  white-space: pre-wrap;
-`;
-
-const EmptyText = styled.p`
-  color: #9ca3af;
-  font-style: italic;
-  margin: 0;
-`;
 
 // 자격증 검색 드롭다운 스타일
 const CertificationSearchContainer = styled.div`
@@ -1913,10 +1814,12 @@ const ResumePage: React.FC = () => {
     // formData 업데이트
     setFormData(dataToSave);
     
-    // 업데이트된 데이터로 저장
-    const result = await saveResumeWithValidation();
+    // 업데이트된 데이터로 직접 저장
+    const result = await resumeService.saveResume(dataToSave);
     if (result.success) {
       alert('이력서가 성공적으로 저장되었습니다!');
+    } else {
+      alert('저장에 실패했습니다: ' + result.error);
     }
   };
 

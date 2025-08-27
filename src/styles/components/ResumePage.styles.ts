@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { theme } from '../theme/theme';
+import { motion } from 'framer-motion';
+import { COLORS, ANIMATIONS } from '../../constants';
 
 // Main Container
 export const ResumeContainer = styled.div`
@@ -135,19 +137,32 @@ export const FormTextarea = styled.textarea<{ $hasError?: boolean }>`
   }
 `;
 
-export const FormSelect = styled.select<{ $hasError?: boolean }>`
-  padding: ${theme.spacing.lg};
-  border: 2px solid ${props => props.$hasError ? theme.colors.error : theme.colors.borderLight};
-  border-radius: ${theme.radius.lg};
-  font-size: ${theme.typography.fontSize.base};
-  background: white;
-  cursor: pointer;
-  transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+// 드롭다운 스타일
+export const FormSelect = styled.select`
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  color: #374151;
+  min-height: 44px;
+  transition: all 0.3s ease;
   
   &:focus {
     outline: none;
-    border-color: ${theme.colors.primary};
-    box-shadow: ${theme.shadows.glow};
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+  }
+  
+  &:disabled {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px; /* iOS에서 줌 방지 */
   }
 `;
 
@@ -209,7 +224,7 @@ export const SecondaryButton = styled.button`
 `;
 
 // Preview Components
-export const PreviewContent = styled.div`
+export const ResumePreviewContent = styled.div`
   background: white;
   border: 2px solid ${theme.colors.borderLight};
   border-radius: ${theme.radius.lg};
@@ -388,5 +403,166 @@ export const CloseButton = styled.button`
   &:hover {
     background: ${theme.colors.backgroundGray};
     color: ${theme.colors.textPrimary};
+  }
+`;
+
+// 미리보기 모달 스타일
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+`;
+
+export const ModalContent = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+`;
+
+export const PreviewSection = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const PreviewSectionTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const PreviewContent = styled.div`
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #4ade80;
+`;
+
+export const PreviewText = styled.p`
+  margin: 0;
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-wrap;
+`;
+
+export const EmptyText = styled.p`
+  color: #9ca3af;
+  font-style: italic;
+  margin: 0;
+`;
+
+// 자격증 관련 스타일
+export const CertificationSearchContainer = styled.div`
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+`;
+
+export const CertificationDropdown = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 100%;
+  width: 100%;
+`;
+
+export const CertificationOption = styled.div`
+  padding: 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    background-color: #f9fafb;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+export const CertificationName = styled.span`
+  font-weight: 500;
+  color: #374151;
+`;
+
+export const CertificationCategory = styled.span`
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+`;
+
+export const SelectedCertificationsContainer = styled.div`
+  margin-top: 1rem;
+`;
+
+export const RemoveButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const NoResultsText = styled.div`
+  padding: 1rem;
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+`;
+
+export const LanguageLevelSelect = styled.select`
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: white;
+  color: #374151;
+  margin-left: 0.125rem;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+  margin-top: -0.125rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
   }
 `;
