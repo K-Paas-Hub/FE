@@ -1529,7 +1529,7 @@ const ResumePage: React.FC = () => {
         if (foundExp) {
           return { 
             ...foundExp, 
-            selectedYear: year || '1년 미만' 
+            selectedYear: year || '' 
           };
         } else {
           return { 
@@ -1538,7 +1538,7 @@ const ResumePage: React.FC = () => {
             category: '기타', 
             description: '기타 경력',
             years: ['1년 미만', '1-2년', '3-5년', '6-10년', '10년 이상'],
-            selectedYear: year || '1년 미만' 
+            selectedYear: year || '' 
           };
         }
       });
@@ -1805,11 +1805,16 @@ const ResumePage: React.FC = () => {
   // 경력 정보 선택
   const handleExperienceSelect = (experience: {id: string, name: string, category: string, description: string, years: string[]}) => {
     if (!selectedExperiences.find(exp => exp.id === experience.id)) {
-      const newSelectedExperiences = [...selectedExperiences, { ...experience, selectedYear: '1년 미만' }];
+      const newSelectedExperiences = [...selectedExperiences, { ...experience, selectedYear: '' }];
       setSelectedExperiences(newSelectedExperiences);
       
-      // formData에 경력 정보 문자열로 저장
-      const experienceEntries = newSelectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ');
+      // formData에 경력 정보 문자열로 저장 (연도가 선택되지 않은 경우 이름만 저장)
+      const experienceEntries = newSelectedExperiences.map(exp => exp.selectedYear ? `${exp.name} ${exp.selectedYear}` : exp.name).join(', ');
+      const newFormData = { ...formData, experience: experienceEntries };
+      
+      // localStorage에 자동 저장
+      localStorage.setItem('resume_draft', JSON.stringify(newFormData));
+      
       handleInputChange({
         target: { name: 'experience', value: experienceEntries }
       } as React.ChangeEvent<HTMLInputElement>);
@@ -1823,8 +1828,13 @@ const ResumePage: React.FC = () => {
     const newSelectedExperiences = selectedExperiences.filter(exp => exp.id !== experienceId);
     setSelectedExperiences(newSelectedExperiences);
     
-    // formData에 경력 정보 문자열로 업데이트
-    const experienceEntries = newSelectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ');
+    // formData에 경력 정보 문자열로 업데이트 (연도가 선택되지 않은 경우 이름만 저장)
+    const experienceEntries = newSelectedExperiences.map(exp => exp.selectedYear ? `${exp.name} ${exp.selectedYear}` : exp.name).join(', ');
+    const newFormData = { ...formData, experience: experienceEntries };
+    
+    // localStorage에 자동 저장
+    localStorage.setItem('resume_draft', JSON.stringify(newFormData));
+    
     handleInputChange({
       target: { name: 'experience', value: experienceEntries }
     } as React.ChangeEvent<HTMLInputElement>);
@@ -1854,8 +1864,13 @@ const ResumePage: React.FC = () => {
     );
     setSelectedExperiences(newSelectedExperiences);
     
-    // formData에 경력 정보 문자열로 업데이트
-    const experienceEntries = newSelectedExperiences.map(exp => `${exp.name} ${exp.selectedYear}`).join(', ');
+    // formData에 경력 정보 문자열로 업데이트 (연도가 선택되지 않은 경우 이름만 저장)
+    const experienceEntries = newSelectedExperiences.map(exp => exp.selectedYear ? `${exp.name} ${exp.selectedYear}` : exp.name).join(', ');
+    const newFormData = { ...formData, experience: experienceEntries };
+    
+    // localStorage에 자동 저장
+    localStorage.setItem('resume_draft', JSON.stringify(newFormData));
+    
     handleInputChange({
       target: { name: 'experience', value: experienceEntries }
     } as React.ChangeEvent<HTMLInputElement>);
