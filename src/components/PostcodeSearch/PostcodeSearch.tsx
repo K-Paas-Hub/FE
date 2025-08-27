@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './PostcodeSearch.css';
+import {
+  DetailAddressContainer,
+  DetailAddressInput,
+  ConfirmButton,
+} from './PostcodeSearch.styles';
 
 interface AddressData {
   zonecode: string;
@@ -365,48 +370,30 @@ const PostcodeSearch: React.FC<PostcodeSearchProps> = ({
           )}
           
           {showDetailAddress && (
-            <div className="postcode-detail-address">
+            <DetailAddressContainer>
               <label htmlFor="detail-address">{t('상세주소')}</label>
-              <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-                <input
-                  id="detail-address"
-                  type="text"
-                  value={detailAddress}
-                  onChange={handleDetailAddressChange}
-                  onKeyPress={handleDetailAddressKeyPress}
-                  placeholder={t('상세주소를 입력하세요')}
-                  className="postcode-detail-input"
-                  style={{ flex: 1 }}
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (selectedAddress) {
-                      const addressWithComplete = {
-                        ...selectedAddress,
-                        completeAddress: getCompleteAddress()
-                      };
-                      onAddressSelect(addressWithComplete);
-                    }
-                  }}
-                  className="postcode-confirm-button"
-                  style={{
-                    padding: '8px 16px',
-                    backgroundColor: '#4ade80',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    minHeight: '44px',
-                    minWidth: '44px'
-                  }}
-                >
-                  확인
-                </button>
-              </div>
-            </div>
+              <DetailAddressInput
+                id="detail-address"
+                type="text"
+                value={detailAddress}
+                onChange={handleDetailAddressChange}
+                onKeyPress={handleDetailAddressKeyPress}
+                placeholder={t('상세주소를 입력하세요')}
+              />
+              <ConfirmButton
+                onClick={() => {
+                  if (selectedAddress) {
+                    const addressWithComplete = {
+                      ...selectedAddress,
+                      completeAddress: getCompleteAddress()
+                    };
+                    onAddressSelect(addressWithComplete);
+                  }
+                }}
+              >
+                확인
+              </ConfirmButton>
+            </DetailAddressContainer>
           )}
           
           {selectedAddress.buildingName && (

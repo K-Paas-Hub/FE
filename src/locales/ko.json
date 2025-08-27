@@ -851,5 +851,41 @@
     "c3": "C-3 (단기종합)",
     "c4": "C-4 (단기취업)",
     "other": "기타"
+  },
+  "signup": {
+    "visaTypeRequired": "비자 유형을 선택해주세요.",
+    "issueDateRequired": "발급일을 입력해주세요.",
+    "expiryDateRequired": "만료일을 입력해주세요.",
+    "expiryDateAfterIssue": "만료일은 발급일보다 늦어야 합니다.",
+    "addressRequired": "주소를 입력해주세요.",
+    "addressLabel": "주소",
+    "addressPlaceholder": "주소를 검색하세요",
+    "visaInfoLabel": "비자 정보",
+    "hasVisa": "비자 있음",
+    "noVisa": "비자 없음",
+    "visaTypeLabel": "비자 유형",
+    "issueDateLabel": "발급일",
+    "expiryDateLabel": "만료일"
+  },
+  "visaDetail": {
+    "visaTypeNotFound": "비자 유형을 찾을 수 없습니다.",
+    "backToVisaCenter": "← 비자 센터로 돌아가기",
+    "requiredDocuments": "📋 필요 서류",
+    "applicationProcess": "🚀 신청 절차"
+  },
+  "postcode": {
+    "searchAddress": "주소 검색",
+    "roadAddress": "도로명주소",
+    "jibunAddress": "지번주소",
+    "detailAddress": "상세주소",
+    "detailAddressPlaceholder": "상세주소를 입력하세요",
+    "buildingName": "건물명",
+    "confirm": "확인"
+  },
+  "footer": {
+    "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
+    "businessInfoButton": "사업자정보확인",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "모바일 버전 보기"
   }
 }

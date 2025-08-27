@@ -780,5 +780,41 @@
     "actions": {
       "backToLogin": "Quay lại đăng nhập"
     }
+  },
+  "signup": {
+    "visaTypeRequired": "Vui lòng chọn loại visa.",
+    "issueDateRequired": "Vui lòng nhập ngày cấp.",
+    "expiryDateRequired": "Vui lòng nhập ngày hết hạn.",
+    "expiryDateAfterIssue": "Ngày hết hạn phải sau ngày cấp.",
+    "addressRequired": "Vui lòng nhập địa chỉ.",
+    "addressLabel": "Địa chỉ",
+    "addressPlaceholder": "Tìm kiếm địa chỉ",
+    "visaInfoLabel": "Thông tin visa",
+    "hasVisa": "Có visa",
+    "noVisa": "Không có visa",
+    "visaTypeLabel": "Loại visa",
+    "issueDateLabel": "Ngày cấp",
+    "expiryDateLabel": "Ngày hết hạn"
+  },
+  "visaDetail": {
+    "visaTypeNotFound": "Không tìm thấy loại visa.",
+    "backToVisaCenter": "← Quay lại Trung tâm Visa",
+    "requiredDocuments": "📋 Tài liệu cần thiết",
+    "applicationProcess": "🚀 Quy trình đăng ký"
+  },
+  "postcode": {
+    "searchAddress": "Tìm kiếm địa chỉ",
+    "roadAddress": "Địa chỉ đường",
+    "jibunAddress": "Địa chỉ địa danh",
+    "detailAddress": "Địa chỉ chi tiết",
+    "detailAddressPlaceholder": "Nhập địa chỉ chi tiết",
+    "buildingName": "Tên tòa nhà",
+    "confirm": "Xác nhận"
+  },
+  "footer": {
+    "businessInfo": "Đăng ký kinh doanh: 123-45-67890, Cung cấp thông tin việc làm: Seoul Gangnam 2024-1, Thương mại điện tử: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "Xác nhận thông tin kinh doanh",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "Xem phiên bản di động"
   }
 }
