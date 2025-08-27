@@ -51,7 +51,11 @@
       "creatingAccount": "계정 만들기 중...",
       "title": "회원가입",
       "success": "회원가입이 완료되었습니다!",
-      "error": "회원가입에 실패했습니다. 다시 시도해주세요."
+      "error": "회원가입에 실패했습니다. 다시 시도해주세요.",
+      "logs": {
+        "signupAttempt": "회원가입 시도",
+        "signupFailed": "회원가입 실패"
+      }
     },
     "login": {
       "idLabel": "아이디",
@@ -1016,6 +1020,19 @@
       "phonePlaceholder": "전화번호를 입력하세요",
       "addressPlaceholder": "주소를 검색하세요"
     }
+  },
+  "signup": {
+    "visaInfoLabel": "비자 정보",
+    "hasVisa": "비자 있음",
+    "noVisa": "비자 없음",
+    "visaTypeLabel": "비자 유형",
+    "issueDateLabel": "발급일",
+    "expiryDateLabel": "만료일",
+    "visaTypeRequired": "비자 유형을 선택해주세요.",
+    "issueDateRequired": "발급일을 입력해주세요.",
+    "expiryDateRequired": "만료일을 입력해주세요.",
+    "expiryDateAfterIssue": "만료일은 발급일 이후여야 합니다.",
+    "addressRequired": "주소를 입력해주세요."
   },
   "interviewSettings": {
     "title": "면접 설정",

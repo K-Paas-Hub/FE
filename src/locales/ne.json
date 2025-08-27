@@ -49,7 +49,11 @@
       "creatingAccount": "खाता सिर्जना गर्दै...",
       "title": "साइन अप",
       "success": "साइन अप सफल भयो!",
-      "error": "साइन अप असफल भयो। कृपया फेरि प्रयास गर्नुहोस्।"
+      "error": "साइन अप असफल भयो। कृपया फेरि प्रयास गर्नुहोस्।",
+      "logs": {
+        "signupAttempt": "साइनअप प्रयास",
+        "signupFailed": "साइनअप असफल"
+      }
     },
     "login": {
       "idLabel": "आईडी",
@@ -607,11 +611,11 @@
     "other": "अन्य"
   },
   "signup": {
-    "visaTypeRequired": "कृपया भिसा प्रकार छनोट गर्नुहोस्।",
+    "visaTypeRequired": "कृपया भिसा प्रकार छान्नुहोस्।",
     "issueDateRequired": "कृपया जारी मिति प्रविष्ट गर्नुहोस्।",
-    "expiryDateRequired": "कृपया म्याद सकिने मिति प्रविष्ट गर्नुहोस्।",
-    "expiryDateAfterIssue": "म्याद सकिने मिति जारी मितिभन्दा पछि हुनुपर्छ।",
-    "addressRequired": "कृपया तपाईंको ठेगाना प्रविष्ट गर्नुहोस्।",
+    "expiryDateRequired": "कृपया समाप्ति मिति प्रविष्ट गर्नुहोस्।",
+    "expiryDateAfterIssue": "समाप्ति मिति जारी मिति पछि हुनुपर्छ।",
+    "addressRequired": "कृपया आफ्नो ठेगाना प्रविष्ट गर्नुहोस्।",
     "addressLabel": "ठेगाना",
     "addressPlaceholder": "ठेगाना खोज्नुहोस्",
     "visaInfoLabel": "भिसा जानकारी",
@@ -619,7 +623,7 @@
     "noVisa": "भिसा छैन",
     "visaTypeLabel": "भिसा प्रकार",
     "issueDateLabel": "जारी मिति",
-    "expiryDateLabel": "म्याद सकिने मिति"
+    "expiryDateLabel": "समाप्ति मिति"
   },
   "visaDetail": {
     "visaTypeNotFound": "भिसा प्रकार फेला परेन।",

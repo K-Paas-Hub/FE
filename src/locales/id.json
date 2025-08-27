@@ -49,7 +49,11 @@
       "creatingAccount": "Membuat akun...",
       "title": "Daftar",
       "success": "Pendaftaran berhasil!",
-      "error": "Pendaftaran gagal. Silakan coba lagi."
+      "error": "Pendaftaran gagal. Silakan coba lagi.",
+      "logs": {
+        "signupAttempt": "Percobaan mendaftar",
+        "signupFailed": "Pendaftaran gagal"
+      }
     },
     "login": {
       "idLabel": "ID",

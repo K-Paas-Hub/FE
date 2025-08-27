@@ -49,7 +49,11 @@
       "creatingAccount": "កំពុងបង្កើតគណនី...",
       "title": "ចុះឈ្មោះ",
       "success": "ចុះឈ្មោះបានជោគជ័យ!",
-      "error": "ចុះឈ្មោះបរាជ័យ។ សូមព្យាយាមម្តងទៀត។"
+      "error": "ចុះឈ្មោះបរាជ័យ។ សូមព្យាយាមម្តងទៀត។",
+      "logs": {
+        "signupAttempt": "ការព្យាយាមចុះឈ្មោះ",
+        "signupFailed": "ការចុះឈ្មោះបរាជ័យ"
+      }
     },
     "login": {
       "idLabel": "លេខសម្គាល់",
@@ -841,17 +845,17 @@
     "other": "ផ្សេងទៀត"
   },
   "signup": {
-    "visaTypeRequired": "សូមជ្រើសរើសប្រភេទទិដ្ឋាការ។",
+    "visaTypeRequired": "សូមជ្រើសរើសប្រភេទវីសា។",
     "issueDateRequired": "សូមបញ្ចូលថ្ងៃចេញ។",
     "expiryDateRequired": "សូមបញ្ចូលថ្ងៃផុតកំណត់។",
     "expiryDateAfterIssue": "ថ្ងៃផុតកំណត់ត្រូវតែក្រោយថ្ងៃចេញ។",
     "addressRequired": "សូមបញ្ចូលអាសយដ្ឋានរបស់អ្នក។",
     "addressLabel": "អាសយដ្ឋាន",
     "addressPlaceholder": "ស្វែងរកអាសយដ្ឋាន",
-    "visaInfoLabel": "ព័ត៌មានទិដ្ឋាការ",
-    "hasVisa": "មានទិដ្ឋាការ",
-    "noVisa": "គ្មានទិដ្ឋាការ",
-    "visaTypeLabel": "ប្រភេទទិដ្ឋាការ",
+    "visaInfoLabel": "ព័ត៌មានវីសា",
+    "hasVisa": "មានវីសា",
+    "noVisa": "គ្មានវីសា",
+    "visaTypeLabel": "ប្រភេទវីសា",
     "issueDateLabel": "ថ្ងៃចេញ",
     "expiryDateLabel": "ថ្ងៃផុតកំណត់"
   },

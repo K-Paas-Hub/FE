@@ -51,7 +51,11 @@
       "creatingAccount": "Creating account...",
       "title": "Sign Up",
       "success": "Sign up completed successfully!",
-      "error": "Sign up failed. Please try again."
+      "error": "Sign up failed. Please try again.",
+      "logs": {
+        "signupAttempt": "Sign up attempt",
+        "signupFailed": "Sign up failed"
+      }
     },
     "login": {
       "idLabel": "ID",
@@ -985,6 +989,19 @@
       "phonePlaceholder": "Enter your phone number",
       "addressPlaceholder": "Search for address"
     }
+  },
+  "signup": {
+    "visaInfoLabel": "Visa Information",
+    "hasVisa": "Have Visa",
+    "noVisa": "No Visa",
+    "visaTypeLabel": "Visa Type",
+    "issueDateLabel": "Issue Date",
+    "expiryDateLabel": "Expiry Date",
+    "visaTypeRequired": "Please select a visa type.",
+    "issueDateRequired": "Please enter the issue date.",
+    "expiryDateRequired": "Please enter the expiry date.",
+    "expiryDateAfterIssue": "Expiry date must be after issue date.",
+    "addressRequired": "Please enter your address."
   },
   "interviewSettings": {
     "title": "Interview Settings",

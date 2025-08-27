@@ -21,8 +21,8 @@ const SignupPage: React.FC = () => {
   ) => {
     setIsFormLoading(true);
     try {
-      // 여기에 실제 회원가입 로직을 구현하세요
-      devLog('회원가입 시도', { 
+      // Implement actual signup logic here
+      devLog(t('auth.signup.logs.signupAttempt'), { 
         id, 
         name, 
         phone, 
@@ -30,16 +30,16 @@ const SignupPage: React.FC = () => {
         visaInfo 
       });
       
-      // 목업 데이터로 성공 응답 시뮬레이션
+      // Simulate success response with mock data
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // 성공 시 처리 (예: 로그인 페이지로 리다이렉트)
-              alert(t('auth.signup.success'));
+      // Handle success (e.g., redirect to login page)
+      alert(t('auth.signup.success'));
       window.location.href = '/login';
       
     } catch (error) {
-      devError('회원가입 실패', error);
-              alert(t('auth.signup.error'));
+      devError(t('auth.signup.logs.signupFailed'), error);
+      alert(t('auth.signup.error'));
     } finally {
       setIsFormLoading(false);
     }

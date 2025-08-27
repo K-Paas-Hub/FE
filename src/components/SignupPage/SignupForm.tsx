@@ -102,7 +102,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
   const handleVisaChange = (field: keyof VisaInfo, value: string | boolean) => {
     const newVisaInfo = { ...visaInfo, [field]: value };
     
-    // 비자 없음으로 변경 시 기존 정보 초기화
+    // Reset visa info when changing to no visa
     if (field === 'hasVisa' && value === false) {
       newVisaInfo.visaType = '';
       newVisaInfo.issueDate = '';
@@ -254,7 +254,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         {addressError && <div className="error-message">{addressError}</div>}
       </div>
 
-      {/* 비자 정보 섹션 */}
+      {/* Visa Information Section */}
       <div className="input-group">
         <label className="input-label">{t('signup.visaInfoLabel')}</label>
         <div className="visa-radio-group">
@@ -281,7 +281,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         </div>
       </div>
 
-      {/* 비자 상세 정보 (비자 있음 선택 시에만 표시) */}
+      {/* Visa Details (only shown when visa is selected) */}
       {visaInfo.hasVisa && (
         <>
           <div className="input-group">

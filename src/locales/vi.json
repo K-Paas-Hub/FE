@@ -54,7 +54,11 @@
       "creatingAccount": "Đang tạo tài khoản...",
       "title": "Đăng ký",
       "success": "Đăng ký thành công!",
-      "error": "Đăng ký thất bại. Vui lòng thử lại."
+      "error": "Đăng ký thất bại. Vui lòng thử lại.",
+      "logs": {
+        "signupAttempt": "Thử đăng ký",
+        "signupFailed": "Đăng ký thất bại"
+      }
     },
     "login": {
       "idLabel": "ID",
@@ -92,20 +96,108 @@
     }
   },
   "mainPage": {
-    "searchPlaceholder": "Tìm kiếm chức danh công việc và từ khóa...",
-    "region": "Khu vực",
-    "employmentType": "Loại việc làm",
-    "jobCategory": "Danh mục công việc",
-    "refresh": "Làm mới",
-    "jobPostings": "Tin tuyển dụng",
-    "sortBy": "Sắp xếp theo",
-    "latest": "Mới nhất",
-    "popular": "Phổ biến",
-    "salary": "Lương",
-    "deadline": "Hạn chót",
-    "noResults": "Không tìm thấy kết quả tìm kiếm.",
-    "searchResults": "Kết quả tìm kiếm",
-    "items": "mục"
+    "search": {
+      "placeholder": "Tìm kiếm theo tên công việc hoặc từ khóa liên quan.",
+      "clearButton": "✕"
+    },
+    "filters": {
+      "region": "Khu vực",
+      "employmentType": "Loại việc làm",
+      "category": "Danh mục",
+      "resetAll": "Đặt lại tất cả bộ lọc"
+    },
+    "filterOptions": {
+      "regions": {
+        "seoul": "Seoul",
+        "gyeonggi": "Gyeonggi",
+        "incheon": "Incheon",
+        "busan": "Busan",
+        "daejeon": "Daejeon",
+        "daegu": "Daegu",
+        "ulsan": "Ulsan",
+        "gwangju": "Gwangju",
+        "gangwon": "Gangwon",
+        "sejong": "Sejong",
+        "chungbuk": "Chungbuk",
+        "chungnam": "Chungnam",
+        "gyeongbuk": "Gyeongbuk",
+        "gyeongnam": "Gyeongnam",
+        "jeju": "Jeju",
+        "jeonbuk": "Jeonbuk",
+        "jeonnam": "Jeonnam"
+      },
+      "employmentTypes": {
+        "fulltime": "Toàn thời gian",
+        "contract": "Hợp đồng",
+        "intern": "Thực tập",
+        "parttime": "Bán thời gian",
+        "freelance": "Tự do"
+      },
+      "categories": {
+        "design": "Thiết kế",
+        "manufacturing": "Sản xuất",
+        "it": "IT",
+        "management": "Quản lý",
+        "marketing": "Marketing",
+        "education": "Giáo dục",
+        "trade": "Thương mại/Vận chuyển",
+        "sales": "Bán hàng/CS",
+        "service": "Dịch vụ",
+        "construction": "Xây dựng",
+        "entertainment": "Giải trí",
+        "translation": "Dịch thuật",
+        "rd": "R&D",
+        "other": "Khác"
+      }
+    },
+    "searchResults": {
+      "title": "Kết quả tìm kiếm",
+      "count": "mục",
+      "noResults": {
+        "title": "Không tìm thấy kết quả",
+        "subtitle": "Thử tìm kiếm với từ khóa khác"
+      }
+    },
+    "jobList": {
+      "title": "Tin tuyển dụng",
+      "sortOptions": {
+        "latest": "Mới nhất",
+        "popular": "Phổ biến",
+        "salary": "Lương",
+        "deadline": "Hạn chót"
+      },
+      "sortLabel": "Chọn tùy chọn sắp xếp"
+    },
+    "jobCard": {
+      "visaSupport": "Hỗ trợ visa E-7"
+    },
+    "filterModal": {
+      "close": "Đóng modal bộ lọc",
+      "appliedFilters": "Bộ lọc đã áp dụng",
+      "actions": {
+        "reset": "Đặt lại",
+        "viewResults": "Xem kết quả"
+      }
+    },
+    "chat": {
+      "title": "Trò chuyện với Bot FairWork",
+      "subtitle": "Nhận trợ giúp thông qua chatbot!",
+      "close": "Đóng",
+      "time": "6:14 PM",
+      "botMessage": {
+        "greeting": "Xin chào. Tôi là FairWork BOT.",
+        "selectType": "Vui lòng chọn loại thành viên.",
+        "note": "(*Chatbot này không cung cấp dịch vụ chat thời gian thực với nhân viên.)"
+      },
+      "userTypes": {
+        "individual": "Thành viên cá nhân",
+        "corporate": "Thành viên doanh nghiệp"
+      },
+      "input": {
+        "placeholder": "Nhập tin nhắn"
+      },
+      "footer": "Được xây dựng với Zendesk"
+    }
   },
   "resumePage": {
     "title": "Viết sơ yếu lý lịch",
@@ -130,43 +222,9 @@
     "emptyField": "Vui lòng nhập"
   },
   "spellCheck": {
-    "title": "Kiểm tra chính tả",
-    "noDataTitle": "Không có dữ liệu sơ yếu lý lịch",
-    "noDataText": "Vui lòng tạo sơ yếu lý lịch trước để thực hiện kiểm tra chính tả.",
-    "createResumeLink": "Tạo sơ yếu lý lịch →",
-    "resumeContent": "Nội dung sơ yếu lý lịch",
-    "checkOptions": {
-      "spelling": "Chính tả",
-      "grammar": "Ngữ pháp",
-      "punctuation": "Dấu câu",
-      "spacing": "Khoảng cách"
-    },
-    "sections": {
-      "name": "Tên",
-      "email": "Email",
-      "phone": "Điện thoại",
-      "nationality": "Quốc tịch",
-      "visaType": "Loại visa",
-      "education": "Học vấn",
-      "experience": "Kinh nghiệm",
-      "skills": "Kỹ năng & Chứng chỉ",
-      "languages": "Kỹ năng ngôn ngữ",
-      "introduction": "Tự giới thiệu"
-    },
-    "actions": {
-      "check": "Kiểm tra",
-      "checking": "Đang kiểm tra...",
-      "apply": "Áp dụng"
-    },
-    "messages": {
-      "noContent": "Không có nội dung được nhập.",
-      "wordCount": "từ",
-      "noErrors": "Không có lỗi",
-      "errorCount": "lỗi"
-    },
     "loadingResumeData": "Đang tải dữ liệu sơ yếu lý lịch...",
-    "savedResumeMessage": "Đây là nội dung tự giới thiệu đã lưu của bạn. Vui lòng chỉnh sửa và kiểm tra.",
-    "defaultIntroduction": "Xin chào. Tôi là công nhân nước ngoài. Tôi muốn làm việc ở Hàn Quốc.",
+    "savedResumeMessage": "Đây là nội dung tự giới thiệu đã lưu. Vui lòng chỉnh sửa và kiểm tra.",
+    "defaultIntroduction": "Xin chào. Tôi là lao động nước ngoài. Tôi muốn làm việc tại Hàn Quốc.",
     "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch",
     "resumeSpecific": {
       "resultsTitle": "Kết quả kiểm tra chính tả sơ yếu lý lịch",
@@ -178,6 +236,49 @@
         "sentenceLength": "Độ dài câu",
         "paragraphStructure": "Cấu trúc đoạn văn"
       }
+    },
+    "result": {
+      "overallStatistics": "Thống kê kiểm tra tổng thể",
+      "totalWords": "Tổng số từ",
+      "foundErrors": "Lỗi tìm thấy",
+      "accuracy": "Độ chính xác",
+      "noErrorsFound": "Không tìm thấy lỗi chính tả!",
+      "errorCount": "lỗi",
+      "suggestionLabel": "Đề xuất sửa:",
+      "applyCorrection": "Áp dụng sửa đổi này",
+      "sections": {
+        "name": "Tên",
+        "email": "Email",
+        "phone": "Điện thoại",
+        "nationality": "Quốc tịch",
+        "visaType": "Loại visa",
+        "education": "Học vấn",
+        "experience": "Kinh nghiệm",
+        "skills": "Kỹ năng & Chứng chỉ",
+        "languages": "Kỹ năng ngôn ngữ",
+        "introduction": "Tự giới thiệu"
+      }
+    },
+    "rules": {
+      "spacing": {
+        "koreanEnglish": "Khoảng cách giữa tiếng Hàn và tiếng Anh",
+        "englishKorean": "Khoảng cách giữa tiếng Anh và tiếng Hàn",
+        "koreanNumber": "Khoảng cách giữa tiếng Hàn và số",
+        "numberKorean": "Khoảng cách giữa số và tiếng Hàn"
+      },
+      "spelling": {
+        "doeyo": "되요 → 돼요",
+        "andoeyo": "안되요 → 안돼요"
+      },
+      "grammar": {
+        "halsu": "할수 → 할 수"
+      }
+    },
+    "suggestions": {
+      "errorsFound": "Tìm thấy {{count}} lỗi."
+    },
+    "errors": {
+      "checkFailed": "Đã xảy ra lỗi trong quá trình kiểm tra chính tả."
     }
   },
   "visaCenter": {
@@ -668,135 +769,14 @@
     }
   },
   "mainFooter": {
-    "links": {
-      "company": "Giới thiệu công ty",
-      "recruitment": "Tuyển dụng",
-      "terms": "Điều khoản dịch vụ",
-      "privacy": "Chính sách bảo mật",
-      "emailReject": "Từ chối thu thập email",
-      "api": "API thông tin tuyển dụng",
-      "partnership": "Liên hệ hợp tác",
-      "customerCenter": "Trung tâm khách hàng"
-    },
     "contact": {
-      "title": "Trung tâm khách hàng FairWork",
-      "phone": "02-3354-1256",
-      "hours": "Thứ 2-6 09:00~19:00, Cuối tuần và ngày lễ nghỉ",
-      "email": "contact@fairwork.co.kr",
-      "fax": "02-1234-5679(Chính), 02-1234-5680(Hóa đơn thuế)"
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
     },
-    "actions": {
-      "emailInquiry": "Liên hệ qua email"
-    },
-    "company": {
-      "name": "Công ty TNHH FairWork",
-      "address": "Tầng 6, Tòa nhà IT Sangam, 17 World Cup Buk-ro 60-gil, Mapo-gu, Seoul 03921",
-      "ceo": "CEO: Choi Hong-seok, Kim Mi-reu, Lim Seong-hyeok, Hong Yun-ki, Heo Wan"
-    }
-  },
-  "mainPage": {
-    "search": {
-      "placeholder": "Tìm kiếm theo tên công việc hoặc từ khóa liên quan.",
-      "clearButton": "✕"
-    },
-    "filters": {
-      "region": "Khu vực",
-      "employmentType": "Loại việc làm",
-      "category": "Danh mục",
-      "resetAll": "Đặt lại tất cả bộ lọc"
-    },
-    "filterOptions": {
-      "regions": {
-        "seoul": "Seoul",
-        "gyeonggi": "Gyeonggi",
-        "incheon": "Incheon",
-        "busan": "Busan",
-        "daejeon": "Daejeon",
-        "daegu": "Daegu",
-        "ulsan": "Ulsan",
-        "gwangju": "Gwangju",
-        "gangwon": "Gangwon",
-        "sejong": "Sejong",
-        "chungbuk": "Chungbuk",
-        "chungnam": "Chungnam",
-        "gyeongbuk": "Gyeongbuk",
-        "gyeongnam": "Gyeongnam",
-        "jeju": "Jeju",
-        "jeonbuk": "Jeonbuk",
-        "jeonnam": "Jeonnam"
-      },
-      "employmentTypes": {
-        "fulltime": "Toàn thời gian",
-        "contract": "Hợp đồng",
-        "intern": "Thực tập",
-        "parttime": "Bán thời gian",
-        "freelance": "Tự do"
-      },
-      "categories": {
-        "design": "Thiết kế",
-        "manufacturing": "Sản xuất",
-        "it": "IT",
-        "management": "Quản lý",
-        "marketing": "Marketing",
-        "education": "Giáo dục",
-        "trade": "Thương mại/Vận chuyển",
-        "sales": "Bán hàng/CS",
-        "service": "Dịch vụ",
-        "construction": "Xây dựng",
-        "entertainment": "Giải trí",
-        "translation": "Dịch thuật",
-        "rd": "R&D",
-        "other": "Khác"
-      }
-    },
-    "searchResults": {
-      "title": "Kết quả tìm kiếm",
-      "count": "mục",
-      "noResults": {
-        "title": "Không tìm thấy kết quả",
-        "subtitle": "Thử tìm kiếm với từ khóa khác"
-      }
-    },
-    "jobList": {
-      "title": "Tin tuyển dụng",
-      "sortOptions": {
-        "latest": "Mới nhất",
-        "popular": "Phổ biến",
-        "salary": "Lương",
-        "deadline": "Hạn chót"
-      },
-      "sortLabel": "Chọn tùy chọn sắp xếp"
-    },
-    "jobCard": {
-      "visaSupport": "Hỗ trợ visa E-7"
-    },
-    "filterModal": {
-      "close": "Đóng modal bộ lọc",
-      "appliedFilters": "Bộ lọc đã áp dụng",
-      "actions": {
-        "reset": "Đặt lại",
-        "viewResults": "Xem kết quả"
-      }
-    },
-    "chat": {
-      "title": "Trò chuyện với Bot FairWork",
-      "subtitle": "Nhận trợ giúp thông qua chatbot!",
-      "close": "Đóng",
-      "time": "6:14 PM",
-      "botMessage": {
-        "greeting": "Xin chào. Tôi là FairWork BOT.",
-        "selectType": "Vui lòng chọn loại thành viên.",
-        "note": "(*Chatbot này không cung cấp dịch vụ chat thời gian thực với nhân viên.)"
-      },
-      "userTypes": {
-        "individual": "Thành viên cá nhân",
-        "corporate": "Thành viên doanh nghiệp"
-      },
-      "input": {
-        "placeholder": "Nhập tin nhắn"
-      },
-      "footer": "Được xây dựng với Zendesk"
-    }
+    "businessInfo": "Đăng ký kinh doanh: 123-45-67890, Cung cấp thông tin việc làm: Seoul Gangnam 2024-1, Thương mại điện tử: 2024-SeoulGangnam-1234",
+    "businessInfoButton": "Xác nhận thông tin kinh doanh",
+    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "mobileVersion": "Xem phiên bản di động"
   },
   "terms": {
     "title": "Điều khoản sử dụng",
@@ -853,7 +833,7 @@
     "issueDateRequired": "Vui lòng nhập ngày cấp.",
     "expiryDateRequired": "Vui lòng nhập ngày hết hạn.",
     "expiryDateAfterIssue": "Ngày hết hạn phải sau ngày cấp.",
-    "addressRequired": "Vui lòng nhập địa chỉ.",
+    "addressRequired": "Vui lòng nhập địa chỉ của bạn.",
     "addressLabel": "Địa chỉ",
     "addressPlaceholder": "Tìm kiếm địa chỉ",
     "visaInfoLabel": "Thông tin visa",
@@ -868,25 +848,6 @@
     "backToVisaCenter": "← Quay lại Trung tâm Visa",
     "requiredDocuments": "📋 Tài liệu cần thiết",
     "applicationProcess": "🚀 Quy trình đăng ký"
-  },
-  "postcode": {
-    "searchAddress": "Tìm kiếm địa chỉ",
-    "roadAddress": "Địa chỉ đường",
-    "jibunAddress": "Địa chỉ địa danh",
-    "detailAddress": "Địa chỉ chi tiết",
-    "detailAddressPlaceholder": "Nhập địa chỉ chi tiết",
-    "buildingName": "Tên tòa nhà",
-    "confirm": "Xác nhận"
-  },
-  "mainFooter": {
-    "contact": {
-      "emailLabel": "Email",
-      "faxLabel": "Fax"
-    },
-    "businessInfo": "Đăng ký kinh doanh: 123-45-67890, Cung cấp thông tin việc làm: Seoul Gangnam 2024-1, Thương mại điện tử: 2024-SeoulGangnam-1234",
-    "businessInfoButton": "Xác nhận thông tin kinh doanh",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
-    "mobileVersion": "Xem phiên bản di động"
   },
   "postcode": {
     "searchAddress": "Tìm kiếm địa chỉ",
@@ -961,66 +922,6 @@
       "uppercase": "Phải bao gồm chữ hoa.",
       "number": "Phải bao gồm số.",
       "special": "Phải bao gồm ký tự đặc biệt."
-    }
-  },
-  "spellCheck": {
-    "loadingResumeData": "Đang tải dữ liệu sơ yếu lý lịch...",
-    "savedResumeMessage": "Đây là nội dung tự giới thiệu đã lưu. Vui lòng chỉnh sửa và kiểm tra.",
-    "defaultIntroduction": "Xin chào. Tôi là lao động nước ngoài. Tôi muốn làm việc tại Hàn Quốc.",
-    "loadResumeDataError": "Không thể tải dữ liệu sơ yếu lý lịch",
-    "resumeSpecific": {
-      "resultsTitle": "Kết quả kiểm tra chính tả sơ yếu lý lịch",
-      "improvementSuggestions": "Đề xuất cải thiện",
-      "score": "điểm",
-      "categories": {
-        "honorific": "Sử dụng kính ngữ",
-        "tabooWords": "Từ cấm kỵ",
-        "sentenceLength": "Độ dài câu",
-        "paragraphStructure": "Cấu trúc đoạn văn"
-      }
-    },
-    "result": {
-      "overallStatistics": "Thống kê kiểm tra tổng thể",
-      "totalWords": "Tổng số từ",
-      "foundErrors": "Lỗi tìm thấy",
-      "accuracy": "Độ chính xác",
-      "noErrorsFound": "Không tìm thấy lỗi chính tả!",
-      "errorCount": "lỗi",
-      "suggestionLabel": "Đề xuất sửa:",
-      "applyCorrection": "Áp dụng sửa đổi này",
-      "sections": {
-        "name": "Tên",
-        "email": "Email",
-        "phone": "Điện thoại",
-        "nationality": "Quốc tịch",
-        "visaType": "Loại visa",
-        "education": "Học vấn",
-        "experience": "Kinh nghiệm",
-        "skills": "Kỹ năng & Chứng chỉ",
-        "languages": "Kỹ năng ngôn ngữ",
-        "introduction": "Tự giới thiệu"
-      }
-    },
-    "rules": {
-      "spacing": {
-        "koreanEnglish": "Khoảng cách giữa tiếng Hàn và tiếng Anh",
-        "englishKorean": "Khoảng cách giữa tiếng Anh và tiếng Hàn",
-        "koreanNumber": "Khoảng cách giữa tiếng Hàn và số",
-        "numberKorean": "Khoảng cách giữa số và tiếng Hàn"
-      },
-      "spelling": {
-        "doeyo": "되요 → 돼요",
-        "andoeyo": "안되요 → 안돼요"
-      },
-      "grammar": {
-        "halsu": "할수 → 할 수"
-      }
-    },
-    "suggestions": {
-      "errorsFound": "Tìm thấy {{count}} lỗi."
-    },
-    "errors": {
-      "checkFailed": "Đã xảy ra lỗi trong quá trình kiểm tra chính tả."
     }
   }
 }

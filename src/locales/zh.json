@@ -49,7 +49,11 @@
       "creatingAccount": "正在创建账户...",
       "title": "注册",
       "success": "注册成功！",
-      "error": "注册失败。请重试。"
+      "error": "注册失败。请重试。",
+      "logs": {
+        "signupAttempt": "注册尝试",
+        "signupFailed": "注册失败"
+      }
     },
     "login": {
       "idLabel": "用户名",
