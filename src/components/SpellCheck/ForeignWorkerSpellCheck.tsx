@@ -10,6 +10,7 @@ import {
   LoadingContainer,
   LoadingText,
   InputSection,
+  SectionTitle,
   TextArea,
   ButtonContainer,
   PrimaryButton,
@@ -24,12 +25,14 @@ import {
   ErrorItem,
   ErrorText,
   EmptyState,
+  LargeCheckIcon,
   CheckIcon,
   Legend,
   LegendDot,
   SuccessMessage,
   SavedResumeMessage,
   ApplyErrorButton,
+  CompleteButton,
 } from '../../styles/components/ForeignWorkerSpellCheck.styles';
 import { storage } from '../../utils';
 
@@ -184,6 +187,19 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
     }
   };
 
+  // 전체 복사
+  const handleCopyAll = () => {
+    navigator.clipboard.writeText(text);
+  };
+
+  // 다시쓰기
+  const handleRewrite = () => {
+    setText('');
+    setCorrectedText('');
+    setErrors([]);
+    setIsComplete(false);
+  };
+
   if (isLoading) {
     return (
       <Container>
@@ -211,6 +227,8 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
     <Container>
       <ContentArea>
         <InputSection>
+          <SectionTitle>내용 입력</SectionTitle>
+          
           <AnimatePresence>
             {hasResumeData && (
               <motion.div
@@ -260,11 +278,19 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
             </PrimaryButton>
             
             <SecondaryButton 
-              onClick={loadResumeData}
-              aria-label="저장된 이력서 데이터 새로고침"
+              onClick={handleRewrite}
+              aria-label="텍스트 다시쓰기"
             >
               <Icon>🔄</Icon>
-              새로고침
+              다시쓰기
+            </SecondaryButton>
+            
+            <SecondaryButton 
+              onClick={handleCopyAll}
+              aria-label="전체 텍스트 복사"
+            >
+              <Icon>📋</Icon>
+              전체 복사
             </SecondaryButton>
           </ButtonContainer>
         </InputSection>
@@ -279,7 +305,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
             >
               <ResultSection>
                 <ResultHeader>
-                  <h3>검사 결과</h3>
+                  <SectionTitle style={{ color: 'white', margin: 0 }}>맞춤법 검사</SectionTitle>
                   {errors.length > 0 && (
                     <ApplyAllButton 
                       onClick={handleApplyAll}
@@ -288,8 +314,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
                       role="button"
                       aria-label="모든 수정사항 적용"
                     >
-                      <CheckIcon>✓</CheckIcon>
-                      모든 수정사항 적용
+                      모두수정
                     </ApplyAllButton>
                   )}
                 </ResultHeader>
@@ -302,19 +327,12 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
                       transition={{ duration: ANIMATIONS.duration.normal }}
                     >
                       <EmptyState>
-                        <CheckIcon>✓</CheckIcon>
-                        <p>맞춤법 오류가 없습니다!</p>
+                        <LargeCheckIcon>✓</LargeCheckIcon>
+                        <SuccessMessage>맞춤법 오류가 없습니다!</SuccessMessage>
                       </EmptyState>
                     </motion.div>
                   ) : (
                     <>
-                      <Legend>
-                        <LegendDot style={{ background: '#ff6b6b' }} />
-                        <span>맞춤법 오류</span>
-                        <LegendDot style={{ background: '#4ecdc4' }} />
-                        <span>문법 오류</span>
-                      </Legend>
-                      
                       <ErrorList>
                         <AnimatePresence>
                           {errors.map((error, index) => (
@@ -330,9 +348,9 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
                             >
                               <ErrorItem>
                                 <ErrorText>
-                                  <strong>"{error.word}"</strong> → <strong>"{error.suggestion}"</strong>
-                                  <br />
-                                  <small>{error.description}</small>
+                                  <span className="error-text">{error.word}</span>
+                                  <span className="arrow">→</span>
+                                  <span className="suggestion">{error.suggestion}</span>
                                 </ErrorText>
                                 <ApplyErrorButton
                                   onClick={() => handleApplyError(error)}
@@ -348,19 +366,16 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
                           ))}
                         </AnimatePresence>
                       </ErrorList>
-                      
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: ANIMATIONS.duration.normal, delay: 0.5 }}
-                      >
-                        <SuccessMessage>
-                          <CheckIcon>✓</CheckIcon>
-                          <p>검사가 완료되었습니다!</p>
-                        </SuccessMessage>
-                      </motion.div>
                     </>
                   )}
+                  
+                  <CompleteButton
+                    onClick={() => setIsComplete(false)}
+                    aria-label="검사 완료"
+                  >
+                    <CheckIcon>✓</CheckIcon>
+                    검사완료
+                  </CompleteButton>
                 </ResultContent>
               </ResultSection>
             </motion.div>

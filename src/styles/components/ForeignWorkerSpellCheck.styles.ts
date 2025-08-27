@@ -26,20 +26,6 @@ export const ContentArea = styled.div`
   }
 `;
 
-export const LoadingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 400px;
-  gap: 1rem;
-`;
-
-export const LoadingText = styled.p`
-  color: ${COLORS.textSecondary};
-  font-size: 1rem;
-`;
-
 export const InputSection = styled.div`
   flex: 1;
   display: flex;
@@ -51,6 +37,13 @@ export const InputSection = styled.div`
   border-radius: 12px;
   position: relative;
   min-height: 500px;
+`;
+
+export const SectionTitle = styled.h3`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: ${COLORS.background};
+  margin: 0 0 1rem 0;
 `;
 
 export const TextArea = styled.textarea`
@@ -91,7 +84,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -127,14 +120,16 @@ const buttonBase = `
 
 export const PrimaryButton = styled.button`
   ${buttonBase}
-  background: ${COLORS.primary};
-  color: white;
-  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.2);
+  background: transparent;
+  color: ${COLORS.background};
+  border: 1px solid ${COLORS.background};
+  box-shadow: none;
   
   &:hover:not(:disabled) {
-    background: ${COLORS.primaryHover};
+    background: ${COLORS.background};
+    color: white;
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(74, 222, 128, 0.3);
+    box-shadow: 0 2px 4px rgba(26, 26, 26, 0.2);
   }
   
   &:active {
@@ -144,14 +139,13 @@ export const PrimaryButton = styled.button`
 
 export const SecondaryButton = styled.button`
   ${buttonBase}
-  background: white;
+  background: transparent;
   color: ${COLORS.background};
-  border: 1px solid ${COLORS.border};
+  border: 1px solid ${COLORS.background};
   
   &:hover:not(:disabled) {
     background: ${COLORS.background};
-    border-color: ${COLORS.primary};
-    color: ${COLORS.primary};
+    color: white;
   }
 `;
 
@@ -182,6 +176,7 @@ export const ResultSection = styled.div`
   border-radius: 12px;
   position: relative;
   min-height: 500px;
+  overflow: hidden;
 `;
 
 export const ResultHeader = styled.div`
@@ -189,32 +184,15 @@ export const ResultHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem;
-  background: ${COLORS.primary};
-  color: white;
+  background: transparent;
+  color: ${COLORS.background};
   border-radius: 12px 12px 0 0;
-  box-shadow: 0 2px 4px rgba(74, 222, 128, 0.1);
-`;
-
-export const ApplyAllButton = styled.button`
-  padding: 0.5rem 1rem;
-  background: ${COLORS.primary};
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background: ${COLORS.primaryHover};
-    transform: translateY(-1px);
-  }
+  border-bottom: 1px solid ${COLORS.border};
 `;
 
 export const ResultContent = styled.div`
   flex: 1;
-  padding: 1.5rem;
+  padding: 2rem;
   background: white;
   color: ${COLORS.background};
   border-radius: 0 0 12px 12px;
@@ -223,6 +201,7 @@ export const ResultContent = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 400px;
+  position: relative;
 `;
 
 export const ErrorList = styled.div`
@@ -270,54 +249,26 @@ export const ErrorText = styled.div`
   }
 `;
 
-export const DropdownIcon = styled.span`
-  color: ${COLORS.textSecondary};
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  
-  &:hover {
-    color: ${COLORS.primary};
-  }
-`;
-
 export const EmptyState = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  color: ${COLORS.background};
-  font-size: 1rem;
+  gap: 1.5rem;
   text-align: center;
-  line-height: 1.5;
-  gap: 1rem;
-  font-weight: 500;
 `;
 
-export const CompleteButton = styled.button`
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: ${COLORS.primary};
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background: ${COLORS.primaryHover};
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
-  }
+export const LargeCheckIcon = styled.div`
+  font-size: 4rem;
+  color: ${COLORS.background};
+  font-weight: bold;
+`;
+
+export const SuccessMessage = styled.div`
+  color: ${COLORS.background};
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
 `;
 
 export const CheckIcon = styled.span`
@@ -332,18 +283,7 @@ export const Legend = styled.div`
   background: ${COLORS.background};
   font-size: 0.8rem;
   color: ${COLORS.textSecondary};
-  margin-bottom: 2rem;
-`;
-
-export const SuccessMessage = styled.div`
-  text-align: center;
-  color: #059669;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
+  margin-bottom: 1rem;
 `;
 
 export const LegendDot = styled.div`
@@ -353,7 +293,6 @@ export const LegendDot = styled.div`
   border-radius: 50%;
 `;
 
-// ✅ 새로운 스타일 컴포넌트 추가
 export const SavedResumeMessage = styled.div`
   background: #e8f5e8;
   padding: 10px;
@@ -389,4 +328,74 @@ export const ApplyErrorButton = styled.button`
   &:active {
     transform: translateY(0);
   }
+`;
+
+export const ApplyAllButton = styled.button`
+  padding: 0.5rem 1rem;
+  background: ${COLORS.primary};
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+  
+  &:hover {
+    background: ${COLORS.primaryHover};
+    transform: translateY(-1px);
+  }
+  
+  &:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+`;
+
+export const CompleteButton = styled.button`
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: ${COLORS.primary};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 120px;
+  
+  &:hover {
+    background: ${COLORS.primaryHover};
+    transform: translateX(-50%) translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+  }
+  
+  &:active {
+    transform: translateX(-50%) translateY(0);
+  }
+`;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 1rem;
+`;
+
+export const LoadingText = styled.p`
+  color: ${COLORS.textSecondary};
+  font-size: 1rem;
 `;
