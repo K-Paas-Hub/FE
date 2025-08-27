@@ -1,142 +1,133 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { theme } from '../theme/theme';
 
-export const OAuthContainer = styled.div`
-  max-width: ${theme.containers.wide};
-  margin: 0 auto;
-  padding: ${theme.spacing.xl};
-  
-  ${theme.media.tablet} {
-    padding: ${theme.spacing.lg};
-  }
-`;
-
-export const OAuthForm = styled.form`
-  background: white;
-  border-radius: ${theme.radius.lg};
-  padding: ${theme.spacing.xl};
-  box-shadow: ${theme.shadows.lg};
-  
-  ${theme.media.tablet} {
-    padding: ${theme.spacing.lg};
-  }
-`;
-
-export const FormGroup = styled.div`
-  margin-bottom: ${theme.spacing.lg};
-`;
-
-export const FormLabel = styled.label`
-  display: block;
-  font-size: ${theme.typography.fontSize.sm};
-  font-weight: ${theme.typography.fontWeight.medium};
-  color: ${theme.colors.textPrimary};
-  margin-bottom: ${theme.spacing.sm};
-`;
-
-export const FormInput = styled.input`
+// 통일된 입력 요소 스타일
+export const UnifiedInput = styled.input`
   width: 100%;
-  padding: ${theme.spacing.md};
-  border: 2px solid ${theme.colors.borderLight};
-  border-radius: ${theme.radius.md};
-  font-size: ${theme.typography.fontSize.base};
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
   background-color: white;
-  color: ${theme.colors.textPrimary};
+  color: #374151;
   min-height: 44px;
   transition: all 0.3s ease;
   
   &:focus {
     outline: none;
-    border-color: ${theme.colors.primary};
+    border-color: #4ade80;
     box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
   }
   
   &:disabled {
-    background-color: ${theme.colors.backgroundGray};
-    color: ${theme.colors.textSecondary};
+    background-color: #f9fafb;
+    color: #9ca3af;
     cursor: not-allowed;
   }
   
-  ${theme.media.tablet} {
-    font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 16px; /* iOS에서 줌 방지 */
   }
 `;
 
-export const FormSelect = styled.select`
+export const UnifiedSelect = styled.select`
   width: 100%;
-  padding: ${theme.spacing.md};
-  border: 2px solid ${theme.colors.borderLight};
-  border-radius: ${theme.radius.md};
-  font-size: ${theme.typography.fontSize.base};
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
   background-color: white;
-  color: ${theme.colors.textPrimary};
+  color: #374151;
   min-height: 44px;
   transition: all 0.3s ease;
   
   &:focus {
     outline: none;
-    border-color: ${theme.colors.primary};
+    border-color: #4ade80;
     box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
   }
   
   &:disabled {
-    background-color: ${theme.colors.backgroundGray};
-    color: ${theme.colors.textSecondary};
+    background-color: #f9fafb;
+    color: #9ca3af;
     cursor: not-allowed;
   }
   
-  ${theme.media.tablet} {
-    font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 16px; /* iOS에서 줌 방지 */
   }
 `;
 
+// 에러 메시지 스타일
+export const ErrorMessage = styled.div`
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+`;
+
+// 체크박스 컨테이너
+export const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0;
+`;
+
+export const Checkbox = styled.input`
+  width: 1rem;
+  height: 1rem;
+  accent-color: #4ade80;
+`;
+
+// 비자 정보 섹션 스타일
+export const VisaSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+`;
+
+export const VisaLabel = styled.label`
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+  margin: 0;
+`;
+
+export const CheckboxLabel = styled.span`
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+  margin: 0;
+`;
+
+// PrimaryButton 추가
 export const PrimaryButton = styled(motion.button)`
-  background: ${theme.colors.primary};
+  background: #4ade80;
   color: white;
   border: none;
-  padding: ${theme.spacing.md} ${theme.spacing.xl};
-  border-radius: ${theme.radius.lg};
-  font-size: ${theme.typography.fontSize.base};
-  font-weight: ${theme.typography.fontWeight.semibold};
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   min-height: 44px;
   min-width: 44px;
   transition: all 0.3s ease;
   
   &:hover:not(:disabled) {
-    background: ${theme.colors.primaryHover};
+    background: #22c55e;
     transform: translateY(-1px);
-    box-shadow: ${theme.shadows.md};
+    box-shadow: 0 4px 8px rgba(74, 222, 128, 0.3);
   }
   
   &:disabled {
-    background: ${theme.colors.textSecondary};
+    background: #9ca3af;
     cursor: not-allowed;
   }
   
-  ${theme.media.tablet} {
-    padding: ${theme.spacing.sm} ${theme.spacing.lg};
-    font-size: ${theme.typography.fontSize.sm};
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
-`;
-
-export const ErrorMessage = styled.div`
-  color: ${theme.colors.error};
-  background-color: rgba(239, 68, 68, 0.1);
-  border: 1px solid ${theme.colors.error};
-  border-radius: ${theme.radius.md};
-  padding: ${theme.spacing.md};
-  margin-bottom: ${theme.spacing.lg};
-  font-size: ${theme.typography.fontSize.sm};
-`;
-
-export const SuccessMessage = styled.div`
-  color: ${theme.colors.primary};
-  background-color: rgba(74, 222, 128, 0.1);
-  border: 1px solid ${theme.colors.primary};
-  border-radius: ${theme.radius.md};
-  padding: ${theme.spacing.md};
-  margin-bottom: ${theme.spacing.lg};
-  font-size: ${theme.typography.fontSize.sm};
 `;

@@ -15,107 +15,16 @@ import {
   FormLabel,
   PrimaryButton,
 } from '../../styles/components/ResumePage.styles';
-import styled from 'styled-components';
-
-// 통일된 입력 요소 스타일
-const UnifiedInput = styled.input`
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: white;
-  color: #374151;
-  min-height: 44px;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
-  }
-  
-  &:disabled {
-    background-color: #f9fafb;
-    color: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 16px; /* iOS에서 줌 방지 */
-  }
-`;
-
-const UnifiedSelect = styled.select`
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: white;
-  color: #374151;
-  min-height: 44px;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
-  }
-  
-  &:disabled {
-    background-color: #f9fafb;
-    color: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 16px; /* iOS에서 줌 방지 */
-  }
-`;
-
-// 에러 메시지 스타일
-const ErrorMessage = styled.div`
-  color: #ef4444;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-`;
-
-// 체크박스 컨테이너
-const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0;
-`;
-
-const Checkbox = styled.input`
-  width: 1rem;
-  height: 1rem;
-  accent-color: #4ade80;
-`;
-
-// 비자 정보 섹션 스타일
-const VisaSection = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-`;
-
-const VisaLabel = styled.label`
-  font-weight: 600;
-  color: #374151;
-  font-size: 1rem;
-  margin: 0;
-`;
-
-const CheckboxLabel = styled.span`
-  font-weight: 500;
-  color: #374151;
-  font-size: 0.875rem;
-  margin: 0;
-`;
+import {
+  UnifiedInput,
+  UnifiedSelect,
+  ErrorMessage,
+  CheckboxContainer,
+  Checkbox,
+  VisaSection,
+  VisaLabel,
+  CheckboxLabel,
+} from '../../styles/components/GoogleOAuthForm.styles';
 
 // 기존 ResumePage의 옵션 데이터 재사용
 const nationalityOptions = [
