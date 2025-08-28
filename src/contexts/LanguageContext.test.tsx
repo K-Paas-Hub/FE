@@ -82,6 +82,8 @@ describe('LanguageContext', () => {
 
       await waitFor(() => {
         expect(screen.getByTestId('current-language')).toHaveTextContent('ko');
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('languages-count')).toHaveTextContent('8');
       });
     });
@@ -98,6 +100,8 @@ describe('LanguageContext', () => {
 
       await waitFor(() => {
         expect(localStorageMock.getItem).toHaveBeenCalledWith('i18nextLng');
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('current-language')).toHaveTextContent('en');
       });
     });
@@ -135,12 +139,26 @@ describe('LanguageContext', () => {
 
       await waitFor(() => {
         expect(screen.getByTestId('lang-ko')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-en')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-vi')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-km')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-ne')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-id')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-zh')).toBeInTheDocument();
+      });
+      await waitFor(() => {
         expect(screen.getByTestId('lang-th')).toBeInTheDocument();
       });
     });
@@ -152,7 +170,11 @@ describe('LanguageContext', () => {
 
       await waitFor(() => {
         expect(result.current.currentLanguage).toBe('ko');
+      });
+      await waitFor(() => {
         expect(result.current.languages).toHaveLength(8);
+      });
+      await waitFor(() => {
         expect(typeof result.current.changeLanguage).toBe('function');
       });
     });

@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { LanguageProvider } from '../../contexts/LanguageContext';
+import MainHeaderComponent from './MainHeader';
 
 // Mock hooks
 jest.mock('../../hooks/useAuth');
@@ -52,32 +53,14 @@ jest.mock('../../styles/components/MainHeader.styles', () => ({
   MobileMenuButton: 'button',
 }));
 
-// Mock the MainHeader component itself to avoid router dependencies
-jest.mock('./MainHeader', () => {
-  return function MockMainHeader() {
-    return (
-      <header role="banner">
-        <div>
-          <span>Kareer</span>
-          <nav role="navigation">
-            <a href="/jobs">header.jobPostings</a>
-            <a href="/visa">header.visaCenter</a>
-            <a href="/resume">header.resumeBuilder</a>
-            <a href="/interview">header.interviewPrep</a>
-            <a href="/contract">header.contractAnalysis</a>
-          </nav>
-          <div>
-            <button>한국어</button>
-            <button role="button" aria-label="login">Login</button>
-            <button role="button" aria-label="menu">☰</button>
-          </div>
-        </div>
-      </header>
-    );
-  };
-});
-
-import MainHeaderComponent from './MainHeader';
+// Mock react-router-dom
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => jest.fn(),
+  Link: ({ to, children, ...props }: { to: string; children: React.ReactNode; [key: string]: unknown }) => (
+    <a href={to} {...props}>{children}</a>
+  ),
+}));
 
 const renderWithProviders = (component: React.ReactElement) => {
   return render(
@@ -135,6 +118,18 @@ describe('MainHeader Component', () => {
       renderWithProviders(<MainHeaderComponent />);
 
       expect(screen.getByText('한국어')).toBeInTheDocument();
+    });
+
+    test('renders user menu when authenticated', () => {
+      mockAuthHook.useAuth = jest.fn(() => ({
+        user: { id: 'user-1', email: 'test@example.com' },
+        signOut: jest.fn(),
+        isAuthenticated: true
+      }));
+
+      renderWithProviders(<MainHeaderComponent />);
+
+      expect(screen.getByText('test@example.com')).toBeInTheDocument();
     });
   });
 

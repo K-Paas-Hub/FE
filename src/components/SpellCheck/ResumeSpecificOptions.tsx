@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { SpellCheckOptions } from '../../types/spellCheck';
 import {
   ResumeOptionsContainer,
@@ -19,7 +18,6 @@ const ResumeSpecificOptions: React.FC<ResumeSpecificOptionsProps> = ({
   options, 
   onChange 
 }) => {
-  const { t } = useTranslation();
 
   if (!options) return null;
 

@@ -32,11 +32,7 @@ const ResumeSpellCheckResults: React.FC<ResumeSpellCheckResultsProps> = ({ resul
     return t(`spellCheck.resumeSpecific.categories.${category}`);
   };
 
-  const getScoreColor = (score: number) => {
-    if (score >= 80) return '#10b981'; // green
-    if (score >= 60) return '#f59e0b'; // yellow
-    return '#ef4444'; // red
-  };
+
 
   return (
     <ResumeResultsContainer>

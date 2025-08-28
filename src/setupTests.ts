@@ -23,7 +23,7 @@ beforeAll(() => {
     // act() 관련 경고 무시 (테스트에서 적절히 처리됨)
     if (
       typeof args[0] === 'string' &&
-      (args[0].includes('An update to') && args[0].includes('was not wrapped in act') ||
+      ((args[0].includes('An update to') && args[0].includes('was not wrapped in act')) ||
        args[0].includes('You called act(async () => ...) without await'))
     ) {
       return;

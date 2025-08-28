@@ -224,7 +224,7 @@ export const validateAlphanumeric = (value: string): boolean => {
  */
 export const validateHasSpecialChar = (value: string): boolean => {
   if (!value || typeof value !== 'string') return false;
-  const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+  const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
   return specialCharRegex.test(value);
 };
 
