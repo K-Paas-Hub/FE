@@ -13,8 +13,7 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <HeaderLogo>
-        <span>{t('header.logo.fair')} </span>
-        <span>{t('header.logo.work')}</span>
+        <span>{t('header.logo.kareer')}</span>
       </HeaderLogo>
       <HeaderNav>
         <HeaderNavLink href="#about">{t('header.navigation.aboutUs')}</HeaderNavLink>

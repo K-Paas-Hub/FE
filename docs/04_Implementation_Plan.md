@@ -1,14 +1,14 @@
-# FairWork K-PaaS: 프론트엔드 구현 계획서
+# Kareer K-PaaS: 프론트엔드 구현 계획서
 
 ## 📋 문서 정보
 
 | 항목 | 내용 |
 |------|------|
-| **문서명** | FairWork K-PaaS 프론트엔드 구현 계획서 |
+| **문서명** | Kareer K-PaaS 프론트엔드 구현 계획서 |
 | **버전** | 2.0 |
 | **작성일** | 2025년 1월 |
 | **수정일** | 2025년 8월 |
-| **작성자** | FairWork Development Team |
+| **작성자** | Kareer Development Team |
 | **목적** | 3개 핵심 기능의 프론트엔드 구현 계획 |
 
 ---

@@ -43,7 +43,7 @@ const MainFooter: React.FC = () => {
         
         <MainSection>
           <LeftSection>
-            <FooterLogo>FairWork</FooterLogo>
+            <FooterLogo>Kareer</FooterLogo>
             <CustomerService>
               <br/>
               {t('mainFooter.contact.title')} {t('mainFooter.contact.phone')} ({t('mainFooter.contact.hours')})
@@ -55,7 +55,7 @@ const MainFooter: React.FC = () => {
           
           <RightSection>
             <EmailButton 
-              onClick={() => window.open('mailto:contact@fairwork.kr')}
+              onClick={() => window.open('mailto:contact@kareer.co.kr')}
               aria-label="이메일 문의하기"
             >
               {t('mainFooter.actions.emailInquiry')}

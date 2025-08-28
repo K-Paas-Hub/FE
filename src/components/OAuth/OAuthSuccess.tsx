@@ -34,7 +34,7 @@ const OAuthSuccess: React.FC = () => {
           </SuccessTitle>
           
           <SuccessDescription>
-            FairWork에 오신 것을 환영합니다.<br />
+            Kareer에 오신 것을 환영합니다.<br />
             이제 다양한 서비스를 이용하실 수 있습니다.
           </SuccessDescription>
           

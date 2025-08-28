@@ -95,7 +95,6 @@ export const PrivacySection = styled.section`
     margin-bottom: 24px;
   }
 `;
-
 export const LoginButtonSection = styled.div`
   text-align: center;
   margin-top: 40px;
@@ -127,3 +126,49 @@ export const LoginButton = styled.a`
     font-size: 13px;
   }
 `;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background: #e5e7eb;
+    color: #374151;
+  }
+
+  &:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 768px) {
+    top: 35px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    top: 30px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+`;
+

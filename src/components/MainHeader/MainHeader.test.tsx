@@ -58,7 +58,7 @@ jest.mock('./MainHeader', () => {
     return (
       <header role="banner">
         <div>
-          <span>FairWork</span>
+          <span>Kareer</span>
           <nav role="navigation">
             <a href="/jobs">header.jobPostings</a>
             <a href="/visa">header.visaCenter</a>
@@ -104,7 +104,7 @@ describe('MainHeader Component', () => {
 
       renderWithProviders(<MainHeaderComponent />);
 
-      expect(screen.getByText('FairWork')).toBeInTheDocument();
+      expect(screen.getByText('Kareer')).toBeInTheDocument();
       expect(screen.getByText('한국어')).toBeInTheDocument();
       expect(screen.getByRole('button', { name: /login/i })).toBeInTheDocument();
     });
@@ -180,7 +180,7 @@ describe('MainHeader Component', () => {
 
       // Should render both desktop and mobile elements
       expect(screen.getByRole('button', { name: /menu/i })).toBeInTheDocument();
-      expect(screen.getByText('FairWork')).toBeInTheDocument();
+      expect(screen.getByText('Kareer')).toBeInTheDocument();
     });
   });
 });

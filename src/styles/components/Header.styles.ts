@@ -18,14 +18,8 @@ export const HeaderContainer = styled.header`
 export const HeaderLogo = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
-
-  span:first-child {
-    color: #4ade80;
-  }
-
-  span:last-child {
-    color: white;
-  }
+  color: #4ade80;
+  letter-spacing: 0.5px;
 `;
 
 export const HeaderNav = styled.nav`

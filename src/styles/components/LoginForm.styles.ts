@@ -2,8 +2,11 @@ import styled from 'styled-components';
 
 export const LoginForm = styled.form`
   width: 100%;
-  max-width: 400px;
-  margin-top: 1rem;
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const InputGroup = styled.div`
@@ -77,7 +80,7 @@ export const FormActions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -129,16 +132,16 @@ export const Separator = styled.span`
 `;
 
 export const LoginButton = styled.button<{ isEnabled?: boolean }>`
-  background: #4ade80;
+  background: #0066cc;
   color: white;
   border: none;
-  padding: 0.875rem 1.5rem;
+  padding: 0.875rem 2rem;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: ${props => props.isEnabled ? 'pointer' : 'not-allowed'};
   transition: all 0.3s ease;
-  min-width: 120px;
+  min-width: 140px;
   min-height: 44px;
   opacity: ${props => props.isEnabled ? 1 : 0.6};
   display: flex;
@@ -146,9 +149,9 @@ export const LoginButton = styled.button<{ isEnabled?: boolean }>`
   justify-content: center;
 
   &:hover:not(:disabled) {
-    background: #22c55e;
+    background: #0052a3;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
   }
 
   &:active:not(:disabled) {
@@ -204,7 +207,7 @@ export const OAuthButton = styled.button<{ variant?: 'google' }>`
   color: ${props => props.variant === 'google' ? '#374151' : '#374151'};
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;

@@ -1,19 +1,19 @@
-# FairWork K-PaaS: 프론트엔드 프로젝트 개요
+# Kareer K-PaaS: 프론트엔드 프로젝트 개요
 
 ## 📋 문서 정보
 
 | 항목 | 내용 |
 |------|------|
-| **문서명** | FairWork K-PaaS 프론트엔드 프로젝트 개요 |
+| **문서명** | Kareer K-PaaS 프론트엔드 프로젝트 개요 |
 | **버전** | 2.0 |
 | **작성일** | 2025년 1월 |
 | **수정일** | 2025년 8월 |
-| **작성자** | FairWork Development Team |
+| **작성자** | Kareer Development Team |
 
 ## 📋 프로젝트 개요
 
 ### **프로젝트명**
-FairWork K-PaaS - 공공부문 외국인 근로자 생애주기 관리 플랫폼
+Kareer K-PaaS - 공공부문 외국인 근로자 생애주기 관리 플랫폼
 
 ### **프로젝트 유형**
 React 기반 프론트엔드 서비스 개발
@@ -102,10 +102,10 @@ React 기반 프론트엔드 서비스 개발
 - [🚀 구현 계획](./04_Implementation_Plan.md) - 개발 단계별 계획
 - [💻 개발 가이드라인](../.cursor/rules/fe-development-guidelines.mdc) - 코드 작성 규칙
 
-# FairWork K-PaaS 프론트엔드 개발 가이드라인
+# Kareer K-PaaS 프론트엔드 개발 가이드라인
 
 ## 🎯 프로젝트 개요
-- **프로젝트명**: FairWork K-PaaS - 공공부문 외국인 근로자 생애주기 관리 플랫폼
+- **프로젝트명**: Kareer K-PaaS - 공공부문 외국인 근로자 생애주기 관리 플랫폼
 - **기술 스택**: React 19 + TypeScript + styled-components + framer-motion
 - **타겟 사용자**: 외국인 근로자, 유학생, 한국인 사업자
 - **지원 언어**: 한국어, 베트남어, 캄보디아어, 네팔어, 인도네시아어, 중국어, 태국어

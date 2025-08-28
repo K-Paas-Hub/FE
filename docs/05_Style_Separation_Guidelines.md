@@ -160,7 +160,7 @@ const NavLink = styled.a`
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <Logo>FairWork</Logo>
+      <Logo>Kareer</Logo>
       <Nav>
         <NavLink href="/">홈</NavLink>
         <NavLink href="/visa">비자</NavLink>
@@ -185,7 +185,7 @@ import {
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <Logo>FairWork</Logo>
+      <Logo>Kareer</Logo>
       <Nav>
         <NavLink href="/">홈</NavLink>
         <NavLink href="/visa">비자</NavLink>

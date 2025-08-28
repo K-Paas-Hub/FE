@@ -45,11 +45,9 @@ export const LoginTitle = styled.h1`
   font-weight: 600;
   color: #1f2937;
   margin-bottom: 32px;
-  text-align: left;
+  text-align: center;
   width: 100%;
-  max-width: 400px;
-  margin-left: calc((100% - 400px) / 2);
-  margin-right: auto;
+  max-width: 450px;
 
   @media (max-width: 768px) {
     font-size: 22px;
