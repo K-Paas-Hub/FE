@@ -19,7 +19,7 @@
     "korean": "韩语"
   },
   "auth": {
-    "welcome": "欢迎来到 FairWork",
+    "welcome": "欢迎来到 Kareer",
     "loginSubtitle": "使用您的 Google 账户轻松登录",
     "googleLogin": "使用 Google 登录",
     "googleContinue": "继续使用 Google",
@@ -193,12 +193,12 @@
       }
     },
     "chat": {
-      "title": "FairWork 챗봇과 대화하기",
+      "title": "Kareer 챗봇과 대화하기",
       "subtitle": "챗봇을 통해 문의를 해결해보세요!",
       "close": "닫기",
       "time": "오후 6:14",
       "botMessage": {
-        "greeting": "안녕하세요. FairWork BOT 입니다.",
+        "greeting": "안녕하세요. Kareer BOT 입니다.",
         "selectType": "회원 유형을 선택해 주세요.",
         "note": "(*본 챗봇은 상담원과의 실시간 채팅 서비스는 운영하지 않습니다.)"
       },
@@ -472,7 +472,7 @@
       "ctaButton": "前往招聘网站"
     },
     "features": {
-      "title": "Fair Work 的特色功能",
+      "title": "Kareer 的特色功能",
       "multilingual": {
         "title": "多语言支持",
         "description": "支持多种语言，帮助外籍劳工轻松使用平台"
@@ -514,7 +514,7 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. 保留所有权利。",
+    "copyright": "© Kareer 2024. 保留所有权利。",
     "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
     "businessInfoButton": "사업자정보확인",
     "mobileVersion": "모바일 버전 보기"
@@ -535,7 +535,7 @@
       "supplementary": "附则"
     },
     "content": {
-      "purpose": "本条款旨在规定FairWork（以下简称\"公司\"）提供的服务使用相关的公司与会员之间的权利、义务及责任事项，以及其他必要事项。",
+      "purpose": "本条款旨在规定Kareer（以下简称\"公司\"）提供的服务使用相关的公司与会员之间的权利、义务及责任事项，以及其他必要事项。",
       "definitions": "1. \"服务\"是指公司提供的所有服务。\n2. \"会员\"是指访问公司服务并按照本条款与公司签订使用合同并使用公司提供服务的客户。\n3. \"账户\"是指会员为识别身份和会员服务使用而选择并经公司批准的字母、数字或特殊字符的组合。",
       "effectiveness": "1. 本条款对所有希望使用服务的会员产生效力。\n2. 公司可在不违反相关法律规定的范围内根据需要变更本条款。\n3. 公司变更条款时，将在服务首页与现行条款一起公布适用日期及变更事由，自适用日7日前起公告。",
       "service": "1. 公司提供以下服务：\n- 外籍劳工相关信息提供\n- 签证申请及管理服务\n- 合同分析及审查服务\n- 公司规定的其他服务\n2. 服务原则上全年无休，每日24小时提供。",
@@ -568,7 +568,7 @@
       "effectiveDate": "施行日期"
     },
     "content": {
-      "purpose": "FairWork（以下简称\"公司\"）为以下目的处理个人信息，除以下目的外不得用于其他用途。\n\n• 会员注册及管理\n• 服务提供及运营\n• 客户咨询及问询应对\n• 营销及广告利用\n• 服务改善及新服务开发",
+      "purpose": "Kareer（以下简称\"公司\"）为以下目的处理个人信息，除以下目的外不得用于其他用途。\n\n• 会员注册及管理\n• 服务提供及运营\n• 客户咨询及问询应对\n• 营销及广告利用\n• 服务改善及新服务开发",
       "retention": "公司按照法律规定的个人信息保有·利用期间或信息主体收集个人信息时同意的个人信息保有·利用期间内处理·保有个人信息。\n\n• 会员注册及管理：至退会时\n• 服务提供：至服务利用结束时\n• 客户咨询：咨询完成后3年\n• 营销：至同意撤回时",
       "thirdParty": "公司在第1条（个人信息处理目的）明示的范围内处理信息主体的个人信息，仅在获得信息主体同意、法律特别规定等个人信息保护法第17条及第18条相应情况下向第三方提供个人信息。\n\n公司可在以下情况下向第三方提供个人信息：\n• 获得信息主体单独同意时\n• 根据法律被政府机构要求时\n• 为统计制作及学术研究等目的需要时",
       "outsourcing": "公司为个人信息业务处理的顺利进行，委托个人信息处理业务如下。\n\n• 受托人（受托人）：云服务提供商\n• 委托业务内容：数据存储及管理\n• 委托期间：服务提供期间",
@@ -586,7 +586,7 @@
     }
   },
   "passwordReset": {
-    "title": "重置您的FairWork账户密码",
+    "title": "重置您的Kareer账户密码",
     "description": "请输入您希望接收临时密码的电子邮件账户。",
     "form": {
       "emailLabel": "电子邮件",
@@ -611,15 +611,15 @@
     "contact": {
       "emailLabel": "邮箱",
       "faxLabel": "传真",
-      "title": "FairWork 고객센터",
+      "title": "Kareer 고객센터",
       "phone": "02-3354-1256",
       "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
-      "email": "contact@fairwork.co.kr",
+      "email": "contact@kareer.co.kr",
       "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
     },
     "businessInfo": "商业登记: 123-45-67890, 职业信息服务: 首尔江南 2024-1, 电子商务: 2024-首尔江南-1234",
     "businessInfoButton": "验证商业信息",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "copyright": "Copyright (c) (주)Kareer. All rights reserved.",
     "mobileVersion": "查看移动版本",
     "links": {
       "company": "회사소개",
@@ -635,7 +635,7 @@
       "emailInquiry": "이메일 문의"
     },
     "company": {
-      "name": "(주)FairWork",
+      "name": "(주)Kareer",
       "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
       "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
     }
@@ -942,6 +942,7 @@
     "hasVisa": "有签证",
     "noVisa": "无签证",
     "visaTypeLabel": "签证类型",
+    "selectVisaType": "请选择您的签证类型",
     "issueDateLabel": "签发日期",
     "expiryDateLabel": "到期日期"
   },

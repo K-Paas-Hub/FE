@@ -19,7 +19,7 @@
     "korean": "Korean"
   },
   "auth": {
-    "welcome": "Welcome to FairWork",
+    "welcome": "Welcome to Kareer",
     "loginSubtitle": "Sign in easily with your Google account",
     "googleLogin": "Sign in with Google",
     "googleContinue": "Continue with Google",
@@ -233,7 +233,7 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. All rights reserved.",
+    "copyright": "© Kareer 2024. All rights reserved.",
     "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
     "businessInfoButton": "사업자정보확인",
     "mobileVersion": "모바일 버전 보기"
@@ -254,7 +254,7 @@
       "supplementary": "Supplementary Provisions"
     },
     "content": {
-      "purpose": "These terms are established to regulate the rights, obligations, and responsibilities between the company and members regarding the use of services provided by FairWork (hereinafter referred to as the \"Company\"), and other necessary matters.",
+      "purpose": "These terms are established to regulate the rights, obligations, and responsibilities between the company and members regarding the use of services provided by Kareer (hereinafter referred to as the \"Company\"), and other necessary matters.",
       "definitions": "1. \"Service\" means all services provided by the Company.\n2. \"Member\" means a customer who accesses the Company's service and enters into a usage agreement with the Company in accordance with these terms and uses the services provided by the Company.\n3. \"Account\" means a combination of characters, numbers, or special characters selected by the member and approved by the Company for member identification and service use.",
       "effectiveness": "1. These terms take effect for all members who wish to use the service.\n2. The Company may change these terms within the scope not violating relevant laws and regulations when necessary.\n3. When the Company changes the terms, it will notify the current terms along with the application date and reason for change on the service initial screen 7 days before the application date.",
       "service": "1. The Company provides the following services:\n- Foreign worker related information provision\n- Visa application and management services\n- Contract analysis and review services\n- Other services determined by the Company\n2. Services are provided 24 hours a day, 365 days a year as a principle.",
@@ -287,7 +287,7 @@
       "effectiveDate": "Effective Date"
     },
     "content": {
-      "purpose": "FairWork (hereinafter referred to as the \"Company\") processes personal information for the following purposes and does not use it for purposes other than the following:\n\n• Member registration and management\n• Service provision and operation\n• Customer consultation and inquiry response\n• Marketing and advertising utilization\n• Service improvement and new service development",
+      "purpose": "Kareer (hereinafter referred to as the \"Company\") processes personal information for the following purposes and does not use it for purposes other than the following:\n\n• Member registration and management\n• Service provision and operation\n• Customer consultation and inquiry response\n• Marketing and advertising utilization\n• Service improvement and new service development",
       "retention": "The Company processes and retains personal information within the personal information retention and use period under laws and regulations or the personal information retention and use period agreed upon when collecting personal information from information subjects.\n\n• Member registration and management: Until member withdrawal\n• Service provision: Until service use termination\n• Customer consultation: 3 years after consultation completion\n• Marketing: Until consent withdrawal",
       "thirdParty": "The Company processes the information subject's personal information only within the scope specified in Article 1 (Purpose of Personal Information Processing) and provides personal information to third parties only in cases corresponding to Articles 17 and 18 of the Personal Information Protection Act, such as the information subject's consent and special provisions of laws.\n\nThe Company may provide personal information to third parties in the following cases:\n• When separate consent is received from the information subject\n• When requested by government agencies based on laws and regulations\n• When necessary for statistical compilation and academic research purposes",
       "outsourcing": "The Company outsources personal information processing tasks as follows for smooth personal information work processing.\n\n• Outsourced party (consignee): Cloud service provider\n• Content of outsourced work: Data storage and management\n• Outsourcing period: Service provision period",
@@ -305,7 +305,7 @@
     }
   },
   "passwordReset": {
-    "title": "Reset your FairWork account password.",
+    "title": "Reset your Kareer account password.",
     "description": "Please enter the email account where you will receive the temporary password.",
     "form": {
       "emailLabel": "Email",
@@ -330,15 +330,15 @@
     "contact": {
       "emailLabel": "Email",
       "faxLabel": "Fax",
-      "title": "FairWork 고객센터",
+      "title": "Kareer 고객센터",
       "phone": "02-3354-1256",
       "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
-      "email": "contact@fairwork.co.kr",
+      "email": "contact@kareer.co.kr",
       "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
     },
     "businessInfo": "Business Registration: 123-45-67890, Job Information Service: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Verify Business Information",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "copyright": "Copyright (c) (주)Kareer. All rights reserved.",
     "mobileVersion": "View Mobile Version",
     "links": {
       "company": "회사소개",
@@ -354,7 +354,7 @@
       "emailInquiry": "이메일 문의"
     },
     "company": {
-      "name": "(주)FairWork",
+      "name": "(주)Kareer",
       "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
       "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
     }
@@ -371,8 +371,7 @@
     "contractQuiz": "📝 Contract Quiz",
     "aiInterview": "AI Mock Interview",
     "logo": {
-      "fair": "Fair",
-      "work": "Work"
+      "kareer": "Kareer"
     },
     "navigation": {
       "aboutUs": "About Us",
@@ -465,12 +464,12 @@
       }
     },
     "chat": {
-      "title": "Chat with FairWork Bot",
+      "title": "Chat with Kareer Bot",
       "subtitle": "Get help through our chatbot!",
       "close": "Close",
       "time": "6:14 PM",
       "botMessage": {
-        "greeting": "Hello. I'm FairWork BOT.",
+        "greeting": "Hello. I'm Kareer BOT.",
         "selectType": "Please select your member type.",
         "note": "(*This chatbot does not provide real-time chat service with agents.)"
       },
@@ -836,7 +835,7 @@
       "ctaButton": "Go to Job Site"
     },
     "features": {
-      "title": "Fair Work's Special Features",
+      "title": "Kareer's Special Features",
       "multilingual": {
         "title": "Multilingual Support",
         "description": "Support in various languages to help foreign workers use the platform easily"
@@ -919,6 +918,7 @@
     "hasVisa": "Have Visa",
     "noVisa": "No Visa",
     "visaTypeLabel": "Visa Type",
+    "selectVisaType": "Select your visa type",
     "issueDateLabel": "Issue Date",
     "expiryDateLabel": "Expiry Date",
     "visaTypeRequired": "Please select a visa type.",

@@ -19,7 +19,7 @@
     "korean": "Tiếng Hàn"
   },
   "auth": {
-    "welcome": "Chào mừng đến với FairWork",
+    "welcome": "Chào mừng đến với Kareer",
     "loginSubtitle": "Đăng nhập dễ dàng bằng tài khoản Google của bạn",
     "googleLogin": "Đăng nhập bằng Google",
     "googleContinue": "Tiếp tục với Google",
@@ -180,12 +180,12 @@
       }
     },
     "chat": {
-      "title": "Trò chuyện với Bot FairWork",
+      "title": "Trò chuyện với Bot Kareer",
       "subtitle": "Nhận trợ giúp thông qua chatbot!",
       "close": "Đóng",
       "time": "6:14 PM",
       "botMessage": {
-        "greeting": "Xin chào. Tôi là FairWork BOT.",
+        "greeting": "Xin chào. Tôi là Kareer BOT.",
         "selectType": "Vui lòng chọn loại thành viên.",
         "note": "(*Chatbot này không cung cấp dịch vụ chat thời gian thực với nhân viên.)"
       },
@@ -611,7 +611,7 @@
       "ctaButton": "Đi đến trang tuyển dụng"
     },
     "features": {
-      "title": "Tính năng đặc biệt của Fair Work",
+      "title": "Tính năng đặc biệt của Kareer",
       "multilingual": {
         "title": "Hỗ trợ đa ngôn ngữ",
         "description": "Hỗ trợ nhiều ngôn ngữ để giúp lao động nước ngoài sử dụng nền tảng dễ dàng"
@@ -732,7 +732,7 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. Tất cả quyền được bảo lưu.",
+    "copyright": "© Kareer 2024. Tất cả quyền được bảo lưu.",
     "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
     "businessInfoButton": "사업자정보확인",
     "mobileVersion": "모바일 버전 보기"
@@ -754,7 +754,7 @@
       "effectiveDate": "Ngày hiệu lực"
     },
     "content": {
-      "purpose": "FairWork (sau đây gọi là \"Công ty\") xử lý thông tin cá nhân cho các mục đích sau và không sử dụng cho mục đích khác:\n\n• Đăng ký và quản lý thành viên\n• Cung cấp và vận hành dịch vụ\n• Tư vấn khách hàng và phản hồi thắc mắc\n• Tiếp thị và quảng cáo\n• Cải thiện dịch vụ và phát triển dịch vụ mới",
+      "purpose": "Kareer (sau đây gọi là \"Công ty\") xử lý thông tin cá nhân cho các mục đích sau và không sử dụng cho mục đích khác:\n\n• Đăng ký và quản lý thành viên\n• Cung cấp và vận hành dịch vụ\n• Tư vấn khách hàng và phản hồi thắc mắc\n• Tiếp thị và quảng cáo\n• Cải thiện dịch vụ và phát triển dịch vụ mới",
       "retention": "Công ty xử lý và lưu trữ thông tin cá nhân trong thời gian lưu trữ và sử dụng thông tin cá nhân theo luật pháp hoặc thời gian lưu trữ và sử dụng thông tin cá nhân được đồng ý khi thu thập thông tin cá nhân từ chủ thể thông tin.\n\n• Đăng ký và quản lý thành viên: Cho đến khi rút khỏi thành viên\n• Cung cấp dịch vụ: Cho đến khi kết thúc sử dụng dịch vụ\n• Tư vấn khách hàng: 3 năm sau khi hoàn thành tư vấn\n• Tiếp thị: Cho đến khi rút lại sự đồng ý",
       "thirdParty": "Công ty chỉ xử lý thông tin cá nhân của chủ thể thông tin trong phạm vi được quy định tại Điều 1 (Mục đích xử lý thông tin cá nhân) và chỉ cung cấp thông tin cá nhân cho bên thứ ba trong các trường hợp tương ứng với Điều 17 và 18 của Luật Bảo vệ Thông tin Cá nhân, như sự đồng ý của chủ thể thông tin và các quy định đặc biệt của luật pháp.\n\nCông ty có thể cung cấp thông tin cá nhân cho bên thứ ba trong các trường hợp sau:\n• Khi nhận được sự đồng ý riêng biệt từ chủ thể thông tin\n• Khi được yêu cầu bởi cơ quan chính phủ dựa trên luật pháp\n• Khi cần thiết cho mục đích biên soạn thống kê và nghiên cứu học thuật",
       "outsourcing": "Công ty ủy thác các nhiệm vụ xử lý thông tin cá nhân như sau để xử lý công việc thông tin cá nhân một cách trơn tru.\n\n• Bên được ủy thác (người nhận ủy thác): Nhà cung cấp dịch vụ đám mây\n• Nội dung công việc được ủy thác: Lưu trữ và quản lý dữ liệu\n• Thời gian ủy thác: Thời gian cung cấp dịch vụ",
@@ -775,15 +775,15 @@
     "contact": {
       "emailLabel": "Email",
       "faxLabel": "Fax",
-      "title": "FairWork 고객센터",
+      "title": "Kareer 고객센터",
       "phone": "02-3354-1256",
       "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
-      "email": "contact@fairwork.co.kr",
+      "email": "contact@kareer.co.kr",
       "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
     },
     "businessInfo": "Đăng ký kinh doanh: 123-45-67890, Cung cấp thông tin việc làm: Seoul Gangnam 2024-1, Thương mại điện tử: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Xác nhận thông tin kinh doanh",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "copyright": "Copyright (c) (주)Kareer. All rights reserved.",
     "mobileVersion": "Xem phiên bản di động",
     "links": {
       "company": "회사소개",
@@ -799,7 +799,7 @@
       "emailInquiry": "이메일 문의"
     },
     "company": {
-      "name": "(주)FairWork",
+      "name": "(주)Kareer",
       "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
       "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
     }
@@ -820,7 +820,7 @@
       "supplementary": "Phụ lục"
     },
     "content": {
-      "purpose": "Điều khoản này quy định về quyền, nghĩa vụ và trách nhiệm giữa công ty và thành viên liên quan đến việc sử dụng dịch vụ do FairWork (sau đây gọi là \"Công ty\") cung cấp, và các vấn đề cần thiết khác.",
+      "purpose": "Điều khoản này quy định về quyền, nghĩa vụ và trách nhiệm giữa công ty và thành viên liên quan đến việc sử dụng dịch vụ do Kareer (sau đây gọi là \"Công ty\") cung cấp, và các vấn đề cần thiết khác.",
       "definitions": "1. \"Dịch vụ\" có nghĩa là tất cả dịch vụ do công ty cung cấp.\n2. \"Thành viên\" có nghĩa là khách hàng truy cập dịch vụ của công ty và ký kết hợp đồng sử dụng với công ty theo điều khoản này và sử dụng dịch vụ do công ty cung cấp.\n3. \"Tài khoản\" có nghĩa là sự kết hợp của chữ cái, số hoặc ký tự đặc biệt mà thành viên chọn và công ty chấp thuận để xác định thành viên và sử dụng dịch vụ của thành viên.",
       "effectiveness": "1. Điều khoản này có hiệu lực đối với tất cả thành viên muốn sử dụng dịch vụ.\n2. Công ty có thể thay đổi điều khoản này trong phạm vi không vi phạm luật liên quan khi cần thiết.\n3. Khi công ty thay đổi điều khoản, công ty sẽ thông báo ngày áp dụng và lý do thay đổi cùng với điều khoản hiện hành trên màn hình chính của dịch vụ từ 7 ngày trước ngày áp dụng.",
       "service": "1. Công ty cung cấp các dịch vụ sau:\n- Cung cấp thông tin liên quan đến lao động nước ngoài\n- Dịch vụ đăng ký và quản lý visa\n- Dịch vụ phân tích và xem xét hợp đồng\n- Các dịch vụ khác do công ty quy định\n2. Dịch vụ được cung cấp 24 giờ một ngày, 365 ngày một năm theo nguyên tắc.",
@@ -837,7 +837,7 @@
     }
   },
   "passwordReset": {
-    "title": "Đặt lại mật khẩu cho tài khoản FairWork.",
+    "title": "Đặt lại mật khẩu cho tài khoản Kareer.",
     "description": "Vui lòng nhập tài khoản email để nhận mật khẩu tạm thời.",
     "form": {
       "emailLabel": "Email",
@@ -870,6 +870,7 @@
     "hasVisa": "Có visa",
     "noVisa": "Không có visa",
     "visaTypeLabel": "Loại visa",
+    "selectVisaType": "Chọn loại visa của bạn",
     "issueDateLabel": "Ngày cấp",
     "expiryDateLabel": "Ngày hết hạn"
   },

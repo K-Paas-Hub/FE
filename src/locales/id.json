@@ -19,7 +19,7 @@
     "korean": "Bahasa Korea"
   },
   "auth": {
-    "welcome": "Selamat datang di FairWork",
+    "welcome": "Selamat datang di Kareer",
     "loginSubtitle": "Masuk dengan mudah menggunakan akun Google Anda",
     "googleLogin": "Masuk dengan Google",
     "googleContinue": "Lanjutkan dengan Google",
@@ -193,12 +193,12 @@
       }
     },
     "chat": {
-      "title": "FairWork 챗봇과 대화하기",
+      "title": "Kareer 챗봇과 대화하기",
       "subtitle": "챗봇을 통해 문의를 해결해보세요!",
       "close": "닫기",
       "time": "오후 6:14",
       "botMessage": {
-        "greeting": "안녕하세요. FairWork BOT 입니다.",
+        "greeting": "안녕하세요. Kareer BOT 입니다.",
         "selectType": "회원 유형을 선택해 주세요.",
         "note": "(*본 챗봇은 상담원과의 실시간 채팅 서비스는 운영하지 않습니다.)"
       },
@@ -412,7 +412,7 @@
       "ctaButton": "Pergi ke Situs Lowongan"
     },
     "features": {
-      "title": "Fitur Khusus Fair Work",
+      "title": "Fitur Khusus Kareer",
       "multilingual": {
         "title": "Dukungan Multibahasa",
         "description": "Dukungan dalam berbagai bahasa untuk membantu pekerja asing menggunakan platform dengan mudah"
@@ -514,7 +514,7 @@
     }
   },
   "footer": {
-    "copyright": "© FairWork 2024. Semua hak dilindungi.",
+    "copyright": "© Kareer 2024. Semua hak dilindungi.",
     "businessInfo": "사업자등록: 123-45-67890, 직업정보제공사업 : 서울 강남 제 2024-1호, 통신판매업 : 제 2024-서울강남-1234호",
     "businessInfoButton": "사업자정보확인",
     "mobileVersion": "모바일 버전 보기"
@@ -535,7 +535,7 @@
       "supplementary": "Ketentuan Tambahan"
     },
     "content": {
-      "purpose": "Ketentuan ini bertujuan untuk mengatur hak, kewajiban, dan tanggung jawab antara perusahaan dan anggota, serta hal-hal lain yang diperlukan terkait penggunaan layanan yang disediakan oleh FairWork (selanjutnya disebut \"Perusahaan\").",
+      "purpose": "Ketentuan ini bertujuan untuk mengatur hak, kewajiban, dan tanggung jawab antara perusahaan dan anggota, serta hal-hal lain yang diperlukan terkait penggunaan layanan yang disediakan oleh Kareer (selanjutnya disebut \"Perusahaan\").",
       "definitions": "1. \"Layanan\" berarti semua layanan yang disediakan oleh Perusahaan.\n2. \"Anggota\" berarti pelanggan yang mengakses layanan Perusahaan dan membuat kontrak penggunaan sesuai dengan ketentuan ini dan menggunakan layanan yang disediakan oleh Perusahaan.\n3. \"Akun\" berarti kombinasi huruf, angka, atau karakter khusus yang dipilih oleh anggota dan disetujui oleh Perusahaan untuk mengidentifikasi anggota dan penggunaan layanan anggota.",
       "effectiveness": "1. Ketentuan ini berlaku untuk semua anggota yang ingin menggunakan layanan.\n2. Perusahaan dapat mengubah ketentuan ini sesuai kebutuhan dalam batas yang tidak melanggar hukum yang relevan.\n3. Ketika Perusahaan mengubah ketentuan, Perusahaan akan mengumumkan tanggal efektif dan alasan perubahan bersama dengan ketentuan saat ini di halaman utama layanan setidaknya 7 hari sebelum tanggal efektif.",
       "service": "1. Perusahaan menyediakan layanan berikut:\n- Penyediaan informasi terkait pekerja asing\n- Layanan aplikasi dan manajemen visa\n- Layanan analisis dan tinjauan kontrak\n- Layanan lain yang ditentukan oleh Perusahaan\n2. Layanan disediakan 24 jam sehari, 7 hari seminggu sebagai prinsip.",
@@ -568,7 +568,7 @@
       "effectiveDate": "Tanggal Efektif"
     },
     "content": {
-      "purpose": "FairWork (selanjutnya disebut \"Perusahaan\") memproses informasi pribadi untuk tujuan berikut dan tidak akan digunakan untuk tujuan lain selain tujuan ini.\n\n• Pendaftaran dan manajemen anggota\n• Penyediaan dan operasi layanan\n• Konsultasi dan respons pertanyaan pelanggan\n• Pemanfaatan pemasaran dan iklan\n• Peningkatan layanan dan pengembangan layanan baru",
+      "purpose": "Kareer (selanjutnya disebut \"Perusahaan\") memproses informasi pribadi untuk tujuan berikut dan tidak akan digunakan untuk tujuan lain selain tujuan ini.\n\n• Pendaftaran dan manajemen anggota\n• Penyediaan dan operasi layanan\n• Konsultasi dan respons pertanyaan pelanggan\n• Pemanfaatan pemasaran dan iklan\n• Peningkatan layanan dan pengembangan layanan baru",
       "retention": "Perusahaan akan memproses dan menyimpan informasi pribadi dalam periode penyimpanan dan penggunaan informasi pribadi sesuai hukum, atau dalam periode penyimpanan dan penggunaan informasi pribadi yang disetujui ketika mengumpulkan informasi pribadi.\n\n• Pendaftaran dan manajemen anggota: hingga penarikan\n• Penyediaan layanan: hingga penggunaan layanan berakhir\n• Konsultasi pelanggan: 3 tahun setelah konsultasi selesai\n• Pemasaran: hingga persetujuan ditarik",
       "thirdParty": "Perusahaan akan memproses informasi pribadi subjek informasi dalam ruang lingkup yang ditentukan dalam Pasal 1 (Tujuan Pemrosesan Informasi Pribadi) dan hanya akan menyediakan informasi pribadi kepada pihak ketiga dalam kasus di mana persetujuan diperoleh dari subjek informasi, atau ada ketentuan hukum khusus, atau ada alasan sesuai dengan Pasal 17 dan 18 Undang-Undang Perlindungan Informasi Pribadi.\n\nPerusahaan dapat menyediakan informasi pribadi kepada pihak ketiga dalam kasus berikut:\n• Ketika persetujuan terpisah diperoleh dari subjek informasi\n• Ketika diminta oleh lembaga pemerintah sesuai hukum\n• Ketika diperlukan untuk pembuatan statistik dan penelitian akademik",
       "outsourcing": "Perusahaan menugaskan pekerjaan pemrosesan informasi pribadi berikut untuk pemrosesan informasi pribadi yang lancar.\n\n• Penerima penugasan (penerima): Penyedia layanan cloud\n• Konten pekerjaan yang ditugaskan: Penyimpanan dan manajemen data\n• Periode penugasan: Periode penyediaan layanan",
@@ -586,7 +586,7 @@
     }
   },
   "passwordReset": {
-    "title": "Reset kata sandi untuk akun FairWork Anda",
+    "title": "Reset kata sandi untuk akun Kareer Anda",
     "description": "Silakan masukkan alamat email tempat Anda ingin menerima kata sandi sementara",
     "form": {
       "emailLabel": "Email",
@@ -611,15 +611,15 @@
     "contact": {
       "emailLabel": "Email",
       "faxLabel": "Fax",
-      "title": "FairWork 고객센터",
+      "title": "Kareer 고객센터",
       "phone": "02-3354-1256",
       "hours": "평일 09:00~19:00, 주말·공휴일 휴무",
-      "email": "contact@fairwork.co.kr",
+      "email": "contact@kareer.co.kr",
       "fax": "02-1234-5679(대표), 02-1234-5680(세금계산서)"
     },
     "businessInfo": "Pendaftaran Bisnis: 123-45-67890, Layanan Informasi Pekerjaan: Seoul Gangnam 2024-1, E-commerce: 2024-SeoulGangnam-1234",
     "businessInfoButton": "Verifikasi Informasi Bisnis",
-    "copyright": "Copyright (c) (주)FairWork. All rights reserved.",
+    "copyright": "Copyright (c) (주)Kareer. All rights reserved.",
     "mobileVersion": "Lihat Versi Mobile",
     "links": {
       "company": "회사소개",
@@ -635,7 +635,7 @@
       "emailInquiry": "이메일 문의"
     },
     "company": {
-      "name": "(주)FairWork",
+      "name": "(주)Kareer",
       "address": "우: 03921, 서울 마포구 월드컵북로 60길 17, 상암 IT 타워 6층",
       "ceo": "대표 : 최홍석, 김미르, 임성혁, 홍윤기, 허완"
     }
@@ -942,6 +942,7 @@
     "hasVisa": "Memiliki Visa",
     "noVisa": "Tidak Memiliki Visa",
     "visaTypeLabel": "Jenis Visa",
+    "selectVisaType": "Pilih jenis visa Anda",
     "issueDateLabel": "Tanggal Terbit",
     "expiryDateLabel": "Tanggal Kedaluwarsa"
   },
