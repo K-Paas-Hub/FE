@@ -1,93 +1,98 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MainFooter from '../MainFooter';
 import {
-  PrivacyContainer,
-  PrivacyContent,
-  PrivacyTitle,
-  PrivacySection,
-  LoginButtonSection,
-  LoginButton,
-} from '../../styles/components/PrivacyPage.styles';
+  TermsContainer,
+  TermsContent,
+  TermsTitle,
+  TermsSection,
+  CloseButton,
+} from '../../styles/components/TermsPage.styles';
 
 const PrivacyPage: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  
+  const handleClose = () => {
+    navigate('/login');
+  };
   
   return (
-    <PrivacyContainer>
-      <PrivacyContent>
-        <PrivacyTitle>{t('privacy.title')}</PrivacyTitle>
+    <TermsContainer>
+      <TermsContent>
+        <CloseButton 
+          onClick={handleClose}
+          aria-label="페이지 닫기"
+        >
+          ✕
+        </CloseButton>
         
-        <PrivacySection>
+        <TermsTitle>{t('privacy.title')}</TermsTitle>
+        
+        <TermsSection>
           <h2>{t('privacy.sections.purpose')}</h2>
           <p>{t('privacy.content.purpose')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.retention')}</h2>
           <p>{t('privacy.content.retention')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.thirdParty')}</h2>
           <p>{t('privacy.content.thirdParty')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.outsourcing')}</h2>
           <p>{t('privacy.content.outsourcing')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.rights')}</h2>
           <p>{t('privacy.content.rights')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.items')}</h2>
           <p>{t('privacy.content.items')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.destruction')}</h2>
           <p>{t('privacy.content.destruction')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.security')}</h2>
           <p>{t('privacy.content.security')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.officer')}</h2>
           <p>{t('privacy.content.officer')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.changes')}</h2>
           <p>{t('privacy.content.changes')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.inquiry')}</h2>
           <p>{t('privacy.content.inquiry')}</p>
-        </PrivacySection>
+        </TermsSection>
 
-        <PrivacySection>
+        <TermsSection>
           <h2>{t('privacy.sections.effectiveDate')}</h2>
           <p>{t('privacy.content.effectiveDate')}</p>
-        </PrivacySection>
-        
-        <LoginButtonSection>
-          <LoginButton as={Link} to="/login">
-            {t('privacy.actions.backToLogin')}
-          </LoginButton>
-        </LoginButtonSection>
-      </PrivacyContent>
+        </TermsSection>
+      </TermsContent>
       
       <MainFooter />
-    </PrivacyContainer>
+    </TermsContainer>
   );
 };
 

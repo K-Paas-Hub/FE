@@ -1,22 +1,33 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MainFooter from '../MainFooter';
 import {
   TermsContainer,
   TermsContent,
   TermsTitle,
   TermsSection,
-  LoginButtonSection,
-  LoginButton,
+  CloseButton,
 } from '../../styles/components/TermsPage.styles';
 
 const TermsPage: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  
+  const handleClose = () => {
+    navigate('/login');
+  };
   
   return (
     <TermsContainer>
       <TermsContent>
+        <CloseButton 
+          onClick={handleClose}
+          aria-label="페이지 닫기"
+        >
+          ✕
+        </CloseButton>
+        
         <TermsTitle>{t('terms.title')}</TermsTitle>
         
         <TermsSection>
@@ -73,12 +84,6 @@ const TermsPage: React.FC = () => {
           <h2>{t('terms.sections.supplementary')}</h2>
           <p>{t('terms.content.supplementary')}</p>
         </TermsSection>
-        
-        <LoginButtonSection>
-          <LoginButton as={Link} to="/login">
-            {t('terms.actions.backToLogin')}
-          </LoginButton>
-        </LoginButtonSection>
       </TermsContent>
       
       <MainFooter />

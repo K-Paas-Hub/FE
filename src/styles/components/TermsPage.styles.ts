@@ -21,6 +21,7 @@ export const TermsContent = styled.div`
   width: 100%;
   line-height: 1.6;
   color: #333333;
+  position: relative;
 
   @media (max-width: 768px) {
     padding: 30px 16px;
@@ -28,6 +29,51 @@ export const TermsContent = styled.div`
 
   @media (max-width: 480px) {
     padding: 24px 12px;
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background: #e5e7eb;
+    color: #374151;
+  }
+
+  &:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 768px) {
+    top: 35px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    top: 30px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 `;
 
@@ -93,37 +139,5 @@ export const TermsSection = styled.section`
 
   @media (max-width: 480px) {
     margin-bottom: 24px;
-  }
-`;
-
-export const LoginButtonSection = styled.div`
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
-`;
-
-export const LoginButton = styled.a`
-  display: inline-block;
-  padding: 12px 32px;
-  background: #0066cc;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background: #0052a3;
-  }
-
-  @media (max-width: 768px) {
-    padding: 10px 24px;
-    font-size: 13px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 10px 20px;
-    font-size: 13px;
   }
 `;
