@@ -24,10 +24,105 @@ import {
   FlexSpacer,
   ErrorAlert,
 } from '../../styles/components/ResumePage.styles';
-import styled from 'styled-components';
-
-
-
+import {
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalTitle,
+  CloseButton,
+  PreviewSection,
+  PreviewSectionTitle,
+  PreviewContent,
+  PreviewText,
+  EmptyText,
+  LanguageLevelSelect,
+  SchoolTypeFilter,
+  SchoolTypeButton,
+  SmartSearchContainer,
+  SearchInput,
+  SearchIcon,
+  SchoolCardGrid,
+  SchoolCard,
+  SchoolCardHeader,
+  SchoolIcon,
+  SchoolName,
+  SchoolCategory,
+  SchoolCardBody,
+  NoResultsCard,
+  EducationTimeline,
+  TimelineTitle,
+  TimelineContainer,
+  TimelineItem,
+  TimelineContent,
+  TimelineSchoolCard,
+  TimelineSchoolHeader,
+  TimelineSchoolIcon,
+  TimelineSchoolInfo,
+  TimelineSchoolName,
+  TimelineSchoolCategory,
+  TimelineRemoveButton,
+  TimelineSchoolBody,
+  StatusSelect,
+  LanguageTypeFilter,
+  LanguageTypeButton,
+  LanguageCardGrid,
+  LanguageCard,
+  LanguageCardHeader,
+  LanguageIcon,
+  LanguageName,
+  LanguageCardBody,
+  LanguageCategory,
+  LanguageDescription,
+  LanguageCardFooter,
+  LanguageTimeline,
+  TimelineLanguageCard,
+  TimelineLanguageHeader,
+  TimelineLanguageIcon,
+  TimelineLanguageInfo,
+  TimelineLanguageName,
+  TimelineLanguageCategory,
+  TimelineLanguageBody,
+  CertificationTypeFilter,
+  CertificationTypeButton,
+  CertificationCardGrid,
+  CertificationCard,
+  CertificationCardHeader,
+  CertificationIcon,
+  CertificationCardName,
+  CertificationCardCategory,
+  CertificationCardBody,
+  CertificationDescription,
+  CertificationCardFooter,
+  CertificationTimeline,
+  TimelineCertificationCard,
+  TimelineCertificationHeader,
+  TimelineCertificationIcon,
+  TimelineCertificationInfo,
+  TimelineCertificationName,
+  TimelineCertificationCategory,
+  TimelineCertificationBody,
+  CertificationGradeSelect,
+  SkillTypeFilter,
+  SkillTypeButton,
+  SkillCardGrid,
+  SkillCard,
+  SkillCardHeader,
+  SkillIcon,
+  SkillCardName,
+  SkillCardCategory,
+  SkillCardBody,
+  SkillDescription,
+  SkillCardFooter,
+  SkillTimeline,
+  TimelineSkillCard,
+  TimelineSkillHeader,
+  TimelineSkillIcon,
+  TimelineSkillInfo,
+  TimelineSkillName,
+  TimelineSkillCategory,
+  TimelineSkillBody,
+  SkillLevelSelect,
+} from './ResumePage.styles';
 // 국적 옵션
 const nationalityOptions = [
   { value: '', label: '국적을 선택하세요' },
@@ -455,800 +550,7 @@ const skillData = [
   { id: '54', name: 'Power BI', category: '기타', description: '비즈니스 인텔리전스', levels: ['초급', '중급', '고급', '전문가'] },
   { id: '55', name: 'Tableau', category: '기타', description: '데이터 시각화 도구', levels: ['초급', '중급', '고급', '전문가'] }
 ];
-
-// 미리보기 모달 스타일
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  backdrop-filter: blur(4px);
-`;
-
-const ModalContent = styled.div`
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-`;
-
-const ModalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #e5e7eb;
-`;
-
-const ModalTitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-`;
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #6b7280;
-  padding: 0.5rem;
-  border-radius: 4px;
-  min-width: 44px;
-  min-height: 44px;
   
-  &:hover {
-    background-color: #f3f4f6;
-    color: #374151;
-  }
-`;
-
-const PreviewSection = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const PreviewSectionTitle = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const PreviewContent = styled.div`
-  background-color: #f9fafb;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #4ade80;
-`;
-
-const PreviewText = styled.p`
-  margin: 0;
-  line-height: 1.6;
-  color: #374151;
-  white-space: pre-wrap;
-`;
-
-const EmptyText = styled.p`
-  color: #9ca3af;
-  font-style: italic;
-  margin: 0;
-`;
-
-// 미사용 스타일 컴포넌트들 제거
-
-// 어학 능력 레벨 선택 스타일
-const LanguageLevelSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  background: white;
-  color: #374151;
-  margin: 0;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-  }
-`;
-
-
-
-// 미사용 경험 관련 스타일 컴포넌트들 제거
-
-
-
-// 학력 정보 관련 스타일드 컴포넌트
-const SchoolTypeFilter = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-`;
-
-const SchoolTypeButton = styled.button<{ $active: boolean }>`
-  padding: 0.5rem 1rem;
-  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
-  background: ${props => props.$active ? '#4ade80' : 'white'};
-  color: ${props => props.$active ? 'white' : '#374151'};
-  border-radius: 6px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
-  }
-`;
-
-const SmartSearchContainer = styled.div`
-  position: relative;
-  margin-bottom: 1rem;
-`;
-
-const SearchInput = styled.input`
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  border: 2px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: white;
-  color: #374151;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
-  }
-`;
-
-const SearchIcon = styled.span`
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9ca3af;
-  font-size: 1rem;
-`;
-
-const SchoolCardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #f9fafb;
-`;
-
-const SchoolCard = styled.div`
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-`;
-
-const SchoolCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const SchoolIcon = styled.span`
-  font-size: 1.5rem;
-`;
-
-const SchoolName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const SchoolCategory = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  background: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-`;
-
-const SchoolCardBody = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-`;
-
-const NoResultsCard = styled.div`
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 2rem;
-  color: #6b7280;
-  font-style: italic;
-`;
-
-const EducationTimeline = styled.div`
-  margin-top: 1.5rem;
-`;
-
-const TimelineTitle = styled.h4`
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 1rem;
-`;
-
-const TimelineContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const TimelineItem = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: 1.5rem;
-    top: 2.5rem;
-    bottom: -1rem;
-    width: 2px;
-    background: #e5e7eb;
-  }
-  
-  &:last-child::before {
-    display: none;
-  }
-`;
-
-
-
-const TimelineContent = styled.div`
-  flex: 1;
-`;
-
-const TimelineSchoolCard = styled.div`
-  background: #f9fafb;
-  border-radius: 6px;
-  padding: 0.75rem;
-`;
-
-const TimelineSchoolHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const TimelineSchoolIcon = styled.span`
-  font-size: 1.25rem;
-`;
-
-const TimelineSchoolInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const TimelineSchoolName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const TimelineSchoolCategory = styled.div`
-  font-size: 0.75rem;
-  color: #6b7280;
-`;
-
-const TimelineRemoveButton = styled.button`
-  background: none;
-  color: #6b7280;
-  border: none;
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  
-  &:hover {
-    color: #374151;
-    background: #f3f4f6;
-  }
-`;
-
-const TimelineSchoolBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const StatusSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  background: white;
-  color: #374151;
-  margin: 0;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-  }
-`;
-
-// 어학 능력 관련 스타일드 컴포넌트
-const LanguageTypeFilter = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-`;
-
-const LanguageTypeButton = styled.button<{ $active: boolean }>`
-  padding: 0.5rem 1rem;
-  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
-  background: ${props => props.$active ? '#4ade80' : 'white'};
-  color: ${props => props.$active ? 'white' : '#374151'};
-  border-radius: 6px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
-  }
-`;
-
-const LanguageCardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #f9fafb;
-`;
-
-const LanguageCard = styled.div`
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-`;
-
-const LanguageCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const LanguageIcon = styled.span`
-  font-size: 1.5rem;
-`;
-
-const LanguageName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const LanguageCardBody = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-`;
-
-const LanguageCategory = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  background: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-`;
-
-const LanguageDescription = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-`;
-
-const LanguageCardFooter = styled.div`
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: #9ca3af;
-`;
-
-const LanguageTimeline = styled.div`
-  margin-top: 1.5rem;
-`;
-
-const TimelineLanguageCard = styled.div`
-  background: #f9fafb;
-  border-radius: 6px;
-  padding: 0.75rem;
-`;
-
-const TimelineLanguageHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const TimelineLanguageIcon = styled.span`
-  font-size: 1.25rem;
-`;
-
-const TimelineLanguageInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
-`;
-
-const TimelineLanguageName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const TimelineLanguageCategory = styled.div`
-  font-size: 0.75rem;
-  color: #6b7280;
-`;
-
-const TimelineLanguageBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-// 자격증 관련 스타일드 컴포넌트
-const CertificationTypeFilter = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-`;
-
-const CertificationTypeButton = styled.button<{ $active: boolean }>`
-  padding: 0.5rem 1rem;
-  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
-  background: ${props => props.$active ? '#4ade80' : 'white'};
-  color: ${props => props.$active ? 'white' : '#374151'};
-  border-radius: 6px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
-  }
-`;
-
-const CertificationCardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #f9fafb;
-`;
-
-const CertificationCard = styled.div`
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-`;
-
-const CertificationCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const CertificationIcon = styled.span`
-  font-size: 1.5rem;
-`;
-
-const CertificationCardName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const CertificationCardCategory = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  background: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-`;
-
-const CertificationCardBody = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-`;
-
-const CertificationDescription = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
-`;
-
-const CertificationCardFooter = styled.div`
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: #9ca3af;
-`;
-
-const CertificationTimeline = styled.div`
-  margin-top: 1.5rem;
-`;
-
-const TimelineCertificationCard = styled.div`
-  background: #f9fafb;
-  border-radius: 6px;
-  padding: 0.75rem;
-`;
-
-const TimelineCertificationHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const TimelineCertificationIcon = styled.span`
-  font-size: 1.25rem;
-`;
-
-const TimelineCertificationInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const TimelineCertificationName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const TimelineCertificationCategory = styled.div`
-  font-size: 0.75rem;
-  color: #6b7280;
-`;
-
-const TimelineCertificationBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-// 자격증 급수 선택 스타일
-const CertificationGradeSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  background: white;
-  color: #374151;
-  margin: 0;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-  }
-`;
-
-// 기술 관련 스타일드 컴포넌트
-const SkillTypeFilter = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-`;
-
-const SkillTypeButton = styled.button<{ $active: boolean }>`
-  padding: 0.5rem 1rem;
-  border: 1px solid ${props => props.$active ? '#4ade80' : '#d1d5db'};
-  background: ${props => props.$active ? '#4ade80' : 'white'};
-  color: ${props => props.$active ? 'white' : '#374151'};
-  border-radius: 6px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    background: ${props => props.$active ? '#4ade80' : '#f0fdf4'};
-  }
-`;
-
-const SkillCardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #f9fafb;
-`;
-
-const SkillCard = styled.div`
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: #4ade80;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-`;
-
-const SkillCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const SkillIcon = styled.span`
-  font-size: 1.5rem;
-`;
-
-const SkillCardName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const SkillCardCategory = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  background: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-`;
-
-const SkillCardBody = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-`;
-
-const SkillDescription = styled.div`
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
-`;
-
-const SkillCardFooter = styled.div`
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: #9ca3af;
-`;
-
-const SkillTimeline = styled.div`
-  margin-top: 1.5rem;
-`;
-
-const TimelineSkillCard = styled.div`
-  background: #f9fafb;
-  border-radius: 6px;
-  padding: 0.75rem;
-`;
-
-const TimelineSkillHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const TimelineSkillIcon = styled.span`
-  font-size: 1.25rem;
-`;
-
-const TimelineSkillInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const TimelineSkillName = styled.div`
-  font-weight: 600;
-  color: #1f2937;
-`;
-
-const TimelineSkillCategory = styled.div`
-  font-size: 0.75rem;
-  color: #6b7280;
-`;
-
-const TimelineSkillBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-// 기술 레벨 선택 스타일
-const SkillLevelSelect = styled.select`
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  background: white;
-  color: #374151;
-  margin: 0;
-  
-  &:focus {
-    outline: none;
-    border-color: #4ade80;
-  }
-`;
-
 const ResumePage: React.FC = () => {
   const { t } = useTranslation();
   const {
@@ -1318,7 +620,14 @@ const ResumePage: React.FC = () => {
         if (foundCert) {
           return { ...foundCert, grade: grade || '' };
         } else {
-          return { id: `custom-${certificationName}`, name: certificationName, category: '기타', description: '기타 자격증', grade: grade || '', grades: [] };
+          return { 
+            id: `custom-${certificationName}`, 
+            name: certificationName, 
+            category: '기타', 
+            description: '기타 자격증', 
+            grade: grade || '', 
+            grades: [] 
+          };
         }
       });
       setSelectedCertifications(certifications);
