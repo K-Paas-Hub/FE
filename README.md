@@ -155,11 +155,13 @@ Kareer는 외국인 근로자들이 한국에서 안전하고 공정하게 일�
 
 ## 🛠️ 기술 스택
 
-- **Frontend**: React 18, JavaScript
-- **UI**: CSS, Bootstrap
-- **상태 관리**: React Hooks, Context API
-- **라우팅**: React Router
-- **다국어**: i18n 지원
+- **Frontend**: React 19, TypeScript 4.9
+- **UI**: styled-components 6.1, framer-motion 12.2
+- **상태 관리**: TanStack Query 5.8, React Hooks, Context API
+- **라우팅**: React Router 7.8
+- **다국어**: react-i18next 14.1 지원 (7개 언어)
+- **인증**: Supabase 2.56
+- **테스팅**: Testing Library, Jest
 
 ## 📁 프로젝트 구조
 
