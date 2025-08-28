@@ -22,7 +22,7 @@ const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
   const isSystem = message.type === 'system';
 
   return (
-    <MessageContainer messageType={isSystem ? 'system' : 'user'}>
+    <MessageContainer $messageType={isSystem ? 'system' : 'user'}>
       <MessageContent>
         {isSystem && (
           <MessageAvatar>
@@ -30,8 +30,8 @@ const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
           </MessageAvatar>
         )}
         
-        <MessageBubble messageType={isSystem ? 'system' : 'user'}>
-          <MessageText messageType={isSystem ? 'system' : 'user'}>
+        <MessageBubble $messageType={isSystem ? 'system' : 'user'}>
+          <MessageText $messageType={isSystem ? 'system' : 'user'}>
             {message.content.split('\n').map((line, index) => (
               <React.Fragment key={index}>
                 {line}
@@ -41,7 +41,7 @@ const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
           </MessageText>
           
           {message.recommendedTime && (
-            <RecommendedTime messageType={isSystem ? 'system' : 'user'}>
+            <RecommendedTime $messageType={isSystem ? 'system' : 'user'}>
               <TimeIcon>⏱️</TimeIcon>
               {t('interview.message.recommendedTime')}: {message.recommendedTime}
             </RecommendedTime>
@@ -49,7 +49,7 @@ const InterviewMessage: React.FC<InterviewMessageProps> = ({ message }) => {
         </MessageBubble>
       </MessageContent>
       
-      <MessageTimestamp messageType={isSystem ? 'system' : 'user'}>
+      <MessageTimestamp $messageType={isSystem ? 'system' : 'user'}>
         {message.timestamp}
       </MessageTimestamp>
     </MessageContainer>
