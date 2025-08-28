@@ -2,7 +2,28 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { theme } from '../theme/theme';
 
-// Main Header Container (첫 번째 줄)
+/**
+ * MainHeader 스타일 컴포넌트 모음
+ * 
+ * 애플리케이션의 메인 헤더와 관련된 모든 스타일드 컴포넌트를 정의합니다.
+ * 반응형 디자인과 접근성을 고려하여 작성되었습니다.
+ * 
+ * @fileoverview
+ * - Header: 전체 헤더 컨테이너
+ * - MainHeader: 첫 번째 줄 (로고, 언어, 인증)
+ * - SubHeader: 두 번째 줄 (네비게이션)
+ * - Logo: 로고 섹션 (접근성 지원)
+ * - Navigation: 네비게이션 메뉴
+ * - Language: 언어 선택 드롭다운
+ * - Auth: 인증 관련 버튼
+ */
+
+/**
+ * 전체 헤더 컨테이너
+ * 
+ * 애플리케이션의 최상단에 고정되는 헤더를 정의합니다.
+ * 스티키 포지션으로 스크롤 시에도 상단에 유지됩니다.
+ */
 export const Header = styled.header`
   background: white;
   border-bottom: 1px solid ${theme.colors.borderLight};
@@ -12,12 +33,22 @@ export const Header = styled.header`
   box-shadow: ${theme.shadows.sm};
 `;
 
-// Main Header (첫 번째 줄) - 로고, 언어, 인증
+/**
+ * 메인 헤더 (첫 번째 줄)
+ * 
+ * 로고, 언어 선택, 인증 버튼을 포함하는 상단 헤더 영역입니다.
+ */
 export const MainHeader = styled.div`
   background: white;
   border-bottom: 1px solid ${theme.colors.borderLight};
 `;
 
+/**
+ * 메인 헤더 콘텐츠 컨테이너
+ * 
+ * 로고와 우측 요소들(언어, 인증)을 좌우로 배치하는 플렉스 컨테이너입니다.
+ * 반응형 패딩을 적용하여 다양한 화면 크기에 대응합니다.
+ */
 export const MainHeaderContent = styled.div`
   max-width: ${theme.containers.wide};
   margin: 0 auto;
@@ -55,7 +86,13 @@ export const SubHeaderContent = styled.div`
   }
 `;
 
-// Logo Section
+/**
+ * 로고 섹션
+ * 
+ * 애플리케이션 로고를 표시하는 클릭 가능한 영역입니다.
+ * 접근성을 고려하여 키보드 네비게이션과 포커스 표시를 지원합니다.
+ * 호버 및 클릭 시 시각적 피드백을 제공합니다.
+ */
 export const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -87,6 +124,13 @@ export const Logo = styled.div`
   }
 `;
 
+/**
+ * 로고 이미지
+ * 
+ * Kareer 로고 이미지를 표시합니다.
+ * WCAG 2.1 AA 접근성 기준을 충족하는 최소 크기(44px)를 보장합니다.
+ * 반응형 크기 조정으로 다양한 화면에서 최적화된 표시를 제공합니다.
+ */
 export const LogoImage = styled.img`
   height: 50px;
   width: auto;
