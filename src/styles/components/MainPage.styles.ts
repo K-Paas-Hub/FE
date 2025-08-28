@@ -191,7 +191,7 @@ export const FilterOverlay = styled.div<{ $isOpen: boolean }>`
 
 export const FilterModal = styled.div`
   background: white;
-  border-radius: ${theme.radius.lg};
+  border-radius: ${theme.radius.sm};
   padding: ${theme.spacing.xl};
   width: 90%;
   max-width: 600px;
@@ -248,8 +248,8 @@ export const FilterTabs = styled.div`
 export const FilterTab = styled.button<{ $isActive: boolean }>`
   background: none;
   border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: ${theme.radius.md};
+  padding: 0.6rem 1rem;
+  border-radius: ${theme.radius.sm};
   font-weight: ${theme.typography.fontWeight.medium};
   cursor: pointer;
   transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
@@ -272,11 +272,12 @@ export const FilterOption = styled.button<{ $isSelected: boolean }>`
   background: ${props => props.$isSelected ? theme.colors.primary : theme.colors.backgroundGray};
   color: ${props => props.$isSelected ? 'white' : theme.colors.textPrimary};
   border: 1px solid ${props => props.$isSelected ? theme.colors.primary : theme.colors.borderLight};
-  padding: 0.8rem;
-  border-radius: ${theme.radius.md};
+  padding: 0.6rem 0.8rem;
+  border-radius: ${theme.radius.sm};
   font-size: ${theme.typography.fontSize.sm};
   cursor: pointer;
   transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  text-align: center;
   
   &:hover {
     background: ${props => props.$isSelected ? theme.colors.primary : theme.colors.backgroundGray};
@@ -297,21 +298,22 @@ export const AppliedFilterTags = styled.div`
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 export const AppliedFilterTag = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
   background: ${theme.colors.primary};
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: ${theme.radius.full};
+  padding: 0.6rem 0.8rem;
+  border-radius: ${theme.radius.sm};
   font-size: ${theme.typography.fontSize.sm};
   
   ${theme.media.tablet} {
-    padding: 0.4rem 0.8rem;
-    font-size: ${theme.typography.fontSize.xs};
+    padding: 0.5rem 0.7rem;
+    font-size: ${theme.typography.fontSize.sm};
   }
 `;
 
@@ -320,14 +322,15 @@ export const RemoveButton = styled.button`
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   line-height: 1;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  min-width: 44px;
+  min-height: 16px;
+  min-width: 16px;
+  margin-left: 0.3rem;
   
   &:hover {
     opacity: 0.8;
@@ -351,11 +354,12 @@ export const FilterActions = styled.div`
 export const ResetButton = styled.button`
   background: none;
   border: 1px solid ${theme.colors.borderLight};
-  padding: 0.8rem 1.5rem;
-  border-radius: ${theme.radius.md};
+  padding: 0.6rem 0.8rem;
+  border-radius: ${theme.radius.sm};
   color: ${theme.colors.textSecondary};
   cursor: pointer;
   transition: all ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  font-size: ${theme.typography.fontSize.sm};
   
   &:hover {
     border-color: ${theme.colors.primary};
@@ -367,8 +371,8 @@ export const ViewResultsButton = styled.button`
   background: #1e293b;
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: ${theme.radius.md};
+  padding: 0.6rem 0.8rem;
+  border-radius: ${theme.radius.sm};
   font-weight: ${theme.typography.fontWeight.medium};
   cursor: pointer;
   transition: background ${theme.animations.duration.normal} ${theme.animations.easing.ease};
