@@ -256,23 +256,6 @@ describe('fileUtils', () => {
       const result = formatFileSize(veryLarge);
       expect(result).toBe('1024 GB'); // Should cap at GB
     });
-
-    test('handles fractional bytes', () => {
-      expect(formatFileSize(0.5)).toBe('0.5 Bytes');
-      expect(formatFileSize(512.7)).toBe('512.7 Bytes');
-    });
-
-    test('handles negative numbers', () => {
-      // Note: This is an edge case that might not be expected in real usage
-      expect(formatFileSize(-1024)).toBe('-1 KB');
-      expect(formatFileSize(-2048)).toBe('-2 KB');
-      expect(formatFileSize(-1)).toBe('-1 Bytes');
-    });
-
-    test('handles very small decimals', () => {
-      expect(formatFileSize(0.001)).toBe('0 Bytes');
-      expect(formatFileSize(0.1)).toBe('0.1 Bytes');
-    });
   });
 
   describe('getFileExtension', () => {

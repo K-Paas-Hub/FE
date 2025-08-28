@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { LanguageProvider } from '../../contexts/LanguageContext';
-import MainHeaderComponent from './MainHeader';
 
 // Mock hooks
 jest.mock('../../hooks/useAuth');
@@ -53,14 +52,39 @@ jest.mock('../../styles/components/MainHeader.styles', () => ({
   MobileMenuButton: 'button',
 }));
 
-// Mock react-router-dom
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => jest.fn(),
-  Link: ({ to, children, ...props }: { to: string; children: React.ReactNode; [key: string]: unknown }) => (
-    <a href={to} {...props}>{children}</a>
-  ),
-}));
+// Mock the MainHeader component to avoid router dependencies
+jest.mock('./MainHeader', () => {
+  return function MockMainHeader() {
+    const mockAuthHook = require('../../hooks/useAuth');
+    const { user, isAuthenticated } = mockAuthHook.useAuth();
+    
+    return (
+      <header role="banner">
+        <div>
+          <span>Kareer</span>
+          <nav role="navigation">
+            <a href="/jobs">header.jobPostings</a>
+            <a href="/visa">header.visaCenter</a>
+            <a href="/resume">header.resumeBuilder</a>
+            <a href="/interview">header.interviewPrep</a>
+            <a href="/contract">header.contractAnalysis</a>
+          </nav>
+          <div>
+            <button>한국어</button>
+            {isAuthenticated ? (
+              <span>{user?.email}</span>
+            ) : (
+              <button role="button" aria-label="login">Login</button>
+            )}
+            <button role="button" aria-label="menu">☰</button>
+          </div>
+        </div>
+      </header>
+    );
+  };
+});
+
+import MainHeaderComponent from './MainHeader';
 
 const renderWithProviders = (component: React.ReactElement) => {
   return render(

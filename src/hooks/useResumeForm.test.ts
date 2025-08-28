@@ -337,45 +337,7 @@ describe('useResumeForm', () => {
       );
     });
 
-    test('should handle submit resume error', async () => {
-      mockResumeService.submitResume.mockRejectedValue(new Error('Submit failed'));
-      
-      const { result } = renderHook(() => useResumeForm());
-      
-      await waitFor(() => {
-        expect(result.current.loading).toBe(false);
-      });
-      
-      // 필수 필드 설정
-      act(() => {
-        result.current.handleInputChange({
-          target: { name: 'name', value: '홍길동' }
-        } as React.ChangeEvent<HTMLInputElement>);
-        
-        result.current.handleInputChange({
-          target: { name: 'email', value: 'hong@test.com' }
-        } as React.ChangeEvent<HTMLInputElement>);
-        
-        result.current.handleInputChange({
-          target: { name: 'phone', value: '010-1234-5678' }
-        } as React.ChangeEvent<HTMLInputElement>);
-        
-        result.current.handleInputChange({
-          target: { name: 'nationality', value: '베트남' }
-        } as React.ChangeEvent<HTMLSelectElement>);
-        
-        result.current.handleInputChange({
-          target: { name: 'visaType', value: 'E9' }
-        } as React.ChangeEvent<HTMLSelectElement>);
-      });
-      
-      await act(async () => {
-        const submitResult = await result.current.submitResume();
-        expect(submitResult.success).toBe(false);
-      });
-      
-      expect(result.current.error).toBe('네트워크 오류가 발생했습니다.');
-    });
+    // 중복된 테스트 제거 - error handling 섹션에서 처리됨
 
     test('should fail validation when required fields are empty', async () => {
       const { result } = renderHook(() => useResumeForm());
@@ -568,7 +530,7 @@ describe('useResumeForm', () => {
   });
 
   describe('error handling', () => {
-    test('should handle save resume error', async () => {
+    test('should handle save resume error gracefully', async () => {
       mockResumeService.saveResume.mockRejectedValue(new Error('Save failed'));
       
       const { result } = renderHook(() => useResumeForm());
@@ -583,6 +545,64 @@ describe('useResumeForm', () => {
       });
       
       expect(result.current.error).toBe('네트워크 오류가 발생했습니다.');
+    });
+
+    test('should handle submit resume error gracefully', async () => {
+      mockResumeService.submitResume.mockRejectedValue(new Error('Submit failed'));
+      
+      const { result } = renderHook(() => useResumeForm());
+      
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+      
+      // 필수 필드 설정
+      act(() => {
+        result.current.handleInputChange({
+          target: { name: 'name', value: '홍길동' }
+        } as React.ChangeEvent<HTMLInputElement>);
+        
+        result.current.handleInputChange({
+          target: { name: 'email', value: 'hong@test.com' }
+        } as React.ChangeEvent<HTMLInputElement>);
+        
+        result.current.handleInputChange({
+          target: { name: 'phone', value: '010-1234-5678' }
+        } as React.ChangeEvent<HTMLInputElement>);
+        
+        result.current.handleInputChange({
+          target: { name: 'nationality', value: '베트남' }
+        } as React.ChangeEvent<HTMLSelectElement>);
+        
+        result.current.handleInputChange({
+          target: { name: 'visaType', value: 'E9' }
+        } as React.ChangeEvent<HTMLSelectElement>);
+      });
+      
+      await act(async () => {
+        const submitResult = await result.current.submitResume();
+        expect(submitResult.success).toBe(false);
+      });
+      
+      expect(result.current.error).toBe('네트워크 오류가 발생했습니다.');
+    });
+
+    test('should handle file upload error gracefully', async () => {
+      const mockFile = new File(['test content'], 'test.pdf', { type: 'application/pdf' });
+      mockResumeService.uploadFile.mockRejectedValue(new Error('Upload failed'));
+      
+      const { result } = renderHook(() => useResumeForm());
+      
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+      
+      await act(async () => {
+        const uploadResult = await result.current.uploadFile(mockFile);
+        expect(uploadResult.success).toBe(false);
+      });
+      
+      expect(result.current.error).toBe('파일 업로드 중 오류가 발생했습니다.');
     });
   });
 

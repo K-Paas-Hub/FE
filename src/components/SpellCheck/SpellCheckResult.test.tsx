@@ -48,7 +48,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Overall Statistics Display', () => {
-    it('displays overall statistics correctly', () => {
+    test('displays overall statistics correctly', () => {
       const result = createMockResult({
         overallStatistics: {
           totalWords: 150,
@@ -65,7 +65,7 @@ describe('SpellCheckResult', () => {
       expect(screen.getByText('96.7%')).toBeInTheDocument();
     });
 
-    it('displays zero errors correctly', () => {
+    test('displays zero errors correctly', () => {
       const result = createMockResult({
         overallStatistics: {
           totalWords: 100,
@@ -81,7 +81,7 @@ describe('SpellCheckResult', () => {
       expect(screen.getByText('100.0%')).toBeInTheDocument();
     });
 
-    it('displays processing time correctly', () => {
+    test('displays processing time correctly', () => {
       const result = createMockResult({
         overallStatistics: {
           totalWords: 50,
@@ -98,7 +98,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Section Display', () => {
-    it('displays sections with errors correctly', () => {
+    test('displays sections with errors correctly', () => {
       const error = createMockError();
       const result = createMockResult({
         sections: [
@@ -124,7 +124,7 @@ describe('SpellCheckResult', () => {
       expect(screen.getByText('올바른단어')).toBeInTheDocument();
     });
 
-    it('displays multiple errors in a section correctly', () => {
+    test('displays multiple errors in a section correctly', () => {
       const error1 = createMockError({ id: 'error-1', word: '첫번째' });
       const error2 = createMockError({ id: 'error-2', word: '두번째' });
       const result = createMockResult({
@@ -150,7 +150,7 @@ describe('SpellCheckResult', () => {
       expect(screen.getByText('"두번째"')).toBeInTheDocument();
     });
 
-    it('displays sections without errors correctly', () => {
+    test('displays sections without errors correctly', () => {
       const result = createMockResult({
         sections: [
           {
@@ -175,7 +175,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Error Details Display', () => {
-    it('displays error details correctly', () => {
+    test('displays error details correctly', () => {
       const error = createMockError({
         id: 'error-1',
         word: '틀린말',
@@ -210,7 +210,7 @@ describe('SpellCheckResult', () => {
       expect(screen.getByText('맞춤법 오류입니다')).toBeInTheDocument();
     });
 
-    it('displays different error types correctly', () => {
+    test('displays different error types correctly', () => {
       const spellingError = createMockError({
         id: 'spelling-1',
         errorType: 'spelling',
@@ -247,7 +247,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Mixed Sections Display', () => {
-    it('displays sections with and without errors correctly', () => {
+    test('displays sections with and without errors correctly', () => {
       const errorSection: SectionCheckResult = {
         section: 'introduction',
         errors: [createMockError()],
@@ -280,7 +280,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Section Navigation', () => {
-    it('displays all resume sections correctly', () => {
+    test('displays all resume sections correctly', () => {
       const resumeSections = ['name', 'introduction', 'experience', 'education', 'skills'] as const;
       
       const sections: SectionCheckResult[] = resumeSections.map(key => ({
@@ -316,7 +316,7 @@ describe('SpellCheckResult', () => {
       });
     });
 
-    it('handles unknown sections gracefully', () => {
+    test('handles unknown sections gracefully', () => {
       const result = createMockResult({
         sections: [
           {
@@ -341,7 +341,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Error Severity Display', () => {
-    it('displays high severity errors with appropriate styling', () => {
+    test('displays high severity errors with appropriate styling', () => {
       const highSeverityError = createMockError({
         errorType: 'spelling',
         severity: 'high',
@@ -370,7 +370,7 @@ describe('SpellCheckResult', () => {
       expect(screen.getByText('심각한 맞춤법 오류')).toBeInTheDocument();
     });
 
-    it('displays low severity errors correctly', () => {
+    test('displays low severity errors correctly', () => {
       const lowSeverityError = createMockError({
         errorType: 'spacing',
         severity: 'low',
@@ -401,7 +401,7 @@ describe('SpellCheckResult', () => {
   });
 
   describe('Complex Error Scenarios', () => {
-    it('handles multiple sections with mixed error types', () => {
+    test('handles multiple sections with mixed error types', () => {
       const result = createMockResult({
         sections: [
           {

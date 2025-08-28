@@ -89,13 +89,15 @@ describe('validation utils', () => {
     test('유효한 국제 전화번호를 검증합니다', () => {
       expect(validateInternationalPhone('+821012345678')).toBe(true);
       expect(validateInternationalPhone('+15551234567')).toBe(true);
-      expect(validateInternationalPhone('+44-20-7946-0958')).toBe(false); // 하이픈 포함
+      expect(validateInternationalPhone('+442079460958')).toBe(true); // 하이픈 제거
+      expect(validateInternationalPhone('+33123456789')).toBe(true);
     });
 
     test('유효하지 않은 국제 전화번호를 검증합니다', () => {
-      expect(validateInternationalPhone('010-1234-5678')).toBe(false);
+      expect(validateInternationalPhone('010-1234-5678')).toBe(false); // 한국 내선번호
       expect(validateInternationalPhone('+123')).toBe(true); // 실제로는 유효함 (3자리)
       expect(validateInternationalPhone('+1234567890123456')).toBe(false); // 너무 김
+      expect(validateInternationalPhone('+44-20-7946-0958')).toBe(false); // 하이픈 포함
     });
   });
 
