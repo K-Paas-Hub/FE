@@ -14,22 +14,24 @@ export const LoginContainer = styled.div`
 `;
 
 export const LoginContent = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
   max-width: 700px;
   margin: 0 auto;
   width: 100%;
+  min-height: calc(100vh - 200px);
 
   @media (max-width: 768px) {
-    padding: 40px 20px;
+    padding: 30px 20px;
+    min-height: calc(100vh - 180px);
   }
 
   @media (max-width: 480px) {
-    padding: 32px 16px;
+    padding: 24px 16px;
+    min-height: calc(100vh - 160px);
   }
 `;
 

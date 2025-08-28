@@ -109,6 +109,11 @@ const MainHeaderComponent: React.FC = () => {
     return location.pathname === '/contract-tutorial' || location.pathname === '/contract-analysis' || location.pathname === '/contract-quiz';
   };
 
+  // 로그인/회원가입 페이지인지 확인
+  const isAuthPage = () => {
+    return location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/find-password';
+  };
+
   return (
     <Header>
       {/* 첫 번째 줄: 로고, 언어 선택, 인증 */}
@@ -172,88 +177,90 @@ const MainHeaderComponent: React.FC = () => {
         </MainHeaderContent>
       </MainHeader>
 
-      {/* 두 번째 줄: 네비게이션 메뉴 */}
-      <SubHeader>
-        <SubHeaderContent>
-          <MobileMenuButton>
-            ☰
-          </MobileMenuButton>
-          
-        <NavWrapper>
-          <Nav>
-            <NavLink 
-              to="/main" 
-              className={location.pathname === '/main' ? 'active' : ''}
-            >
-              {t('header.jobPostings')}
-            </NavLink>
+      {/* 두 번째 줄: 네비게이션 메뉴 - 로그인/회원가입 페이지에서는 숨김 */}
+      {!isAuthPage() && (
+        <SubHeader>
+          <SubHeaderContent>
+            <MobileMenuButton>
+              ☰
+            </MobileMenuButton>
             
-            {/* 이력서 드롭다운 메뉴 */}
-            <DropdownContainer
-              onMouseEnter={handleResumeDropdownMouseEnter}
-              onMouseLeave={handleResumeDropdownMouseLeave}
-            >
-              <DropdownTrigger 
-                $isOpen={isResumeDropdownOpen}
-                className={isResumePage() ? 'active' : ''}
+          <NavWrapper>
+            <Nav>
+              <NavLink 
+                to="/main" 
+                className={location.pathname === '/main' ? 'active' : ''}
               >
-                {t('header.myResume')}
-              </DropdownTrigger>
-              <DropdownMenu $isOpen={isResumeDropdownOpen}>
-                <DropdownItem to="/resume">
-                  {t('header.resumeWriting')}
-                </DropdownItem>
-                <DropdownItem to="/spell-check">
-                  <DropdownItemIcon src="/images/search.png" alt={t('header.spellCheck')} />
-                  {t('header.spellCheck')}
-                </DropdownItem>
-              </DropdownMenu>
-            </DropdownContainer>
-            
-            <NavLink 
-              to="/visa" 
-              className={location.pathname === '/visa' ? 'active' : ''}
-            >
-              {t('header.visaCenter')}
-            </NavLink>
-            
-            {/* 근로계약서 드롭다운 메뉴 */}
-            <DropdownContainer
-              onMouseEnter={handleContractDropdownMouseEnter}
-              onMouseLeave={handleContractDropdownMouseLeave}
-            >
-              <DropdownTrigger 
-                $isOpen={isContractDropdownOpen}
-                className={isContractPage() ? 'active' : ''}
+                {t('header.jobPostings')}
+              </NavLink>
+              
+              {/* 이력서 드롭다운 메뉴 */}
+              <DropdownContainer
+                onMouseEnter={handleResumeDropdownMouseEnter}
+                onMouseLeave={handleResumeDropdownMouseLeave}
               >
-                {t('header.employmentContract')}
-              </DropdownTrigger>
-              <DropdownMenu $isOpen={isContractDropdownOpen}>
-                <DropdownItem to="/contract-tutorial">
-                  {t('header.writingGuide')}
-                </DropdownItem>
-                <DropdownItem to="/contract-quiz">
-                  {t('header.contractQuiz')}
-                </DropdownItem>
-                <DropdownItem to="/contract-analysis">
-                  {t('header.contractAnalysis')}
-                </DropdownItem>
-              </DropdownMenu>
-            </DropdownContainer>
+                <DropdownTrigger 
+                  $isOpen={isResumeDropdownOpen}
+                  className={isResumePage() ? 'active' : ''}
+                >
+                  {t('header.myResume')}
+                </DropdownTrigger>
+                <DropdownMenu $isOpen={isResumeDropdownOpen}>
+                  <DropdownItem to="/resume">
+                    {t('header.resumeWriting')}
+                  </DropdownItem>
+                  <DropdownItem to="/spell-check">
+                    <DropdownItemIcon src="/images/search.png" alt={t('header.spellCheck')} />
+                    {t('header.spellCheck')}
+                  </DropdownItem>
+                </DropdownMenu>
+              </DropdownContainer>
               
               <NavLink 
-                to="/interview" 
-                className={location.pathname === '/interview' ? 'active' : ''}
-                preventScrollReset={true}
+                to="/visa" 
+                className={location.pathname === '/visa' ? 'active' : ''}
               >
-                {t('header.aiInterview')}
+                {t('header.visaCenter')}
               </NavLink>
-          </Nav>
-        </NavWrapper>
-          
+              
+              {/* 근로계약서 드롭다운 메뉴 */}
+              <DropdownContainer
+                onMouseEnter={handleContractDropdownMouseEnter}
+                onMouseLeave={handleContractDropdownMouseLeave}
+              >
+                <DropdownTrigger 
+                  $isOpen={isContractDropdownOpen}
+                  className={isContractPage() ? 'active' : ''}
+                >
+                  {t('header.employmentContract')}
+                </DropdownTrigger>
+                <DropdownMenu $isOpen={isContractDropdownOpen}>
+                  <DropdownItem to="/contract-tutorial">
+                    {t('header.writingGuide')}
+                  </DropdownItem>
+                  <DropdownItem to="/contract-quiz">
+                    {t('header.contractQuiz')}
+                  </DropdownItem>
+                  <DropdownItem to="/contract-analysis">
+                    {t('header.contractAnalysis')}
+                  </DropdownItem>
+                </DropdownMenu>
+              </DropdownContainer>
+                
+                <NavLink 
+                  to="/interview" 
+                  className={location.pathname === '/interview' ? 'active' : ''}
+                  preventScrollReset={true}
+                >
+                  {t('header.aiInterview')}
+                </NavLink>
+            </Nav>
+          </NavWrapper>
+            
 
-        </SubHeaderContent>
-      </SubHeader>
+          </SubHeaderContent>
+        </SubHeader>
+      )}
     </Header>
   );
 };

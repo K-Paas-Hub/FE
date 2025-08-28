@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import LoginForm from './LoginForm';
+import MainHeader from '../MainHeader';
 import Footer from '../MainFooter';
 import { devLog, devError } from '../../utils/logger';
 import {
@@ -46,6 +47,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <LoginContainer>
+      <MainHeader />
       <LoginContent>
         <LoginTitle>{t('auth.loginTitle')}</LoginTitle>
         <LoginForm 

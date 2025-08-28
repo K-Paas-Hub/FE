@@ -11,6 +11,7 @@ export const LoginForm = styled.form`
 
 export const InputGroup = styled.div`
   margin-bottom: 1.5rem;
+  width: 100%;
 `;
 
 export const InputLabel = styled.label`
@@ -81,6 +82,7 @@ export const FormActions = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+  width: 100%;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -179,6 +181,7 @@ export const LoginButton = styled.button<{ isEnabled?: boolean }>`
 
 export const OAuthSection = styled.div`
   margin-top: 2rem;
+  width: 100%;
 `;
 
 export const OAuthDivider = styled.div`
@@ -273,6 +276,7 @@ export const FooterLinks = styled.div`
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid #e1e5e9;
+  width: 100%;
 `;
 
 export const FooterLink = styled.a`

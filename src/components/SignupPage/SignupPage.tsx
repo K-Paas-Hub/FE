@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import SignupForm from './SignupForm';
+import MainHeader from '../MainHeader';
 import Footer from '../MainFooter';
 import { VisaInfo } from '../../types/visa';
 import { devLog, devError } from '../../utils/logger';
@@ -51,6 +52,7 @@ const SignupPage: React.FC = () => {
 
   return (
     <SignupContainer>
+      <MainHeader />
       <SignupContent>
         <SignupTitle>{t('auth.signup.title')}</SignupTitle>
         <SignupForm onSubmit={handleSignup} isLoading={isFormLoading} />
