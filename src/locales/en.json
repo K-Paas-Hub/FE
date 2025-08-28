@@ -914,6 +914,8 @@
     "other": "Other"
   },
   "signup": {
+    "addressLabel": "Address",
+    "addressPlaceholder": "Search for address",
     "visaInfoLabel": "Visa Information",
     "hasVisa": "Have Visa",
     "noVisa": "No Visa",
