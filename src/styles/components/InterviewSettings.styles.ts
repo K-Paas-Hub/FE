@@ -340,18 +340,18 @@ export const CancelButton = styled.button`
   }
 `;
 
-export const SaveButton = styled.button<{ isEnabled?: boolean }>`
+export const SaveButton = styled.button<{ $isEnabled?: boolean }>`
   padding: 10px 24px;
   border: none;
   border-radius: 8px;
-  background: ${props => props.isEnabled 
+  background: ${props => props.$isEnabled 
     ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
     : '#cbd5e1'
   };
   color: white;
   font-size: 14px;
   font-weight: 500;
-  cursor: ${props => props.isEnabled ? 'pointer' : 'not-allowed'};
+  cursor: ${props => props.$isEnabled ? 'pointer' : 'not-allowed'};
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {

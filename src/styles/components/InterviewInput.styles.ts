@@ -66,7 +66,7 @@ export const InputActions = styled.div`
   align-items: center;
 `;
 
-export const ActionButton = styled.button<{ variant?: 'mic' | 'send' }>`
+export const ActionButton = styled.button<{ $variant?: 'mic' | 'send' }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +79,7 @@ export const ActionButton = styled.button<{ variant?: 'mic' | 'send' }>`
   transition: all 0.2s ease;
   flex-shrink: 0;
 
-  ${props => props.variant === 'mic' && `
+  ${props => props.$variant === 'mic' && `
     color: #64748b;
     background: #f1f5f9;
 
@@ -89,7 +89,7 @@ export const ActionButton = styled.button<{ variant?: 'mic' | 'send' }>`
     }
   `}
 
-  ${props => props.variant === 'send' && `
+  ${props => props.$variant === 'send' && `
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 

@@ -71,10 +71,10 @@ export const InputLabel = styled.label`
   }
 `;
 
-export const InputField = styled.input<{ hasError?: boolean }>`
+export const InputField = styled.input<{ $hasError?: boolean }>`
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid ${props => props.hasError ? '#dc2626' : '#d1d5db'};
+  border: 1px solid ${props => props.$hasError ? '#dc2626' : '#d1d5db'};
   border-radius: 8px;
   font-size: 15px;
   outline: none;
@@ -108,10 +108,10 @@ export const InputField = styled.input<{ hasError?: boolean }>`
   }
 `;
 
-export const SelectField = styled.select<{ hasError?: boolean }>`
+export const SelectField = styled.select<{ $hasError?: boolean }>`
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid ${props => props.hasError ? '#dc2626' : '#d1d5db'};
+  border: 1px solid ${props => props.$hasError ? '#dc2626' : '#d1d5db'};
   border-radius: 8px;
   font-size: 15px;
   outline: none;
@@ -333,15 +333,15 @@ export const Link = styled.a`
   }
 `;
 
-export const SignupButton = styled.button<{ isEnabled?: boolean }>`
+export const SignupButton = styled.button<{ $isEnabled?: boolean }>`
   padding: 14px 32px;
-  background: ${props => props.isEnabled ? '#0066cc' : '#9ca3af'};
+  background: ${props => props.$isEnabled ? '#0066cc' : '#9ca3af'};
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
-  cursor: ${props => props.isEnabled ? 'pointer' : 'not-allowed'};
+  cursor: ${props => props.$isEnabled ? 'pointer' : 'not-allowed'};
   transition: background-color 0.2s ease;
   min-width: 150px;
   min-height: 48px;

@@ -55,7 +55,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
           type="text"
           value={id}
           onChange={handleIdChange}
-          hasError={!!idError}
+          $hasError={!!idError}
           placeholder={t('passwordReset.form.emailPlaceholder')}
           disabled={isLoading}
         />
@@ -68,7 +68,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, isLoadi
             {t('passwordReset.actions.backToLogin')}
           </StyledLink>
         </Links>
-        <ResetButton type="submit" isEnabled={!isLoading && !!id} disabled={isLoading || !id}>
+        <ResetButton type="submit" $isEnabled={!isLoading && !!id} disabled={isLoading || !id}>
           {isLoading ? t('passwordReset.form.loadingButton') : t('passwordReset.form.submitButton')}
         </ResetButton>
       </FormActions>

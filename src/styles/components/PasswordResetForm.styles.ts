@@ -105,10 +105,10 @@ export const InputLabel = styled.label`
   margin-bottom: 4px;
 `;
 
-export const InputField = styled.input<{ hasError?: boolean }>`
+export const InputField = styled.input<{ $hasError?: boolean }>`
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid ${props => props.hasError ? '#dc2626' : '#d1d5db'};
+  border: 1px solid ${props => props.$hasError ? '#dc2626' : '#d1d5db'};
   border-radius: 8px;
   font-size: 15px;
   outline: none;
@@ -178,20 +178,20 @@ export const Link = styled.a`
   }
 `;
 
-export const ResetButton = styled.button<{ isEnabled?: boolean }>`
+export const ResetButton = styled.button<{ $isEnabled?: boolean }>`
   padding: 12px 32px;
-  background: ${props => props.isEnabled ? '#0066cc' : '#6b7280'};
+  background: ${props => props.$isEnabled ? '#0066cc' : '#6b7280'};
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
-  cursor: ${props => props.isEnabled ? 'pointer' : 'not-allowed'};
+  cursor: ${props => props.$isEnabled ? 'pointer' : 'not-allowed'};
   transition: all 0.2s ease;
   min-width: 100px;
 
   &:hover:not(:disabled) {
-    background: ${props => props.isEnabled ? '#0052a3' : '#4b5563'};
+    background: ${props => props.$isEnabled ? '#0052a3' : '#4b5563'};
   }
 
   &:disabled {

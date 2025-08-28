@@ -27,11 +27,11 @@ export const InputLabel = styled.label`
   }
 `;
 
-export const InputField = styled.input<{ hasError?: boolean }>`
+export const InputField = styled.input<{ $hasError?: boolean }>`
   width: 100%;
   padding: 0.875rem 1rem;
   border: none;
-  border-bottom: 2px solid ${props => props.hasError ? '#ef4444' : '#e5e7eb'};
+  border-bottom: 2px solid ${props => props.$hasError ? '#ef4444' : '#e5e7eb'};
   border-radius: 0;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -133,7 +133,7 @@ export const Separator = styled.span`
   padding: 0 0.25rem;
 `;
 
-export const LoginButton = styled.button<{ isEnabled?: boolean }>`
+export const LoginButton = styled.button<{ $isEnabled?: boolean }>`
   background: #0066cc;
   color: white;
   border: none;
@@ -141,11 +141,11 @@ export const LoginButton = styled.button<{ isEnabled?: boolean }>`
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
-  cursor: ${props => props.isEnabled ? 'pointer' : 'not-allowed'};
+  cursor: ${props => props.$isEnabled ? 'pointer' : 'not-allowed'};
   transition: all 0.3s ease;
   min-width: 140px;
   min-height: 44px;
-  opacity: ${props => props.isEnabled ? 1 : 0.6};
+  opacity: ${props => props.$isEnabled ? 1 : 0.6};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,10 +204,10 @@ export const OAuthDivider = styled.div`
   }
 `;
 
-export const OAuthButton = styled.button<{ variant?: 'google' }>`
+export const OAuthButton = styled.button<{ $variant?: 'google' }>`
   width: 100%;
-  background: ${props => props.variant === 'google' ? 'white' : 'white'};
-  color: ${props => props.variant === 'google' ? '#374151' : '#374151'};
+  background: ${props => props.$variant === 'google' ? 'white' : 'white'};
+  color: ${props => props.$variant === 'google' ? '#374151' : '#374151'};
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 1rem 2rem;
@@ -227,7 +227,7 @@ export const OAuthButton = styled.button<{ variant?: 'google' }>`
   &:hover:not(:disabled) {
     border-color: #0066cc;
     box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
-    background: ${props => props.variant === 'google' ? '#f8fafc' : '#f8fafc'};
+    background: ${props => props.$variant === 'google' ? '#f8fafc' : '#f8fafc'};
   }
 
   &:active:not(:disabled) {

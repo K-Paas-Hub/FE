@@ -149,7 +149,7 @@ export const SidebarActions = styled.div`
   gap: 12px;
 `;
 
-export const SidebarButton = styled.button<{ variant?: 'primary' | 'secondary' }>`
+export const SidebarButton = styled.button<{ $variant?: 'primary' | 'secondary' }>`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -162,7 +162,7 @@ export const SidebarButton = styled.button<{ variant?: 'primary' | 'secondary' }
   transition: all 0.2s ease;
   text-align: left;
 
-  ${props => props.variant === 'primary' && `
+  ${props => props.$variant === 'primary' && `
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 
@@ -172,7 +172,7 @@ export const SidebarButton = styled.button<{ variant?: 'primary' | 'secondary' }
     }
   `}
 
-  ${props => props.variant === 'secondary' && `
+  ${props => props.$variant === 'secondary' && `
     background: #f8fafc;
     color: #374151;
     border: 1px solid #e2e8f0;
@@ -260,7 +260,7 @@ export const HeaderActions = styled.div`
   }
 `;
 
-export const HeaderButton = styled.button<{ variant?: 'close' }>`
+export const HeaderButton = styled.button<{ $variant?: 'close' }>`
   display: flex;
   align-items: center;
   gap: 6px;
@@ -279,7 +279,7 @@ export const HeaderButton = styled.button<{ variant?: 'close' }>`
     border-color: #cbd5e1;
   }
 
-  ${props => props.variant === 'close' && `
+  ${props => props.$variant === 'close' && `
     color: #ef4444;
     border-color: #fecaca;
 

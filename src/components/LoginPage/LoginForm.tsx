@@ -102,7 +102,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             type="text"
             value={id}
             onChange={handleIdChange}
-            hasError={!!idError}
+            $hasError={!!idError}
             placeholder={t('auth.login.idPlaceholder')}
             disabled={isLoading}
             aria-describedby={idError ? "id-error" : "id-help"}
@@ -136,7 +136,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
               type={isPasswordVisible ? "text" : "password"}
               value={pw}
               onChange={handlePwChange}
-              hasError={!!pwError}
+              $hasError={!!pwError}
               placeholder={t('auth.login.passwordPlaceholder')}
               disabled={isLoading}
               aria-describedby={pwError ? "password-error" : "password-help"}
@@ -202,7 +202,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           </Links>
           <LoginButton 
             type="submit" 
-            isEnabled={!isLoading}
+            $isEnabled={!isLoading}
             disabled={isLoading}
             aria-describedby="login-button-help"
           >
@@ -220,7 +220,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         </OAuthDivider>
         
         <OAuthButton 
-          variant="google"
+          $variant="google"
           type="button"
           onClick={handleGoogleLogin}
           disabled={isLoading}

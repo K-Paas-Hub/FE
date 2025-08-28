@@ -182,18 +182,18 @@ const InterviewPage: React.FC = () => {
             
             <SidebarActions>
               <SidebarButton 
-                variant="primary"
+                $variant="primary"
                 onClick={handleStartInterview}
               >
                 <ButtonIcon src="/images/interview.png" alt="Interview" />
                 {isInterviewStarted ? t('interview.actions.restartInterview') : t('interview.actions.startInterview')}
               </SidebarButton>
-              <SidebarButton variant="secondary">
+              <SidebarButton $variant="secondary">
                 <ButtonIcon src="/images/result.png" alt="Result" />
                 {t('interview.actions.viewResult')}
               </SidebarButton>
               <SidebarButton 
-                variant="secondary"
+                $variant="secondary"
                 onClick={() => setShowSettings(true)}
               >
                 <ButtonIcon src="/images/setting.png" alt="Settings" />
@@ -218,7 +218,7 @@ const InterviewPage: React.FC = () => {
                 <HeaderIcon src="/images/upload.png" alt="Export" />
                 {t('interview.actions.export')}
               </HeaderButton>
-              <HeaderButton variant="close" onClick={handleCloseChat}>
+              <HeaderButton $variant="close" onClick={handleCloseChat}>
                 <span>×</span>
                 {t('interview.actions.closeChat')}
               </HeaderButton>

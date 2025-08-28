@@ -1,18 +1,24 @@
 import { authService } from './authService';
 import { AuthUser, AuthError } from '../types/auth';
 
-// Mock Supabase
-const mockSupabase = {
-  auth: {
-    signOut: jest.fn(),
-    getUser: jest.fn(),
-    onAuthStateChange: jest.fn(),
-  },
-};
+// Mock을 먼저 정의
+jest.mock('@supabase/supabase-js', () => {
+  const mockSupabase = {
+    auth: {
+      signOut: jest.fn(),
+      getUser: jest.fn(),
+      onAuthStateChange: jest.fn(),
+    },
+  };
+  
+  return {
+    createClient: jest.fn(() => mockSupabase),
+  };
+});
 
-jest.mock('@supabase/supabase-js', () => ({
-  createClient: jest.fn(() => mockSupabase),
-}));
+// Mock Supabase를 가져오기 위해 require 사용
+const { createClient } = require('@supabase/supabase-js');
+const mockSupabase = createClient();
 
 describe('authService', () => {
   const mockUser: AuthUser = {

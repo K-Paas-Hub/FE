@@ -219,7 +219,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
             type="text"
             value={id}
             onChange={handleIdChange}
-            hasError={!!idError}
+            $hasError={!!idError}
             placeholder={t('auth.signup.idPlaceholder')}
             disabled={isLoading}
             aria-describedby={idError ? "id-error" : "id-help"}
@@ -249,7 +249,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               type={isPasswordVisible ? "text" : "password"}
               value={password}
               onChange={handlePasswordChange}
-              hasError={!!passwordError}
+              $hasError={!!passwordError}
               placeholder={t('auth.signup.passwordPlaceholder')}
               disabled={isLoading}
               aria-describedby={passwordError ? "password-error" : "password-help"}
@@ -302,7 +302,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               type={isPasswordConfirmVisible ? "text" : "password"}
               value={passwordConfirm}
               onChange={handlePasswordConfirmChange}
-              hasError={!!passwordConfirmError}
+              $hasError={!!passwordConfirmError}
               placeholder={t('auth.signup.passwordConfirmPlaceholder')}
               disabled={isLoading}
               aria-describedby={passwordConfirmError ? "password-confirm-error" : "password-confirm-help"}
@@ -354,7 +354,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
             type="text"
             value={name}
             onChange={handleNameChange}
-            hasError={!!nameError}
+            $hasError={!!nameError}
             placeholder={t('auth.signup.namePlaceholder')}
             disabled={isLoading}
             aria-describedby={nameError ? "name-error" : "name-help"}
@@ -382,7 +382,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
             type="tel"
             value={phone}
             onChange={handlePhoneChange}
-            hasError={!!phoneError}
+            $hasError={!!phoneError}
             placeholder={t('auth.signup.phonePlaceholder')}
             disabled={isLoading}
             aria-describedby={phoneError ? "phone-error" : "phone-help"}
@@ -477,7 +477,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
                 id="visa-type"
                 value={visaInfo.visaType}
                 onChange={(e) => handleVisaChange('visaType', e.target.value)}
-                hasError={!!(visaError && !visaInfo.visaType)}
+                $hasError={!!(visaError && !visaInfo.visaType)}
                 disabled={isLoading}
                 aria-describedby={visaError && !visaInfo.visaType ? "visa-error" : "visa-type-help"}
                 aria-invalid={!!(visaError && !visaInfo.visaType)}
@@ -598,7 +598,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
           </Links>
           <SignupButton 
             type="submit" 
-            isEnabled={!isLoading && agreement1} 
+            $isEnabled={!isLoading && agreement1} 
             disabled={isLoading || !agreement1}
             aria-describedby="signup-button-help"
           >

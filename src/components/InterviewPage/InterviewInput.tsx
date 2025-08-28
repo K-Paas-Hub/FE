@@ -46,10 +46,10 @@ const InterviewInput: React.FC<InterviewInputProps> = ({ onSendMessage }) => {
             rows={1}
           />
           <InputActions>
-            <ActionButton type="button" variant="mic">
+            <ActionButton type="button" $variant="mic">
               <MicIcon src="/images/microphone.png" alt="Microphone" />
             </ActionButton>
-            <ActionButton type="submit" variant="send">
+            <ActionButton type="submit" $variant="send">
               <SendIcon src="/images/send-message.png" alt="Send" />
             </ActionButton>
           </InputActions>

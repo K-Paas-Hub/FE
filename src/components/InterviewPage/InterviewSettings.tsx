@@ -227,7 +227,7 @@ const InterviewSettings: React.FC<InterviewSettingsProps> = ({
           </CancelButton>
           <SaveButton 
             onClick={handleSave}
-            isEnabled={!!localSettings.difficulty}
+            $isEnabled={!!localSettings.difficulty}
             disabled={!localSettings.difficulty}
           >
             {t('interviewSettings.actions.startInterview')}

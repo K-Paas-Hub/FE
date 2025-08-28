@@ -56,7 +56,7 @@ export const useAuth = () => {
     initializeAuth();
 
     // 인증 상태 변경 감지
-    const { data: { subscription } } = authService.onAuthStateChange(
+    const authStateChangeResult = authService.onAuthStateChange(
       async (event, session) => {
         if (event === 'SIGNED_IN' && session?.user) {
           setAuthState({
@@ -74,7 +74,10 @@ export const useAuth = () => {
       }
     );
 
-    return () => subscription.unsubscribe();
+    // subscription이 존재하는 경우에만 cleanup 함수 반환
+    if (authStateChangeResult?.data?.subscription) {
+      return () => authStateChangeResult.data.subscription.unsubscribe();
+    }
   }, []);
 
   return {
