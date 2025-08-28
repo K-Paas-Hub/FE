@@ -63,18 +63,17 @@ export const Logo = styled.div`
   }
 `;
 
-export const LogoText = styled.span`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: ${theme.colors.primary};
-  font-family: 'Arial, sans-serif';
+export const LogoImage = styled.img`
+  height: 60px;
+  width: auto;
+  object-fit: contain;
   
   ${theme.media.tablet} {
-    font-size: 1.25rem;
+    height: 50px;
   }
   
   ${theme.media.mobile} {
-    font-size: 1.1rem;
+    height: 45px;
   }
 `;
 
