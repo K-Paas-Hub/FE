@@ -11,7 +11,6 @@ import {
   SubHeader,
   SubHeaderContent,
   Logo,
-  LogoImage,
   LogoText,
   MainHeaderRight,
   NavWrapper,
@@ -116,8 +115,7 @@ const MainHeaderComponent: React.FC = () => {
       <MainHeader>
         <MainHeaderContent>
           <Logo onClick={() => navigate('/main')}>
-            <LogoImage src="/fairwork.svg" alt="FairWork" />
-            <LogoText>FairWork</LogoText>
+            <LogoText>Kareer</LogoText>
         </Logo>
           
           <MainHeaderRight>

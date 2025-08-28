@@ -57,22 +57,9 @@ export const Logo = styled.div`
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
-  gap: 0.5rem;
   
   ${theme.media.tablet} {
     justify-content: center;
-  }
-  
-  ${theme.media.mobile} {
-    gap: 0.25rem;
-  }
-`;
-
-export const LogoImage = styled.img`
-  height: 40px;
-  
-  ${theme.media.tablet} {
-    height: 35px;
   }
 `;
 
