@@ -109,9 +109,13 @@ const MainHeaderComponent: React.FC = () => {
     return location.pathname === '/contract-tutorial' || location.pathname === '/contract-analysis' || location.pathname === '/contract-quiz';
   };
 
-  // 로그인/회원가입 페이지인지 확인
+  // 로그인/회원가입/OAuth 페이지인지 확인
   const isAuthPage = () => {
-    return location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/find-password';
+    return location.pathname === '/login' || 
+           location.pathname === '/signup' || 
+           location.pathname === '/find-password' ||
+           location.pathname === '/oauth/additional-info' ||
+           location.pathname === '/oauth/success';
   };
 
   return (
