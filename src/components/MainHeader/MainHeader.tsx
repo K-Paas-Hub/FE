@@ -124,7 +124,7 @@ const MainHeaderComponent: React.FC = () => {
       <MainHeader>
         <MainHeaderContent>
           <Logo onClick={() => navigate('/main')}>
-            <LogoImage src="/images/kareer-logo.png" alt="Kareer" />
+            <LogoImage src="/images/kareer-new-logo.png" alt="Kareer" />
           </Logo>
           
           <MainHeaderRight>
