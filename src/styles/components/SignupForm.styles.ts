@@ -50,25 +50,30 @@ export const SignupForm = styled.form`
   max-width: 450px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 `;
 
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 `;
 
 export const InputLabel = styled.label`
   font-size: 14px;
   font-weight: 500;
-  color: #333333;
+  color: #1f2937;
   margin-bottom: 4px;
+  
+  .required {
+    color: #ef4444;
+    margin-left: 0.25rem;
+  }
 `;
 
 export const InputField = styled.input<{ hasError?: boolean }>`
   width: 100%;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border: 1px solid ${props => props.hasError ? '#dc2626' : '#d1d5db'};
   border-radius: 8px;
   font-size: 15px;
@@ -76,31 +81,36 @@ export const InputField = styled.input<{ hasError?: boolean }>`
   transition: border-color 0.2s ease;
   box-sizing: border-box;
   background-color: #ffffff;
-  color: #333333;
+  color: #1f2937;
+  min-height: 48px;
 
   &:focus {
     border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
   }
 
   &:disabled {
     background-color: #f9fafb;
     cursor: not-allowed;
     color: #6b7280;
+    opacity: 0.6;
   }
 
   &::placeholder {
     color: #9ca3af;
   }
 
-  @media (max-width: 480px) {
-    padding: 10px 14px;
-    font-size: 14px;
+  /* iOS 줌 방지 */
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 16px;
+    min-height: 52px;
   }
 `;
 
 export const SelectField = styled.select<{ hasError?: boolean }>`
   width: 100%;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border: 1px solid ${props => props.hasError ? '#dc2626' : '#d1d5db'};
   border-radius: 8px;
   font-size: 15px;
@@ -108,7 +118,7 @@ export const SelectField = styled.select<{ hasError?: boolean }>`
   transition: border-color 0.2s ease;
   box-sizing: border-box;
   background-color: #ffffff;
-  color: #333333;
+  color: #1f2937;
   cursor: pointer;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.5rem center;
@@ -118,22 +128,31 @@ export const SelectField = styled.select<{ hasError?: boolean }>`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  min-height: 48px;
 
   &:focus {
     border-color: #0066cc;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%234ade80' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230066cc' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
   }
 
   &:disabled {
     background-color: #f9fafb;
     cursor: not-allowed;
     color: #6b7280;
+    opacity: 0.6;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 16px;
+    min-height: 52px;
   }
 `;
 
 export const DateField = styled.input`
   width: 100%;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 15px;
@@ -141,21 +160,30 @@ export const DateField = styled.input`
   transition: border-color 0.2s ease;
   box-sizing: border-box;
   background-color: #ffffff;
-  color: #333333;
+  color: #1f2937;
   font-family: inherit;
-  font-size: 1rem;
+  min-height: 48px;
 
   &:focus {
     border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
   }
 
   &::-webkit-calendar-picker-indicator {
     cursor: pointer;
     filter: invert(0.5);
+    min-width: 44px;
+    min-height: 44px;
   }
 
   &::-webkit-calendar-picker-indicator:hover {
     filter: invert(0.3);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 16px;
+    min-height: 52px;
   }
 `;
 
@@ -164,55 +192,104 @@ export const ErrorMessage = styled.div`
   font-size: 13px;
   margin-top: 4px;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  
+  &::before {
+    content: "⚠️";
+    font-size: 0.75rem;
+  }
 `;
 
 export const AgreementSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  margin-top: 8px;
 `;
 
 export const CheckboxGroup = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 12px;
 `;
 
 export const CheckboxLabel = styled.label`
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 12px;
   cursor: pointer;
   font-size: 14px;
-  color: #333333;
-  line-height: 1.4;
+  color: #1f2937;
+  line-height: 1.5;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+
+  &:hover {
+    background-color: rgba(0, 102, 204, 0.05);
+  }
+
+  &:focus-within {
+    background-color: rgba(0, 102, 204, 0.1);
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
 
   input[type="checkbox"] {
     margin: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     accent-color: #0066cc;
     cursor: pointer;
     flex-shrink: 0;
     margin-top: 2px;
+    min-width: 20px;
+    min-height: 20px;
+    
+    &:focus {
+      outline: 2px solid #0066cc;
+      outline-offset: 2px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    min-height: 48px;
+    min-width: 48px;
+    
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      min-height: 22px;
+    }
   }
 `;
 
 export const CheckboxText = styled.span`
   font-size: 14px;
-  color: #333333;
-  line-height: 1.4;
+  color: #1f2937;
+  line-height: 1.5;
+  
+  .required {
+    color: #ef4444;
+    margin-left: 0.25rem;
+  }
 `;
 
 export const FormActions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 16px;
+  gap: 16px;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     align-items: stretch;
   }
 `;
@@ -232,14 +309,32 @@ export const Link = styled.a`
   font-size: 13px;
   transition: color 0.2s ease;
   font-weight: 400;
+  padding: 8px;
+  border-radius: 4px;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     color: #0066cc;
+    background-color: rgba(0, 102, 204, 0.1);
+  }
+  
+  &:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    min-height: 48px;
+    min-width: 48px;
   }
 `;
 
 export const SignupButton = styled.button<{ isEnabled?: boolean }>`
-  padding: 12px 32px;
+  padding: 14px 32px;
   background: ${props => props.isEnabled ? '#0066cc' : '#9ca3af'};
   color: white;
   border: none;
@@ -249,18 +344,35 @@ export const SignupButton = styled.button<{ isEnabled?: boolean }>`
   cursor: ${props => props.isEnabled ? 'pointer' : 'not-allowed'};
   transition: background-color 0.2s ease;
   min-width: 150px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover:not(:disabled) {
     background: #0052a3;
   }
 
+  &:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     min-width: auto;
+    padding: 16px 32px;
+    font-size: 16px;
+    min-height: 52px;
   }
 
   @media (max-width: 480px) {
-    padding: 10px 20px;
+    padding: 14px 20px;
     font-size: 14px;
   }
 `;
@@ -272,22 +384,22 @@ export const VisaRadioGroup = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 `;
 
 export const VisaRadioOption = styled.label`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   background: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-height: 44px;
-  min-width: 120px;
+  min-height: 48px;
+  min-width: 140px;
   flex: 1;
 
   &:hover {
@@ -295,11 +407,25 @@ export const VisaRadioOption = styled.label`
     background: #f0fdf4;
   }
 
+  &:focus-within {
+    border-color: #0066cc;
+    background: rgba(0, 102, 204, 0.05);
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
   input[type="radio"] {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     accent-color: #4ade80;
     cursor: pointer;
+    min-width: 20px;
+    min-height: 20px;
+
+    &:focus {
+      outline: 2px solid #0066cc;
+      outline-offset: 2px;
+    }
 
     &:checked {
       background-color: #4ade80;
@@ -308,7 +434,7 @@ export const VisaRadioOption = styled.label`
 
   span {
     font-size: 14px;
-    color: #333333;
+    color: #1f2937;
     font-weight: 400;
     white-space: nowrap;
   }
@@ -322,12 +448,20 @@ export const VisaRadioOption = styled.label`
     justify-content: flex-start;
     min-width: auto;
     width: 100%;
+    min-height: 52px;
+    
+    input[type="radio"] {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      min-height: 22px;
+    }
   }
 `;
 
 export const SelectedAddress = styled.div`
   margin-top: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
   background: #f0fdf4;
   border: 1px solid #bbf7d0;
   border-radius: 6px;
@@ -340,7 +474,7 @@ export const SelectedAddress = styled.div`
 
   @media (max-width: 768px) {
     font-size: 0.8rem;
-    padding: 0.75rem;
+    padding: 1rem;
   }
 `;
 
@@ -351,14 +485,14 @@ export const AddressSearchContainer = styled.div`
 
 export const AddressSearchInput = styled.input`
   width: 100%;
-  padding: 0.75rem 3rem 0.75rem 1rem;
-  font-size: 1rem;
+  padding: 14px 16px;
+  font-size: 15px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   background: white;
   color: #1f2937;
   transition: all 0.3s ease;
-  min-height: 44px;
+  min-height: 48px;
 
   &:focus {
     outline: none;
@@ -374,5 +508,7 @@ export const AddressSearchInput = styled.input`
 
   @media (max-width: 768px) {
     font-size: 16px; /* iOS에서 줌 방지 */
+    padding: 16px;
+    min-height: 52px;
   }
 `;
