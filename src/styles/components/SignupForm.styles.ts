@@ -152,7 +152,7 @@ export const SelectField = styled.select<{ hasError?: boolean }>`
 
 export const DateField = styled.input`
   width: 100%;
-  padding: 14px 16px;
+  padding: 8px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 15px;
@@ -162,7 +162,7 @@ export const DateField = styled.input`
   background-color: #ffffff;
   color: #1f2937;
   font-family: inherit;
-  min-height: 48px;
+  min-height: 36px;
 
   &:focus {
     border-color: #0066cc;
@@ -182,8 +182,8 @@ export const DateField = styled.input`
   
   @media (max-width: 768px) {
     font-size: 16px;
-    padding: 16px;
-    min-height: 52px;
+    padding: 10px;
+    min-height: 40px;
   }
 `;
 
@@ -392,55 +392,42 @@ export const VisaRadioOption = styled.label`
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
   border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border-radius: 6px;
   background: white;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 48px;
-  min-width: 140px;
+  transition: border-color 0.2s ease;
+  min-height: 44px;
+  min-width: 120px;
   flex: 1;
 
   &:hover {
-    border-color: #4ade80;
-    background: #f0fdf4;
+    border-color: #0066cc;
   }
 
   &:focus-within {
     border-color: #0066cc;
-    background: rgba(0, 102, 204, 0.05);
-    outline: 2px solid #0066cc;
-    outline-offset: 2px;
+    outline: 1px solid #0066cc;
   }
 
   input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    accent-color: #4ade80;
+    width: 18px;
+    height: 18px;
+    accent-color: #0066cc;
     cursor: pointer;
-    min-width: 20px;
-    min-height: 20px;
-
-    &:focus {
-      outline: 2px solid #0066cc;
-      outline-offset: 2px;
-    }
-
-    &:checked {
-      background-color: #4ade80;
-    }
+    min-width: 18px;
+    min-height: 18px;
   }
 
   span {
     font-size: 14px;
     color: #1f2937;
     font-weight: 400;
-    white-space: nowrap;
   }
 
   input[type="radio"]:checked + span {
-    color: #059669;
+    color: #0066cc;
     font-weight: 500;
   }
 
@@ -448,13 +435,13 @@ export const VisaRadioOption = styled.label`
     justify-content: flex-start;
     min-width: auto;
     width: 100%;
-    min-height: 52px;
+    min-height: 48px;
     
     input[type="radio"] {
-      width: 22px;
-      height: 22px;
-      min-width: 22px;
-      min-height: 22px;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      min-height: 20px;
     }
   }
 `;

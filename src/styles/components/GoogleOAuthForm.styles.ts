@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 // 통일된 입력 요소 스타일
 export const UnifiedInput = styled.input`
   width: 100%;
-  padding: 1rem;
+  padding: 0.6rem;
   border: 2px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
   background-color: white;
   color: #374151;
-  min-height: 44px;
+  min-height: 36px;
   transition: all 0.3s ease;
   
   &:focus {
@@ -27,6 +27,8 @@ export const UnifiedInput = styled.input`
   
   @media (max-width: 768px) {
     font-size: 16px; /* iOS에서 줌 방지 */
+    padding: 0.6rem;
+    min-height: 40px;
   }
 `;
 
