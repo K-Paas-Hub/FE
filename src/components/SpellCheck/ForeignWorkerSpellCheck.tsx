@@ -250,20 +250,20 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
             value={text}
             onChange={handleTextChange}
             onKeyDown={handleKeyDown}
-            placeholder="검사할 텍스트를 입력하세요... (Ctrl+Enter로 검사)"
+            placeholder={t('common.accessibility.spellCheckPlaceholder')}
             rows={10}
-            aria-label="맞춤법 검사할 텍스트 입력"
+            aria-label={t('common.accessibility.spellCheckInput')}
             aria-describedby="text-help"
           />
           <div id="text-help" style={{ fontSize: '0.9rem', color: '#1a1a1a', marginTop: '0.5rem', fontWeight: '500' }}>
-            Ctrl+Enter를 눌러 빠르게 검사할 수 있습니다.
+            {t('common.accessibility.spellCheckHint')}
           </div>
           
           <ButtonContainer>
             <PrimaryButton
               onClick={handleCheck}
               disabled={isChecking || !text.trim()}
-              aria-label="맞춤법 검사 시작"
+              aria-label={t('common.accessibility.spellCheckStart')}
               aria-describedby={isChecking ? "checking-status" : undefined}
             >
               {isChecking ? (
@@ -281,7 +281,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
             
             <SecondaryButton 
               onClick={handleRewrite}
-              aria-label="텍스트 다시쓰기"
+              aria-label={t('common.accessibility.textRewrite')}
             >
               <Icon>🔄</Icon>
               다시쓰기
@@ -289,7 +289,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
             
             <SecondaryButton 
               onClick={handleCopyAll}
-              aria-label="전체 텍스트 복사"
+              aria-label={t('common.accessibility.copyAllText')}
             >
               <Icon>📋</Icon>
               전체 복사
@@ -314,7 +314,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
                       onKeyPress={handleApplyAllKeyPress}
                       tabIndex={0}
                       role="button"
-                      aria-label="모든 수정사항 적용"
+                      aria-label={t('common.accessibility.applyAllChanges')}
                     >
                       모두수정
                     </ApplyAllButton>
@@ -373,7 +373,7 @@ const ForeignWorkerSpellCheck: React.FC<ForeignWorkerSpellCheckProps> = ({
                   
                   <CompleteButton
                     onClick={() => setIsComplete(false)}
-                    aria-label="검사 완료"
+                    aria-label={t('common.accessibility.checkComplete')}
                   >
                     <CheckIcon>✓</CheckIcon>
                     검사완료

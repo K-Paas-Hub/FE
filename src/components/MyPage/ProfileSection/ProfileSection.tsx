@@ -131,7 +131,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ profile }) => {
         <AvatarContainer>
           <Avatar 
             src={profile.avatarUrl || '/images/default-avatar.png'} 
-            alt="프로필 이미지"
+                          alt={t('common.accessibility.profileImage')}
             onError={(e) => {
               e.currentTarget.src = '/images/default-avatar.png';
             }}

@@ -1126,7 +1126,7 @@ const ResumePage: React.FC = () => {
             <ModalTitle>이력서 미리보기</ModalTitle>
             <CloseButton 
               onClick={closePreview}
-              aria-label="미리보기 닫기"
+              aria-label={t('common.accessibility.previewClose')}
             >
               ✕
             </CloseButton>
@@ -1304,7 +1304,7 @@ const ResumePage: React.FC = () => {
                 value={formData.nationality}
                 onChange={handleInputChange}
                 aria-describedby={validationErrors.nationality ? "nationality-error" : undefined}
-                aria-label="국적 선택"
+                aria-label={t('common.accessibility.nationalitySelect')}
               >
                 {nationalityOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -1325,7 +1325,7 @@ const ResumePage: React.FC = () => {
                 value={formData.visaType}
                 onChange={handleInputChange}
                 aria-describedby={validationErrors.visaType ? "visaType-error" : undefined}
-                aria-label="비자 유형 선택"
+                aria-label={t('common.accessibility.visaTypeSelect')}
               >
                 {visaTypeOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -2035,13 +2035,13 @@ const ResumePage: React.FC = () => {
           <PrimaryButton 
             onClick={handleSave}
             disabled={loading}
-            aria-label="이력서 저장"
+            aria-label={t('common.accessibility.resumeSave')}
           >
             {loading ? '저장 중...' : '저장'}
           </PrimaryButton>
           <SecondaryButton 
             onClick={handlePreview}
-            aria-label="이력서 미리보기"
+            aria-label={t('common.accessibility.resumePreview')}
           >
             미리보기
           </SecondaryButton>

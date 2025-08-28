@@ -243,7 +243,7 @@ const GoogleOAuthForm: React.FC = () => {
                 {googleUser.picture && (
                   <ProfileImage 
                     src={googleUser.picture} 
-                    alt="프로필" 
+                    alt={t('common.accessibility.profile')} 
                   />
                 )}
                 <div>

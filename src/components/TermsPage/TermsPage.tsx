@@ -23,7 +23,7 @@ const TermsPage: React.FC = () => {
       <TermsContent>
         <CloseButton 
           onClick={handleClose}
-          aria-label="페이지 닫기"
+          aria-label={t('common.accessibility.pageClose')}
         >
           ✕
         </CloseButton>

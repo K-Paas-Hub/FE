@@ -206,7 +206,7 @@ const MainHeaderComponent: React.FC = () => {
             }}
             tabIndex={0}
             role="button"
-            aria-label="홈으로 이동"
+            aria-label={t('common.accessibility.homeNavigation')}
           >
             <LogoImage src="/images/kareer-new-logo.png" alt="Kareer" />
           </Logo>

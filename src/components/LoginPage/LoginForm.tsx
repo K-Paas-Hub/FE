@@ -95,7 +95,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <InputGroup>
           <InputLabel htmlFor="login-id">
             {t('auth.login.idLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <InputField
             id="login-id"
@@ -128,7 +128,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <InputGroup>
           <InputLabel htmlFor="login-password">
             {t('auth.login.passwordLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <div style={{ position: 'relative' }}>
             <InputField
@@ -148,7 +148,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
               type="button"
               onClick={togglePasswordVisibility}
               disabled={isLoading}
-              aria-label={isPasswordVisible ? "비밀번호 숨기기" : "비밀번호 보기"}
+              aria-label={isPasswordVisible ? t('common.accessibility.passwordHide') : t('common.accessibility.passwordShow')}
               style={{
                 position: 'absolute',
                 right: '12px',
@@ -183,11 +183,11 @@ const LoginForm: React.FC<LoginFormProps> = ({
         </InputGroup>
 
         <FormActions>
-          <Links role="navigation" aria-label="추가 링크">
+          <Links role="navigation" aria-label={t('common.accessibility.additionalLinks')}>
             <StyledLink 
               as={Link} 
               to="/signup"
-              aria-label="회원가입 페이지로 이동"
+              aria-label={t('common.accessibility.signupPageNavigation')}
             >
               {t('auth.login.signupLink')}
             </StyledLink>
@@ -195,7 +195,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <StyledLink 
               as={Link} 
               to="/find-password"
-              aria-label="비밀번호 찾기 페이지로 이동"
+              aria-label={t('common.accessibility.passwordResetNavigation')}
             >
               {t('auth.login.findPasswordLink')}
             </StyledLink>
@@ -246,7 +246,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <FooterLink 
           as={Link} 
           to="/terms"
-          aria-label="이용약관 페이지로 이동"
+                        aria-label={t('common.accessibility.termsPageNavigation')}
         >
           {t('auth.termsOfService')}
         </FooterLink>
@@ -254,7 +254,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <FooterLink 
           as={Link} 
           to="/privacy"
-          aria-label="개인정보처리방침 페이지로 이동"
+                        aria-label={t('common.accessibility.privacyPageNavigation')}
         >
           {t('auth.privacyPolicy')}
         </FooterLink>

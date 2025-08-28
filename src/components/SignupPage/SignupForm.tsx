@@ -212,7 +212,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         <InputGroup>
           <InputLabel htmlFor="signup-id">
             {t('auth.signup.idLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <InputField
             id="signup-id"
@@ -241,7 +241,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         <InputGroup>
           <InputLabel htmlFor="signup-password">
             {t('auth.signup.passwordLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <div style={{ position: 'relative' }}>
             <InputField
@@ -261,7 +261,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               type="button"
               onClick={togglePasswordVisibility}
               disabled={isLoading}
-              aria-label={isPasswordVisible ? "비밀번호 숨기기" : "비밀번호 보기"}
+              aria-label={isPasswordVisible ? t('common.accessibility.passwordHide') : t('common.accessibility.passwordShow')}
               style={{
                 position: 'absolute',
                 right: '12px',
@@ -294,7 +294,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         <InputGroup>
           <InputLabel htmlFor="signup-password-confirm">
             {t('auth.signup.passwordConfirmLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <div style={{ position: 'relative' }}>
             <InputField
@@ -314,7 +314,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               type="button"
               onClick={togglePasswordConfirmVisibility}
               disabled={isLoading}
-              aria-label={isPasswordConfirmVisible ? "비밀번호 확인 숨기기" : "비밀번호 확인 보기"}
+              aria-label={isPasswordConfirmVisible ? t('common.accessibility.passwordConfirmHide') : t('common.accessibility.passwordConfirmShow')}
               style={{
                 position: 'absolute',
                 right: '12px',
@@ -347,7 +347,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         <InputGroup>
           <InputLabel htmlFor="signup-name">
             {t('auth.signup.nameLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <InputField
             id="signup-name"
@@ -375,7 +375,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         <InputGroup>
           <InputLabel htmlFor="signup-phone">
             {t('auth.signup.phoneLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <InputField
             id="signup-phone"
@@ -403,7 +403,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         <InputGroup>
           <InputLabel htmlFor="signup-address">
             {t('signup.addressLabel')}
-            <span aria-label="필수 입력 항목" className="required">*</span>
+            <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
           </InputLabel>
           <PostcodeSearch
             onAddressSelect={(address) => {
@@ -471,7 +471,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
             <InputGroup>
               <InputLabel htmlFor="visa-type">
                 {t('signup.visaTypeLabel')}
-                <span aria-label="필수 입력 항목" className="required">*</span>
+                <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
               </InputLabel>
               <SelectField
                 id="visa-type"
@@ -498,7 +498,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
             <InputGroup>
               <InputLabel htmlFor="issue-date">
                 {t('signup.issueDateLabel')}
-                <span aria-label="필수 입력 항목" className="required">*</span>
+                <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
               </InputLabel>
               <DateField
                 id="issue-date"
@@ -519,7 +519,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
             <InputGroup>
               <InputLabel htmlFor="expiry-date">
                 {t('signup.expiryDateLabel')}
-                <span aria-label="필수 입력 항목" className="required">*</span>
+                <span aria-label={t('common.accessibility.requiredField')} className="required">*</span>
               </InputLabel>
               <DateField
                 id="expiry-date"
@@ -559,7 +559,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
               />
               <CheckboxText>
                 {t('auth.signup.privacyRequired')}
-                <span aria-label="필수 동의 항목" className="required">*</span>
+                <span aria-label={t('common.accessibility.requiredAgreement')} className="required">*</span>
               </CheckboxText>
             </CheckboxLabel>
             <div id="agreement1-help" className="sr-only">
@@ -587,11 +587,11 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit, isLoading = false }) 
         </AgreementSection>
 
         <FormActions>
-          <Links role="navigation" aria-label="추가 링크">
+          <Links role="navigation" aria-label={t('common.accessibility.additionalLinks')}>
             <StyledLink 
               as={Link} 
               to="/login"
-              aria-label="로그인 페이지로 이동"
+              aria-label={t('common.accessibility.loginPageNavigation')}
             >
               {t('auth.signup.loginLink')}
             </StyledLink>

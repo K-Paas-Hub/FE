@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { formatRecommendedTime, getLocaleTimeString } from '../../utils/timeUtils';
 import InterviewMessage from './InterviewMessage';
 import InterviewInput from './InterviewInput';
 import {
@@ -45,7 +46,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
   isInterviewStarted, 
   onStartInterview 
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -107,11 +108,8 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
           id: Date.now().toString(),
           type: 'system',
           content: `${t('interviewChat.startInterview')}\n\n• ${t('interviewChat.interviewInfo.difficulty')}: ${difficultyText}\n• ${t('interviewChat.interviewInfo.totalQuestions')}: ${settings.questionCount}${t('common.count')}\n• ${t('interviewChat.interviewInfo.estimatedTime')}: ${settings.estimatedTime}${t('common.minutes')}\n\n${t('interviewChat.interviewInfo.firstQuestion')}\n\n"${t('interviewChat.questions.strengthsWeaknesses')}"`,
-          timestamp: new Date().toLocaleTimeString('ko-KR', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-          }),
-          recommendedTime: '2분'
+          timestamp: getLocaleTimeString(new Date(), i18n.language),
+          recommendedTime: formatRecommendedTime(2, 0, t)
         };
         
         setMessages(prev => [...prev, startMessage]);
@@ -131,10 +129,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
       id: Date.now().toString(),
       type: 'user',
       content,
-      timestamp: new Date().toLocaleTimeString('ko-KR', { 
-        hour: '2-digit', 
-        minute: '2-digit' 
-      })
+      timestamp: getLocaleTimeString(new Date(), i18n.language)
     };
 
     setMessages(prev => [...prev, userMessage]);
@@ -147,11 +142,8 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
           id: (Date.now() + 1).toString(),
           type: 'system',
           content: nextQuestion.content,
-          timestamp: new Date().toLocaleTimeString('ko-KR', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-          }),
-          recommendedTime: nextQuestion.recommendedTime
+                  timestamp: getLocaleTimeString(new Date(), i18n.language),
+        recommendedTime: nextQuestion.recommendedTime
         };
         setMessages(prev => [...prev, systemMessage]);
         setCurrentQuestionIndex(prev => prev + 1);
@@ -161,10 +153,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
           id: (Date.now() + 1).toString(),
           type: 'system',
           content: t('interviewChat.completionMessage'),
-          timestamp: new Date().toLocaleTimeString('ko-KR', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-          })
+                  timestamp: getLocaleTimeString(new Date(), i18n.language)
         };
         setMessages(prev => [...prev, endMessage]);
       }
@@ -173,16 +162,16 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
 
   const getNextQuestion = (index: number) => {
     const questions = [
-      { content: t('interviewChat.questions.teamwork'), recommendedTime: '2분 30초' },
-      { content: t('interviewChat.questions.memorableProject'), recommendedTime: '3분' },
-      { content: t('interviewChat.questions.stressManagement'), recommendedTime: '2분' },
-      { content: t('interviewChat.questions.futureGoals'), recommendedTime: '2분' },
-      { content: t('interviewChat.questions.motivation'), recommendedTime: '2분 30초' },
-      { content: t('interviewChat.questions.workLifeBalance'), recommendedTime: '2분' },
-      { content: t('interviewChat.questions.learningMethod'), recommendedTime: '2분' },
-      { content: t('interviewChat.questions.failureExperience'), recommendedTime: '3분' },
-      { content: t('interviewChat.questions.conflictResolution'), recommendedTime: '2분' },
-      { content: t('interviewChat.questions.finalWords'), recommendedTime: '1분 30초' }
+      { content: t('interviewChat.questions.teamwork'), recommendedTime: formatRecommendedTime(2, 30, t) },
+      { content: t('interviewChat.questions.memorableProject'), recommendedTime: formatRecommendedTime(3, 0, t) },
+      { content: t('interviewChat.questions.stressManagement'), recommendedTime: formatRecommendedTime(2, 0, t) },
+      { content: t('interviewChat.questions.futureGoals'), recommendedTime: formatRecommendedTime(2, 0, t) },
+      { content: t('interviewChat.questions.motivation'), recommendedTime: formatRecommendedTime(2, 30, t) },
+      { content: t('interviewChat.questions.workLifeBalance'), recommendedTime: formatRecommendedTime(2, 0, t) },
+      { content: t('interviewChat.questions.learningMethod'), recommendedTime: formatRecommendedTime(2, 0, t) },
+      { content: t('interviewChat.questions.failureExperience'), recommendedTime: formatRecommendedTime(3, 0, t) },
+      { content: t('interviewChat.questions.conflictResolution'), recommendedTime: formatRecommendedTime(2, 0, t) },
+      { content: t('interviewChat.questions.finalWords'), recommendedTime: formatRecommendedTime(1, 30, t) }
     ];
     
     return questions[index] || questions[0];

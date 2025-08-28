@@ -30,15 +30,15 @@ const MainFooter: React.FC = () => {
   return (
     <StyledMainFooter>
       <FooterContent>
-        <TopNav role="navigation" aria-label="푸터 네비게이션">
-          <TopNavLink href="#company" aria-label="회사 정보">{t('mainFooter.links.company')}</TopNavLink>
-          <TopNavLink href="#recruitment" aria-label="채용 정보">{t('mainFooter.links.recruitment')}</TopNavLink>
-          <TopNavLink href="#terms" aria-label="이용약관">{t('mainFooter.links.terms')}</TopNavLink>
-          <TopNavLink href="#privacy" aria-label="개인정보처리방침">{t('mainFooter.links.privacy')}</TopNavLink>
-          <TopNavLink href="#email-reject" aria-label="이메일 무단수집 거부">{t('mainFooter.links.emailReject')}</TopNavLink>
+        <TopNav role="navigation" aria-label={t('common.accessibility.footerNavigation')}>
+                      <TopNavLink href="#company" aria-label={t('common.accessibility.companyInfo')}>{t('mainFooter.links.company')}</TopNavLink>
+                      <TopNavLink href="#recruitment" aria-label={t('common.accessibility.recruitmentInfo')}>{t('mainFooter.links.recruitment')}</TopNavLink>
+                      <TopNavLink href="#terms" aria-label={t('common.accessibility.termsOfService')}>{t('mainFooter.links.terms')}</TopNavLink>
+                      <TopNavLink href="#privacy" aria-label={t('common.accessibility.privacyPolicy')}>{t('mainFooter.links.privacy')}</TopNavLink>
+                      <TopNavLink href="#email-reject" aria-label={t('common.accessibility.emailReject')}>{t('mainFooter.links.emailReject')}</TopNavLink>
           <TopNavLink href="#api" aria-label="API 정보">{t('mainFooter.links.api')}</TopNavLink>
-          <TopNavLink href="#partnership" aria-label="파트너십">{t('mainFooter.links.partnership')}</TopNavLink>
-          <TopNavLink href="#customer-center" aria-label="고객센터">{t('mainFooter.links.customerCenter')}</TopNavLink>
+                      <TopNavLink href="#partnership" aria-label={t('common.accessibility.partnership')}>{t('mainFooter.links.partnership')}</TopNavLink>
+                      <TopNavLink href="#customer-center" aria-label={t('common.accessibility.customerCenter')}>{t('mainFooter.links.customerCenter')}</TopNavLink>
         </TopNav>
         
         <MainSection>
@@ -56,13 +56,13 @@ const MainFooter: React.FC = () => {
           <RightSection>
             <EmailButton 
               onClick={() => window.open('mailto:contact@kareer.co.kr')}
-              aria-label="이메일 문의하기"
+              aria-label={t('common.accessibility.emailInquiry')}
             >
               {t('mainFooter.actions.emailInquiry')}
             </EmailButton>
-            <SocialIcons role="group" aria-label="소셜 미디어 링크">
-              <SocialIcon href="#blog" aria-label="블로그">B</SocialIcon>
-              <SocialIcon href="#facebook" aria-label="페이스북">f</SocialIcon>
+            <SocialIcons role="group" aria-label={t('common.accessibility.socialMediaLinks')}>
+                              <SocialIcon href="#blog" aria-label={t('common.accessibility.blog')}>B</SocialIcon>
+                              <SocialIcon href="#facebook" aria-label={t('common.accessibility.facebook')}>f</SocialIcon>
             </SocialIcons>
           </RightSection>
         </MainSection>
@@ -75,7 +75,7 @@ const MainFooter: React.FC = () => {
           {t('footer.businessInfo')}
           <BusinessButton 
             onClick={() => window.open('#business-info', '_blank')}
-            aria-label="사업자정보 확인"
+            aria-label={t('common.accessibility.businessInfoConfirm')}
           >
             {t('footer.businessInfoButton')}
           </BusinessButton>
