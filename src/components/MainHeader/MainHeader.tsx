@@ -123,7 +123,18 @@ const MainHeaderComponent: React.FC = () => {
       {/* 첫 번째 줄: 로고, 언어 선택, 인증 */}
       <MainHeader>
         <MainHeaderContent>
-          <Logo onClick={() => navigate('/main')}>
+          <Logo 
+            onClick={() => navigate('/main')}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navigate('/main');
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="홈으로 이동"
+          >
             <LogoImage src="/images/kareer-new-logo.png" alt="Kareer" />
           </Logo>
           

@@ -24,10 +24,14 @@ export const MainHeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 1rem 1.5rem;
   
   ${theme.media.tablet} {
     padding: 1rem 1rem;
+  }
+  
+  ${theme.media.mobile} {
+    padding: 0.75rem 1rem;
   }
 `;
 
@@ -57,6 +61,26 @@ export const Logo = styled.div`
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
+  padding: 8px 0;
+  transition: transform ${theme.animations.duration.normal} ${theme.animations.easing.ease};
+  border-radius: ${theme.radius.md};
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &:focus {
+    outline: 2px solid ${theme.colors.primary};
+    outline-offset: 2px;
+  }
+  
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
   
   ${theme.media.tablet} {
     justify-content: center;
@@ -68,13 +92,15 @@ export const LogoImage = styled.img`
   width: auto;
   object-fit: contain;
   display: block;
+  min-width: 44px;
+  min-height: 44px;
   
   ${theme.media.tablet} {
-    height: 45px;
+    height: 48px;
   }
   
   ${theme.media.mobile} {
-    height: 40px;
+    height: 44px;
   }
 `;
 
