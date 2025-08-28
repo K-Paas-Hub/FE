@@ -67,7 +67,7 @@ describe('LanguageContext', () => {
   });
 
   describe('LanguageProvider', () => {
-    test('provides default language context values', () => {
+    test('provides default language context values', async () => {
       const TestComponent = () => {
         const { currentLanguage, languages } = useLanguage();
         return (
@@ -80,11 +80,13 @@ describe('LanguageContext', () => {
 
       renderWithProvider(<TestComponent />);
 
-      expect(screen.getByTestId('current-language')).toHaveTextContent('ko');
-      expect(screen.getByTestId('languages-count')).toHaveTextContent('8');
+      await waitFor(() => {
+        expect(screen.getByTestId('current-language')).toHaveTextContent('ko');
+        expect(screen.getByTestId('languages-count')).toHaveTextContent('8');
+      });
     });
 
-    test('initializes with saved language from localStorage', () => {
+    test('initializes with saved language from localStorage', async () => {
       localStorageMock.getItem.mockReturnValue('en');
 
       const TestComponent = () => {
@@ -94,11 +96,13 @@ describe('LanguageContext', () => {
 
       renderWithProvider(<TestComponent />);
 
-      expect(localStorageMock.getItem).toHaveBeenCalledWith('i18nextLng');
-      expect(screen.getByTestId('current-language')).toHaveTextContent('en');
+      await waitFor(() => {
+        expect(localStorageMock.getItem).toHaveBeenCalledWith('i18nextLng');
+        expect(screen.getByTestId('current-language')).toHaveTextContent('en');
+      });
     });
 
-    test('falls back to Korean when no saved language exists', () => {
+    test('falls back to Korean when no saved language exists', async () => {
       localStorageMock.getItem.mockReturnValue(null);
 
       const TestComponent = () => {
@@ -108,10 +112,12 @@ describe('LanguageContext', () => {
 
       renderWithProvider(<TestComponent />);
 
-      expect(screen.getByTestId('current-language')).toHaveTextContent('ko');
+      await waitFor(() => {
+        expect(screen.getByTestId('current-language')).toHaveTextContent('ko');
+      });
     });
 
-    test('provides all supported languages', () => {
+    test('provides all supported languages', async () => {
       const TestComponent = () => {
         const { languages } = useLanguage();
         return (
@@ -127,30 +133,34 @@ describe('LanguageContext', () => {
 
       renderWithProvider(<TestComponent />);
 
-      expect(screen.getByTestId('lang-ko')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-en')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-vi')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-km')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-ne')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-id')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-zh')).toBeInTheDocument();
-      expect(screen.getByTestId('lang-th')).toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.getByTestId('lang-ko')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-en')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-vi')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-km')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-ne')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-id')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-zh')).toBeInTheDocument();
+        expect(screen.getByTestId('lang-th')).toBeInTheDocument();
+      });
     });
   });
 
   describe('useLanguage hook', () => {
-    test('returns context values when used within provider', () => {
+    test('returns context values when used within provider', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      expect(result.current.currentLanguage).toBe('ko');
-      expect(result.current.languages).toHaveLength(8);
-      expect(typeof result.current.changeLanguage).toBe('function');
+      await waitFor(() => {
+        expect(result.current.currentLanguage).toBe('ko');
+        expect(result.current.languages).toHaveLength(8);
+        expect(typeof result.current.changeLanguage).toBe('function');
+      });
     });
 
-    test('calls changeLanguage function correctly', () => {
+    test('calls changeLanguage function correctly', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('en');
       });
 
@@ -158,10 +168,10 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('en');
     });
 
-    test('calls changeLanguage function for Vietnamese', () => {
+    test('calls changeLanguage function for Vietnamese', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('vi');
       });
 
@@ -169,10 +179,10 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('vi');
     });
 
-    test('calls changeLanguage function for Cambodian', () => {
+    test('calls changeLanguage function for Cambodian', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('km');
       });
 
@@ -180,10 +190,10 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('km');
     });
 
-    test('calls changeLanguage function for Nepali', () => {
+    test('calls changeLanguage function for Nepali', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('ne');
       });
 
@@ -191,10 +201,10 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('ne');
     });
 
-    test('calls changeLanguage function for Indonesian', () => {
+    test('calls changeLanguage function for Indonesian', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('id');
       });
 
@@ -202,10 +212,10 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('id');
     });
 
-    test('calls changeLanguage function for Chinese', () => {
+    test('calls changeLanguage function for Chinese', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('zh');
       });
 
@@ -213,10 +223,10 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('zh');
     });
 
-    test('calls changeLanguage function for Thai', () => {
+    test('calls changeLanguage function for Thai', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('th');
       });
 
@@ -224,22 +234,22 @@ describe('LanguageContext', () => {
       expect(mockChangeLanguage).toHaveBeenCalledWith('th');
     });
 
-    test('multiple language changes call functions correctly', () => {
+    test('multiple language changes call functions correctly', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('en');
       });
       expect(localStorageMock.setItem).toHaveBeenCalledWith('i18nextLng', 'en');
       expect(mockChangeLanguage).toHaveBeenCalledWith('en');
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('vi');
       });
       expect(localStorageMock.setItem).toHaveBeenCalledWith('i18nextLng', 'vi');
       expect(mockChangeLanguage).toHaveBeenCalledWith('vi');
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('ko');
       });
       expect(localStorageMock.setItem).toHaveBeenCalledWith('i18nextLng', 'ko');
@@ -248,57 +258,65 @@ describe('LanguageContext', () => {
   });
 
   describe('Language data integrity', () => {
-    test('all languages have required properties', () => {
+    test('all languages have required properties', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
-        expect(lang).toHaveProperty('code');
-        expect(lang).toHaveProperty('name');
-        expect(lang).toHaveProperty('flag');
-        expect(typeof lang.code).toBe('string');
-        expect(typeof lang.name).toBe('string');
-        expect(typeof lang.flag).toBe('string');
+      await waitFor(() => {
+        result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
+          expect(lang).toHaveProperty('code');
+          expect(lang).toHaveProperty('name');
+          expect(lang).toHaveProperty('flag');
+          expect(typeof lang.code).toBe('string');
+          expect(typeof lang.name).toBe('string');
+          expect(typeof lang.flag).toBe('string');
+        });
       });
     });
 
-    test('language codes are unique', () => {
+    test('language codes are unique', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      const codes = result.current.languages.map((lang: { code: string; name: string; flag: string }) => lang.code);
-      const uniqueCodes = new Set(codes);
-      expect(codes.length).toBe(uniqueCodes.size);
-    });
-
-    test('all language codes are valid', () => {
-      const { result } = renderHookWithProvider(() => useLanguage());
-
-      const validCodes = ['ko', 'en', 'vi', 'km', 'ne', 'id', 'zh', 'th'];
-      result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
-        expect(validCodes).toContain(lang.code);
+      await waitFor(() => {
+        const codes = result.current.languages.map((lang: { code: string; name: string; flag: string }) => lang.code);
+        const uniqueCodes = new Set(codes);
+        expect(codes.length).toBe(uniqueCodes.size);
       });
     });
 
-    test('flag paths are correctly formatted', () => {
+    test('all language codes are valid', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
-        expect(lang.flag).toMatch(/^\/images\/flags\/.+\.png$/);
+      await waitFor(() => {
+        const validCodes = ['ko', 'en', 'vi', 'km', 'ne', 'id', 'zh', 'th'];
+        result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
+          expect(validCodes).toContain(lang.code);
+        });
+      });
+    });
+
+    test('flag paths are correctly formatted', async () => {
+      const { result } = renderHookWithProvider(() => useLanguage());
+
+      await waitFor(() => {
+        result.current.languages.forEach((lang: { code: string; name: string; flag: string }) => {
+          expect(lang.flag).toMatch(/^\/images\/flags\/.+\.png$/);
+        });
       });
     });
   });
 
   describe('localStorage integration', () => {
-    test('saves language to localStorage on change', () => {
+    test('saves language to localStorage on change', async () => {
       const { result } = renderHookWithProvider(() => useLanguage());
 
-      act(() => {
+      await act(async () => {
         result.current.changeLanguage('en');
       });
 
       expect(localStorageMock.setItem).toHaveBeenCalledWith('i18nextLng', 'en');
     });
 
-    test('handles localStorage errors gracefully', () => {
+    test('handles localStorage errors gracefully', async () => {
       localStorageMock.setItem.mockImplementation(() => {
         throw new Error('localStorage error');
       });
@@ -306,17 +324,15 @@ describe('LanguageContext', () => {
       const { result } = renderHookWithProvider(() => useLanguage());
       
       // Should not throw error when localStorage fails
-      expect(() => {
-        act(() => {
-          result.current.changeLanguage('en');
-        });
-      }).not.toThrow();
+      await act(async () => {
+        result.current.changeLanguage('en');
+      });
       
       // Function should still be called even if localStorage fails
       expect(mockChangeLanguage).toHaveBeenCalledWith('en');
     });
 
-    test('handles localStorage getItem errors gracefully', () => {
+    test('handles localStorage getItem errors gracefully', async () => {
       localStorageMock.getItem.mockImplementation(() => {
         throw new Error('localStorage getItem error');
       });

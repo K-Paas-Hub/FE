@@ -44,13 +44,19 @@ describe('useAuth', () => {
   });
 
   describe('initialization', () => {
-    test('should initialize with default state', () => {
+    test('should initialize with default state', async () => {
       const { result } = renderHook(() => useAuth());
 
+      // 초기 상태 확인
       expect(result.current.user).toBeNull();
       expect(result.current.loading).toBe(true);
       expect(result.current.error).toBeNull();
       expect(result.current.isAuthenticated).toBe(false);
+
+      // 로딩 완료 대기
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
     });
 
     test('should set user when getCurrentUser returns a user', async () => {
@@ -93,11 +99,12 @@ describe('useAuth', () => {
         expect(result.current.loading).toBe(false);
       });
 
+      let signOutResult: any;
       await act(async () => {
-        const signOutResult = await result.current.signOut();
-        expect(signOutResult.success).toBe(true);
+        signOutResult = await result.current.signOut();
       });
 
+      expect(signOutResult!.success).toBe(true);
       expect(mockAuthService.signOut).toHaveBeenCalledTimes(1);
       expect(result.current.user).toBeNull();
       expect(result.current.isAuthenticated).toBe(false);
@@ -113,12 +120,13 @@ describe('useAuth', () => {
         expect(result.current.loading).toBe(false);
       });
 
+      let signOutResult: any;
       await act(async () => {
-        const signOutResult = await result.current.signOut();
-        expect(signOutResult.success).toBe(false);
-        expect(signOutResult.error).toEqual(mockError);
+        signOutResult = await result.current.signOut();
       });
 
+      expect(signOutResult!.success).toBe(false);
+      expect(signOutResult!.error).toEqual(mockError);
       expect(mockAuthService.signOut).toHaveBeenCalledTimes(1);
       expect(result.current.error).toBe('로그아웃 중 오류가 발생했습니다.');
     });
@@ -333,12 +341,8 @@ describe('useAuth', () => {
 
   describe('loading state management', () => {
     test('should set loading to true during signOut', async () => {
-      let resolveSignOut: (value: any) => void;
-      const signOutPromise = new Promise<any>((resolve) => {
-        resolveSignOut = resolve;
-      });
-      
-      mockAuthService.signOut.mockReturnValue(signOutPromise);
+      // Promise를 즉시 resolve하도록 수정
+      mockAuthService.signOut.mockResolvedValue({ error: null } as any);
       
       const { result } = renderHook(() => useAuth());
 
@@ -346,22 +350,13 @@ describe('useAuth', () => {
         expect(result.current.loading).toBe(false);
       });
 
-      // signOut 호출 시작
-      const signOutPromise2 = act(async () => {
-        return result.current.signOut();
-      });
-
-      // 로딩 상태 확인을 위해 약간의 지연 후 확인
+      // signOut 호출
       await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
+        await result.current.signOut();
       });
-
-      // Resolve signOut
-      resolveSignOut!({ error: null });
-
-      await signOutPromise2;
 
       expect(result.current.loading).toBe(false);
+      expect(mockAuthService.signOut).toHaveBeenCalledTimes(1);
     });
   });
 });
