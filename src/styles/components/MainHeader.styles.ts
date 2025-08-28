@@ -24,10 +24,10 @@ export const MainHeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 0.25rem 1rem;
   
   ${theme.media.tablet} {
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
   }
 `;
 
@@ -64,16 +64,16 @@ export const Logo = styled.div`
 `;
 
 export const LogoImage = styled.img`
-  height: 60px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   
   ${theme.media.tablet} {
-    height: 50px;
+    height: 70px;
   }
   
   ${theme.media.mobile} {
-    height: 45px;
+    height: 60px;
   }
 `;
 
