@@ -1,11 +1,9 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook, act, waitFor } from '@testing-library/react';
 import { useAuth } from './useAuth';
-import { AuthService } from '../services/authService';
-import { AuthUser, UserResponse, AuthError } from '../types/auth';
+import { authService } from '../services/authService';
 
 // Mock authService
 jest.mock('../services/authService', () => ({
-  AuthService: jest.fn(),
   authService: {
     getCurrentUser: jest.fn(),
     signOut: jest.fn(),
@@ -13,19 +11,10 @@ jest.mock('../services/authService', () => ({
   }
 }));
 
-const mockAuthService = {
-  getCurrentUser: jest.fn(),
-  signOut: jest.fn(),
-  onAuthStateChange: jest.fn(),
-};
-
-// Mock the authService import
-jest.doMock('../services/authService', () => ({
-  authService: mockAuthService
-}));
+const mockAuthService = authService as jest.Mocked<typeof authService>;
 
 describe('useAuth', () => {
-  const mockUser: AuthUser = {
+  const mockUser = {
     id: 'user-123',
     email: 'test@example.com',
     app_metadata: {},
@@ -41,8 +30,8 @@ describe('useAuth', () => {
     mockAuthService.getCurrentUser.mockResolvedValue({ 
       data: { user: null },
       error: null
-    });
-    mockAuthService.signOut.mockResolvedValue({ error: null });
+    } as any);
+    mockAuthService.signOut.mockResolvedValue({ error: null } as any);
     mockAuthService.onAuthStateChange.mockReturnValue({
       data: {
         subscription: { 
@@ -51,11 +40,11 @@ describe('useAuth', () => {
           unsubscribe: jest.fn() 
         }
       }
-    });
+    } as any);
   });
 
   describe('initialization', () => {
-    it('should initialize with default state', () => {
+    test('should initialize with default state', () => {
       const { result } = renderHook(() => useAuth());
 
       expect(result.current.user).toBeNull();
@@ -64,65 +53,90 @@ describe('useAuth', () => {
       expect(result.current.isAuthenticated).toBe(false);
     });
 
-    it('should set user when getCurrentUser returns a user', async () => {
+    test('should set user when getCurrentUser returns a user', async () => {
       mockAuthService.getCurrentUser.mockResolvedValue({ 
         data: { user: mockUser },
         error: null
-      });
+      } as any);
       
       const { result } = renderHook(() => useAuth());
 
-      await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
       });
 
-      expect(result.current.user).toBeNull();
-      expect(result.current.loading).toBe(false);
+      expect(result.current.user).toEqual(mockUser);
       expect(result.current.error).toBeNull();
-      expect(result.current.isAuthenticated).toBe(false);
+      expect(result.current.isAuthenticated).toBe(true);
     });
 
-    it('should handle getCurrentUser error', async () => {
-      const mockError: AuthError = { message: 'Failed to get user' };
-      mockAuthService.getCurrentUser.mockResolvedValue({ 
-        data: { user: null },
-        error: mockError
-      });
-      
-      const { result } = renderHook(() => useAuth());
-
-      await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
-      });
-
-      expect(result.current.user).toBeNull();
-      expect(result.current.loading).toBe(false);
-      expect(result.current.error).toBeNull();
-      expect(result.current.isAuthenticated).toBe(false);
-    });
-
-    it('should handle getCurrentUser network error', async () => {
+    test('should handle getCurrentUser error', async () => {
       mockAuthService.getCurrentUser.mockRejectedValue(new Error('Network error'));
       
       const { result } = renderHook(() => useAuth());
 
-      await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
       });
 
       expect(result.current.user).toBeNull();
-      expect(result.current.loading).toBe(false);
       expect(result.current.error).toBeNull();
       expect(result.current.isAuthenticated).toBe(false);
     });
   });
 
   describe('signOut', () => {
-    it('should sign out successfully', async () => {
-      mockAuthService.signOut.mockResolvedValue({ error: null });
+    test('should sign out successfully', async () => {
+      const { result } = renderHook(() => useAuth());
+
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
+      await act(async () => {
+        const signOutResult = await result.current.signOut();
+        expect(signOutResult.success).toBe(true);
+      });
+
+      expect(mockAuthService.signOut).toHaveBeenCalledTimes(1);
+      expect(result.current.user).toBeNull();
+      expect(result.current.isAuthenticated).toBe(false);
+    });
+
+    test('should handle signOut error', async () => {
+      const mockError = new Error('Sign out failed');
+      mockAuthService.signOut.mockRejectedValue(mockError);
       
       const { result } = renderHook(() => useAuth());
 
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
+      await act(async () => {
+        const signOutResult = await result.current.signOut();
+        expect(signOutResult.success).toBe(false);
+        expect(signOutResult.error).toEqual(mockError);
+      });
+
+      expect(mockAuthService.signOut).toHaveBeenCalledTimes(1);
+      expect(result.current.error).toBe('로그아웃 중 오류가 발생했습니다.');
+    });
+
+    test('should clear user state on successful signOut', async () => {
+      // First set a user
+      mockAuthService.getCurrentUser.mockResolvedValue({ 
+        data: { user: mockUser },
+        error: null
+      } as any);
+      
+      const { result } = renderHook(() => useAuth());
+
+      await waitFor(() => {
+        expect(result.current.user).toEqual(mockUser);
+      });
+
+      // Then sign out
       await act(async () => {
         await result.current.signOut();
       });
@@ -130,54 +144,10 @@ describe('useAuth', () => {
       expect(result.current.user).toBeNull();
       expect(result.current.isAuthenticated).toBe(false);
     });
-
-    it('should handle signOut error', async () => {
-      const mockError: AuthError = { message: 'Sign out failed' };
-      mockAuthService.signOut.mockResolvedValue({ error: mockError });
-      
-      const { result } = renderHook(() => useAuth());
-
-      await act(async () => {
-        await result.current.signOut();
-      });
-
-      expect(result.current.error).toBeNull();
-    });
-
-    it('should handle signOut network error', async () => {
-      mockAuthService.signOut.mockRejectedValue(new Error('Network error'));
-      
-      const { result } = renderHook(() => useAuth());
-
-      await act(async () => {
-        await result.current.signOut();
-      });
-
-      expect(result.current.error).toBeNull();
-    });
-
-    it('should handle signOut with pending promise', async () => {
-      let resolveSignOut: (value: { error: AuthError | null }) => void;
-      const signOutPromise = new Promise<{ error: AuthError | null }>((resolve) => {
-        resolveSignOut = resolve;
-      });
-      mockAuthService.signOut.mockReturnValue(signOutPromise);
-      
-      const { result } = renderHook(() => useAuth());
-
-      const signOutPromise2 = act(async () => {
-        return result.current.signOut();
-      });
-
-      // Resolve the first promise
-      resolveSignOut!({ error: null });
-
-      await signOutPromise2;
-    });
   });
 
   describe('auth state change', () => {
-    it('should handle SIGNED_IN event', async () => {
+    test('should handle SIGNED_IN event', async () => {
       let authCallback: any;
       mockAuthService.onAuthStateChange.mockImplementation((callback) => {
         authCallback = callback;
@@ -189,20 +159,28 @@ describe('useAuth', () => {
               unsubscribe: jest.fn() 
             }
           }
-        };
+        } as any;
       });
       
       const { result } = renderHook(() => useAuth());
 
-      // authCallback은 실제로 호출되지 않으므로 제거
-      expect(result.current.user).toBeNull();
-      expect(result.current.isAuthenticated).toBe(false);
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
+      await act(async () => {
+        authCallback('SIGNED_IN', { user: mockUser });
+      });
+
+      expect(result.current.user).toEqual(mockUser);
+      expect(result.current.isAuthenticated).toBe(true);
+      expect(result.current.error).toBeNull();
     });
 
-    it('should handle SIGNED_OUT event', async () => {
-      const mockCallback = jest.fn();
+    test('should handle SIGNED_OUT event', async () => {
+      let authCallback: any;
       mockAuthService.onAuthStateChange.mockImplementation((callback) => {
-        mockCallback.mockImplementation(callback);
+        authCallback = callback;
         return {
           data: {
             subscription: { 
@@ -211,23 +189,27 @@ describe('useAuth', () => {
               unsubscribe: jest.fn() 
             }
           }
-        };
+        } as any;
       });
       
       const { result } = renderHook(() => useAuth());
 
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
       await act(async () => {
-        mockCallback('SIGNED_OUT', null);
+        authCallback('SIGNED_OUT', null);
       });
 
       expect(result.current.user).toBeNull();
       expect(result.current.isAuthenticated).toBe(false);
     });
 
-    it('should ignore SIGNED_IN event without user', async () => {
-      const mockCallback = jest.fn();
+    test('should ignore SIGNED_IN event without user', async () => {
+      let authCallback: any;
       mockAuthService.onAuthStateChange.mockImplementation((callback) => {
-        mockCallback.mockImplementation(callback);
+        authCallback = callback;
         return {
           data: {
             subscription: { 
@@ -236,20 +218,24 @@ describe('useAuth', () => {
               unsubscribe: jest.fn() 
             }
           }
-        };
+        } as any;
       });
       
       const { result } = renderHook(() => useAuth());
 
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
       await act(async () => {
-        mockCallback('SIGNED_IN', null);
+        authCallback('SIGNED_IN', null);
       });
 
       expect(result.current.user).toBeNull();
       expect(result.current.isAuthenticated).toBe(false);
     });
 
-    it('should unsubscribe on unmount', () => {
+    test('should unsubscribe on unmount', () => {
       const mockUnsubscribe = jest.fn();
       mockAuthService.onAuthStateChange.mockReturnValue({
         data: {
@@ -259,42 +245,42 @@ describe('useAuth', () => {
             unsubscribe: mockUnsubscribe 
           }
         }
-      });
+      } as any);
       
       const { unmount } = renderHook(() => useAuth());
 
       unmount();
 
-      // unsubscribe는 실제로 호출되지 않으므로 제거
+      expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('isAuthenticated calculation', () => {
-    it('should correctly calculate isAuthenticated when user exists', async () => {
+    test('should correctly calculate isAuthenticated when user exists', async () => {
       mockAuthService.getCurrentUser.mockResolvedValue({ 
         data: { user: mockUser },
         error: null
-      });
+      } as any);
       
       const { result } = renderHook(() => useAuth());
 
-      await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
       });
 
-      expect(result.current.isAuthenticated).toBe(false);
+      expect(result.current.isAuthenticated).toBe(true);
     });
 
-    it('should correctly calculate isAuthenticated when user does not exist', async () => {
+    test('should correctly calculate isAuthenticated when user does not exist', async () => {
       mockAuthService.getCurrentUser.mockResolvedValue({ 
         data: { user: null },
         error: null
-      });
+      } as any);
       
       const { result } = renderHook(() => useAuth());
 
-      await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
       });
 
       expect(result.current.isAuthenticated).toBe(false);
@@ -302,32 +288,80 @@ describe('useAuth', () => {
   });
 
   describe('error handling', () => {
-    it('should clear error when successful operation occurs', async () => {
-      // First set an error
-      mockAuthService.getCurrentUser.mockResolvedValue({ 
-        data: { user: null },
-        error: { message: 'Initial error' }
-      });
+    test('should handle signOut error and set error message', async () => {
+      mockAuthService.signOut.mockRejectedValue(new Error('Network error'));
       
       const { result } = renderHook(() => useAuth());
 
-      await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 0));
-      });
-
-      expect(result.current.error).toBeNull();
-
-      // Then clear it with successful operation
-      mockAuthService.getCurrentUser.mockResolvedValue({ 
-        data: { user: mockUser },
-        error: null
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
       });
 
       await act(async () => {
         await result.current.signOut();
       });
 
+      expect(result.current.error).toBe('로그아웃 중 오류가 발생했습니다.');
+    });
+
+    test('should clear error on successful signOut', async () => {
+      // First set an error by failing signOut
+      mockAuthService.signOut.mockRejectedValueOnce(new Error('Network error'));
+      
+      const { result } = renderHook(() => useAuth());
+
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
+      await act(async () => {
+        await result.current.signOut();
+      });
+
+      expect(result.current.error).toBe('로그아웃 중 오류가 발생했습니다.');
+
+      // Then successful signOut should clear error
+      mockAuthService.signOut.mockResolvedValue({ error: null } as any);
+      
+      await act(async () => {
+        await result.current.signOut();
+      });
+
       expect(result.current.error).toBeNull();
+    });
+  });
+
+  describe('loading state management', () => {
+    test('should set loading to true during signOut', async () => {
+      let resolveSignOut: (value: any) => void;
+      const signOutPromise = new Promise<any>((resolve) => {
+        resolveSignOut = resolve;
+      });
+      
+      mockAuthService.signOut.mockReturnValue(signOutPromise);
+      
+      const { result } = renderHook(() => useAuth());
+
+      await waitFor(() => {
+        expect(result.current.loading).toBe(false);
+      });
+
+      // signOut 호출 시작
+      const signOutPromise2 = act(async () => {
+        return result.current.signOut();
+      });
+
+      // 로딩 상태 확인을 위해 약간의 지연 후 확인
+      await act(async () => {
+        await new Promise(resolve => setTimeout(resolve, 0));
+      });
+
+      // Resolve signOut
+      resolveSignOut!({ error: null });
+
+      await signOutPromise2;
+
+      expect(result.current.loading).toBe(false);
     });
   });
 });

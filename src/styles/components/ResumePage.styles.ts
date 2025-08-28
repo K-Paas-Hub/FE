@@ -717,12 +717,16 @@ export const TimelineLanguageIcon = styled.span`
 `;
 
 export const TimelineLanguageInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const TimelineLanguageName = styled.div`
   font-weight: 600;
   color: #1f2937;
+  display: flex;
+  align-items: center;
 `;
 
 export const TimelineLanguageCategory = styled.div`
@@ -844,6 +848,7 @@ export const TimelineCertificationHeader = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  height: 2rem;
 `;
 
 export const TimelineCertificationIcon = styled.span`
@@ -851,12 +856,18 @@ export const TimelineCertificationIcon = styled.span`
 `;
 
 export const TimelineCertificationInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const TimelineCertificationName = styled.div`
   font-weight: 600;
   color: #1f2937;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
 `;
 
 export const TimelineCertificationCategory = styled.div`
@@ -879,8 +890,9 @@ export const CertificationGradeSelect = styled.select`
   color: #374151;
   margin-left: 0.125rem;
   margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  height: 1.5rem;
+  line-height: 1;
+  vertical-align: middle;
   
   &:focus {
     outline: none;
@@ -897,8 +909,9 @@ export const ExperienceYearsSelect = styled.select`
   color: #374151;
   margin-left: 0.125rem;
   margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  height: 1.5rem;
+  line-height: 1;
+  vertical-align: middle;
   
   &:focus {
     outline: none;
@@ -1014,6 +1027,7 @@ export const TimelineSkillHeader = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  height: 2rem;
 `;
 
 export const TimelineSkillIcon = styled.span`
@@ -1021,7 +1035,9 @@ export const TimelineSkillIcon = styled.span`
 `;
 
 export const TimelineSkillInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const TimelineSkillName = styled.div`
@@ -1205,10 +1221,7 @@ export const LanguageLevelSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.125rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  margin-left: 0.5rem;
   
   &:focus {
     outline: none;
@@ -1288,12 +1301,20 @@ export const TimelineSchoolIcon = styled.span`
 `;
 
 export const TimelineSchoolInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row;
+  min-height: 1.5rem;
 `;
 
 export const TimelineSchoolName = styled.div`
   font-weight: 600;
   color: #1f2937;
+  display: flex;
+  align-items: center;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
 `;
 
 export const TimelineSchoolCategory = styled.div`
@@ -1330,10 +1351,10 @@ export const StatusSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  height: 1.5rem;
+  line-height: 1;
+  box-sizing: border-box;
+  margin: 0;
   
   &:focus {
     outline: none;
