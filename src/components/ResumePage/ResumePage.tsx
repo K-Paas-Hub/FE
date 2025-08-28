@@ -559,10 +559,7 @@ const LanguageLevelSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.125rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  margin: 0;
   
   &:focus {
     outline: none;
@@ -761,7 +758,9 @@ const TimelineSchoolIcon = styled.span`
 `;
 
 const TimelineSchoolInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const TimelineSchoolName = styled.div`
@@ -803,10 +802,7 @@ const StatusSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  margin: 0;
   
   &:focus {
     outline: none;
@@ -1064,7 +1060,9 @@ const TimelineCertificationIcon = styled.span`
 `;
 
 const TimelineCertificationInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const TimelineCertificationName = styled.div`
@@ -1091,10 +1089,7 @@ const CertificationGradeSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.125rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  margin: 0;
   
   &:focus {
     outline: none;
@@ -1217,7 +1212,9 @@ const TimelineSkillIcon = styled.span`
 `;
 
 const TimelineSkillInfo = styled.div`
-  /* flex: 1 제거해서 필요한 만큼만 공간 차지 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const TimelineSkillName = styled.div`
@@ -1244,10 +1241,7 @@ const SkillLevelSelect = styled.select`
   font-size: 0.75rem;
   background: white;
   color: #374151;
-  margin-left: 0.125rem;
-  margin-right: 0.5rem;
-  align-self: flex-start;
-  margin-top: -0.125rem;
+  margin: 0;
   
   &:focus {
     outline: none;
@@ -1307,10 +1301,18 @@ const ResumePage: React.FC = () => {
     if (formData.certifications) {
       const certificationEntries = formData.certifications.split(', ').filter(entry => entry.trim());
       const certifications = certificationEntries.map(entry => {
-        // "자격증명 급수" 형태에서 분리
-        const parts = entry.trim().split(' ');
-        const certificationName = parts[0];
-        const grade = parts.slice(1).join(' ');
+        // 급수 패턴을 찾아서 분리 (마지막에 있는 급수 정보)
+        const gradePattern = /(1급|2급|3급|4급|5급|6급|7급|8급|9급|10급|기타)$/;
+        const match = entry.trim().match(gradePattern);
+        
+        let certificationName: string, grade: string;
+        if (match) {
+          grade = match[1];
+          certificationName = entry.trim().replace(gradePattern, '').trim();
+        } else {
+          certificationName = entry.trim();
+          grade = '';
+        }
         
         const foundCert = certificationData.find(cert => cert.name === certificationName);
         if (foundCert) {
@@ -1368,10 +1370,18 @@ const ResumePage: React.FC = () => {
     if (formData.experience) {
       const experienceEntries = formData.experience.split(', ').filter(entry => entry.trim());
       const experiences = experienceEntries.map(entry => {
-        // "직업명 연도" 형태에서 분리
-        const parts = entry.trim().split(' ');
-        const year = parts[parts.length - 1]; // 마지막 단어가 연도
-        const jobName = parts.slice(0, -1).join(' '); // 나머지가 직업명
+        // 연도 패턴을 찾아서 분리 (마지막에 있는 연도 정보)
+        const yearPattern = /(1년 미만|1-2년|3-5년|6-10년|10년 이상)$/;
+        const match = entry.trim().match(yearPattern);
+        
+        let jobName: string, year: string;
+        if (match) {
+          year = match[1];
+          jobName = entry.trim().replace(yearPattern, '').trim();
+        } else {
+          jobName = entry.trim();
+          year = '';
+        }
         
         const foundExp = experienceData.find(exp => exp.name === jobName);
         if (foundExp) {
@@ -1401,10 +1411,18 @@ const ResumePage: React.FC = () => {
     if (formData.skills) {
       const skillEntries = formData.skills.split(', ').filter(entry => entry.trim());
       const skills = skillEntries.map(entry => {
-        // "기술명 레벨" 형태에서 분리
-        const parts = entry.trim().split(' ');
-        const skillName = parts[0];
-        const level = parts.slice(1).join(' ');
+        // 레벨 패턴을 찾아서 분리 (마지막에 있는 레벨 정보)
+        const levelPattern = /(초급|중급|고급|전문가)$/;
+        const match = entry.trim().match(levelPattern);
+        
+        let skillName: string, level: string;
+        if (match) {
+          level = match[1];
+          skillName = entry.trim().replace(levelPattern, '').trim();
+        } else {
+          skillName = entry.trim();
+          level = '';
+        }
         
         const foundSkill = skillData.find(skill => skill.name === skillName);
         if (foundSkill) {
@@ -2123,18 +2141,17 @@ const ResumePage: React.FC = () => {
                               <TimelineSchoolIcon>{school.category === '대학교' ? '🎓' : '🏫'}</TimelineSchoolIcon>
                               <TimelineSchoolInfo>
                                 <TimelineSchoolName>{school.name}</TimelineSchoolName>
-                                <TimelineSchoolCategory>{school.category}</TimelineSchoolCategory>
+                                <StatusSelect
+                                  value={school.status}
+                                  onChange={(e) => handleGraduationStatusChange(school.id, e.target.value)}
+                                >
+                                  {graduationStatusOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                                </StatusSelect>
                               </TimelineSchoolInfo>
-                              <StatusSelect
-                                value={school.status}
-                                onChange={(e) => handleGraduationStatusChange(school.id, e.target.value)}
-                              >
-                                {graduationStatusOptions.map(option => (
-                                  <option key={option.value} value={option.value}>
-                                    {option.label}
-                                  </option>
-                                ))}
-                              </StatusSelect>
                               <FlexSpacer />
                               <TimelineRemoveButton
                                 onClick={() => handleSchoolRemove(school.id)}
@@ -2143,9 +2160,6 @@ const ResumePage: React.FC = () => {
                                 ×
                               </TimelineRemoveButton>
                             </TimelineSchoolHeader>
-                            <TimelineSchoolBody>
-                              <span>{school.category === '대학교' ? '종합대학교' : school.category}</span>
-                            </TimelineSchoolBody>
                           </TimelineSchoolCard>
                         </TimelineContent>
                       </TimelineItem>
@@ -2649,10 +2663,7 @@ const ResumePage: React.FC = () => {
                                                    language.category === '프랑스어' ? '🇫🇷' :
                                                    language.category === '스페인어' ? '🇪🇸' :
                                                    language.category === '이탈리아어' ? '🇮🇹' : '🌐'}</TimelineLanguageIcon>
-                              <TimelineLanguageInfo>
-                                <TimelineLanguageName>{language.name}</TimelineLanguageName>
-                                <TimelineLanguageCategory>{language.category}</TimelineLanguageCategory>
-                              </TimelineLanguageInfo>
+                              <TimelineLanguageName>{language.name}</TimelineLanguageName>
                               {language.levels && language.levels.length > 0 && (
                                 <LanguageLevelSelect
                                   value={language.level}
@@ -2674,13 +2685,6 @@ const ResumePage: React.FC = () => {
                                 ×
                               </TimelineRemoveButton>
                             </TimelineLanguageHeader>
-                            <TimelineLanguageBody>
-                              <span>{language.name === 'TOEIC' ? '영어 능력 평가 시험' :
-                                     language.name === 'TOPIK' ? '한국어 능력 평가 시험' :
-                                     language.name === 'JLPT' ? '일본어 능력 평가 시험' :
-                                     language.name === 'HSK' ? '중국어 능력 평가 시험' :
-                                     language.name} 시험</span>
-                            </TimelineLanguageBody>
                           </TimelineLanguageCard>
                         </TimelineContent>
                       </TimelineItem>
