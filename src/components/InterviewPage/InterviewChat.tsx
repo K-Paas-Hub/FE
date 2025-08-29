@@ -118,7 +118,7 @@ const InterviewChat: React.FC<InterviewChatProps> = ({
       
       startInterview();
     }
-  }, [isInterviewStarted, currentQuestionIndex, settings.difficulty, settings.questionCount, settings.estimatedTime, t]);
+  }, [isInterviewStarted, currentQuestionIndex, settings.difficulty, settings.questionCount, settings.estimatedTime, t, i18n.language]);
 
 
 
