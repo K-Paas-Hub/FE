@@ -652,7 +652,7 @@ describe('API Services', () => {
     });
 
     test('saveResume handles data size limit', async () => {
-      // Create large data object
+      // Create large data object that exceeds 5MB
       const largeData = {
         name: 'Test User',
         email: 'test@example.com',
@@ -662,7 +662,7 @@ describe('API Services', () => {
         address: 'Seoul, Korea',
         addressDetail: 'Gangnam-gu',
         education: 'Bachelor degree',
-        experience: new Array(100000).fill({ company: 'Very long company name'.repeat(100) }).join(','),
+        experience: 'A'.repeat(6 * 1024 * 1024), // 6MB of data
         skills: 'React, TypeScript',
         certifications: 'AWS Certified',
         languages: 'Korean, English',

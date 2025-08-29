@@ -2,6 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { LanguageProvider } from '../../contexts/LanguageContext';
 
+import MainHeaderComponent from './MainHeader';
+
 // Mock hooks
 jest.mock('../../hooks/useAuth');
 
@@ -74,17 +76,15 @@ jest.mock('./MainHeader', () => {
             {isAuthenticated ? (
               <span>{user?.email}</span>
             ) : (
-              <button role="button" aria-label="login">Login</button>
+              <button aria-label="login">Login</button>
             )}
-            <button role="button" aria-label="menu">☰</button>
+            <button aria-label="menu">☰</button>
           </div>
         </div>
       </header>
     );
   };
 });
-
-import MainHeaderComponent from './MainHeader';
 
 const renderWithProviders = (component: React.ReactElement) => {
   return render(
