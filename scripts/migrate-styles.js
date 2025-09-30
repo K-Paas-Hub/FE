@@ -122,7 +122,7 @@ import { COLORS, ANIMATIONS } from '../../constants';
 
   // 각 styled component를 export로 변환
   styledComponents.forEach(comp => {
-    const exportLine = `export const ${comp.name} = styled.${comp.element}\`\n  // TODO: 스타일 코드를 여기에 추가하세요\n\`;\n\n`;
+    const exportLine = `export const ${comp.name} = styled.${comp.element}\`\n  /* Style placeholder - add your styles here */\n\`;\n\n`;
     styleFileContent += exportLine;
   });
   

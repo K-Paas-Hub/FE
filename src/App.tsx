@@ -20,19 +20,19 @@ import {
   ContractTutorial,
   ResumePage,
   ContractAnalysis,
-  ContractQuiz
+  ContractQuiz,
+  MyPage,
+  LoginPage,
+  InterviewPage
 } from './components';
 import ForeignWorkerSpellCheckPage from './components/SpellCheck/ForeignWorkerSpellCheckPage';
 
-import MyPage from './components/MyPage';
 import VisaDetailPage from './components/VisaCenter/VisaDetailPage';
 import JobDetailPage from './components/JobDetailPage';
-import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import PasswordResetPage from './components/PasswordResetPage';
 import TermsPage from './components/TermsPage';
 import PrivacyPage from './components/PrivacyPage';
-import InterviewPage from './components/InterviewPage';
 import { GoogleOAuthForm, OAuthSuccess } from './components/OAuth';
 
 const LandingPage = () => (

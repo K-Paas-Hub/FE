@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
-
 import {
   AnalysisContainer,
   AnalysisContent,
@@ -31,6 +30,11 @@ import {
 } from '../../styles/components/ContractAnalysis.styles';
 import { LoadingSpinner } from '../../styles/common/LoadingSpinner.styles';
 
+interface AnalysisResult {
+  type: 'warning' | 'success' | 'error';
+  title: string;
+  content: string;
+}
 
 
 const ContractAnalysis: React.FC = () => {
@@ -38,7 +42,7 @@ const ContractAnalysis: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisProgress, setAnalysisProgress] = useState(0);
-  const [analysisResults, setAnalysisResults] = useState<any[]>([]);
+  const [analysisResults, setAnalysisResults] = useState<AnalysisResult[]>([]);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
