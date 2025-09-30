@@ -25,7 +25,6 @@ import {
   BenefitsSection,
   SummaryCard,
   SummaryItem,
-  CopyAddressButton,
   ActionButtons,
   PrimaryActionButton,
   SecondaryActionButton,
@@ -33,6 +32,22 @@ import {
   ErrorMessage,
   WebsiteLink
 } from '../../styles/components/JobDetailPage.styles';
+
+// 마감일 표시 함수
+const getDeadlineDisplay = (daysUntilDeadline: number, deadline: string): string => {
+  // 상시채용인 경우
+  if (deadline === '상시채용' || daysUntilDeadline === 999) {
+    return '상시채용';
+  }
+  
+  // 유효하지 않은 날짜인 경우
+  if (isNaN(daysUntilDeadline) || daysUntilDeadline < 0) {
+    return '상시채용';
+  }
+  
+  // 정상적인 경우
+  return `D-${daysUntilDeadline} (${formatDate(deadline)} 마감)`;
+};
 
 const JobDetailPage: React.FC = () => {
   const { t } = useTranslation();
@@ -53,7 +68,6 @@ const JobDetailPage: React.FC = () => {
   const {
     handleScrapToggle: handleScrapAction,
     handleShareClick,
-    handleCopyAddress,
     handleHomepageApply,
   } = useJobActions(job);
 
@@ -108,7 +122,7 @@ const JobDetailPage: React.FC = () => {
             <JobHeader>
               <JobTitleSection>
                 <DeadlineBadge>
-                  D-{daysUntilDeadline} ({formatDate(job.deadline)} 마감)
+                  {getDeadlineDisplay(daysUntilDeadline, job.deadline)}
                 </DeadlineBadge>
                 <h1>{job.title}</h1>
                 <h2>{job.company}</h2>
@@ -231,15 +245,6 @@ const JobDetailPage: React.FC = () => {
                 <span className="label">근무지</span>
                 <span className="value">
                   {job.address || '미정'}
-                  {job.address && (
-                    <CopyAddressButton
-                      onClick={handleCopyAddress}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      📋 주소 복사
-                    </CopyAddressButton>
-                  )}
                 </span>
               </SummaryItem>
             </SummaryCard>

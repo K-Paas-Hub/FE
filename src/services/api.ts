@@ -1,5 +1,7 @@
 import { API_ENDPOINTS } from '../constants';
-import { UserData, JobData, CompanyData, VisaApplicationData, ResumeData } from '../types/api';
+import { UserData, JobData, CompanyData, VisaApplicationData, ResumeData, BackendJobResponse, BackendCompanyResponse } from '../types/api';
+import { transformBackendJobToFrontend, transformBackendCompanyToFrontend } from '../utils/dataTransform';
+import { Job } from '../types/job';
 
 // API 응답 타입 정의
 export interface ApiResponse<T = any> {
@@ -31,6 +33,8 @@ class ApiClient {
       const url = `${this.baseURL}${endpoint}`;
       const requestHeaders: Record<string, string> = {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
         ...headers,
       };
 
@@ -43,6 +47,8 @@ class ApiClient {
       const config: RequestInit = {
         method,
         headers: requestHeaders,
+        mode: 'cors',
+        credentials: 'omit',
       };
 
       if (data && method !== 'GET') {
@@ -61,6 +67,18 @@ class ApiClient {
         data: responseData,
       };
     } catch (error) {
+      console.error('API Request Error:', error);
+      console.error('URL:', `${this.baseURL}${endpoint}`);
+      console.error('Method:', method);
+      
+      // CORS 오류인지 확인
+      if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        return {
+          success: false,
+          error: 'CORS 오류: 브라우저에서 CORS를 비활성화하거나 백엔드에서 CORS 헤더를 추가해주세요.',
+        };
+      }
+      
       return {
         success: false,
         error: error instanceof Error ? error.message : '알 수 없는 오류가 발생했습니다.',
@@ -124,11 +142,51 @@ export const userService = {
 };
 
 export const jobService = {
-  getJobs: (params?: Record<string, string>) =>
-    apiClient.get(API_ENDPOINTS.jobs + '?' + new URLSearchParams(params)),
+  getJobs: async (params?: Record<string, string>): Promise<ApiResponse<Job[]>> => {
+    const response = await apiClient.get<BackendJobResponse[]>(API_ENDPOINTS.jobs + '?' + new URLSearchParams(params));
+    if (response.success && Array.isArray(response.data)) {
+      // 회사 정보를 가져와서 홈페이지 정보 연결
+      const companyResponse = await apiClient.get<BackendCompanyResponse[]>(API_ENDPOINTS.companies);
+      const companies = companyResponse.success && companyResponse.data ? companyResponse.data : [];
+      
+      const jobsWithCompanyInfo = response.data.map((job) => {
+        // 회사명으로 회사 정보 찾기
+        const company = companies.find(c => c.companyName === job.companyName);
+        
+        if (company) {
+          return {
+            ...job,
+            companyWebsite: company.website || null
+          };
+        }
+        
+        return job;
+      });
+      
+      return {
+        ...response,
+        data: jobsWithCompanyInfo.map(transformBackendJobToFrontend)
+      };
+    }
+    return {
+      success: false,
+      error: response.error || '채용공고를 불러올 수 없습니다.'
+    };
+  },
   
-  getJob: (id: string) =>
-    apiClient.get(API_ENDPOINTS.jobs + '/' + id),
+  getJob: async (id: string): Promise<ApiResponse<Job>> => {
+    const response = await apiClient.get<BackendJobResponse>(API_ENDPOINTS.jobs + '/' + id);
+    if (response.success && response.data) {
+      return {
+        ...response,
+        data: transformBackendJobToFrontend(response.data)
+      };
+    }
+    return {
+      success: false,
+      error: response.error || '채용공고를 불러올 수 없습니다.'
+    };
+  },
   
   createJob: (jobData: JobData) =>
     apiClient.post(API_ENDPOINTS.jobs, jobData),
@@ -141,11 +199,27 @@ export const jobService = {
 };
 
 export const companyService = {
-  getCompanies: (params?: Record<string, string>) =>
-    apiClient.get(API_ENDPOINTS.companies + '?' + new URLSearchParams(params)),
+  getCompanies: async (params?: Record<string, string>) => {
+    const response = await apiClient.get<BackendCompanyResponse[]>(API_ENDPOINTS.companies + '?' + new URLSearchParams(params));
+    if (response.success && Array.isArray(response.data)) {
+      return {
+        ...response,
+        data: response.data.map(transformBackendCompanyToFrontend)
+      };
+    }
+    return response;
+  },
   
-  getCompany: (id: string) =>
-    apiClient.get(API_ENDPOINTS.companies + '/' + id),
+  getCompany: async (id: string) => {
+    const response = await apiClient.get<BackendCompanyResponse>(API_ENDPOINTS.companies + '/' + id);
+    if (response.success && response.data) {
+      return {
+        ...response,
+        data: transformBackendCompanyToFrontend(response.data)
+      };
+    }
+    return response;
+  },
   
   createCompany: (companyData: CompanyData) =>
     apiClient.post(API_ENDPOINTS.companies, companyData),

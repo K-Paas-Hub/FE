@@ -90,18 +90,17 @@ import {
 } from '../../styles/components/MainPage.styles';
 
 
-import { jobData } from '../../data/jobData';
 import { Job } from '../../types/job';
-
-// 공통 데이터 사용
-const sampleJobs = jobData;
+import { useJobs } from '../../hooks/useJobs';
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   
-  const [jobs, setJobs] = useState(sampleJobs);
-  const [filteredJobs, setFilteredJobs] = useState(sampleJobs);
+  // API에서 데이터 가져오기
+  const { jobs: apiJobs, loading, error } = useJobs();
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isSearching, setIsSearching] = useState<boolean>(false);
   
@@ -113,6 +112,14 @@ const MainPage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState(t('mainPage.jobList.sortOptions.latest'));
   const [isChatOpen, setIsChatOpen] = useState(false);
+
+  // API 데이터가 로드되면 jobs 상태 업데이트
+  useEffect(() => {
+    if (apiJobs.length > 0) {
+      setJobs(apiJobs);
+      setFilteredJobs(apiJobs);
+    }
+  }, [apiJobs]);
 
   // JobCard 클릭 핸들러
   const handleJobCardClick = (jobId: number) => {
@@ -456,6 +463,39 @@ const MainPage: React.FC = () => {
   const handleChatClick = () => {
     setIsChatOpen(!isChatOpen);
   };
+
+  // 로딩 상태
+  if (loading) {
+    return (
+      <MainContainer>
+        <MainHeader />
+        <MainPageContent>
+          <SearchLoadingSpinner>
+            <AnimatedRefreshIcon />
+            채용공고를 불러오는 중...
+          </SearchLoadingSpinner>
+        </MainPageContent>
+        <MainFooter />
+      </MainContainer>
+    );
+  }
+
+  // 에러 상태
+  if (error) {
+    return (
+      <MainContainer>
+        <MainHeader />
+        <MainPageContent>
+          <NoResultsMessage>
+            <NoResultsIcon>⚠️</NoResultsIcon>
+            <NoResultsTitle>오류가 발생했습니다</NoResultsTitle>
+            <NoResultsText>{error}</NoResultsText>
+          </NoResultsMessage>
+        </MainPageContent>
+        <MainFooter />
+      </MainContainer>
+    );
+  }
 
   return (
     <MainContainer>

@@ -84,3 +84,29 @@ export interface ResumeData {
   createdAt?: string;
   updatedAt?: string;
 }
+
+// 백엔드 API 응답 타입 정의
+export interface BackendJobResponse {
+  jobTitle: string;
+  jobRegion: string;
+  jobExperience: string;
+  jobEducation: string;
+  salary: string;
+  jobUploadDate: string;
+  jobDeadline: string | null;
+  jobStatus: string;
+  postLink: string;
+  companyName: string;
+  companyWebsite?: string | null;
+  categories: string[];
+  employmentTypes: string[];
+}
+
+export interface BackendCompanyResponse {
+  companyName: string;
+  companyType: string | null;
+  industry: string | null;
+  website: string | null;
+  address: string | null;
+  introduce: string | null;
+}

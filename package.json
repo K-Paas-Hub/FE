@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
+  "proxy": "https://www.kareer.cloud",
   "dependencies": {
     "@supabase/supabase-js": "^2.56.0",
     "@tanstack/react-query": "^5.85.5",

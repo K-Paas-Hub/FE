@@ -65,22 +65,6 @@ export const useJobActions = (job: Job | null) => {
     }
   }, [job]);
 
-  // 주소 복사
-  const handleCopyAddress = useCallback(async () => {
-    if (!job?.address) return;
-    
-    try {
-      const success = await copyToClipboard(job.address);
-      if (success) {
-        alert('주소가 클립보드에 복사되었습니다!');
-      } else {
-        alert('주소 복사에 실패했습니다. 다시 시도해주세요.');
-      }
-    } catch (err) {
-      console.error('주소 복사 실패:', err);
-      alert('주소 복사 중 오류가 발생했습니다.');
-    }
-  }, [job]);
 
   // 홈페이지 지원 (외부 링크)
   const handleHomepageApply = useCallback(() => {
@@ -97,7 +81,6 @@ export const useJobActions = (job: Job | null) => {
     handleApplyClick,
     handleScrapToggle,
     handleShareClick,
-    handleCopyAddress,
     handleHomepageApply,
   };
 };

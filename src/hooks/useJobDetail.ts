@@ -2,10 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Job, JobDetailTab } from '../types/job';
 import { calculateDaysUntilDeadline } from '../utils/jobUtils';
-import { jobData } from '../data/jobData';
-
-// 공통 데이터 사용
-const mockJobs: Job[] = jobData;
+import { jobService } from '../services/api';
 
 export const useJobDetail = (jobIdFromComponent?: string) => {
   const { t } = useTranslation();
@@ -29,17 +26,24 @@ export const useJobDetail = (jobIdFromComponent?: string) => {
       setLoading(true);
       setError(null);
       
-      // 실제 API 호출 대신 Mock 데이터 사용
-      const jobId = parseInt(targetId || '0');
-      const foundJob = mockJobs.find(job => job.id === jobId);
+      // 개별 조회 API가 500 오류를 반환하므로 목록에서 찾기
+      const response = await jobService.getJobs();
       
-      if (foundJob) {
-        setJob(foundJob);
-        setIsScrapped(foundJob.isScrapped || false);
+      if (response.success && response.data) {
+        const jobId = parseInt(targetId || '0');
+        const foundJob = response.data.find(job => job.id === jobId);
+        
+        if (foundJob) {
+          setJob(foundJob);
+          setIsScrapped(foundJob.isScrapped || false);
+        } else {
+          setError(t('jobDetail.jobNotFound'));
+        }
       } else {
-        setError(t('jobDetail.jobNotFound'));
+        setError(response.error || t('jobDetail.jobNotFound'));
       }
     } catch (err) {
+      console.error('Job detail fetch error:', err);
       setError(t('jobDetail.error'));
     } finally {
       setLoading(false);

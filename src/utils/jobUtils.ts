@@ -6,8 +6,25 @@
  * 마감일까지 남은 일수를 계산
  */
 export const calculateDaysUntilDeadline = (deadline: string): number => {
+  // 상시채용인 경우 특별 처리
+  if (deadline === '상시채용' || !deadline || deadline.trim() === '') {
+    return 999; // 상시채용은 매우 큰 값으로 설정
+  }
+  
+  // 유효하지 않은 값들 처리
+  const invalidValues = ['N/A', '마감', 'Invalid Date', 'null', 'undefined', '-', '--'];
+  if (invalidValues.includes(deadline.trim())) {
+    return 999; // 상시채용과 동일하게 처리
+  }
+  
   const today = new Date();
   const deadlineDate = new Date(deadline);
+  
+  // 유효하지 않은 날짜인 경우
+  if (isNaN(deadlineDate.getTime())) {
+    return 999; // 상시채용과 동일하게 처리
+  }
+  
   const diffTime = deadlineDate.getTime() - today.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   
@@ -109,7 +126,24 @@ export const formatWorkDays = (workDays?: string[]): string => {
  * 날짜 포맷팅
  */
 export const formatDate = (dateString: string): string => {
+  // 상시채용인 경우
+  if (dateString === '상시채용' || !dateString || dateString.trim() === '') {
+    return '상시채용';
+  }
+  
+  // 유효하지 않은 값들 처리
+  const invalidValues = ['N/A', '마감', 'Invalid Date', 'null', 'undefined', '-', '--'];
+  if (invalidValues.includes(dateString.trim())) {
+    return '상시채용';
+  }
+  
   const date = new Date(dateString);
+  
+  // 유효하지 않은 날짜인 경우
+  if (isNaN(date.getTime())) {
+    return '상시채용';
+  }
+  
   return date.toLocaleDateString('ko-KR', {
     year: 'numeric',
     month: 'long',

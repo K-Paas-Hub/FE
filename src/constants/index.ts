@@ -37,7 +37,7 @@ export const BREAKPOINTS = {
 
 // API 엔드포인트 상수
 export const API_ENDPOINTS = {
-  base: process.env.REACT_APP_API_URL || 'http://localhost:3001',
+  base: process.env.REACT_APP_API_URL || 'https://www.kareer.cloud/api/recruit',
   auth: '/auth',
   users: '/users',
   jobs: '/jobs',
