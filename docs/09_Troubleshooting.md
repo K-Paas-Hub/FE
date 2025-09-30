@@ -539,35 +539,34 @@ kubectl get pod -n frontend --show-labels
 
 #### 증상
 ```javascript
-Access to fetch at 'https://api.kareer.co.kr' from origin 'http://localhost:3000' 
+Access to fetch at 'https://www.kareer.cloud/api/recruit' from origin 'http://localhost:3000' 
 has been blocked by CORS policy
 ```
 
 #### 해결방법
 
-**개발 환경 프록시 설정**
-```json
-// package.json
-{
-  "name": "kareer",
-  "proxy": "https://api.kareer.co.kr",
-  "scripts": {
-    "start": "react-scripts start"
-  }
-}
+**✅ 백엔드 CORS 설정 완료 (2025-09-30)**
+- `Access-Control-Allow-Origin: http://localhost:3000`
+- `Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS`
+- `Access-Control-Allow-Headers: Content-Type`
+- `Access-Control-Allow-Credentials: true`
+
+**개발 환경에서 정상 동작 확인**
+```bash
+# CORS 헤더 확인
+curl -I "https://www.kareer.cloud/api/recruit/jobs" -H "Origin: http://localhost:3000"
+
+# 응답 헤더 확인
+< access-control-allow-origin: http://localhost:3000
+< access-control-allow-methods: GET,POST,PUT,DELETE,OPTIONS
+< access-control-allow-headers: Content-Type
+< access-control-allow-credentials: true
 ```
 
-**Nginx CORS 설정 (프로덕션)**
-```nginx
-server {
-  location /api/ {
-    add_header 'Access-Control-Allow-Origin' '*';
-    add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-    add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization';
-    
-    proxy_pass https://api.kareer.co.kr/;
-  }
-}
+**⚠️ 이전 임시 해결책 (더 이상 필요 없음)**
+```bash
+# Chrome CORS 비활성화 (개발용 - 현재 불필요)
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security --disable-features=VizDisplayCompositor
 ```
 
 ### 2. API 타임아웃

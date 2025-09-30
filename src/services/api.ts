@@ -34,7 +34,6 @@ class ApiClient {
       const requestHeaders: Record<string, string> = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
         ...headers,
       };
 
@@ -47,8 +46,6 @@ class ApiClient {
       const config: RequestInit = {
         method,
         headers: requestHeaders,
-        mode: 'cors',
-        credentials: 'omit',
       };
 
       if (data && method !== 'GET') {
