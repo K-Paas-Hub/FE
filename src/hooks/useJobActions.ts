@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { Job } from '../types/job';
 import { 
-  copyToClipboard, 
   shareJob, 
   applyToJob, 
   toggleScrapStatus 
