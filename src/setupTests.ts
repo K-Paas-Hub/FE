@@ -51,14 +51,4 @@ afterAll(() => {
   console.warn = originalWarn;
 });
 
-// 전역 테스트 설정
-beforeEach(() => {
-  // 각 테스트 전에 타이머 초기화
-  jest.useFakeTimers();
-});
-
-afterEach(() => {
-  // 각 테스트 후에 타이머 정리
-  jest.runOnlyPendingTimers();
-  jest.useRealTimers();
-});
+// 전역 테스트 설정은 필요할 때만 개별 테스트에서 설정
