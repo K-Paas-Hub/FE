@@ -1,10 +1,10 @@
 import { AuthUser } from './auth';
-import { ApiResponse } from '../services/api';
+import { ApiResponse, UserType, Language } from './common';
 
 // 기존 AuthUser 확장
 export interface UserProfile extends AuthUser {
-  userType: 'worker' | 'student' | 'employer';
-  language: 'ko' | 'vi' | 'km' | 'ne' | 'id' | 'zh' | 'th';
+  userType: UserType;
+  language: Language;
   phoneNumber?: string;
   nationality?: string;
   avatarUrl?: string;

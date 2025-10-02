@@ -1,36 +1,28 @@
+import { FileData as CommonFileData, UploadProgress as CommonUploadProgress, SubmissionStatus } from './common';
+
 export interface ResumeFormData {
   name: string;
   email: string;
   phone: string;
   nationality: string;
   visaType: string;
-  address: string; // 주소 필드 추가
-  addressDetail?: string; // 주소 상세 정보 추가
+  address: string;
+  addressDetail?: string;
   education: string;
   experience: string;
   skills: string;
-  certifications: string; // 자격증 필드 추가
+  certifications: string;
   languages: string;
   introduction: string;
 }
 
 export interface ResumeData extends ResumeFormData {
   id: string;
-  status?: 'draft' | 'submitted';
+  status?: SubmissionStatus;
   createdAt?: string;
   updatedAt?: string;
 }
 
-export interface FileData {
-  id: string;
-  name: string;
-  size: number;
-  url: string;
-  type: string;
-}
-
-export interface UploadProgress {
-  fileId: string;
-  progress: number;
-  status: 'uploading' | 'completed' | 'error';
-}
+// common.ts의 타입 재사용
+export type FileData = CommonFileData;
+export type UploadProgress = CommonUploadProgress;

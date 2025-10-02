@@ -2,17 +2,7 @@ import { API_ENDPOINTS } from '../constants';
 import { UserData, JobData, CompanyData, VisaApplicationData, ResumeData, BackendJobResponse, BackendCompanyResponse } from '../types/api';
 import { transformBackendJobToFrontend, transformBackendCompanyToFrontend } from '../utils/dataTransform';
 import { Job } from '../types/job';
-
-// API 응답 타입 정의
-export interface ApiResponse<T = any> {
-  success: boolean;
-  data?: T;
-  message?: string;
-  error?: string;
-}
-
-// HTTP 메서드 타입
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+import { ApiResponse, HttpMethod } from '../types/common';
 
 // API 클라이언트 클래스
 class ApiClient {

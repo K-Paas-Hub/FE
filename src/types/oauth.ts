@@ -1,11 +1,13 @@
-interface GoogleOAuthUser {
+import { UserType, Language } from './common';
+
+export interface GoogleOAuthUser {
   id: string;
   email: string;
   name: string;
   picture?: string;
 }
 
-interface OAuthAdditionalInfo {
+export interface OAuthAdditionalInfo {
   phone: string;
   address: string;
   nationality: string;
@@ -13,12 +15,10 @@ interface OAuthAdditionalInfo {
   hasVisa: boolean;
   visaIssueDate?: string;
   visaExpiryDate?: string;
-  userType: 'worker' | 'student' | 'employer';
-  language: 'ko' | 'vi' | 'km' | 'ne' | 'id' | 'zh' | 'th';
+  userType: UserType;
+  language: Language;
 }
 
-interface OAuthFormData extends OAuthAdditionalInfo {
+export interface OAuthFormData extends OAuthAdditionalInfo {
   googleUser: GoogleOAuthUser;
 }
-
-export type { GoogleOAuthUser, OAuthAdditionalInfo, OAuthFormData };

@@ -1,4 +1,4 @@
-import { ApiResponse } from './api';
+import { ApiResponse, ContractType, WorkType, SalaryType } from './common';
 
 // 기존 Job 인터페이스 확장
 export interface Job {
@@ -34,11 +34,11 @@ export interface Job {
   };
   
   // 새로운 2컬럼 레이아웃용 필드들
-  contractType?: '정규직' | '계약직' | '인턴';
-  workType?: '전사근무' | '재택근무' | '혼합근무';
-  workDays?: string[]; // ['월', '화', '수', '목', '금']
-  workHours?: string; // '09:00 ~ 18:00'
-  salaryType?: '면접 후 결정' | '연봉' | '시급';
+  contractType?: ContractType;
+  workType?: WorkType;
+  workDays?: string[];
+  workHours?: string;
+  salaryType?: SalaryType;
   address?: string;
   isScrapped?: boolean;
 }

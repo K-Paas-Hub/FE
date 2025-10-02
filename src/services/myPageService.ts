@@ -1,4 +1,5 @@
-import { apiClient, ApiResponse } from './api';
+import { apiClient } from './api';
+import { ApiResponse } from '../types/common';
 import { 
   UserSettings, 
   ProfileResponse, 
