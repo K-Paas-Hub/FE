@@ -11,15 +11,14 @@ describe('useAutoSave', () => {
     email: 'test@example.com',
     phone: '010-1234-5678',
     address: '서울시',
-    birthDate: '1990-01-01',
-    gender: 'male',
     nationality: '한국',
-    education: [],
-    experience: [],
-    licenses: [],
-    languages: [],
-    skills: [],
-    activities: [],
+    visaType: 'E-9',
+    education: '대학교 졸업',
+    experience: '3년 경력',
+    skills: 'JavaScript, React',
+    certifications: '자격증 없음',
+    languages: '한국어, 영어',
+    introduction: '열정적인 개발자입니다.',
   };
 
   beforeEach(() => {

@@ -17,6 +17,7 @@ describe('dataTransform', () => {
       jobDeadline: '2025-12-31',
       jobUploadDate: '2025-01-01',
       jobEducation: '대졸 이상',
+      jobStatus: 'active',
       employmentTypes: ['정규직'],
       companyWebsite: 'https://test-company.com',
     };
@@ -152,7 +153,7 @@ describe('dataTransform', () => {
       ];
 
       testCases.forEach(({ employmentTypes, expected }) => {
-        const job = { ...mockBackendJob, employmentTypes };
+        const job = { ...mockBackendJob, employmentTypes: employmentTypes || [] };
         const result = transformBackendJobToFrontend(job);
         expect(result.contractType).toBe(expected);
       });
@@ -161,8 +162,18 @@ describe('dataTransform', () => {
     test('필수 필드가 없을 때 기본값 사용', () => {
       const minimalJob: BackendJobResponse = {
         postLink: 'https://example.com/job/1',
+        jobTitle: '제목 없음',
+        companyName: '회사명 없음',
+        jobRegion: '지역 미정',
+        jobExperience: '경력 무관',
+        jobEducation: '학력 무관',
+        salary: '0',
+        jobUploadDate: '2025-01-01',
+        jobDeadline: null,
+        jobStatus: 'active',
         categories: [], // categories는 빈 배열로 설정
-      } as any;
+        employmentTypes: [],
+      };
 
       const result = transformBackendJobToFrontend(minimalJob);
 

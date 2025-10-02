@@ -1,15 +1,16 @@
 import { formatRecommendedTime, getLocaleTimeString } from './timeUtils';
+import { TFunction } from 'i18next';
 
 describe('timeUtils', () => {
   describe('formatRecommendedTime', () => {
-    // Mock 번역 함수
-    const mockT = (key: string) => {
+    // Mock 번역 함수 - TFunction 타입에 맞게 수정
+    const mockT: TFunction = ((key: string) => {
       const translations: Record<string, string> = {
         'common.minutes': '분',
         'common.seconds': '초',
       };
       return translations[key] || key;
-    };
+    }) as TFunction;
 
     test('초가 0일 때 분만 표시', () => {
       expect(formatRecommendedTime(5, 0, mockT)).toBe('5분');
